@@ -63,7 +63,9 @@ const PrExport: React.FC = () => {
           src="legacy/premierepro/export_interface.png"
           type="image"
         />
-        <Divider>Экспортируем через встроенный H.264</Divider>
+        <Divider>
+          Экспортируем через встроенный <mark className="video">H.264</mark>
+        </Divider>
         <p>
           По умолчанию при открытии вкладки экспорта,{" "}
           <mark className="app">Adobe Premiere</mark> сам установит пресет для вывода в{" "}
@@ -87,7 +89,9 @@ const PrExport: React.FC = () => {
           Затем просто нажмите на кнопку <mark className="select">«Export»</mark> в правом
           нижнем углу и дождитесь окончания кодирования вашей секвенции.
         </p>
-        <Divider>Экспортируем через Voukoder</Divider>
+        <Divider>
+          Экспортируем через <mark className="plugin">Voukoder</mark>
+        </Divider>
         <p>
           Если же вас результат рендера от стандартного H.264 не устраивает, можно
           воспользоваться плагином <mark className="plugin">Voukoder</mark>. В этом
@@ -228,7 +232,9 @@ const PrExport: React.FC = () => {
           экспорта и начать экспорт с помощью кнопки{" "}
           <mark className="select">«Export»</mark>.
         </p>
-        <Divider>Экспортируем через AfterCodecs</Divider>
+        <Divider>
+          Экспортируем через <mark className="plugin">AfterCodecs</mark>
+        </Divider>
         <p>
           Теперь поговорим и про <mark className="plugin">AfterCodecs</mark>. Для начала
           экспорта через <mark className="plugin">AfterCodecs</mark> нам нужно снова
@@ -354,7 +360,10 @@ const PrExport: React.FC = () => {
           сможете воспользоваться этим видео в последующем монтаже видео или где-нибудь
           ещё.
         </p>
-        <Divider>Конвертируем в WEBM с помощью Shutter Encoder</Divider>
+        <Divider>
+          Конвертируем в <mark className="video">WEBM</mark> с помощью{" "}
+          <mark className="app">Shutter Encoder</mark>
+        </Divider>
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
           и вставляем в него выведенное видео из{" "}
@@ -453,7 +462,9 @@ const PrExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем из Premiere</Divider>
+        <Divider>
+          Экспортируем из <mark className="app">Adobe Premiere</mark>
+        </Divider>
         <p>
           Для начала экспорта <mark className="image">GIF</mark> напрямую из{" "}
           <mark className="app">Adobe Premiere</mark> вам нужно перейти во вкладку{" "}
@@ -479,7 +490,9 @@ const PrExport: React.FC = () => {
           <mark className="select">«Export»</mark> в правом нижнем углу экрана, и вы
           получите в нужном месте нужный файл.
         </p>
-        <Divider>Экспортируем из Media Encoder</Divider>
+        <Divider>
+          Экспортируем из <mark className="app">Adobe Media Encoder</mark>
+        </Divider>
         <p>
           <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
           <mark className="app">Adobe Media Encoder</mark>. Хоть мы и отговариваем от его
@@ -525,7 +538,9 @@ const PrExport: React.FC = () => {
           нажмите на зелёную иконку для начала экспорта. После этого в месте, куда вы
           указали путь, появится файл формата <mark className="image">GIF</mark>.
         </p>
-        <Divider>Конвертируем через Ezgif</Divider>
+        <Divider>
+          Конвертируем через <mark className="app">Ezgif</mark>
+        </Divider>
         <p>
           Если вы не хотите возиться с экспортом или у вас уже есть готовое видео, которое
           надо лишь перегнать в формат <mark className="image">GIF</mark>, то советую

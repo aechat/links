@@ -305,7 +305,10 @@ const AeErrors: React.FC = () => {
                   <mark className="select">«Правил для исходящего подключения»</mark>.
                 </li>
               </ul>
-              <Divider>Используем OneClickFirewall для быстрой блокировки</Divider>
+              <Divider>
+                Используем <mark className="app">OneClickFirewall</mark> для быстрой
+                блокировки
+              </Divider>
               <p>
                 Если вы не хотите возиться с созданием правил вручную, воспользуйтесь
                 утилитой <mark className="app">OneClickFirewall</mark>. Она добавляет в
@@ -1082,7 +1085,8 @@ const AeErrors: React.FC = () => {
           </ul>
         </Addition>
         <Divider>
-          Список совместимости версий Maxon Cinema 4D и Adobe After Effects
+          Список совместимости версий <mark className="app">Maxon Cinema 4D</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark>
         </Divider>
         <Addition type="info">
           Чтобы посмотреть текущую версию <mark className="app">Adobe After Effects</mark>

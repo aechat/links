@@ -1397,9 +1397,7 @@ const AeImport: React.FC = () => {
           наложения можно выставить вручную уже в самом{" "}
           <mark className="app">Adobe After Effects</mark>.
         </Addition>
-        <Divider>
-          А как на старых версиях программы создавать фигуры с градиентами?
-        </Divider>
+        <Divider>Создаём фигуры с градиентами на предыдущих версиях программы</Divider>
         <Addition type="tldr">
           Обновите <mark className="app">Adobe After Effects</mark> до версии{" "}
           <mark>26.0</mark> или пользуйтесь сторонними расширениями, например{" "}
@@ -1435,7 +1433,9 @@ const AeImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> будет использоваться расширение{" "}
           <mark className="plugin">AEUX</mark>.
         </p>
-        <Divider>Готовимся к импорту из Figma</Divider>
+        <Divider>
+          Готовимся к импорту из <mark className="app">Figma</mark>
+        </Divider>
         <p>
           Прежде чем начать импорт макета, вам нужно установить десктопную версию{" "}
           <mark className="app">Figma</mark>, так как поддержка сторонних расширений в
@@ -1483,7 +1483,9 @@ const AeImport: React.FC = () => {
           <a href="https://updates.aescripts.com/zxp-installer/">ZXP Installer</a> или
           вручную. <a href="#how-to-install">Подробнее...</a>
         </p>
-        <Divider>Отправляем макет в Adobe After Effects</Divider>
+        <Divider>
+          Отправляем макет в <mark className="app">Adobe After Effects</mark>
+        </Divider>
         <p>
           После успешной установки <mark className="plugin">AEUX</mark> в{" "}
           <mark className="app">Figma</mark> и{" "}
@@ -1558,7 +1560,10 @@ const AeImport: React.FC = () => {
           анимацией возможен только при работе с{" "}
           <mark className="plugin">Advanced 3D</mark>.
         </Addition>
-        <Divider>Импортируем популярные форматы с помощью Advanced 3D</Divider>
+        <Divider>
+          Импортируем популярные форматы с помощью{" "}
+          <mark className="plugin">Advanced 3D</mark>
+        </Divider>
         <p>
           В <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
           новее появился новый движок рендеринга{" "}
@@ -1601,7 +1606,9 @@ const AeImport: React.FC = () => {
           прочесть в{" "}
           <mark className="select">«Composition Settings» → «3D Renderer»</mark>.
         </p>
-        <Divider>Импортируем OBJ, E3D и C4D с помощью Element 3D</Divider>
+        <Divider>
+          Импортируем OBJ, E3D и C4D с помощью <mark className="plugin">Element 3D</mark>
+        </Divider>
         <p>
           Если вы работаете в старой версии{" "}
           <mark className="app">Adobe After Effects</mark> или хотите импортировать модель
@@ -1637,7 +1644,9 @@ const AeImport: React.FC = () => {
           src="Qu9eCU9Ge54"
           type="youtube"
         />
-        <Divider>Импортируем C4D с помощью Cineware</Divider>
+        <Divider>
+          Импортируем C4D с помощью <mark className="plugin">Cineware</mark>
+        </Divider>
         <p>
           Прежде чем импортировать проект формата <mark className="file">C4D</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, на устройстве должна быть
@@ -1739,7 +1748,9 @@ const AeImport: React.FC = () => {
           конвертацию и создаст новую композицию с вашей анимацией, которую затем можно
           использовать в проектах.
         </p>
-        <Divider>Импортируем стикеры из Telegram</Divider>
+        <Divider>
+          Импортируем стикеры из <mark className="app">Telegram</mark>
+        </Divider>
         <p>
           Прежде чем импортировать анимированный стикер формата{" "}
           <mark className="file">TGS</mark>, его нужно скачать. Для этого откройте
@@ -1764,7 +1775,7 @@ const AeImport: React.FC = () => {
           переконвертировать в <mark className="file">JSON</mark>. Сделать это можно с
           помощью конвертера ниже, загрузив в него файл.
         </p>
-        <Divider>Конвертер TGS в JSON</Divider>
+        <Divider>Конвертируем TGS в JSON</Divider>
         <TgsToJsonConverter />
         <Addition type="info">
           Если вы не хотите разбираться с скачиванием или конвертацией стикера — вы можете
@@ -2004,7 +2015,10 @@ const AeImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> на <mark>Windows</mark>, без
           проблем откроются в версии для <mark>macOS</mark> и наоборот.
         </Addition>
-        <Divider>Конвертируем проект для старой версии Adobe After Effects</Divider>
+        <Divider>
+          Конвертируем проект для старой версии{" "}
+          <mark className="app">Adobe After Effects</mark>
+        </Divider>
         <p>
           Если у вас установлено две версии{" "}
           <mark className="app">Adobe After Effects</mark> и вы по какой-то причине не

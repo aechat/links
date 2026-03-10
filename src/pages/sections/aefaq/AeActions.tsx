@@ -160,7 +160,9 @@ const AeActions: React.FC = () => {
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
           версии программы или плагина.
         </Addition>
-        <Divider>Плавно замедляем видео в Adobe After Effects</Divider>
+        <Divider>
+          Плавно замедляем видео в <mark className="app">Adobe After Effects</mark>
+        </Divider>
         <p>
           Замедлить видео можно стандартными средствами{" "}
           <mark className="app">Adobe After Effects</mark>. Для этого включите{" "}
@@ -200,7 +202,9 @@ const AeActions: React.FC = () => {
           src="YraSxOpy1Qg"
           type="youtube"
         />
-        <Divider>«Уплавняем» видео вне Adobe After Effects</Divider>
+        <Divider>
+          «Уплавняем» видео вне <mark className="app">Adobe After Effects</mark>
+        </Divider>
         <p>
           Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
           <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
@@ -251,7 +255,9 @@ const AeActions: React.FC = () => {
           плавности движения. Чтобы это исправить, повторяющиеся кадры нужно удалить. Это
           можно сделать несколькими способами.
         </p>
-        <Divider>Удаляем с помощью Duplicate Frame Remover</Divider>
+        <Divider>
+          Удаляем с помощью <mark className="plugin">Duplicate Frame Remover</mark>
+        </Divider>
         <p>
           В <mark className="app">Adobe After Effects</mark> дублирующиеся кадры можно
           удалить с помощью скрипта{" "}
@@ -287,7 +293,9 @@ const AeActions: React.FC = () => {
           заменить им исходник в проекте. Так вы избавитесь от необходимости повторно
           обрабатывать этот слой при каждом финальном рендеринге.
         </p>
-        <Divider>Удаляем дубликаты через Shutter Encoder</Divider>
+        <Divider>
+          Удаляем дубликаты через <mark className="app">Shutter Encoder</mark>
+        </Divider>
         <p>
           В <mark className="app">Shutter Encoder</mark> есть опция, которая позволяет
           конвертеру анализировать и удалять повторяющиеся кадры из видео. После импорта
@@ -301,7 +309,9 @@ const AeActions: React.FC = () => {
           src="legacy/shutter_encoder_remove_duplicate_frames.png"
           type="image"
         />
-        <Divider>Удаление дубликатов через FFmpeg</Divider>
+        <Divider>
+          Удаляем дубликаты через <mark className="app">FFmpeg</mark>
+        </Divider>
         <p>
           Если вы не боитесь командной строки и готовы ей воспользоваться, можно исправить
           исходник с помощью <mark className="app">FFmpeg</mark> — мощной утилиты для
@@ -493,7 +503,10 @@ const AeActions: React.FC = () => {
           }
           windowsContent={
             <>
-              <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
+              <Divider>
+                Генерируем речь в текст с помощью{" "}
+                <mark className="app">Subtitle Edit</mark>
+              </Divider>
               <p>
                 Для преобразования речи в текст можно воспользоваться утилитой{" "}
                 <mark className="app">Subtitle Edit</mark>, которая поддерживает генерацию
@@ -773,7 +786,9 @@ const AeActions: React.FC = () => {
           видеокарты от <mark className="company">NVIDIA</mark>, так как все эти
           инструменты используют ядра <mark>CUDA</mark>.
         </Addition>
-        <Divider>Генерация карты глубины в Adobe After Effects</Divider>
+        <Divider>
+          Генерируем карту глубины в <mark className="app">Adobe After Effects</mark>
+        </Divider>
         <p>
           В <mark className="app">Adobe After Effects</mark> это можно сделать с помощью
           стороннего плагина <mark className="plugin">Depth Scanner</mark>. На выбор есть
@@ -802,7 +817,9 @@ const AeActions: React.FC = () => {
           src="OVLxRFsnqM8"
           type="youtube"
         />
-        <Divider>Генерация карты глубины через Depth Anything V2</Divider>
+        <Divider>
+          Генерируем карту глубины через <mark className="plugin">Depth Anything V2</mark>
+        </Divider>
         <p>
           Если вам неудобно работать с плагинами, попробуйте{" "}
           <mark className="app">Depth Anything V2</mark> — отдельное приложение, которое
@@ -1119,7 +1136,9 @@ const AeActions: React.FC = () => {
             />
           </li>
         </ul>
-        <Divider>Выполняем трекинг с помощью Mocha</Divider>
+        <Divider>
+          Выполняем трекинг с помощью <mark className="plugin">Mocha</mark>
+        </Divider>
         <p>
           Если результаты стандартных инструментов вас не устроили, вы можете
           воспользоваться <mark className="plugin">Mocha</mark> для планарного трекинга. В
@@ -1262,7 +1281,7 @@ const AeActions: React.FC = () => {
           src="wshxc13_s1w"
           type="youtube"
         />
-        <Divider>А как на старых версиях программы анимировать?</Divider>
+        <Divider>Анимируем на предыдущих версиях программы</Divider>
         <p>
           В таком случае для анимации перехода от тонкого начертания шрифта к жирному
           придётся использовать технику морфинга фигур. В видео ниже показано, как создать

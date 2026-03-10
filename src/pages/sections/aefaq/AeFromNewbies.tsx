@@ -404,7 +404,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Pre-compose»</mark>, чтобы «запечь» результат, прежде
           чем редактировать его дальше.
         </Addition>
-        <Divider>Какие виды слоёв существуют?</Divider>
+        <Divider>Разбираем виды слоёв</Divider>
         <p>
           Слои в <mark className="app">Adobe After Effects</mark> делятся на несколько
           типов, каждый со своими уникальными свойствами. Почти к любому параметру можно
@@ -1763,7 +1763,7 @@ const AeFromNewbies: React.FC = () => {
             </NestedDetailsSummary>
           </li>
         </ul>
-        <Divider>Какие бывают атрибуты у слоя?</Divider>
+        <Divider>Разбираем атрибуты слоя</Divider>
         <ul>
           <li>
             <p>
@@ -1970,7 +1970,9 @@ const AeFromNewbies: React.FC = () => {
             </NestedDetailsSummary>
           </li>
         </ul>
-        <Divider>Статьи о слоях от Adobe</Divider>
+        <Divider>
+          Статьи о слоях от <mark className="company">Adobe</mark>
+        </Divider>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/after-effects/using/creating-layers.html">
             Создание слоев
@@ -4470,7 +4472,7 @@ const AeFromNewbies: React.FC = () => {
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
           <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
         </Addition>
-        <Divider>Для совместимости с чужими проектами</Divider>
+        <Divider>Подборка для совместимости с чужими проектами</Divider>
         <ul>
           <li>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
@@ -4589,7 +4591,7 @@ const AeFromNewbies: React.FC = () => {
             фрактальных волн, искажений и работы с 360-градусным видео.
           </li>
         </ul>
-        <Divider>Полезные инструменты</Divider>
+        <Divider>Подборка полезных инструментов для работы с композициями</Divider>
         <ul>
           <li>
             <mark className="plugin">Auto Crop 3</mark> — плагин для кадрирования
@@ -4650,7 +4652,7 @@ const AeFromNewbies: React.FC = () => {
             независимых дубликатов композиций.
           </li>
         </ul>
-        <Divider>Технические плагины</Divider>
+        <Divider>Подборка технических инструментов</Divider>
         <ul>
           <li>
             <mark className="plugin">Autokroma Influx</mark> — плагин для импорта
@@ -5209,7 +5211,9 @@ const AeFromNewbies: React.FC = () => {
           например, версией, перекодированной в монтажный кодек, или просто другим видео.
           Это можно сделать несколькими способами.
         </p>
-        <Divider>Замена через Replace Footage</Divider>
+        <Divider>
+          Заменяем через <mark className="select">Replace Footage</mark>
+        </Divider>
         <p>
           Найдите в окне <mark className="select">«Project»</mark> исходник, который нужно
           заменить. Нажмите на него <mark className="key">ПКМ</mark> и выберите{" "}
@@ -5222,7 +5226,9 @@ const AeFromNewbies: React.FC = () => {
           src="legacy/aftereffects/replace_footage.png"
           type="image"
         />
-        <Divider>Замена с зажатым Alt</Divider>
+        <Divider>
+          Заменяем с зажатой клавишей <mark className="key">Alt</mark>
+        </Divider>
         <p>
           Чтобы заменить исходник с помощью <mark className="key">Alt</mark>, сначала
           импортируйте футаж, которым планируете выполнить замену. Затем выделите нужный
@@ -5484,7 +5490,9 @@ const AeFromNewbies: React.FC = () => {
           сравнения текущего графика с альтернативным типом и выводит второй тип графика
           на задний план для наглядности.
         </p>
-        <Divider>Интерактивная демонстрация «Graph Editor»</Divider>
+        <Divider>
+          Интерактивная демонстрация <mark className="select">«Graph Editor»</mark>
+        </Divider>
         <p>
           Ниже представлен интерактивный пример, который имитирует работу{" "}
           <mark className="select">«Value Graph»</mark> и{" "}
@@ -6030,7 +6038,7 @@ const AeFromNewbies: React.FC = () => {
           <mark>100%</mark> вы всегда будете видеть пиксели, потому что увеличиваете уже
           отрендеренное растровое изображение, даже если в проекте есть векторные слои.
         </p>
-        <Divider>А как же тогда работают «векторные» слои?</Divider>
+        <Divider>Разбираемся, как работают «векторные» слои</Divider>
         <p>
           «Векторность» проявляется не при увеличении предпросмотра, а при трансформации
           самого слоя. Например, при изменении свойства{" "}
@@ -6268,7 +6276,9 @@ const AeFromNewbies: React.FC = () => {
           src="legacy/aftereffects/unprecompose_demonstration.mp4"
           type="video"
         />
-        <Divider>Используем AEUX</Divider>
+        <Divider>
+          Используем <mark className="plugin">AEUX</mark>
+        </Divider>
         <p>
           С помощью расширения <mark className="plugin">AEUX</mark>, который был создан
           для переноса макетов из <mark className="app">Figma</mark>, тоже можно
@@ -6329,7 +6339,9 @@ const AeFromNewbies: React.FC = () => {
           Кадрировать композицию в <mark className="app">Adobe After Effects</mark> можно
           разными способами — вручную или автоматически по краям находящихся в ней слоёв.
         </p>
-        <Divider>Используем Auto Crop 3</Divider>
+        <Divider>
+          Используем <mark className="plugin">Auto Crop 3</mark>
+        </Divider>
         <p>
           Для автоматического кадрирования композиции по границам её содержимого можно
           воспользоваться сторонним плагином <mark className="plugin">Auto Crop 3</mark>.
@@ -6364,7 +6376,9 @@ const AeFromNewbies: React.FC = () => {
             область кадрирования.
           </li>
         </ul>
-        <Divider>Используем «Region of Interest»</Divider>
+        <Divider>
+          Используем <mark className="select">«Region of Interest»</mark>
+        </Divider>
         <p>
           Если точность до пикселя не важна, композицию можно быстро обрезать с помощью{" "}
           <mark className="select">«Region of Interest»</mark>. Для этого нажмите на

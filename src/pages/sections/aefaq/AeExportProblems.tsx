@@ -96,7 +96,9 @@ const AeExportProblems: React.FC = () => {
           чётные значения для ширины и высоты. После этого экспорт должен пройти без
           ошибок.
         </p>
-        <Divider>А что, если нужно экспортировать H.264 с нечётным разрешением?</Divider>
+        <Divider>
+          Экспортируем <mark className="video">H.264</mark> с нечётным разрешением
+        </Divider>
         <p>
           Если вам всё же необходимо получить видео с нечётным разрешением, воспользуйтесь
           плагином <mark className="plugin">Voukoder</mark> для экспорта композиции. Он
@@ -145,7 +147,9 @@ const AeExportProblems: React.FC = () => {
           <mark className="app">HandBrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
-        <Divider>Сжимаем видео с помощью Shutter Encoder</Divider>
+        <Divider>
+          Сжимаем видео с помощью <mark className="app">Shutter Encoder</mark>
+        </Divider>
         <p>
           Для быстрой конвертации видео можно воспользоваться{" "}
           <mark className="app">Shutter Encoder</mark> — это бесплатный графический
@@ -349,7 +353,9 @@ const AeExportProblems: React.FC = () => {
             </Addition>
           </li>
         </ul>
-        <Divider>Сжимаем с помощью Adobe Media Encoder</Divider>
+        <Divider>
+          Сжимаем с помощью <mark className="app">Adobe Media Encoder</mark>
+        </Divider>
         <p>
           Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
           конвертер и раньше не имел прямого экспорта из{" "}

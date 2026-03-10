@@ -147,7 +147,9 @@ const PrActions: React.FC = () => {
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
           версии программы или плагина.
         </Addition>
-        <Divider>Плавно замедляем видео в Adobe Premiere</Divider>
+        <Divider>
+          Плавно замедляем видео в <mark className="app">Adobe Premiere</mark>
+        </Divider>
         <p>
           Замедлить видео можно стандартными средствами{" "}
           <mark className="app">Adobe Premiere</mark>. Для этого выделите нужный клип,
@@ -184,7 +186,9 @@ const PrActions: React.FC = () => {
           src="YraSxOpy1Qg"
           type="youtube"
         />
-        <Divider>«Уплавняем» видео вне Adobe Premiere</Divider>
+        <Divider>
+          «Уплавняем» видео вне <mark className="app">Adobe Premiere</mark>
+        </Divider>
         <p>
           Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
           <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
@@ -235,7 +239,9 @@ const PrActions: React.FC = () => {
           плавности движения. Чтобы это исправить, повторяющиеся кадры нужно удалить. Это
           можно сделать несколькими способами.
         </p>
-        <Divider>Удаляем дубликаты через Shutter Encoder</Divider>
+        <Divider>
+          Удаляем дубликаты через <mark className="app">Shutter Encoder</mark>
+        </Divider>
         <p>
           В <mark className="app">Shutter Encoder</mark> есть опция, которая позволяет
           конвертеру анализировать и удалять повторяющиеся кадры из видео. После импорта
@@ -249,7 +255,9 @@ const PrActions: React.FC = () => {
           src="legacy/shutter_encoder_remove_duplicate_frames.png"
           type="image"
         />
-        <Divider>Удаление дубликатов через FFmpeg</Divider>
+        <Divider>
+          Удаляем дубликаты через <mark className="app">FFmpeg</mark>
+        </Divider>
         <p>
           Если вы не боитесь командной строки и готовы ей воспользоваться, можно исправить
           исходник с помощью <mark className="app">FFmpeg</mark> — мощной утилиты для
@@ -547,7 +555,9 @@ const PrActions: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Генерируем субтитры из речи в Premiere</Divider>
+        <Divider>
+          Генерируем субтитры из речи в <mark className="app">Adobe Premiere</mark>
+        </Divider>
         <p>
           Предположим, вы установили языковые пакеты для вашей версии{" "}
           <mark className="app">Adobe Premiere</mark> и хотите начать транскрибацию. Для
@@ -583,7 +593,9 @@ const PrActions: React.FC = () => {
           src="legacy/premierepro/create_captions_from_transcribe.png"
           type="image"
         />
-        <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
+        <Divider>
+          Генерируем речь в текст с помощью <mark className="app">Subtitle Edit</mark>
+        </Divider>
         <Addition type="warning">
           Демонстрируемая программа <mark className="app">Subtitle Edit</mark> для
           редактирования и генерации субтитров доступна только для устройств на{" "}

@@ -1675,7 +1675,7 @@ const PrInstallProblems: React.FC = () => {
                 <mark className="app">Adobe Media Encoder</mark>, сообщив, что программа
                 не установлена.
               </p>
-              <Divider>Как устранить эту проблему в будущем?</Divider>
+              <Divider>Предотвращаем проблему в будущем</Divider>
               <p>
                 Чтобы избавиться от подобных проблем, нужно переустановить{" "}
                 <mark className="app">Adobe Premiere</mark> «по-человечески» — то есть не
@@ -1933,8 +1933,11 @@ const PrInstallProblems: React.FC = () => {
           }
         />
         <Divider>
-          Исправляем ошибку 195 — «Требуется процессор, поддерживающий инструкции Advanced
-          Vector Extensions 2 (AVX2)»
+          Исправляем ошибку 195 —{" "}
+          <mark className="warning">
+            «Требуется процессор, поддерживающий инструкции Advanced Vector Extensions 2
+            (AVX2)»
+          </mark>
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке программы — это означает, что
@@ -1945,8 +1948,11 @@ const PrInstallProblems: React.FC = () => {
           <mark>23.6</mark> (2023) или <mark>24.0</mark> (2024).
         </p>
         <Divider>
-          Исправляем ошибку 21 — «Операционная система не соответствует минимальным
-          требованиям для этой программы установки»
+          Исправляем ошибку 21 —{" "}
+          <mark className="warning">
+            «Операционная система не соответствует минимальным требованиям для этой
+            программы установки»
+          </mark>
         </Divider>
         <ContentFilter
           windowsContent={
@@ -2047,7 +2053,7 @@ const PrInstallProblems: React.FC = () => {
           пользователя или срабатывания антивирусной программы на вашем устройстве с{" "}
           <mark>Windows</mark>.
         </p>
-        <Divider>Как избавиться от этой ошибки?</Divider>
+        <Divider>Устраняем эту ошибку</Divider>
         <ul>
           <li>
             <p>
@@ -2237,7 +2243,10 @@ const PrInstallProblems: React.FC = () => {
                 от версии <mark className="app">Adobe Creative Cloud</mark> и{" "}
                 <mark className="app">GenP</mark>.
               </Addition>
-              <Divider>Устанавливаем и разбираемся с Adobe Creative Cloud</Divider>
+              <Divider>
+                Устанавливаем и разбираемся с{" "}
+                <mark className="app">Adobe Creative Cloud</mark>
+              </Divider>
               <ul>
                 <li>
                   <p>
@@ -2309,7 +2318,9 @@ const PrInstallProblems: React.FC = () => {
                   <mark className="app">GenP</mark>.
                 </li>
               </ul>
-              <Divider>Разбираемся с GenP</Divider>
+              <Divider>
+                Разбираемся с <mark className="app">GenP</mark>
+              </Divider>
               <ul>
                 <li>
                   <p>
@@ -2509,7 +2520,7 @@ const PrInstallProblems: React.FC = () => {
           совместимости в таком случае нет, и <mark className="plugin">Dynamic Link</mark>{" "}
           просто не будет работать с ними.
         </p>
-        <Divider>А что делать со сторонними плагинами?</Divider>
+        <Divider>Проверяем совместимость сторонних плагинов</Divider>
         <p>
           Что касается сторонних плагинов с «версией-годом» в названии, то они не всегда
           должны строго соответствовать версии <mark className="app">Adobe Premiere</mark>
@@ -2876,7 +2887,7 @@ const PrInstallProblems: React.FC = () => {
           Например, проект из <mark>25.4</mark> откроется в <mark>25.1</mark>, а в{" "}
           <mark>24.6</mark> — нет.
         </Addition>
-        <Divider>Переход между версиями «одного года»</Divider>
+        <Divider>Обновляемся между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
           пределах «одного года», например с <mark>24.0</mark> на <mark>24.6</mark>,
@@ -2885,7 +2896,7 @@ const PrInstallProblems: React.FC = () => {
           рабочие пространства, пресеты и прочие пользовательские настройки будут
           автоматически перенесены в новую версию.
         </p>
-        <Divider>Обновление с «одного года» на другой</Divider>
+        <Divider>Обновляемся с «одного года» на другой</Divider>
         <ContentFilter
           windowsContent={
             <>

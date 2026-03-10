@@ -250,7 +250,9 @@ const PrExportProblems: React.FC = () => {
           подойти для загрузки видео на нужный сервис или просто занимать кучу места на
           диске. В таких случаях без сжатия и конвертации видео не обойтись.
         </p>
-        <Divider>Конвертируем через Shutter Encoder</Divider>
+        <Divider>
+          Конвертируем через <mark className="app">Shutter Encoder</mark>
+        </Divider>
         <p>
           Для быстрой конвертации видео нам понадобится{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатный и популярный
@@ -352,7 +354,9 @@ const PrExportProblems: React.FC = () => {
           процедуры вы получите новый файл в той папке, в которой вы указали сохранение
           видео.
         </p>
-        <Divider>Сжимаем через Adobe Media Encoder</Divider>
+        <Divider>
+          Сжимаем через <mark className="app">Adobe Media Encoder</mark>
+        </Divider>
         <p>
           Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
           конвертер, и в нём ещё не было возможности экспорта секвенций из{" "}

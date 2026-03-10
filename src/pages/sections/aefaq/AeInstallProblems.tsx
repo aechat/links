@@ -1482,7 +1482,7 @@ const AeInstallProblems: React.FC = () => {
                 композицию на рендер в <mark className="app">Adobe Media Encoder</mark>,
                 сообщив, что программа не установлена.
               </p>
-              <Divider>Как устранить эту проблему в будущем?</Divider>
+              <Divider>Предотвращаем проблему в будущем</Divider>
               <p>
                 Чтобы избавиться от подобных проблем, нужно переустановить{" "}
                 <mark className="app">Adobe After Effects</mark> «по-человечески» — то
@@ -1740,8 +1740,11 @@ const AeInstallProblems: React.FC = () => {
           }
         />
         <Divider>
-          Исправляем ошибку 195 — «Требуется процессор, поддерживающий инструкции Advanced
-          Vector Extensions 2 (AVX2)»
+          Исправляем ошибку 195 —{" "}
+          <mark className="warning">
+            «Требуется процессор, поддерживающий инструкции Advanced Vector Extensions 2
+            (AVX2)»
+          </mark>
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке программы — это означает, что
@@ -1753,8 +1756,11 @@ const AeInstallProblems: React.FC = () => {
           (2024).
         </p>
         <Divider>
-          Исправляем ошибку 21 — «Операционная система не соответствует минимальным
-          требованиям для этой программы установки»
+          Исправляем ошибку 21 —{" "}
+          <mark className="warning">
+            «Операционная система не соответствует минимальным требованиям для этой
+            программы установки»
+          </mark>
         </Divider>
         <ContentFilter
           windowsContent={
@@ -1843,7 +1849,9 @@ const AeInstallProblems: React.FC = () => {
             </>
           }
         />
-        <Divider>Исправляем ошибку «Недопустимый путь установки»</Divider>
+        <Divider>
+          Исправляем ошибку <mark className="warning">«Недопустимый путь установки»</mark>
+        </Divider>
         <p>
           В старых репаках от <mark className="user">KpoJluK</mark> версий{" "}
           <mark>CC 2017</mark> во время установки программ{" "}
@@ -1877,7 +1885,7 @@ const AeInstallProblems: React.FC = () => {
           пользователя или срабатывания антивирусной программы на вашем устройстве с{" "}
           <mark>Windows</mark>.
         </p>
-        <Divider>Как избавиться от этой ошибки?</Divider>
+        <Divider>Устраняем эту ошибку</Divider>
         <ul>
           <li>
             <p>
@@ -2067,7 +2075,10 @@ const AeInstallProblems: React.FC = () => {
                 от версии <mark className="app">Adobe Creative Cloud</mark> и{" "}
                 <mark className="app">GenP</mark>.
               </Addition>
-              <Divider>Устанавливаем и разбираемся с Adobe Creative Cloud</Divider>
+              <Divider>
+                Устанавливаем и разбираемся с{" "}
+                <mark className="app">Adobe Creative Cloud</mark>
+              </Divider>
               <ul>
                 <li>
                   <p>
@@ -2139,7 +2150,9 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="app">GenP</mark>.
                 </li>
               </ul>
-              <Divider>Разбираемся с GenP</Divider>
+              <Divider>
+                Разбираемся с <mark className="app">GenP</mark>
+              </Divider>
               <ul>
                 <li>
                   <p>
@@ -2271,7 +2284,7 @@ const AeInstallProblems: React.FC = () => {
           совместимости в таком случае нет, и <mark className="plugin">Dynamic Link</mark>{" "}
           просто не будет работать с ними.
         </p>
-        <Divider>А что делать со сторонними плагинами?</Divider>
+        <Divider>Проверяем совместимость сторонних плагинов</Divider>
         <p>
           Что касается сторонних плагинов с «версией-годом» в названии, то они не всегда
           должны строго соответствовать версии{" "}
@@ -2961,7 +2974,7 @@ const AeInstallProblems: React.FC = () => {
           версий программы, используйте <mark className="select">«File» → «Save As»</mark>
           .
         </Addition>
-        <Divider>Обновление между версиями «одного года»</Divider>
+        <Divider>Обновляемся между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
           пределах «одного года», например с <mark>24.0</mark> на <mark>24.6</mark>,
@@ -3002,7 +3015,7 @@ const AeInstallProblems: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Обновление с «одного года» на другой</Divider>
+        <Divider>Обновляемся с «одного года» на другой</Divider>
         <ContentFilter
           windowsContent={
             <>

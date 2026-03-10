@@ -1666,7 +1666,7 @@ const PrFromNewbies: React.FC = () => {
           автоматизировать вашу рутинную работу с кадрами и шотами. Ниже приведу список
           популярных плагинов.
         </p>
-        <Divider>Для совместимости с чужими проектами</Divider>
+        <Divider>Подборка для совместимости с чужими проектами</Divider>
         <ul>
           <li>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
@@ -1697,7 +1697,7 @@ const PrFromNewbies: React.FC = () => {
             - плагины для плавного замедления клипа и добавления размытия в движении.
           </li>
         </ul>
-        <Divider>Полезные инструменты</Divider>
+        <Divider>Подборка полезных инструментов</Divider>
         <li>
           <mark className="plugin">Excalibur</mark> - панель для быстрого применения
           различных переходов, эффектов и выполнения различных действий. Вызывается по
@@ -1725,7 +1725,7 @@ const PrFromNewbies: React.FC = () => {
           <mark className="app">Adobe Premiere</mark> для отображения спектрограммы вашего
           видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только лучше.
         </li>
-        <Divider>Синхронизация дорожек c разных камер</Divider>
+        <Divider>Подборка для синхронизации дорожек c разных камер</Divider>
         <ul>
           <li>
             <p>
@@ -1754,7 +1754,7 @@ const PrFromNewbies: React.FC = () => {
             </Addition>
           </li>
         </ul>
-        <Divider>Создание субтитров</Divider>
+        <Divider>Подборка для создания субтитров</Divider>
         <ul>
           <li>
             <mark className="app">Subtitle Edit</mark> - сторонняя программа для
@@ -1783,7 +1783,7 @@ const PrFromNewbies: React.FC = () => {
             применять на них стили из <mark className="file">MOGRT</mark> файлов.
           </li>
         </ul>
-        <Divider>Обработка звука</Divider>
+        <Divider>Подборка для обработки звука</Divider>
         <Addition type="info">
           <mark className="app">Adobe Premiere</mark> поддерживает любые VST3-плагины,
           поэтому вы можете своими любимыми эффектами для обработки звука, если вы
@@ -1805,14 +1805,14 @@ const PrFromNewbies: React.FC = () => {
             коррекции голоса.
           </li>
         </ul>
-        <Divider>Ретушь</Divider>
+        <Divider>Подборка для ретуши</Divider>
         <ul>
           <li>
             <mark className="plugin">BeautyBox</mark> - плагин для ретуширования и
             сглаживания кожи у человека на видео с сохранением естественного вида.
           </li>
         </ul>
-        <Divider>Цветокоррекция и шумоподавление</Divider>
+        <Divider>Подборка для цветокоррекции и шумоподавления</Divider>
         <ul>
           <li>
             <mark className="plugin">FilmConvert</mark> - плагин для применения различных

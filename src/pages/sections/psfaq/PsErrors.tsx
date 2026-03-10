@@ -256,7 +256,8 @@ const PsErrors: React.FC = () => (
               <mark>правил исходящих подключений</mark> по аналогичной схеме.
             </Addition>
             <Divider>
-              Используем OneClickFirewall для быстрой блокировки интернета программе
+              Используем <mark className="app">OneClickFirewall</mark> для быстрой
+              блокировки интернета программе
             </Divider>
             <p>
               Если вы не хотите возиться с созданием правил вручную, воспользуйтесь
@@ -387,7 +388,7 @@ const PsErrors: React.FC = () => (
           </>
         }
       />
-      <Divider>Что вообще хранится в рабочем диске?</Divider>
+      <Divider>Разбираем содержимое рабочего диска</Divider>
     </DetailsSummary>
     <DetailsSummary
       anchor="firefly-access-error"

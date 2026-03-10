@@ -905,8 +905,11 @@ const PsInstallProblems: React.FC = () => {
           }
         />
         <Divider>
-          Исправляем ошибку 195 - «Требуется процессор, поддерживающий инструкции Advanced
-          Vector Extensions 2 (AVX2)»
+          Исправляем ошибку 195 —{" "}
+          <mark className="warning">
+            «Требуется процессор, поддерживающий инструкции Advanced Vector Extensions 2
+            (AVX2)»
+          </mark>
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
@@ -916,8 +919,11 @@ const PsInstallProblems: React.FC = () => {
           например <mark>23.6</mark> или <mark>24.0</mark>.
         </p>
         <Divider>
-          Исправляем ошибку 21 - «Операционная система не соответствует минимальным
-          требованиям для этой программы установки»
+          Исправляем ошибку 21 —{" "}
+          <mark className="warning">
+            «Операционная система не соответствует минимальным требованиям для этой
+            программы установки»
+          </mark>
         </Divider>
         <p>
           Скорее всего вы пытаетесь установить{" "}
@@ -1012,7 +1018,7 @@ const PsInstallProblems: React.FC = () => {
           генерации изображений и <mark className="word">инпеинта</mark> никто не
           запрещал, поэтому об аналогах мы и поговорим.
         </p>
-        <Divider>Какие у нас есть варианты?</Divider>
+        <Divider>Разбираем доступные варианты</Divider>
         <ul>
           <li>
             Вы можете развернуть локальный <mark className="app">Stable Diffusion</mark> и
@@ -1044,7 +1050,10 @@ const PsInstallProblems: React.FC = () => {
           <mark className="app">Stable Diffusion</mark> и его внедрении в{" "}
           <mark className="app">Adobe Photoshop</mark> через плагин.
         </p>
-        <Divider>Связываем Stable Diffusion с Photoshop</Divider>
+        <Divider>
+          Связываем <mark className="app">Stable Diffusion</mark> с{" "}
+          <mark className="app">Adobe Photoshop</mark>
+        </Divider>
         <Addition type="warning">
           Действия проделываются на устройстве с операционной системой{" "}
           <mark>Windows</mark>. Способ соединения{" "}
@@ -1442,7 +1451,7 @@ const PsInstallProblems: React.FC = () => {
           Часто это происходит из-за некорректных действий пользователя или срабатывания
           антивирусной программы на вашем устройстве с <mark>Windows</mark>.
         </p>
-        <Divider>Как избавиться от этой ошибки?</Divider>
+        <Divider>Устраняем эту ошибку</Divider>
         <ul>
           <li>
             <p>

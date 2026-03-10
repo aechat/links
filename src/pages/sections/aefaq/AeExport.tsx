@@ -48,7 +48,9 @@ const AeExport: React.FC = () => {
           <mark className="select">«Render»</mark> в правом верхнем углу или клавишей{" "}
           <mark className="key">Enter</mark>.
         </p>
-        <Divider>Разбираемся с «Output Module»</Divider>
+        <Divider>
+          Разбираемся с <mark className="select">«Output Module»</mark>
+        </Divider>
         <p>
           <mark className="select">«Output Module»</mark> отвечает за изменение формата
           вывода и при необходимости — за настройку его параметров через{" "}
@@ -84,7 +86,9 @@ const AeExport: React.FC = () => {
           src="legacy/aftereffects/output_module_settings.png"
           type="image"
         />
-        <Divider>Разбираемся с «Output To»</Divider>
+        <Divider>
+          Разбираемся с <mark className="select">«Output To»</mark>
+        </Divider>
         <p>
           <mark className="select">«Output To»</mark> задаёт путь для сохранения файла. В
           зависимости от выбранного формата к названию автоматически добавляется
@@ -131,7 +135,9 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Разбираемся с «Render Settings»</Divider>
+        <Divider>
+          Разбираемся с <mark className="select">«Render Settings»</mark>
+        </Divider>
         <p>
           <mark className="select">«Render Settings»</mark> — необязательный, но полезный
           раздел настроек. В нём можно задать разрешение, включить или отключить
@@ -143,7 +149,7 @@ const AeExport: React.FC = () => {
           src="legacy/aftereffects/render_settings.png"
           type="image"
         />
-        <Divider>Как управлять очередью рендеринга?</Divider>
+        <Divider>Управляем очередью рендеринга</Divider>
         <ul>
           <li>
             <p>
@@ -191,7 +197,8 @@ const AeExport: React.FC = () => {
           </li>
         </ul>
         <Divider>
-          Как создать свой шаблон для «Output Module» и сделать его шаблоном по умолчанию?
+          Создаём шаблон для <mark className="select">«Output Module»</mark> и назначаем
+          его по умолчанию
         </Divider>
         <p>
           Чтобы не настраивать параметры экспорта каждый раз заново, их можно сохранить в
@@ -224,8 +231,8 @@ const AeExport: React.FC = () => {
           type="image"
         />
         <Divider>
-          Как создать свой шаблон для «Render Settings» и сделать его шаблоном по
-          умолчанию?
+          Создаём шаблон для <mark className="select">«Render Settings»</mark> и назначаем
+          его по умолчанию
         </Divider>
         <p>
           Процесс создания пресета для <mark className="select">«Render Settings»</mark>{" "}
@@ -298,7 +305,7 @@ const AeExport: React.FC = () => {
           контролировать финальный результат и донести вашу работу до зрителя в наилучшем
           виде.
         </p>
-        <Divider>Как подобрать кодек для экспорта?</Divider>
+        <Divider>Подбираем кодек для экспорта</Divider>
         <p>
           <mark className="word">Кодеки</mark> условно делятся на две большие группы, и
           выбор между ними зависит от вашей задачи, что вы хотите позже сделать с вашим
@@ -389,7 +396,7 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Как настроить «качество» перед экспортом?</Divider>
+        <Divider>Настраиваем «качество» перед экспортом</Divider>
         <p>
           Обычно за визуальное качество видео отвечает битрейт. Если битрейта не хватит
           для передачи движения происходящего в вашем видео — оно начнёт неизбежно
@@ -540,7 +547,7 @@ const AeExport: React.FC = () => {
           </li>
         </ul>
         <Divider>
-          Почему видео «рассыпается» даже с высоким битрейтом или что такое «GOP»?
+          Разбираемся, почему видео «рассыпается» даже при высоком битрейте
         </Divider>
         <p>
           Если видео, экспортированное в <mark className="video">H.264</mark> или его
@@ -626,7 +633,7 @@ const AeExport: React.FC = () => {
           src="nFGmb8Z2zLw"
           type="youtube"
         />
-        <Divider>Как не потерять «цвета» при экспорте?</Divider>
+        <Divider>Сохраняем «цвета» при экспорте</Divider>
         <p>
           Цвета на видео могут зависеть от настроек вашего проекта, в частности указанного
           рабочего цветового пространства и от выбора варианта экспорта.
@@ -710,7 +717,7 @@ const AeExport: React.FC = () => {
             вряд ли обрадует.
           </li>
         </ul>
-        <Divider>Как избежать «дерганого» видео из-за частоты кадров?</Divider>
+        <Divider>Избегаем «дерганого» видео из-за частоты кадров</Divider>
         <p>
           Если частота кадров исходного материала и проекта не совпадают, это может
           привести к нежелательным артефактам. Например, если вы импортировали видео с
@@ -907,7 +914,8 @@ const AeExport: React.FC = () => {
           очередь и запустить экспорт.
         </Addition>
         <Divider>
-          Какие проблемы могут быть при использовании Adobe Media Encoder?
+          Разбираем проблемы при использовании{" "}
+          <mark className="app">Adobe Media Encoder</mark>
         </Divider>
         <ul>
           <li>
@@ -1136,7 +1144,9 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем с помощью стандартного H.264</Divider>
+        <Divider>
+          Экспортируем с помощью стандартного <mark className="video">H.264</mark>
+        </Divider>
         <Addition type="info">
           Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
           <mark>23.0</mark>, пролистайте эту статью дальше для ознакомления с
@@ -1268,7 +1278,9 @@ const AeExport: React.FC = () => {
             опубликуйте в соцсетях или удалите.
           </li>
         </ul>
-        <Divider>Экспортируем с помощью Voukoder</Divider>
+        <Divider>
+          Экспортируем с помощью <mark className="plugin">Voukoder</mark>
+        </Divider>
         <ContentFilter
           windowsContent={
             <>
@@ -1485,7 +1497,9 @@ const AeExport: React.FC = () => {
             </>
           }
         />
-        <Divider>Экспортируем с помощью AfterCodecs</Divider>
+        <Divider>
+          Экспортируем с помощью <mark className="plugin">AfterCodecs</mark>
+        </Divider>
         <p>
           Ещё одна хорошая альтернатива для экспорта <mark className="video">H.264</mark>{" "}
           из <mark className="app">Adobe After Effects</mark> — сторонний экспортёр{" "}
@@ -1999,7 +2013,9 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем с помощью GifGun</Divider>
+        <Divider>
+          Экспортируем с помощью <mark className="plugin">GifGun</mark>
+        </Divider>
         <ul>
           <li>
             <p>
@@ -2141,7 +2157,9 @@ const AeExport: React.FC = () => {
             анимация.
           </li>
         </ul>
-        <Divider>Конвертируем через Ezgif</Divider>
+        <Divider>
+          Конвертируем через <mark className="app">Ezgif</mark>
+        </Divider>
         <p>
           Если вы не хотите возиться с дополнениями или у вас уже есть готовое видео,
           которое нужно просто конвертировать в <mark className="image">GIF</mark>,
@@ -2189,7 +2207,9 @@ const AeExport: React.FC = () => {
             <mark className="select">«Сохранить изображение как...»</mark>.
           </li>
         </ul>
-        <Divider>Экспортируем с помощью Adobe Media Encoder</Divider>
+        <Divider>
+          Экспортируем с помощью <mark className="app">Adobe Media Encoder</mark>
+        </Divider>
         <p>
           <mark className="image">GIF</mark> можно экспортировать и через{" "}
           <mark className="app">Adobe Media Encoder</mark>. Несмотря на то, что многие его
@@ -2297,7 +2317,9 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем в Apple ProRes</Divider>
+        <Divider>
+          Экспортируем в <mark className="video">Apple ProRes</mark>
+        </Divider>
         <ul>
           <li>
             <p>
@@ -2341,7 +2363,7 @@ const AeExport: React.FC = () => {
           src="legacy/aftereffects/export_to_prores.mp4"
           type="video"
         />
-        <Divider>Как проверить наличие прозрачности в композиции?</Divider>
+        <Divider>Проверяем наличие прозрачности в композиции</Divider>
         <p>
           Перед экспортом убедитесь, что в вашей композиции действительно есть
           прозрачность. Чтобы проверить это, нажмите на кнопку{" "}
@@ -2549,7 +2571,10 @@ const AeExport: React.FC = () => {
           Подробнее о требованиях для того или иного типа стикеров вы можете прочитать на{" "}
           <a href="https://core.telegram.org/stickers">сайте Telegram</a>.
         </Addition>
-        <Divider>Экспортируем анимированный стикер через Bodymovin-Telegram</Divider>
+        <Divider>
+          Экспортируем анимированный стикер через{" "}
+          <mark className="app">Bodymovin-Telegram</mark>
+        </Divider>
         <p>
           Для экспорта из <mark className="app">Adobe After Effects</mark> в стикеры
           формата <mark className="file">TGS</mark> понадобится бесплатное стороннее
@@ -2674,7 +2699,7 @@ const AeExport: React.FC = () => {
           файл в конвертер ниже и нажмите{" "}
           <mark className="select">«Скачать преобразованный TGS»</mark>.
         </p>
-        <Divider>Конвертер JSON в TGS</Divider>
+        <Divider>Конвертируем JSON в TGS</Divider>
         <JsonToTgsConverter />
         <p>
           После конвертации перейдите в{" "}
@@ -2905,7 +2930,7 @@ const AeExport: React.FC = () => {
           src="legacy/aftereffects/use_all_proxies.mp4"
           type="video"
         />
-        <Divider>Как отключить прокси?</Divider>
+        <Divider>Отключаем прокси</Divider>
         <p>
           Чтобы временно отключить прокси, нажмите на иконку квадрата слева от названия
           композиции в окне <mark className="select">«Project»</mark>. Чтобы полностью
@@ -2927,7 +2952,9 @@ const AeExport: React.FC = () => {
           Иногда нужно сохранить один кадр из композиции как файл изображения, например
           для создания превью. Это можно сделать двумя способами.
         </p>
-        <Divider>Экспортируем через «Render Queue»</Divider>
+        <Divider>
+          Экспортируем через <mark className="select">«Render Queue»</mark>
+        </Divider>
         <p>
           Чтобы быстро отправить текущий кадр в очередь рендеринга, нажмите{" "}
           <mark className="key">Ctrl + Alt + S</mark> или перейдите в меню{" "}
@@ -2960,7 +2987,9 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем с помощью FX Console</Divider>
+        <Divider>
+          Экспортируем с помощью <mark className="plugin">FX Console</mark>
+        </Divider>
         <p>
           Если стандартный способ сохранения кадра через{" "}
           <mark className="select">«Save Frame As»</mark> кажется вам неудобным, есть
@@ -3075,7 +3104,7 @@ const AeExport: React.FC = () => {
           <mark className="key">B</mark> и <mark className="key">N</mark> или
           перетаскиванием соответствующих маркеров на таймлайне.
         </p>
-        <Divider>А как тогда экспортировать всю композицию целиком?</Divider>
+        <Divider>Экспортируем всю композицию целиком</Divider>
         <p>
           Если вы хотите, чтобы композиция всегда экспортировалась целиком, независимо от
           заданной рабочей области, нужно изменить один параметр в{" "}

@@ -305,7 +305,10 @@ const PrErrors: React.FC = () => {
                   <mark className="select">«Правил для исходящего подключения»</mark>.
                 </li>
               </ul>
-              <Divider>Используем OneClickFirewall для быстрой блокировки</Divider>
+              <Divider>
+                Используем <mark className="app">OneClickFirewall</mark> для быстрой
+                блокировки
+              </Divider>
               <p>
                 Если вы не хотите возиться с созданием правил вручную — попробуйте
                 воспользоваться утилитой <mark className="app">OneClickFirewall</mark>.

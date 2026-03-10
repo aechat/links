@@ -475,7 +475,9 @@ const AeInterface: React.FC = () => {
         tag="границы слоёв, предпросмотр, траектория движения, layer controls, mask visibility, motion path"
         title="Как включить отображение манипуляторов слоёв в предпросмотре?"
       >
-        <Divider>Включаем «Show Layer Controls»</Divider>
+        <Divider>
+          Включаем <mark className="select">«Show Layer Controls»</mark>
+        </Divider>
         <p>
           В предпросмотре композиции у слоёв отображаются их манипуляторы, но при
           случайном нажатии каких-либо клавиш они могут исчезнуть. Чтобы вернуть
@@ -502,7 +504,9 @@ const AeInterface: React.FC = () => {
           src="legacy/aftereffects/toggle_mask_and_shape_path_visibility.png"
           type="image"
         />
-        <Divider>Проверяем окно «View Options»</Divider>
+        <Divider>
+          Проверяем окно <mark className="select">«View Options»</mark>
+        </Divider>
         <p>
           Если с включёнными опциями выше вы всё ещё не видите то, что вам нужно, —
           проверьте настройки <mark className="select">«View Options»</mark>, которые
@@ -740,7 +744,7 @@ const AeInterface: React.FC = () => {
           src="legacy/aftereffects/change_graph_view.mp4"
           type="video"
         />
-        <Divider>Куда пропали «усики» в пространстве?</Divider>
+        <Divider>Возвращаем «усики» в пространстве</Divider>
         <p>
           Если вы хотите изменять плавность траектории движения объекта в окне
           предпросмотра, нужно изменить тип пространственной интерполяции для ключей. Для
@@ -771,7 +775,7 @@ const AeInterface: React.FC = () => {
             разделе <mark className="select">«Display»</mark>.
           </Addition>
         </Addition>
-        <Divider>Почему у меня пропали манипуляторы при создании шейпов?</Divider>
+        <Divider>Возвращаем манипуляторы при создании шейпов</Divider>
         <p>
           При создании фигур с помощью пера может пропасть возможность изменения изгиба
           при зажатии <mark className="key">ЛКМ</mark> и перемещении курсора. Скорее

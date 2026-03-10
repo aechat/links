@@ -32,11 +32,19 @@ const PsImport: React.FC = () => {
           type="image"
         />
         <Divider>
-          Что за «The document has an embedded color profile that does not match the
-          current RGB working space»?
+          Разбираем ошибку{" "}
+          <mark className="warning">
+            «The document has an embedded color profile that does not match the current
+            RGB working space»
+          </mark>
         </Divider>
-        <Divider>Что за «The document does not have an embedded RGB profile»</Divider>
-        <Divider>Что за цветовые профили и с чем их едят?</Divider>
+        <Divider>
+          Что за{" "}
+          <mark className="warning">
+            «The document does not have an embedded RGB profile»
+          </mark>
+        </Divider>
+        <Divider>Разбираемся с цветовыми профилями</Divider>
         <Divider>Отключаем вопрос при открытии</Divider>
         <p>
           Чтобы убрать данный вопрос при открытии каждого документа в{" "}
