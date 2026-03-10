@@ -3683,30 +3683,6 @@ const AeFromNewbies: React.FC = () => {
                 <tbody>
                   <tr>
                     <td>
-                      <mark className="select">
-                        «Go to Earliest In Point of Selected Layers»
-                      </mark>{" "}
-                      — переместить индикатор текущего времени к ближайшему началу одного
-                      из выделенных слоёв
-                    </td>
-                    <td>
-                      <mark className="key">I</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">
-                        «Go to Latest Out Point of Selected Layers»
-                      </mark>{" "}
-                      — переместить индикатор текущего времени к ближайшему концу одного
-                      из выделенных слоёв
-                    </td>
-                    <td>
-                      <mark className="key">O</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
                       <mark className="select">«Pre-compose»</mark> — создать
                       прекомпозицию из выделенных слоёв
                     </td>
@@ -3754,24 +3730,6 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Split Layer at Current Time»</mark> —
-                      разделить выделенные слои на две части
-                      <Addition type="info">
-                        Изменить поведение деления слоя можно с помощью параметра{" "}
-                        <mark className="select">
-                          «Create Split Layers Above Original Layer»
-                        </mark>{" "}
-                        в{" "}
-                        <mark className="select">«Edit → Preferences → Composition»</mark>
-                        .
-                      </Addition>
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Shift + D</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
                       <mark className="select">
                         «Show/Hide Effect Controls Panel for Selected Layers»
                       </mark>{" "}
@@ -3779,6 +3737,21 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">F3</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Layer Settings»</mark> — открыть настройки
+                      выделенного слоя
+                      <Addition type="info">
+                        Работает для <mark className="select">«Null Object»</mark>,{" "}
+                        <mark className="select">«Light Layer»</mark>,{" "}
+                        <mark className="select">«Solid Layer»</mark> и{" "}
+                        <mark className="select">«Adjustment Layer»</mark>.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + Y</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3803,20 +3776,20 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Fit Layer to Comp Height»</mark> —
-                      растянуть выделенный слой под высоту композиции
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Alt + Shift + G</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
                       <mark className="select">«Fit Layer to Comp Width»</mark> —
                       растянуть выделенный слой под ширину композиции
                     </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + H</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Fit Layer to Comp Height»</mark> —
+                      растянуть выделенный слой под высоту композиции
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + G</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3839,17 +3812,26 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Layer Settings»</mark> — открыть настройки
-                      выделенного слоя
-                      <Addition type="info">
-                        Работает для <mark className="select">«Null Object»</mark>,{" "}
-                        <mark className="select">«Light Layer»</mark>,{" "}
-                        <mark className="select">«Solid Layer»</mark> и{" "}
-                        <mark className="select">«Adjustment Layer»</mark>.
-                      </Addition>
+                      <mark className="select">
+                        «Go to Earliest In Point of Selected Layers»
+                      </mark>{" "}
+                      — переместить индикатор текущего времени к ближайшему началу одного
+                      из выделенных слоёв
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Shift + Y</mark>
+                      <mark className="key">I</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">
+                        «Go to Latest Out Point of Selected Layers»
+                      </mark>{" "}
+                      — переместить индикатор текущего времени к ближайшему концу одного
+                      из выделенных слоёв
+                    </td>
+                    <td>
+                      <mark className="key">O</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3873,6 +3855,54 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         ] <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Split Layer at Current Time»</mark> —
+                      разделить выделенные слои на две части
+                      <Addition type="info">
+                        Вы можете изменить поведение того, где будут появляться новые слои
+                        после разделения — над исходным слоем или под ним, с помощью
+                        параметра{" "}
+                        <mark className="select">
+                          «Create Split Layers Above Original Layer»
+                        </mark>{" "}
+                        в{" "}
+                        <mark className="select">«Edit → Preferences → Composition»</mark>
+                        .
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + D</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">
+                        «Trim Layer In Point to Current Time»
+                      </mark>{" "}
+                      — обрезать начало выделенных слоёв до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">
+                        Alt + [{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">
+                        «Trim Layer Out Point to Current Time»
+                      </mark>{" "}
+                      — обрезать конец выделенных слоёв до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">
+                        Alt + ]{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3910,34 +3940,6 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">Alt + Shift + PgDown</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">
-                        «Trim Layer In Point to Current Time»
-                      </mark>{" "}
-                      — обрезать начало выделенных слоёв до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">
-                        Alt + [{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
-                      </mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">
-                        «Trim Layer Out Point to Current Time»
-                      </mark>{" "}
-                      — обрезать конец выделенных слоёв до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">
-                        Alt + ]{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
-                      </mark>
                     </td>
                   </tr>
                   <tr>
