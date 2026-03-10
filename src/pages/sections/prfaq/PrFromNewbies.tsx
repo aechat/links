@@ -1418,17 +1418,6 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">
-                        «Play In to Out with Preroll/Postroll»
-                      </mark>{" "}
-                      — проиграть от точки входа до точки выхода с preroll/postroll
-                    </td>
-                    <td>
-                      <mark className="key">Shift + Space</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
                       <mark className="select">«Shuttle Left»</mark> — проиграть
                       предпросмотр назад
                       <Addition type="info">
