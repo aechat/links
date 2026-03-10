@@ -3252,6 +3252,20 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
+                      <mark className="select">
+                        «Show/Hide All of the Selected Layers&apos; Properties»
+                      </mark>{" "}
+                      — показать или скрыть все свойства у выделенных слоёв
+                    </td>
+                    <td>
+                      <mark className="key">
+                        Ctrl + `{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <mark className="select">«Show/Hide Audio Levels»</mark> — показать
                       или скрыть уровень громкости у выделенного слоя
                       <Addition type="info">
