@@ -3227,7 +3227,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Effects»</mark> — показать или
-                      скрыть применённые эффекты у выделенных слоёв
+                      скрыть применённые эффекты на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — список эффектов раскроется у всех
                         слоёв на таймлайне.
@@ -3240,7 +3240,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Effects (Expressions)»</mark> —
-                      показать или скрыть свойства с выражениями у выделенных слоёв
+                      показать или скрыть свойства с выражениями на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — применённые выражения раскроются у
                         всех слоёв на таймлайне.
@@ -3255,7 +3255,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide All of the Selected Layers&apos; Properties»
                       </mark>{" "}
-                      — показать или скрыть все свойства у выделенных слоёв
+                      — показать или скрыть все свойства на выделенных слоях
                     </td>
                     <td>
                       <mark className="key">
@@ -3267,7 +3267,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Audio Levels»</mark> — показать
-                      или скрыть уровень громкости у выделенных слоёв
+                      или скрыть уровень громкости на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — уровень громкости раскроется у всех
                         слоёв со звуковой дорожкой на таймлайне.
@@ -3280,7 +3280,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Audio Levels»</mark> — показать
-                      или скрыть звуковую волну у выделенных слоёв
+                      или скрыть звуковую волну на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — звуковая волна раскроется у всех
                         слоёв со звуковой дорожкой на таймлайне.
@@ -3295,7 +3295,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Anchor Point or Position of Interest»
                       </mark>
-                      — показать или скрыть свойство положения якорной точки у выделенных
+                      — показать или скрыть свойство положения якорной точки на выделенных
                       слоёв или точки обзора у выделенных камер и источников освещения
                       <Addition type="info">
                         Если ни один слой не выделен — данное свойство раскроется у всех
@@ -3309,7 +3309,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Mask Shape»</mark> — показать
-                      или скрыть созданные маски у выделенных слоёв
+                      или скрыть созданные маски на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — список масок раскроется у всех
                         слоёв с созданными масками на таймлайне.
@@ -3337,7 +3337,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Rotation and Orientation Properties»
                       </mark>
-                      — показать или скрыть свойство поворота у выделенных слоёв
+                      — показать или скрыть свойство поворота на выделенных слоях
                       <Addition type="info">
                         <ul>
                           <li>
@@ -3358,7 +3358,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Scale»</mark> — показать или
-                      скрыть свойство масштаба у выделенных слоёв
+                      скрыть свойство масштаба на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — свойство масштаба раскроется у всех
                         слоёв на таймлайне.
@@ -3371,7 +3371,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Opacity»</mark> — показать или
-                      скрыть свойство непрозрачности у выделенных слоёв
+                      скрыть свойство непрозрачности на выделенных слоях
                       <Addition type="info">
                         Если ни один слой не выделен — свойство непрозрачности раскроется
                         у всех слоёв на таймлайне.
@@ -3386,7 +3386,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Properties with Keyframes»
                       </mark>
-                      — показать или скрыть все свойства с ключевыми кадрами у выделенных
+                      — показать или скрыть все свойства с ключевыми кадрами на выделенных
                       слоёв
                       <Addition type="info">
                         <ul>
@@ -3408,7 +3408,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide ... (Extend)»</mark> — показать
-                      или скрыть свойство, добавив его к уже открытыми
+                      или скрыть свойство, добавив его к уже открытым
                       <Addition type="info">
                         Например, при нажатии <mark className="key">S</mark>, затем{" "}
                         <mark className="key">Shift + P</mark> и{" "}
@@ -3659,8 +3659,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Cut»</mark> — вырезать содержимое и
-                      поместить их в буфер обмена
+                      <mark className="select">«Cut»</mark> — вырезать выделенное
+                      содержимое и поместить его в буфер обмена
                     </td>
                     <td>
                       <mark className="key">Ctrl + X</mark>
@@ -3668,8 +3668,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Copy»</mark> — скопировать содержимое и
-                      поместить их в буфер обмена
+                      <mark className="select">«Copy»</mark> — скопировать выделенное
+                      содержимое и поместить его в буфер обмена
                     </td>
                     <td>
                       <mark className="key">Ctrl + C</mark>
@@ -3724,7 +3724,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Delete All Effects from Selected Layers»
                       </mark>{" "}
-                      — удалить все эффекты у выделенных слоёв
+                      — удалить все эффекты на выделенных слоях
                     </td>
                     <td>
                       <mark className="key">Ctrl + Shift + E</mark>
@@ -3829,8 +3829,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to Earliest In Point of Selected Layers»
                       </mark>{" "}
-                      — переместить индикатор текущего времени к ближайшему началу одного
-                      из выделенных слоёв
+                      — переместить индикатор текущего времени к самому раннему началу
+                      одного из выделенных слоёв
                     </td>
                     <td>
                       <mark className="key">I</mark>
@@ -3841,8 +3841,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to Latest Out Point of Selected Layers»
                       </mark>{" "}
-                      — переместить индикатор текущего времени к ближайшему концу одного
-                      из выделенных слоёв
+                      — переместить индикатор текущего времени к самому позднему концу
+                      одного из выделенных слоёв
                     </td>
                     <td>
                       <mark className="key">O</mark>
@@ -3877,9 +3877,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">«Split Layer at Current Time»</mark> —
                       разделить выделенные слои на две части
                       <Addition type="info">
-                        Вы можете изменить поведение того, где будут появляться новые слои
-                        после разделения — над исходным слоем или под ним, с помощью
-                        параметра{" "}
+                        Вы можете изменить, где будут появляться новые слои после
+                        разделения — над исходным слоем или под ним, с помощью параметра{" "}
                         <mark className="select">
                           «Create Split Layers Above Original Layer»
                         </mark>{" "}
@@ -3941,7 +3940,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Shift Layer 1 Frame Later»</mark> —
-                      сдвинуть слой на 1 кадр вправо
+                      сдвинуть выделенные слои на 1 кадр вправо
                     </td>
                     <td>
                       <mark className="key">Alt + PgDown</mark>
@@ -3950,7 +3949,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Shift Layer 10 Frames Later»</mark> —
-                      сдвинуть слой на 10 кадров вправо
+                      сдвинуть выделенные слои на 10 кадров вправо
                     </td>
                     <td>
                       <mark className="key">Alt + Shift + PgDown</mark>
@@ -3983,7 +3982,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Next/Previous Layer Blending Mode»</mark>{" "}
-                      — переключить режим наложения у выделенных слоёв
+                      — переключить режим наложения на выделенных слоях
                       <Addition type="info">
                         Режимы наложения работают только в том случае, если под слоем есть
                         другие видимые слои. Добавлять под него чёрный{" "}
@@ -4243,7 +4242,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Add Layer Marker»</mark> — поставить
-                      маркер у выделенных слоёв на таймлайне
+                      маркер на таймлайне для выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — маркер установится для открытой
                         композиции.
@@ -4265,7 +4264,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Работа с окном предпросмотра (View)</Divider>
+              <Divider>Работа с предпросмотром (View)</Divider>
               <table>
                 <thead>
                   <tr>
