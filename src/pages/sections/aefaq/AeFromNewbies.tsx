@@ -3227,7 +3227,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Effects»</mark> — показать или
-                      скрыть применённые эффекты у выделенного слоя
+                      скрыть применённые эффекты у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — список эффектов раскроется у всех
                         слоёв на таймлайне.
@@ -3239,8 +3239,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Show/Hide Effects»</mark> — показать или
-                      скрыть свойства с выражениями у выделенного слоя
+                      <mark className="select">«Show/Hide Effects (Expressions)»</mark> —
+                      показать или скрыть свойства с выражениями у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — применённые выражения раскроются у
                         всех слоёв на таймлайне.
@@ -3267,7 +3267,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Audio Levels»</mark> — показать
-                      или скрыть уровень громкости у выделенного слоя
+                      или скрыть уровень громкости у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — уровень громкости раскроется у всех
                         слоёв со звуковой дорожкой на таймлайне.
@@ -3280,7 +3280,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Audio Levels»</mark> — показать
-                      или скрыть звуковую волну у выделенного слоя
+                      или скрыть звуковую волну у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — звуковая волна раскроется у всех
                         слоёв со звуковой дорожкой на таймлайне.
@@ -3295,8 +3295,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Anchor Point or Position of Interest»
                       </mark>
-                      — показать или скрыть свойство положения якорной точки у выделенного
-                      слоя или точки обзора у выделенной камеры и источников освещения
+                      — показать или скрыть свойство положения якорной точки у выделенных
+                      слоёв или точки обзора у выделенных камер и источников освещения
                       <Addition type="info">
                         Если ни один слой не выделен — данное свойство раскроется у всех
                         поддерживаемых слоёв на таймлайне.
@@ -3309,7 +3309,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Mask Shape»</mark> — показать
-                      или скрыть созданные маски у слоя
+                      или скрыть созданные маски у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — список масок раскроется у всех
                         слоёв с созданными масками на таймлайне.
@@ -3322,7 +3322,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Position»</mark> — показать или
-                      скрыть свойство положения слоя в пространстве
+                      скрыть свойство положения выделенных слоёв в пространстве
                       <Addition type="info">
                         Если ни один слой не выделен — свойство положения раскроется у
                         всех двумерных и трёхмерных объектов на таймлайне.
@@ -3337,7 +3337,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Rotation and Orientation Properties»
                       </mark>
-                      — показать или скрыть свойство поворота у выделенного слоя
+                      — показать или скрыть свойство поворота у выделенных слоёв
                       <Addition type="info">
                         <ul>
                           <li>
@@ -3358,7 +3358,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Scale»</mark> — показать или
-                      скрыть свойство масштаба у выделенного слоя
+                      скрыть свойство масштаба у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — свойство масштаба раскроется у всех
                         слоёв на таймлайне.
@@ -3371,7 +3371,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Show/Hide Opacity»</mark> — показать или
-                      скрыть свойство непрозрачности у выделенного слоя
+                      скрыть свойство непрозрачности у выделенных слоёв
                       <Addition type="info">
                         Если ни один слой не выделен — свойство непрозрачности раскроется
                         у всех слоёв на таймлайне.
@@ -3386,8 +3386,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Show/Hide Properties with Keyframes»
                       </mark>
-                      — показать или скрыть все свойства с ключевыми кадрами у выделенного
-                      слоя
+                      — показать или скрыть все свойства с ключевыми кадрами у выделенных
+                      слоёв
                       <Addition type="info">
                         <ul>
                           <li>
@@ -3407,8 +3407,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Show/Hide ... (Extend)»</mark> — раскрыть
-                      свойство вместе с уже открытыми
+                      <mark className="select">«Show/Hide ... (Extend)»</mark> — показать
+                      или скрыть свойство, добавив его к уже открытыми
                       <Addition type="info">
                         Например, при нажатии <mark className="key">S</mark>, затем{" "}
                         <mark className="key">Shift + P</mark> и{" "}
@@ -3425,7 +3425,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Add/Delete ... Keyframe at Current Time»
                       </mark>{" "}
-                      — добавить ключевой кадр для свойства, не раскрывая его
+                      — добавить ключевой кадр для свойства, не показывая его
                       <Addition type="info">
                         Например, <mark className="key">Alt + Shift + P</mark> добавит
                         ключевой кадр для свойства положения.
