@@ -236,7 +236,7 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">«New Bin»</mark> — создать новую папку в
                       панели <mark className="select">«Project»</mark>
                       <Addition type="info">
-                        Данная комбинация будет работать только в том случае, если панель{" "}
+                        Комбинация работает только если панель{" "}
                         <mark className="select">«Project»</mark> в фокусе.
                       </Addition>
                     </td>
@@ -247,7 +247,7 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Bin From Selection»</mark> — создать папку
-                      из выделенных элементов в окне{" "}
+                      из выделенных элементов в панели{" "}
                       <mark className="select">«Project»</mark>
                     </td>
                     <td>
@@ -301,8 +301,8 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">«Save a Copy»</mark> — сохранить копию
                       проекта под новым именем
                       <Addition type="info">
-                        Разница данного действия с{" "}
-                        <mark className="select">«Save As»</mark> заключается в том, что{" "}
+                        Разница этого действия с <mark className="select">«Save As»</mark>{" "}
+                        заключается в том, что{" "}
                         <mark className="select">«Save a Copy»</mark> добавляет слово{" "}
                         <mark className="copy">Copy</mark> в название проекта при
                         сохранении, а <mark className="select">«Save As»</mark> — нет.
@@ -387,9 +387,9 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">«Undo»</mark> — отменить последнее действие
                       <Addition type="info">
                         <p>
-                          Увеличить объём хранения последних действий можно изменить в
-                          поле <mark className="select">«History States»</mark> в
-                          контекстном меню панели{" "}
+                          Объём хранения последних действий можно изменить в поле{" "}
+                          <mark className="select">«History States»</mark> в контекстном
+                          меню панели{" "}
                           <mark className="select">«History» → «Settings»</mark>. По
                           умолчанию установлено значение <mark>32</mark>.
                         </p>
@@ -508,7 +508,8 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Duplicate»</mark> — продублировать
-                      выделенные объекты в окне <mark className="select">«Project»</mark>
+                      выделенные объекты в панели{" "}
+                      <mark className="select">«Project»</mark>
                     </td>
                     <td>
                       <mark className="key">Ctrl + Shift + /</mark>
@@ -551,7 +552,7 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Edit Original»</mark> — открыть выделенный
-                      файл в <mark className="select">«Timeline»</mark> или{" "}
+                      файл из панели <mark className="select">«Timeline»</mark> или{" "}
                       <mark className="select">«Project»</mark> в сторонней программе
                       <Addition type="info">
                         Открытие выделенного файла в сторонней программе зависит от
@@ -596,7 +597,7 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Speed/Duration...»</mark> — открыть окно
-                      редактирования скорости и его интерполяции для выделенных клипов
+                      редактирования скорости и интерполяции для выделенных клипов
                     </td>
                     <td>
                       <mark className="key">Ctrl + R</mark>
@@ -606,7 +607,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="select">«Insert»</mark> — вставить клип из панели{" "}
                       <mark className="select">«Source Monitor»</mark> или{" "}
-                      <mark className="select">«Project»</mark> на таймлайн
+                      <mark className="select">«Project»</mark> на таймлайне
                     </td>
                     <td>
                       <mark className="key">
@@ -616,9 +617,9 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Overwrite»</mark> — перезаписать клип на
-                      таймлайне тем, что открыто в{" "}
-                      <mark className="select">«Source Monitor»</mark> или выделено в{" "}
+                      <mark className="select">«Overwrite»</mark> — заменить клип на
+                      таймлайне содержимым, открытым в{" "}
+                      <mark className="select">«Source Monitor»</mark> или выделенным в{" "}
                       <mark className="select">«Project»</mark>
                     </td>
                     <td>
@@ -708,7 +709,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="select">«Reverse Match Frame»</mark> — переместить
                       индикатор текущего времени на таймлайне к моменту исходника в панели{" "}
-                      <mark className="select">«Source»</mark>
+                      <mark className="select">«Source Monitor»</mark>
                       <Addition type="warning">
                         Данное действие не будет выполнено, если в рабочем пространстве не
                         открыт <mark className="select">«Source Monitor»</mark>.
@@ -1024,7 +1025,7 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Apply Default Transitions to Selection»
                       </mark>{" "}
-                      — применить видеопереходы и аудиопереходы для выделенных клипов
+                      — применить видеопереходы и аудиопереходы к выделенным клипам
                       <Addition type="info">
                         По умолчанию для видео применяется переход{" "}
                         <mark className="plugin">«Cross Dissolve»</mark>, а для аудио —{" "}
@@ -1044,12 +1045,11 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Zoom Out»</mark> — уменьшить
-                      масштабирование таймлайна в{" "}
-                      <mark className="select">«Timeline»</mark>,{" "}
+                      <mark className="select">«Zoom Out»</mark> — уменьшить масштаб
+                      таймлайна в <mark className="select">«Timeline»</mark>,{" "}
                       <mark className="select">«Program Monitor»</mark> и{" "}
-                      <mark className="select">«Source Monitor»</mark> и содержимого в{" "}
-                      <mark className="select">«Project»</mark> и{" "}
+                      <mark className="select">«Source Monitor»</mark>, а также масштаб
+                      содержимого панелей <mark className="select">«Project»</mark> и{" "}
                       <mark className="select">«Media Browser»</mark>
                     </td>
                     <td>
@@ -1058,12 +1058,11 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Zoom In»</mark> — увеличить
-                      масштабирование таймлайна в{" "}
-                      <mark className="select">«Timeline»</mark>,{" "}
+                      <mark className="select">«Zoom In»</mark> — увеличить масштаб
+                      таймлайна в <mark className="select">«Timeline»</mark>,{" "}
                       <mark className="select">«Program Monitor»</mark> и{" "}
-                      <mark className="select">«Source Monitor»</mark> и содержимого в{" "}
-                      <mark className="select">«Project»</mark> и{" "}
+                      <mark className="select">«Source Monitor»</mark>, а также масштаб
+                      содержимого панелей <mark className="select">«Project»</mark> и{" "}
                       <mark className="select">«Media Browser»</mark>
                     </td>
                     <td>
@@ -1112,8 +1111,8 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Mark Clip»</mark> — пометить точки входа и
-                      выхода вокруг клипа, находящийся под индикатором текущего времени на
-                      таймлайне
+                      выхода вокруг клипа, находящегося под индикатором текущего времени
+                      на таймлайне
                     </td>
                     <td>
                       <mark className="key">X</mark>
@@ -1158,7 +1157,7 @@ const PrFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Add Marker»</mark> — добавить маркер
-                      выделенному клипу индикатора текущего времени
+                      выделенному клипу под индикатором текущего времени
                       <Addition type="info">
                         Если выделенный клип находится вне позиции индикатора текущего
                         времени или ничего не выделено, маркер установится на секвенцию.
