@@ -4,6 +4,7 @@ import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -1042,7 +1043,7 @@ const AeInterface: React.FC = () => {
           режиме <mark className="select">«Console View»</mark> и нажмите{" "}
           <mark className="key">Enter</mark>.
         </p>
-        <code>debug.set Enable_Theme_Colorizing=true</code>
+        <CodeSnippet>debug.set Enable_Theme_Colorizing=true</CodeSnippet>
         <Addition type="info">
           Переключать режимы консоли можно через контекстное меню в заголовке окна. Этот
           параметр доступен и в режиме{" "}

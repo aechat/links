@@ -4,6 +4,7 @@ import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrInterface: React.FC = () => {
@@ -160,7 +161,7 @@ const PrInterface: React.FC = () => {
           <mark className="select">«Console View»</mark> и нажмите на{" "}
           <mark className="key">Enter</mark>.
         </p>
-        <code>debug.set Enable_Theme_Colorizing=true</code>
+        <CodeSnippet>debug.set Enable_Theme_Colorizing=true</CodeSnippet>
         <Addition type="info">
           Режимы отображения консоли можно изменить, нажав на три полоски в заголовке
           окна. Также этот параметр можно найти и в режиме отображения{" "}

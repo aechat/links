@@ -1060,12 +1060,12 @@ const AeImport: React.FC = () => {
               <ul>
                 <li>
                   Ссылка для скачивания кодека <mark className="image">HEIF/HEIC</mark>:{" "}
-                  <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
+                  <CodeSnippet>https://apps.microsoft.com/9pmmsr1cgpwg</CodeSnippet>
                 </li>
                 <li>
                   <p>
                     Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
-                    <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+                    <CodeSnippet>https://apps.microsoft.com/9n4wgh0z6vhq</CodeSnippet>
                   </p>
                   <Addition type="danger">
                     Учтите, что <mark className="app">Adobe After Effects</mark> после
