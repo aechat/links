@@ -458,6 +458,10 @@ const AeInstallProblems: React.FC = () => {
                             <mark className="path">
                               /Library/Application Support/Adobe/CEP/extensions
                             </mark>
+                            .{" "}
+                            <a href="https://yablyk.com/174998-kak-otkryt-skrytuyu-papku-biblioteki-library-na-mac-macos-sierra/">
+                              Как открыть папку «Библиотеки»?
+                            </a>
                           </p>
                           <Addition type="info">
                             Если такой папки нет — создайте её вручную через контекстное
