@@ -11,6 +11,7 @@ const PrExportProblems: React.FC = () => {
     <div className="article-content">
       <DetailsSummary
         anchor="fix-error-1609629695"
+        tag="ошибка экспорта"
         title="«Error compiling movie» с кодом -1609629695"
       >
         <p>
@@ -117,6 +118,7 @@ const PrExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-error-1609629695-during-the-project-manager-operation"
+        tag="project manager, ошибка сборки проекта"
         title="«An unknown error (-1609629695) occurred during the Project Manager operation»"
       >
         <p>
@@ -133,7 +135,7 @@ const PrExportProblems: React.FC = () => {
       <DetailsSummary
         anchor="fix-playback-error"
         tag="0x80070002, mp4, ошибка воспроизведения"
-        title="Почему я не могу открыть видео‚ которое я экспортировал?"
+        title="Почему я не могу открыть видео, которое я экспортировал?"
       >
         <p>
           <mark className="app">Adobe Premiere</mark> поднимает значение{" "}
@@ -152,6 +154,7 @@ const PrExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-render-freeze"
+        tag="зависает, ame"
         title="Что делать, если экспорт зависает на определённом моменте?"
       ></DetailsSummary>
       <DetailsSummary
@@ -212,7 +215,8 @@ const PrExportProblems: React.FC = () => {
       ></DetailsSummary>
       <DetailsSummary
         anchor="fix-odd-resolution-error"
-        title="Почему при экспорте размер секвенция растягивается до чётного значения?"
+        tag="settings mismatch, output file will be resized from to meet format constraints, odd resolution, нечетное разрешение, ограничения h264"
+        title="Почему при экспорте размер секвенции растягивается до чётного значения?"
       >
         <p>
           Вы не сможете экспортировать видео в <mark className="video">H.264</mark> или{" "}
@@ -236,6 +240,7 @@ const PrExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="no-sound-after-export"
+        tag="нет звука после экспорта, audio export, audio codec, дорожки отключены"
         title="Почему после экспорта отсутствует звук в видео?"
       ></DetailsSummary>
       <DetailsSummary
@@ -257,7 +262,7 @@ const PrExportProblems: React.FC = () => {
           Для быстрой конвертации видео нам понадобится{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатный и популярный
           графический интерфейс утилиты <mark className="app">FFmpeg</mark>, который
-          доступен для <mark>Windows</mark> и <mark>macOS</mark>. С помощью него можно
+          доступен для <mark>Windows</mark> и <mark>macOS</mark>. С его помощью можно
           конвертировать видео в распространённые форматы и при необходимости указывать
           нужные настройки кодирования.
         </p>

@@ -605,7 +605,7 @@ const AeExportProblems: React.FC = () => {
       <DetailsSummary
         anchor="fix-playback-error"
         tag="0x80070002, mp4, ошибка воспроизведения"
-        title="Почему я не могу открыть видео‚ которое я экспортировал?"
+        title="Почему я не могу открыть видео, которое я экспортировал?"
       ></DetailsSummary>
       <DetailsSummary
         anchor="fix-render-freeze"

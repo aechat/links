@@ -342,7 +342,7 @@ const AeFromNewbies: React.FC = () => {
         title="Что такое слои и как с ними работать?"
       >
         <p>
-          Когда вы создаёте композицию, то для того чтобы на нём что либо появилось -
+          Когда вы создаёте композицию, то для того, чтобы в ней что-либо появилось —
           нужно создать слои. Слои бывают разных видов, например текст, камера, видео или
           фигура. В <mark className="app">Adobe After Effects</mark>, в отличие от
           программ для нелинейного монтажа вроде{" "}
@@ -483,7 +483,7 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                   <li>
                     <mark className="app">Adobe After Effects</mark> не предназначен для
-                    серьёзной работы со звуком, не смотря на наличие эффектов в разделе{" "}
+                    серьёзной работы со звуком, несмотря на наличие эффектов в разделе{" "}
                     <mark className="path">Audio Effects</mark>. Для этого лучше
                     использовать <mark className="app">Adobe Audition</mark> или{" "}
                     <mark className="app">Adobe Premiere</mark>.
@@ -6321,8 +6321,8 @@ const AeFromNewbies: React.FC = () => {
       >
         <p>
           Чтобы переместить начало слоя к текущему положению плейхеда, нажмите{" "}
-          <mark className="key">[</mark>. Чтобы переместить конец слоя к плейхеду, нажмите{" "}
-          <mark className="key">]</mark>.
+          <mark className="key">[ (Х)</mark>. Чтобы переместить конец слоя к плейхеду,
+          нажмите <mark className="key">] (Ъ)</mark>.
         </p>
         <ArticleMedia
           caption="Перемещение слоёв к плейхеду"
@@ -6481,12 +6481,12 @@ const AeFromNewbies: React.FC = () => {
           Предположим, вы решили написать какой-нибудь текст определённым шрифтом. Но вот
           незадача — шрифт при наборе почему-то меняется. Если вы уверены, что с самим
           шрифтом всё в порядке (например, в <mark className="app">Adobe Photoshop</mark>{" "}
-          он работает без проблем), скорее всего вы столкнулись с редким багом, который
+          он работает без проблем), скорее всего, вы столкнулись с редким багом, который
           может проявиться в любой версии <mark className="app">Adobe After Effects</mark>
           . К сожалению, не все шрифты, отлично работающие в{" "}
           <mark className="app">Adobe Photoshop</mark> и{" "}
-          <mark className="app">Adobe Illustrator</mark>, будут так же корректно работать
-          в <mark className="app">Adobe After Effects</mark> — из-за его особенностей.
+          <mark className="app">Adobe Illustrator</mark>, будут также корректно работать в{" "}
+          <mark className="app">Adobe After Effects</mark> — из-за его особенностей.
         </p>
         <p>
           Суть бага в том, что при смене начертания программа почему-то сохраняет для

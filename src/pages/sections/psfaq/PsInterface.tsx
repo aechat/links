@@ -48,10 +48,12 @@ const PsInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="dock-panel"
+        tag="dock panel, workspace, прикрепить окно, рабочее пространство"
         title="Как прикрепить нужное окно в рабочее пространство?"
       ></DetailsSummary>
       <DetailsSummary
         anchor="change-accent-color"
+        tag="акцентный цвет, консоль, тема, accent color, theme customization"
         title="Как изменить акцентный цвет интерфейса программы?"
       ></DetailsSummary>
       <DetailsSummary

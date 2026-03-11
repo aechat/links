@@ -156,8 +156,10 @@ const PrExport: React.FC = () => {
           Теперь поговорим и о приставках в названиях кодеков.
         </p>
         <Addition type="info">
-          Варианты кодирования показаны на устройстве со связкой процессора AMD и
-          видеокарты NVIDIA. Выбор у вас может отличаться в зависимости от вашего железа.
+          Варианты кодирования показаны на устройстве со связкой процессора{" "}
+          <mark className="company">AMD</mark> и видеокарты{" "}
+          <mark className="company">NVIDIA</mark>. Выбор у вас может отличаться в
+          зависимости от вашего железа.
         </Addition>
         <ul>
           <p>
@@ -170,13 +172,14 @@ const PrExport: React.FC = () => {
             всегда быстро.
           </li>
           <li>
-            <mark>NVIDIA NVENC</mark> используется для кодирования видео с использованием
-            видеокарты NVIDIA. Может ускорить процесс рендера, но не гарантирует 100%
-            использование видеокарты.
+            <mark className="select">«NVIDIA NVENC»</mark> используется для кодирования
+            видео с использованием видеокарты <mark className="company">NVIDIA</mark>.
+            Может ускорить процесс рендера, но не гарантирует 100% использование
+            видеокарты.
           </li>
           <li>
-            <mark>AMD AMF</mark> — то же самое, что и предыдущий параметр, но на
-            встроенном видеочипе AMD.
+            <mark className="select">«AMD AMF»</mark> — то же самое, что и предыдущий
+            параметр, но на встроенном видеочипе <mark className="company">AMD</mark>.
           </li>
         </ul>
         <ArticleMedia
@@ -310,6 +313,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-web"
+        tag="видео с прозрачностью, webm, vp9, av1, h265, alpha channel"
         title="Как вывести секвенцию в WEBM и VP9?"
       >
         <p>
@@ -410,6 +414,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-gif"
+        tag="сохранить анимированную гифку, gifgun, ezgif, animated gif"
         title="Как вывести секвенцию в GIF?"
       >
         <p>
@@ -584,6 +589,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-prores"
+        tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
         title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?"
       >
         <Addition type="warning">
@@ -672,6 +678,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-still"
+        tag="кадр, изображение, скриншот, jpg, png, psd, превью, still"
         title="Как вывести текущий кадр предпросмотра как файл изображения?"
       >
         <p>
@@ -691,6 +698,7 @@ const PrExport: React.FC = () => {
         <ArticleMedia
           caption="Export Frame"
           src="legacy/premierepro/export_frame.png"
+          tag="вывести секвенцию фото, jpg, png, psd"
           type="image"
         />
       </DetailsSummary>
@@ -735,6 +743,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-only-work-area"
+        tag="рабочая область, настройки рендера, длина секвенции, таймлайн"
         title="Как экспортировать всю длину секвенции или только её часть?"
       >
         <p>
@@ -790,6 +799,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="collect-files"
+        tag="сбор проекта, collect files, project manager"
         title="Я сделал работу, но мне нужно передать .PRPROJ вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?"
       >
         <p>
@@ -829,7 +839,7 @@ const PrExport: React.FC = () => {
                 После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
                 и создайте архив с помощью <a href="https://www.keka.io/ru/">keka</a>.
                 Если площадка или социальная сеть, в которой вы пытаетесь поделиться
-                архивом, вставляет палки в колёса в виде ограничений на размер файла - вы
+                архивом, вставляет палки в колёса в виде ограничений на размер файла — вы
                 сможете разделить архив на определённый размер файла перед его созданием и
                 отправить его другому человеку по кусочкам. После создания архива,
                 отправьте его другому человеку любым удобным для вас способом.
@@ -871,7 +881,7 @@ const PrExport: React.FC = () => {
                 <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
                 <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка или социальная
                 сеть, в которой вы пытаетесь поделиться архивом, вставляет палки в колёса
-                в виде ограничений на размер файла - вы сможете разделить архив на
+                в виде ограничений на размер файла — вы сможете разделить архив на
                 определённый размер файла перед его созданием и отправить его другому
                 человеку по кусочкам. После создания архива, отправьте его другому
                 человеку любым удобным для вас способом.
@@ -886,6 +896,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="export-xml"
+        tag="экспорт xml, перенос таймлайна, другой видеоредактор"
         title="Я нарезал видео, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?"
       >
         <p>

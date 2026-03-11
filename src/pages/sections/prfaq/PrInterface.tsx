@@ -39,6 +39,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="essential-graphics-missing"
+        tag="essential graphics missing, mogrt panel, графические шаблоны, окно панели"
         title="Куда пропало окно «Essential Graphics»?"
       >
         <p>
@@ -57,6 +58,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="set-to-frame-size-missing"
+        tag="масштаб под размер кадра, frame size, transform"
         title="Куда пропала кнопка «Set to Frame Size»?"
       >
         <p>
@@ -75,6 +77,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="change-time-display-format"
+        tag="альтернативный таймкод, формат времени, time display, frame count"
         title="Как изменить вид отсчёта времени на таймлайне?"
       >
         <p>
@@ -97,6 +100,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="dock-panel"
+        tag="dock panel, workspace, прикрепить окно, рабочее пространство"
         title="Как прикрепить нужное окно в рабочее пространство?"
       ></DetailsSummary>
       <DetailsSummary
@@ -123,6 +127,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="audio-waveforms-missing"
+        tag="audio waveforms, визуализация аудио, waveform missing, timeline audio display"
         title="Пропала визуализация аудиодорожек на таймлайне, как их вернуть?"
       >
         <p>
@@ -145,6 +150,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="change-accent-color"
+        tag="акцентный цвет, консоль, тема, accent color, theme customization"
         title="Как изменить акцентный цвет интерфейса программы?"
       >
         <Addition type="danger">
@@ -174,7 +180,7 @@ const PrInterface: React.FC = () => {
         />
         <p>
           Далее, после включения возможности изменять цвет, перейдите в{" "}
-          <mark className="app">«Edit» → «Preferences» → «Appearance»</mark> и...
+          <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и...
         </p>
         <p>
           В открывшейся цветовой палитре вы можете указать любой цвет, какой захотите.
@@ -188,6 +194,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="custom-splash-screen"
+        tag="заставка, изображение запуска, resource hacker, dll, startup image, splash screen customization"
         title="Как изменить картинку во время запуска программы?"
       >
         <Addition type="danger">

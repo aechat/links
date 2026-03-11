@@ -168,8 +168,7 @@ const AeActions: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Для этого включите{" "}
           <mark className="select">«Time Remapping»</mark> с помощью{" "}
           <mark className="key">Ctrl + Alt + T</mark>, а затем активируйте смешивание
-          кадров для слоя:
-          <mark className="key">ПКМ</mark> →{" "}
+          кадров для слоя: <mark className="key">ПКМ</mark> →{" "}
           <mark className="select">
             «Frame Blending» → «Frame Mix» или «Pixel Motion»
           </mark>

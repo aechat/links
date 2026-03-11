@@ -908,8 +908,9 @@ const AeInterface: React.FC = () => {
         </Addition>
         <p>
           <mark className="key">Ctrl + Space</mark> для открытия панели применения
-          эффектов — это не встроенная функция{" "}
-          <mark className="app">Adobe After Effects</mark>, а сторонний плагин{" "}
+          эффектов не является встроенной функцией{" "}
+          <mark className="app">Adobe After Effects</mark>. За него отвечает стороннее
+          дополнение{" "}
           <a href="https://www.videocopilot.net/blog/?s=fx%20console">FX Console</a>. С
           его помощью действительно можно быстро применить эффект к выделенному слою,
           нажав указанную комбинацию клавиш. Кроме того, плагин позволяет быстро создавать

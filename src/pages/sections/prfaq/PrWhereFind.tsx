@@ -774,10 +774,10 @@ const PrWhereFind: React.FC = () => {
           таблице перевода.
         </p>
         <Addition type="danger">
-          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
-          убрали папку <mark className="path">Obsolete</mark>, где были расположены
-          устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
-          проектов, который были созданы в предыдущих версиях{" "}
+          В <mark className="app">Adobe Premiere Pro 25.X (2025)</mark> и новее убрали
+          папку <mark className="path">Obsolete</mark>, где были расположены устаревшие,
+          по мнению <mark className="company">Adobe</mark>, эффекты. Эффекты всё ещё будут
+          доступны для проектов, которые были созданы в предыдущих версиях{" "}
           <mark className="app">Adobe Premiere</mark>, но без танцев с бубном их применить
           в новых проектах не получится.{" "}
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">

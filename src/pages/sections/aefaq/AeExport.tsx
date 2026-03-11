@@ -1945,7 +1945,7 @@ const AeExport: React.FC = () => {
           <mark className="video">AV1</mark> или <mark className="video">H.265</mark> с
           альфа-каналом, укажите их как источники для HTML-тега{" "}
           <mark className="code">{`<video>`}</mark>. Браузер сам выберет нужный формат:
-          например, <mark className="app">Chrome</mark>и{" "}
+          например, <mark className="app">Chrome</mark> и{" "}
           <mark className="app">Firefox</mark> будут использовать{" "}
           <mark className="video">VP9</mark>, а <mark className="app">Safari</mark> —{" "}
           <mark className="video">HEVC</mark>.
@@ -2552,7 +2552,7 @@ const AeExport: React.FC = () => {
             <ul>
               <li>
                 Для анимированных эмодзи нужно указать размер композиции <mark>100</mark>{" "}
-                на <mark>100</mark> пикселей. Ни больше ни меньше.
+                на <mark>100</mark> пикселей. Ни больше, ни меньше.
               </li>
               <li>
                 Ограничения по эффектам такие же, как и у{" "}

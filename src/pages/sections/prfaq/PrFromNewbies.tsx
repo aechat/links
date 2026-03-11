@@ -1670,36 +1670,36 @@ const PrFromNewbies: React.FC = () => {
         <ul>
           <li>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
-            <mark className="plugin">Boris FX Continuum</mark> - сборники эффектов и
+            <mark className="plugin">Boris FX Continuum</mark> — сборники эффектов и
             различных переходов.
           </li>
           <li>
             <mark className="plugin">Magic Bullet Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark> - ещё один сборник различных эффектов
+            <mark className="plugin">Universe</mark> — ещё один сборник различных эффектов
             и переходов.
           </li>
           <li>
-            <mark className="plugin">Boris FX Mocha Pro</mark> - плагин для планарного
+            <mark className="plugin">Boris FX Mocha Pro</mark> — плагин для планарного
             трекинга различных объектов.
           </li>
           <li>
             <mark className="plugin">Film Impact Premium Transitions</mark> и{" "}
-            <mark className="plugin">Film Impact Premium Effects</mark> - сборник
+            <mark className="plugin">Film Impact Premium Effects</mark> — сборник
             различных эффектов и переходов.
           </li>
           <li>
-            <mark className="plugin">FXHome Ignite Pro</mark> - плагин для добавления
+            <mark className="plugin">FXHome Ignite Pro</mark> — плагин для добавления
             визуальных эффектов и переходов.
           </li>
           <li>
             <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            - плагины для плавного замедления клипа и добавления размытия в движении.
+            — плагины для плавного замедления клипа и добавления размытия в движении.
           </li>
         </ul>
         <Divider>Подборка полезных инструментов</Divider>
         <li>
-          <mark className="plugin">Excalibur</mark> - панель для быстрого применения
+          <mark className="plugin">Excalibur</mark> — панель для быстрого применения
           различных переходов, эффектов и выполнения различных действий. Вызывается по
           умолчанию через комбинацию клавиш <mark className="key">Alt + Space</mark>, но
           можно переназначить на другую комбинацию в настройках плагина. Данный плагин
@@ -1721,7 +1721,7 @@ const PrFromNewbies: React.FC = () => {
           </Addition>
         </li>
         <li>
-          <mark className="app">Nobe OmniScope</mark> - программа, подключаемая к{" "}
+          <mark className="app">Nobe OmniScope</mark> — программа, подключаемая к{" "}
           <mark className="app">Adobe Premiere</mark> для отображения спектрограммы вашего
           видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только лучше.
         </li>
@@ -1729,8 +1729,9 @@ const PrFromNewbies: React.FC = () => {
         <ul>
           <li>
             <p>
-              <mark className="app">PluralEyes</mark> - программа от Red Giant для
-              синхронизации всех аудио и видео, снятые с разных камер.
+              <mark className="app">PluralEyes</mark> — программа от{" "}
+              <mark className="company">Red Giant</mark> для синхронизации всех аудио и
+              видео, снятые с разных камер.
             </p>
             <Addition type="warning">
               Для данной программы поддержка прекращена. Программой пользоваться можно, но
@@ -1743,7 +1744,7 @@ const PrFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="app">Syncaila</mark> или же{" "}
-              <mark className="app">Синкайла</mark> - отечественный продукт для
+              <mark className="app">Синкайла</mark> — отечественный продукт для
               синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
               истечении которого будет доступна синхронизация только 20 клипов на двух
               дорожках.
@@ -1757,13 +1758,13 @@ const PrFromNewbies: React.FC = () => {
         <Divider>Подборка для создания субтитров</Divider>
         <ul>
           <li>
-            <mark className="app">Subtitle Edit</mark> - сторонняя программа для
+            <mark className="app">Subtitle Edit</mark> — сторонняя программа для
             редактирования и генерации субтитров из звука с помощью технологий{" "}
             <mark>Whisper</mark> и <mark>Vosk/Kaldi</mark>.
           </li>
           <li>
             <p>
-              <mark className="plugin">Submachine</mark> - плагин для создания
+              <mark className="plugin">Submachine</mark> — плагин для создания
               анимированных субтитров, как в &quot;тиктоках&quot; и &quot;рилсах&quot;.
               Перед использованием плагина лучше уделить 20 минут и{" "}
               <a href="https://youtu.be/xYidiPvc_LY">
@@ -1771,59 +1772,60 @@ const PrFromNewbies: React.FC = () => {
               </a>
               .
             </p>
-            <Addition type="danger">
-              Данный плагин на <mark className="app">Adobe Premiere Pro</mark> версий{" "}
-              <mark>24.2</mark> и <mark>24.2.1</mark> работает кривовато. Рекомендуется
-              обновить программу до последней версии или откатиться до <mark>24.1</mark>.
+            <Addition type="warning">
+              Данный плагин на <mark className="app">Adobe Premiere</mark> версий{" "}
+              <mark>24.2 (2024)</mark> и <mark>24.2.1 (2024)</mark> может работать
+              некорректно. Рекомендуется обновить программу до последней версии или
+              откатиться до <mark>24.1 (2024)</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Captioneer</mark> - аналог предыдущего в списке
-            плагина, с помощью него тоже можно создавать анимированные субтитры и
-            применять на них стили из <mark className="file">MOGRT</mark> файлов.
+            <mark className="plugin">Captioneer</mark> — аналог предыдущего в списке
+            плагина, с его помощью тоже можно создавать анимированные субтитры и применять
+            на них стили из <mark className="file">MOGRT</mark> файлов.
           </li>
         </ul>
         <Divider>Подборка для обработки звука</Divider>
         <Addition type="info">
           <mark className="app">Adobe Premiere</mark> поддерживает любые VST3-плагины,
-          поэтому вы можете своими любимыми эффектами для обработки звука, если вы
-          работали ранее в DAW-программах и хотите перенести эффекты оттуда.
+          поэтому вы можете пользоваться своими любимыми эффектами для обработки звука,
+          если вы работали ранее в DAW-программах и хотите перенести эффекты оттуда.
         </Addition>
         <ul>
           <li>
             <mark className="plugin">iZotope RX</mark>,{" "}
             <mark className="plugin">iZotope Nectar</mark> и{" "}
-            <mark className="plugin">iZotope Ozone</mark> - плагины для обработки звука,
+            <mark className="plugin">iZotope Ozone</mark> — плагины для обработки звука,
             восстановления голоса и мастеринга.
           </li>
           <li>
-            <mark className="plugin">FabFilter Bundle</mark> - сборник различных плагинов
+            <mark className="plugin">FabFilter Bundle</mark> — сборник различных плагинов
             для обработки звука.
           </li>
           <li>
-            <mark className="plugin">Antares Auto-Tune</mark> - знаменитый плагин для
+            <mark className="plugin">Antares Auto-Tune</mark> — знаменитый плагин для
             коррекции голоса.
           </li>
         </ul>
         <Divider>Подборка для ретуши</Divider>
         <ul>
           <li>
-            <mark className="plugin">BeautyBox</mark> - плагин для ретуширования и
+            <mark className="plugin">BeautyBox</mark> — плагин для ретуширования и
             сглаживания кожи у человека на видео с сохранением естественного вида.
           </li>
         </ul>
         <Divider>Подборка для цветокоррекции и шумоподавления</Divider>
         <ul>
           <li>
-            <mark className="plugin">FilmConvert</mark> - плагин для применения различных
+            <mark className="plugin">FilmConvert</mark> — плагин для применения различных
             фильтров для имитации плёнки.
           </li>
           <li>
-            <mark className="plugin">Magic Bullet Looks</mark> - плагин для применения
+            <mark className="plugin">Magic Bullet Looks</mark> — плагин для применения
             художественной цветокоррекции.
           </li>
           <li>
-            <mark className="plugin">Neat Video</mark> - плагин для шумоподавления и
+            <mark className="plugin">Neat Video</mark> — плагин для шумоподавления и
             уменьшения мерцания на видео.
           </li>
         </ul>
@@ -1864,12 +1866,12 @@ const PrFromNewbies: React.FC = () => {
         title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
         <p>
-          В <mark className="app">Adobe Premiere</mark>, аналогично как и с{" "}
+          В <mark className="app">Adobe Premiere</mark>, как и в случае с{" "}
           <mark className="app">Adobe After Effects</mark>, вы можете наткнуться на
           различные баги и приколы при использовании сторонних шаблонов,{" "}
           <mark className="file">MOGRT</mark> или пресетов. Создатели подобного рода
           контента не рассчитывают на то, что вы будете использовать другую локализацию{" "}
-          <mark className="app">Adobe Premiere</mark>, отличную от английского.
+          <mark className="app">Adobe Premiere</mark>, отличную от английской.
         </p>
         <p>
           Для быстрой смены языка программы вам нужно открыть консоль с помощью комбинации
@@ -1884,7 +1886,7 @@ const PrFromNewbies: React.FC = () => {
         <p>
           Затем в строке поиска нам нужно написать{" "}
           <mark className="copy">ApplicationLanguage</mark> или найти этот параметр
-          вручную. В строке с одноимённым параметром пишем{" "}
+          вручную. В строке с одноимённым параметром вводим значение{" "}
           <mark className="copy">en_US</mark>.
         </p>
         <ArticleMedia
@@ -1893,11 +1895,11 @@ const PrFromNewbies: React.FC = () => {
           type="image"
         />
         <p>
-          После ввода значения - перезагрузите программу и вы сможете насладиться
+          После ввода значения — перезагрузите программу и вы сможете насладиться
           англоязычным интерфейсом программы.
         </p>
         <Addition type="info">
-          Чтобы вернуть язык, который был установлен по умолчанию - достаточно убрать
+          Чтобы вернуть язык, который был установлен по умолчанию — достаточно убрать
           значение из этого параметра и снова перезапустить{" "}
           <mark className="app">Adobe Premiere</mark>.
         </Addition>
@@ -2051,7 +2053,7 @@ const PrFromNewbies: React.FC = () => {
         title="Что такое Nest, как их создать и распаковывать?"
       >
         <p>
-          <mark>Nest</mark> - функция объединения нескольких клипов или слоев в одну
+          <mark>Nest</mark> — функция объединения нескольких клипов или слоев в одну
           секвенцию, которая затем может быть использована как единый элемент в таймлайне.
           Это бывает полезным для организации материала или применения эффектов к группе
           клипов одновременно.
@@ -2069,7 +2071,7 @@ const PrFromNewbies: React.FC = () => {
         />
         <p>
           А чтобы распаковать <mark>Nest</mark> или же наложить на таймлайн
-          &quot;распакованную&quot; секвенцию - найдите нужную секвенцию в окне{" "}
+          &quot;распакованную&quot; секвенцию — найдите нужную секвенцию в окне{" "}
           <mark className="select">«Project»</mark>, отключите функцию{" "}
           <mark className="select">
             «Insert and overwrite sequences as nests or individual clips»
@@ -2101,9 +2103,9 @@ const PrFromNewbies: React.FC = () => {
           <mark className="select">«V1»</mark> и <mark className="select">«A1»</mark>, или
           же <mark className="select">«Source Patching»</mark> отвечают за импорт футажей.
           Отключая либо <mark className="select">«A1»</mark> либо{" "}
-          <mark className="select">«V1»</mark> - вы отключаете возможность импорта либо
-          аудиодорожки, либо видеодорожки. Отключая или включая оба параметра - вы сможете
-          импортировать и видео и аудиодорожку на таймлайн.
+          <mark className="select">«V1»</mark> — вы отключаете возможность импорта либо
+          аудиодорожки, либо видеодорожки. Отключая или включая оба параметра — вы сможете
+          импортировать и видео, и аудиодорожку на таймлайн.
         </p>
         <ArticleMedia
           src="BOW2Fr7SKo0"
@@ -2112,9 +2114,9 @@ const PrFromNewbies: React.FC = () => {
         <p>
           А вот <mark className="select">«A1»</mark>, <mark className="select">«A2»</mark>
           , <mark className="select">«A3»</mark> и <mark className="select">«V1»</mark>,{" "}
-          <mark className="select">«V2»</mark>, <mark className="select">«V3»</mark>, или
-          же <mark className="select">«Track Targeting»</mark> отвечают за выделение
-          клипов и вставку видео и аудиодорожек на таймлайн.
+          <mark className="select">«V2»</mark>, <mark className="select">«V3»</mark> или{" "}
+          <mark className="select">«Track Targeting»</mark> отвечают за выделение клипов и
+          вставку видеодорожек и аудиодорожек на таймлайн.
         </p>
         <ArticleMedia
           src="pzQnzaRm2OY"
@@ -2123,6 +2125,7 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="sequence-independent"
+        tag="nest, unnest, независимая секвенция, duplicate sequence, nesting"
         title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?"
       ></DetailsSummary>
       <DetailsSummary
@@ -2160,7 +2163,7 @@ const PrFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          В предыдущих версиях <mark className="app">Adobe Premiere Pro</mark> вместо{" "}
+          В предыдущих версиях <mark className="app">Adobe Premiere</mark> вместо{" "}
           <mark className="select">«Fit to Frame»</mark> была кнопка{" "}
           <mark className="select">«Set to Frame Size»</mark>.
         </Addition>
@@ -2175,11 +2178,11 @@ const PrFromNewbies: React.FC = () => {
         title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
       >
         <p>
-          Adobe признала встроенные эффекты, пресеты и переходы, которые были в папке{" "}
-          <mark className="path">Obsolete</mark> слишком устаревшими и решила их удалить в
-          новых версиях. Проекты, которые были созданы в более старых версиях{" "}
-          <mark className="app">Adobe Premiere</mark>, могут работать спокойно, но
-          применить новые эффекты из окна{" "}
+          <mark className="company">Adobe</mark> признала встроенные эффекты, пресеты и
+          переходы, которые были в папке <mark className="path">Obsolete</mark> слишком
+          устаревшими и решила их удалить в новых версиях. Проекты, которые были созданы в
+          более старых версиях <mark className="app">Adobe Premiere</mark>, могут работать
+          спокойно, но применить новые эффекты из окна{" "}
           <mark className="select">«Effects & Presets»</mark> уже не получится.
         </p>
         <div className="flexible-links">
@@ -2197,19 +2200,20 @@ const PrFromNewbies: React.FC = () => {
             нужный пресет
           </a>{" "}
           и импортировать его в <mark className="app">Adobe Premiere</mark> в соответствии
-          с<a href="#how-to-install">инструкцией по установке дополнительного контента</a>
-          .
+          с{" "}
+          <a href="#how-to-install">инструкцией по установке дополнительного контента</a>.
         </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="restore-track"
-        title="Как вернуть звуковую или видео дорожку на таймлайне?"
+        tag="вернуть дорожку, track header, видеодорожка, аудиодорожка, timeline tracks"
+        title="Как вернуть звуковую или видеодорожку на таймлайне?"
       >
         <p>
           Для возвращения недостающей части у вашего исходника вам нужно выделить клип, а
           затем нажать на кнопку <mark className="key">F</mark>. Затем уберите{" "}
           <mark className="select">«Source patching for inserts and overwrites»</mark> в
-          той дорожке, в котором вы потеряли видео или аудио. После этого нажмите на{" "}
+          той дорожке, в которой вы потеряли видео или аудио. После этого нажмите на{" "}
           <mark className="key">.</mark> или <mark className="key">Ю</mark>.
         </p>
         <ArticleMedia
@@ -2220,6 +2224,7 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="preview-no-audio"
+        tag="пропало аудио, no audio, нет звука, аудио, отсутствует, audio hardware"
         title="Почему у меня отсутствует звук при проигрывании предпросмотра?"
       >
         <p>
@@ -2246,6 +2251,7 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="disable-selection-follow-playhead"
+        tag="selection follows playhead, выделение по курсору, timeline preference, playhead"
         title="Как отключить выделение объекта на таймлайне при перемещении временной метки?"
       >
         <p>
@@ -2279,7 +2285,8 @@ const PrFromNewbies: React.FC = () => {
           — входом в аккаунт <mark className="company">Adobe</mark>.
         </p>
         <Addition type="info">
-          После входа в аккаунт Adobe псевдо-лицензия не слетит, не переживайте.
+          После входа в аккаунт <mark className="company">Adobe</mark> псевдо-лицензия не
+          слетит, не переживайте.
         </Addition>
         <p>
           Для входа в аккаунт перейдите в <mark className="select">«Help»</mark> и нажмите
@@ -2291,7 +2298,7 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <Addition type="info">
         Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
-        другом разделе -{" "}
+        другом разделе —{" "}
         <a
           href="#interface"
           onClick={(event_) => {
