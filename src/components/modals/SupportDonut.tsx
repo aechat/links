@@ -179,18 +179,6 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 </div>
               </Modal>
             </div>
-            <p>
-              Также, если вы хотите сделать ресурс ещё лучше — вы можете поделиться своими
-              замечаниями и идеями через бота{" "}
-              <a
-                href="https://t.me/aechatru_bot"
-                rel="noreferrer"
-                target="_blank"
-              >
-                @aechatru_bot
-              </a>
-              .
-            </p>
           </div>
         </div>
       </Modal>
