@@ -448,8 +448,8 @@ const AePerformance: React.FC = () => {
           <li>
             <p>
               Если вам нужна более «проверенная» пользователями и относительно современная
-              версия, попробуйте <mark>25.1</mark> (2025), <mark>24.6</mark> (2024) или{" "}
-              <mark>23.6</mark> (2023).
+              версия, попробуйте <mark>25.1 (2025)</mark>, <mark>24.6 (2024)</mark> или{" "}
+              <mark>23.6 (2023)</mark>.
             </p>
             <Addition type="info">
               Современное оборудование требует более свежих версий{" "}
@@ -462,8 +462,8 @@ const AePerformance: React.FC = () => {
             <p>
               Если процессор вашего устройства не поддерживает{" "}
               <a href="https://www.youtube.com/watch?v=1IAwkEdRZZw">инструкции AVX2</a>,
-              вы можете установить версию <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
-              (2024).
+              вы можете установить версию <mark>23.6 (2023)</mark> или{" "}
+              <mark>24.0 (2024)</mark>.
             </p>
             <Addition type="warning">
               Если вы попытаетесь обойти требования к установке версии <mark>24.1</mark>{" "}
@@ -476,8 +476,8 @@ const AePerformance: React.FC = () => {
           <li>
             <p>
               Если вы используете устройство на <mark>Windows 7</mark> или{" "}
-              <mark>Windows 8.1</mark>, установите версию <mark>16.1</mark> (2019) или{" "}
-              <mark>15.1</mark> (2018). Более свежие версии установить не получится из-за
+              <mark>Windows 8.1</mark>, установите версию <mark>16.1 (2019)</mark> или{" "}
+              <mark>15.1 (2018)</mark>. Более свежие версии установить не получится из-за
               прекращения официальной поддержки этих операционных систем компаниями{" "}
               <mark className="company">Adobe</mark> и <mark>Microsoft</mark>.
             </p>
@@ -508,8 +508,8 @@ const AePerformance: React.FC = () => {
         </Addition>
         <p>
           При переходе с одной версии <mark className="app">Adobe After Effects</mark> на
-          другую в пределах одного «релизного года», например с <mark>24.1</mark> на{" "}
-          <mark>24.6</mark>, не нужно переносить файлы или выполнять какие-либо
+          другую в пределах одного «релизного года», например с <mark>24.1 (2024)</mark>{" "}
+          на <mark>24.6 (2024)</mark>, не нужно переносить файлы или выполнять какие-либо
           дополнительные действия. В таком случае установщик перезапишет старые файлы
           программы, не затрагивая пользовательские данные, включая установленные плагины.
           При запуске обновлённой версии <mark className="app">Adobe After Effects</mark>{" "}
@@ -517,10 +517,11 @@ const AePerformance: React.FC = () => {
         </p>
         <p>
           Но если вы решили обновить программу, перейдя на следующий «релизный год»,
-          например с <mark>23.6</mark> на <mark>25.2</mark>, потребуется вручную перенести
-          пользовательские файлы в новую версию, включая сторонние эффекты и пресеты. При
-          такой установке старая версия программы останется на устройстве и не будет
-          удалена автоматически. <a href="#update-app">Подробнее о переносе...</a>
+          например с <mark>23.6 (2023)</mark> на <mark>25.2 (2025)</mark>, потребуется
+          вручную перенести пользовательские файлы в новую версию, включая сторонние
+          эффекты и пресеты. При такой установке старая версия программы останется на
+          устройстве и не будет удалена автоматически.{" "}
+          <a href="#update-app">Подробнее о переносе...</a>
         </p>
         <Addition type="info">
           Не забывайте своевременно обновлять сторонние плагины и поддерживать
@@ -550,8 +551,8 @@ const AePerformance: React.FC = () => {
           памяти и 8 ядер процессора <mark>Intel Core Ultra 7 255H</mark>
           <sup>1</sup> без аппаратного ускорения. Затем установим разные версии{" "}
           <mark className="app">Adobe After Effects</mark>, на которых будем проверять
-          скорость рендеринга: <mark>13.2</mark> (CC 2014), <mark>15.1.2</mark> (CC 2018),{" "}
-          <mark>17.7</mark> (2020), <mark>23.6</mark> (2023) и <mark>25.4</mark> (2025).
+          скорость рендеринга: <mark>13.2 (2014)</mark>, <mark>15.1.2 (2018)</mark>,{" "}
+          <mark>17.7 (2020)</mark>, <mark>23.6 (2023)</mark> и <mark>25.4 (2025)</mark>.
         </p>
         <Addition type="info">
           <sup>1</sup> Несмотря на то что это процессор для ноутбуков, для чистоты
@@ -575,9 +576,9 @@ const AePerformance: React.FC = () => {
           программы.
         </p>
         <p>
-          Для «честного» сравнения в первом раунде в версии <mark>13.2</mark> (CC 2014) мы
+          Для «честного» сравнения в первом раунде в версии <mark>13.2 (2014)</mark> мы
           отключим <mark className="select">«Multiprocessing»</mark>, а в версиях{" "}
-          <mark>23.6</mark> (2023) и <mark>25.4</mark> (2025) —{" "}
+          <mark>23.6 (2023)</mark> и <mark>25.4 (2025)</mark> —{" "}
           <mark className="select">«Multi-Frame Rendering»</mark>. Также во всех версиях
           отключим дисковый кэш. В настройках каждой программы мы выделим по{" "}
           <mark>12 ГБ</mark> оперативной памяти, а остальные параметры оставим по
@@ -600,9 +601,9 @@ const AePerformance: React.FC = () => {
         <ul>
           <li>
             <p>
-              <mark className="app">Adobe After Effects</mark> <mark>13.2</mark> (CC 2014)
-              — 7 минут 33 секунды. Со включённым{" "}
-              <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
+              <mark className="app">Adobe After Effects 13.2 (2014)</mark> — 7 минут 33
+              секунды. Со включённым <mark className="select">«Multiprocessing»</mark> — 6
+              минут 3 секунды.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -612,8 +613,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects</mark> <mark>15.1.2</mark> (CC
-              2018) — 7 минут 27 секунд.
+              <mark className="app">Adobe After Effects 15.1.2 (2018)</mark> — 7 минут 27
+              секунд.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -623,8 +624,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects</mark> <mark>17.7</mark> (2020) —
-              8 минут 34 секунды.
+              <mark className="app">Adobe After Effects 17.7 (2020)</mark> — 8 минут 34
+              секунды.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -634,9 +635,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> (2023) —
-              8 минут 15 секунд без{" "}
-              <mark className="select">«Multi-Frame Rendering»</mark>.
+              <mark className="app">Adobe After Effects 23.6 (2023)</mark> — 8 минут 15
+              секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -646,9 +646,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects</mark> <mark>25.4</mark> (2025) —
-              8 минут 18 секунд без{" "}
-              <mark className="select">«Multi-Frame Rendering»</mark>.
+              <mark className="app">Adobe After Effects 25.4 (2025)</mark> — 8 минут 18
+              секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -670,7 +669,7 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Multi-Frame Rendering»</mark> в версиях{" "}
           <mark>23.6</mark> и <mark>25.4</mark> и запустить экспорт заново, как результат
           снова поразил, но уже не в пользу «старичков»: 4 минуты 53 секунды и 3 минуты 49
-          секунд соответственно. Версия <mark>13.2</mark> (CC 2014) даже со включённым{" "}
+          секунд соответственно. Версия <mark>13.2 (2014)</mark> даже со включённым{" "}
           <mark className="select">«Multiprocessing»</mark> и рядом не стояла со своими 6
           минутами и 3 секундами. При этом потребление оперативной памяти во всех версиях
           было примерно одинаковым и не выходило за установленный предел в{" "}
@@ -824,8 +823,8 @@ const AePerformance: React.FC = () => {
         <p>
           Если вам стало сложнее выполнять действия в программе из-за необъяснимых
           «тормозов», возможно, вы не заметили, что в версиях{" "}
-          <mark className="app">Adobe After Effects</mark> <mark>22.0</mark> (2022) и
-          новее по умолчанию включена функция{" "}
+          <mark className="app">Adobe After Effects 22.0 (2022)</mark> и новее по
+          умолчанию включена функция{" "}
           <mark className="select">«Cache Frames When Idle»</mark>. Она начинает
           кэшировать композицию, заполняя оперативную память и дисковый кэш, если вы не
           взаимодействуете с программой в течение восьми секунд.

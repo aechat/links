@@ -32,11 +32,10 @@ const AeExportProblems: React.FC = () => {
       >
         <p>
           Скорее всего, вы столкнулись с багом{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>23.1</mark>. Из-за
-          кириллицы или символов вне <mark>ASCII</mark> в пути сохранения при экспорте
-          через встроенный кодек <mark className="video">H.264</mark> получается
-          повреждённый файл размером <mark>1 КБ</mark>, который не открывается ни одной
-          программой.
+          <mark className="app">Adobe After Effects 23.1 (2023)</mark>. Из-за кириллицы
+          или символов вне <mark>ASCII</mark> в пути сохранения при экспорте через
+          встроенный кодек <mark className="video">H.264</mark> получается повреждённый
+          файл размером <mark>1 КБ</mark>, который не открывается ни одной программой.
         </p>
         <Addition type="info">
           Проверить текущую версию <mark className="app">Adobe After Effects</mark> можно

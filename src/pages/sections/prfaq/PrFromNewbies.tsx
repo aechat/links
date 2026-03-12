@@ -1666,6 +1666,13 @@ const PrFromNewbies: React.FC = () => {
           автоматизировать вашу рутинную работу с кадрами и шотами. Ниже приведу список
           популярных плагинов.
         </p>
+        <Addition type="info">
+          Большинство дополнений из статьи можно найти в каналах{" "}
+          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+          <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
+          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
+          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+        </Addition>
         <Divider>Подборка для совместимости с чужими проектами</Divider>
         <ul>
           <li>
@@ -2324,7 +2331,7 @@ const PrFromNewbies: React.FC = () => {
             }
           }}
         >
-          Интерфейс
+          «Интерфейс»
         </a>
         .
       </Addition>

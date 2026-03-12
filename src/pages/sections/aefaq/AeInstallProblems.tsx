@@ -1756,8 +1756,8 @@ const AeInstallProblems: React.FC = () => {
           корректной работы последних версий{" "}
           <mark className="app">Adobe After Effects</mark>. Чтобы устранить проблему —
           обновите устройство или процессор на более современный либо установите более
-          старую версию программы, например <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
-          (2024).
+          старую версию программы, например <mark>23.6 (2023)</mark> или{" "}
+          <mark>24.0 (2024)</mark>.
         </p>
         <Divider>
           Исправляем ошибку 21 —{" "}
@@ -1771,9 +1771,9 @@ const AeInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                или новее на устаревшую сборку <mark>Windows</mark>. В таком случае есть
-                только два решения.
+                <mark className="app">Adobe After Effects 24.X (2024)</mark> или новее на
+                устаревшую сборку <mark>Windows</mark>. В таком случае есть только два
+                решения.
               </p>
               <ul>
                 <li>
@@ -1794,12 +1794,12 @@ const AeInstallProblems: React.FC = () => {
                       <li>
                         Последняя версия <mark className="app">Adobe After Effects</mark>,
                         поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                        <mark>2019 (16.X)</mark>.
+                        <mark>16.X (2019)</mark>.
                       </li>
                       <li>
                         Последняя версия <mark className="app">Adobe After Effects</mark>,
                         поддерживающая <mark>Windows 10</mark> версии{" "}
-                        <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
+                        <mark>LTSC 21H2</mark> — <mark>23.X (2023)</mark>.
                       </li>
                       <li>
                         Последняя версия <mark className="app">Adobe After Effects</mark>,{" "}
@@ -1807,7 +1807,7 @@ const AeInstallProblems: React.FC = () => {
                           <u>официально</u>
                         </b>{" "}
                         поддерживающая <mark>Windows 10</mark> версии <mark>22H2</mark> —{" "}
-                        <mark>2025 (25.X)</mark>.
+                        <mark>25.X (2025)</mark>.
                       </li>
                     </ul>
                   </Addition>
@@ -1846,7 +1846,7 @@ const AeInstallProblems: React.FC = () => {
                   Если вы не желаете обновлять или переустанавливать систему, то можете
                   установить более старую версию{" "}
                   <mark className="app">Adobe After Effects</mark>, например{" "}
-                  <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
+                  <mark>23.6 (2023)</mark> или <mark>15.1 (2018)</mark>. В таком случае
                   установка пройдёт корректно.
                 </li>
               </ul>
@@ -2264,26 +2264,25 @@ const AeInstallProblems: React.FC = () => {
         </p>
         <p>
           Предположим, вы видите установщики:{" "}
-          <mark className="app">Adobe After Effects 2025</mark> версии{" "}
-          <mark>25.3.2.2</mark>, <mark className="app">Adobe Premiere Pro 2025</mark> —{" "}
-          <mark>25.3.0.84</mark> и <mark className="app">Adobe Media Encoder 2025</mark> —{" "}
-          <mark>25.3.0.73</mark>. Может показаться, что из-за разницы в последних цифрах
-          они не смогут «увидеть» друг друга, однако это не так. Программы этих версий
-          будут спокойно работать и взаимодействовать между собой.
+          <mark className="app">Adobe After Effects 25.3.2.2 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro 25.3.0.84 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder 25.3.0.73 (2025)</mark>. Может
+          показаться, что из-за разницы в последних цифрах они не смогут «увидеть» друг
+          друга, однако это не так. Программы этих версий будут спокойно работать и
+          взаимодействовать между собой.
         </p>
         <p>
           Более того, точное совпадение релиз-поинта не всегда обязательно, если
           установлена одна и та же мажорная версия. Например, связка из{" "}
-          <mark className="app">Adobe After Effects 2025</mark> версии <mark>25.3</mark>,{" "}
-          <mark className="app">Adobe Premiere Pro 2025</mark> версии <mark>25.1</mark> и{" "}
-          <mark className="app">Adobe Media Encoder 2025</mark> версии <mark>25.0</mark>{" "}
-          будет работать без особых проблем. Однако всё же лучше устанавливать программы
-          одного релиз-поинта, например <mark>25.3</mark> — это поможет избежать возможных
-          сложностей.
+          <mark className="app">Adobe After Effects 25.3 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro 25.1 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder 25.0 (2025)</mark> будет работать без
+          особых проблем. Однако всё же лучше устанавливать программы одного релиз-поинта,
+          например <mark>25.3</mark> — это поможет избежать возможных сложностей.
         </p>
         <p>
           Но если одна из программ окажется версией предыдущего релизного цикла, например{" "}
-          <mark>24.6</mark> (2024), а вторая — <mark>25.3</mark> (2025), они не смогут
+          <mark>24.6 (2024)</mark>, а вторая — <mark>25.3 (2025)</mark>, они не смогут
           «увидеть» друг друга, поскольку их мажорные версии не совпадают. Обратной
           совместимости в таком случае нет, и <mark className="plugin">Dynamic Link</mark>{" "}
           просто не будет работать с ними.
@@ -2295,7 +2294,7 @@ const AeInstallProblems: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Чаще всего такие плагины
           работают и на релизах двухлетней давности. Например, если установить{" "}
           <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
-          <mark className="app">Adobe After Effects 2023</mark>, всё будет работать
+          <mark className="app">Adobe After Effects 23.X (2023)</mark>, всё будет работать
           корректно.
         </p>
       </DetailsSummary>
@@ -2325,11 +2324,12 @@ const AeInstallProblems: React.FC = () => {
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
             <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
-            например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
-            <mark className="app">Adobe Media Encoder 2023</mark>, — они никогда не смогут
-            взаимодействовать через <mark className="plugin">Dynamic Link</mark>, так как
-            версии релизного цикла различаются.
+            например, установлены{" "}
+            <mark className="app">Adobe After Effects 25.X (2025)</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro 24.X (2024)</mark> и{" "}
+            <mark className="app">Adobe Media Encoder 23.X (2023)</mark>, — они никогда не
+            смогут взаимодействовать через <mark className="plugin">Dynamic Link</mark>,
+            так как версии релизного цикла различаются.
           </li>
         </ul>
         <ContentFilter
@@ -2554,12 +2554,11 @@ const AeInstallProblems: React.FC = () => {
                 <li>
                   Проверьте версию вашей операционной системы — она должна соответствовать
                   системным требованиям. Если вы запускаете, например,{" "}
-                  <mark className="app">Adobe After Effects</mark> версии{" "}
-                  <mark>2024</mark> на <mark>Windows 10</mark> сборки <mark>1809</mark>,
-                  могут возникать ошибки даже со встроенными эффектами. В этом случае
-                  обновите систему до последней доступной сборки через{" "}
-                  <mark className="file">ISO</mark>. Узнать текущую сборку можно через{" "}
-                  <mark className="app">winver</mark>.
+                  <mark className="app">Adobe After Effects 24.X (2024)</mark> на{" "}
+                  <mark>Windows 10</mark> сборки <mark>1809</mark>, могут возникать ошибки
+                  даже со встроенными эффектами. В этом случае обновите систему до
+                  последней доступной сборки через <mark className="file">ISO</mark>.
+                  Узнать текущую сборку можно через <mark className="app">winver</mark>.
                 </li>
                 <li>
                   <p>
@@ -2628,12 +2627,12 @@ const AeInstallProblems: React.FC = () => {
                   <li>
                     Последняя версия <mark className="app">Adobe After Effects</mark>,
                     поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                    <mark>2019 (16.X)</mark>.
+                    <mark>16.X (2019)</mark>.
                   </li>
                   <li>
                     Последняя версия <mark className="app">Adobe After Effects</mark>,
                     поддерживающая <mark>Windows 10</mark> версии <mark>LTSC 21H2</mark> —{" "}
-                    <mark>2023 (23.X)</mark>.
+                    <mark>23.X (2023)</mark>.
                   </li>
                 </ul>
               </Addition>
@@ -2788,10 +2787,9 @@ const AeInstallProblems: React.FC = () => {
                 <li>
                   Если нужные плагины давно не обновлялись или недоступны для{" "}
                   <mark>Mac</mark> на <mark>Apple Silicon</mark>, откатитесь на версию{" "}
-                  <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> — в
-                  ней ещё доступна возможность запуска через{" "}
-                  <mark className="app">Rosetta</mark> на старых <mark>Mac</mark> с{" "}
-                  <mark className="company">Intel</mark>.
+                  <mark className="app">Adobe After Effects 23.6 (2023)</mark> — в ней ещё
+                  доступна возможность запуска через <mark className="app">Rosetta</mark>{" "}
+                  на старых <mark>Mac</mark> с <mark className="company">Intel</mark>.
                 </li>
                 <li>
                   Или найдите у себя старый <mark>Mac</mark> на процессоре{" "}
@@ -2981,9 +2979,9 @@ const AeInstallProblems: React.FC = () => {
         <Divider>Обновляемся между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
-          пределах «одного года», например с <mark>24.0</mark> на <mark>24.6</mark>,
-          достаточно запустить инсталлятор и выполнить стандартное обновление кнопками{" "}
-          <mark className="select">«Установить»</mark> и{" "}
+          пределах «одного года», например с <mark>24.0 (2024)</mark> на{" "}
+          <mark>24.6 (2024)</mark>, достаточно запустить инсталлятор и выполнить
+          стандартное обновление кнопками <mark className="select">«Установить»</mark> и{" "}
           <mark className="select">«Продолжить»</mark>. Установщик перезапишет только
           основные файлы программы, сохранив ваши дополнения, поэтому переносить плагины и
           пресеты вручную не придётся.
@@ -3024,9 +3022,9 @@ const AeInstallProblems: React.FC = () => {
           windowsContent={
             <>
               <p>
-                При обновлении с «одного года» на другой, например с <mark>23.6</mark> на{" "}
-                <mark>25.2</mark>, вам придётся немного повозиться с переносом некоторых
-                типов дополнений.
+                При обновлении с «одного года» на другой, например с{" "}
+                <mark>23.6 (2023)</mark> на <mark>25.2 (2025)</mark>, вам придётся немного
+                повозиться с переносом некоторых типов дополнений.
               </p>
               <Addition type="info">
                 При установке версии «другого года» старая версия программы никуда не
@@ -3234,8 +3232,8 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="company">Adobe</mark>, обычно это{" "}
                 <mark className="path">C:\Program Files\Adobe</mark>. Затем продублируйте
                 папку старой версии, уберите из имени приставку <mark>«- копия»</mark> и
-                измените год на нужный. Например, при переходе с <mark>23.6</mark> на{" "}
-                <mark>25.2</mark> переименуйте папку{" "}
+                измените год на нужный. Например, при переходе с <mark>23.6 (2023)</mark>{" "}
+                на <mark>25.2 (2025)</mark> переименуйте папку{" "}
                 <mark className="path">Adobe After Effects 2023</mark> в{" "}
                 <mark className="path">Adobe After Effects 2025</mark>.
               </p>

@@ -1377,8 +1377,8 @@ const AeImport: React.FC = () => {
         </Addition>
         <Divider>Про конвертацию слоёв в фигуры</Divider>
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>2026</mark> и
-          новее появилась возможность{" "}
+          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее появилась
+          возможность{" "}
           <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html#convert-Illustrator-layers-to-shape-layers">
             преобразовывать слои Illustrator в фигуры без потери градиентов
           </a>
@@ -1400,7 +1400,7 @@ const AeImport: React.FC = () => {
         <Divider>Создаём фигуры с градиентами на предыдущих версиях программы</Divider>
         <Addition type="tldr">
           Обновите <mark className="app">Adobe After Effects</mark> до версии{" "}
-          <mark>26.0</mark> или пользуйтесь сторонними расширениями, например{" "}
+          <mark>26.0 (2026)</mark> или пользуйтесь сторонними расширениями, например{" "}
           <mark className="plugin">Overlord</mark>.
         </Addition>
         <p>
@@ -1565,12 +1565,11 @@ const AeImport: React.FC = () => {
           <mark className="plugin">Advanced 3D</mark>
         </Divider>
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
-          новее появился новый движок рендеринга{" "}
-          <mark className="plugin">Advanced 3D</mark>, который позволяет импортировать
-          трёхмерные объекты без использования сторонних плагинов. В последней версии{" "}
-          <mark className="app">Adobe After Effects</mark> на момент написания статьи
-          поддерживается импорт <mark className="file">OBJ</mark>,{" "}
+          В <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее появился
+          новый движок рендеринга <mark className="plugin">Advanced 3D</mark>, который
+          позволяет импортировать трёхмерные объекты без использования сторонних плагинов.
+          В последней версии <mark className="app">Adobe After Effects</mark> на момент
+          написания статьи поддерживается импорт <mark className="file">OBJ</mark>,{" "}
           <mark className="file">FBX</mark>, <mark className="file">GLTF</mark> и{" "}
           <mark className="file">GLB</mark> без использования сторонних инструментов.
           Такие модели можно создавать и редактировать в любом популярном трёхмерном

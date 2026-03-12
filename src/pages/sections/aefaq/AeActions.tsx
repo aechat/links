@@ -1014,7 +1014,7 @@ const AeActions: React.FC = () => {
         <Divider>Используем Unmult</Divider>
         <p>
           Для футажей со множеством мелких деталей в{" "}
-          <mark className="app">After Effects</mark>
+          <mark className="app">Adobe After Effects</mark>
           начиная с версии <mark>2026</mark> можно использовать новый эффект{" "}
           <mark className="plugin">Unmult</mark>.{" "}
           <a href="https://helpx.adobe.com/after-effects/using/keying-effects.html#unmult">
@@ -1272,8 +1272,7 @@ const AeActions: React.FC = () => {
         title="Как сделать анимацию толщины шрифта?"
       >
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>26.0</mark> и
-          выше добавили{" "}
+          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и выше добавили{" "}
           <a href="https://helpx.adobe.com/after-effects/using/variable-font-axes-support.html">
             поддержку вариативных шрифтов
           </a>{" "}
@@ -1335,9 +1334,9 @@ const AeActions: React.FC = () => {
             <Addition type="warning">
               <mark className="plugin">Duik Bassel</mark> может выдавать ошибку{" "}
               <mark className="warning">«themeColor is no longer available»</mark> в{" "}
-              <mark className="app">Adobe After Effects</mark> версии <mark>2025</mark>.
-              Эта проблема решается либо переходом на{" "}
-              <mark className="plugin">Duik Angela</mark>, либо самодельным багофиксом из{" "}
+              <mark className="app">Adobe After Effects 25.X (2025)</mark>. Эта проблема
+              решается либо переходом на <mark className="plugin">Duik Angela</mark>, либо
+              самодельным багофиксом из{" "}
               <a href="https://www.reddit.com/r/AfterEffects/comments/1jams32/i_got_duik_bassel_to_work_in_after_effects_2025">
                 темы на Reddit
               </a>

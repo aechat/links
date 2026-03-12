@@ -504,11 +504,11 @@ const AeErrors: React.FC = () => {
             </p>
             <Addition type="info">
               <p>
-                В <mark className="app">Adobe After Effects</mark> версии{" "}
-                <mark>25.2</mark> и новее добавили функцию воспроизведения предпросмотра
-                напрямую из дискового кэша, без загрузки кадров в ОЗУ. Это может быть
-                полезно, если у вас мало оперативной памяти. Опция включена по умолчанию,
-                если активен дисковый кэш. Управлять ей можно в{" "}
+                В <mark className="app">Adobe After Effects 25.2 (2025)</mark> и новее
+                добавили функцию воспроизведения предпросмотра напрямую из дискового кэша,
+                без загрузки кадров в ОЗУ. Это может быть полезно, если у вас мало
+                оперативной памяти. Опция включена по умолчанию, если активен дисковый
+                кэш. Управлять ей можно в{" "}
                 <mark className="select">
                   «Edit» → «Preferences» → «Disk» → «Enable Preview from Disk Cache»
                 </mark>
@@ -786,8 +786,7 @@ const AeErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                и новее.
+                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -849,8 +848,7 @@ const AeErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                и новее.
+                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -932,11 +930,10 @@ const AeErrors: React.FC = () => {
           windowsContent={
             <>
               <p>
-                В <mark className="app">Adobe After Effects</mark> версии{" "}
-                <mark>24.1</mark> и новее появился новый движок для трёхмерного
-                рендеринга. Иногда он может работать некорректно и выдавать ошибку при
-                использовании. Причины такого поведения могут быть разными: от простого
-                бага, который решается запуском{" "}
+                В <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее
+                появился новый движок для трёхмерного рендеринга. Иногда он может работать
+                некорректно и выдавать ошибку при использовании. Причины такого поведения
+                могут быть разными: от простого бага, который решается запуском{" "}
                 <mark className="app">Adobe After Effects</mark> от имени администратора,
                 до отсутствия поддержки движка вашим устройством.
               </p>
@@ -997,10 +994,10 @@ const AeErrors: React.FC = () => {
                   </p>
                   <Addition type="info">
                     У меня, автора статьи, на ранних сборках{" "}
-                    <mark className="app">Adobe After Effects</mark> версии{" "}
-                    <mark>2024</mark> движок <mark className="plugin">Advanced 3D</mark>{" "}
-                    не запускался, выдавая указанную в статье ошибку, однако после
-                    нескольких обновлений программы он начал работать корректно.
+                    <mark className="app">Adobe After Effects 24.X (2024)</mark> движок{" "}
+                    <mark className="plugin">Advanced 3D</mark> не запускался, выдавая
+                    указанную в статье ошибку, однако после нескольких обновлений
+                    программы он начал работать корректно.
                   </Addition>
                 </li>
                 <li>
@@ -1055,8 +1052,8 @@ const AeErrors: React.FC = () => {
             <li>
               Например, если в ошибке указано, что нужна{" "}
               <mark className="app">Cinema 4D 2023</mark>, то устанавливайте любую
-              подверсию <mark>2023.X.X</mark>. Версии <mark>2024.X.X</mark> в таком случае
-              не подойдут.
+              подверсию <mark>2023.X.X</mark>. Версии <mark>2024.X.X</mark> или другие в
+              таком случае не подойдут.
             </li>
             <li>
               Если вы установили нужную версию <mark className="app">Cinema 4D</mark>, но
@@ -1341,8 +1338,8 @@ const AeErrors: React.FC = () => {
           Скорее всего, вы столкнулись со старым багом{" "}
           <mark className="app">Adobe After Effects</mark> версии <mark>CC 2019</mark>,
           если используете репак от <mark className="user">KpoJluK</mark>. Проблема
-          решается откатом программы до версии <mark>CC 2018</mark>, установкой{" "}
-          <mark className="app">Adobe After Effects 2019</mark> в виде сборки от{" "}
+          решается откатом программы до версии <mark>15.X (2018)</mark>, установкой{" "}
+          <mark className="app">Adobe After Effects 16.X (2019)</mark> в виде сборки от{" "}
           <mark className="user">m0nkrus</mark> или установкой более свежей версии
           программы от любого репакера.
         </p>
@@ -1840,9 +1837,9 @@ const AeErrors: React.FC = () => {
             <>
               <p>
                 Эту ошибку вы можете встретить при попытке запустить{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
-                или новее. Обычно у неё две причины: либо ваш процессор не поддерживает
-                инструкции <mark>AVX2</mark>, либо система каким-то образом повредилась.
+                <mark className="app">Adobe After Effects 24.1 (2024)</mark> или новее.
+                Обычно у неё две причины: либо ваш процессор не поддерживает инструкции{" "}
+                <mark>AVX2</mark>, либо система каким-то образом повредилась.
               </p>
               <Divider>Проверяем системные требования</Divider>
               <p>
@@ -1858,8 +1855,8 @@ const AeErrors: React.FC = () => {
                 ниже, а также на более ранних процессорах{" "}
                 <mark className="company">AMD</mark>, где этих инструкций нет. Так что
                 если ваш процессор не подходит, решение простое: либо установите{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>23.6</mark>{" "}
-                или ниже, либо, если возможно, обновите «железо».
+                <mark className="app">Adobe After Effects 23.6 (2023)</mark> или ниже,
+                либо, если возможно, обновите «железо».
               </p>
               <Divider>Проверяем целостность системы</Divider>
               <p>
@@ -2031,8 +2028,8 @@ const AeErrors: React.FC = () => {
           <mark className="plugin">Ray-Traced 3D</mark> впервые появился в{" "}
           <mark className="app">Adobe After Effects</mark> версии <mark>CS6</mark>. Чтобы
           корректно открыть проект с этим устаревшим движком, используйте{" "}
-          <mark className="app">Adobe After Effects 2019</mark> или более раннюю версию,
-          но не ниже <mark>CS6</mark>.
+          <mark className="app">Adobe After Effects 16.X (2019)</mark> или более раннюю
+          версию, но не ниже <mark>CS6</mark>.
         </p>
       </DetailsSummary>
     </div>

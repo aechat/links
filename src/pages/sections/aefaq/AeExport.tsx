@@ -1099,8 +1099,8 @@ const AeExport: React.FC = () => {
           <mark className="app">Adobe Media Encoder</mark>. Это можно сделать несколькими
           способами: с помощью стандартного экспортёра{" "}
           <mark className="video">H.264</mark>, доступного в{" "}
-          <mark className="app">Adobe After Effects</mark> с версии <mark>2023</mark> и
-          новее, или сторонних плагинов — <mark className="plugin">Voukoder</mark> и{" "}
+          <mark className="app">Adobe After Effects 23.0 (2023)</mark> и новее, или
+          сторонних плагинов — <mark className="plugin">Voukoder</mark> и{" "}
           <mark className="plugin">AfterCodecs</mark>. Какой способ выбрать — зависит от
           вас, цели экспорта и вашего проекта.
         </p>
@@ -2284,8 +2284,8 @@ const AeExport: React.FC = () => {
           В предыдущих версиях <mark className="app">Adobe After Effects</mark> нельзя
           было импортировать файлы с кодеком <mark className="app">Apple ProRes</mark> и
           экспортировать композиции в <mark className="app">Apple ProRes</mark>. Данная
-          функция появилась в <mark className="app">Adobe After Effects</mark> версии{" "}
-          <mark>16.0.1</mark> (2019) и новее.
+          возможность появилась в{" "}
+          <mark className="app">Adobe After Effects 16.0.1 (2019)</mark> и новее.
         </Addition>
         <p>
           Ключевая особенность монтажных кодеков, включая{" "}

@@ -94,8 +94,8 @@ const PrInstallProblems: React.FC = () => {
                   убедитесь, что у вас установлены{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
                   <mark className="app">Adobe Premiere</mark> одного года выпуска.
-                  Например, <mark className="app">Adobe After Effects 2025</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro 2024</mark> не смогут
+                  Например, <mark className="app">Adobe After Effects 25.X (2025)</mark> и{" "}
+                  <mark className="app">Adobe Premiere Pro 24.X (2024)</mark> не смогут
                   взаимодействовать через <mark className="plugin">Dynamic Link</mark>,
                   так как их релизные циклы различаются.
                 </li>
@@ -1947,7 +1947,7 @@ const PrInstallProblems: React.FC = () => {
           корректной работы последних версий <mark className="app">Adobe Premiere</mark>.
           Чтобы устранить проблему — обновите устройство или процессор на более
           современный либо установите более старую версию программы, например{" "}
-          <mark>23.6</mark> (2023) или <mark>24.0</mark> (2024).
+          <mark>23.6 (2023)</mark> или <mark>24.0 (2024)</mark>.
         </p>
         <Divider>
           Исправляем ошибку 21 —{" "}
@@ -1961,9 +1961,9 @@ const PrInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
-                <mark className="app">Adobe Premiere</mark> версии <mark>2024</mark> или
-                новее на устаревшую сборку <mark>Windows</mark>. В таком случае есть
-                только два решения.
+                <mark className="app">Adobe Premiere Pro 24.X (2024)</mark> или новее на
+                устаревшую сборку <mark>Windows</mark>. В таком случае есть только два
+                решения.
               </p>
               <ul>
                 <li>
@@ -1984,12 +1984,12 @@ const PrInstallProblems: React.FC = () => {
                       <li>
                         Последняя версия <mark className="app">Adobe Premiere</mark>,
                         поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                        <mark>2019 (16.X)</mark>.
+                        <mark>16.X (2019)</mark>.
                       </li>
                       <li>
                         Последняя версия <mark className="app">Adobe Premiere</mark>,
                         поддерживающая <mark>Windows 10</mark> версии{" "}
-                        <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
+                        <mark>LTSC 21H2</mark> — <mark>23.X (2023)</mark>.
                       </li>
                     </ul>
                   </Addition>
@@ -2027,9 +2027,8 @@ const PrInstallProblems: React.FC = () => {
                 <li>
                   Если вы не желаете обновлять или переустанавливать систему, то можете
                   установить более старую версию{" "}
-                  <mark className="app">Adobe Premiere</mark>, например <mark>23.6</mark>{" "}
-                  (2023) или <mark>15.1</mark> (2018). В таком случае установка пройдёт
-                  корректно.
+                  <mark className="app">Adobe Premiere Pro 23.6 (2023)</mark> или{" "}
+                  <mark>15.1 (2018)</mark>. В таком случае установка пройдёт корректно.
                 </li>
               </ul>
             </>
@@ -2498,26 +2497,25 @@ const PrInstallProblems: React.FC = () => {
         </p>
         <p>
           Предположим, вы видите установщики:{" "}
-          <mark className="app">Adobe After Effects 2025</mark> версии{" "}
-          <mark>25.3.2.2</mark>, <mark className="app">Adobe Premiere Pro 2025</mark> —{" "}
-          <mark>25.3.0.84</mark> и <mark className="app">Adobe Media Encoder 2025</mark> —{" "}
-          <mark>25.3.0.73</mark>. Может показаться, что из-за разницы в последних цифрах
-          они не смогут «увидеть» друг друга, однако это не так. Программы этих версий
-          будут спокойно работать и взаимодействовать между собой.
+          <mark className="app">Adobe After Effects 25.3.2.2 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro 25.3.0.84 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder 25.3.0.73 (2025)</mark>. Может
+          показаться, что из-за разницы в последних цифрах они не смогут «увидеть» друг
+          друга, однако это не так. Программы этих версий будут спокойно работать и
+          взаимодействовать между собой.
         </p>
         <p>
           Более того, точное совпадение релиз-поинта не всегда обязательно, если
           установлена одна и та же мажорная версия. Например, связка из{" "}
-          <mark className="app">Adobe After Effects 2025</mark> версии <mark>25.3</mark>,{" "}
-          <mark className="app">Adobe Premiere Pro 2025</mark> версии <mark>25.1</mark> и{" "}
-          <mark className="app">Adobe Media Encoder 2025</mark> версии <mark>25.0</mark>{" "}
-          будет работать без особых проблем. Однако всё же лучше устанавливать программы
-          одного релиз-поинта, например <mark>25.3</mark> — это поможет избежать возможных
-          сложностей.
+          <mark className="app">Adobe After Effects 25.3 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro 25.1 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder 25.0 (2025)</mark> будет работать без
+          особых проблем. Однако всё же лучше устанавливать программы одного релиз-поинта,
+          например <mark>25.3</mark> — это поможет избежать возможных сложностей.
         </p>
         <p>
           Но если одна из программ окажется версией предыдущего релизного цикла, например{" "}
-          <mark>24.6</mark> (2024), а вторая — <mark>25.3</mark> (2025), они не смогут
+          <mark>24.6 (2024)</mark>, а вторая — <mark>25.3 (2025)</mark>, они не смогут
           «увидеть» друг друга, поскольку их мажорные версии не совпадают. Обратной
           совместимости в таком случае нет, и <mark className="plugin">Dynamic Link</mark>{" "}
           просто не будет работать с ними.
@@ -2528,7 +2526,7 @@ const PrInstallProblems: React.FC = () => {
           должны строго соответствовать версии <mark className="app">Adobe Premiere</mark>
           . Чаще всего такие плагины работают и на релизах двухлетней давности. Например,
           если установить <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
-          <mark className="app">Adobe Premiere Pro 2023</mark>, всё будет работать
+          <mark className="app">Adobe Premiere Pro 23.X (2023)</mark>, всё будет работать
           корректно.
         </p>
       </DetailsSummary>
@@ -2558,11 +2556,12 @@ const PrInstallProblems: React.FC = () => {
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
             <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
-            например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
-            <mark className="app">Adobe Media Encoder 2023</mark>, — они никогда не смогут
-            взаимодействовать через <mark className="plugin">Dynamic Link</mark>, так как
-            версии релизного цикла различаются.
+            например, установлены{" "}
+            <mark className="app">Adobe After Effects 25.X (2025)</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro 24.X (2024)</mark> и{" "}
+            <mark className="app">Adobe Media Encoder 23.X (2023)</mark>, — они никогда не
+            смогут взаимодействовать через <mark className="plugin">Dynamic Link</mark>,
+            так как версии релизного цикла различаются.
           </li>
         </ul>
         <ContentFilter
@@ -2870,8 +2869,8 @@ const PrInstallProblems: React.FC = () => {
         </p>
         <Addition type="info">
           Под «годом» обычно подразумевается мажорная версия в названии программы,
-          например <mark className="app">Adobe Premiere Pro 2023</mark> или{" "}
-          <mark className="app">Adobe Media Encoder 2025</mark>.
+          например <mark className="app">Adobe Premiere Pro 23.X (2023)</mark> или{" "}
+          <mark className="app">Adobe Media Encoder 25.X (2025)</mark>.
         </Addition>
         <Divider>Что произойдёт с моими проектами после обновления программы?</Divider>
         <p>
@@ -2892,11 +2891,11 @@ const PrInstallProblems: React.FC = () => {
         <Divider>Обновляемся между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
-          пределах «одного года», например с <mark>24.0</mark> на <mark>24.6</mark>,
-          достаточно запустить установщик и выполнить стандартное обновление. Он
-          перезапишет только её основные файлы, не затрагивая ваши дополнения. Все ваши
-          рабочие пространства, пресеты и прочие пользовательские настройки будут
-          автоматически перенесены в новую версию.
+          пределах «одного года», например с <mark>24.0 (2024)</mark> на{" "}
+          <mark>24.6 (2024)</mark>, достаточно запустить установщик и выполнить
+          стандартное обновление. Он перезапишет только её основные файлы, не затрагивая
+          ваши дополнения. Все ваши рабочие пространства, пресеты и прочие
+          пользовательские настройки будут автоматически перенесены в новую версию.
         </p>
         <Divider>Обновляемся с «одного года» на другой</Divider>
         <ContentFilter
@@ -2904,11 +2903,10 @@ const PrInstallProblems: React.FC = () => {
             <>
               <p>
                 Если вы решили обновиться с одного года на другой, например с{" "}
-                <mark>23.6</mark>
-                на <mark>25.2</mark>, то переносить плагины вручную придётся только если
-                они установлены не в общую папку. Остальные настройки и дополнения, как и
-                при обновлении внутри одного года, перенесутся из старой версии в новую
-                автоматически.
+                <mark>23.6 (2023)</mark> на <mark>25.2 (2025)</mark>, то переносить
+                плагины вручную придётся только если они установлены не в общую папку.
+                Остальные настройки и дополнения, как и при обновлении внутри одного года,
+                перенесутся из старой версии в новую автоматически.
               </p>
               <p>
                 При установке версии «другого года» старая программа не удаляется

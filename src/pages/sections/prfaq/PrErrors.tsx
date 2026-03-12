@@ -400,9 +400,9 @@ const PrErrors: React.FC = () => {
             <>
               <p>
                 Эту ошибку вы можете встретить при попытке запустить{" "}
-                <mark className="app">Adobe Premiere Pro</mark> версии <mark>24.1</mark>{" "}
-                или новее. Обычно у неё две причины: либо ваш процессор не поддерживает
-                инструкции <mark>AVX2</mark>, либо система каким-то образом повредилась.
+                <mark className="app">Adobe Premiere Pro 24.1 (2024)</mark> или новее.
+                Обычно у неё две причины: либо ваш процессор не поддерживает инструкции{" "}
+                <mark>AVX2</mark>, либо система каким-то образом повредилась.
               </p>
               <Divider>Проверяем системные требования</Divider>
               <p>
@@ -418,8 +418,8 @@ const PrErrors: React.FC = () => {
                 ниже, а также на более ранних процессорах{" "}
                 <mark className="company">AMD</mark>, где этих инструкций нет. Так что
                 если ваш процессор не подходит, решение простое: либо установите{" "}
-                <mark className="app">Adobe Premiere Pro</mark> версии <mark>23.6</mark>{" "}
-                или ниже, либо, если возможно, обновите «железо».
+                <mark className="app">Adobe Premiere Pro 23.6 (2023)</mark> или ниже,
+                либо, если возможно, обновите «железо».
               </p>
               <Divider>Проверяем целостность системы</Divider>
               <p>
@@ -615,9 +615,8 @@ const PrErrors: React.FC = () => {
                   <mark className="select">«Edit» → «Preferences» → «Auto Save»</mark>.
                 </li>
                 <li>
-                  В <mark className="app">Adobe Premiere</mark> версии <mark>24.0</mark> и
-                  новее добавлена функция восстановления проектов при аварийном
-                  завершении.{" "}
+                  В <mark className="app">Adobe Premiere Pro 24.0 (2024)</mark> и новее
+                  добавлена функция восстановления проектов при аварийном завершении.{" "}
                   <a href="https://helpx.adobe.com/premiere-pro/kb/recovery-mode.html">
                     Подробнее...
                   </a>

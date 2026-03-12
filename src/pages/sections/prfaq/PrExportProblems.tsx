@@ -163,10 +163,10 @@ const PrExportProblems: React.FC = () => {
         title="Почему при экспорте в MP4 через встроенный кодек H.264 и HEVC сохраняется файл с размером в 1 КБ?"
       >
         <p>
-          Скорее всего, вы столкнулись с багом <mark className="app">Adobe Premiere</mark>{" "}
-          версии <mark>23.1</mark>. Из-за кириллицы или символов вне <mark>ASCII</mark> в
-          пути сохранения при экспорте через встроенный кодек{" "}
-          <mark className="video">H.264</mark> и <mark className="video">HEVC</mark>{" "}
+          Скорее всего, вы столкнулись с багом{" "}
+          <mark className="app">Adobe Premiere Pro 23.1 (2023)</mark>. Из-за кириллицы или
+          символов вне <mark>ASCII</mark> в пути сохранения при экспорте через встроенный
+          кодек <mark className="video">H.264</mark> и <mark className="video">HEVC</mark>{" "}
           получается повреждённый файл размером <mark>1 КБ</mark>, который не открывается
           ни одной программой.
         </p>
@@ -176,7 +176,7 @@ const PrExportProblems: React.FC = () => {
         </Addition>
         <p>
           Для решения этой проблемы достаточно обновить{" "}
-          <mark className="app">Adobe After Effects</mark> до актуальной версии или до{" "}
+          <mark className="app">Adobe Premiere Pro</mark> до актуальной версии или до{" "}
           <mark>23.6</mark>, в которой ошибка исправлена, и повторить экспорт.
         </p>
         <p>
@@ -198,15 +198,24 @@ const PrExportProblems: React.FC = () => {
         title="Почему в предпросмотре Premiere, Media Encoder и после экспорта видео смещается влево или вправо?"
       >
         <p>
-          Проверьте текущую версию программ, установленных на вашем устройстве. Вполне
-          вероятно, что вы используете версии в промежутке от <mark>23.1</mark> до{" "}
-          <mark>23.5</mark>, где присутствует этот неприятный баг смещения текущего кадра.
-          Он может возникнуть при использовании композиций из{" "}
-          <mark className="app">Adobe After Effects</mark> через{" "}
-          <mark className="plugin">Dynamic Link</mark> или при экспорте секвенции через{" "}
-          <mark className="app">Adobe Media Encoder</mark>. Для решения этого бага просто
-          обновите все программы от Adobe до <mark>23.6</mark> или свежее.
+          Проверьте версии используемых вами программ. Вероятно, вы используете{" "}
+          <mark className="plugin">Dynamic Link</mark> вместе с{" "}
+          <mark className="app">Adobe Media Encoder</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark> версий с <mark>23.1</mark> по{" "}
+          <mark>23.5</mark>, в которых присутствует этот баг.
         </p>
+        <p>
+          Для решения проблемы достаточно обновить все программы до версии{" "}
+          <mark>23.6</mark> или новее либо отказаться от{" "}
+          <mark className="app">Adobe Media Encoder</mark> в пользу прямого экспорта из{" "}
+          <mark className="app">Adobe Premiere Pro</mark>.
+        </p>
+        <Addition type="info">
+          Проверить текущую версию <mark className="app">Adobe Premiere Pro</mark>,{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> вы можете в меню{" "}
+          <mark className="select">«Help» → «About»</mark>.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-color-banding"

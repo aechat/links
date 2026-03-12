@@ -548,7 +548,7 @@ const AeFromNewbies: React.FC = () => {
                           <mark className="app">Adobe Lightroom</mark>, сохранить в{" "}
                           <mark className="image">TIFF</mark> с меньшим разрешением и
                           только потом использовать в{" "}
-                          <mark className="app">After Effects</mark>.
+                          <mark className="app">Adobe After Effects</mark>.
                         </li>
                       </ul>
                     </Addition>
@@ -1226,8 +1226,8 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Paragraph»</mark>.
               </p>
               <Addition type="info">
-                Начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
-                <mark>23.4</mark>, большинство этих параметров доступно в окне{" "}
+                Начиная с <mark className="app">Adobe After Effects 23.4 (2023)</mark>,
+                большинство этих параметров доступно в окне{" "}
                 <mark className="select">«Properties»</mark>.
               </Addition>
               <ul>
@@ -1345,8 +1345,8 @@ const AeFromNewbies: React.FC = () => {
             <p>
               <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт
               которых стал доступен с помощью <mark className="plugin">Advanced 3D</mark>{" "}
-              в <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
-              и новее<sup>1</sup>.
+              в <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее
+              <sup>1</sup>.
             </p>
             <Addition type="info">
               <sup>1</sup> Для импорта трёхмерных объектов в предыдущих версиях{" "}
@@ -1391,9 +1391,9 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
                 <mark className="file">GLB</mark> или <mark className="file">GLTF</mark>,
                 импорт которых стал возможен в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
-                и новее с помощью <mark className="plugin">Advanced 3D</mark>. Такие
-                модели можно создать в любом популярном 3D-редакторе, например{" "}
+                <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее с
+                помощью <mark className="plugin">Advanced 3D</mark>. Такие модели можно
+                создать в любом популярном 3D-редакторе, например{" "}
                 <mark className="app">Blender</mark>,{" "}
                 <mark className="app">Cinema 4D</mark> или{" "}
                 <mark className="app">Substance 3D Painter</mark>.
@@ -1901,11 +1901,11 @@ const AeFromNewbies: React.FC = () => {
                 Особенности работы с «Track Matte» в разных версиях программы
               </Divider>
               <p>
-                В <mark className="app">Adobe After Effects</mark> версии{" "}
-                <mark>2023</mark> и новее интерфейс работы с{" "}
-                <mark className="select">«Track Matte»</mark> обновили, что часто путает
-                пользователей при просмотре старых уроков, хотя принцип действия остался
-                прежним. Выбор режимов <mark className="select">«Alpha»</mark> и{" "}
+                В <mark className="app">Adobe After Effects 23.0 (2023)</mark> и новее
+                интерфейс работы с <mark className="select">«Track Matte»</mark> обновили,
+                что часто путает пользователей при просмотре старых уроков, хотя принцип
+                действия остался прежним. Выбор режимов{" "}
+                <mark className="select">«Alpha»</mark> и{" "}
                 <mark className="select">«Luma»</mark> вместе с инверсией заменили на
                 иконки, а привязку сделали удобнее: теперь один слой-маску можно
                 использовать сразу для нескольких слоёв композиции.
@@ -2794,9 +2794,8 @@ const AeFromNewbies: React.FC = () => {
               <mark className="word">Мультифрейм-рендер</mark>, или{" "}
               <mark className="word">MFR</mark>, — функция{" "}
               <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
-              <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
-              новее. Она ускоряет финальный рендер, обрабатывая сразу несколько кадров
-              параллельно.
+              <mark className="app">Adobe After Effects 22.X (2022)</mark> и новее. Она
+              ускоряет финальный рендер, обрабатывая сразу несколько кадров параллельно.
             </p>
             <Addition type="warning">
               Использование <mark className="select">«Multi-Frame Rendering»</mark> может
@@ -4467,7 +4466,7 @@ const AeFromNewbies: React.FC = () => {
           </ul>
         </Addition>
         <Addition type="info">
-          Большинство плагинов из статьи можно найти в каналах{" "}
+          Большинство дополнений из статьи можно найти в каналах{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
           <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
@@ -4749,8 +4748,7 @@ const AeFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                и новее.
+                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -4812,8 +4810,7 @@ const AeFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                и новее.
+                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -4912,10 +4909,10 @@ const AeFromNewbies: React.FC = () => {
         title="Как отключить автоматическое кэширование предпросмотра при бездействии?"
       >
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
-          новее по умолчанию включено автоматическое кэширование кадров во время простоя.
-          На слабых компьютерах или при использовании ресурсоёмких эффектов это может
-          вызывать дискомфорт, излишне нагружая систему и заполняя оперативную память.
+          В <mark className="app">Adobe After Effects 22.X (2022)</mark> и новее по
+          умолчанию включено автоматическое кэширование кадров во время простоя. На слабых
+          компьютерах или при использовании ресурсоёмких эффектов это может вызывать
+          дискомфорт, излишне нагружая систему и заполняя оперативную память.
           Неудивительно, что из-за такого поведения программы некоторые «староверы» до сих
           пор ворчат, мол,{" "}
           <mark className="quote">
@@ -5941,11 +5938,10 @@ const AeFromNewbies: React.FC = () => {
         />
         <Divider>Используем дисковый кэш для предпросмотра</Divider>
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее появилась новая функция воспроизведения предпросмотра напрямую из
-          дискового кэша. Она позволяет проигрывать превью прямо с диска, не загружая
-          кадры в оперативную память. Эта опция может спасти, когда даже файл подкачки не
-          помогает.
+          В <mark className="app">Adobe After Effects 25.2 (2025)</mark> и новее появилась
+          новая функция воспроизведения предпросмотра напрямую из дискового кэша. Она
+          позволяет проигрывать превью прямо с диска, не загружая кадры в оперативную
+          память. Эта опция может спасти, когда даже файл подкачки не помогает.
         </p>
         <p>
           Для активации перейдите в{" "}
@@ -6132,10 +6128,11 @@ const AeFromNewbies: React.FC = () => {
         <p>
           Скорее всего, у вас включён рендер-движок{" "}
           <mark className="plugin">Advanced 3D</mark>, который стал использоваться по
-          умолчанию, начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
-          <mark>24.1</mark>, или <mark className="plugin">Cinema 4D</mark>. При
-          использовании таких движков режимы наложения, эффекты и прочие функции могут
-          быть недоступны. Чтобы вернуть их работу, нужно переключиться на рендер{" "}
+          умолчанию, начиная с{" "}
+          <mark className="app">Adobe After Effects 24.1 (2024)</mark>, или{" "}
+          <mark className="plugin">Cinema 4D</mark>. При использовании таких движков
+          режимы наложения, эффекты и прочие функции могут быть недоступны. Чтобы вернуть
+          их работу, нужно переключиться на рендер{" "}
           <mark className="plugin">Classic 3D</mark>.
         </p>
         <p>
@@ -6163,17 +6160,16 @@ const AeFromNewbies: React.FC = () => {
             отбрасывания теней от источника света
           </a>{" "}
           при использовании модуля <mark className="plugin">Advanced 3D</mark> добавили в{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>26.0</mark> и
-          новее. В предыдущих сборках включить{" "}
-          <mark className="select">«Casts Shadows»</mark> было нельзя, так как эта
-          возможность ещё не была доступна в стабильном релизе и находилась на стадии
-          бета-тестирования.
+          <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее. В
+          предыдущих сборках включить <mark className="select">«Casts Shadows»</mark> было
+          нельзя, так как эта возможность ещё не была доступна в стабильном релизе и
+          находилась на стадии бета-тестирования.
         </p>
         <Addition type="info">
           Если вы смотрите обучающее видео, где автор активирует{" "}
           <mark className="select">«Casts Shadows»</mark> в{" "}
-          <mark className="app">Adobe After Effects 2025</mark>, значит, на момент записи
-          у него была установлена публичная бета-версия программы.
+          <mark className="app">Adobe After Effects 25.X (2025)</mark>, значит, на момент
+          записи у него была установлена публичная бета-версия программы.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -6600,8 +6596,8 @@ const AeFromNewbies: React.FC = () => {
         title="Что такое «секретные» настройки и как их открыть?"
       >
         <Addition type="danger">
-          В <mark className="app">Adobe After Effects</mark> версии <mark>2026</mark> и
-          новее данные настройки были удалены.
+          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее данные
+          настройки были удалены.
         </Addition>
         <p>
           Разработчики оставили некоторые функции, спрятав их в «секретном» разделе{" "}
@@ -6647,8 +6643,36 @@ const AeFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <Addition type="info">
-        Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
-        <a href="#interface">«Интерфейс»</a>.
+        Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
+        другом разделе —{" "}
+        <a
+          href="#interface"
+          onClick={(event_) => {
+            event_.preventDefault();
+
+            const target = document.querySelector("#interface");
+
+            if (target) {
+              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+              const padding = Math.min(
+                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
+                14
+              );
+
+              const y =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                padding;
+
+              window.scrollTo({behavior: "smooth", top: y});
+            }
+          }}
+        >
+          «Интерфейс»
+        </a>
+        .
       </Addition>
     </div>
   );
