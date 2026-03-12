@@ -372,6 +372,41 @@ const AeActions: React.FC = () => {
           ffmpeg -i INPUT_VIDEO_NAME.mp4 -vf &quot;mpdecimate,setpts=N/FRAME_RATE/TB&quot;
           OUTPUT_VIDEO_NAME.mp4
         </CodeSnippet>
+        <Addition type="info">
+          <ul>
+            <li>
+              <p>
+                Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или
+                относительный путь к вашему видео.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <mark className="word">Абсолютный путь</mark> — это полный путь от
+                    корня диска, например:{" "}
+                    <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>
+                    .
+                  </li>
+                  <li>
+                    <mark className="word">Относительный путь</mark> — это путь от текущей
+                    папки, в которой вы выполняете команду. Например, если вы находитесь в{" "}
+                    <mark className="path">C:/Users/aechat</mark>, а файл лежит в папке{" "}
+                    <mark className="path">Downloads</mark>, относительный путь будет{" "}
+                    <mark className="path">Downloads/your_video.mp4</mark>.
+                  </li>
+                </ul>
+              </Addition>
+            </li>
+            <li>
+              Вместо <mark>FRAME_RATE</mark> введите целевую частоту кадров, например,{" "}
+              <mark>29.97</mark> или <mark>60</mark>.
+            </li>
+            <li>
+              Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите директорию, имя и
+              расширение для итогового файла.
+            </li>
+          </ul>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         anchor="video-denoise"
