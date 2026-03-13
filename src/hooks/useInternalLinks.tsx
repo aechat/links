@@ -135,7 +135,7 @@ export const useInternalLinkHandler = () => {
               Переход на другую статью
             </div>
             <button
-              className={modalStyles["modal-header-close"]}
+              className={modalStyles["modal-header-button"]}
               onClick={handleCancel}
               onMouseDown={ripple.onMouseDown}
             >

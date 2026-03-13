@@ -428,7 +428,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           <div className={modalStyles["modal-header"]}>
             <div className={modalStyles["modal-header-title"]}>Оформление</div>
             <button
-              className={modalStyles["modal-header-close"]}
+              className={modalStyles["modal-header-button"]}
               onClick={closeModal}
               onMouseDown={ripple.onMouseDown}
             >

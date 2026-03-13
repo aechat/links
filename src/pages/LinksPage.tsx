@@ -721,7 +721,7 @@ const Links = () => {
                     Остерегайтесь мошенников!
                   </div>
                   <button
-                    className={modalStyles["modal-header-close"]}
+                    className={modalStyles["modal-header-button"]}
                     onClick={closeModal}
                     onMouseDown={ripple.onMouseDown}
                   >

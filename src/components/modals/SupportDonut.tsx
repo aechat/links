@@ -58,7 +58,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
             <div className={modalStyles["modal-header"]}>
               <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
               <button
-                className={modalStyles["modal-header-close"]}
+                className={modalStyles["modal-header-button"]}
                 onClick={closeDonateModal}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -92,7 +92,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Поддержать на Сбербанк
                       </div>
                       <button
-                        className={modalStyles["modal-header-close"]}
+                        className={modalStyles["modal-header-button"]}
                         onClick={closeSberModal}
                         onMouseDown={ripple.onMouseDown}
                       >
@@ -139,7 +139,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Поддержать на ЮMoney
                       </div>
                       <button
-                        className={modalStyles["modal-header-close"]}
+                        className={modalStyles["modal-header-button"]}
                         onClick={closeYoomoneyModal}
                         onMouseDown={ripple.onMouseDown}
                       >
