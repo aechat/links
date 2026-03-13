@@ -26,7 +26,6 @@ import {
 } from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
-import styles from "./ThemeChanger.module.scss";
 
 type Theme = "light" | "dark" | "system";
 
@@ -339,7 +338,7 @@ const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
   onMouseDown,
 }) => (
   <button
-    className={`${styles["theme-button"]} ${isSelected ? styles["theme-button-selected"] : ""}`}
+    className={`${modalStyles["modal-controls-option"]} ${isSelected ? modalStyles["modal-controls-option-selected"] : ""}`}
     onClick={onClick}
     onMouseDown={onMouseDown}
   >
@@ -435,8 +434,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               <CloseRounded />
             </button>
           </div>
-          <div className={styles["theme-title"]}>Цветовая схема</div>
-          <div className={styles["theme-selector"]}>
+          <div className={modalStyles["modal-controls-title"]}>Цветовая схема</div>
+          <div className={modalStyles["modal-controls-group"]}>
             <ThemeOptionButton
               isSelected={theme === "light"}
               onClick={() => setTheme("light")}
@@ -464,8 +463,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           </div>
           {showSpoilerAnimationSelector && (
             <>
-              <div className={styles["theme-toggle"]}>
-                <span className={styles["theme-title"]}>
+              <div className={modalStyles["modal-controls-row"]}>
+                <span className={modalStyles["modal-controls-title"]}>
                   Анимация раскрытия спойлеров
                 </span>
                 <Switch
@@ -473,8 +472,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                   onChange={handleSpoilerAnimationChange}
                 />
               </div>
-              <div className={styles["theme-toggle"]}>
-                <span className={styles["theme-title"]}>
+              <div className={modalStyles["modal-controls-row"]}>
+                <span className={modalStyles["modal-controls-title"]}>
                   Анимация при наведении на спойлеры
                 </span>
                 <Switch
@@ -485,8 +484,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             </>
           )}
           {showVibrationSelector && (
-            <div className={styles["theme-toggle"]}>
-              <span className={styles["theme-title"]}>Тактильная отдача</span>
+            <div className={modalStyles["modal-controls-row"]}>
+              <span className={modalStyles["modal-controls-title"]}>
+                Тактильная отдача
+              </span>
               <Switch
                 checked={isVibrationEnabled}
                 onChange={handleVibrationChange}
@@ -494,8 +495,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             </div>
           )}
           {isWinter && (
-            <div className={styles["theme-toggle"]}>
-              <span className={styles["theme-title"]}>
+            <div className={modalStyles["modal-controls-row"]}>
+              <span className={modalStyles["modal-controls-title"]}>
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
               </span>
               <Switch
@@ -504,11 +505,11 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               />
             </div>
           )}
-          <div className={styles["theme-title"]}>
+          <div className={modalStyles["modal-controls-title"]}>
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
-                className={styles["theme-reset-button"]}
+                className={modalStyles["modal-controls-reset"]}
                 onClick={() => setAccentHue(210)}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -516,7 +517,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </button>
             </Tooltip>
           </div>
-          <div className={styles["theme-slider"]}>
+          <div className={modalStyles["modal-controls-slider"]}>
             <Slider
               max={360}
               min={0}
@@ -525,11 +526,11 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               onChange={setTemporaryHue}
             />
           </div>
-          <div className={styles["theme-title"]}>
+          <div className={modalStyles["modal-controls-title"]}>
             Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
-                className={styles["theme-reset-button"]}
+                className={modalStyles["modal-controls-reset"]}
                 onClick={() => setSaturateRatio(1)}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -537,7 +538,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </button>
             </Tooltip>
           </div>
-          <div className={styles["theme-slider"]}>
+          <div className={modalStyles["modal-controls-slider"]}>
             <Slider
               max={1}
               min={0}

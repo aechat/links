@@ -121,10 +121,16 @@ const SafariWarningModal = ({
       width={450}
     >
       <div className={modalStyles["modal"]}>
-        <div className="error-content">
-          <div className="error-title">⚠ Предупреждение для Safari</div>
+        <div
+          className={`${modalStyles["modal-content"]} ${modalStyles["modal-content--error"]}`}
+        >
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>
+              ⚠ Предупреждение для Safari
+            </div>
+          </div>
           <div
-            className="error-message"
+            className={modalStyles["modal-text-balance"]}
             style={{textAlign: "left"}}
           >
             <p>
@@ -195,21 +201,23 @@ const ErrorFallback = ({error}: {error: Error}) => {
         className={modalStyles["modal"]}
         style={{margin: "15px", maxWidth: "450px"}}
       >
-        <div className="error-content">
-          <div className="error-title">
-            {(() => {
-              let errorTitle = "Произошла ошибка";
+        <div className={`${modalStyles["modal-content"]}`}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>
+              {(() => {
+                let errorTitle = "Произошла ошибка";
 
-              if (isDynamicImportError) {
-                errorTitle = "Доступна новая версия сайта";
-              } else if (isTimeoutError) {
-                errorTitle = "Загрузка страницы заняла слишком много времени";
-              }
+                if (isDynamicImportError) {
+                  errorTitle = "Доступна новая версия сайта";
+                } else if (isTimeoutError) {
+                  errorTitle = "Загрузка страницы заняла слишком много времени";
+                }
 
-              return errorTitle;
-            })()}
+                return errorTitle;
+              })()}
+            </div>
           </div>
-          <div className="error-message">
+          <div className={modalStyles["modal-text-balance"]}>
             <p>
               {(() => {
                 let errorMessage = "Всякое бывает, попробуйте перезагрузить страницу.";
