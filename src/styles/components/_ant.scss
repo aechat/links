@@ -44,7 +44,7 @@
   &-modal {
     top: 10px;
     margin: 0 auto !important;
-    max-width: calc(100vw - 16px) !important;
+    max-width: calc(100% - clamp(16px, 5vw, 64px)) !important;
 
     .ant-modal-content {
       border: none;

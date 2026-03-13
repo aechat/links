@@ -3,7 +3,7 @@
 .article {
   &-container {
     margin-inline: auto;
-    width: calc(100% - 16px);
+    width: calc(100% - clamp(16px, 5vw, 64px));
     max-width: var(--max-width);
     filter: drop-shadow(0 10px 15px var(--shadow-primary));
 
