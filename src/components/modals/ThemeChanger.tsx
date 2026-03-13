@@ -36,14 +36,12 @@ interface ThemeContextProperties {
   isSpoilerAnimationEnabled: boolean;
   isSpoilerHoverAnimationEnabled: boolean;
   isVibrationEnabled: boolean;
-  maxWidth: number;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
   setIsSpoilerAnimationEnabled: (enabled: boolean) => void;
   setIsSpoilerHoverAnimationEnabled: (enabled: boolean) => void;
   setIsVibrationEnabled: (enabled: boolean) => void;
-  setMaxWidth: (width: number) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
   theme: Theme;
@@ -80,8 +78,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [saturateRatioState, setSaturateRatioState] = useState<number>(1);
 
-  const [maxWidthState, setMaxWidthState] = useState<number>(1175);
-
   const [isSpoilerAnimationEnabledState, setIsSpoilerAnimationEnabledState] =
     useState<boolean>(true);
 
@@ -108,8 +104,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.getItem("saturateRatio") ?? "1"
     );
 
-    const savedMaxWidth = Number.parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
-
     const resolvedSpoilerAnimationEnabled = getStoredBooleanWithDefault(
       "isSpoilerAnimationEnabled",
       true
@@ -131,7 +125,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     setThemeState(savedTheme);
     setAccentHueState(savedAccentHue);
     setSaturateRatioState(savedSaturateRatio);
-    setMaxWidthState(savedMaxWidth);
     setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
     setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
     setIsSnowfallEnabled(resolvedSnowfallEnabled);
@@ -215,7 +208,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
-    root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", !isSpoilerAnimationEnabledState);
 
     root.classList.toggle(
@@ -238,7 +230,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       themeState,
       accentHueState,
       saturateRatioState,
-      maxWidthState,
       isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabledState,
     ]
@@ -265,20 +256,12 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isSpoilerAnimationEnabled: isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabled: isSpoilerHoverAnimationEnabledState,
       isVibrationEnabled: isVibrationEnabledState,
-      maxWidth: maxWidthState,
       saturateRatio: saturateRatioState,
       setAccentHue,
       setIsSnowfallEnabled: setSnowfallEnabled,
       setIsSpoilerAnimationEnabled,
       setIsSpoilerHoverAnimationEnabled,
       setIsVibrationEnabled: setVibrationEnabled,
-      setMaxWidth: (width: number) => {
-        setMaxWidthState(width);
-
-        if (typeof localStorage !== "undefined") {
-          localStorage.setItem("maxWidth", width.toString());
-        }
-      },
       setSaturateRatio,
       setTheme,
       theme: themeState,
@@ -287,7 +270,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       themeState,
       accentHueState,
       saturateRatioState,
-      maxWidthState,
       isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabledState,
       isSnowfallEnabled,
@@ -372,14 +354,12 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     isSpoilerAnimationEnabled,
     isSpoilerHoverAnimationEnabled,
     isVibrationEnabled,
-    maxWidth,
     saturateRatio,
     setAccentHue,
     setIsSnowfallEnabled,
     setIsSpoilerAnimationEnabled,
     setIsSpoilerHoverAnimationEnabled,
     setIsVibrationEnabled,
-    setMaxWidth,
     setSaturateRatio,
     setTheme,
     theme,
@@ -397,28 +377,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     setTemporarySaturate(saturateRatio);
   }, [saturateRatio]);
 
-  const [windowWidth, setWindowWidth] = useState(
-    globalThis.window === undefined ? 0 : globalThis.window.innerWidth
-  );
-
-  useEffect(() => {
-    if (globalThis.window === undefined) {
-      return;
-    }
-
-    const handleResize = () => setWindowWidth(globalThis.window.innerWidth);
-
-    globalThis.window.addEventListener("resize", handleResize);
-
-    return () => globalThis.window.removeEventListener("resize", handleResize);
-  }, []);
-
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
 
   const pagesWithSpoilerAnimation = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"];
-
-  const pagesWithWidthSelector = [...pagesWithSpoilerAnimation, "/rules"];
 
   const today = new Date();
 
@@ -433,10 +395,6 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const showSpoilerAnimationSelector = pagesWithSpoilerAnimation.some((path) =>
     currentPath.startsWith(path)
   );
-
-  const showWidthSelector =
-    pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
-    windowWidth >= 1000;
 
   const showVibrationSelector = isHapticFeedbackSupported();
 
@@ -504,34 +462,6 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               Системная
             </ThemeOptionButton>
           </div>
-          {showWidthSelector && (
-            <>
-              <div className={styles["theme-title"]}>Максимальная ширина контента</div>
-              <div className={styles["theme-selector"]}>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1000}
-                  onClick={() => setMaxWidth(1000)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Маленькая<sup>1000px</sup>
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1175}
-                  onClick={() => setMaxWidth(1175)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Средняя<sup>1175px</sup>
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1400}
-                  onClick={() => setMaxWidth(1400)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Большая<sup>1400px</sup>
-                </ThemeOptionButton>
-              </div>
-            </>
-          )}
           {showSpoilerAnimationSelector && (
             <>
               <div className={styles["theme-toggle"]}>
