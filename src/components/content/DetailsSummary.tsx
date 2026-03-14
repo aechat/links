@@ -8,6 +8,7 @@ import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {triggerDisclosureHaptic, triggerHaptic} from "../../utils/haptics";
+import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
@@ -125,24 +126,7 @@ const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
   NESTED_OPEN_AFTER_PARENT_DELAY: 150,
-  PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
-
-const getScrollOffsets = () => {
-  if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
-
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-  const padding = Math.min(
-    constants.PADDING.MIN +
-      (constants.PADDING.MAX - constants.PADDING.MIN) *
-        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-    constants.PADDING.MAX
-  );
-
-  return {headerHeight, padding};
-};
 
 const dispatchOpenSpoilerById = (
   id: string,
@@ -472,15 +456,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (summary) {
       setTimeout(() => {
-        const {headerHeight, padding} = getScrollOffsets();
-
-        const y =
-          summary.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-
-        window.scrollTo({behavior: "smooth", top: y});
+        scrollToElement(summary);
       }, constants.ACTION_DELAY);
     }
   }, []);

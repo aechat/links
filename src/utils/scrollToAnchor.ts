@@ -9,6 +9,10 @@ const constants = {
   },
 } as const;
 
+interface ScrollToAnchorOptions {
+  updateHash?: boolean;
+}
+
 const getScrollPadding = () => {
   if (globalThis.window === undefined) {
     return 0;
@@ -23,7 +27,28 @@ const getScrollPadding = () => {
   );
 };
 
-export const scrollToAnchorById = (anchorId: string): boolean => {
+const getScrollTop = (target: Element) => {
+  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+  const padding = getScrollPadding();
+
+  return target.getBoundingClientRect().top + window.pageYOffset - headerHeight - padding;
+};
+
+export const scrollToElement = (target: Element): boolean => {
+  if (globalThis.window === undefined) {
+    return false;
+  }
+
+  window.scrollTo({behavior: "smooth", top: getScrollTop(target)});
+
+  return true;
+};
+
+export const scrollToAnchorById = (
+  anchorId: string,
+  options?: ScrollToAnchorOptions
+): boolean => {
   if (globalThis.window === undefined) {
     return false;
   }
@@ -34,20 +59,13 @@ export const scrollToAnchorById = (anchorId: string): boolean => {
     return false;
   }
 
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+  if (options?.updateHash !== false) {
+    history.replaceState(
+      undefined,
+      "",
+      `${globalThis.location.pathname}${globalThis.location.search}#${anchorId}`
+    );
+  }
 
-  const padding = getScrollPadding();
-
-  const y =
-    target.getBoundingClientRect().top + window.pageYOffset - headerHeight - padding;
-
-  history.replaceState(
-    undefined,
-    "",
-    `${globalThis.location.pathname}${globalThis.location.search}#${anchorId}`
-  );
-
-  window.scrollTo({behavior: "smooth", top: y});
-
-  return true;
+  return scrollToElement(target);
 };

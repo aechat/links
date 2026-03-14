@@ -3,23 +3,11 @@ import {useEffect} from "react";
 import {message} from "antd";
 import {useLocation} from "react-router-dom";
 
+import {scrollToAnchorById} from "../utils/scrollToAnchor";
+
 interface Section {
   id: string;
 }
-
-const scrollToAnchorTarget = (targetElement: HTMLElement) => {
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-  const padding = 14;
-
-  const y =
-    targetElement.getBoundingClientRect().top +
-    globalThis.pageYOffset -
-    headerHeight -
-    padding;
-
-  globalThis.scrollTo({behavior: "smooth", top: y});
-};
 
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
   const {hash} = useLocation();
@@ -51,11 +39,7 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
       const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
 
       if (isCategoryAnchor) {
-        const categoryElement = document.getElementById(currentAnchor);
-
-        if (categoryElement) {
-          scrollToAnchorTarget(categoryElement);
-        }
+        scrollToAnchorById(currentAnchor);
 
         return;
       }

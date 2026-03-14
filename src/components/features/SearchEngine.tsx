@@ -18,6 +18,7 @@ import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice} from "../../utils/browserDetection";
 import {withSelectionHaptic} from "../../utils/haptics";
+import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import modalStyles from "../modals/Modal.module.scss";
 
@@ -1541,17 +1542,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         detailsElement.setAttribute("open", "true");
       }
 
-      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-      const padding = 14;
-
-      const y =
-        summaryElement.getBoundingClientRect().top +
-        globalThis.pageYOffset -
-        headerHeight -
-        padding;
-
-      globalThis.scrollTo({behavior: "smooth", top: y});
+      scrollToElement(summaryElement);
 
       const event = new CustomEvent("open-spoiler-by-id", {detail: {id}});
 
