@@ -643,22 +643,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const currentHash = globalThis.location.hash.slice(1);
 
-    const rawCustomAnchor = normalizeAnchor(anchor);
-
     const resolvedAnchor = getEffectiveAnchor();
 
-    if (justOpened) {
-      if (
-        rawCustomAnchor &&
-        resolvedAnchor === rawCustomAnchor &&
-        currentHash === rawCustomAnchor
-      ) {
-        setTimeout(() => {
-          updateUrlHash(`#${summaryId}`);
-        }, 500);
-      } else if (resolvedAnchor && currentHash !== resolvedAnchor) {
-        updateUrlHash(`#${resolvedAnchor}`);
-      }
+    if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
+      updateUrlHash(`#${resolvedAnchor}`);
     } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
       updateUrlHash("");
     }
@@ -787,6 +775,18 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           `.${styles["details-summary"]}`
         )?.id;
 
+        const textualAnchor =
+          detailsElement instanceof HTMLDetailsElement
+            ? normalizeAnchor(detailsElement.dataset.anchor)
+            : "";
+
+        const isTextualAnchorUsable =
+          detailsElement instanceof HTMLDetailsElement &&
+          Boolean(textualAnchor) &&
+          isFirstAnchorOccurrence(detailsElement, textualAnchor);
+
+        const anchorForHash = isTextualAnchorUsable ? textualAnchor : summaryId;
+
         const currentHash = globalThis.location.hash.slice(1);
 
         const isCurrentHashOpenNested = isHashForOpenNestedInDetails(
@@ -794,11 +794,15 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           currentHash
         );
 
-        if (summaryId && globalThis.window !== undefined && !isCurrentHashOpenNested) {
+        if (
+          anchorForHash &&
+          globalThis.window !== undefined &&
+          !isCurrentHashOpenNested
+        ) {
           history.replaceState(
             undefined,
             "",
-            `${globalThis.location.pathname}${globalThis.location.search}#${summaryId}`
+            `${globalThis.location.pathname}${globalThis.location.search}#${anchorForHash}`
           );
         }
       }, constants.MOUSE_ENTER_DELAY);

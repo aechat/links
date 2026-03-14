@@ -7,6 +7,20 @@ interface Section {
   id: string;
 }
 
+const scrollToAnchorTarget = (targetElement: HTMLElement) => {
+  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+  const padding = 14;
+
+  const y =
+    targetElement.getBoundingClientRect().top +
+    globalThis.pageYOffset -
+    headerHeight -
+    padding;
+
+  globalThis.scrollTo({behavior: "smooth", top: y});
+};
+
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
   const {hash} = useLocation();
 
@@ -18,17 +32,31 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
 
       if (!currentAnchor) return;
 
-      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
+      const spoilerByTextualAnchor = document.querySelector<HTMLDetailsElement>(
+        `details[data-anchor="${currentAnchor}"]`
+      );
 
-      if (isCategoryAnchor) {
+      if (spoilerByTextualAnchor) {
         return;
       }
 
-      const isSpoilerAnchor =
-        document.querySelector(`#${currentAnchor}`) ||
-        document.querySelector(`details[data-anchor="${currentAnchor}"]`);
+      const spoilerByNumericAnchor = document
+        .getElementById(currentAnchor)
+        ?.closest("details");
 
-      if (isSpoilerAnchor) {
+      if (spoilerByNumericAnchor) {
+        return;
+      }
+
+      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
+
+      if (isCategoryAnchor) {
+        const categoryElement = document.getElementById(currentAnchor);
+
+        if (categoryElement) {
+          scrollToAnchorTarget(categoryElement);
+        }
+
         return;
       }
 

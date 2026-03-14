@@ -13,16 +13,21 @@ interface TargetArticle {
 }
 
 const findTargetDetails = (anchorValue: string): HTMLElement | undefined => {
-  const elementById = document.getElementById(anchorValue);
+  const detailsByTextualAnchor = document.querySelector<HTMLElement>(
+    `details[data-anchor="${anchorValue}"]`
+  );
 
-  if (elementById) {
-    return elementById.closest("details") || undefined;
+  if (detailsByTextualAnchor) {
+    return detailsByTextualAnchor;
   }
 
-  return (
-    document.querySelector<HTMLElement>(`details[data-anchor="${anchorValue}"]`) ||
-    undefined
-  );
+  const elementById = document.getElementById(anchorValue);
+
+  if (!elementById) {
+    return undefined;
+  }
+
+  return elementById.closest("details") || undefined;
 };
 
 export const useInternalLinkHandler = () => {
