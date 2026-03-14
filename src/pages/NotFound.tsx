@@ -154,9 +154,13 @@ const NotFound = () => {
           className={modalStyles["modal"]}
           style={{margin: "15px", maxWidth: "450px"}}
         >
-          <div className="error-content">
-            <div className="error-title">Страница не найдена</div>
-            <div className="error-message">
+          <div
+            className={`${modalStyles["modal-content"]} ${modalStyles["modal-content--error"]}`}
+          >
+            <div className={modalStyles["modal-header"]}>
+              <div className={modalStyles["modal-header-title"]}>Страница не найдена</div>
+            </div>
+            <div className={modalStyles["modal-text-balance"]}>
               <div className="flexible-links">
                 <button
                   onClick={() => {

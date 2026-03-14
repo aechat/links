@@ -4,6 +4,7 @@ import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
+import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
 
 import {useRipple} from "./useRipple";
 
@@ -11,19 +12,6 @@ interface TargetArticle {
   id: string;
   title: string;
 }
-
-const findTargetDetails = (anchorValue: string): HTMLElement | undefined => {
-  const elementById = document.getElementById(anchorValue);
-
-  if (elementById) {
-    return elementById.closest("details") || undefined;
-  }
-
-  return (
-    document.querySelector<HTMLElement>(`details[data-anchor="${anchorValue}"]`) ||
-    undefined
-  );
-};
 
 export const useInternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,7 +33,7 @@ export const useInternalLinkHandler = () => {
 
     const anchorValue = href.slice(1);
 
-    const targetDetails = findTargetDetails(anchorValue);
+    const targetDetails = resolveDetailsByAnchor(anchorValue);
 
     if (!targetDetails) {
       return;
@@ -135,7 +123,7 @@ export const useInternalLinkHandler = () => {
               Переход на другую статью
             </div>
             <button
-              className={modalStyles["modal-header-close"]}
+              className={modalStyles["modal-header-button"]}
               onClick={handleCancel}
               onMouseDown={ripple.onMouseDown}
             >

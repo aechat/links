@@ -1,5 +1,8 @@
 import React from "react";
 
+import {useRipple} from "../../hooks/useRipple";
+import {withSelectionHaptic} from "../../utils/haptics";
+
 import styles from "./BrowserWarning.module.scss";
 
 interface BrowserWarningProperties {
@@ -13,6 +16,14 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
   const handleClose = () => {
     onClose(dontShowAgain);
   };
+
+  const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
+
+  const handleDontShowAgainChange = withSelectionHaptic(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setDontShowAgain(event.target.checked);
+    }
+  );
 
   if (!open) {
     return;
@@ -78,7 +89,12 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           некоторые функции сайта могут работать некорректно.
         </p>
         <div className="flexible-links">
-          <button onClick={handleClose}>Продолжить</button>
+          <button
+            onClick={handleClose}
+            onMouseDown={ripple.onMouseDown}
+          >
+            Продолжить
+          </button>
         </div>
         <label
           style={{
@@ -94,7 +110,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           <input
             checked={dontShowAgain}
             type="checkbox"
-            onChange={(event) => setDontShowAgain(event.target.checked)}
+            onChange={handleDontShowAgainChange}
           />
           Больше не показывать
         </label>

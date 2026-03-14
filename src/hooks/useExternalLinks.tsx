@@ -73,7 +73,7 @@ export const useExternalLinkHandler = () => {
           <div className={modalStyles["modal-header"]}>
             <div className={modalStyles["modal-header-title"]}>{targetUrl}</div>
             <button
-              className={modalStyles["modal-header-close"]}
+              className={modalStyles["modal-header-button"]}
               onClick={handleCancel}
               onMouseDown={ripple.onMouseDown}
             >

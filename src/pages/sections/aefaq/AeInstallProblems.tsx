@@ -8,6 +8,7 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import {getPlatformInfo} from "../../../utils/browserDetection";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const AeInstallProblems: React.FC = () => {
   return (
@@ -3371,28 +3372,7 @@ const AeInstallProblems: React.FC = () => {
         разделе{" "}
         <a
           href="#errors"
-          onClick={(event_) => {
-            event_.preventDefault();
-
-            const target = document.querySelector("#errors");
-
-            if (target) {
-              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-              const padding = Math.min(
-                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                14
-              );
-
-              const y =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-
-              window.scrollTo({behavior: "smooth", top: y});
-            }
-          }}
+          onClick={(event_) => scrollToAnchorFromClick(event_, "errors")}
         >
           «Ошибки и предупреждения»
         </a>

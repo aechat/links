@@ -20,11 +20,13 @@
     "react-router-dom": "^7.12.0",
     "react-snowfall": "^2.4.0",
     "react-window": "^2.2.4",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
+    "@cspell/dict-ru_ru": "^2.3.2",
     "@eslint/js": "^9.39.2",
     "@ffprobe-installer/ffprobe": "^2.1.2",
     "@iconify/react": "^6.0.2",
@@ -41,6 +43,7 @@
     "@vitejs/plugin-react": "^5.1.2",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "autoprefixer": "^10.4.23",
+    "cspell": "^9.7.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -82,5 +85,5 @@
     "*.scss": "yarn stylelint --fix",
     "*.{ts,tsx,js,jsx,json,md,html,scss,css}": "yarn prettier --write"
   },
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.13.0"
 }

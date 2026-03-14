@@ -3,6 +3,7 @@ import {useCallback, useEffect, useRef} from "react";
 import {message} from "antd";
 
 import {useLongPress} from "./useLongPress";
+import {applyRipple} from "./useRipple";
 
 message.config({
   duration: 3,
@@ -162,11 +163,20 @@ export const useCopyToClipboard = () => {
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
 
-    const onClickCode = (event_: MouseEvent) => {
-      const target = event_.target as HTMLElement;
+    const onClickCopyable = (event_: MouseEvent) => {
+      const target = event_.target;
 
-      if (target && target.tagName === "CODE") {
-        copyElementContent(target);
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const copyTarget = target.closest(
+        "code, mark.copy, table mark.plugin, table mark.key"
+      );
+
+      if (copyTarget instanceof HTMLElement) {
+        applyRipple(copyTarget, event_.clientX, event_.clientY);
+        void copyElementContent(copyTarget);
       }
     };
 
@@ -192,7 +202,7 @@ export const useCopyToClipboard = () => {
       onTouchEnd as unknown as (event_: TouchEvent) => void
     );
 
-    document.addEventListener("click", onClickCode);
+    document.addEventListener("click", onClickCopyable);
     (globalThis as unknown as Window).isAutoCopyEnabled = true;
 
     return () => {
@@ -216,7 +226,7 @@ export const useCopyToClipboard = () => {
         onTouchEnd as unknown as (event_: TouchEvent) => void
       );
 
-      document.removeEventListener("click", onClickCode);
+      document.removeEventListener("click", onClickCopyable);
       (globalThis as unknown as Window).isAutoCopyEnabled = false;
     };
   }, [longPressHandlers, copyElementContent]);

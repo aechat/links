@@ -3,8 +3,8 @@
 .article {
   &-container {
     margin-inline: auto;
-    width: calc(100% - 16px);
-    max-width: var(--max-width);
+    width: calc(100% - clamp(16px, 5vw, 64px));
+    max-width: 1175px;
     filter: drop-shadow(0 10px 15px var(--shadow-primary));
 
     &-flex {

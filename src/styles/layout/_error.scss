@@ -1,5 +1,3 @@
-@use "../abstracts/mixins" as *;
-
 .error {
   &-container {
     display: flex;
@@ -11,25 +9,11 @@
     overflow: hidden;
   }
 
-  &-content {
-    backdrop-filter: blur(5px);
-    filter: drop-shadow(0 0 10px var(--shadow-primary));
-    outline: 1px solid var(--color-border-modal);
-    border-radius: $roundness;
-    background-color: var(--color-background-modal);
-    width: 100%;
-
-    .flexible-links {
-      border-radius: $roundness * 0.5;
-    }
-  }
-
   &-backtitle {
     position: absolute;
     opacity: 0.1;
     text-transform: uppercase;
     white-space: nowrap;
-    font-family: Onest, sans-serif;
     font-size: 16rem;
     font-weight: 900;
     font-style: italic;
@@ -42,24 +26,5 @@
       writing-mode: vertical-rl;
       text-orientation: upright;
     }
-  }
-
-  &-title {
-    outline: 1px solid var(--color-surface-primary-border);
-    border-radius: $roundness;
-    background-color: var(--color-surface-primary-background);
-    padding-block: 10px;
-    padding-inline: 15px;
-    text-transform: uppercase;
-    line-height: 1.25;
-    color: var(--color-surface-primary-text);
-    font-family: Onest, sans-serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-    text-wrap: balance;
-  }
-
-  &-message {
-    text-wrap: balance;
   }
 }

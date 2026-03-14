@@ -5,6 +5,7 @@ import {Modal} from "antd";
 
 import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
+import {withSoftHaptic} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -31,6 +32,10 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const handleCopyAccount = withSoftHaptic((element: HTMLElement) => {
+    void copyElementContent(element);
+  });
+
   return (
     <>
       <button
@@ -53,7 +58,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
             <div className={modalStyles["modal-header"]}>
               <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
               <button
-                className={modalStyles["modal-header-close"]}
+                className={modalStyles["modal-header-button"]}
                 onClick={closeDonateModal}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -87,7 +92,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Поддержать на Сбербанк
                       </div>
                       <button
-                        className={modalStyles["modal-header-close"]}
+                        className={modalStyles["modal-header-button"]}
                         onClick={closeSberModal}
                         onMouseDown={ripple.onMouseDown}
                       >
@@ -100,7 +105,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                     </p>
                     <mark
                       className={modalStyles["modal-support-account-number"]}
-                      onClick={(event) => copyElementContent(event.currentTarget)}
+                      onClick={(event) => handleCopyAccount(event.currentTarget)}
                     >
                       2202202357342488
                     </mark>
@@ -134,7 +139,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Поддержать на ЮMoney
                       </div>
                       <button
-                        className={modalStyles["modal-header-close"]}
+                        className={modalStyles["modal-header-button"]}
                         onClick={closeYoomoneyModal}
                         onMouseDown={ripple.onMouseDown}
                       >
@@ -159,7 +164,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         банка и введите любую сумму. После этого - подтвердите перевод.
                         <mark
                           className={modalStyles["modal-support-account-number"]}
-                          onClick={(event) => copyElementContent(event.currentTarget)}
+                          onClick={(event) => handleCopyAccount(event.currentTarget)}
                         >
                           410016763684808
                         </mark>

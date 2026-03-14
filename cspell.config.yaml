@@ -1,0 +1,63 @@
+version: "0.2"
+language: ru
+allowCompoundWords: true
+ignoreRandomStrings: true
+useGitignore: true
+minWordLength: 4
+suggestionsTimeout: 500
+
+import:
+  - "@cspell/dict-ru_ru/cspell-ext.json"
+
+files:
+  - "src/pages/sections/**/*.tsx"
+
+ignorePaths:
+  - "dist/**"
+  - "node_modules/**"
+
+ignoreRegExpList:
+  - "/https?:\\/\\/[^\\s]+/g"
+  - "/\\b[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,}\\b/g"
+  - "/\\b[A-Za-z][A-Za-z0-9+_.-]*\\b/g"
+  - "/\\b\\d+[\\d.,%xX-]*\\b/g"
+  - "/\\b[А-ЯЁ]{2,}\\b/g"
+  - "/\\b[\\w.-]*[\\\\/_-][\\w./-]*\\b/g"
+
+words:
+  - апскейл
+  - нейросетевые
+  - слоумо
+  - ретаймер
+  - денойзер
+  - кеинг
+  - клинап
+  - ротобраш
+  - риггинг
+  - тречили
+  - шейпы
+  - автотрейс
+  - персонажная
+  - битность
+  - закэшировать
+  - рендерить
+  - адвансед
+  - синема
+  - репак
+  - репакера
+  - дефендер
+  - хелпер
+  - жипег
+  - вебп
+  - гифку
+  - апдейты
+  - патчноуты
+  - смарт
+  - промпт
+  - нейро
+  - псевдо
+  - стейбл
+  - файрфляй
+  - дифьюжен
+  - инпеинта
+  - отзеркаливания

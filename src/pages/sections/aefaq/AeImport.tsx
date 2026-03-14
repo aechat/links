@@ -8,6 +8,7 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video
@@ -591,56 +592,14 @@ const AeImport: React.FC = () => {
           статьях разделов{" "}
           <a
             href="#import"
-            onClick={(event_) => {
-              event_.preventDefault();
-
-              const target = document.querySelector("#import");
-
-              if (target) {
-                const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-                const padding = Math.min(
-                  10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                  14
-                );
-
-                const y =
-                  target.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  headerHeight -
-                  padding;
-
-                window.scrollTo({behavior: "smooth", top: y});
-              }
-            }}
+            onClick={(event_) => scrollToAnchorFromClick(event_, "import")}
           >
             «Импорт»
           </a>{" "}
           и{" "}
           <a
             href="#export"
-            onClick={(event_) => {
-              event_.preventDefault();
-
-              const target = document.querySelector("#export");
-
-              if (target) {
-                const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-                const padding = Math.min(
-                  10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                  14
-                );
-
-                const y =
-                  target.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  headerHeight -
-                  padding;
-
-                window.scrollTo({behavior: "smooth", top: y});
-              }
-            }}
+            onClick={(event_) => scrollToAnchorFromClick(event_, "export")}
           >
             «Экспорт»
           </a>{" "}

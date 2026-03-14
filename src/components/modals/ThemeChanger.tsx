@@ -19,9 +19,13 @@ import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
+import {
+  isHapticFeedbackSupported,
+  setIsVibrationEnabled as setGlobalVibrationEnabled,
+  withSelectionHaptic,
+} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
-import styles from "./ThemeChanger.module.scss";
 
 type Theme = "light" | "dark" | "system";
 
@@ -30,13 +34,13 @@ interface ThemeContextProperties {
   isSnowfallEnabled: boolean;
   isSpoilerAnimationEnabled: boolean;
   isSpoilerHoverAnimationEnabled: boolean;
-  maxWidth: number;
+  isVibrationEnabled: boolean;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
   setIsSpoilerAnimationEnabled: (enabled: boolean) => void;
   setIsSpoilerHoverAnimationEnabled: (enabled: boolean) => void;
-  setMaxWidth: (width: number) => void;
+  setIsVibrationEnabled: (enabled: boolean) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
   theme: Theme;
@@ -73,8 +77,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [saturateRatioState, setSaturateRatioState] = useState<number>(1);
 
-  const [maxWidthState, setMaxWidthState] = useState<number>(1175);
-
   const [isSpoilerAnimationEnabledState, setIsSpoilerAnimationEnabledState] =
     useState<boolean>(true);
 
@@ -82,6 +84,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     useState<boolean>(true);
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
+
+  const [isVibrationEnabledState, setIsVibrationEnabledState] = useState<boolean>(true);
 
   useLayoutEffect(() => {
     if (typeof localStorage === "undefined") {
@@ -99,8 +103,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.getItem("saturateRatio") ?? "1"
     );
 
-    const savedMaxWidth = Number.parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
-
     const resolvedSpoilerAnimationEnabled = getStoredBooleanWithDefault(
       "isSpoilerAnimationEnabled",
       true
@@ -113,13 +115,26 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
 
+    const hasVibrationSupport = isHapticFeedbackSupported();
+
+    const resolvedVibrationEnabled = hasVibrationSupport
+      ? getStoredBooleanWithDefault("isVibrationEnabled", true)
+      : false;
+
     setThemeState(savedTheme);
     setAccentHueState(savedAccentHue);
     setSaturateRatioState(savedSaturateRatio);
-    setMaxWidthState(savedMaxWidth);
     setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
     setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
     setIsSnowfallEnabled(resolvedSnowfallEnabled);
+
+    if (hasVibrationSupport) {
+      setIsVibrationEnabledState(resolvedVibrationEnabled);
+      setGlobalVibrationEnabled(resolvedVibrationEnabled);
+    } else {
+      setIsVibrationEnabledState(false);
+      setGlobalVibrationEnabled(false);
+    }
   }, []);
 
   const setTheme = (newTheme: Theme) => {
@@ -170,6 +185,15 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
+  const setVibrationEnabled = (enabled: boolean) => {
+    if (!isHapticFeedbackSupported()) {
+      return;
+    }
+
+    setIsVibrationEnabledState(enabled);
+    setGlobalVibrationEnabled(enabled);
+  };
+
   const calculateIsDarkMode = (theme: Theme, isSystemDark: boolean): boolean => {
     return theme === "dark" || (theme === "system" && isSystemDark);
   };
@@ -183,7 +207,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
-    root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", !isSpoilerAnimationEnabledState);
 
     root.classList.toggle(
@@ -206,7 +229,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       themeState,
       accentHueState,
       saturateRatioState,
-      maxWidthState,
       isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabledState,
     ]
@@ -232,19 +254,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isSnowfallEnabled: isSnowfallEnabled,
       isSpoilerAnimationEnabled: isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabled: isSpoilerHoverAnimationEnabledState,
-      maxWidth: maxWidthState,
+      isVibrationEnabled: isVibrationEnabledState,
       saturateRatio: saturateRatioState,
       setAccentHue,
       setIsSnowfallEnabled: setSnowfallEnabled,
       setIsSpoilerAnimationEnabled,
       setIsSpoilerHoverAnimationEnabled,
-      setMaxWidth: (width: number) => {
-        setMaxWidthState(width);
-
-        if (typeof localStorage !== "undefined") {
-          localStorage.setItem("maxWidth", width.toString());
-        }
-      },
+      setIsVibrationEnabled: setVibrationEnabled,
       setSaturateRatio,
       setTheme,
       theme: themeState,
@@ -253,10 +269,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       themeState,
       accentHueState,
       saturateRatioState,
-      maxWidthState,
       isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabledState,
       isSnowfallEnabled,
+      isVibrationEnabledState,
     ]
   );
 
@@ -322,7 +338,7 @@ const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
   onMouseDown,
 }) => (
   <button
-    className={`${styles["theme-button"]} ${isSelected ? styles["theme-button-selected"] : ""}`}
+    className={`${modalStyles["modal-controls-option"]} ${isSelected ? modalStyles["modal-controls-option-selected"] : ""}`}
     onClick={onClick}
     onMouseDown={onMouseDown}
   >
@@ -336,13 +352,13 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     isSnowfallEnabled,
     isSpoilerAnimationEnabled,
     isSpoilerHoverAnimationEnabled,
-    maxWidth,
+    isVibrationEnabled,
     saturateRatio,
     setAccentHue,
     setIsSnowfallEnabled,
     setIsSpoilerAnimationEnabled,
     setIsSpoilerHoverAnimationEnabled,
-    setMaxWidth,
+    setIsVibrationEnabled,
     setSaturateRatio,
     setTheme,
     theme,
@@ -360,28 +376,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     setTemporarySaturate(saturateRatio);
   }, [saturateRatio]);
 
-  const [windowWidth, setWindowWidth] = useState(
-    globalThis.window === undefined ? 0 : globalThis.window.innerWidth
-  );
-
-  useEffect(() => {
-    if (globalThis.window === undefined) {
-      return;
-    }
-
-    const handleResize = () => setWindowWidth(globalThis.window.innerWidth);
-
-    globalThis.window.addEventListener("resize", handleResize);
-
-    return () => globalThis.window.removeEventListener("resize", handleResize);
-  }, []);
-
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
 
   const pagesWithSpoilerAnimation = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"];
-
-  const pagesWithWidthSelector = [...pagesWithSpoilerAnimation, "/rules"];
 
   const today = new Date();
 
@@ -397,11 +395,23 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     currentPath.startsWith(path)
   );
 
-  const showWidthSelector =
-    pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
-    windowWidth >= 1000;
+  const showVibrationSelector = isHapticFeedbackSupported();
 
   const ripple = useRipple<HTMLButtonElement>();
+
+  const handleSpoilerAnimationChange = withSelectionHaptic(setIsSpoilerAnimationEnabled);
+
+  const handleSpoilerHoverAnimationChange = withSelectionHaptic(
+    setIsSpoilerHoverAnimationEnabled
+  );
+
+  const handleVibrationChange = withSelectionHaptic(setIsVibrationEnabled);
+
+  const handleSnowfallChange = withSelectionHaptic(setIsSnowfallEnabled);
+
+  const handleAccentHueAfterChange = withSelectionHaptic(setAccentHue);
+
+  const handleSaturationAfterChange = withSelectionHaptic(setSaturateRatio);
 
   return (
     <Modal
@@ -417,15 +427,15 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           <div className={modalStyles["modal-header"]}>
             <div className={modalStyles["modal-header-title"]}>Оформление</div>
             <button
-              className={modalStyles["modal-header-close"]}
+              className={modalStyles["modal-header-button"]}
               onClick={closeModal}
               onMouseDown={ripple.onMouseDown}
             >
               <CloseRounded />
             </button>
           </div>
-          <div className={styles["theme-title"]}>Цветовая схема</div>
-          <div className={styles["theme-selector"]}>
+          <div className={modalStyles["modal-controls-title"]}>Цветовая схема</div>
+          <div className={modalStyles["modal-controls-group"]}>
             <ThemeOptionButton
               isSelected={theme === "light"}
               onClick={() => setTheme("light")}
@@ -451,72 +461,55 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               Системная
             </ThemeOptionButton>
           </div>
-          {showWidthSelector && (
-            <>
-              <div className={styles["theme-title"]}>Максимальная ширина контента</div>
-              <div className={styles["theme-selector"]}>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1000}
-                  onClick={() => setMaxWidth(1000)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Маленькая<sup>1000px</sup>
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1175}
-                  onClick={() => setMaxWidth(1175)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Средняя<sup>1175px</sup>
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={maxWidth === 1400}
-                  onClick={() => setMaxWidth(1400)}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  Большая<sup>1400px</sup>
-                </ThemeOptionButton>
-              </div>
-            </>
-          )}
           {showSpoilerAnimationSelector && (
             <>
-              <div className={styles["theme-toggle"]}>
-                <span className={styles["theme-title"]}>
+              <div className={modalStyles["modal-controls-row"]}>
+                <span className={modalStyles["modal-controls-title"]}>
                   Анимация раскрытия спойлеров
                 </span>
                 <Switch
                   checked={isSpoilerAnimationEnabled}
-                  onChange={(checked) => setIsSpoilerAnimationEnabled(checked)}
+                  onChange={handleSpoilerAnimationChange}
                 />
               </div>
-              <div className={styles["theme-toggle"]}>
-                <span className={styles["theme-title"]}>
+              <div className={modalStyles["modal-controls-row"]}>
+                <span className={modalStyles["modal-controls-title"]}>
                   Анимация при наведении на спойлеры
                 </span>
                 <Switch
                   checked={isSpoilerHoverAnimationEnabled}
-                  onChange={(checked) => setIsSpoilerHoverAnimationEnabled(checked)}
+                  onChange={handleSpoilerHoverAnimationChange}
                 />
               </div>
             </>
           )}
+          {showVibrationSelector && (
+            <div className={modalStyles["modal-controls-row"]}>
+              <span className={modalStyles["modal-controls-title"]}>
+                Тактильная отдача
+              </span>
+              <Switch
+                checked={isVibrationEnabled}
+                onChange={handleVibrationChange}
+              />
+            </div>
+          )}
           {isWinter && (
-            <div className={styles["theme-toggle"]}>
-              <span className={styles["theme-title"]}>
+            <div className={modalStyles["modal-controls-row"]}>
+              <span className={modalStyles["modal-controls-title"]}>
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
               </span>
               <Switch
                 checked={isSnowfallEnabled}
-                onChange={(checked) => setIsSnowfallEnabled(checked)}
+                onChange={handleSnowfallChange}
               />
             </div>
           )}
-          <div className={styles["theme-title"]}>
+          <div className={modalStyles["modal-controls-title"]}>
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
-                className={styles["theme-reset-button"]}
+                className={modalStyles["modal-controls-reset"]}
                 onClick={() => setAccentHue(210)}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -524,20 +517,20 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </button>
             </Tooltip>
           </div>
-          <div className={styles["theme-slider"]}>
+          <div className={modalStyles["modal-controls-slider"]}>
             <Slider
               max={360}
               min={0}
               value={temporaryHue}
-              onAfterChange={setAccentHue}
+              onAfterChange={handleAccentHueAfterChange}
               onChange={setTemporaryHue}
             />
           </div>
-          <div className={styles["theme-title"]}>
+          <div className={modalStyles["modal-controls-title"]}>
             Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
-                className={styles["theme-reset-button"]}
+                className={modalStyles["modal-controls-reset"]}
                 onClick={() => setSaturateRatio(1)}
                 onMouseDown={ripple.onMouseDown}
               >
@@ -545,13 +538,13 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </button>
             </Tooltip>
           </div>
-          <div className={styles["theme-slider"]}>
+          <div className={modalStyles["modal-controls-slider"]}>
             <Slider
               max={1}
               min={0}
               step={0.025}
               value={temporarySaturate}
-              onAfterChange={setSaturateRatio}
+              onAfterChange={handleSaturationAfterChange}
               onChange={setTemporarySaturate}
             />
           </div>

@@ -3,6 +3,7 @@ import React, {ReactNode, useEffect, useState} from "react";
 import {Apple, WindowSharp} from "@mui/icons-material";
 
 import {getPlatformInfo} from "../../utils/browserDetection";
+import {triggerHaptic} from "../../utils/haptics";
 
 import styles from "./ContentFilter.module.scss";
 
@@ -68,7 +69,10 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
         {isToggleButtonVisible && (
           <button
             aria-label={buttonLabel}
-            onClick={() => setIsWindowsActive(!isWindowsActive)}
+            onClick={() => {
+              triggerHaptic("selection");
+              setIsWindowsActive(!isWindowsActive);
+            }}
           >
             {buttonLabel}
           </button>

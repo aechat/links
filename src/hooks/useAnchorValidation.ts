@@ -3,6 +3,9 @@ import {useEffect} from "react";
 import {message} from "antd";
 import {useLocation} from "react-router-dom";
 
+import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
+import {scrollToAnchorById} from "../utils/scrollToAnchor";
+
 interface Section {
   id: string;
 }
@@ -18,17 +21,15 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
 
       if (!currentAnchor) return;
 
-      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
-
-      if (isCategoryAnchor) {
+      if (resolveDetailsByAnchor(currentAnchor)) {
         return;
       }
 
-      const isSpoilerAnchor =
-        document.querySelector(`#${currentAnchor}`) ||
-        document.querySelector(`details[data-anchor="${currentAnchor}"]`);
+      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
 
-      if (isSpoilerAnchor) {
+      if (isCategoryAnchor) {
+        scrollToAnchorById(currentAnchor);
+
         return;
       }
 

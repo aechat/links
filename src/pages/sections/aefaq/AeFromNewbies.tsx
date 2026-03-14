@@ -8,6 +8,7 @@ import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
 import EasingEditor from "../../../components/features/EasingEditor";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const AeFromNewbies: React.FC = () => {
   return (
@@ -6643,32 +6644,10 @@ const AeFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <Addition type="info">
-        Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
-        другом разделе —{" "}
+        Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
         <a
           href="#interface"
-          onClick={(event_) => {
-            event_.preventDefault();
-
-            const target = document.querySelector("#interface");
-
-            if (target) {
-              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-              const padding = Math.min(
-                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                14
-              );
-
-              const y =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-
-              window.scrollTo({behavior: "smooth", top: y});
-            }
-          }}
+          onClick={(event_) => scrollToAnchorFromClick(event_, "interface")}
         >
           «Интерфейс»
         </a>

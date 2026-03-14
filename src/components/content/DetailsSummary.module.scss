@@ -1,6 +1,15 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .details-summary-root {
+  --spoiler-depth: 0;
+  --spoiler-order: 1;
+  --spoiler-open-z-index: calc(
+    1000 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+  --spoiler-hover-z-index: calc(
+    900 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+
   position: relative;
   transition: z-index 0s linear 0.25s;
   z-index: 0;
@@ -9,7 +18,7 @@
   &:hover,
   &:active {
     transition-delay: 0s;
-    z-index: 4;
+    z-index: var(--spoiler-hover-z-index);
   }
 
   summary {
@@ -34,7 +43,7 @@
   }
 
   &.is-open {
-    z-index: 10;
+    z-index: var(--spoiler-open-z-index);
 
     summary .details-summary-icon {
       transform: rotate(45deg);
@@ -42,7 +51,7 @@
   }
 
   &[open] {
-    z-index: 10;
+    z-index: var(--spoiler-open-z-index);
 
     .details-section {
       p,
@@ -53,6 +62,31 @@
         user-select: text;
       }
     }
+  }
+}
+
+:global(details[data-nested-details-summary="true"]) {
+  --spoiler-depth: 1;
+  --spoiler-order: 1;
+  --spoiler-open-z-index: calc(
+    1000 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+  --spoiler-hover-z-index: calc(
+    900 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+
+  position: relative;
+  transition: z-index 0s linear 0.25s;
+  z-index: 0;
+
+  &:hover,
+  &:active {
+    transition-delay: 0s;
+    z-index: var(--spoiler-hover-z-index);
+  }
+
+  &[open] {
+    z-index: var(--spoiler-open-z-index);
   }
 }
 
@@ -271,16 +305,29 @@
 
 :global(html.no-spoiler-hover-effects) {
   .details-summary-root {
-    z-index: auto;
+    z-index: 0;
 
     &:hover,
     &:active {
-      z-index: auto;
+      z-index: 0;
     }
 
     &.is-open,
     &[open] {
-      z-index: auto;
+      z-index: var(--spoiler-open-z-index);
+    }
+  }
+
+  :global(details[data-nested-details-summary="true"]) {
+    z-index: 0;
+
+    &:hover,
+    &:active {
+      z-index: 0;
+    }
+
+    &[open] {
+      z-index: var(--spoiler-open-z-index);
     }
   }
 }

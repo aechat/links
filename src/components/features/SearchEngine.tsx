@@ -16,7 +16,10 @@ import {RemoveScroll} from "react-remove-scroll";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
+import {resolveDetailsByAnchor} from "../../utils/anchorResolvers";
 import {isMobileDevice} from "../../utils/browserDetection";
+import {withSelectionHaptic} from "../../utils/haptics";
+import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import modalStyles from "../modals/Modal.module.scss";
 
@@ -1290,6 +1293,13 @@ const SearchResults: React.FC<{
 
   const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
 
+  const handleResultClick = withSelectionHaptic(
+    (event_: React.MouseEvent<HTMLButtonElement>, id: string) => {
+      event_.preventDefault();
+      onLinkClick(id);
+    }
+  );
+
   return (
     <div {...longPressProperties}>
       {results.map(({anchor, content, id, tag, title}, index) => {
@@ -1322,10 +1332,7 @@ const SearchResults: React.FC<{
                 return {filter: "saturate(0.25)"};
               })()}
               tabIndex={0}
-              onClick={(event_) => {
-                event_.preventDefault();
-                onLinkClick(id);
-              }}
+              onClick={(event_) => handleResultClick(event_, anchor || id)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(undefined)}
             >
@@ -1523,34 +1530,42 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   };
 
   const handleLinkClick = useCallback(
-    (id: string) => {
-      const summaryElement = document.getElementById(id);
+    (anchorValue: string) => {
+      const resolvedDetails = resolveDetailsByAnchor(anchorValue);
 
-      if (!summaryElement) {
+      if (resolvedDetails) {
+        const summaryElement = resolvedDetails.querySelector("summary");
+
+        if (!(summaryElement instanceof HTMLElement) || !summaryElement.id) {
+          return;
+        }
+
+        if (!resolvedDetails.hasAttribute("open")) {
+          resolvedDetails.setAttribute("open", "true");
+        }
+
+        scrollToElement(summaryElement);
+
+        const event = new CustomEvent("open-spoiler-by-id", {
+          detail: {id: summaryElement.id},
+        });
+
+        globalThis.dispatchEvent(event);
+
+        setTimeout(() => {
+          closeModal();
+        }, 0);
+
         return;
       }
 
-      const detailsElement = summaryElement.closest("details");
+      const targetElement = document.getElementById(anchorValue);
 
-      if (detailsElement && !detailsElement.hasAttribute("open")) {
-        detailsElement.setAttribute("open", "true");
+      if (!targetElement) {
+        return;
       }
 
-      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-      const padding = 14;
-
-      const y =
-        summaryElement.getBoundingClientRect().top +
-        globalThis.pageYOffset -
-        headerHeight -
-        padding;
-
-      globalThis.scrollTo({behavior: "smooth", top: y});
-
-      const event = new CustomEvent("open-spoiler-by-id", {detail: {id}});
-
-      globalThis.dispatchEvent(event);
+      scrollToElement(targetElement);
 
       setTimeout(() => {
         closeModal();
@@ -1590,7 +1605,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           event_.preventDefault();
 
           if (selectedResultIndex >= 0 && selectedResultIndex < results.length) {
-            handleLinkClick(results[selectedResultIndex].id);
+            handleLinkClick(
+              results[selectedResultIndex].anchor || results[selectedResultIndex].id
+            );
           }
 
           break;

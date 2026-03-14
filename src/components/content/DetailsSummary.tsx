@@ -7,10 +7,18 @@ import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
+import {triggerDisclosureHaptic, triggerHaptic} from "../../utils/haptics";
+import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
-import {CopyButton} from "../ui/CopyButton/CopyButton";
+import {CopyButton} from "../ui/CopyButton";
 
+import {
+  isFirstAnchorOccurrence,
+  normalizeAnchor,
+  replaceUrlHash,
+  throwDuplicateAnchorError,
+} from "./anchorUtilities";
 import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 
@@ -45,6 +53,10 @@ const getPluralizedTags = (count: number): string => {
   if ([2, 3, 4].includes(lastDigit)) return "тега";
 
   return "тегов";
+};
+
+const stopToggleTagsPointerDown = (event: React.MouseEvent | React.TouchEvent) => {
+  event.stopPropagation();
 };
 
 const TagList: React.FC<{tags: string}> = ({tags}) => {
@@ -93,6 +105,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   const toggleTags = (event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
+    triggerHaptic("soft");
     setExpanded((previous) => !previous);
   };
 
@@ -105,6 +118,8 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
         <mark
           className={styles["details-tags-toggle"]}
           onClick={toggleTags}
+          onMouseDown={stopToggleTagsPointerDown}
+          onTouchStart={stopToggleTagsPointerDown}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
         </mark>
@@ -117,24 +132,7 @@ const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
   NESTED_OPEN_AFTER_PARENT_DELAY: 150,
-  PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
-
-const getScrollOffsets = () => {
-  if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
-
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-  const padding = Math.min(
-    constants.PADDING.MIN +
-      (constants.PADDING.MAX - constants.PADDING.MIN) *
-        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-    constants.PADDING.MAX
-  );
-
-  return {headerHeight, padding};
-};
 
 const dispatchOpenSpoilerById = (
   id: string,
@@ -157,39 +155,6 @@ const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string =
   }
 
   return element.id;
-};
-
-const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
-
-const isFirstAnchorOccurrence = (
-  detailsElement: HTMLDetailsElement,
-  textualAnchor: string
-): boolean => {
-  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
-
-  if (!normalizedTextualAnchor) {
-    return false;
-  }
-
-  const detailsWithSameAnchor = [
-    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
-  ].find(
-    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
-  );
-
-  return detailsWithSameAnchor === detailsElement;
-};
-
-const reportDuplicateAnchorError = (anchor: string) => {
-  const normalizedAnchor = normalizeAnchor(anchor);
-
-  if (!normalizedAnchor) {
-    return;
-  }
-
-  throw new Error(
-    `Дублирующийся anchor "${normalizedAnchor}" в DetailsSummary. Якорь должен быть уникальным.`
-  );
 };
 
 const isHashForOpenNestedInDetails = (
@@ -351,6 +316,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const previousIsOpen = usePrevious(isOpen);
 
+  useEffect(() => {
+    triggerDisclosureHaptic(isOpen, previousIsOpen);
+  }, [isOpen, previousIsOpen]);
+
   const [displayAnchorId, setDisplayAnchorId] = useState("");
 
   const detailsReference = useRef<HTMLDetailsElement>(null);
@@ -372,7 +341,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       !(detailsElement instanceof HTMLDetailsElement) ||
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "DetailsSummary");
 
       return generatedAnchor;
     }
@@ -390,7 +359,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       textualAnchor &&
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "DetailsSummary");
     }
   }, [anchor]);
 
@@ -414,13 +383,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   const updateUrlHash = useCallback((hash: string) => {
-    if (globalThis.window !== undefined) {
-      history.replaceState(
-        undefined,
-        "",
-        globalThis.location.pathname + globalThis.location.search + hash
-      );
-    }
+    replaceUrlHash(hash);
   }, []);
 
   const updateDimmingEffect = useCallback(() => {
@@ -460,15 +423,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (summary) {
       setTimeout(() => {
-        const {headerHeight, padding} = getScrollOffsets();
-
-        const y =
-          summary.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-
-        window.scrollTo({behavior: "smooth", top: y});
+        scrollToElement(summary);
       }, constants.ACTION_DELAY);
     }
   }, []);
@@ -631,22 +586,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const currentHash = globalThis.location.hash.slice(1);
 
-    const rawCustomAnchor = normalizeAnchor(anchor);
-
     const resolvedAnchor = getEffectiveAnchor();
 
-    if (justOpened) {
-      if (
-        rawCustomAnchor &&
-        resolvedAnchor === rawCustomAnchor &&
-        currentHash === rawCustomAnchor
-      ) {
-        setTimeout(() => {
-          updateUrlHash(`#${summaryId}`);
-        }, 500);
-      } else if (resolvedAnchor && currentHash !== resolvedAnchor) {
-        updateUrlHash(`#${resolvedAnchor}`);
-      }
+    if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
+      updateUrlHash(`#${resolvedAnchor}`);
     } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
       updateUrlHash("");
     }
@@ -775,6 +718,18 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           `.${styles["details-summary"]}`
         )?.id;
 
+        const textualAnchor =
+          detailsElement instanceof HTMLDetailsElement
+            ? normalizeAnchor(detailsElement.dataset.anchor)
+            : "";
+
+        const isTextualAnchorUsable =
+          detailsElement instanceof HTMLDetailsElement &&
+          Boolean(textualAnchor) &&
+          isFirstAnchorOccurrence(detailsElement, textualAnchor);
+
+        const anchorForHash = isTextualAnchorUsable ? textualAnchor : summaryId;
+
         const currentHash = globalThis.location.hash.slice(1);
 
         const isCurrentHashOpenNested = isHashForOpenNestedInDetails(
@@ -782,11 +737,15 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           currentHash
         );
 
-        if (summaryId && globalThis.window !== undefined && !isCurrentHashOpenNested) {
+        if (
+          anchorForHash &&
+          globalThis.window !== undefined &&
+          !isCurrentHashOpenNested
+        ) {
           history.replaceState(
             undefined,
             "",
-            `${globalThis.location.pathname}${globalThis.location.search}#${summaryId}`
+            `${globalThis.location.pathname}${globalThis.location.search}#${anchorForHash}`
           );
         }
       }, constants.MOUSE_ENTER_DELAY);
@@ -858,7 +817,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
 
-  const rippleProperties = useRipple<HTMLElement>();
+  const rippleProperties = useRipple<HTMLElement>({haptic: false});
 
   const handleFlexibleLinkCopy = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
@@ -907,6 +866,66 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy, 500, {
     getRippleTarget: getFlexibleLinkRippleTarget,
   });
+
+  const updateSpoilerStacking = useCallback(() => {
+    const detailsElement = detailsReference.current;
+
+    if (!detailsElement) {
+      return;
+    }
+
+    const articleContent = detailsElement.closest(".article-content");
+
+    if (!articleContent) {
+      return;
+    }
+
+    const spoilerElements = articleContent.querySelectorAll<HTMLDetailsElement>(
+      'details[data-anchor], details[data-nested-details-summary="true"]'
+    );
+
+    const spoilersByDepth = new Map<number, HTMLDetailsElement[]>();
+
+    for (const spoilerElement of spoilerElements) {
+      let depth = 0;
+
+      let ancestorNestedDetails =
+        spoilerElement.parentElement?.closest<HTMLDetailsElement>(
+          'details[data-nested-details-summary="true"]'
+        );
+
+      while (ancestorNestedDetails) {
+        depth += 1;
+
+        ancestorNestedDetails =
+          ancestorNestedDetails.parentElement?.closest<HTMLDetailsElement>(
+            'details[data-nested-details-summary="true"]'
+          );
+      }
+
+      spoilerElement.style.setProperty("--spoiler-depth", String(depth));
+
+      const spoilersAtDepth = spoilersByDepth.get(depth) ?? [];
+
+      spoilersAtDepth.push(spoilerElement);
+      spoilersByDepth.set(depth, spoilersAtDepth);
+    }
+
+    for (const spoilersAtDepth of spoilersByDepth.values()) {
+      const totalSpoilers = spoilersAtDepth.length;
+
+      for (const [index, spoilerElement] of spoilersAtDepth.entries()) {
+        spoilerElement.style.setProperty(
+          "--spoiler-order",
+          String(totalSpoilers - index)
+        );
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    updateSpoilerStacking();
+  }, [children, updateSpoilerStacking]);
 
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
