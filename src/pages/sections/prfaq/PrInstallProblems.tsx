@@ -8,7 +8,7 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import {getPlatformInfo} from "../../../utils/browserDetection";
-import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const PrInstallProblems: React.FC = () => {
   return (
@@ -2918,10 +2918,7 @@ const PrInstallProblems: React.FC = () => {
         разделе{" "}
         <a
           href="#errors"
-          onClick={(event_) => {
-            event_.preventDefault();
-            scrollToAnchorById("errors");
-          }}
+          onClick={(event_) => scrollToAnchorFromClick(event_, "errors")}
         >
           «Ошибки и предупреждения»
         </a>

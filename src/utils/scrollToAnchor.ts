@@ -13,6 +13,10 @@ interface ScrollToAnchorOptions {
   updateHash?: boolean;
 }
 
+interface AnchorClickEvent {
+  preventDefault: () => void;
+}
+
 const getScrollPadding = () => {
   if (globalThis.window === undefined) {
     return 0;
@@ -68,4 +72,14 @@ export const scrollToAnchorById = (
   }
 
   return scrollToElement(target);
+};
+
+export const scrollToAnchorFromClick = (
+  event: AnchorClickEvent,
+  anchorId: string,
+  options?: ScrollToAnchorOptions
+): boolean => {
+  event.preventDefault();
+
+  return scrollToAnchorById(anchorId, options);
 };

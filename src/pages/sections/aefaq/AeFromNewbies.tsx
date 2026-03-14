@@ -8,7 +8,7 @@ import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
 import EasingEditor from "../../../components/features/EasingEditor";
-import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const AeFromNewbies: React.FC = () => {
   return (
@@ -6019,10 +6019,7 @@ const AeFromNewbies: React.FC = () => {
         Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
         <a
           href="#interface"
-          onClick={(event_) => {
-            event_.preventDefault();
-            scrollToAnchorById("interface");
-          }}
+          onClick={(event_) => scrollToAnchorFromClick(event_, "interface")}
         >
           «Интерфейс»
         </a>

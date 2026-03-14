@@ -8,7 +8,7 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
-import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video
@@ -592,20 +592,14 @@ const AeImport: React.FC = () => {
           статьях разделов{" "}
           <a
             href="#import"
-            onClick={(event_) => {
-              event_.preventDefault();
-              scrollToAnchorById("import");
-            }}
+            onClick={(event_) => scrollToAnchorFromClick(event_, "import")}
           >
             «Импорт»
           </a>{" "}
           и{" "}
           <a
             href="#export"
-            onClick={(event_) => {
-              event_.preventDefault();
-              scrollToAnchorById("export");
-            }}
+            onClick={(event_) => scrollToAnchorFromClick(event_, "export")}
           >
             «Экспорт»
           </a>{" "}

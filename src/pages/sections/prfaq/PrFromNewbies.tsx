@@ -6,7 +6,7 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
-import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const PrFromNewbies: React.FC = () => {
   return (
@@ -1611,10 +1611,7 @@ const PrFromNewbies: React.FC = () => {
         Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
         <a
           href="#interface"
-          onClick={(event_) => {
-            event_.preventDefault();
-            scrollToAnchorById("interface");
-          }}
+          onClick={(event_) => scrollToAnchorFromClick(event_, "interface")}
         >
           «Интерфейс»
         </a>
