@@ -3,6 +3,7 @@ import {useEffect} from "react";
 import {message} from "antd";
 import {useLocation} from "react-router-dom";
 
+import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
 import {scrollToAnchorById} from "../utils/scrollToAnchor";
 
 interface Section {
@@ -20,19 +21,7 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
 
       if (!currentAnchor) return;
 
-      const spoilerByTextualAnchor = document.querySelector<HTMLDetailsElement>(
-        `details[data-anchor="${currentAnchor}"]`
-      );
-
-      if (spoilerByTextualAnchor) {
-        return;
-      }
-
-      const spoilerByNumericAnchor = document
-        .getElementById(currentAnchor)
-        ?.closest("details");
-
-      if (spoilerByNumericAnchor) {
+      if (resolveDetailsByAnchor(currentAnchor)) {
         return;
       }
 

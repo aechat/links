@@ -4,6 +4,7 @@ import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
+import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
 
 import {useRipple} from "./useRipple";
 
@@ -11,24 +12,6 @@ interface TargetArticle {
   id: string;
   title: string;
 }
-
-const findTargetDetails = (anchorValue: string): HTMLElement | undefined => {
-  const detailsByTextualAnchor = document.querySelector<HTMLElement>(
-    `details[data-anchor="${anchorValue}"]`
-  );
-
-  if (detailsByTextualAnchor) {
-    return detailsByTextualAnchor;
-  }
-
-  const elementById = document.getElementById(anchorValue);
-
-  if (!elementById) {
-    return undefined;
-  }
-
-  return elementById.closest("details") || undefined;
-};
 
 export const useInternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,7 +33,7 @@ export const useInternalLinkHandler = () => {
 
     const anchorValue = href.slice(1);
 
-    const targetDetails = findTargetDetails(anchorValue);
+    const targetDetails = resolveDetailsByAnchor(anchorValue);
 
     if (!targetDetails) {
       return;
