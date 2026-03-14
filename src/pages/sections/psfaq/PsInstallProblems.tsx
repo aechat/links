@@ -8,6 +8,7 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import {getPlatformInfo} from "../../../utils/browserDetection";
+import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
 
 const PsInstallProblems: React.FC = () => {
   return (
@@ -1656,35 +1657,17 @@ const PsInstallProblems: React.FC = () => {
         */}
       </DetailsSummary>
       <Addition type="info">
-        Некоторые решения проблем, которые у вас могут возникнуть после установки
+        Некоторые решения проблем, которые могут у вас возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем
         разделе{" "}
         <a
           href="#errors"
           onClick={(event_) => {
             event_.preventDefault();
-
-            const target = document.querySelector("#errors");
-
-            if (target) {
-              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-              const padding = Math.min(
-                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                14
-              );
-
-              const y =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-
-              window.scrollTo({behavior: "smooth", top: y});
-            }
+            scrollToAnchorById("errors");
           }}
         >
-          Ошибки и предупреждения
+          «Ошибки и предупреждения»
         </a>
         .
       </Addition>

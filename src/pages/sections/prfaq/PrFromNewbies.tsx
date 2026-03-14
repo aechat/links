@@ -6,6 +6,7 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
+import {scrollToAnchorById} from "../../../utils/scrollToAnchor";
 
 const PrFromNewbies: React.FC = () => {
   return (
@@ -1607,34 +1608,15 @@ const PrFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <Addition type="info">
-        Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
-        другом разделе -{" "}
+        Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
         <a
           href="#interface"
           onClick={(event_) => {
             event_.preventDefault();
-
-            const target = document.querySelector("#interface");
-
-            if (target) {
-              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-              const padding = Math.min(
-                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                14
-              );
-
-              const y =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-
-              window.scrollTo({behavior: "smooth", top: y});
-            }
+            scrollToAnchorById("interface");
           }}
         >
-          Интерфейс
+          «Интерфейс»
         </a>
         .
       </Addition>
