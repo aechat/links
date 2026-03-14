@@ -13,8 +13,15 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {triggerDisclosureHaptic} from "../../utils/haptics";
+import {scrollToElement} from "../../utils/scrollToAnchor";
 import {CopyButton} from "../ui/CopyButton";
 
+import {
+  isFirstAnchorOccurrence,
+  normalizeAnchor,
+  replaceUrlHash,
+  throwDuplicateAnchorError,
+} from "./anchorUtilities";
 import styles from "./NestedDetailsSummary.module.scss";
 import {
   DetailsSummaryContext,
@@ -43,57 +50,7 @@ const usePrevious = <T,>(value: T): T | undefined => {
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
-  PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
-
-const getScrollOffsets = () => {
-  if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
-
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-  const padding = Math.min(
-    constants.PADDING.MIN +
-      (constants.PADDING.MAX - constants.PADDING.MIN) *
-        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-    constants.PADDING.MAX
-  );
-
-  return {headerHeight, padding};
-};
-
-const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
-
-const isFirstAnchorOccurrence = (
-  detailsElement: HTMLDetailsElement,
-  textualAnchor: string
-): boolean => {
-  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
-
-  if (!normalizedTextualAnchor) {
-    return false;
-  }
-
-  const detailsWithSameAnchor = [
-    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
-  ].find(
-    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
-  );
-
-  return detailsWithSameAnchor === detailsElement;
-};
-
-const reportDuplicateAnchorError = (anchor: string) => {
-  const normalizedAnchor = normalizeAnchor(anchor);
-
-  if (!normalizedAnchor) {
-    return;
-  }
-
-  throw new Error(
-    `Дублирующийся anchor "${normalizedAnchor}" в NestedDetailsSummary. Якорь должен быть уникальным.`
-  );
-};
 
 const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   anchor,
@@ -138,15 +95,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   };
 
   const updateUrlHash = useCallback((hash: string) => {
-    if (globalThis.window === undefined) {
-      return;
-    }
-
-    history.replaceState(
-      undefined,
-      "",
-      globalThis.location.pathname + globalThis.location.search + hash
-    );
+    replaceUrlHash(hash);
   }, []);
 
   const getParentAnchorData = useCallback(() => {
@@ -187,7 +136,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       !(detailsElement instanceof HTMLDetailsElement) ||
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "NestedDetailsSummary");
 
       return generatedAnchor;
     }
@@ -195,7 +144,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
 
     if (textualAnchor === parentTextualAnchor || textualAnchor === parentSummaryId) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "NestedDetailsSummary");
 
       return generatedAnchor;
     }
@@ -213,7 +162,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       textualAnchor &&
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "NestedDetailsSummary");
     }
   }, [anchor]);
 
@@ -225,16 +174,8 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     if (summary) {
       clearTimeout(scrollTimeoutReference.current);
 
-      const {headerHeight, padding} = getScrollOffsets();
-
       scrollTimeoutReference.current = setTimeout(() => {
-        const y =
-          summary.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-
-        window.scrollTo({behavior: "smooth", top: y});
+        scrollToElement(summary);
       }, constants.ACTION_DELAY);
     }
   }, []);

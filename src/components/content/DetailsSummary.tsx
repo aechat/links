@@ -13,6 +13,12 @@ import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
 
+import {
+  isFirstAnchorOccurrence,
+  normalizeAnchor,
+  replaceUrlHash,
+  throwDuplicateAnchorError,
+} from "./anchorUtilities";
 import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 
@@ -149,39 +155,6 @@ const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string =
   }
 
   return element.id;
-};
-
-const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
-
-const isFirstAnchorOccurrence = (
-  detailsElement: HTMLDetailsElement,
-  textualAnchor: string
-): boolean => {
-  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
-
-  if (!normalizedTextualAnchor) {
-    return false;
-  }
-
-  const detailsWithSameAnchor = [
-    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
-  ].find(
-    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
-  );
-
-  return detailsWithSameAnchor === detailsElement;
-};
-
-const reportDuplicateAnchorError = (anchor: string) => {
-  const normalizedAnchor = normalizeAnchor(anchor);
-
-  if (!normalizedAnchor) {
-    return;
-  }
-
-  throw new Error(
-    `Дублирующийся anchor "${normalizedAnchor}" в DetailsSummary. Якорь должен быть уникальным.`
-  );
 };
 
 const isHashForOpenNestedInDetails = (
@@ -368,7 +341,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       !(detailsElement instanceof HTMLDetailsElement) ||
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "DetailsSummary");
 
       return generatedAnchor;
     }
@@ -386,7 +359,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       textualAnchor &&
       !isFirstAnchorOccurrence(detailsElement, textualAnchor)
     ) {
-      reportDuplicateAnchorError(textualAnchor);
+      throwDuplicateAnchorError(textualAnchor, "DetailsSummary");
     }
   }, [anchor]);
 
@@ -410,13 +383,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   const updateUrlHash = useCallback((hash: string) => {
-    if (globalThis.window !== undefined) {
-      history.replaceState(
-        undefined,
-        "",
-        globalThis.location.pathname + globalThis.location.search + hash
-      );
-    }
+    replaceUrlHash(hash);
   }, []);
 
   const updateDimmingEffect = useCallback(() => {
