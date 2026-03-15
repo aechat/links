@@ -1426,7 +1426,7 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
         По вашему запросу на этой странице{" "}
         <span
           style={{
-            color: "var(--summary-text)",
+            color: "var(--color-surface-primary-text)",
             fontWeight: 600,
           }}
         >
@@ -1736,7 +1736,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               <p className={searchStyles["search-counter"]}>
                 <span
                   style={{
-                    color: "var(--summary-text)",
+                    color: "var(--color-surface-primary-text)",
                     fontSize: "1.05em",
                     fontWeight: 500,
                   }}
