@@ -16,10 +16,40 @@ interface TargetArticle {
 
 interface TargetDownload {
   fileKind: string;
+  fileMarkClass: string;
   fileName: string;
   fileSize?: string;
   href: string;
 }
+
+const getDownloadFileMarkClass = (fileName: string): string => {
+  const extension = fileName.split(".").pop()?.toLowerCase();
+
+  if (!extension) {
+    return "file";
+  }
+
+  const markClassByExtension: Record<string, string> = {
+    avi: "video",
+    flac: "audio",
+    gif: "image",
+    jpeg: "image",
+    jpg: "image",
+    m4a: "audio",
+    mkv: "video",
+    mov: "video",
+    mp3: "audio",
+    mp4: "video",
+    ogg: "audio",
+    png: "image",
+    svg: "image",
+    wav: "audio",
+    webm: "video",
+    webp: "image",
+  };
+
+  return markClassByExtension[extension] || "file";
+};
 
 const getDownloadFileKind = (fileName: string): string => {
   const extension = fileName.split(".").pop()?.toLowerCase();
@@ -185,6 +215,7 @@ export const useInternalLinkHandler = () => {
 
           setTargetDownload({
             fileKind: getDownloadFileKind(fileName),
+            fileMarkClass: getDownloadFileMarkClass(fileName),
             fileName,
             fileSize: downloadSizeCache[href],
             href,
@@ -355,7 +386,10 @@ export const useInternalLinkHandler = () => {
           {targetDownload ? (
             <p>
               Вы уверены, что хотите скачать {targetDownload.fileKind}{" "}
-              <mark className="file">«{targetDownload.fileName}»</mark>?
+              <mark className={targetDownload.fileMarkClass}>
+                «{targetDownload.fileName}»
+              </mark>
+              ?
             </p>
           ) : (
             <p>
