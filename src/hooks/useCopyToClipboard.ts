@@ -171,7 +171,7 @@ export const useCopyToClipboard = () => {
       }
 
       const copyTarget = target.closest(
-        "code, mark.copy, table mark.plugin, table mark.key"
+        "code, mark.copy, mark.path, table mark.plugin, table mark.key"
       );
 
       if (copyTarget instanceof HTMLElement) {
