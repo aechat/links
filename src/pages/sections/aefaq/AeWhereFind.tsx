@@ -5662,6 +5662,69 @@ const AeWhereFind: React.FC = () => {
           Иногда пользователю требуется перевод стандартных пресетов, так как их названия
           тоже зависят от локализации программы при установке.
         </p>
+        <Addition type="info">
+          <p>
+            Если хотите «перевести» стандартные пресеты на английский без переустановки{" "}
+            <mark className="app">Adobe After Effects</mark>, скачайте набор для своей
+            версии по ссылкам ниже и замените им файлы в папке{" "}
+            <mark className="path">
+              C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
+            </mark>{" "}
+            на <mark>Windows</mark> или{" "}
+            <mark className="path">/Applications/Adobe After Effects 20XX/Presets</mark>{" "}
+            на <mark>macOS</mark>.
+          </p>
+          <div className="flexible-links">
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202014%20(13.2)%20Presets.zip"
+            >
+              Adobe After Effects 2014 (13.2)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202015%20(13.8)%20Presets.zip"
+            >
+              Adobe After Effects 2015 (13.8)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202017%20(14.2)%20Presets.zip"
+            >
+              Adobe After Effects 2017 (14.2)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202018%20(15.1)%20Presets.zip"
+            >
+              Adobe After Effects 2018 (15.1)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202019-2022%20(16.1-22.6)%20Presets.zip"
+            >
+              Adobe After Effects 2019-2022 (16.1-22.6)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202023%20(23.6)%20Presets.zip"
+            >
+              Adobe After Effects 2023 (23.6)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202024%20(24.6)%20Presets.zip"
+            >
+              Adobe After Effects 2024 (24.6)
+            </a>
+            <a
+              download
+              href="files/default_presets/Adobe%20After%20Effects%202025-2026%20(25.6-26.0)%20Presets.zip"
+            >
+              Adobe After Effects 2025-2026 (25.6-26.0)
+            </a>
+          </div>
+        </Addition>
         <Divider>Adobe Express - In</Divider>
         <table>
           <thead>
