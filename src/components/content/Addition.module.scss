@@ -323,6 +323,92 @@
   .addition-tldr {
     background-color: var(--color-status-tldr-secondary-background);
   }
+
+  :is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
+    .addition-info {
+      background-color: var(--color-status-info-tertiary-background);
+    }
+
+    .addition-warning {
+      background-color: var(--color-status-warning-tertiary-background);
+    }
+
+    .addition-danger {
+      background-color: var(--color-status-danger-tertiary-background);
+    }
+
+    .addition-tldr {
+      background-color: var(--color-status-tldr-tertiary-background);
+    }
+
+    .addition-info :global(.flexible-links) {
+      background-color: var(--color-status-info-tertiary-background);
+
+      button,
+      a {
+        background-color: var(--color-status-info-tertiary-background);
+
+        &:hover {
+          background-color: var(--color-status-info-tertiary-hover-background);
+        }
+
+        &:active {
+          background-color: var(--color-status-info-tertiary-active-background);
+        }
+      }
+    }
+
+    .addition-warning :global(.flexible-links) {
+      background-color: var(--color-status-warning-tertiary-background);
+
+      button,
+      a {
+        background-color: var(--color-status-warning-tertiary-background);
+
+        &:hover {
+          background-color: var(--color-status-warning-tertiary-hover-background);
+        }
+
+        &:active {
+          background-color: var(--color-status-warning-tertiary-active-background);
+        }
+      }
+    }
+
+    .addition-danger :global(.flexible-links) {
+      background-color: var(--color-status-danger-tertiary-background);
+
+      button,
+      a {
+        background-color: var(--color-status-danger-tertiary-background);
+
+        &:hover {
+          background-color: var(--color-status-danger-tertiary-hover-background);
+        }
+
+        &:active {
+          background-color: var(--color-status-danger-tertiary-active-background);
+        }
+      }
+    }
+
+    .addition-tldr :global(.flexible-links) {
+      background-color: var(--color-status-tldr-tertiary-background);
+
+      button,
+      a {
+        background-color: var(--color-status-tldr-tertiary-background);
+
+        &:hover {
+          background-color: var(--color-status-tldr-tertiary-hover-background);
+        }
+
+        &:active {
+          background-color: var(--color-status-tldr-tertiary-active-background);
+        }
+      }
+    }
+  }
 }
 
 .article-container,
@@ -404,5 +490,113 @@ li {
     margin-block: 10px;
     margin-inline: 0;
     border-radius: $roundness * 0.75;
+  }
+}
+
+.addition-info :global(.flexible-links),
+.addition-warning :global(.flexible-links),
+.addition-danger :global(.flexible-links),
+.addition-tldr :global(.flexible-links) {
+  margin: 0;
+  outline-width: 1px;
+
+  &:first-child {
+    margin-block-start: 0;
+  }
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+
+  &:not(:first-child) {
+    margin-block-start: 15px;
+  }
+
+  &:not(:last-child) {
+    margin-block-end: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.addition-info :global(.flexible-links) {
+  outline-color: var(--color-status-info-border);
+  background-color: var(--color-status-info-secondary-background);
+
+  button,
+  a {
+    outline-color: var(--color-status-info-border);
+    background-color: var(--color-status-info-secondary-background);
+    color: var(--color-status-info-text);
+
+    &:hover {
+      background-color: var(--color-status-info-secondary-hover-background);
+    }
+
+    &:active {
+      background-color: var(--color-status-info-secondary-active-background);
+    }
+  }
+}
+
+.addition-warning :global(.flexible-links) {
+  outline-color: var(--color-status-warning-border);
+  background-color: var(--color-status-warning-secondary-background);
+
+  button,
+  a {
+    outline-color: var(--color-status-warning-border);
+    background-color: var(--color-status-warning-secondary-background);
+    color: var(--color-status-warning-text);
+
+    &:hover {
+      background-color: var(--color-status-warning-secondary-hover-background);
+    }
+
+    &:active {
+      background-color: var(--color-status-warning-secondary-active-background);
+    }
+  }
+}
+
+.addition-danger :global(.flexible-links) {
+  outline-color: var(--color-status-danger-border);
+  background-color: var(--color-status-danger-secondary-background);
+
+  button,
+  a {
+    outline-color: var(--color-status-danger-border);
+    background-color: var(--color-status-danger-secondary-background);
+    color: var(--color-status-danger-text);
+
+    &:hover {
+      background-color: var(--color-status-danger-secondary-hover-background);
+    }
+
+    &:active {
+      background-color: var(--color-status-danger-secondary-active-background);
+    }
+  }
+}
+
+.addition-tldr :global(.flexible-links) {
+  outline-color: var(--color-status-tldr-border);
+  background-color: var(--color-status-tldr-secondary-background);
+
+  button,
+  a {
+    outline-color: var(--color-status-tldr-border);
+    background-color: var(--color-status-tldr-secondary-background);
+    color: var(--color-status-tldr-text);
+
+    &:hover {
+      background-color: var(--color-status-tldr-secondary-hover-background);
+    }
+
+    &:active {
+      background-color: var(--color-status-tldr-secondary-active-background);
+    }
   }
 }
