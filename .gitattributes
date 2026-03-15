@@ -46,3 +46,4 @@ CNAME text
 *.prfpset binary
 *.ffx binary
 *.enc binary
+public/files/default_presets/*.zip filter=lfs diff=lfs merge=lfs -text
