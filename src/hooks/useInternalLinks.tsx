@@ -15,10 +15,100 @@ interface TargetArticle {
 }
 
 interface TargetDownload {
+  fileKind: string;
   fileName: string;
   fileSize?: string;
   href: string;
 }
+
+const getDownloadFileKind = (fileName: string): string => {
+  const extension = fileName.split(".").pop()?.toLowerCase();
+
+  if (!extension) {
+    return "файл";
+  }
+
+  const kindsByExtension: Record<string, string> = {
+    "7z": "архив",
+    "8be": "плагин",
+    "8bf": "плагин",
+    "8bi": "плагин",
+    "8bx": "плагин",
+    "abr": "набор кистей",
+    "aep": "проект",
+    "aex": "плагин",
+    "app": "приложение",
+    "atn": "операцию",
+    "atom": "пакет шаблонов",
+    "avi": "видео",
+    "bap": "пресет",
+    "bcp": "пресет",
+    "bsp": "пресет",
+    "bundle": "плагин",
+    "ccx": "расширение",
+    "cube": "LUT-профиль",
+    "definition": "служебный файл",
+    "dmg": "установщик",
+    "effect": "пресет",
+    "enc": "шаблон кодирования",
+    "exe": "установщик",
+    "ffx": "пресет",
+    "flac": "аудио",
+    "gif": "изображение",
+    "gp": "пресет",
+    "grd": "градиент",
+    "gz": "архив",
+    "hosts": "системный файл",
+    "iso": "ISO-образ",
+    "itx": "LUT-профиль",
+    "jpeg": "изображение",
+    "jpg": "изображение",
+    "json": "JSON-файл",
+    "jsx": "скрипт",
+    "jsxbin": "скрипт",
+    "license": "лицензионный файл",
+    "look": "LUT-профиль",
+    "ls3": "LUT-профиль",
+    "lut": "LUT-профиль",
+    "m4a": "аудио",
+    "mblook": "LUT-профиль",
+    "mbr": "пакет шаблонов",
+    "mkv": "видео",
+    "mogrt": "графический шаблон",
+    "mov": "видео",
+    "mp3": "аудио",
+    "mp4": "видео",
+    "msi": "установщик",
+    "ogg": "аудио",
+    "otf": "шрифт",
+    "pdf": "документ",
+    "pkg": "установщик",
+    "plugin": "плагин",
+    "png": "изображение",
+    "prfpset": "пресет",
+    "prm": "плагин",
+    "project": "служебный файл",
+    "prproj": "проект",
+    "rar": "архив",
+    "reg": "файл реестра",
+    "rgx": "LUT-профиль",
+    "svg": "изображение",
+    "tar": "архив",
+    "thumb": "миниатюру",
+    "torrent": "торрент-файл",
+    "transition": "пресет",
+    "ttf": "шрифт",
+    "vst": "аудиоплагин",
+    "vst3": "аудиоплагин",
+    "wav": "аудио",
+    "webm": "видео",
+    "webp": "изображение",
+    "zip": "архив",
+    "zxp": "расширение",
+  };
+
+  return kindsByExtension[extension] || "файл";
+};
 
 export const useInternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -88,11 +178,14 @@ export const useInternalLinkHandler = () => {
             href.split("#")[0].split("?")[0].split("/").pop() || "файл"
           );
 
+          const fileName =
+            fileNameFromDownloadAttribute && fileNameFromDownloadAttribute.trim()
+              ? fileNameFromDownloadAttribute.trim()
+              : fileNameFromHref;
+
           setTargetDownload({
-            fileName:
-              fileNameFromDownloadAttribute && fileNameFromDownloadAttribute.trim()
-                ? fileNameFromDownloadAttribute.trim()
-                : fileNameFromHref,
+            fileKind: getDownloadFileKind(fileName),
+            fileName,
             fileSize: downloadSizeCache[href],
             href,
           });
@@ -261,7 +354,7 @@ export const useInternalLinkHandler = () => {
           </div>
           {targetDownload ? (
             <p>
-              Вы уверены, что хотите скачать файл{" "}
+              Вы уверены, что хотите скачать {targetDownload.fileKind}{" "}
               <mark className="file">«{targetDownload.fileName}»</mark>?
             </p>
           ) : (
