@@ -64,8 +64,6 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
 
       const selectedText = selection.toString().trim();
 
-      const pageTitle = document.title;
-
       let plainText: string;
 
       let html: string;
@@ -77,28 +75,26 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
       if (sources.length === 1) {
         const source = sources[0];
 
-        plainText = `«${selectedText}»${separatorPlain}Взято из статьи «${source.title}» (${pageTitle})\n${source.url}`;
+        plainText = `${selectedText}${separatorPlain}Взято из статьи ${source.url}`;
 
         html = `
-          «${selectedHtml}»
+          ${selectedHtml}
           ${separatorHtml}
-          <p>
-            Взято из статьи <a href="${source.url}">«${source.title}»</a> (${pageTitle}).
-          </p>
+          <p>Взято из статьи <a href="${source.url}">${source.url}</a>.</p>
         `;
       } else {
-        const sourcesText = sources.map((s) => `— «${s.title}»: ${s.url}`).join("\n");
+        const sourcesText = sources.map((s) => s.url).join("\n");
 
         const sourcesHtml = sources
-          .map((s) => `<li><a href="${s.url}">«${s.title}»</a></li>`)
+          .map((s) => `<li><a href="${s.url}">${s.url}</a></li>`)
           .join("");
 
-        plainText = `«${selectedText}»${separatorPlain}Источники (${pageTitle}):\n${sourcesText}`;
+        plainText = `${selectedText}${separatorPlain}Взято из статей:\n${sourcesText}`;
 
         html = `
-          «${selectedHtml}»
+          ${selectedHtml}
           ${separatorHtml}
-          <p>Источники (${pageTitle}):</p>
+          <p>Взято из статей:</p>
           <ul>${sourcesHtml}</ul>
         `;
       }
