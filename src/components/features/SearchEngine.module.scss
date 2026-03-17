@@ -254,16 +254,16 @@
     transition:
       background-color,
       outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 
-    :global(.search-header) {
-      outline: 1px solid var(--color-accent);
-      background-color: var(--color-surface-primary-background-hover);
-    }
+  &-header-selected {
+    outline: 1px solid var(--color-accent);
+    background-color: var(--color-surface-primary-background-hover);
+  }
 
-    :global(.search-content) {
-      outline: 1px solid var(--color-surface-primary-border);
-      background-color: var(--color-surface-primary-background);
-    }
+  &-content-selected {
+    outline: 1px solid var(--color-surface-primary-border);
+    background-color: var(--color-surface-primary-background);
   }
 
   &-no-results {

@@ -1565,7 +1565,9 @@ const SearchResults: React.FC<{
           onMouseLeave={() => setHoveredIndex(undefined)}
         >
           <div
-            className={`${searchStyles["search-header"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
+            className={`${searchStyles["search-header"]} ${
+              isSelected ? searchStyles["search-header-selected"] : ""
+            }`}
           >
             <p className={searchStyles["search-title"]}>
               {title.replace(/^[+-]+/, "").trim()}
@@ -1584,6 +1586,8 @@ const SearchResults: React.FC<{
             }}
             className={`${searchStyles["search-content"]} ${
               overflowingResultIds.has(id) ? searchStyles["search-content-truncated"] : ""
+            } ${
+              isSelected ? searchStyles["search-content-selected"] : ""
             } article-content no-copy`}
             dangerouslySetInnerHTML={{__html: content}}
           />
