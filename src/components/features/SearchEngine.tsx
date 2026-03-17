@@ -1369,9 +1369,54 @@ const SearchResults: React.FC<{
   results: SearchResult[];
   selectedResultIndex: number;
 }> = ({onLinkClick, query, resultRefs, results, selectedResultIndex}) => {
+  const MASONRY_COLUMN_MIN_WIDTH = 400;
+
+  const MASONRY_COLUMN_GAP = 10;
+
+  const MASONRY_SINGLE_COLUMN_BREAKPOINT =
+    MASONRY_COLUMN_MIN_WIDTH * 2 + MASONRY_COLUMN_GAP;
+
+  const RESULT_CONTENT_MAX_HEIGHT = 400;
+
   const isMobile = isMobileDevice();
 
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
+
+  const [overflowingResultIds, setOverflowingResultIds] = useState<Set<string>>(
+    new Set()
+  );
+
+  const resultContentReferences = useRef<Record<string, HTMLDivElement | null>>({});
+
+  const masonryContainerReference = useRef<HTMLDivElement>(null);
+
+  const [isSingleColumnLayout, setIsSingleColumnLayout] = useState(false);
+
+  useEffect(() => {
+    const updateLayout = () => {
+      const containerWidth =
+        masonryContainerReference.current?.clientWidth ?? globalThis.innerWidth;
+
+      setIsSingleColumnLayout(containerWidth < MASONRY_SINGLE_COLUMN_BREAKPOINT);
+    };
+
+    updateLayout();
+
+    const observer = new ResizeObserver(() => {
+      updateLayout();
+    });
+
+    if (masonryContainerReference.current) {
+      observer.observe(masonryContainerReference.current);
+    }
+
+    globalThis.addEventListener("resize", updateLayout);
+
+    return () => {
+      observer.disconnect();
+      globalThis.removeEventListener("resize", updateLayout);
+    };
+  }, [MASONRY_SINGLE_COLUMN_BREAKPOINT]);
 
   const handleCopy = useCallback((event: React.MouseEvent | React.TouchEvent) => {
     const target = event.target as HTMLElement;
@@ -1428,64 +1473,148 @@ const SearchResults: React.FC<{
     }
   );
 
-  return (
-    <div {...longPressProperties}>
-      {results.map(({anchor, content, id, tag, title}, index) => {
-        const tagsToDisplay = getMatchingTags(tag, query);
+  const resultEntries = useMemo(
+    () => results.map((result, index) => ({index, result})),
+    [results]
+  );
 
-        const isSelected = index === selectedResultIndex;
+  const masonryColumns = useMemo(() => {
+    if (isSingleColumnLayout) {
+      return [resultEntries];
+    }
 
-        const isHovered = hoveredIndex === index;
+    const columns: Array<Array<{index: number; result: SearchResult}>> = [[], []];
 
-        return (
-          <div key={id}>
-            <button
-              ref={(element) => {
-                if (resultRefs.current) {
-                  resultRefs.current[index] = element;
-                }
-              }}
-              className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
-              data-anchor={anchor}
-              data-id={id}
-              style={(() => {
-                if (isMobile) {
-                  return {filter: "none", opacity: 1};
-                }
+    for (const [index, entry] of resultEntries.entries()) {
+      columns[index % 2].push(entry);
+    }
 
-                if (isSelected || isHovered) {
-                  return {filter: "none"};
-                }
+    return columns;
+  }, [isSingleColumnLayout, resultEntries]);
 
-                return {filter: "saturate(0.25)"};
-              })()}
-              tabIndex={0}
-              onClick={(event_) => handleResultClick(event_, anchor || id)}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(undefined)}
-            >
-              <div
-                className={`${searchStyles["search-header"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
-              >
-                <p className={searchStyles["search-title"]}>
-                  {title.replace(/^[+-]+/, "").trim()}
-                </p>
-                {tagsToDisplay.length > 0 && (
-                  <span className={searchStyles["search-tags"]}>
-                    {tagsToDisplay.map((t) => (
-                      <mark key={t}>{t}</mark>
-                    ))}
-                  </span>
-                )}
-              </div>
-              <div
-                className={`${searchStyles["search-content"]} article-content no-copy`}
-                dangerouslySetInnerHTML={{__html: content}}
-              />
-            </button>
+  const checkResultOverflow = useCallback(() => {
+    const overflowedIds = new Set<string>();
+
+    for (const {id} of results) {
+      const contentElement = resultContentReferences.current[id];
+
+      if (!contentElement) {
+        continue;
+      }
+
+      if (contentElement.scrollHeight > RESULT_CONTENT_MAX_HEIGHT) {
+        overflowedIds.add(id);
+      }
+    }
+
+    setOverflowingResultIds(overflowedIds);
+  }, [results]);
+
+  useEffect(() => {
+    const rafId = globalThis.requestAnimationFrame(checkResultOverflow);
+
+    const handleResize = () => {
+      checkResultOverflow();
+    };
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [checkResultOverflow, isSingleColumnLayout]);
+
+  const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
+    const {anchor, content, id, tag, title} = result;
+
+    const tagsToDisplay = getMatchingTags(tag, query);
+
+    const isSelected = index === selectedResultIndex;
+
+    const isHovered = hoveredIndex === index;
+
+    return (
+      <div
+        key={id}
+        className={searchStyles["search-results-item"]}
+      >
+        <button
+          ref={(element) => {
+            if (resultRefs.current) {
+              resultRefs.current[index] = element;
+            }
+          }}
+          className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
+          data-anchor={anchor}
+          data-id={id}
+          style={(() => {
+            if (isMobile) {
+              return {filter: "none", opacity: 1};
+            }
+
+            if (isSelected || isHovered) {
+              return {filter: "none"};
+            }
+
+            return {filter: "saturate(0.25)"};
+          })()}
+          tabIndex={0}
+          onClick={(event_) => handleResultClick(event_, anchor || id)}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(undefined)}
+        >
+          <div
+            className={`${searchStyles["search-header"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
+          >
+            <p className={searchStyles["search-title"]}>
+              {title.replace(/^[+-]+/, "").trim()}
+            </p>
+            {tagsToDisplay.length > 0 && (
+              <span className={searchStyles["search-tags"]}>
+                {tagsToDisplay.map((t) => (
+                  <mark key={t}>{t}</mark>
+                ))}
+              </span>
+            )}
           </div>
-        );
-      })}
+          <div
+            ref={(element) => {
+              resultContentReferences.current[id] = element;
+            }}
+            className={`${searchStyles["search-content"]} ${
+              overflowingResultIds.has(id) ? searchStyles["search-content-truncated"] : ""
+            } article-content no-copy`}
+            dangerouslySetInnerHTML={{__html: content}}
+          />
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      ref={masonryContainerReference}
+      {...longPressProperties}
+    >
+      <div
+        className={`${searchStyles["search-results-layout"]} ${
+          isSingleColumnLayout
+            ? searchStyles["search-results-layout-single"]
+            : searchStyles["search-results-layout-masonry"]
+        }`}
+      >
+        {isSingleColumnLayout
+          ? masonryColumns[0].map((entry) => renderResult(entry))
+          : masonryColumns.map((column, columnIndex) => (
+              <div
+                key={columnIndex}
+                className={searchStyles["search-results-column"]}
+              >
+                {column.map((entry) => renderResult(entry))}
+              </div>
+            ))}
+      </div>
     </div>
   );
 };

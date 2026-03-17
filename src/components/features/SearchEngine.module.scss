@@ -88,12 +88,36 @@
   &-link {
     display: block;
     position: relative;
-    margin: 10px;
-    width: calc(100% - 20px);
+    width: 100%;
+  }
 
-    &:first-child {
-      margin-block-start: 2px;
+  &-results-layout {
+    display: flex;
+    gap: 10px;
+    margin-top: 2px;
+    padding-inline: 10px;
+
+    &-single {
+      flex-direction: column;
     }
+
+    &-masonry {
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  }
+
+  &-results-column {
+    display: flex;
+    flex: 1 0 400px;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &-results-item {
+    width: 100%;
+    min-width: 0;
   }
 
   &-counter {
@@ -169,6 +193,7 @@
   }
 
   &-content {
+    position: relative;
     margin-block-start: -16px;
     outline: solid 1px var(--color-border-modal);
     border-top: none;
@@ -177,6 +202,7 @@
     background-color: var(--color-surface-card-background);
     padding: 0;
     padding-block-start: 16px;
+    max-height: 400px;
     overflow: hidden;
     font-size: 0.925rem;
     user-select: none;
