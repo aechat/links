@@ -11,6 +11,9 @@ message.config({
   top: 60,
 });
 
+const CLICK_COPYABLE_SELECTOR =
+  "code, mark.copy, mark.path, mark.code, mark.key, table mark.plugin, table mark.key";
+
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".no-copy") !== null ||
@@ -18,6 +21,26 @@ const isExcludedElement = (element: HTMLElement): boolean => {
     element.closest(".details-tags .tag") !== null ||
     (element.tagName === "MARK" && element.classList.length === 0)
   );
+};
+
+const hasActiveTextSelection = (): boolean => {
+  const selection = globalThis.getSelection();
+
+  return Boolean(selection && selection.rangeCount > 0 && !selection.isCollapsed);
+};
+
+const resolveClickCopyTarget = (target: HTMLElement): HTMLElement | undefined => {
+  if (hasActiveTextSelection()) {
+    return undefined;
+  }
+
+  const copyTarget = target.closest(CLICK_COPYABLE_SELECTOR);
+
+  if (!(copyTarget instanceof HTMLElement) || isExcludedElement(copyTarget)) {
+    return undefined;
+  }
+
+  return copyTarget;
 };
 
 const copyWithFallback = (text: string): boolean => {
@@ -110,6 +133,10 @@ export const useCopyToClipboard = () => {
   );
 
   const copyElementContent = useCallback(async (element: HTMLElement) => {
+    if (hasActiveTextSelection()) {
+      return;
+    }
+
     if (isExcludedElement(element)) {
       return;
     }
@@ -163,6 +190,29 @@ export const useCopyToClipboard = () => {
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
 
+    let pointerTarget: HTMLElement | undefined;
+
+    let pointerTargetPreviousCursor = "";
+
+    const setPointerTarget = (target: HTMLElement | undefined) => {
+      if (pointerTarget === target) {
+        return;
+      }
+
+      if (pointerTarget) {
+        pointerTarget.style.cursor = pointerTargetPreviousCursor;
+      }
+
+      pointerTarget = target;
+
+      if (pointerTarget) {
+        pointerTargetPreviousCursor = pointerTarget.style.cursor;
+        pointerTarget.style.cursor = "pointer";
+      } else {
+        pointerTargetPreviousCursor = "";
+      }
+    };
+
     const onClickCopyable = (event_: MouseEvent) => {
       const target = event_.target;
 
@@ -170,13 +220,29 @@ export const useCopyToClipboard = () => {
         return;
       }
 
-      const copyTarget = target.closest(
-        "code, mark.copy, table mark.plugin, table mark.key"
-      );
+      const copyTarget = resolveClickCopyTarget(target);
 
       if (copyTarget instanceof HTMLElement) {
         applyRipple(copyTarget, event_.clientX, event_.clientY);
         void copyElementContent(copyTarget);
+      }
+    };
+
+    const onMouseMove = (event_: MouseEvent) => {
+      const target = event_.target;
+
+      if (!(target instanceof HTMLElement)) {
+        setPointerTarget(undefined);
+
+        return;
+      }
+
+      setPointerTarget(resolveClickCopyTarget(target));
+    };
+
+    const onSelectionChange = () => {
+      if (hasActiveTextSelection()) {
+        setPointerTarget(undefined);
       }
     };
 
@@ -203,6 +269,8 @@ export const useCopyToClipboard = () => {
     );
 
     document.addEventListener("click", onClickCopyable);
+    document.addEventListener("mousemove", onMouseMove, {passive: true});
+    document.addEventListener("selectionchange", onSelectionChange);
     (globalThis as unknown as Window).isAutoCopyEnabled = true;
 
     return () => {
@@ -227,6 +295,9 @@ export const useCopyToClipboard = () => {
       );
 
       document.removeEventListener("click", onClickCopyable);
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("selectionchange", onSelectionChange);
+      setPointerTarget(undefined);
       (globalThis as unknown as Window).isAutoCopyEnabled = false;
     };
   }, [longPressHandlers, copyElementContent]);
