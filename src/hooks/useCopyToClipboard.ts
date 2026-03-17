@@ -12,7 +12,7 @@ message.config({
 });
 
 const CLICK_COPYABLE_SELECTOR =
-  "code, mark.copy, mark.path, table mark.plugin, table mark.key";
+  "code, mark.copy, mark.path, mark.code, mark.key, table mark.plugin, table mark.key";
 
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
