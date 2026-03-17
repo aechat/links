@@ -1786,6 +1786,166 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     }
   };
 
+  const columnTolerance = 40;
+
+  const getPositionedResults = useCallback(() => {
+    return resultReferences.current
+      .map((element, index) => ({
+        element,
+        index,
+        rect: element?.getBoundingClientRect(),
+      }))
+      .filter(
+        (item): item is {element: HTMLButtonElement; index: number; rect: DOMRect} =>
+          !!item.element && !!item.rect
+      );
+  }, [resultReferences]);
+
+  const getColumnCenters = useCallback(
+    (positionedResults: Array<{index: number; rect: DOMRect}>) => {
+      const centers: number[] = [];
+
+      for (const item of positionedResults) {
+        const centerX = item.rect.left + item.rect.width / 2;
+
+        const matchingCenterIndex = centers.findIndex(
+          (value) => Math.abs(value - centerX) <= columnTolerance
+        );
+
+        if (matchingCenterIndex === -1) {
+          centers.push(centerX);
+        } else {
+          centers[matchingCenterIndex] = (centers[matchingCenterIndex] + centerX) / 2;
+        }
+      }
+
+      return centers;
+    },
+    [columnTolerance]
+  );
+
+  const getVisualNeighborIndex = useCallback(
+    (currentIndex: number, direction: "down" | "up"): number => {
+      const positionedResults = getPositionedResults();
+
+      if (positionedResults.length === 0) {
+        return currentIndex;
+      }
+
+      const currentResult = positionedResults.find((item) => item.index === currentIndex);
+
+      if (!currentResult) {
+        return positionedResults[0].index;
+      }
+
+      const currentCenterX = currentResult.rect.left + currentResult.rect.width / 2;
+
+      const currentCenterY = currentResult.rect.top + currentResult.rect.height / 2;
+
+      const columnCenters = getColumnCenters(positionedResults);
+
+      if (columnCenters.length <= 1) {
+        if (direction === "down") {
+          return Math.min(currentIndex + 1, results.length - 1);
+        }
+
+        return Math.max(currentIndex - 1, 0);
+      }
+
+      const currentColumnCenter =
+        columnCenters
+          .toSorted((a, b) => Math.abs(a - currentCenterX) - Math.abs(b - currentCenterX))
+          .at(0) ?? currentCenterX;
+
+      const directionalCandidates = positionedResults
+        .map((candidate) => ({
+          centerX: candidate.rect.left + candidate.rect.width / 2,
+          centerY: candidate.rect.top + candidate.rect.height / 2,
+          index: candidate.index,
+        }))
+        .filter((candidate) => candidate.index !== currentIndex)
+        .filter(
+          (candidate) =>
+            Math.abs(candidate.centerX - currentColumnCenter) <= columnTolerance
+        )
+        .filter((candidate) =>
+          direction === "down"
+            ? candidate.centerY > currentCenterY + 2
+            : candidate.centerY < currentCenterY - 2
+        );
+
+      const bestCandidate = directionalCandidates.toSorted((a, b) => {
+        const scoreA =
+          Math.abs(a.centerY - currentCenterY) * 12 +
+          Math.abs(a.centerX - currentCenterX);
+
+        const scoreB =
+          Math.abs(b.centerY - currentCenterY) * 12 +
+          Math.abs(b.centerX - currentCenterX);
+
+        return scoreA - scoreB;
+      })[0];
+
+      return bestCandidate?.index ?? currentIndex;
+    },
+    [columnTolerance, getColumnCenters, getPositionedResults, results.length]
+  );
+
+  const getHorizontalNeighborIndex = useCallback(
+    (currentIndex: number, direction: "left" | "right"): number => {
+      const positionedResults = getPositionedResults();
+
+      if (positionedResults.length === 0) {
+        return currentIndex;
+      }
+
+      const currentResult = positionedResults.find((item) => item.index === currentIndex);
+
+      if (!currentResult) {
+        return positionedResults[0].index;
+      }
+
+      const currentCenterX = currentResult.rect.left + currentResult.rect.width / 2;
+
+      const currentCenterY = currentResult.rect.top + currentResult.rect.height / 2;
+
+      const candidateColumns = positionedResults
+        .map((item) => ({
+          centerX: item.rect.left + item.rect.width / 2,
+          index: item.index,
+          rect: item.rect,
+        }))
+        .filter((item) =>
+          direction === "left"
+            ? item.centerX < currentCenterX - columnTolerance
+            : item.centerX > currentCenterX + columnTolerance
+        );
+
+      if (candidateColumns.length === 0) {
+        return currentIndex;
+      }
+
+      let bestCandidate: {index: number; score: number} | undefined;
+
+      for (const candidate of candidateColumns) {
+        const candidateCenterY = candidate.rect.top + candidate.rect.height / 2;
+
+        const deltaY = Math.abs(candidateCenterY - currentCenterY);
+
+        const deltaX = Math.abs(candidate.centerX - currentCenterX);
+
+        const score = deltaX * 12 + deltaY;
+
+        if (!bestCandidate || score < bestCandidate.score) {
+          bestCandidate = {index: candidate.index, score};
+        }
+      }
+
+      return bestCandidate?.index ?? currentIndex;
+    },
+    [columnTolerance, getPositionedResults]
+  );
+
   const handleLinkClick = useCallback(
     (anchorValue: string) => {
       const resolvedDetails = resolveDetailsByAnchor(anchorValue);
@@ -1842,7 +2002,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           event_.preventDefault();
 
           setSelectedResultIndex((previousIndex) =>
-            previousIndex < results.length - 1 ? previousIndex + 1 : previousIndex
+            getVisualNeighborIndex(previousIndex, "down")
           );
 
           break;
@@ -1852,7 +2012,27 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           event_.preventDefault();
 
           setSelectedResultIndex((previousIndex) =>
-            previousIndex > 0 ? previousIndex - 1 : previousIndex
+            getVisualNeighborIndex(previousIndex, "up")
+          );
+
+          break;
+        }
+
+        case "ArrowLeft": {
+          event_.preventDefault();
+
+          setSelectedResultIndex((previousIndex) =>
+            getHorizontalNeighborIndex(previousIndex, "left")
+          );
+
+          break;
+        }
+
+        case "ArrowRight": {
+          event_.preventDefault();
+
+          setSelectedResultIndex((previousIndex) =>
+            getHorizontalNeighborIndex(previousIndex, "right")
           );
 
           break;
@@ -1879,7 +2059,14 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isModalOpen, results, selectedResultIndex, handleLinkClick]);
+  }, [
+    getVisualNeighborIndex,
+    getHorizontalNeighborIndex,
+    handleLinkClick,
+    isModalOpen,
+    results,
+    selectedResultIndex,
+  ]);
 
   useEffect(() => {
     if (selectedResultIndex >= 0) {
@@ -1889,15 +2076,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         return;
       }
 
-      const resultContainer = document.querySelector(
-        `.${searchStyles["search-results"]}`
-      );
-
-      const selectedResultElements = resultContainer?.querySelectorAll(
-        `.${searchStyles["search-link"]}`
-      );
-
-      selectedResultElements?.[selectedResultIndex]?.scrollIntoView({
+      resultReferences.current[selectedResultIndex]?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
