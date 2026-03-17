@@ -916,7 +916,8 @@ type TransformedSearchResult = SearchResult & {
 
 const transformSearchResult = (
   result: BaseSearchResult,
-  searchWords: string[]
+  searchWords: string[],
+  originalQuery: string
 ): TransformedSearchResult => {
   const isSingleParagraphMatch = isSingleParagraphMatchForResult(
     result.content,
@@ -936,7 +937,7 @@ const transformSearchResult = (
     normalizedContent
   );
 
-  const score = computeScore(
+  let score = computeScore(
     searchWords,
     normalizedTitle,
     normalizedTag,
@@ -944,6 +945,22 @@ const transformSearchResult = (
     tagMatches.length,
     contentMatches.length
   );
+
+  const normalizedQuery = normalizeText(originalQuery);
+
+  if (normalizedQuery.length > 1) {
+    if (normalizedTitle.includes(normalizedQuery)) {
+      score += 120;
+    }
+
+    if (normalizedTag.includes(normalizedQuery)) {
+      score += 90;
+    }
+
+    if (normalizedContent.includes(normalizedQuery)) {
+      score += 60;
+    }
+  }
 
   return {
     ...result,
@@ -1021,10 +1038,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         return [];
       }
 
-      const data: Omit<
-        SearchResult,
-        "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
-      >[] = [];
+      const data: BaseSearchResult[] = [];
 
       for (const detail of cachedDetails) {
         const summary = detail.querySelector(":scope > summary");
@@ -1064,7 +1078,13 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         ].join("\n");
 
         if (title || text) {
-          data.push({anchor, content: text.trim(), id, tag: tag.trim(), title});
+          data.push({
+            anchor,
+            content: text.trim(),
+            id,
+            tag: tag.trim(),
+            title,
+          });
         }
       }
 
@@ -1085,7 +1105,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         );
 
         const results = filtered
-          .map((result) => transformSearchResult(result, searchWords))
+          .map((result) => transformSearchResult(result, searchWords, text))
           .toSorted((a, b) => {
             if (b.score !== a.score) {
               return b.score - a.score;
@@ -1245,7 +1265,7 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
 };
 
 const SearchCategories: React.FC<{
-  onLinkClick: (id: string) => void;
+  onLinkClick: (id: string, matchText?: string) => void;
   sections: SearchSection[];
 }> = ({onLinkClick, sections}) => {
   const handleCopy = useCallback((event: React.MouseEvent | React.TouchEvent) => {
