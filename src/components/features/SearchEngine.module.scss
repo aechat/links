@@ -9,6 +9,14 @@
     font-size: 1rem;
     font-weight: 600;
 
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      appearance: none;
+      display: none;
+    }
+
     &::placeholder {
       opacity: 0.75;
       text-align: center;
