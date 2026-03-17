@@ -1806,7 +1806,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         closeIcon={false}
         footer={<></>}
         open={isModalOpen}
-        width={850}
+        width={1000}
         onCancel={closeModal}
       >
         <div className={searchStyles["search"]}>
