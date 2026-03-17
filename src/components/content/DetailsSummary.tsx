@@ -41,6 +41,12 @@ interface DetailsSummaryProperties {
 
 const TAG_LIMIT = 4;
 
+const parseTags = (tags: string): string[] =>
+  tags
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+
 const getPluralizedTags = (count: number): string => {
   const lastDigit = count % 10;
 
@@ -62,7 +68,7 @@ const stopToggleTagsPointerDown = (event: React.MouseEvent | React.TouchEvent) =
 const TagList: React.FC<{tags: string}> = ({tags}) => {
   const [expanded, setExpanded] = useState(false);
 
-  const allTags = useMemo(() => tags.split(", ").filter(Boolean), [tags]);
+  const allTags = useMemo(() => parseTags(tags), [tags]);
 
   const isOverflowing = allTags.length > TAG_LIMIT;
 
@@ -295,6 +301,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   tag,
   title,
 }) => {
+  const normalizedTag = useMemo(
+    () => (tag ? parseTags(tag).join(", ") : undefined),
+    [tag]
+  );
+
   const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
     useInternalLinkHandler();
 
@@ -935,7 +946,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         ref={detailsReference}
         className={`${styles["details-summary-root"]} ${isOpen ? styles["is-open"] : ""}`}
         data-anchor={anchor}
-        data-tags={tag}
+        data-tags={normalizedTag}
       >
         <summary
           className={styles["details-summary"]}
@@ -947,7 +958,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
             <span className={styles["details-summary-icon"]}>+</span>
             <div className={styles["details-summary-text-content"]}>
               <h2>{headingText}</h2>
-              {tag && <TagList tags={tag} />}
+              {normalizedTag && <TagList tags={normalizedTag} />}
             </div>
           </div>
           <Tooltip title="Скопировать ссылку">
