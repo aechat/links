@@ -1,3 +1,5 @@
+import {stemmer as englishStemmer} from "@orama/stemmers/english";
+import {stemmer as russianStemmer} from "@orama/stemmers/russian";
 import debounce from "lodash/debounce";
 import React, {
   createContext,
@@ -170,6 +172,74 @@ const normalizeText = (text: string): string => {
     .trim();
 };
 
+type TextSearchIndex = {
+  normalizedText: string;
+  normalizedWordSet: Set<string>;
+  stemSet: Set<string>;
+};
+
+const MIN_STEM_LENGTH = 3;
+
+const normalizeWord = (word: string): string => normalizeText(word).replaceAll(" ", "");
+
+const getWordStem = (word: string): string => {
+  const normalized = normalizeWord(word);
+
+  if (!normalized) {
+    return "";
+  }
+
+  if (/[а-я]/i.test(normalized) || normalized.includes("ё")) {
+    return russianStemmer(normalized);
+  }
+
+  return englishStemmer(normalized);
+};
+
+const buildSearchIndex = (text: string): TextSearchIndex => {
+  const normalizedText = normalizeText(text);
+
+  const words = normalizedText.split(" ").filter(Boolean);
+
+  const normalizedWordSet = new Set(words);
+
+  const stemSet = new Set(
+    words
+      .map((word) => getWordStem(word))
+      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+  );
+
+  return {normalizedText, normalizedWordSet, stemSet};
+};
+
+const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
+  const normalizedWord = normalizeWord(searchWord);
+
+  if (!normalizedWord) {
+    return false;
+  }
+
+  if (
+    index.normalizedText.includes(normalizedWord) ||
+    index.normalizedWordSet.has(normalizedWord)
+  ) {
+    return true;
+  }
+
+  const stem = getWordStem(normalizedWord);
+
+  return stem.length >= MIN_STEM_LENGTH && index.stemSet.has(stem);
+};
+
+const extractSearchWords = (query: string): string[] => [
+  ...new Set(
+    query
+      .split(/\s+/)
+      .map((word) => normalizeWord(word))
+      .filter(Boolean)
+  ),
+];
+
 const isKeyCombinationSearch = (text: string): boolean => {
   return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
 };
@@ -209,10 +279,10 @@ const hasMatch = (
     return normalizedText.includes(normalizedSearch);
   }
 
-  const normalizedTextToSearch = normalizeText(text);
+  const textSearchIndex = buildSearchIndex(text);
 
   for (const searchWord of searchWords) {
-    if (!normalizedTextToSearch.includes(searchWord)) {
+    if (!hasWordMatch(searchWord, textSearchIndex)) {
       return false;
     }
   }
@@ -534,11 +604,19 @@ const computeTitleTagContentMatches = (
   normalizedTag: string,
   normalizedContent: string
 ) => {
-  const titleMatches = searchWords.filter((word) => normalizedTitle.includes(word));
+  const titleSearchIndex = buildSearchIndex(normalizedTitle);
 
-  const tagMatches = searchWords.filter((word) => normalizedTag.includes(word));
+  const tagSearchIndex = buildSearchIndex(normalizedTag);
 
-  const contentMatches = searchWords.filter((word) => normalizedContent.includes(word));
+  const contentSearchIndex = buildSearchIndex(normalizedContent);
+
+  const titleMatches = searchWords.filter((word) => hasWordMatch(word, titleSearchIndex));
+
+  const tagMatches = searchWords.filter((word) => hasWordMatch(word, tagSearchIndex));
+
+  const contentMatches = searchWords.filter((word) =>
+    hasWordMatch(word, contentSearchIndex)
+  );
 
   return {contentMatches, tagMatches, titleMatches};
 };
@@ -553,6 +631,10 @@ const computeScore = (
 ) => {
   let score = 0;
 
+  const titleSearchIndex = buildSearchIndex(normalizedTitle);
+
+  const tagSearchIndex = buildSearchIndex(normalizedTag);
+
   if (titleMatchesCount && tagMatchesCount) {
     score += 100;
   } else if (titleMatchesCount || tagMatchesCount) {
@@ -562,8 +644,8 @@ const computeScore = (
   score += Math.max(
     ...searchWords.map((word) =>
       Math.max(
-        normalizedTitle.includes(word) ? word.length : 0,
-        normalizedTag.includes(word) ? word.length : 0
+        hasWordMatch(word, titleSearchIndex) ? word.length : 0,
+        hasWordMatch(word, tagSearchIndex) ? word.length : 0
       )
     ),
     0
@@ -789,12 +871,12 @@ const isSingleParagraphMatchForResult = (
   const lines = resultContent.split("\n");
 
   for (const line of lines) {
-    const normalizedLine = normalizeText(stripHtml(line));
+    const lineSearchIndex = buildSearchIndex(stripHtml(line));
 
     let allIncluded = true;
 
     for (const word of searchWords) {
-      if (!normalizedLine.includes(word)) {
+      if (!hasWordMatch(word, lineSearchIndex)) {
         allIncluded = false;
         break;
       }
@@ -875,13 +957,11 @@ const filterByWords = (
   {content, tag, title}: FilteredSearchResult,
   searchWords: string[]
 ): boolean => {
-  const textToSearch = [
-    normalizeText(title),
-    normalizeText(tag || ""),
-    normalizeText(stripHtml(content || "")),
-  ].join(" ");
+  const textToSearch = [title, tag || "", stripHtml(content || "")].join(" ");
 
-  return searchWords.every((word) => textToSearch.includes(word));
+  const textSearchIndex = buildSearchIndex(textToSearch);
+
+  return searchWords.every((word) => hasWordMatch(word, textSearchIndex));
 };
 
 const filterDetail = (
@@ -976,10 +1056,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   const handleSearch = useCallback(
     debounce((text: string) => {
       if (text.trim()) {
-        const searchWords = text
-          .split(/\s+/)
-          .filter((word) => word.length > 0)
-          .map((word) => normalizeText(word));
+        const searchWords = extractSearchWords(text);
 
         const detailsData = extractDetailsData(searchWords);
 
@@ -1227,11 +1304,22 @@ const getMatchingTags = (tag: string | undefined, query: string) => {
     return [];
   }
 
-  const allTags = tag.split(", ");
+  const searchWords = extractSearchWords(query);
 
-  const lowerCaseQuery = query.toLowerCase().trim();
+  if (searchWords.length === 0) {
+    return [];
+  }
 
-  return allTags.filter((t) => t.toLowerCase().includes(lowerCaseQuery));
+  const allTags = tag
+    .split(",")
+    .map((tag_) => tag_.trim())
+    .filter(Boolean);
+
+  return allTags.filter((tag_) => {
+    const tagSearchIndex = buildSearchIndex(tag_);
+
+    return searchWords.some((word) => hasWordMatch(word, tagSearchIndex));
+  });
 };
 
 const SearchResults: React.FC<{
