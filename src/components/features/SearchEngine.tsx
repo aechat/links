@@ -1368,7 +1368,15 @@ const SearchResults: React.FC<{
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: SearchResult[];
   selectedResultIndex: number;
-}> = ({onLinkClick, query, resultRefs, results, selectedResultIndex}) => {
+  setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+}> = ({
+  onLinkClick,
+  query,
+  resultRefs,
+  results,
+  selectedResultIndex,
+  setSelectedResultIndex,
+}) => {
   const MASONRY_COLUMN_MIN_WIDTH = 400;
 
   const MASONRY_COLUMN_GAP = 10;
@@ -1560,7 +1568,10 @@ const SearchResults: React.FC<{
             return {filter: "saturate(0.25)"};
           })()}
           tabIndex={0}
-          onClick={(event_) => handleResultClick(event_, anchor || id)}
+          onClick={(event_) => {
+            setSelectedResultIndex(index);
+            handleResultClick(event_, anchor || id);
+          }}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(undefined)}
         >
@@ -1718,6 +1729,8 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const inputReference = useRef<HTMLInputElement>(null);
 
   const resultsContainerReference = useRef<HTMLDivElement>(null);
+
+  const wasModalOpenReference = useRef(false);
 
   const [isFadeVisible, setIsFadeVisible] = useState(false);
 
@@ -1950,6 +1963,78 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     [columnTolerance, getPositionedResults]
   );
 
+  const scrollSelectedResultIntoView = useCallback(
+    (behavior: ScrollBehavior = "smooth") => {
+      if (selectedResultIndex < 0) {
+        return;
+      }
+
+      if (isMobileDevice()) {
+        return;
+      }
+
+      const container = resultsContainerReference.current;
+
+      const selectedElement = resultReferences.current[selectedResultIndex];
+
+      if (!container || !selectedElement) {
+        return;
+      }
+
+      const containerRect = container.getBoundingClientRect();
+
+      const elementRect = selectedElement.getBoundingClientRect();
+
+      const absoluteElementTop =
+        elementRect.top - containerRect.top + container.scrollTop;
+
+      const centeredTop =
+        absoluteElementTop - (container.clientHeight - elementRect.height) / 2;
+
+      const maxScrollTop = Math.max(0, container.scrollHeight - container.clientHeight);
+
+      const targetTop = Math.min(maxScrollTop, Math.max(0, centeredTop));
+
+      container.scrollTo({
+        behavior,
+        top: targetTop,
+      });
+
+      // Chromium can keep stale anchor-based offset after masonry reflow.
+      // If element is still clipped after manual scroll, use native alignment fallback.
+      const verifyAndFallback = () => {
+        const currentContainer = resultsContainerReference.current;
+
+        const currentElement = resultReferences.current[selectedResultIndex];
+
+        if (!currentContainer || !currentElement) {
+          return;
+        }
+
+        const currentContainerRect = currentContainer.getBoundingClientRect();
+
+        const currentElementRect = currentElement.getBoundingClientRect();
+
+        const topGap = currentElementRect.top - currentContainerRect.top;
+
+        const bottomGap = currentContainerRect.bottom - currentElementRect.bottom;
+
+        const isOutOfView = topGap < 8 || bottomGap < 8;
+
+        if (isOutOfView) {
+          currentElement.scrollIntoView({
+            behavior,
+            block: "center",
+            inline: "nearest",
+          });
+        }
+      };
+
+      globalThis.requestAnimationFrame(verifyAndFallback);
+    },
+    [selectedResultIndex]
+  );
+
   const handleLinkClick = useCallback(
     (anchorValue: string) => {
       const resolvedDetails = resolveDetailsByAnchor(anchorValue);
@@ -2073,19 +2158,83 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   ]);
 
   useEffect(() => {
-    if (selectedResultIndex >= 0) {
-      const isMobile = isMobileDevice();
+    if (!isModalOpen || selectedResultIndex < 0) {
+      wasModalOpenReference.current = false;
 
-      if (isMobile) {
+      return;
+    }
+
+    const justOpened = !wasModalOpenReference.current;
+
+    wasModalOpenReference.current = true;
+
+    if (!justOpened) {
+      scrollSelectedResultIntoView("smooth");
+
+      return;
+    }
+
+    let rafId = 0;
+
+    let previousRelativeTop: number | undefined;
+
+    let stableFrames = 0;
+
+    let frameCount = 0;
+
+    const requiredStableFrames = 1;
+
+    const maxFrames = 10;
+
+    const waitForStableLayoutAndScroll = () => {
+      const container = resultsContainerReference.current;
+
+      const selectedElement = resultReferences.current[selectedResultIndex];
+
+      frameCount += 1;
+
+      if (!container || !selectedElement) {
+        if (frameCount < maxFrames) {
+          rafId = globalThis.requestAnimationFrame(waitForStableLayoutAndScroll);
+        } else {
+          scrollSelectedResultIntoView("smooth");
+        }
+
         return;
       }
 
-      resultReferences.current[selectedResultIndex]?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  }, [selectedResultIndex]);
+      const containerRect = container.getBoundingClientRect();
+
+      const elementRect = selectedElement.getBoundingClientRect();
+
+      const relativeTop = elementRect.top - containerRect.top;
+
+      if (
+        previousRelativeTop !== undefined &&
+        Math.abs(relativeTop - previousRelativeTop) < 1
+      ) {
+        stableFrames += 1;
+      } else {
+        stableFrames = 0;
+      }
+
+      previousRelativeTop = relativeTop;
+
+      if (stableFrames >= requiredStableFrames || frameCount >= maxFrames) {
+        scrollSelectedResultIntoView("smooth");
+
+        return;
+      }
+
+      rafId = globalThis.requestAnimationFrame(waitForStableLayoutAndScroll);
+    };
+
+    rafId = globalThis.requestAnimationFrame(waitForStableLayoutAndScroll);
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+    };
+  }, [isModalOpen, scrollSelectedResultIntoView, selectedResultIndex]);
 
   useEffect(() => {
     const container = resultsContainerReference.current;
@@ -2133,6 +2282,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             resultRefs={resultReferences}
             results={results}
             selectedResultIndex={selectedResultIndex}
+            setSelectedResultIndex={setSelectedResultIndex}
             onLinkClick={handleLinkClick}
           />
           <ExternalSearch query={debouncedQuery} />
