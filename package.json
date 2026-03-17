@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
+    "@orama/stemmers": "^3.1.18",
     "@types/lodash": "^4.17.21",
     "antd": "^6.2.2",
     "file-saver": "^2.0.5",

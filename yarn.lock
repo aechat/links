@@ -2951,6 +2951,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@orama/stemmers@npm:^3.1.18":
+  version: 3.1.18
+  resolution: "@orama/stemmers@npm:3.1.18"
+  checksum: 10c0/106aa623b25fa6db49c4c95ee5c50ee93a19a73faf3445330ad70e6800c9caaec8cccb5db062b93983b325883fe723c49d7acb3589fa29a5f26506f4f7ade54b
+  languageName: node
+  linkType: hard
+
 "@parcel/watcher-android-arm64@npm:2.5.4":
   version: 2.5.4
   resolution: "@parcel/watcher-android-arm64@npm:2.5.4"
@@ -7696,6 +7703,7 @@ __metadata:
     "@iconify/react": "npm:^6.0.2"
     "@mui/icons-material": "npm:^7.3.7"
     "@mui/material": "npm:^7.3.7"
+    "@orama/stemmers": "npm:^3.1.18"
     "@stylistic/eslint-plugin": "npm:^5.6.1"
     "@types/file-saver": "npm:^2.0.7"
     "@types/fluent-ffmpeg": "npm:^2"
