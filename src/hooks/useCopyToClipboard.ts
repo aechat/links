@@ -20,6 +20,12 @@ const isExcludedElement = (element: HTMLElement): boolean => {
   );
 };
 
+const hasActiveTextSelection = (): boolean => {
+  const selection = globalThis.getSelection();
+
+  return Boolean(selection && selection.rangeCount > 0 && !selection.isCollapsed);
+};
+
 const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
 
@@ -110,6 +116,10 @@ export const useCopyToClipboard = () => {
   );
 
   const copyElementContent = useCallback(async (element: HTMLElement) => {
+    if (hasActiveTextSelection()) {
+      return;
+    }
+
     if (isExcludedElement(element)) {
       return;
     }
@@ -164,6 +174,10 @@ export const useCopyToClipboard = () => {
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
 
     const onClickCopyable = (event_: MouseEvent) => {
+      if (hasActiveTextSelection()) {
+        return;
+      }
+
       const target = event_.target;
 
       if (!(target instanceof HTMLElement)) {
