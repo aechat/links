@@ -306,11 +306,21 @@ const isListOrParagraph = (element: Element): boolean => {
   return tag === "LI" || tag === "P";
 };
 
+const removeNestedDetailsContainers = (root: Element): void => {
+  for (const nestedDetails of root.querySelectorAll(
+    'details[data-nested-details-summary="true"], details.details-nested, .details-nested'
+  )) {
+    nestedDetails.remove();
+  }
+};
+
 const cloneWithoutFigures = (element: Element): Element => {
   const clone = element.cloneNode(true) as Element;
 
   for (const element_ of clone.querySelectorAll('[class*="media-figure"]'))
     element_.remove();
+
+  removeNestedDetailsContainers(clone);
 
   return clone;
 };
@@ -406,7 +416,9 @@ const processElement = (
   isKeyCombination: boolean
 ): SearchMatch => {
   if (isListOrParagraph(element)) {
-    const fullText = (element as HTMLElement).textContent || "";
+    const sanitizedElement = cloneWithoutFigures(element);
+
+    const fullText = (sanitizedElement as HTMLElement).textContent || "";
 
     if (!hasMatch(fullText, searchWords, isKeyCombination)) {
       return {matchCount: 0, result: ""};
@@ -416,9 +428,7 @@ const processElement = (
       return handleListWithNestedMatches(element, searchWords, isKeyCombination);
     }
 
-    const clone = cloneWithoutFigures(element);
-
-    return {matchCount: 1, result: clone.outerHTML};
+    return {matchCount: 1, result: sanitizedElement.outerHTML};
   }
 
   return processContainerChildren(element, searchWords, isKeyCombination);
@@ -859,6 +869,16 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
   return parts.filter(Boolean).join("\n");
 };
 
+const getSummaryTitle = (summary: Element): string => {
+  const titleElement = summary.querySelector("h2");
+
+  if (titleElement?.textContent?.trim()) {
+    return titleElement.textContent.trim();
+  }
+
+  return (summary.textContent || "").replaceAll(/\s+/g, " ").trim();
+};
+
 type BaseSearchResult = Omit<
   SearchResult,
   "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
@@ -990,7 +1010,9 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
       return;
     }
 
-    return document.querySelectorAll("details");
+    return [...document.querySelectorAll("details")].filter((detail) => {
+      return !detail.parentElement?.closest("details");
+    });
   }, [isPageLoaded]);
 
   const extractDetailsData = useCallback(
@@ -1005,7 +1027,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
       >[] = [];
 
       for (const detail of cachedDetails) {
-        const summary = detail.querySelector("summary");
+        const summary = detail.querySelector(":scope > summary");
 
         if (!summary) {
           continue;
@@ -1017,9 +1039,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           continue;
         }
 
-        const titleElement = summary.querySelector("h2");
-
-        const title = titleElement ? (titleElement.textContent ?? "") : "";
+        const title = getSummaryTitle(summary);
 
         const tag = detail.dataset.tags ?? "";
 
