@@ -176,11 +176,134 @@ type TextSearchIndex = {
   normalizedText: string;
   normalizedWordSet: Set<string>;
   stemSet: Set<string>;
+  foldedText: string;
+  foldedWordSet: Set<string>;
+  foldedStemSet: Set<string>;
 };
 
 const MIN_STEM_LENGTH = 3;
 
 const normalizeWord = (word: string): string => normalizeText(word).replaceAll(" ", "");
+
+const CYR_TO_LAT: Record<string, string> = {
+  а: "a",
+  б: "b",
+  в: "v",
+  г: "g",
+  д: "d",
+  е: "e",
+  ё: "yo",
+  ж: "zh",
+  з: "z",
+  и: "i",
+  й: "y",
+  к: "k",
+  л: "l",
+  м: "m",
+  н: "n",
+  о: "o",
+  п: "p",
+  р: "r",
+  с: "s",
+  т: "t",
+  у: "u",
+  ф: "f",
+  х: "kh",
+  ц: "ts",
+  ч: "ch",
+  ш: "sh",
+  щ: "shch",
+  ъ: "",
+  ы: "y",
+  ь: "",
+  э: "e",
+  ю: "yu",
+  я: "ya",
+};
+
+const LAT_TO_CYR_ALIASES: Record<string, string> = {
+  ja: "я",
+  jo: "ё",
+  ju: "ю",
+  sch: "щ",
+};
+
+const LAT_TO_CYR_BASE: Record<string, string> = {
+  ...Object.fromEntries(
+    Object.entries(CYR_TO_LAT)
+      .filter(([, value]) => value.length > 0)
+      .map(([key, value]) => [value, key])
+  ),
+  c: "к",
+  h: "х",
+  j: "й",
+  q: "к",
+  w: "в",
+  x: "х",
+  ...LAT_TO_CYR_ALIASES,
+};
+
+const CYR_TO_LAT_MULTI = Object.entries(CYR_TO_LAT).filter(
+  ([, value]) => value.length > 1
+);
+
+const CYR_TO_LAT_SINGLE = Object.fromEntries(
+  Object.entries(CYR_TO_LAT).filter(([, value]) => value.length <= 1)
+);
+
+const LAT_TO_CYR_MULTI = Object.entries(LAT_TO_CYR_BASE)
+  .filter(([key]) => key.length > 1)
+  .toSorted((a, b) => b[0].length - a[0].length);
+
+const LAT_TO_CYR_SINGLE = Object.fromEntries(
+  Object.entries(LAT_TO_CYR_BASE).filter(([key]) => key.length === 1)
+);
+
+const translitCyrToLat = (text: string): string => {
+  let output = text.toLowerCase();
+
+  for (const [from, to] of CYR_TO_LAT_MULTI) {
+    output = output.replaceAll(from, to);
+  }
+
+  return [...output].map((char) => CYR_TO_LAT_SINGLE[char] ?? char).join("");
+};
+
+const translitLatToCyr = (text: string): string => {
+  let output = text.toLowerCase();
+
+  for (const [from, to] of LAT_TO_CYR_MULTI) {
+    output = output.replaceAll(from, to);
+  }
+
+  return [...output].map((char) => LAT_TO_CYR_SINGLE[char] ?? char).join("");
+};
+
+const getAutomaticWordVariants = (word: string): string[] => {
+  const normalizedWord = normalizeWord(word);
+
+  if (!normalizedWord) {
+    return [];
+  }
+
+  const variants = new Set<string>([
+    normalizedWord,
+    translitCyrToLat(normalizedWord),
+    translitLatToCyr(normalizedWord),
+  ]);
+
+  for (const variant of variants) {
+    if (variant.includes("x")) {
+      variants.add(variant.replaceAll("x", "kh"));
+    }
+
+    if (variant.includes("kh")) {
+      variants.add(variant.replaceAll("kh", "x"));
+    }
+  }
+
+  return [...variants].filter(Boolean);
+};
 
 const getWordStem = (word: string): string => {
   const normalized = normalizeWord(word);
@@ -199,9 +322,15 @@ const getWordStem = (word: string): string => {
 const buildSearchIndex = (text: string): TextSearchIndex => {
   const normalizedText = normalizeText(text);
 
+  const foldedText = normalizeLatinPhonetics(normalizedText);
+
   const words = normalizedText.split(" ").filter(Boolean);
 
+  const foldedWords = foldedText.split(" ").filter(Boolean);
+
   const normalizedWordSet = new Set(words);
+
+  const foldedWordSet = new Set(foldedWords);
 
   const stemSet = new Set(
     words
@@ -209,7 +338,20 @@ const buildSearchIndex = (text: string): TextSearchIndex => {
       .filter((stem) => stem.length >= MIN_STEM_LENGTH)
   );
 
-  return {normalizedText, normalizedWordSet, stemSet};
+  const foldedStemSet = new Set(
+    foldedWords
+      .map((word) => getWordStem(word))
+      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+  );
+
+  return {
+    foldedStemSet,
+    foldedText,
+    foldedWordSet,
+    normalizedText,
+    normalizedWordSet,
+    stemSet,
+  };
 };
 
 const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
@@ -219,16 +361,34 @@ const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
     return false;
   }
 
-  if (
-    index.normalizedText.includes(normalizedWord) ||
-    index.normalizedWordSet.has(normalizedWord)
-  ) {
-    return true;
+  const wordVariants = getAutomaticWordVariants(normalizedWord);
+
+  for (const variant of wordVariants) {
+    if (index.normalizedText.includes(variant) || index.normalizedWordSet.has(variant)) {
+      return true;
+    }
+
+    const foldedVariant = normalizeLatinPhonetics(variant);
+
+    if (
+      index.foldedText.includes(foldedVariant) ||
+      index.foldedWordSet.has(foldedVariant)
+    ) {
+      return true;
+    }
   }
 
-  const stem = getWordStem(normalizedWord);
+  const stemVariants = [
+    ...new Set(
+      wordVariants
+        .map((variant) => getWordStem(variant))
+        .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+    ),
+  ];
 
-  return stem.length >= MIN_STEM_LENGTH && index.stemSet.has(stem);
+  return stemVariants.some(
+    (stem) => index.stemSet.has(stem) || index.foldedStemSet.has(stem)
+  );
 };
 
 const extractSearchWords = (query: string): string[] => [
