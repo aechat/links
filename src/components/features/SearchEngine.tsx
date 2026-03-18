@@ -173,6 +173,8 @@ const normalizeText = (text: string): string => {
 };
 
 type TextSearchIndex = {
+  consonantPrefixSet: Set<string>;
+  consonantSet: Set<string>;
   normalizedText: string;
   normalizedWordSet: Set<string>;
   stemSet: Set<string>;
@@ -183,7 +185,22 @@ type TextSearchIndex = {
 
 const MIN_STEM_LENGTH = 3;
 
+const MIN_CONSONANT_SIGNATURE_LENGTH = 3;
+
 const normalizeWord = (word: string): string => normalizeText(word).replaceAll(" ", "");
+
+const LATIN_VOWELS_REGEX = /[aeiouyw]/g;
+
+const CYRILLIC_VOWELS_REGEX = /[аеёиоуыэюяй]/g;
+
+const REPEATED_CHARACTERS_REGEX = /(.)\1+/g;
+
+const getConsonantSignature = (word: string): string => {
+  return normalizeWord(word)
+    .replaceAll(LATIN_VOWELS_REGEX, "")
+    .replaceAll(CYRILLIC_VOWELS_REGEX, "")
+    .replaceAll(REPEATED_CHARACTERS_REGEX, "$1");
+};
 
 const CYR_TO_LAT: Record<string, string> = {
   а: "a",
@@ -222,9 +239,14 @@ const CYR_TO_LAT: Record<string, string> = {
 };
 
 const LAT_TO_CYR_ALIASES: Record<string, string> = {
+  eh: "э",
+  ia: "я",
   ja: "я",
+  jh: "ж",
   jo: "ё",
   ju: "ю",
+  oo: "у",
+  ou: "у",
   sch: "щ",
 };
 
@@ -279,6 +301,69 @@ const translitLatToCyr = (text: string): string => {
   return [...output].map((char) => LAT_TO_CYR_SINGLE[char] ?? char).join("");
 };
 
+const normalizeLatinPhonetics = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replaceAll("ph", "f")
+    .replaceAll("ck", "k")
+    .replaceAll("q", "k")
+    .replaceAll("c", "k")
+    .replaceAll("w", "v")
+    .replaceAll(/([b-df-hj-np-tv-z])\1+/g, "$1")
+    .replaceAll(/\b([a-z]{4,})e\b/g, "$1");
+};
+
+type VariantRule = (word: string, variants: Set<string>) => void;
+
+const createBidirectionalReplaceRule = (from: string, to: string): VariantRule => {
+  return (word, variants) => {
+    if (word.includes(from)) {
+      variants.add(word.replaceAll(from, to));
+    }
+
+    if (word.includes(to)) {
+      variants.add(word.replaceAll(to, from));
+    }
+  };
+};
+
+const addPhoneticVariants: VariantRule = (word, variants) => {
+  variants.add(normalizeLatinPhonetics(word));
+};
+
+const addPluralVariants: VariantRule = (word, variants) => {
+  if (!/^[a-z]+$/.test(word) || word.length < 4) {
+    return;
+  }
+
+  if (word.endsWith("es") && word.length > 5) {
+    variants.add(word.slice(0, -2));
+  }
+
+  if (word.endsWith("s") && word.length > 4) {
+    variants.add(word.slice(0, -1));
+  } else {
+    variants.add(`${word}s`);
+  }
+};
+
+const VARIANT_RULES: VariantRule[] = [
+  ...(
+    [
+      ["x", "kh"],
+      ["x", "ks"],
+    ] as const
+  ).map(([from, to]) => createBidirectionalReplaceRule(from, to)),
+  addPhoneticVariants,
+  addPluralVariants,
+];
+
+const applyVariantRule = (variants: Set<string>, rule: VariantRule): void => {
+  for (const variant of variants) {
+    rule(variant, variants);
+  }
+};
+
 const getAutomaticWordVariants = (word: string): string[] => {
   const normalizedWord = normalizeWord(word);
 
@@ -292,14 +377,8 @@ const getAutomaticWordVariants = (word: string): string[] => {
     translitLatToCyr(normalizedWord),
   ]);
 
-  for (const variant of variants) {
-    if (variant.includes("x")) {
-      variants.add(variant.replaceAll("x", "kh"));
-    }
-
-    if (variant.includes("kh")) {
-      variants.add(variant.replaceAll("kh", "x"));
-    }
+  for (const rule of VARIANT_RULES) {
+    applyVariantRule(variants, rule);
   }
 
   return [...variants].filter(Boolean);
@@ -344,7 +423,31 @@ const buildSearchIndex = (text: string): TextSearchIndex => {
       .filter((stem) => stem.length >= MIN_STEM_LENGTH)
   );
 
+  const consonantSignatures = [
+    ...new Set(
+      [...words, ...foldedWords]
+        .map((word) => getConsonantSignature(word))
+        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
+    ),
+  ];
+
+  const consonantSet = new Set(consonantSignatures);
+
+  const consonantPrefixSet = new Set<string>();
+
+  for (const signature of consonantSignatures) {
+    for (
+      let index = MIN_CONSONANT_SIGNATURE_LENGTH;
+      index < signature.length;
+      index += 1
+    ) {
+      consonantPrefixSet.add(signature.slice(0, index));
+    }
+  }
+
   return {
+    consonantPrefixSet,
+    consonantSet,
     foldedStemSet,
     foldedText,
     foldedWordSet,
@@ -374,6 +477,20 @@ const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
       index.foldedText.includes(foldedVariant) ||
       index.foldedWordSet.has(foldedVariant)
     ) {
+      return true;
+    }
+  }
+
+  const consonantVariants = [
+    ...new Set(
+      wordVariants
+        .map((variant) => getConsonantSignature(variant))
+        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
+    ),
+  ];
+
+  for (const signature of consonantVariants) {
+    if (index.consonantSet.has(signature) || index.consonantPrefixSet.has(signature)) {
       return true;
     }
   }
