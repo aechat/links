@@ -373,13 +373,38 @@ const translitLatToCyr = (text: string): string => {
 const normalizeLatinPhonetics = (text: string): string => {
   return text
     .toLowerCase()
+    .replaceAll("qu", "kv")
+    .replaceAll("tch", "ch")
+    .replaceAll("dge", "j")
+    .replaceAll("wr", "r")
+    .replaceAll("wh", "w")
+    .replaceAll(/\bkn/g, "n")
+    .replaceAll(/\bgn/g, "n")
+    .replaceAll(/mb\b/g, "m")
+    .replaceAll("eigh", "ei")
+    .replaceAll("igh", "ai")
+    .replaceAll(/tion\b/g, "shn")
+    .replaceAll(/sion\b/g, "shn")
+    .replaceAll("ee", "i")
+    .replaceAll("ea", "i")
+    .replaceAll("oo", "u")
+    .replaceAll("ou", "au")
+    .replaceAll("ow", "au")
     .replaceAll("ph", "f")
     .replaceAll("ck", "k")
-    .replaceAll("q", "k")
+    .replaceAll("x", "ks")
+    .replaceAll(/c(?=[eiy])/g, "s")
+    .replaceAll(/g(?=[eiy])/g, "j")
     .replaceAll("c", "k")
+    .replaceAll(/\b([a-z]*?)a([b-df-hj-np-tv-z])e\b/g, "$1ei$2")
+    .replaceAll(/\b([a-z]*?)i([b-df-hj-np-tv-z])e\b/g, "$1ai$2")
+    .replaceAll(/\b([a-z]*?)o([b-df-hj-np-tv-z])e\b/g, "$1ou$2")
+    .replaceAll(/\b([a-z]*?)u([b-df-hj-np-tv-z])e\b/g, "$1yu$2")
+    .replaceAll(/\b([a-z]{4,})e\b/g, "$1")
     .replaceAll("w", "v")
-    .replaceAll(/([b-df-hj-np-tv-z])\1+/g, "$1")
-    .replaceAll(/\b([a-z]{4,})e\b/g, "$1");
+    .replaceAll("q", "k")
+    .replaceAll("y", "i")
+    .replaceAll(/([b-df-hj-np-tv-z])\1+/g, "$1");
 };
 
 type VariantRule = (word: string, variants: Set<string>) => void;
@@ -419,8 +444,24 @@ const addPluralVariants: VariantRule = (word, variants) => {
 const VARIANT_RULES: VariantRule[] = [
   ...(
     [
+      ["f", "ph"],
+      ["j", "g"],
+      ["k", "c"],
+      ["kw", "ku"],
+      ["qu", "ku"],
+      ["qu", "kw"],
+      ["kv", "ku"],
+      ["kv", "kw"],
+      ["sion", "shn"],
+      ["tion", "shn"],
+      ["x", "gz"],
       ["x", "kh"],
       ["x", "ks"],
+      ["ya", "ia"],
+      ["ye", "ie"],
+      ["yo", "io"],
+      ["yu", "iu"],
+      ["zh", "j"],
     ] as const
   ).map(([from, to]) => createBidirectionalReplaceRule(from, to)),
   addPhoneticVariants,
