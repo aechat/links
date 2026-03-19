@@ -1442,7 +1442,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
   ))
     element.remove();
 
-  const isKeyCombination = isKeyCombinationSearch(searchWords.join(" "));
+  const compiledQuery = compileSearchQuery(searchWords.join(" "));
 
   const tagMatch = (temporaryDiv.querySelector("[data-tags]") as HTMLElement)?.dataset
     .tags;
@@ -1450,28 +1450,25 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
   const titleMatch = temporaryDiv.querySelector("summary h2")?.textContent;
 
   if (
-    (tagMatch && hasMatch(tagMatch, searchWords, isKeyCombination)) ||
-    (titleMatch && hasMatch(titleMatch, searchWords, isKeyCombination))
+    (tagMatch && hasMatch(tagMatch, compiledQuery)) ||
+    (titleMatch && hasMatch(titleMatch, compiledQuery))
   ) {
     return getFirstCleanParagraphOrElement(temporaryDiv);
   }
 
-  const bestResult = pickBestListOrParagraphMatch(
-    temporaryDiv,
-    searchWords,
-    isKeyCombination
-  );
+  const bestCompactSnippet = pickBestCompactSnippet(temporaryDiv, compiledQuery);
+
+  if (bestCompactSnippet) {
+    return bestCompactSnippet;
+  }
+
+  const bestResult = pickBestListOrParagraphMatch(temporaryDiv, compiledQuery);
 
   if (!bestResult.result) {
-    return pickTableOrFallback(temporaryDiv, searchWords, isKeyCombination);
+    return pickTableOrFallback(temporaryDiv, compiledQuery);
   }
 
   return bestResult.result;
-};
-
-const removeFigureContainers = (root: Element): void => {
-  for (const element of root.querySelectorAll('[class*="media-figure"]'))
-    element.remove();
 };
 
 const computeTitleTagContentMatches = (
