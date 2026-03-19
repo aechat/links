@@ -151,6 +151,12 @@ type SearchMatch = {
   matchCount: number;
 };
 
+type TextHighlightRange = {
+  end: number;
+  matchType: WordMatchType;
+  start: number;
+};
+
 const stripHtml = (html: string): string => {
   const temporary = document.createElement("div");
 
@@ -1310,6 +1316,436 @@ const isTokenMatchingWordFeatures = (
   return hasTokenConsonantMatch(token, wordFeatures.consonantSignatures);
 };
 
+const HIGHLIGHT_TOKEN_REGEX = /[a-zа-яё0-9]+/gi;
+
+const getLongestPrefixVariantLength = (token: string, variants: string[]): number => {
+  let longestLength = 0;
+
+  for (const variant of variants) {
+    if (variant.length < MIN_PREFIX_LENGTH) {
+      continue;
+    }
+
+    if (!token.startsWith(variant)) {
+      continue;
+    }
+
+    longestLength = Math.max(longestLength, variant.length);
+  }
+
+  return longestLength;
+};
+
+type TokenHighlightMatch = {
+  length: number;
+  matchType: WordMatchType;
+  startOffset: number;
+};
+
+type TokenHighlightAccumulator = {
+  bestLength: number;
+  bestMatch: TokenHighlightMatch | undefined;
+  bestPriority: number;
+  bestStartOffset: number;
+};
+
+const applyTokenHighlightCandidate = (
+  accumulator: TokenHighlightAccumulator,
+  matchType: WordMatchType,
+  length: number,
+  startOffset = 0
+): void => {
+  if (length <= 0) {
+    return;
+  }
+
+  const priority = WORD_MATCH_PRIORITY[matchType];
+
+  if (
+    priority > accumulator.bestPriority ||
+    (priority === accumulator.bestPriority &&
+      (length > accumulator.bestLength ||
+        (length === accumulator.bestLength && startOffset < accumulator.bestStartOffset)))
+  ) {
+    accumulator.bestMatch = {length, matchType, startOffset};
+    accumulator.bestPriority = priority;
+    accumulator.bestLength = length;
+    accumulator.bestStartOffset = startOffset;
+  }
+};
+
+const getLongestIncludedVariantMatch = (
+  token: string,
+  variants: string[]
+): {length: number; startOffset: number} | undefined => {
+  let bestLength = 0;
+
+  let bestStartOffset = Number.POSITIVE_INFINITY;
+
+  for (const variant of variants) {
+    if (!variant) {
+      continue;
+    }
+
+    const startOffset = token.indexOf(variant);
+
+    if (startOffset === -1) {
+      continue;
+    }
+
+    const length = variant.length;
+
+    if (length > bestLength || (length === bestLength && startOffset < bestStartOffset)) {
+      bestLength = length;
+      bestStartOffset = startOffset;
+    }
+  }
+
+  if (bestLength <= 0 || !Number.isFinite(bestStartOffset)) {
+    return undefined;
+  }
+
+  return {length: bestLength, startOffset: bestStartOffset};
+};
+
+const applyWordTokenHighlight = (
+  accumulator: TokenHighlightAccumulator,
+  normalizedToken: string,
+  foldedToken: string,
+  features: WordFeatures,
+  normalizedWord: string
+): void => {
+  const queryLength = Math.min(normalizedWord.length, normalizedToken.length);
+
+  if (normalizedWord) {
+    const directStartOffset = normalizedToken.indexOf(normalizedWord);
+
+    if (directStartOffset !== -1) {
+      applyTokenHighlightCandidate(
+        accumulator,
+        "exact",
+        Math.min(normalizedWord.length, normalizedToken.length - directStartOffset),
+        directStartOffset
+      );
+    }
+  }
+
+  const exactVariantMatch = getLongestIncludedVariantMatch(
+    normalizedToken,
+    features.variants
+  );
+
+  if (exactVariantMatch) {
+    const highlightLength = Math.min(
+      exactVariantMatch.length,
+      normalizedToken.length - exactVariantMatch.startOffset
+    );
+
+    applyTokenHighlightCandidate(
+      accumulator,
+      "exact",
+      highlightLength,
+      exactVariantMatch.startOffset
+    );
+  }
+
+  const prefixVariantLength = getLongestPrefixVariantLength(
+    normalizedToken,
+    features.variants
+  );
+
+  if (prefixVariantLength > 0) {
+    applyTokenHighlightCandidate(
+      accumulator,
+      "prefix",
+      Math.min(prefixVariantLength, normalizedToken.length)
+    );
+  }
+
+  const foldedVariantMatch = getLongestIncludedVariantMatch(
+    foldedToken,
+    features.foldedVariants
+  );
+
+  if (foldedVariantMatch) {
+    const highlightLength = Math.min(
+      foldedVariantMatch.length,
+      normalizedToken.length - foldedVariantMatch.startOffset
+    );
+
+    applyTokenHighlightCandidate(
+      accumulator,
+      "folded",
+      highlightLength,
+      foldedVariantMatch.startOffset
+    );
+  }
+
+  const prefixFoldedLength = getLongestPrefixVariantLength(
+    foldedToken,
+    features.foldedVariants
+  );
+
+  if (prefixFoldedLength > 0) {
+    applyTokenHighlightCandidate(
+      accumulator,
+      "prefix",
+      Math.min(prefixFoldedLength, normalizedToken.length)
+    );
+  }
+
+  if (hasTokenConsonantMatch(normalizedToken, features.consonantSignatures)) {
+    applyTokenHighlightCandidate(accumulator, "consonant", queryLength);
+  }
+
+  if (hasTokenStemMatch(normalizedToken, features.stemVariants)) {
+    applyTokenHighlightCandidate(accumulator, "stem", queryLength);
+  }
+};
+
+const getTokenHighlightMatch = (
+  normalizedToken: string,
+  foldedToken: string,
+  compiledQuery: CompiledSearchQuery
+): TokenHighlightMatch | undefined => {
+  const accumulator: TokenHighlightAccumulator = {
+    bestLength: -1,
+    bestMatch: undefined,
+    bestPriority: -1,
+    bestStartOffset: Number.POSITIVE_INFINITY,
+  };
+
+  for (const {features, normalizedWord} of compiledQuery.words) {
+    applyWordTokenHighlight(
+      accumulator,
+      normalizedToken,
+      foldedToken,
+      features,
+      normalizedWord
+    );
+
+    if (
+      accumulator.bestPriority === WORD_MATCH_PRIORITY.exact &&
+      accumulator.bestLength >= normalizedToken.length &&
+      accumulator.bestStartOffset === 0
+    ) {
+      break;
+    }
+  }
+
+  return accumulator.bestMatch;
+};
+
+const getTextHighlightRanges = (
+  text: string,
+  compiledQuery: CompiledSearchQuery
+): TextHighlightRange[] => {
+  if (
+    !text.trim() ||
+    compiledQuery.words.length === 0 ||
+    compiledQuery.isKeyCombination
+  ) {
+    return [];
+  }
+
+  const ranges: TextHighlightRange[] = [];
+
+  const tokenMatchCache = new Map<string, TokenHighlightMatch | undefined>();
+
+  for (const tokenResult of text.matchAll(HIGHLIGHT_TOKEN_REGEX)) {
+    const matchedToken = tokenResult[0];
+
+    const tokenIndex = tokenResult.index ?? -1;
+
+    if (!matchedToken || tokenIndex < 0) {
+      continue;
+    }
+
+    const normalizedToken = normalizeWord(matchedToken);
+
+    if (!normalizedToken) {
+      continue;
+    }
+
+    const foldedToken = normalizeLatinPhonetics(normalizedToken);
+
+    const cacheKey = `${normalizedToken}|${foldedToken}`;
+
+    if (!tokenMatchCache.has(cacheKey)) {
+      tokenMatchCache.set(
+        cacheKey,
+        getTokenHighlightMatch(normalizedToken, foldedToken, compiledQuery)
+      );
+    }
+
+    const highlightMatch = tokenMatchCache.get(cacheKey);
+
+    if (!highlightMatch || highlightMatch.length <= 0) {
+      continue;
+    }
+
+    const highlightStart = tokenIndex + highlightMatch.startOffset;
+
+    const highlightLength = Math.min(
+      highlightMatch.length,
+      Math.max(0, matchedToken.length - highlightMatch.startOffset)
+    );
+
+    if (highlightLength <= 0) {
+      continue;
+    }
+
+    ranges.push({
+      end: highlightStart + highlightLength,
+      matchType: highlightMatch.matchType,
+      start: highlightStart,
+    });
+  }
+
+  return ranges;
+};
+
+const collectHighlightableTextNodes = (root: Element): Text[] => {
+  const textNodes: Text[] = [];
+
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: (node) => {
+      if (!(node instanceof Text)) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      if (!node.textContent?.trim()) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      if (node.parentElement?.closest('[data-search-hit="true"]')) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      if (node.parentElement?.closest("script, style")) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+
+    if (node instanceof Text) {
+      textNodes.push(node);
+    }
+  }
+
+  return textNodes;
+};
+
+const highlightSingleTextNode = (
+  textNode: Text,
+  compiledQuery: CompiledSearchQuery
+): void => {
+  const originalText = textNode.textContent || "";
+
+  const ranges = getTextHighlightRanges(originalText, compiledQuery);
+
+  if (ranges.length === 0) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  let cursor = 0;
+
+  for (const {end, matchType, start} of ranges) {
+    if (start > cursor) {
+      fragment.append(document.createTextNode(originalText.slice(cursor, start)));
+    }
+
+    const highlightElement = document.createElement("span");
+
+    highlightElement.dataset.searchHit = "true";
+    highlightElement.dataset.searchMatchType = matchType;
+    highlightElement.textContent = originalText.slice(start, end);
+
+    fragment.append(highlightElement);
+
+    cursor = end;
+  }
+
+  if (cursor < originalText.length) {
+    fragment.append(document.createTextNode(originalText.slice(cursor)));
+  }
+
+  textNode.replaceWith(fragment);
+};
+
+const highlightMatchedTokens = (
+  html: string,
+  compiledQuery: CompiledSearchQuery
+): string => {
+  if (
+    !html.trim() ||
+    compiledQuery.words.length === 0 ||
+    compiledQuery.isKeyCombination
+  ) {
+    return html;
+  }
+
+  const root = document.createElement("div");
+
+  root.innerHTML = html;
+
+  const textNodes = collectHighlightableTextNodes(root);
+
+  for (const textNode of textNodes) {
+    highlightSingleTextNode(textNode, compiledQuery);
+  }
+
+  return root.innerHTML;
+};
+
+const renderHighlightedText = (
+  text: string,
+  compiledQuery: CompiledSearchQuery
+): React.ReactNode[] => {
+  const normalizedText = text.replaceAll("\u00A0", " ");
+
+  const ranges = getTextHighlightRanges(normalizedText, compiledQuery);
+
+  if (ranges.length === 0) {
+    return [normalizedText];
+  }
+
+  const nodes: React.ReactNode[] = [];
+
+  let cursor = 0;
+
+  for (const [index, range] of ranges.entries()) {
+    if (range.start > cursor) {
+      nodes.push(normalizedText.slice(cursor, range.start));
+    }
+
+    nodes.push(
+      <span
+        key={`${range.start}-${range.end}-${index}`}
+        data-search-hit="true"
+        data-search-match-type={range.matchType}
+      >
+        {normalizedText.slice(range.start, range.end)}
+      </span>
+    );
+
+    cursor = range.end;
+  }
+
+  if (cursor < normalizedText.length) {
+    nodes.push(normalizedText.slice(cursor));
+  }
+
+  return nodes;
+};
+
 const getTokenPositionsForWord = (
   normalizedTokens: string[],
   foldedTokens: string[],
@@ -2421,6 +2857,10 @@ const SearchResults: React.FC<{
 
   const MASONRY_COLUMN_GAP = 10;
 
+  const HIGHLIGHT_BUFFER_VIEWPORTS = 2;
+
+  const HIGHLIGHT_DELAY_MS = 220;
+
   const MASONRY_SINGLE_COLUMN_BREAKPOINT =
     MASONRY_COLUMN_MIN_WIDTH * 2 + MASONRY_COLUMN_GAP;
 
@@ -2441,6 +2881,99 @@ const SearchResults: React.FC<{
   const [isSingleColumnLayout, setIsSingleColumnLayout] = useState(false);
 
   const compiledQuery = useMemo(() => compileSearchQuery(query), [query]);
+
+  const [isHighlightReady, setIsHighlightReady] = useState(false);
+
+  const [highlightEligibleIds, setHighlightEligibleIds] = useState<Set<string>>(
+    new Set()
+  );
+
+  const highlightedContentCacheReference = useRef<Map<string, string>>(new Map());
+
+  useEffect(() => {
+    setIsHighlightReady(false);
+
+    const timeout = globalThis.setTimeout(() => {
+      setIsHighlightReady(true);
+    }, HIGHLIGHT_DELAY_MS);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [HIGHLIGHT_DELAY_MS, query]);
+
+  useEffect(() => {
+    highlightedContentCacheReference.current.clear();
+  }, [query]);
+
+  const updateHighlightEligibility = useCallback(() => {
+    if (!isHighlightReady) {
+      setHighlightEligibleIds(new Set());
+
+      return;
+    }
+
+    const viewportHeight = globalThis.innerHeight || 0;
+
+    const viewportBuffer = viewportHeight * HIGHLIGHT_BUFFER_VIEWPORTS;
+
+    const nextEligibleIds = new Set<string>();
+
+    for (const [index, result] of results.entries()) {
+      const element = resultRefs.current?.[index];
+
+      if (!element) {
+        continue;
+      }
+
+      const rect = element.getBoundingClientRect();
+
+      const isInBufferedViewport =
+        rect.bottom >= -viewportBuffer && rect.top <= viewportHeight + viewportBuffer;
+
+      if (isInBufferedViewport) {
+        nextEligibleIds.add(result.id);
+      }
+    }
+
+    if (
+      selectedResultIndex >= 0 &&
+      selectedResultIndex < results.length &&
+      results[selectedResultIndex]
+    ) {
+      nextEligibleIds.add(results[selectedResultIndex].id);
+    }
+
+    setHighlightEligibleIds(nextEligibleIds);
+  }, [
+    HIGHLIGHT_BUFFER_VIEWPORTS,
+    isHighlightReady,
+    resultRefs,
+    results,
+    selectedResultIndex,
+  ]);
+
+  useEffect(() => {
+    const rafId = globalThis.requestAnimationFrame(updateHighlightEligibility);
+
+    const scrollContainer = document.querySelector(
+      `.${searchStyles["search-results"]}`
+    ) as HTMLElement | null;
+
+    scrollContainer?.addEventListener("scroll", updateHighlightEligibility, {
+      passive: true,
+    });
+
+    globalThis.addEventListener("resize", updateHighlightEligibility);
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+      scrollContainer?.removeEventListener("scroll", updateHighlightEligibility);
+      globalThis.removeEventListener("resize", updateHighlightEligibility);
+    };
+  }, [results, updateHighlightEligibility]);
+
+  useEffect(() => {
+    updateHighlightEligibility();
+  }, [selectedResultIndex, updateHighlightEligibility]);
 
   useEffect(() => {
     const updateLayout = () => {
@@ -2580,6 +3113,43 @@ const SearchResults: React.FC<{
 
     const tagsToDisplay = getMatchingTags(tag, compiledQuery);
 
+    const displayTitle = title.replace(/^[+-]+/, "").trim();
+
+    const isCurrentSelectedResult =
+      selectedResultIndex >= 0 &&
+      selectedResultIndex < results.length &&
+      results[selectedResultIndex]?.id === id;
+
+    const shouldHighlight =
+      isCurrentSelectedResult || (isHighlightReady && highlightEligibleIds.has(id));
+
+    const highlightedTitle = shouldHighlight
+      ? renderHighlightedText(displayTitle, compiledQuery)
+      : displayTitle;
+
+    const highlightedTags = shouldHighlight
+      ? tagsToDisplay.map((tag_) => renderHighlightedText(tag_, compiledQuery))
+      : tagsToDisplay;
+
+    const highlightedContent =
+      shouldHighlight && query.trim() !== ""
+        ? (() => {
+            const cacheKey = `${id}::${query}`;
+
+            const cachedContent = highlightedContentCacheReference.current.get(cacheKey);
+
+            if (cachedContent !== undefined) {
+              return cachedContent;
+            }
+
+            const renderedContent = highlightMatchedTokens(content, compiledQuery);
+
+            highlightedContentCacheReference.current.set(cacheKey, renderedContent);
+
+            return renderedContent;
+          })()
+        : content;
+
     const isSelected = index === selectedResultIndex;
 
     const isHovered = hoveredIndex === index;
@@ -2622,13 +3192,16 @@ const SearchResults: React.FC<{
               isSelected ? searchStyles["search-header-selected"] : ""
             }`}
           >
-            <p className={searchStyles["search-title"]}>
-              {title.replace(/^[+-]+/, "").trim()}
-            </p>
+            <p className={searchStyles["search-title"]}>{highlightedTitle}</p>
             {tagsToDisplay.length > 0 && (
               <span className={searchStyles["search-tags"]}>
-                {tagsToDisplay.map((t) => (
-                  <mark key={t}>{t}</mark>
+                {tagsToDisplay.map((t, tagIndex) => (
+                  <span
+                    key={`${t}-${tagIndex}`}
+                    className={searchStyles["search-tag-item"]}
+                  >
+                    {highlightedTags[tagIndex]}
+                  </span>
                 ))}
               </span>
             )}
@@ -2642,7 +3215,7 @@ const SearchResults: React.FC<{
             } ${
               isSelected ? searchStyles["search-content-selected"] : ""
             } article-content no-copy`}
-            dangerouslySetInnerHTML={{__html: content}}
+            dangerouslySetInnerHTML={{__html: highlightedContent}}
           />
         </button>
       </div>

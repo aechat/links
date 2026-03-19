@@ -185,6 +185,10 @@
       1.2rem
     ) !important;
     font-weight: 650;
+
+    [data-search-hit] {
+      background-color: var(--color-status-warning-mark-background);
+    }
   }
 
   &-tags {
@@ -210,6 +214,27 @@
         0.675rem
       );
       font-weight: 500;
+    }
+
+    .search-tag-item {
+      display: inline;
+      flex: 0 1 auto;
+      outline: none;
+      background: none;
+      padding: 0;
+      min-width: 0;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      color: var(--color-text-tertiary);
+      font-size: min(
+        calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+        0.675rem
+      );
+      font-weight: 500;
+
+      [data-search-hit] {
+        background-color: var(--color-status-warning-mark-background);
+      }
     }
   }
 
@@ -268,6 +293,10 @@
     .addition-warning,
     .addition-danger {
       user-select: none;
+    }
+
+    [data-search-hit] {
+      background-color: var(--color-status-warning-mark-background);
     }
   }
 
