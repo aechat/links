@@ -1847,8 +1847,52 @@ const isSingleParagraphMatchForResult = (
 };
 
 type RankedSearchResult = SearchResult & {
+  idMatchPriority: number;
   score: number;
   sourceOrder: number;
+};
+
+const INDEX_QUERY_REGEX = /^\d+(?:[.-]\d+)*$/;
+
+const normalizeIndexReference = (value: string): string => {
+  return value.trim().replace(/^#/, "").replaceAll(",", ".");
+};
+
+const isNumericIndexQuery = (value: string): boolean => {
+  const normalizedValue = normalizeIndexReference(value);
+
+  return INDEX_QUERY_REGEX.test(normalizedValue);
+};
+
+const getIdMatchPriority = (id: string, queryText: string): number => {
+  if (!isNumericIndexQuery(queryText)) {
+    return 0;
+  }
+
+  const normalizedId = normalizeIndexReference(id);
+
+  const normalizedQuery = normalizeIndexReference(queryText);
+
+  if (!normalizedId || !normalizedQuery) {
+    return 0;
+  }
+
+  if (normalizedId === normalizedQuery) {
+    return 3;
+  }
+
+  if (
+    normalizedId.startsWith(`${normalizedQuery}.`) ||
+    normalizedId.startsWith(`${normalizedQuery}-`)
+  ) {
+    return 2;
+  }
+
+  if (normalizedId.includes(normalizedQuery)) {
+    return 1;
+  }
+
+  return 0;
 };
 
 const transformSearchResult = (
@@ -1899,12 +1943,15 @@ const transformSearchResult = (
     tagTokenCount
   );
 
+  const idMatchPriority = getIdMatchPriority(result.id, compiledQuery.originalText);
+
   return {
     anchor: result.anchor,
     content: formatSearchResult(result.content, compiledQuery),
     hasTagMatch: tagMatches.length > 0,
     hasTitleMatch: titleMatches.length > 0,
     id: result.id,
+    idMatchPriority,
     isSingleParagraphMatch,
     score,
     sourceOrder: result.sourceOrder,
@@ -1915,7 +1962,7 @@ const transformSearchResult = (
 
 type FilteredSearchResult = Pick<
   BaseSearchResult,
-  "contentText" | "entityText" | "tag" | "title"
+  "contentText" | "entityText" | "id" | "tag" | "title"
 >;
 
 const filterByKeyCombination = (
@@ -1932,9 +1979,13 @@ const filterByKeyCombination = (
 };
 
 const filterByWords = (
-  {contentText, entityText, tag, title}: FilteredSearchResult,
+  {contentText, entityText, id, tag, title}: FilteredSearchResult,
   compiledQuery: CompiledSearchQuery
 ): boolean => {
+  if (getIdMatchPriority(id, compiledQuery.originalText) > 0) {
+    return true;
+  }
+
   return hasCompiledQueryMatchInFields(
     [title, tag || "", entityText, contentText],
     compiledQuery
@@ -2055,6 +2106,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         const rankedResults = filtered
           .map((result) => transformSearchResult(result, compiledQuery))
           .toSorted((a, b) => {
+            if (b.idMatchPriority !== a.idMatchPriority) {
+              return b.idMatchPriority - a.idMatchPriority;
+            }
+
             if (b.score !== a.score) {
               return b.score - a.score;
             }
