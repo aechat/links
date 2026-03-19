@@ -175,7 +175,9 @@ const normalizeText = (text: string): string => {
 type TextSearchIndex = {
   consonantPrefixSet: Set<string>;
   consonantSet: Set<string>;
+  foldedPrefixSet: Set<string>;
   normalizedText: string;
+  normalizedPrefixSet: Set<string>;
   normalizedWordSet: Set<string>;
   stemSet: Set<string>;
   foldedText: string;
@@ -183,9 +185,76 @@ type TextSearchIndex = {
   foldedStemSet: Set<string>;
 };
 
+type WordMatchType = "exact" | "prefix" | "folded" | "consonant" | "stem";
+
+type WordFeatures = {
+  consonantSignatures: string[];
+  foldedVariants: string[];
+  stemVariants: string[];
+  variants: string[];
+};
+
+type CompiledSearchWord = {
+  features: WordFeatures;
+  normalizedWord: string;
+};
+
+type CompiledSearchQuery = {
+  isKeyCombination: boolean;
+  normalizedQuery: string;
+  originalText: string;
+  searchWords: string[];
+  words: CompiledSearchWord[];
+};
+
+type FieldMatchInfo = {
+  highestPriority: number;
+  longestMatchedWordLength: number;
+  matchedWords: string[];
+  totalMatched: number;
+  typeCounts: Record<WordMatchType, number>;
+};
+
 const MIN_STEM_LENGTH = 3;
 
 const MIN_CONSONANT_SIGNATURE_LENGTH = 3;
+
+const MIN_PREFIX_LENGTH = 2;
+
+const MAX_WORD_FEATURES_CACHE_SIZE = 5000;
+
+const WORD_MATCH_PRIORITY: Record<WordMatchType, number> = {
+  consonant: 2,
+  exact: 4,
+  folded: 3,
+  prefix: 3,
+  stem: 1,
+};
+
+const WORD_MATCH_SCORE: Record<WordMatchType, number> = {
+  consonant: 10,
+  exact: 24,
+  folded: 16,
+  prefix: 14,
+  stem: 7,
+};
+
+const EMPTY_WORD_FEATURES: WordFeatures = {
+  consonantSignatures: [],
+  foldedVariants: [],
+  stemVariants: [],
+  variants: [],
+};
+
+const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
+  consonant: 0,
+  exact: 0,
+  folded: 0,
+  prefix: 0,
+  stem: 0,
+});
+
+const WORD_FEATURES_CACHE = new Map<string, WordFeatures>();
 
 const normalizeWord = (word: string): string => normalizeText(word).replaceAll(" ", "");
 
@@ -359,7 +428,9 @@ const VARIANT_RULES: VariantRule[] = [
 ];
 
 const applyVariantRule = (variants: Set<string>, rule: VariantRule): void => {
-  for (const variant of variants) {
+  const variantsSnapshot = [...variants];
+
+  for (const variant of variantsSnapshot) {
     rule(variant, variants);
   }
 };
@@ -398,6 +469,85 @@ const getWordStem = (word: string): string => {
   return englishStemmer(normalized);
 };
 
+const buildWordFeatures = (word: string): WordFeatures => {
+  const normalizedWord = normalizeWord(word);
+
+  if (!normalizedWord) {
+    return EMPTY_WORD_FEATURES;
+  }
+
+  const variants = getAutomaticWordVariants(normalizedWord);
+
+  const foldedVariants = [
+    ...new Set(
+      variants.map((variant) => normalizeLatinPhonetics(variant)).filter(Boolean)
+    ),
+  ];
+
+  const consonantSignatures = [
+    ...new Set(
+      variants
+        .map((variant) => getConsonantSignature(variant))
+        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
+    ),
+  ];
+
+  const stemVariants = [
+    ...new Set(
+      variants
+        .map((variant) => getWordStem(variant))
+        .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+    ),
+  ];
+
+  return {
+    consonantSignatures,
+    foldedVariants,
+    stemVariants,
+    variants,
+  };
+};
+
+const getWordFeatures = (word: string): WordFeatures => {
+  const normalizedWord = normalizeWord(word);
+
+  if (!normalizedWord) {
+    return EMPTY_WORD_FEATURES;
+  }
+
+  const cachedFeatures = WORD_FEATURES_CACHE.get(normalizedWord);
+
+  if (cachedFeatures) {
+    return cachedFeatures;
+  }
+
+  const features = buildWordFeatures(normalizedWord);
+
+  WORD_FEATURES_CACHE.set(normalizedWord, features);
+
+  if (WORD_FEATURES_CACHE.size > MAX_WORD_FEATURES_CACHE_SIZE) {
+    const oldestKey = WORD_FEATURES_CACHE.keys().next().value;
+
+    if (typeof oldestKey === "string") {
+      WORD_FEATURES_CACHE.delete(oldestKey);
+    }
+  }
+
+  return features;
+};
+
+const buildWordPrefixSet = (words: string[]): Set<string> => {
+  const prefixSet = new Set<string>();
+
+  for (const word of words) {
+    for (let index = MIN_PREFIX_LENGTH; index < word.length; index += 1) {
+      prefixSet.add(word.slice(0, index));
+    }
+  }
+
+  return prefixSet;
+};
+
 const buildSearchIndex = (text: string): TextSearchIndex => {
   const normalizedText = normalizeText(text);
 
@@ -410,6 +560,10 @@ const buildSearchIndex = (text: string): TextSearchIndex => {
   const normalizedWordSet = new Set(words);
 
   const foldedWordSet = new Set(foldedWords);
+
+  const normalizedPrefixSet = buildWordPrefixSet(words);
+
+  const foldedPrefixSet = buildWordPrefixSet(foldedWords);
 
   const stemSet = new Set(
     words
@@ -448,64 +602,96 @@ const buildSearchIndex = (text: string): TextSearchIndex => {
   return {
     consonantPrefixSet,
     consonantSet,
+    foldedPrefixSet,
     foldedStemSet,
     foldedText,
     foldedWordSet,
+    normalizedPrefixSet,
     normalizedText,
     normalizedWordSet,
     stemSet,
   };
 };
 
-const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
-  const normalizedWord = normalizeWord(searchWord);
+const hasExactVariantMatch = (
+  variants: string[],
+  text: string,
+  wordSet: Set<string>
+): boolean => {
+  return variants.some((variant) => text.includes(variant) || wordSet.has(variant));
+};
 
-  if (!normalizedWord) {
-    return false;
-  }
-
-  const wordVariants = getAutomaticWordVariants(normalizedWord);
-
-  for (const variant of wordVariants) {
-    if (index.normalizedText.includes(variant) || index.normalizedWordSet.has(variant)) {
-      return true;
-    }
-
-    const foldedVariant = normalizeLatinPhonetics(variant);
-
-    if (
-      index.foldedText.includes(foldedVariant) ||
-      index.foldedWordSet.has(foldedVariant)
-    ) {
-      return true;
-    }
-  }
-
-  const consonantVariants = [
-    ...new Set(
-      wordVariants
-        .map((variant) => getConsonantSignature(variant))
-        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
-    ),
-  ];
-
-  for (const signature of consonantVariants) {
-    if (index.consonantSet.has(signature) || index.consonantPrefixSet.has(signature)) {
-      return true;
-    }
-  }
-
-  const stemVariants = [
-    ...new Set(
-      wordVariants
-        .map((variant) => getWordStem(variant))
-        .filter((stem) => stem.length >= MIN_STEM_LENGTH)
-    ),
-  ];
-
-  return stemVariants.some(
-    (stem) => index.stemSet.has(stem) || index.foldedStemSet.has(stem)
+const hasPrefixVariantMatch = (variants: string[], prefixSet: Set<string>): boolean => {
+  return variants.some(
+    (variant) => variant.length >= MIN_PREFIX_LENGTH && prefixSet.has(variant)
   );
+};
+
+const hasConsonantSignatureMatch = (
+  signatures: string[],
+  consonantSet: Set<string>,
+  consonantPrefixSet: Set<string>
+): boolean => {
+  return signatures.some(
+    (signature) => consonantSet.has(signature) || consonantPrefixSet.has(signature)
+  );
+};
+
+const hasStemMatch = (
+  stems: string[],
+  stemSet: Set<string>,
+  foldedStemSet: Set<string>
+): boolean => {
+  return stems.some((stem) => stemSet.has(stem) || foldedStemSet.has(stem));
+};
+
+const getWordMatchType = (
+  wordFeatures: WordFeatures,
+  index: TextSearchIndex
+): WordMatchType | undefined => {
+  if (
+    hasExactVariantMatch(
+      wordFeatures.variants,
+      index.normalizedText,
+      index.normalizedWordSet
+    )
+  ) {
+    return "exact";
+  }
+
+  if (hasPrefixVariantMatch(wordFeatures.variants, index.normalizedPrefixSet)) {
+    return "prefix";
+  }
+
+  if (
+    hasExactVariantMatch(
+      wordFeatures.foldedVariants,
+      index.foldedText,
+      index.foldedWordSet
+    )
+  ) {
+    return "folded";
+  }
+
+  if (hasPrefixVariantMatch(wordFeatures.foldedVariants, index.foldedPrefixSet)) {
+    return "prefix";
+  }
+
+  if (
+    hasConsonantSignatureMatch(
+      wordFeatures.consonantSignatures,
+      index.consonantSet,
+      index.consonantPrefixSet
+    )
+  ) {
+    return "consonant";
+  }
+
+  if (hasStemMatch(wordFeatures.stemVariants, index.stemSet, index.foldedStemSet)) {
+    return "stem";
+  }
+
+  return undefined;
 };
 
 const extractSearchWords = (query: string): string[] => [
@@ -519,6 +705,21 @@ const extractSearchWords = (query: string): string[] => [
 
 const isKeyCombinationSearch = (text: string): boolean => {
   return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
+};
+
+const compileSearchQuery = (text: string): CompiledSearchQuery => {
+  const searchWords = extractSearchWords(text);
+
+  return {
+    isKeyCombination: isKeyCombinationSearch(text),
+    normalizedQuery: normalizeText(text),
+    originalText: text,
+    searchWords,
+    words: searchWords.map((normalizedWord) => ({
+      features: getWordFeatures(normalizedWord),
+      normalizedWord,
+    })),
+  };
 };
 
 const normalizeKeyCombination = (text: string): string => {
@@ -543,23 +744,12 @@ const extractKeyCombinationText = (element: Element): string => {
   return element.textContent?.toLowerCase() || "";
 };
 
-const hasMatch = (
-  text: string,
-  searchWords: string[],
-  isKeyCombination: boolean
+const hasAllQueryWordsMatch = (
+  textSearchIndex: TextSearchIndex,
+  compiledQuery: CompiledSearchQuery
 ): boolean => {
-  if (isKeyCombination) {
-    const normalizedText = normalizeKeyCombination(text);
-
-    const normalizedSearch = normalizeKeyCombination(searchWords.join(" "));
-
-    return normalizedText.includes(normalizedSearch);
-  }
-
-  const textSearchIndex = buildSearchIndex(text);
-
-  for (const searchWord of searchWords) {
-    if (!hasWordMatch(searchWord, textSearchIndex)) {
+  for (const {features} of compiledQuery.words) {
+    if (!getWordMatchType(features, textSearchIndex)) {
       return false;
     }
   }
@@ -567,14 +757,83 @@ const hasMatch = (
   return true;
 };
 
-const processTextNode = (
-  node: Text,
-  searchWords: string[],
-  isKeyCombination: boolean
-): string => {
+const hasAnyQueryWordMatch = (
+  textSearchIndex: TextSearchIndex,
+  compiledQuery: CompiledSearchQuery
+): boolean => {
+  for (const {features} of compiledQuery.words) {
+    if (getWordMatchType(features, textSearchIndex)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const matchTextWithCompiledQuery = (
+  text: string,
+  compiledQuery: CompiledSearchQuery,
+  mode: "all" | "any" = "all"
+): boolean => {
+  const textSearchIndex = buildSearchIndex(text);
+
+  if (mode === "any") {
+    return hasAnyQueryWordMatch(textSearchIndex, compiledQuery);
+  }
+
+  return hasAllQueryWordsMatch(textSearchIndex, compiledQuery);
+};
+
+const getFieldMatchInfo = (
+  textSearchIndex: TextSearchIndex,
+  compiledQuery: CompiledSearchQuery
+): FieldMatchInfo => {
+  const typeCounts = createEmptyTypeCounts();
+
+  const matchedWords: string[] = [];
+
+  let highestPriority = 0;
+
+  let longestMatchedWordLength = 0;
+
+  for (const {features, normalizedWord} of compiledQuery.words) {
+    const matchType = getWordMatchType(features, textSearchIndex);
+
+    if (!matchType) {
+      continue;
+    }
+
+    matchedWords.push(normalizedWord);
+    typeCounts[matchType] += 1;
+    highestPriority = Math.max(highestPriority, WORD_MATCH_PRIORITY[matchType]);
+    longestMatchedWordLength = Math.max(longestMatchedWordLength, normalizedWord.length);
+  }
+
+  return {
+    highestPriority,
+    longestMatchedWordLength,
+    matchedWords,
+    totalMatched: matchedWords.length,
+    typeCounts,
+  };
+};
+
+const hasMatch = (text: string, compiledQuery: CompiledSearchQuery): boolean => {
+  if (compiledQuery.isKeyCombination) {
+    const normalizedText = normalizeKeyCombination(text);
+
+    const normalizedSearch = normalizeKeyCombination(compiledQuery.originalText);
+
+    return normalizedText.includes(normalizedSearch);
+  }
+
+  return matchTextWithCompiledQuery(text, compiledQuery);
+};
+
+const processTextNode = (node: Text, compiledQuery: CompiledSearchQuery): string => {
   const text = node.textContent || "";
 
-  return hasMatch(text, searchWords, isKeyCombination) ? text : "";
+  return hasMatch(text, compiledQuery) ? text : "";
 };
 
 const isListOrParagraph = (element: Element): boolean => {
@@ -604,8 +863,7 @@ const cloneWithoutFigures = (element: Element): Element => {
 
 const handleListWithNestedMatches = (
   element: Element,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): SearchMatch => {
   const ul = element.querySelector("ul");
 
@@ -618,7 +876,7 @@ const handleListWithNestedMatches = (
   const nestedItems = [...ul.querySelectorAll("li")];
 
   const matchingNestedItems = nestedItems.filter((item) =>
-    hasMatch(item.textContent || "", searchWords, isKeyCombination)
+    hasMatch(item.textContent || "", compiledQuery)
   );
 
   const clone = cloneWithoutFigures(element);
@@ -649,8 +907,7 @@ const handleListWithNestedMatches = (
 
 const processContainerChildren = (
   element: Element,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): SearchMatch => {
   let result = "";
 
@@ -658,7 +915,7 @@ const processContainerChildren = (
 
   for (const node of element.childNodes) {
     if (node.nodeType === Node.TEXT_NODE) {
-      const textResult = processTextNode(node as Text, searchWords, isKeyCombination);
+      const textResult = processTextNode(node as Text, compiledQuery);
 
       if (textResult) {
         result += textResult;
@@ -675,7 +932,7 @@ const processContainerChildren = (
         continue;
       }
 
-      const elementResult = processElement(elementNode, searchWords, isKeyCombination);
+      const elementResult = processElement(elementNode, compiledQuery);
 
       if (elementResult.result) {
         result += elementResult.result;
@@ -689,32 +946,30 @@ const processContainerChildren = (
 
 const processElement = (
   element: Element,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): SearchMatch => {
   if (isListOrParagraph(element)) {
     const sanitizedElement = cloneWithoutFigures(element);
 
     const fullText = (sanitizedElement as HTMLElement).textContent || "";
 
-    if (!hasMatch(fullText, searchWords, isKeyCombination)) {
+    if (!hasMatch(fullText, compiledQuery)) {
       return {matchCount: 0, result: ""};
     }
 
     if (element.tagName === "LI") {
-      return handleListWithNestedMatches(element, searchWords, isKeyCombination);
+      return handleListWithNestedMatches(element, compiledQuery);
     }
 
     return {matchCount: 1, result: sanitizedElement.outerHTML};
   }
 
-  return processContainerChildren(element, searchWords, isKeyCombination);
+  return processContainerChildren(element, compiledQuery);
 };
 
 const processTable = (
   table: HTMLTableElement,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): string | undefined => {
   const rows = [...table.querySelectorAll("tr")];
 
@@ -724,7 +979,7 @@ const processTable = (
     return cells.some((cell) => {
       const cellText = extractKeyCombinationText(cell);
 
-      return hasMatch(cellText, searchWords, isKeyCombination);
+      return hasMatch(cellText, compiledQuery);
     });
   });
 
@@ -789,15 +1044,14 @@ const isKeyCombinationTablePresent = (tables: NodeListOf<HTMLTableElement>): boo
 
 const pickBestListOrParagraphMatch = (
   root: Element,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): SearchMatch => {
   let bestResult: SearchMatch = {matchCount: 0, result: ""};
 
   const listItems = root.querySelectorAll("ul > li");
 
   for (const item of listItems) {
-    const itemResult = processElement(item, searchWords, isKeyCombination);
+    const itemResult = processElement(item, compiledQuery);
 
     if (itemResult.matchCount > bestResult.matchCount) {
       bestResult = itemResult;
@@ -808,7 +1062,7 @@ const pickBestListOrParagraphMatch = (
     const paragraphs = root.querySelectorAll("p");
 
     for (const p of paragraphs) {
-      const pResult = processElement(p, searchWords, isKeyCombination);
+      const pResult = processElement(p, compiledQuery);
 
       if (pResult.matchCount > bestResult.matchCount) {
         bestResult = pResult;
@@ -821,15 +1075,14 @@ const pickBestListOrParagraphMatch = (
 
 const pickTableOrFallback = (
   root: Element,
-  searchWords: string[],
-  isKeyCombination: boolean
+  compiledQuery: CompiledSearchQuery
 ): string => {
   const tables = root.querySelectorAll("table");
 
   if (tables.length > 0) {
-    if (isKeyCombinationTablePresent(tables)) {
+    if (compiledQuery.isKeyCombination && isKeyCombinationTablePresent(tables)) {
       for (const table of tables) {
-        const tableResult = processTable(table, searchWords, isKeyCombination);
+        const tableResult = processTable(table, compiledQuery);
 
         if (tableResult) {
           return tableResult;
@@ -841,6 +1094,342 @@ const pickTableOrFallback = (
   }
 
   return getFirstCleanParagraphOrElement(root);
+};
+
+const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
+
+const ENTITY_MARK_SELECTORS = [
+  "mark.app",
+  "mark.plugin",
+  "mark.file",
+  "mark.key",
+  "mark.select",
+  "mark.video",
+  "mark.audio",
+  "mark.image",
+  "mark.path",
+  "mark.word",
+  "mark.tag",
+] as const;
+
+const TAG_SCORING_TOKEN_CAP = 48;
+
+const TAG_SCORING_DAMPING_START = 16;
+
+const TAG_SCORING_MAX_REDUCTION = 0.45;
+
+const PROXIMITY_MAX_BONUS = 56;
+
+const PROXIMITY_DECAY_PER_TOKEN = 5;
+
+const removeFigureContainers = (root: Element): void => {
+  for (const element of root.querySelectorAll('[class*="media-figure"]'))
+    element.remove();
+};
+
+const toNormalizedWords = (text: string): string[] =>
+  normalizeText(text).split(" ").filter(Boolean);
+
+const getTagScoringText = (normalizedTag: string): string => {
+  const tagWords = normalizedTag.split(" ").filter(Boolean);
+
+  return tagWords.slice(0, TAG_SCORING_TOKEN_CAP).join(" ");
+};
+
+const getTagLengthDampingFactor = (tagTokenCount: number): number => {
+  if (tagTokenCount <= TAG_SCORING_DAMPING_START) {
+    return 1;
+  }
+
+  const maxOverflow = Math.max(1, TAG_SCORING_TOKEN_CAP - TAG_SCORING_DAMPING_START);
+
+  const overflow = Math.min(tagTokenCount - TAG_SCORING_DAMPING_START, maxOverflow);
+
+  const dampingRatio = Math.log1p(overflow) / Math.log1p(maxOverflow);
+
+  return 1 - dampingRatio * TAG_SCORING_MAX_REDUCTION;
+};
+
+const extractEntityTextFromContent = (content: string): string => {
+  if (!content.trim()) {
+    return "";
+  }
+
+  const root = document.createElement("div");
+
+  root.innerHTML = content;
+
+  return ENTITY_MARK_SELECTORS.flatMap((selector) => {
+    return [...root.querySelectorAll(selector)]
+      .map((element) => element.textContent?.trim() || "")
+      .filter(Boolean);
+  }).join(" ");
+};
+
+const hasCompiledQueryMatchInIndexes = (
+  fieldIndexes: TextSearchIndex[],
+  compiledQuery: CompiledSearchQuery,
+  mode: "all" | "any" = "all"
+): boolean => {
+  if (fieldIndexes.length === 0) {
+    return false;
+  }
+
+  if (mode === "any") {
+    return fieldIndexes.some((fieldIndex) =>
+      hasAnyQueryWordMatch(fieldIndex, compiledQuery)
+    );
+  }
+
+  for (const {features} of compiledQuery.words) {
+    const hasWordMatchInAnyField = fieldIndexes.some((fieldIndex) =>
+      Boolean(getWordMatchType(features, fieldIndex))
+    );
+
+    if (!hasWordMatchInAnyField) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const hasCompiledQueryMatchInFields = (
+  fields: string[],
+  compiledQuery: CompiledSearchQuery,
+  mode: "all" | "any" = "all"
+): boolean => {
+  const fieldIndexes = fields
+    .map((field) => field.trim())
+    .filter(Boolean)
+    .map((field) => buildSearchIndex(field));
+
+  return hasCompiledQueryMatchInIndexes(fieldIndexes, compiledQuery, mode);
+};
+
+const hasTokenVariantMatch = (token: string, variants: string[]): boolean => {
+  return variants.some(
+    (variant) =>
+      token === variant ||
+      (variant.length >= MIN_PREFIX_LENGTH && token.startsWith(variant))
+  );
+};
+
+const hasTokenStemMatch = (token: string, stemVariants: string[]): boolean => {
+  const tokenStem = getWordStem(token);
+
+  return tokenStem.length >= MIN_STEM_LENGTH && stemVariants.includes(tokenStem);
+};
+
+const hasTokenConsonantMatch = (
+  token: string,
+  consonantSignatures: string[]
+): boolean => {
+  const tokenConsonantSignature = getConsonantSignature(token);
+
+  if (tokenConsonantSignature.length < MIN_CONSONANT_SIGNATURE_LENGTH) {
+    return false;
+  }
+
+  return consonantSignatures.some(
+    (signature) =>
+      tokenConsonantSignature === signature ||
+      tokenConsonantSignature.startsWith(signature) ||
+      signature.startsWith(tokenConsonantSignature)
+  );
+};
+
+const isTokenMatchingWordFeatures = (
+  token: string,
+  foldedToken: string,
+  wordFeatures: WordFeatures
+): boolean => {
+  if (hasTokenVariantMatch(token, wordFeatures.variants)) {
+    return true;
+  }
+
+  if (hasTokenVariantMatch(foldedToken, wordFeatures.foldedVariants)) {
+    return true;
+  }
+
+  if (hasTokenStemMatch(token, wordFeatures.stemVariants)) {
+    return true;
+  }
+
+  return hasTokenConsonantMatch(token, wordFeatures.consonantSignatures);
+};
+
+const getTokenPositionsForWord = (
+  normalizedTokens: string[],
+  foldedTokens: string[],
+  wordFeatures: WordFeatures
+): number[] => {
+  const positions: number[] = [];
+
+  for (const [tokenIndex, token] of normalizedTokens.entries()) {
+    const foldedToken = foldedTokens[tokenIndex] || normalizeLatinPhonetics(token);
+
+    if (isTokenMatchingWordFeatures(token, foldedToken, wordFeatures)) {
+      positions.push(tokenIndex);
+    }
+  }
+
+  return positions;
+};
+
+const getSmallestTokenRange = (tokenPositions: number[][]): number | undefined => {
+  if (
+    tokenPositions.length === 0 ||
+    tokenPositions.some((positions) => positions.length === 0)
+  ) {
+    return undefined;
+  }
+
+  const pointers = Array.from({length: tokenPositions.length}, () => 0);
+
+  let bestRange = Number.POSITIVE_INFINITY;
+
+  while (true) {
+    const currentValues = tokenPositions.map(
+      (positions, index) => positions[pointers[index]]
+    );
+
+    const minValue = Math.min(...currentValues);
+
+    const maxValue = Math.max(...currentValues);
+
+    bestRange = Math.min(bestRange, maxValue - minValue);
+
+    const minIndex = currentValues.indexOf(minValue);
+
+    pointers[minIndex] += 1;
+
+    if (pointers[minIndex] >= tokenPositions[minIndex].length) {
+      break;
+    }
+  }
+
+  return Number.isFinite(bestRange) ? bestRange : undefined;
+};
+
+const getProximityBonus = (
+  text: string,
+  compiledQuery: CompiledSearchQuery,
+  weight: number
+): number => {
+  if (compiledQuery.words.length < 2) {
+    return 0;
+  }
+
+  const normalizedWords = toNormalizedWords(text);
+
+  if (normalizedWords.length < 2) {
+    return 0;
+  }
+
+  const foldedWords = normalizeLatinPhonetics(normalizedWords.join(" "))
+    .split(" ")
+    .filter(Boolean);
+
+  const tokenPositions = compiledQuery.words.map(({features}) =>
+    getTokenPositionsForWord(normalizedWords, foldedWords, features)
+  );
+
+  const smallestRange = getSmallestTokenRange(tokenPositions);
+
+  if (smallestRange === undefined) {
+    return 0;
+  }
+
+  const rawBonus = Math.max(
+    0,
+    PROXIMITY_MAX_BONUS - smallestRange * PROXIMITY_DECAY_PER_TOKEN
+  );
+
+  return Math.round(rawBonus * weight);
+};
+
+const getFieldMatchTypeScore = (
+  fieldMatchInfo: FieldMatchInfo,
+  fieldWeight: number
+): number => {
+  let score = fieldMatchInfo.highestPriority * fieldWeight * 3;
+
+  for (const [matchType, count] of Object.entries(fieldMatchInfo.typeCounts) as Array<
+    [WordMatchType, number]
+  >) {
+    score += count * WORD_MATCH_SCORE[matchType] * fieldWeight;
+  }
+
+  return score;
+};
+
+const getCompactSnippetScore = (
+  html: string,
+  compiledQuery: CompiledSearchQuery
+): number => {
+  const plainText = stripHtml(html);
+
+  if (!plainText.trim()) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  const matchInfo = getFieldMatchInfo(buildSearchIndex(plainText), compiledQuery);
+
+  if (!matchInfo.totalMatched) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  let score = getFieldMatchTypeScore(matchInfo, 1);
+
+  score += matchInfo.totalMatched * 8;
+  score += getProximityBonus(plainText, compiledQuery, 0.4);
+
+  if (plainText.length > MAX_COMPACT_SNIPPET_TEXT_LENGTH) {
+    score -= Math.min(
+      40,
+      Math.round((plainText.length - MAX_COMPACT_SNIPPET_TEXT_LENGTH) / 40)
+    );
+  }
+
+  return score;
+};
+
+const pickBestCompactSnippet = (
+  root: Element,
+  compiledQuery: CompiledSearchQuery
+): string | undefined => {
+  const candidates = root.querySelectorAll("p, li");
+
+  let bestHtml: string | undefined;
+
+  let bestScore = Number.NEGATIVE_INFINITY;
+
+  for (const candidate of candidates) {
+    const processedCandidate = processElement(candidate, compiledQuery);
+
+    if (!processedCandidate.result) {
+      continue;
+    }
+
+    let candidateHtml = processedCandidate.result;
+
+    if (stripHtml(candidateHtml).length > MAX_COMPACT_SNIPPET_TEXT_LENGTH) {
+      candidateHtml = extractMatchingLine(
+        candidateHtml,
+        compiledQuery.searchWords.join(" ")
+      );
+    }
+
+    const candidateScore = getCompactSnippetScore(candidateHtml, compiledQuery);
+
+    if (candidateScore > bestScore) {
+      bestScore = candidateScore;
+      bestHtml = candidateHtml;
+    }
+  }
+
+  return bestHtml;
 };
 
 const formatSearchResult = (text: string, searchWords: string[]): string => {
@@ -2646,3 +3235,4 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     </RemoveScroll>
   );
 };
+
