@@ -2890,6 +2890,8 @@ const SearchResults: React.FC<{
 
   const highlightedContentCacheReference = useRef<Map<string, string>>(new Map());
 
+  const [, setHighlightCacheVersion] = useState(0);
+
   useEffect(() => {
     setIsHighlightReady(false);
 
@@ -3061,6 +3063,11 @@ const SearchResults: React.FC<{
     [results]
   );
 
+  const resultById = useMemo(
+    () => new Map(results.map((result) => [result.id, result])),
+    [results]
+  );
+
   const masonryColumns = useMemo(() => {
     if (isSingleColumnLayout) {
       return [resultEntries];
@@ -3108,6 +3115,86 @@ const SearchResults: React.FC<{
     };
   }, [checkResultOverflow, isSingleColumnLayout]);
 
+  useEffect(() => {
+    if (
+      !isHighlightReady ||
+      !query.trim() ||
+      compiledQuery.words.length === 0 ||
+      compiledQuery.isKeyCombination
+    ) {
+      return;
+    }
+
+    const idsToPrecompute = [
+      ...new Set(
+        results.map((result) => result.id).filter((id) => highlightEligibleIds.has(id))
+      ),
+    ].filter((id) => !highlightedContentCacheReference.current.has(`${id}::${query}`));
+
+    if (idsToPrecompute.length === 0) {
+      return;
+    }
+
+    let isCancelled = false;
+
+    let timeoutId: number | undefined;
+
+    let currentIndex = 0;
+
+    const processChunk = () => {
+      if (isCancelled) {
+        return;
+      }
+
+      const startedAt = performance.now();
+
+      let didUpdateCache = false;
+
+      while (currentIndex < idsToPrecompute.length && performance.now() - startedAt < 8) {
+        const resultId = idsToPrecompute[currentIndex];
+
+        currentIndex += 1;
+
+        const resultItem = resultById.get(resultId);
+
+        if (!resultItem) {
+          continue;
+        }
+
+        const cacheKey = `${resultId}::${query}`;
+
+        if (highlightedContentCacheReference.current.has(cacheKey)) {
+          continue;
+        }
+
+        highlightedContentCacheReference.current.set(
+          cacheKey,
+          highlightMatchedTokens(resultItem.content, compiledQuery)
+        );
+
+        didUpdateCache = true;
+      }
+
+      if (didUpdateCache) {
+        setHighlightCacheVersion((previous) => previous + 1);
+      }
+
+      if (currentIndex < idsToPrecompute.length) {
+        timeoutId = globalThis.setTimeout(processChunk, 0);
+      }
+    };
+
+    timeoutId = globalThis.setTimeout(processChunk, 0);
+
+    return () => {
+      isCancelled = true;
+
+      if (timeoutId !== undefined) {
+        globalThis.clearTimeout(timeoutId);
+      }
+    };
+  }, [compiledQuery, highlightEligibleIds, isHighlightReady, query, resultById, results]);
+
   const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
     const {anchor, content, id, tag, title} = result;
 
@@ -3131,24 +3218,23 @@ const SearchResults: React.FC<{
       ? tagsToDisplay.map((tag_) => renderHighlightedText(tag_, compiledQuery))
       : tagsToDisplay;
 
-    const highlightedContent =
-      shouldHighlight && query.trim() !== ""
-        ? (() => {
-            const cacheKey = `${id}::${query}`;
+    const cacheKey = `${id}::${query}`;
 
-            const cachedContent = highlightedContentCacheReference.current.get(cacheKey);
+    const cachedHighlightedContent =
+      highlightedContentCacheReference.current.get(cacheKey);
 
-            if (cachedContent !== undefined) {
-              return cachedContent;
-            }
+    let highlightedContent = content;
 
-            const renderedContent = highlightMatchedTokens(content, compiledQuery);
+    if (shouldHighlight && query.trim() !== "") {
+      if (cachedHighlightedContent !== undefined) {
+        highlightedContent = cachedHighlightedContent;
+      } else if (isCurrentSelectedResult) {
+        const renderedContent = highlightMatchedTokens(content, compiledQuery);
 
-            highlightedContentCacheReference.current.set(cacheKey, renderedContent);
-
-            return renderedContent;
-          })()
-        : content;
+        highlightedContentCacheReference.current.set(cacheKey, renderedContent);
+        highlightedContent = renderedContent;
+      }
+    }
 
     const isSelected = index === selectedResultIndex;
 
