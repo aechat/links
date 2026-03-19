@@ -744,12 +744,22 @@ const extractKeyCombinationText = (element: Element): string => {
   return element.textContent?.toLowerCase() || "";
 };
 
+const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
+  const normalizedWord = normalizeWord(searchWord);
+
+  if (!normalizedWord) {
+    return false;
+  }
+
+  return Boolean(getWordMatchType(getWordFeatures(normalizedWord), index));
+};
+
 const hasAllQueryWordsMatch = (
   textSearchIndex: TextSearchIndex,
   compiledQuery: CompiledSearchQuery
 ): boolean => {
-  for (const {features} of compiledQuery.words) {
-    if (!getWordMatchType(features, textSearchIndex)) {
+  for (const {normalizedWord} of compiledQuery.words) {
+    if (!hasWordMatch(normalizedWord, textSearchIndex)) {
       return false;
     }
   }
@@ -761,8 +771,8 @@ const hasAnyQueryWordMatch = (
   textSearchIndex: TextSearchIndex,
   compiledQuery: CompiledSearchQuery
 ): boolean => {
-  for (const {features} of compiledQuery.words) {
-    if (getWordMatchType(features, textSearchIndex)) {
+  for (const {normalizedWord} of compiledQuery.words) {
+    if (hasWordMatch(normalizedWord, textSearchIndex)) {
       return true;
     }
   }
@@ -1432,7 +1442,7 @@ const pickBestCompactSnippet = (
   return bestHtml;
 };
 
-const formatSearchResult = (text: string, searchWords: string[]): string => {
+const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): string => {
   const temporaryDiv = document.createElement("div");
 
   temporaryDiv.innerHTML = text;
@@ -1441,8 +1451,6 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     ".ant-divider, .ant-divider-inner-text"
   ))
     element.remove();
-
-  const compiledQuery = compileSearchQuery(searchWords.join(" "));
 
   const tagMatch = (temporaryDiv.querySelector("[data-tags]") as HTMLElement)?.dataset
     .tags;
@@ -1472,62 +1480,132 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 };
 
 const computeTitleTagContentMatches = (
-  searchWords: string[],
+  compiledQuery: CompiledSearchQuery,
   normalizedTitle: string,
   normalizedTag: string,
-  normalizedContent: string
+  normalizedContent: string,
+  normalizedEntityText: string
 ) => {
   const titleSearchIndex = buildSearchIndex(normalizedTitle);
 
   const tagSearchIndex = buildSearchIndex(normalizedTag);
+
+  const tagScoringText = getTagScoringText(normalizedTag);
+
+  const tagScoringSearchIndex = buildSearchIndex(tagScoringText);
 
   const contentSearchIndex = buildSearchIndex(normalizedContent);
 
-  const titleMatches = searchWords.filter((word) => hasWordMatch(word, titleSearchIndex));
+  const entitySearchIndex = buildSearchIndex(normalizedEntityText);
 
-  const tagMatches = searchWords.filter((word) => hasWordMatch(word, tagSearchIndex));
+  const titleMatchInfo = getFieldMatchInfo(titleSearchIndex, compiledQuery);
 
-  const contentMatches = searchWords.filter((word) =>
-    hasWordMatch(word, contentSearchIndex)
-  );
+  const tagMatchInfo = getFieldMatchInfo(tagSearchIndex, compiledQuery);
 
-  return {contentMatches, tagMatches, titleMatches};
+  const tagScoringMatchInfo = getFieldMatchInfo(tagScoringSearchIndex, compiledQuery);
+
+  const contentMatchInfo = getFieldMatchInfo(contentSearchIndex, compiledQuery);
+
+  const entityMatchInfo = getFieldMatchInfo(entitySearchIndex, compiledQuery);
+
+  return {
+    contentMatchInfo,
+    entityMatchInfo,
+    tagMatches: tagMatchInfo.matchedWords,
+    tagMatchInfo,
+    tagScoringMatchInfo,
+    tagTokenCount: normalizedTag.split(" ").filter(Boolean).length,
+    titleMatches: titleMatchInfo.matchedWords,
+    titleMatchInfo,
+  };
 };
 
 const computeScore = (
-  searchWords: string[],
+  compiledQuery: CompiledSearchQuery,
   normalizedTitle: string,
   normalizedTag: string,
-  titleMatchesCount: number,
-  tagMatchesCount: number,
-  contentMatchesCount: number
+  normalizedContent: string,
+  normalizedEntityText: string,
+  titleMatchInfo: FieldMatchInfo,
+  tagMatchInfo: FieldMatchInfo,
+  tagScoringMatchInfo: FieldMatchInfo,
+  contentMatchInfo: FieldMatchInfo,
+  entityMatchInfo: FieldMatchInfo,
+  tagTokenCount: number
 ) => {
   let score = 0;
 
-  const titleSearchIndex = buildSearchIndex(normalizedTitle);
+  const tagLengthDampingFactor = getTagLengthDampingFactor(tagTokenCount);
 
-  const tagSearchIndex = buildSearchIndex(normalizedTag);
-
-  if (titleMatchesCount && tagMatchesCount) {
+  if (titleMatchInfo.totalMatched && tagMatchInfo.totalMatched) {
     score += 100;
-  } else if (titleMatchesCount || tagMatchesCount) {
+  } else if (titleMatchInfo.totalMatched || tagMatchInfo.totalMatched) {
     score += 50;
   }
 
   score += Math.max(
-    ...searchWords.map((word) =>
-      Math.max(
-        hasWordMatch(word, titleSearchIndex) ? word.length : 0,
-        hasWordMatch(word, tagSearchIndex) ? word.length : 0
-      )
-    ),
+    titleMatchInfo.longestMatchedWordLength,
+    tagMatchInfo.longestMatchedWordLength,
     0
   );
 
-  score += 10 * (titleMatchesCount + tagMatchesCount - 1);
-  score += 5 * contentMatchesCount;
+  score += 10 * (titleMatchInfo.totalMatched + tagMatchInfo.totalMatched - 1);
+  score += 5 * contentMatchInfo.totalMatched;
+  score += 7 * entityMatchInfo.totalMatched;
 
-  if (!titleMatchesCount && !tagMatchesCount && contentMatchesCount) {
+  score += getFieldMatchTypeScore(titleMatchInfo, 5);
+
+  score += Math.round(
+    getFieldMatchTypeScore(tagScoringMatchInfo, 3) * tagLengthDampingFactor
+  );
+
+  score += getFieldMatchTypeScore(entityMatchInfo, 3);
+  score += getFieldMatchTypeScore(contentMatchInfo, 2);
+
+  if (compiledQuery.normalizedQuery.length > 1) {
+    const hasTitlePhraseMatch = normalizedTitle.includes(compiledQuery.normalizedQuery);
+
+    const hasTagPhraseMatch = normalizedTag.includes(compiledQuery.normalizedQuery);
+
+    if (hasTitlePhraseMatch) {
+      score += 260;
+    }
+
+    if (hasTagPhraseMatch) {
+      score += Math.round(180 * tagLengthDampingFactor);
+    }
+
+    if (
+      !hasTitlePhraseMatch &&
+      (titleMatchInfo.typeCounts.folded > 0 ||
+        titleMatchInfo.typeCounts.stem > 0 ||
+        titleMatchInfo.typeCounts.consonant > 0 ||
+        titleMatchInfo.typeCounts.prefix > 0)
+    ) {
+      score += 90;
+    }
+
+    if (normalizedContent.includes(compiledQuery.normalizedQuery)) {
+      score += 45;
+    }
+  }
+
+  score += getProximityBonus(normalizedTitle, compiledQuery, 1.1);
+
+  score += Math.round(
+    getProximityBonus(normalizedTag, compiledQuery, 0.85) * tagLengthDampingFactor
+  );
+
+  score += getProximityBonus(normalizedEntityText, compiledQuery, 0.75);
+
+  score += getProximityBonus(normalizedContent, compiledQuery, 0.55);
+
+  if (
+    !titleMatchInfo.totalMatched &&
+    !tagMatchInfo.totalMatched &&
+    !entityMatchInfo.totalMatched &&
+    contentMatchInfo.totalMatched
+  ) {
     score -= 10;
   }
 
@@ -1745,27 +1823,22 @@ const getSummaryTitle = (summary: Element): string => {
 type BaseSearchResult = Omit<
   SearchResult,
   "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
->;
+> & {
+  contentText: string;
+  entityText: string;
+  sourceOrder: number;
+};
 
 const isSingleParagraphMatchForResult = (
   resultContent: string,
-  searchWords: string[]
+  compiledQuery: CompiledSearchQuery
 ): boolean => {
   const lines = resultContent.split("\n");
 
   for (const line of lines) {
     const lineSearchIndex = buildSearchIndex(stripHtml(line));
 
-    let allIncluded = true;
-
-    for (const word of searchWords) {
-      if (!hasWordMatch(word, lineSearchIndex)) {
-        allIncluded = false;
-        break;
-      }
-    }
-
-    if (allIncluded) {
+    if (hasAllQueryWordsMatch(lineSearchIndex, compiledQuery)) {
       return true;
     }
   }
@@ -1773,80 +1846,85 @@ const isSingleParagraphMatchForResult = (
   return false;
 };
 
-type TransformedSearchResult = SearchResult & {
+type RankedSearchResult = SearchResult & {
   score: number;
+  sourceOrder: number;
 };
 
 const transformSearchResult = (
   result: BaseSearchResult,
-  searchWords: string[],
-  originalQuery: string
-): TransformedSearchResult => {
+  compiledQuery: CompiledSearchQuery
+): RankedSearchResult => {
   const isSingleParagraphMatch = isSingleParagraphMatchForResult(
     result.content,
-    searchWords
+    compiledQuery
   );
 
   const normalizedTitle = normalizeText(result.title);
 
   const normalizedTag = normalizeText(result.tag || "");
 
-  const normalizedContent = normalizeText(stripHtml(result.content || ""));
+  const normalizedContent = normalizeText(result.contentText);
 
-  const {contentMatches, tagMatches, titleMatches} = computeTitleTagContentMatches(
-    searchWords,
+  const normalizedEntityText = normalizeText(result.entityText);
+
+  const {
+    contentMatchInfo,
+    entityMatchInfo,
+    tagMatches,
+    tagMatchInfo,
+    tagScoringMatchInfo,
+    tagTokenCount,
+    titleMatches,
+    titleMatchInfo,
+  } = computeTitleTagContentMatches(
+    compiledQuery,
     normalizedTitle,
     normalizedTag,
-    normalizedContent
+    normalizedContent,
+    normalizedEntityText
   );
 
-  let score = computeScore(
-    searchWords,
+  const score = computeScore(
+    compiledQuery,
     normalizedTitle,
     normalizedTag,
-    titleMatches.length,
-    tagMatches.length,
-    contentMatches.length
+    normalizedContent,
+    normalizedEntityText,
+    titleMatchInfo,
+    tagMatchInfo,
+    tagScoringMatchInfo,
+    contentMatchInfo,
+    entityMatchInfo,
+    tagTokenCount
   );
-
-  const normalizedQuery = normalizeText(originalQuery);
-
-  if (normalizedQuery.length > 1) {
-    if (normalizedTitle.includes(normalizedQuery)) {
-      score += 120;
-    }
-
-    if (normalizedTag.includes(normalizedQuery)) {
-      score += 90;
-    }
-
-    if (normalizedContent.includes(normalizedQuery)) {
-      score += 60;
-    }
-  }
 
   return {
-    ...result,
-    content: formatSearchResult(result.content, searchWords),
+    anchor: result.anchor,
+    content: formatSearchResult(result.content, compiledQuery),
     hasTagMatch: tagMatches.length > 0,
     hasTitleMatch: titleMatches.length > 0,
+    id: result.id,
     isSingleParagraphMatch,
     score,
+    sourceOrder: result.sourceOrder,
+    tag: result.tag,
+    title: result.title,
   };
 };
 
-type FilteredSearchResult = Omit<
-  SearchResult,
-  "id" | "anchor" | "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
+type FilteredSearchResult = Pick<
+  BaseSearchResult,
+  "contentText" | "entityText" | "tag" | "title"
 >;
 
 const filterByKeyCombination = (
-  {content, tag, title}: FilteredSearchResult,
+  {contentText, entityText, tag, title}: FilteredSearchResult,
   originalText: string
 ): boolean => {
   const searchPattern = normalizeKeyCombination(originalText);
 
-  const fieldsToSearch = [title, tag || "", stripHtml(content || "")];
+  const fieldsToSearch = [title, tag || "", entityText, contentText];
 
   return fieldsToSearch
     .map((field) => normalizeKeyCombination(field))
@@ -1854,26 +1932,24 @@ const filterByKeyCombination = (
 };
 
 const filterByWords = (
-  {content, tag, title}: FilteredSearchResult,
-  searchWords: string[]
+  {contentText, entityText, tag, title}: FilteredSearchResult,
+  compiledQuery: CompiledSearchQuery
 ): boolean => {
-  const textToSearch = [title, tag || "", stripHtml(content || "")].join(" ");
-
-  const textSearchIndex = buildSearchIndex(textToSearch);
-
-  return searchWords.every((word) => hasWordMatch(word, textSearchIndex));
+  return hasCompiledQueryMatchInFields(
+    [title, tag || "", entityText, contentText],
+    compiledQuery
+  );
 };
 
 const filterDetail = (
   detail: FilteredSearchResult,
-  searchWords: string[],
-  originalText: string
+  compiledQuery: CompiledSearchQuery
 ): boolean => {
-  if (isKeyCombinationSearch(originalText)) {
-    return filterByKeyCombination(detail, originalText);
+  if (compiledQuery.isKeyCombination) {
+    return filterByKeyCombination(detail, compiledQuery.originalText);
   }
 
-  return filterByWords(detail, searchWords);
+  return filterByWords(detail, compiledQuery);
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
@@ -1903,7 +1979,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
       const data: BaseSearchResult[] = [];
 
-      for (const detail of cachedDetails) {
+      for (const [sourceOrder, detail] of cachedDetails.entries()) {
         const summary = detail.querySelector(":scope > summary");
 
         if (!summary) {
@@ -1940,11 +2016,20 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           ...flexibleLinksTexts,
         ].join("\n");
 
-        if (title || text) {
+        const trimmedText = text.trim();
+
+        const contentText = stripHtml(trimmedText);
+
+        const entityText = extractEntityTextFromContent(trimmedText);
+
+        if (title || trimmedText) {
           data.push({
             anchor,
-            content: text.trim(),
+            content: trimmedText,
+            contentText,
+            entityText,
             id,
+            sourceOrder,
             tag: tag.trim(),
             title,
           });
@@ -1959,25 +2044,25 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   const handleSearch = useCallback(
     debounce((text: string) => {
       if (text.trim()) {
-        const searchWords = extractSearchWords(text);
+        const compiledQuery = compileSearchQuery(text);
 
-        const detailsData = extractDetailsData(searchWords);
+        const detailsData = extractDetailsData(compiledQuery.searchWords);
 
         const filtered = detailsData.filter((detail) =>
-          filterDetail(detail, searchWords, text)
+          filterDetail(detail, compiledQuery)
         );
 
-        const results = filtered
-          .map((result) => transformSearchResult(result, searchWords, text))
+        const rankedResults = filtered
+          .map((result) => transformSearchResult(result, compiledQuery))
           .toSorted((a, b) => {
             if (b.score !== a.score) {
               return b.score - a.score;
             }
 
-            return 0;
+            return a.sourceOrder - b.sourceOrder;
           });
 
-        setResults(results);
+        setResults(rankedResults);
         setResultsQuery(text);
       } else {
         setResults([]);
@@ -2202,14 +2287,12 @@ const SearchCategories: React.FC<{
   );
 };
 
-const getMatchingTags = (tag: string | undefined, query: string) => {
+const getMatchingTags = (tag: string | undefined, compiledQuery: CompiledSearchQuery) => {
   if (!tag || tag.trim() === "") {
     return [];
   }
 
-  const searchWords = extractSearchWords(query);
-
-  if (searchWords.length === 0) {
+  if (compiledQuery.searchWords.length === 0) {
     return [];
   }
 
@@ -2218,11 +2301,9 @@ const getMatchingTags = (tag: string | undefined, query: string) => {
     .map((tag_) => tag_.trim())
     .filter(Boolean);
 
-  return allTags.filter((tag_) => {
-    const tagSearchIndex = buildSearchIndex(tag_);
-
-    return searchWords.some((word) => hasWordMatch(word, tagSearchIndex));
-  });
+  return allTags.filter((tag_) =>
+    hasCompiledQueryMatchInFields([tag_], compiledQuery, "any")
+  );
 };
 
 const SearchResults: React.FC<{
@@ -2262,6 +2343,8 @@ const SearchResults: React.FC<{
   const masonryContainerReference = useRef<HTMLDivElement>(null);
 
   const [isSingleColumnLayout, setIsSingleColumnLayout] = useState(false);
+
+  const compiledQuery = useMemo(() => compileSearchQuery(query), [query]);
 
   useEffect(() => {
     const updateLayout = () => {
@@ -2399,7 +2482,7 @@ const SearchResults: React.FC<{
   const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
     const {anchor, content, id, tag, title} = result;
 
-    const tagsToDisplay = getMatchingTags(tag, query);
+    const tagsToDisplay = getMatchingTags(tag, compiledQuery);
 
     const isSelected = index === selectedResultIndex;
 
@@ -3232,4 +3315,3 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     </RemoveScroll>
   );
 };
-
