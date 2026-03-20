@@ -14,6 +14,7 @@ import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
 
 import {
+  copyAnchorLink,
   isFirstAnchorOccurrence,
   normalizeAnchor,
   replaceUrlHash,
@@ -789,6 +790,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const handleCopyAnchor = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
+      event.preventDefault();
       event.stopPropagation();
 
       (async () => {
@@ -800,25 +802,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         const anchorToCopy = getEffectiveAnchor() || numericAnchor;
 
-        if (!anchorToCopy) {
-          message.warning(
-            "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
-          );
-
-          return;
-        }
-
-        if (globalThis.window !== undefined) {
-          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
-
-          const success = await copyText(anchorUrl);
-
-          if (success) {
-            message.success(`Ссылка на статью ${numericAnchor} скопирована`);
-          } else {
-            message.error("Не удалось скопировать ссылку");
-          }
-        }
+        await copyAnchorLink({
+          anchorToCopy,
+          successMessage: `Ссылка на статью ${numericAnchor || anchorToCopy} скопирована в буфер обмена`,
+        });
       })();
 
       return true;

@@ -7,9 +7,8 @@ import React, {
   useState,
 } from "react";
 
-import {message, Tooltip} from "antd";
+import {Tooltip} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {triggerDisclosureHaptic} from "../../utils/haptics";
@@ -17,6 +16,7 @@ import {scrollToElement} from "../../utils/scrollToAnchor";
 import {CopyButton} from "../ui/CopyButton";
 
 import {
+  copyAnchorLink,
   isFirstAnchorOccurrence,
   normalizeAnchor,
   replaceUrlHash,
@@ -455,30 +455,22 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const handleCopyAnchor = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
+      event.preventDefault();
       event.stopPropagation();
 
       (async () => {
-        const resolvedAnchor = getEffectiveAnchor();
+        const summaryElement = detailsReference.current?.querySelector(
+          `.${styles["details-nested-summary"]}`
+        );
 
-        if (!resolvedAnchor) {
-          message.warning(
-            "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
-          );
+        const numericAnchor = summaryElement?.id ?? "";
 
-          return;
-        }
+        const anchorToCopy = getEffectiveAnchor() || numericAnchor;
 
-        if (globalThis.window !== undefined) {
-          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${resolvedAnchor}`;
-
-          const success = await copyText(anchorUrl);
-
-          if (success) {
-            message.success(`Ссылка на спойлер ${resolvedAnchor} скопирована`);
-          } else {
-            message.error("Не удалось скопировать ссылку");
-          }
-        }
+        await copyAnchorLink({
+          anchorToCopy,
+          successMessage: `Ссылка на вложенную статью ${numericAnchor || anchorToCopy} скопирована в буфер обмена`,
+        });
       })();
 
       return true;
