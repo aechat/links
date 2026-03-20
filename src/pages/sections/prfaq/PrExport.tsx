@@ -698,7 +698,6 @@ const PrExport: React.FC = () => {
         <ArticleMedia
           caption="Export Frame"
           src="legacy/premierepro/export_frame.png"
-          tag="вывести секвенцию фото, jpg, png, psd"
           type="image"
         />
       </DetailsSummary>
