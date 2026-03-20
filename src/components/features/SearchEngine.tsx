@@ -3137,7 +3137,7 @@ const SearchResults: React.FC<{
 
     let isCancelled = false;
 
-    let timeoutId: number | undefined;
+    let timeoutId: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     let currentIndex = 0;
 
