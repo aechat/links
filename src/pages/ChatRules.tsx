@@ -262,10 +262,10 @@ const ChatRules = () => {
                 </p>
                 <Addition type="info">
                   Прежде чем задать вопрос, воспользуйтесь поиском по чату, а также
-                  загляните в разделы FAQ по <a href="#aefaq">Adobe After Effects</a>,{" "}
-                  <a href="#prfaq">Adobe Premiere</a> или{" "}
-                  <a href="#psfaq">Adobe Photoshop</a>. Возможно, необходимое решение уже
-                  описано в этих источниках.
+                  загляните в разделы FAQ по <Link to="/aefaq">Adobe After Effects</Link>,{" "}
+                  <Link to="/prfaq">Adobe Premiere</Link> или{" "}
+                  <Link to="/psfaq">Adobe Photoshop</Link>. Возможно, необходимое решение
+                  уже описано в этих источниках.
                 </Addition>
                 <ul>
                   <li>
