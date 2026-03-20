@@ -165,7 +165,6 @@ export const setupHapticMessageFeedback = () => {
   patchMessageMethod("error");
   patchMessageMethod("warning");
   patchMessageMethod("info");
-
   isMessagePatched = true;
 };
 

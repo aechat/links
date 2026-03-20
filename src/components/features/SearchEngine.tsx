@@ -1667,9 +1667,7 @@ const highlightSingleTextNode = (
     highlightElement.dataset.searchHit = "true";
     highlightElement.dataset.searchMatchType = matchType;
     highlightElement.textContent = originalText.slice(start, end);
-
     fragment.append(highlightElement);
-
     cursor = end;
   }
 
@@ -2029,7 +2027,6 @@ const computeScore = (
   score += 10 * (titleMatchInfo.totalMatched + tagMatchInfo.totalMatched - 1);
   score += 5 * contentMatchInfo.totalMatched;
   score += 7 * entityMatchInfo.totalMatched;
-
   score += getFieldMatchTypeScore(titleMatchInfo, 5);
 
   score += Math.round(
@@ -2074,7 +2071,6 @@ const computeScore = (
   );
 
   score += getProximityBonus(normalizedEntityText, compiledQuery, 0.75);
-
   score += getProximityBonus(normalizedContent, compiledQuery, 0.55);
 
   if (
