@@ -16,7 +16,7 @@ const PrExport: React.FC = () => {
       ></DetailsSummary>
       <DetailsSummary
         anchor="export-mp4"
-        tag="h.264, h.265, мп4, hevc, avc1, вывести видео, вукодер, voukoder, aftercodecs, афтеркодекс, хевк, авс1"
+        tag="h264, h265, hevc, avc1, voukoder, aftercodecs"
         title="Как вывести секвенцию в MP4 и H.264/H.265?"
       >
         <p>

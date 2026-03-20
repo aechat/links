@@ -4437,7 +4437,7 @@ const AeFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="recommended-plugins"
-        tag="рекомендация, топ плагинов, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
+        tag="рекомендация, топ плагинов, скрипты, расширения, установка"
         title="Какие дополнения стоит установить в первую очередь?"
       >
         <p>
@@ -6449,7 +6449,7 @@ const AeFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="mocha-ae-vs-pro"
-        tag="сравнение, разница, трекинг, mocha, мока, моча"
+        tag="сравнение, разница, трекинг"
         title="Чем отличается Mocha AE от Mocha Pro?"
       >
         <p>

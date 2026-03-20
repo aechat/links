@@ -1651,7 +1651,7 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="recommended-plugins"
-        tag="рекомендация, топ, борисфх, твикстор, рсмб, юниверс, мбл, mbl"
+        tag="рекомендация, топ плагинов"
         title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
       >
         <Addition type="warning">

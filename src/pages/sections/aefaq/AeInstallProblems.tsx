@@ -2401,7 +2401,7 @@ const AeInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="plugin-installer-types"
-        tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
+        tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, репак"
         title="Как понять, для какой программы предназначен установщик плагина?"
       >
         <p>
@@ -2692,7 +2692,7 @@ const AeInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="rosetta"
-        tag="rosetta, розетта, старые плагины на новом маке, apple silicon, следующие установленные подключаемые модули не совместимы с используемой версией, в существующих проектах они будут отображаться как отсутствующие их применение невозможно, чтобы использовать эти подключаемые модули, запустите на компьютере mac с процессором intel, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
+        tag="rosetta, старые плагины на новом маке, apple silicon, следующие установленные подключаемые модули не совместимы с используемой версией, в существующих проектах они будут отображаться как отсутствующие их применение невозможно, чтобы использовать эти подключаемые модули, запустите на компьютере mac с процессором intel, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
         title="«The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied» после установки плагинов"
       >
         <ContentFilter
@@ -2803,7 +2803,7 @@ const AeInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-red-giant-installer-moved"
-        tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл, red giant, packages directory, ошибка установки, распаковать архив"
+        tag="trapcode, mbl, magic bullet, vfx suite, universe, red giant, packages directory, ошибка установки, распаковать архив"
         title="«This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit.» при установке любого пакета от Red Giant"
       >
         <p>

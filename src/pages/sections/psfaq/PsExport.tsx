@@ -50,7 +50,7 @@ const PsExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="how-to-export-video"
-        tag="сохранить видео, мп4, mp4"
+        tag="сохранить видео, mp4"
         title="Может прозвучит по-идиотски, но как экспортировать из программы видео?"
       ></DetailsSummary>
       <DetailsSummary

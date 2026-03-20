@@ -357,7 +357,7 @@ const PrActions: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="video-denoise"
-        tag="уменьшить шум, denoiser, neat video, подавление цифрового шума, денойзер, неат видео, шумоподавление, чистка видео"
+        tag="уменьшить шум, denoiser, neat video, подавление цифрового шума, шумоподавление, чистка видео"
         title="Чем можно подавить шумы на видео?"
       >
         <p>

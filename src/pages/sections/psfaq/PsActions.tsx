@@ -11,7 +11,7 @@ const PsActions: React.FC = () => {
     <div className="article-content">
       <DetailsSummary
         anchor="upscale-photo"
-        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
+        tag="апскейл, качество, резкость, восстановить четкость"
         title="Какими средствами я могу улучшить качество изображений?"
       >
         <p>
