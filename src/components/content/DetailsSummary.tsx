@@ -600,9 +600,19 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const resolvedAnchor = getEffectiveAnchor();
 
+    const isCurrentHashNestedInDetails = isHashForOpenNestedInDetails(
+      detailsReference.current,
+      currentHash
+    );
+
     if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
       updateUrlHash(`#${resolvedAnchor}`);
-    } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
+    } else if (
+      !isOpen &&
+      (currentHash === summaryId ||
+        currentHash === resolvedAnchor ||
+        isCurrentHashNestedInDetails)
+    ) {
       updateUrlHash("");
     }
   }, [
