@@ -263,6 +263,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
+        if (!isOpenReference.current) {
+          return;
+        }
+
         const summaryId = detailsReference.current?.querySelector(
           `.${styles["details-nested-summary"]}`
         )?.id;
