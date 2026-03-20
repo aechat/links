@@ -259,7 +259,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
-    const detailsElement = detailsReference.current;
+    const nestedContentElement = innerContentReference.current;
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
@@ -289,15 +289,15 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       clearTimeout(timeoutId);
     };
 
-    if (detailsElement) {
-      detailsElement.addEventListener("mouseenter", handleMouseEnter);
-      detailsElement.addEventListener("mouseleave", handleMouseLeave);
+    if (nestedContentElement) {
+      nestedContentElement.addEventListener("mouseenter", handleMouseEnter);
+      nestedContentElement.addEventListener("mouseleave", handleMouseLeave);
     }
 
     return () => {
-      if (detailsElement) {
-        detailsElement.removeEventListener("mouseenter", handleMouseEnter);
-        detailsElement.removeEventListener("mouseleave", handleMouseLeave);
+      if (nestedContentElement) {
+        nestedContentElement.removeEventListener("mouseenter", handleMouseEnter);
+        nestedContentElement.removeEventListener("mouseleave", handleMouseLeave);
       }
 
       clearTimeout(timeoutId);
