@@ -4784,7 +4784,8 @@ const AeFromNewbies: React.FC = () => {
               <p>
                 Для быстрой смены языка на английский достаточно создать пустой текстовый
                 файл с названием <mark className="file">ae_force_english.txt</mark> и
-                поместить его в папку «Документы», находящийся в директории{" "}
+                поместить его в папку <mark className="path">«Документы»</mark>,
+                находящийся в директории{" "}
                 <mark className="path">%USERPROFILE%\Documents</mark>. В сам файл ничего
                 писать не нужно. После этого перезапустите{" "}
                 <mark className="app">Adobe After Effects</mark>, если он был открыт.
@@ -4792,8 +4793,8 @@ const AeFromNewbies: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    Чтобы быстро открыть папку «Документы», нажмите{" "}
-                    <mark className="key">Win + R</mark>, введите{" "}
+                    Чтобы быстро открыть папку <mark className="path">«Документы»</mark>,
+                    нажмите <mark className="key">Win + R</mark>, введите{" "}
                     <mark className="path">%USERPROFILE%\Documents</mark> и нажмите{" "}
                     <mark className="key">Enter</mark>.
                   </li>

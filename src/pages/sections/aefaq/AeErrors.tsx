@@ -821,8 +821,9 @@ const AeErrors: React.FC = () => {
               <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
                 Для быстрой смены языка на английский достаточно создать пустой текстовый
-                файл <mark className="file">ae_force_english.txt</mark> и поместить его в
-                папку «Документы» по пути{" "}
+                файл с названием <mark className="file">ae_force_english.txt</mark> и
+                поместить его в папку <mark className="path">«Документы»</mark>,
+                находящийся в директории{" "}
                 <mark className="path">%USERPROFILE%\Documents</mark>. В сам файл ничего
                 писать не нужно. После этого перезапустите{" "}
                 <mark className="app">Adobe After Effects</mark>, если он был открыт.
@@ -830,8 +831,8 @@ const AeErrors: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    Чтобы быстро открыть папку «Документы», нажмите{" "}
-                    <mark className="key">Win + R</mark>, введите{" "}
+                    Чтобы быстро открыть папку <mark className="path">«Документы»</mark>,
+                    нажмите <mark className="key">Win + R</mark>, введите{" "}
                     <mark className="path">%USERPROFILE%\Documents</mark> и нажмите{" "}
                     <mark className="key">Enter</mark>.
                   </li>
@@ -840,7 +841,7 @@ const AeErrors: React.FC = () => {
                     <mark className="code">
                       echo.&gt;&quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
                     </mark>{" "}
-                    в <mark className="app">cmd</mark>. Учтите, что в{" "}
+                    в <mark className="app">cmd</mark>. Учтите, что при использовании{" "}
                     <mark className="app">PowerShell</mark> эта команда не сработает.
                   </li>
                 </ul>
