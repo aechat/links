@@ -1,3 +1,7 @@
+import {message} from "antd";
+
+import {copyText} from "../../hooks/useCopyToClipboard";
+
 export const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 
 export const isFirstAnchorOccurrence = (
@@ -41,4 +45,36 @@ export const replaceUrlHash = (hash: string) => {
     "",
     globalThis.location.pathname + globalThis.location.search + hash
   );
+};
+
+interface CopyAnchorLinkOptions {
+  anchorToCopy: string;
+  successMessage: string;
+}
+
+export const copyAnchorLink = async ({
+  anchorToCopy,
+  successMessage,
+}: CopyAnchorLinkOptions): Promise<boolean> => {
+  if (!anchorToCopy) {
+    message.warning("Дождитесь полной загрузки страницы, прежде чем копировать ссылку");
+
+    return false;
+  }
+
+  if (globalThis.window === undefined) {
+    return false;
+  }
+
+  const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+
+  const success = await copyText(anchorUrl);
+
+  if (success) {
+    message.success(successMessage);
+  } else {
+    message.error("Не удалось скопировать ссылку");
+  }
+
+  return success;
 };
