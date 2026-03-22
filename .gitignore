@@ -27,6 +27,7 @@ qodana.yaml
 *.code-workspace
 *.md
 !README.md
+!AGENTS.md
 .yarn*
 pnpm*.yaml
 .pnp*
