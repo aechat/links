@@ -23,6 +23,7 @@ import {isMobileDevice} from "../../utils/browserDetection";
 import {withSelectionHaptic} from "../../utils/haptics";
 import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
+import additionStyles from "../content/Addition.module.scss";
 import modalStyles from "../modals/Modal.module.scss";
 
 import searchStyles from "./SearchEngine.module.scss";
@@ -1155,6 +1156,25 @@ const pickTableOrFallback = (
 
 const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
 
+const escapeCssClassName = (className: string): string => {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    return CSS.escape(className);
+  }
+
+  return className.replaceAll(/[^a-zA-Z0-9_-]/g, String.raw`\$&`);
+};
+
+const ADDITION_STYLE_CLASS_NAMES = [
+  additionStyles["addition-danger"],
+  additionStyles["addition-info"],
+  additionStyles["addition-tldr"],
+  additionStyles["addition-warning"],
+].filter(Boolean);
+
+const ADDITION_CONTAINER_SELECTOR = ADDITION_STYLE_CLASS_NAMES.map(
+  (className) => `.${escapeCssClassName(className)}`
+).join(", ");
+
 const ENTITY_MARK_SELECTORS = [
   "mark.app",
   "mark.plugin",
@@ -2101,6 +2121,27 @@ const collectFlexibleLinksTexts = (detail: Element): string[] => {
     .filter(Boolean);
 };
 
+const buildAdditionsHtml = (detail: Element): string => {
+  const additions = [...detail.querySelectorAll(ADDITION_CONTAINER_SELECTOR)];
+
+  const htmlParts: string[] = [];
+
+  for (const addition of additions) {
+    const clone = addition.cloneNode(true) as Element;
+
+    removeFigureContainers(clone);
+    htmlParts.push(clone.outerHTML);
+  }
+
+  return htmlParts.filter(Boolean).join("\n");
+};
+
+const collectLinkHrefs = (detail: Element): string[] => {
+  return [...detail.querySelectorAll("a[href]")]
+    .map((element) => element.getAttribute("href")?.trim() || "")
+    .filter(Boolean);
+};
+
 const buildParagraphsHtml = (detail: Element): string => {
   const paragraphs = [...detail.querySelectorAll<HTMLParagraphElement>("p")];
 
@@ -2266,6 +2307,8 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
 
   const parts: string[] = [];
 
+  const addedParts = new Set<string>();
+
   for (const ul of uls) {
     const ulClone = ul.cloneNode(true) as Element;
 
@@ -2280,7 +2323,29 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
       searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
 
     if (hasMatch) {
-      parts.push(ulClone.outerHTML);
+      const additionContainer = ul.closest(ADDITION_CONTAINER_SELECTOR);
+
+      if (additionContainer) {
+        const additionClone = additionContainer.cloneNode(true) as Element;
+
+        removeFigureContainers(additionClone);
+
+        const additionHtml = additionClone.outerHTML;
+
+        if (!addedParts.has(additionHtml)) {
+          parts.push(additionHtml);
+          addedParts.add(additionHtml);
+        }
+
+        continue;
+      }
+
+      const ulHtml = ulClone.outerHTML;
+
+      if (!addedParts.has(ulHtml)) {
+        parts.push(ulHtml);
+        addedParts.add(ulHtml);
+      }
     }
   }
 
@@ -2530,6 +2595,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
 
+        const additionsContent = buildAdditionsHtml(detail);
+
+        const linkHrefs = collectLinkHrefs(detail);
+
         const content = buildParagraphsHtml(detail);
 
         const tableContent = buildTableGroupsHtml(detail, searchWords);
@@ -2538,6 +2607,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const text = [
           content,
+          additionsContent,
           tableContent,
           listContent,
           ...dividerTexts,
@@ -2548,7 +2618,9 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const contentText = stripHtml(trimmedText);
 
-        const entityText = extractEntityTextFromContent(trimmedText);
+        const entityText = [extractEntityTextFromContent(trimmedText), ...linkHrefs]
+          .join(" ")
+          .trim();
 
         if (title || trimmedText) {
           data.push({
