@@ -4,27 +4,9 @@ import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
+import {isGithubRawFromRepository, isHttpLink} from "../utils/linkUtilities";
 
 import {useRipple} from "./useRipple";
-
-const isGithubRawFromLinksRepo = (href: string): boolean => {
-  try {
-    const url = new URL(href);
-
-    const parts = url.pathname.toLowerCase().split("/").filter(Boolean);
-
-    const [owner, repo] = parts;
-
-    return (
-      url.hostname === "github.com" &&
-      owner === "aechat" &&
-      repo === "links" &&
-      url.pathname.toLowerCase().includes("/raw/")
-    );
-  } catch {
-    return false;
-  }
-};
 
 export const useExternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,7 +27,11 @@ export const useExternalLinkHandler = () => {
 
       const href = anchor.getAttribute("href");
 
-      if (href && /^https?:\/\//.test(href) && !isGithubRawFromLinksRepo(href)) {
+      if (
+        href &&
+        isHttpLink(href) &&
+        !isGithubRawFromRepository(href, "aechat", "links")
+      ) {
         event.preventDefault();
         setTargetUrl(href);
         setIsModalOpen(true);

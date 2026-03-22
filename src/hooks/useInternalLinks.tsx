@@ -6,6 +6,11 @@ import {Modal} from "antd";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
 import {formatBytes} from "../utils/fileUtilities";
+import {
+  getFileNameFromHref,
+  isGithubRawFromRepository,
+  isHttpLink,
+} from "../utils/linkUtilities";
 
 import {useRipple} from "./useRipple";
 
@@ -21,30 +26,6 @@ interface TargetDownload {
   fileSize?: string;
   href: string;
 }
-
-const isGithubRawDownloadLink = (href: string): boolean => {
-  try {
-    const url = new URL(href);
-
-    const path = url.pathname.toLowerCase();
-
-    if (url.hostname !== "github.com") {
-      return false;
-    }
-
-    const parts = path.split("/").filter(Boolean);
-
-    const [owner, repo] = parts;
-
-    if (owner !== "aechat" || repo !== "links") {
-      return false;
-    }
-
-    return path.includes("/raw/");
-  } catch {
-    return false;
-  }
-};
 
 const getDownloadFileMarkClass = (fileName: string): string => {
   const extension = fileName.split(".").pop()?.toLowerCase();
@@ -225,19 +206,17 @@ export const useInternalLinkHandler = () => {
           return;
         }
 
-        const isExternalHttpLink = /^https?:\/\//i.test(href);
+        const isExternalHttpLink = isHttpLink(href);
 
         const shouldHandleAsDownload =
-          !isExternalHttpLink || isGithubRawDownloadLink(href);
+          !isExternalHttpLink || isGithubRawFromRepository(href, "aechat", "links");
 
         if (shouldHandleAsDownload) {
           event.preventDefault();
 
           const fileNameFromDownloadAttribute = downloadAnchor.getAttribute("download");
 
-          const fileNameFromHref = decodeURIComponent(
-            href.split("#")[0].split("?")[0].split("/").pop() || "файл"
-          );
+          const fileNameFromHref = getFileNameFromHref(href, "файл");
 
           const fileName =
             fileNameFromDownloadAttribute && fileNameFromDownloadAttribute.trim()
