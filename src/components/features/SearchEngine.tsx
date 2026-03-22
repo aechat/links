@@ -2942,6 +2942,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           runSearchOnMainThread(text);
         }
       } else {
+        workerRequestIdReference.current += 1;
         setResults([]);
         setResultsQuery("");
       }
@@ -2953,8 +2954,16 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     const handler = setTimeout(() => setDebouncedQuery(query), 100);
 
     if (isPageLoaded) {
-      handleSearch(query);
+      if (query.trim()) {
+        handleSearch(query);
+      } else {
+        workerRequestIdReference.current += 1;
+        handleSearch.cancel();
+        setResults([]);
+        setResultsQuery("");
+      }
     } else {
+      workerRequestIdReference.current += 1;
       setResults([]);
       setResultsQuery("");
     }
