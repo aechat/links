@@ -2003,6 +2003,10 @@ const applyAdditionSnippetStyles = (html: string): string => {
     if (element instanceof HTMLElement) {
       element.style.fontSize = "0.9rem";
       element.style.margin = "10px";
+
+      if (element.closest("li")) {
+        element.style.marginInline = "0";
+      }
     }
   }
 
