@@ -4437,65 +4437,169 @@ const AeFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="recommended-plugins"
-        tag="рекомендация, топ плагинов, скрипты, расширения, установка"
-        title="Какие дополнения стоит установить в первую очередь?"
+        tag="список рекомендаций, топ плагинов, скрипты, расширения"
+        title="Какие полезные дополнения стоит установить для работы с проектами?"
       >
         <p>
-          <mark className="plugin">Плагины</mark> — это компоненты формата{" "}
-          <mark className="file">AEX</mark> или <mark className="file">PLUGIN</mark>,
-          которые расширяют возможности <mark className="app">Adobe After Effects</mark>.
-          Нередко к ним ошибочно относят расширения формата{" "}
-          <mark className="file">ZXP</mark> и скрипты форматов{" "}
-          <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>,
-          которые также разберём в этой статье.
+          Сторонние дополнения — вещь полезная, которая может ускорить{" "}
+          <i style={{opacity: "0.5"}}>или замедлить</i> выполнение разных действий с
+          композициями и слоями, а также расширить функционал{" "}
+          <mark className="app">Adobe After Effects</mark>. В этой статье собрана подборка
+          популярных дополнений и эффектов для разных задач.
         </p>
         <Addition type="warning">
           <ul>
             <li>
-              Плагины формата <mark className="file">AEX</mark> устанавливаются на
-              устройства с <mark>Windows</mark>, а <mark className="file">PLUGIN</mark> —
-              на устройства с <mark>macOS</mark>. Данные форматы не являются
-              кроссплатформенными.
+              Пожалуйста, не устанавливайте всё подряд в{" "}
+              <mark className="app">Adobe After Effects</mark>. Ставьте только те
+              дополнения, которые действительно планируете использовать в работе.
+              Избыточное количество плагинов и скриптов перегружает программу и может
+              заметно замедлить её запуск и работу.
             </li>
-            <li>
-              Пожалуйста, не устанавливайте все плагины и скрипты со всего мира в
-              программу: это может снизить его производительность. Прежде чем ставить тот
-              или иной инструмент — подумайте, действительно ли он вам понадобится в
-              работе.
-            </li>
-            <li>Рекомендации автора статьи могут не совпадать с вашим мнением.</li>
+            <li>Подборка автора статьи может не совпадать с вашим мнением.</li>
           </ul>
         </Addition>
         <Addition type="info">
-          Большинство дополнений из статьи можно найти в каналах{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+          <ul>
+            <li>
+              Большинство дополнений из статьи можно найти в каналах{" "}
+              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+              <Addition type="info">
+                Инструкции по установке популярных форматов дополнений вы можете найти в{" "}
+                <a href="#how-to-install">статье 2.1</a>.
+              </Addition>
+            </li>
+            <li>
+              <p>
+                Прежде, чем начать — отдельно хочется сказать по терминологии. Часто
+                новички загоняют под одну гребёнку слова{" "}
+                <mark className="word">плагин</mark>,{" "}
+                <mark className="word">расширения</mark> и{" "}
+                <mark className="word">скрипт</mark>, хотя область действий у них
+                кардинально отличаются.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <p>
+                      <mark className="word">Плагин</mark> — дополнение к{" "}
+                      <mark className="app">Adobe After Effects</mark> и иногда к{" "}
+                      <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                      <mark className="app">Adobe Media Encoder</mark> формата{" "}
+                      <mark className="file">AEX</mark> на{" "}
+                      <mark className="os">Windows</mark> и{" "}
+                      <mark className="file">PLUGIN</mark> на{" "}
+                      <mark className="os">macOS</mark>. Обычно с помощью них вы
+                      расширяете функционал программы за счёт добавления новых эффектов в{" "}
+                      <mark className="select">«Effects & Presets»</mark>, новый формат
+                      рендера или новых элементов меню.
+                    </p>
+                    <Addition type="danger">
+                      <ul>
+                        <li>
+                          Плагины формата <mark className="file">AEX</mark> не подходят
+                          для устройств на <mark>macOS</mark>, так как они предназначены
+                          для устройств на <mark>Windows</mark>.
+                        </li>
+                        <li>
+                          Плагины формата <mark className="file">PLUGIN</mark> не подходят
+                          для устройств на <mark>Windows</mark>, так как они предназначены
+                          для устройств на <mark>macOS</mark>.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    <mark className="word">Скрипт</mark> — файл{" "}
+                    <mark className="file">JSX</mark> или{" "}
+                    <mark className="file">JSXBIN</mark>, содержащий интерпретируемый код,
+                    написанный на <mark>JavaScript</mark> или <mark>ExtendScript</mark>,
+                    выполняющий различные действия и имеющий доступ к вашей файловой
+                    системе, если вы это разрешите в настройках программы. Они могут быть
+                    как с интерфейсом, так и без. Если у скрипта есть интерфейс — он будет
+                    открываться в отдельной плавающей панели. При необходимости вы можете
+                    его прикрепить к вашему рабочему пространству.{" "}
+                    <a href="#customize-workspace">Как?</a>
+                  </li>
+                  <li>
+                    <mark className="word">Расширение</mark> — дополнение формата{" "}
+                    <mark className="file">ZXP</mark>, которое может устанавливаться на
+                    обеих платформах — <mark>Windows</mark> и <mark>macOS</mark>. Чаще
+                    всего представляет собой веб-страницу в стеке{" "}
+                    <mark className="file">HTML</mark>, <mark className="file">CSS</mark>,{" "}
+                    <mark className="file">JS</mark>, бэкэндом и доступом к вашей файловой
+                    системе, выполняющее определённые действия и связывает веб-страницу с{" "}
+                    <mark className="app">Adobe After Effects</mark>. Сами страницы и
+                    скрипты для них могут писаться как на чистом <mark>JavaScript</mark>,
+                    так и с использованием различных фреймворков, например{" "}
+                    <mark className="app">React</mark> или{" "}
+                    <mark className="app">Vue</mark>.
+                  </li>
+                </ul>
+              </Addition>
+            </li>
+          </ul>
         </Addition>
         <Divider>Подборка для совместимости с чужими проектами</Divider>
         <ul>
           <li>
-            <mark className="plugin">Boris FX Sapphire</mark> и{" "}
-            <mark className="plugin">Boris FX Continuum</mark> — пакеты популярных
-            эффектов от <mark className="company">Boris FX</mark>, которые дополняют
-            скудный стандартный набор инструментов.
+            <p>
+              <mark className="plugin">Boris FX Sapphire</mark> и{" "}
+              <mark className="plugin">Boris FX Continuum</mark> — пакеты популярных
+              эффектов от <mark className="company">Boris FX</mark>, которые дополняют
+              скудный стандартный набор инструментов.
+            </p>
+            <p>
+              Из ключевых эффектов этих пакетов можно выделить{" "}
+              <mark className="plugin">S_Shake</mark> для создания эффекта тряски слоя,{" "}
+              <mark className="plugin">S_LensFlare</mark> для создания имитации бликов
+              объектива, <mark className="plugin">BCC+Primatte Studio</mark> для кеинга и{" "}
+              <mark className="plugin">BCC+UpRes ML</mark> для улучшения «качества» слоя.{" "}
+              <a href="https://support.borisfx.com/hc/en-us/articles/11229342880141-What-s-the-difference-between-BCC-and-BCC">
+                В чём разница между «BCC» и «BCC+»?
+              </a>
+            </p>
+
+            <ArticleMedia
+              src="knBQt0MNGr0"
+              type="youtube"
+            />
+            {/* */}
+          </li>
+          <li>
+            <p>
+              Пакеты от <mark className="company">Red Giant</mark>:{" "}
+              <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
+              полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
+              <mark className="plugin">Trapcode Suite</mark>,{" "}
+              <mark className="plugin">VFX Suite</mark> и{" "}
+              <mark className="plugin">Universe</mark>. Последние версии первых трёх
+              пакетов объединены в один <mark className="plugin">Maxon Red Giant</mark>, а{" "}
+              <mark className="plugin">Maxon Universe</mark> по-прежнему устанавливается
+              отдельно.
+            </p>
+            <p>
+              Из ключевых эффектов этих пакетов можно выделить{" "}
+              <mark className="plugin">Primatte Keyer</mark> и{" "}
+              <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
+              <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
+              <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
+            </p>
+            <ArticleMedia
+              src="y2HphEWcNTM"
+              type="youtube"
+            />
           </li>
           <li>
             <mark className="plugin">Boris FX Mocha Pro</mark> — расширенная версия
             стандартного плагина для трекинга <mark className="plugin">Mocha AE</mark> без
-            ограничений.
-          </li>
-          <li>
-            Пакеты от <mark className="company">Red Giant</mark>:{" "}
-            <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
-            полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
-            <mark className="plugin">Trapcode Suite</mark>,{" "}
-            <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark>. Из ключевых эффектов из этих пакетов
-            можно выделить <mark className="plugin">Primatte Keyer</mark> и{" "}
-            <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
-            <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
-            <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
+            ограничений. <a href="#mocha-ae-vs-pro">Чем они отличаются?</a>
+            <ArticleMedia
+              src="Deajk1XAWVc"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
@@ -4505,21 +4609,38 @@ const AeFromNewbies: React.FC = () => {
               <mark className="file">C4D</mark>
               <sup>1</sup> и <mark className="file">E3D</mark>.
             </p>
+            <ArticleMedia
+              src="P3BKw9jK-kI"
+              type="youtube"
+            />
             <Addition type="warning">
               <sup>1</sup> Для импорта моделей <mark className="file">C4D</mark> требуется
               установленная <mark className="app">Maxon Cinema 4D</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            от <mark className="company">RE:VisionFX</mark> — для плавного замедления и
-            создания размытия в движении.
+            <p>
+              <mark className="plugin">Twixtor</mark> и{" "}
+              <mark className="plugin">RSMB</mark> от{" "}
+              <mark className="company">RE:VisionFX</mark> — для создания плавного
+              замедления происходящего на слое и создания размытия в движении.{" "}
+              <a href="#frame-interpolation">Чем ещё можно плавно замедлить видео?</a>
+            </p>
+            <ArticleMedia
+              src="EGZCNcQyvrE"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
-              <mark className="plugin">Deep Glow</mark> — создаёт красивое свечение, но
-              может сильно замедлить рендеринг.
+              <mark className="plugin">Deep Glow</mark> — создаёт красивое свечение
+              объекта, но может сильно замедлить рендеринг.{" "}
+              <a href="#grow-bounds">Что делать, если свечение обрезается?</a>
             </p>
+            <ArticleMedia
+              src="3XdA_cZAZao"
+              type="youtube"
+            />
             <Addition type="warning">
               <ul>
                 <li>
@@ -4527,7 +4648,7 @@ const AeFromNewbies: React.FC = () => {
                   несовместимы между собой, поскольку{" "}
                   <mark className="plugin">Deep Glow</mark> и{" "}
                   <mark className="plugin">Deep Glow 2</mark> считаются отдельными
-                  плагинами. При этом обе версии можно установить одновременно.
+                  плагинами. При этом обе версии можно установить одновремено.
                 </li>
                 <li>
                   Если вы не планируете использовать обе версии — перенесите параметры из
@@ -4542,31 +4663,51 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Saber</mark> от{" "}
-            <mark className="company">VideoCopilot</mark> — бесплатный плагин для создания
-            неоновой обводки.
+            <p>
+              <mark className="plugin">Saber</mark> от{" "}
+              <mark className="company">VideoCopilot</mark> — бесплатный плагин для
+              создания неоновой обводки.
+            </p>
+            <ArticleMedia
+              src="os-qqVrMc-Q"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">loopFlow</mark> — оживляет статичные изображения:
-            текущую воду, клубящийся дым или огонь.
+            <p>
+              <mark className="plugin">loopFlow</mark> — оживляет статичные изображения:
+              текущую воду, клубящийся дым или огонь.
+            </p>
+            <ArticleMedia
+              src="O8Hb0y7hKlk"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
               <mark className="plugin">AutoFill</mark> — плагин для создания эффекта
               «проявления» объекта.
             </p>
+            <ArticleMedia
+              src="NQFRDWL5LQs"
+              type="youtube"
+            />
             <Addition type="warning">
-              Первая и вторая версии <mark className="plugin">AutoFill</mark> также
-              несовместимы между собой.
+              Первая и вторая версии <mark className="plugin">AutoFill</mark> несовместимы
+              между собой.
             </Addition>
           </li>
           <li>
             <p>
               <mark className="plugin">Twitch</mark> от{" "}
               <mark className="company">VideoCopilot</mark> — устаревший
-              <sup>1</sup> плагин для создания эффекта тряски, который до сих пор
-              популярен у «эдиторов».
+              <sup>1</sup> плагин для создания эффекта тряски, который почему-то до сих
+              пор популярен у «эдиторов».
             </p>
+            <ArticleMedia
+              src="-4icg0BOJCg"
+              type="youtube"
+            />
             <Addition type="danger">
               <sup>1</sup> Автор статьи не рекомендует использовать этот эффект в новых
               проектах, так как он «морально устарел» и не поддерживает{" "}
@@ -4577,29 +4718,87 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Displacer Pro</mark> — бесплатный плагин для создания
-            искажений и переходов.
+            <p>
+              <mark className="plugin">Displacer Pro</mark> — бесплатный плагин для
+              создания искажений и переходов.
+            </p>
+            <ArticleMedia
+              src="FLMdpxrKqlw"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Pixel Sorter 2 / 3</mark> — плагин для создания
-            эффектов «сортировки пикселей» и различных искажений.
+            <p>
+              <mark className="plugin">Pixel Sorter 2 / 3</mark> — плагин для создания
+              эффектов «сортировки пикселей» и различных искажений.
+            </p>
+            <ArticleMedia
+              src="TjQzOFrjIcg"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Mettle Flux</mark>,{" "}
-            <mark className="plugin">Mettle FreeForm Pro</mark> и{" "}
-            <mark className="plugin">Mettle Mantra</mark> — инструменты для создания
-            фрактальных волн, искажений и работы с 360-градусным видео.
+            <p>
+              <mark className="plugin">Mettle Flux</mark>,{" "}
+              <mark className="plugin">Mettle FreeForm Pro</mark> и{" "}
+              <mark className="plugin">Mettle Mantra</mark> — инструменты для создания
+              фрактальных волн, искажений и работы с 360-градусным видео.
+            </p>
+            <ArticleMedia
+              src="iiyF2qyzyCA"
+              type="youtube"
+            />
+          </li>
+          <li>
+            <p>
+              <mark className="plugin">FXHome Ignite Pro</mark> — сборник эффектов,
+              названия которых выглядят как стандартные эффекты{" "}
+              <mark className="app">Adobe After Effects</mark>. Иногда при открытии чужих
+              проектов с такими эффектами у пользователей без установленного пакета
+              возникает вопрос: откуда они взялись, являются ли они стандартными и как их
+              установить.
+            </p>
+            <Addition type="warning">
+              На момент написания статьи компания <mark className="company">FXHome</mark>{" "}
+              прекратила своё существование, поэтому поддержка этих эффектов прекращена и
+              они больше недоступны на официальном сайте.
+            </Addition>
+            <ArticleMedia
+              src="oV1PIx1HZNQ"
+              type="youtube"
+            />
           </li>
         </ul>
         <Divider>Подборка полезных инструментов для работы с композициями</Divider>
         <ul>
           <li>
-            <mark className="plugin">Auto Crop 3</mark> — плагин для кадрирования
-            композиции по размеру слоёв.
+            <p>
+              <mark className="plugin">Auto Crop 3</mark> — плагин для кадрирования
+              композиции по размеру слоёв.
+            </p>
+            <ArticleMedia
+              src="JrnkNA-ZjUk"
+              type="youtube"
+            />
+            <Addition type="info">
+              Начиная с <mark className="app">Adobe After Effects 26.0 (2026)</mark> и
+              новее, часть функционала кадрирования слоёв стала доступна без использования
+              сторонних инструментов.{" "}
+              <a href="https://helpx.adobe.com/after-effects/using/composition-basics.html#crop-composition-to-selected-layer-bounds">
+                Подробнее...
+              </a>
+            </Addition>
           </li>
           <li>
-            <mark className="plugin">Flow</mark> — расширение для быстрого применения
-            готовых кривых анимации. Позволяет ускорить рутинную работу в несколько раз.
+            <p>
+              <mark className="plugin">Flow</mark> — расширение для быстрого применения
+              готовых кривых анимации. Позволяет ускорить рутинную работу со скоростью
+              изменения значений в несколько раз.
+            </p>
+            <ArticleMedia
+              src="7jWg8ZcXDsY"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
@@ -4607,6 +4806,10 @@ const AeFromNewbies: React.FC = () => {
               <mark className="company">VideoCopilot</mark> — всплывающая панель для
               быстрого поиска и применения эффектов.
             </p>
+            <ArticleMedia
+              src="rqmDo04T0pY"
+              type="youtube"
+            />
             <Addition type="info">
               В последней публичной бета-версии{" "}
               <mark className="app">Adobe After Effects</mark> часть функционала этого
@@ -4618,65 +4821,149 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Guides</mark> от{" "}
-            <mark className="user">Rendertom</mark> — расширяет возможности работы с
-            направляющими.
+            <p>
+              <mark className="plugin">Guides</mark> от{" "}
+              <mark className="user">Rendertom</mark> — расширяет возможности работы с
+              направляющими.
+            </p>
+            <ArticleMedia
+              src="5NOF6vpHL1A"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">kBar</mark> — настраиваемая панель, на кнопки которой
-            можно назначить любые действия: применение эффектов, выражений, запуск
-            скриптов и т. д.
+            <p>
+              <mark className="plugin">kBar</mark> — настраиваемая панель, на кнопки
+              которой можно назначить любые действия: применение эффектов, выражений,
+              запуск скриптов и прочее.
+            </p>
+            <ArticleMedia
+              src="Rvch7wPpMgo"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Copy Pasta</mark> — бесплатное расширение для вставки
-            в проект изображений и видео из буфера обмена.
+            <p>
+              <mark className="plugin">Copy Pasta</mark> — бесплатное расширение для
+              вставки в проект изображений и видео из буфера обмена.
+            </p>
+            <ArticleMedia
+              src="9LjcDQE7LvA"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Keystone</mark> — инструмент для манипуляций с
-            ключевыми кадрами: растягивание, смещение, выравнивание.
+            <p>
+              <mark className="plugin">Keystone</mark> — инструмент для манипуляций с
+              ключевыми кадрами: растягивание, смещение, выравнивание.
+            </p>
+            <ArticleMedia
+              src="ldrWE8Vbif0"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Motion Tools Pro</mark> — настраиваемый набор
-            инструментов для анимации.
+            <p>
+              <mark className="plugin">Motion Tools Pro</mark> — настраиваемый набор
+              инструментов для анимации.
+            </p>
+            <ArticleMedia
+              src="SISTBJr3kUo"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Newton</mark> — плагин для симуляции физики двумерных
-            объектов.
+            <p>
+              <mark className="plugin">Newton</mark> — плагин для симуляции физики
+              двумерных объектов.
+            </p>
+            <ArticleMedia
+              src="5V479qd06o4"
+              type="youtube"
+            />
           </li>
           <li>
             <mark className="plugin">rd: CompSetter</mark> — скрипт для пакетного
             изменения параметров нескольких композиций.
           </li>
           <li>
-            <mark className="plugin">True Comp Duplicator</mark> — скрипт для создания
-            независимых дубликатов композиций.
+            <p>
+              <mark className="plugin">True Comp Duplicator</mark> — бесплатный скрипт для
+              создания независимых дубликатов композиций.
+            </p>
+            <ArticleMedia
+              src="EQ1KIS65Djo"
+              type="youtube"
+            />
           </li>
         </ul>
         <Divider>Подборка технических инструментов</Divider>
         <ul>
           <li>
-            <mark className="plugin">Autokroma Influx</mark> — плагин для импорта
-            неподдерживаемых форматов, например <mark className="video">WEBM</mark>,{" "}
-            <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
+            <p>
+              <mark className="plugin">Autokroma Influx</mark> — плагин для импорта в
+              проект файлов неподдерживаемых форматов, например{" "}
+              <mark className="video">WEBM</mark>, <mark className="video">MKV</mark> или{" "}
+              <mark className="video">FLV</mark>.
+            </p>
+            <Addition type="warning">
+              Иногда видео с немонтажными кодеками или файлы, импортированные через{" "}
+              <mark className="plugin">Autokroma Influx</mark>, могут работать
+              нестабильно. Картинка может дёргаться, появляться артефакты, меняться цвета
+              или вовсе пропадать, а рендер — тормозить. Чтобы избежать таких проблем,
+              лучше заранее перекодировать исходники в монтажный формат — например, с
+              помощью <mark className="app">MKVToolNix</mark>,{" "}
+              <mark className="app">HandBrake</mark> или{" "}
+              <mark className="app">Shutter Encoder</mark>.
+            </Addition>
+            <ArticleMedia
+              src="l3zBFli6BIk"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Cyclops</mark> — плагин для экспорта композиции
-            вместе со всеми границами слоёв и направляющими, как в предпросмотре.
+            <p>
+              <mark className="plugin">Cyclops</mark> — расширение для экспорта композиции
+              вместе со всеми границами слоёв и направляющими, как в предпросмотре.
+            </p>
+            <ArticleMedia
+              src="wYogLvGl1ow"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Paint & Stick</mark> — связывает{" "}
-            <mark className="app">Adobe After Effects</mark> с{" "}
-            <mark className="app">Adobe Photoshop</mark> для покадровой обработки слоя.
+            <p>
+              <mark className="plugin">Paint Link</mark> — связывает{" "}
+              <mark className="app">Adobe After Effects</mark> с{" "}
+              <mark className="app">Adobe Photoshop</mark> для покадровой обработки слоя.
+            </p>
+            <ArticleMedia
+              src="c7U1U_qBiHs"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Pseudo Effect Maker</mark> — инструмент для создания
-            удобных контроллеров для ваших эффектов или выражений.
+            <p>
+              <mark className="plugin">Pseudo Effect Maker</mark> — инструмент для
+              создания удобных контроллеров для ваших эффектов или выражений.
+            </p>
+            <ArticleMedia
+              src="IHzDtW_Rnkw"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Voukoder</mark> и{" "}
-            <mark className="plugin">Autokroma AfterCodecs</mark> — плагины для экспорта
-            композиций в <mark className="video">H.264</mark> и другие форматы, которые
-            работают лучше стандартного экспортёра. Что из них лучше, решать вам.
+            <p>
+              <mark className="plugin">Voukoder</mark> и{" "}
+              <mark className="plugin">Autokroma AfterCodecs</mark> — плагины для экспорта
+              композиций в <mark className="video">H.264</mark> и другие форматы, которые
+              работают порой лучше стандартного экспортёра.{" "}
+              <a href="#export-mp4">Как экспортировать композицию с помощью них?</a>
+            </p>
+            <ArticleMedia
+              src="AxkqdNZFKPk"
+              type="youtube"
+            />
           </li>
         </ul>
       </DetailsSummary>
