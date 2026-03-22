@@ -745,7 +745,7 @@ const extractSearchWords = (query: string): string[] => [
   ...new Set(
     query
       .split(/\s+/)
-      .map((word) => normalizeWord(word))
+      .flatMap((word) => normalizeText(word).split(" ").filter(Boolean))
       .filter(Boolean)
   ),
 ];
