@@ -1,5 +1,38 @@
 export default {
   extends: ["@commitlint/config-conventional"],
+  plugins: [
+    {
+      rules: {
+        "scope-list-spacing": (parsed) => {
+          const header = parsed.header || "";
+          const scopeMatch = header.match(/^[^(]+\(([^)]+)\):/);
+
+          if (!scopeMatch) {
+            return [true];
+          }
+
+          const scopeRaw = scopeMatch[1];
+          const hasComma = scopeRaw.includes(",");
+
+          if (!hasComma) {
+            return [true];
+          }
+
+          const hasSpaceBeforeComma = /\s,/.test(scopeRaw);
+          const hasNoSpaceAfterComma = /,(?=\S)/.test(scopeRaw);
+          const hasTooManySpacesAfterComma = /, {2,}/.test(scopeRaw);
+
+          const isValid =
+            !hasSpaceBeforeComma && !hasNoSpaceAfterComma && !hasTooManySpacesAfterComma;
+
+          return [
+            isValid,
+            "При перечислении нескольких scope используйте формат `scope1, scope2` (запятая и один пробел).",
+          ];
+        },
+      },
+    },
+  ],
   rules: {
     "type-enum": [
       2,
@@ -44,6 +77,7 @@ export default {
       ],
     ],
     "header-max-length": [2, "always", 150],
+    "scope-list-spacing": [2, "always"],
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [2, "always"],
     "type-case": [2, "always", "lower-case"],
