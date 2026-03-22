@@ -2051,19 +2051,28 @@ const computeTitleTagContentMatches = (
   normalizedTitle: string,
   normalizedTag: string,
   normalizedContent: string,
-  normalizedEntityText: string
+  normalizedEntityText: string,
+  prebuiltIndexes?: {
+    content: TextSearchIndex;
+    entity: TextSearchIndex;
+    tag: TextSearchIndex;
+    tagScoring: TextSearchIndex;
+    title: TextSearchIndex;
+  },
+  prebuiltTagTokenCount?: number
 ) => {
-  const titleSearchIndex = buildSearchIndex(normalizedTitle);
+  const titleSearchIndex = prebuiltIndexes?.title ?? buildSearchIndex(normalizedTitle);
 
-  const tagSearchIndex = buildSearchIndex(normalizedTag);
+  const tagSearchIndex = prebuiltIndexes?.tag ?? buildSearchIndex(normalizedTag);
 
-  const tagScoringText = getTagScoringText(normalizedTag);
+  const tagScoringSearchIndex =
+    prebuiltIndexes?.tagScoring ?? buildSearchIndex(getTagScoringText(normalizedTag));
 
-  const tagScoringSearchIndex = buildSearchIndex(tagScoringText);
+  const contentSearchIndex =
+    prebuiltIndexes?.content ?? buildSearchIndex(normalizedContent);
 
-  const contentSearchIndex = buildSearchIndex(normalizedContent);
-
-  const entitySearchIndex = buildSearchIndex(normalizedEntityText);
+  const entitySearchIndex =
+    prebuiltIndexes?.entity ?? buildSearchIndex(normalizedEntityText);
 
   const titleMatchInfo = getFieldMatchInfo(titleSearchIndex, compiledQuery);
 
@@ -2081,7 +2090,8 @@ const computeTitleTagContentMatches = (
     tagMatches: tagMatchInfo.matchedWords,
     tagMatchInfo,
     tagScoringMatchInfo,
-    tagTokenCount: normalizedTag.split(" ").filter(Boolean).length,
+    tagTokenCount:
+      prebuiltTagTokenCount ?? normalizedTag.split(" ").filter(Boolean).length,
     titleMatches: titleMatchInfo.matchedWords,
     titleMatchInfo,
   };
@@ -2438,18 +2448,29 @@ type BaseSearchResult = Omit<
 > & {
   contentText: string;
   entityText: string;
+  fieldIndexes: TextSearchIndex[];
+  lineSearchIndexes: TextSearchIndex[];
+  normalizedContent: string;
+  normalizedEntityText: string;
+  normalizedKeyFields: string[];
+  normalizedTag: string;
+  normalizedTitle: string;
+  searchIndexes: {
+    content: TextSearchIndex;
+    entity: TextSearchIndex;
+    tag: TextSearchIndex;
+    tagScoring: TextSearchIndex;
+    title: TextSearchIndex;
+  };
   sourceOrder: number;
+  tagTokenCount: number;
 };
 
 const isSingleParagraphMatchForResult = (
-  resultContent: string,
+  lineSearchIndexes: TextSearchIndex[],
   compiledQuery: CompiledSearchQuery
 ): boolean => {
-  const lines = resultContent.split("\n");
-
-  for (const line of lines) {
-    const lineSearchIndex = buildSearchIndex(stripHtml(line));
-
+  for (const lineSearchIndex of lineSearchIndexes) {
     if (hasAllQueryWordsMatch(lineSearchIndex, compiledQuery)) {
       return true;
     }
@@ -2462,6 +2483,38 @@ type RankedSearchResult = SearchResult & {
   idMatchPriority: number;
   score: number;
   sourceOrder: number;
+};
+
+type SearchWorkerDetail = Pick<
+  BaseSearchResult,
+  | "fieldIndexes"
+  | "id"
+  | "lineSearchIndexes"
+  | "normalizedContent"
+  | "normalizedEntityText"
+  | "normalizedKeyFields"
+  | "normalizedTag"
+  | "normalizedTitle"
+  | "searchIndexes"
+  | "sourceOrder"
+  | "tagTokenCount"
+>;
+
+type SearchWorkerResult = {
+  hasTagMatch: boolean;
+  hasTitleMatch: boolean;
+  id: string;
+  idMatchPriority: number;
+  isSingleParagraphMatch: boolean;
+  score: number;
+  sourceOrder: number;
+};
+
+type SearchWorkerResponse = {
+  query: string;
+  requestId: number;
+  results: SearchWorkerResult[];
+  type: "results";
 };
 
 const INDEX_QUERY_REGEX = /^\d+(?:[.-]\d+)*$/;
@@ -2512,17 +2565,9 @@ const transformSearchResult = (
   compiledQuery: CompiledSearchQuery
 ): RankedSearchResult => {
   const isSingleParagraphMatch = isSingleParagraphMatchForResult(
-    result.content,
+    result.lineSearchIndexes,
     compiledQuery
   );
-
-  const normalizedTitle = normalizeText(result.title);
-
-  const normalizedTag = normalizeText(result.tag || "");
-
-  const normalizedContent = normalizeText(result.contentText);
-
-  const normalizedEntityText = normalizeText(result.entityText);
 
   const {
     contentMatchInfo,
@@ -2530,29 +2575,30 @@ const transformSearchResult = (
     tagMatches,
     tagMatchInfo,
     tagScoringMatchInfo,
-    tagTokenCount,
     titleMatches,
     titleMatchInfo,
   } = computeTitleTagContentMatches(
     compiledQuery,
-    normalizedTitle,
-    normalizedTag,
-    normalizedContent,
-    normalizedEntityText
+    result.normalizedTitle,
+    result.normalizedTag,
+    result.normalizedContent,
+    result.normalizedEntityText,
+    result.searchIndexes,
+    result.tagTokenCount
   );
 
   const score = computeScore(
     compiledQuery,
-    normalizedTitle,
-    normalizedTag,
-    normalizedContent,
-    normalizedEntityText,
+    result.normalizedTitle,
+    result.normalizedTag,
+    result.normalizedContent,
+    result.normalizedEntityText,
     titleMatchInfo,
     tagMatchInfo,
     tagScoringMatchInfo,
     contentMatchInfo,
     entityMatchInfo,
-    tagTokenCount
+    result.tagTokenCount
   );
 
   const idMatchPriority = getIdMatchPriority(result.id, compiledQuery.originalText);
@@ -2574,34 +2620,27 @@ const transformSearchResult = (
 
 type FilteredSearchResult = Pick<
   BaseSearchResult,
-  "contentText" | "entityText" | "id" | "tag" | "title"
+  "fieldIndexes" | "id" | "normalizedKeyFields"
 >;
 
 const filterByKeyCombination = (
-  {contentText, entityText, tag, title}: FilteredSearchResult,
+  {normalizedKeyFields}: FilteredSearchResult,
   originalText: string
 ): boolean => {
   const searchPattern = normalizeKeyCombination(originalText);
 
-  const fieldsToSearch = [title, tag || "", entityText, contentText];
-
-  return fieldsToSearch
-    .map((field) => normalizeKeyCombination(field))
-    .some((normalizedField) => normalizedField.includes(searchPattern));
+  return normalizedKeyFields.some((field) => field.includes(searchPattern));
 };
 
 const filterByWords = (
-  {contentText, entityText, id, tag, title}: FilteredSearchResult,
+  {fieldIndexes, id}: FilteredSearchResult,
   compiledQuery: CompiledSearchQuery
 ): boolean => {
   if (getIdMatchPriority(id, compiledQuery.originalText) > 0) {
     return true;
   }
 
-  return hasCompiledQueryMatchInFields(
-    [title, tag || "", entityText, contentText],
-    compiledQuery
-  );
+  return hasCompiledQueryMatchInIndexes(fieldIndexes, compiledQuery);
 };
 
 const filterDetail = (
@@ -2624,126 +2663,290 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
   const [resultsQuery, setResultsQuery] = useState("");
 
-  const cachedDetails = useMemo(() => {
+  const cachedDetailsData = useMemo(() => {
     if (!isPageLoaded) {
+      return [];
+    }
+
+    const cachedDetails = [...document.querySelectorAll("details")].filter((detail) => {
+      return !detail.parentElement?.closest("details");
+    });
+
+    const data: BaseSearchResult[] = [];
+
+    for (const [sourceOrder, detail] of cachedDetails.entries()) {
+      const summary = detail.querySelector(":scope > summary");
+
+      if (!summary) {
+        continue;
+      }
+
+      const id = summary.getAttribute("id");
+
+      if (!id) {
+        continue;
+      }
+
+      const title = getSummaryTitle(summary);
+
+      const tag = detail.dataset.tags?.trim() ?? "";
+
+      const anchor = detail.dataset.anchor;
+
+      const dividerTexts = collectDividerTexts(detail);
+
+      const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
+
+      const additionsContent = buildAdditionsHtml(detail);
+
+      const linkHrefs = collectLinkHrefs(detail);
+
+      const content = buildParagraphsHtml(detail);
+
+      const tableContent = buildTableGroupsHtml(detail, []);
+
+      const listContent = buildListContentHtml(detail, []);
+
+      const text = [
+        content,
+        additionsContent,
+        tableContent,
+        listContent,
+        ...dividerTexts,
+        ...flexibleLinksTexts,
+      ].join("\n");
+
+      const trimmedText = text.trim();
+
+      if (!title && !trimmedText) {
+        continue;
+      }
+
+      const contentText = stripHtml(trimmedText);
+
+      const entityText = [extractEntityTextFromContent(trimmedText), ...linkHrefs]
+        .join(" ")
+        .trim();
+
+      const normalizedTitle = normalizeText(title);
+
+      const normalizedTag = normalizeText(tag);
+
+      const normalizedContent = normalizeText(contentText);
+
+      const normalizedEntityText = normalizeText(entityText);
+
+      const searchIndexes = {
+        content: buildSearchIndex(normalizedContent),
+        entity: buildSearchIndex(normalizedEntityText),
+        tag: buildSearchIndex(normalizedTag),
+        tagScoring: buildSearchIndex(getTagScoringText(normalizedTag)),
+        title: buildSearchIndex(normalizedTitle),
+      };
+
+      const lineSearchIndexes = trimmedText
+        .split("\n")
+        .map((line) => stripHtml(line))
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => buildSearchIndex(line));
+
+      data.push({
+        anchor,
+        content: trimmedText,
+        contentText,
+        entityText,
+        fieldIndexes: [
+          searchIndexes.title,
+          searchIndexes.tag,
+          searchIndexes.entity,
+          searchIndexes.content,
+        ],
+        id,
+        lineSearchIndexes,
+        normalizedContent,
+        normalizedEntityText,
+        normalizedKeyFields: [title, tag, entityText, contentText].map((field) =>
+          normalizeKeyCombination(field)
+        ),
+        normalizedTag,
+        normalizedTitle,
+        searchIndexes,
+        sourceOrder,
+        tag,
+        tagTokenCount: normalizedTag.split(" ").filter(Boolean).length,
+        title,
+      });
+    }
+
+    return data;
+  }, [isPageLoaded]);
+
+  const cachedDetailsByKey = useMemo(
+    () =>
+      new Map(
+        cachedDetailsData.map((detail) => [`${detail.id}::${detail.sourceOrder}`, detail])
+      ),
+    [cachedDetailsData]
+  );
+
+  const workerDetailsData = useMemo<SearchWorkerDetail[]>(
+    () =>
+      cachedDetailsData.map(
+        ({
+          fieldIndexes,
+          id,
+          lineSearchIndexes,
+          normalizedContent,
+          normalizedEntityText,
+          normalizedKeyFields,
+          normalizedTag,
+          normalizedTitle,
+          searchIndexes,
+          sourceOrder,
+          tagTokenCount,
+        }) => ({
+          fieldIndexes,
+          id,
+          lineSearchIndexes,
+          normalizedContent,
+          normalizedEntityText,
+          normalizedKeyFields,
+          normalizedTag,
+          normalizedTitle,
+          searchIndexes,
+          sourceOrder,
+          tagTokenCount,
+        })
+      ),
+    [cachedDetailsData]
+  );
+
+  const searchWorkerReference = useRef<Worker | undefined>(undefined);
+
+  const workerRequestIdReference = useRef(0);
+
+  const runSearchOnMainThread = useCallback(
+    (text: string) => {
+      const compiledQuery = compileSearchQuery(text);
+
+      const filtered = cachedDetailsData.filter((detail) =>
+        filterDetail(detail, compiledQuery)
+      );
+
+      const rankedResults = filtered
+        .map((result) => transformSearchResult(result, compiledQuery))
+        .toSorted((a, b) => {
+          if (b.idMatchPriority !== a.idMatchPriority) {
+            return b.idMatchPriority - a.idMatchPriority;
+          }
+
+          if (b.score !== a.score) {
+            return b.score - a.score;
+          }
+
+          return a.sourceOrder - b.sourceOrder;
+        });
+
+      setResults(rankedResults);
+      setResultsQuery(text);
+    },
+    [cachedDetailsData]
+  );
+
+  useEffect(() => {
+    if (
+      !isPageLoaded ||
+      workerDetailsData.length === 0 ||
+      typeof Worker === "undefined"
+    ) {
+      searchWorkerReference.current?.terminate();
+      searchWorkerReference.current = undefined;
+
       return;
     }
 
-    return [...document.querySelectorAll("details")].filter((detail) => {
-      return !detail.parentElement?.closest("details");
+    const worker = new Worker(new URL("searchWorker.ts", import.meta.url), {
+      type: "module",
     });
-  }, [isPageLoaded]);
 
-  const extractDetailsData = useCallback(
-    (searchWords: string[]) => {
-      if (!cachedDetails) {
-        return [];
+    searchWorkerReference.current = worker;
+    worker.postMessage({details: workerDetailsData, type: "init"});
+
+    const handleWorkerMessage = (event: MessageEvent<SearchWorkerResponse>) => {
+      const message_ = event.data;
+
+      if (message_.type !== "results") {
+        return;
       }
 
-      const data: BaseSearchResult[] = [];
-
-      for (const [sourceOrder, detail] of cachedDetails.entries()) {
-        const summary = detail.querySelector(":scope > summary");
-
-        if (!summary) {
-          continue;
-        }
-
-        const id = summary.getAttribute("id");
-
-        if (!id) {
-          continue;
-        }
-
-        const title = getSummaryTitle(summary);
-
-        const tag = detail.dataset.tags ?? "";
-
-        const anchor = detail.dataset.anchor;
-
-        const dividerTexts = collectDividerTexts(detail);
-
-        const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
-
-        const additionsContent = buildAdditionsHtml(detail);
-
-        const linkHrefs = collectLinkHrefs(detail);
-
-        const content = buildParagraphsHtml(detail);
-
-        const tableContent = buildTableGroupsHtml(detail, searchWords);
-
-        const listContent = buildListContentHtml(detail, searchWords);
-
-        const text = [
-          content,
-          additionsContent,
-          tableContent,
-          listContent,
-          ...dividerTexts,
-          ...flexibleLinksTexts,
-        ].join("\n");
-
-        const trimmedText = text.trim();
-
-        const contentText = stripHtml(trimmedText);
-
-        const entityText = [extractEntityTextFromContent(trimmedText), ...linkHrefs]
-          .join(" ")
-          .trim();
-
-        if (title || trimmedText) {
-          data.push({
-            anchor,
-            content: trimmedText,
-            contentText,
-            entityText,
-            id,
-            sourceOrder,
-            tag: tag.trim(),
-            title,
-          });
-        }
+      if (message_.requestId !== workerRequestIdReference.current) {
+        return;
       }
 
-      return data;
-    },
-    [cachedDetails]
-  );
+      const compiledQuery = compileSearchQuery(message_.query);
+
+      const rankedResults = message_.results
+        .map((workerResult) => {
+          const detail = cachedDetailsByKey.get(
+            `${workerResult.id}::${workerResult.sourceOrder}`
+          );
+
+          if (!detail) {
+            return;
+          }
+
+          return {
+            anchor: detail.anchor,
+            content: formatSearchResult(detail.content, compiledQuery),
+            hasTagMatch: workerResult.hasTagMatch,
+            hasTitleMatch: workerResult.hasTitleMatch,
+            id: detail.id,
+            isSingleParagraphMatch: workerResult.isSingleParagraphMatch,
+            tag: detail.tag,
+            title: detail.title,
+          };
+        })
+        .filter((result): result is SearchResult => result !== undefined);
+
+      setResults(rankedResults);
+      setResultsQuery(message_.query);
+    };
+
+    worker.addEventListener("message", handleWorkerMessage);
+
+    return () => {
+      worker.removeEventListener("message", handleWorkerMessage);
+      worker.terminate();
+
+      if (searchWorkerReference.current === worker) {
+        searchWorkerReference.current = undefined;
+      }
+    };
+  }, [cachedDetailsByKey, isPageLoaded, workerDetailsData]);
 
   const handleSearch = useCallback(
     debounce((text: string) => {
       if (text.trim()) {
-        const compiledQuery = compileSearchQuery(text);
+        workerRequestIdReference.current += 1;
 
-        const detailsData = extractDetailsData(compiledQuery.searchWords);
+        const requestId = workerRequestIdReference.current;
 
-        const filtered = detailsData.filter((detail) =>
-          filterDetail(detail, compiledQuery)
-        );
-
-        const rankedResults = filtered
-          .map((result) => transformSearchResult(result, compiledQuery))
-          .toSorted((a, b) => {
-            if (b.idMatchPriority !== a.idMatchPriority) {
-              return b.idMatchPriority - a.idMatchPriority;
-            }
-
-            if (b.score !== a.score) {
-              return b.score - a.score;
-            }
-
-            return a.sourceOrder - b.sourceOrder;
+        if (searchWorkerReference.current) {
+          searchWorkerReference.current.postMessage({
+            query: text,
+            requestId,
+            type: "search",
           });
-
-        setResults(rankedResults);
-        setResultsQuery(text);
+        } else {
+          runSearchOnMainThread(text);
+        }
       } else {
         setResults([]);
         setResultsQuery("");
       }
     }, 300),
-    [extractDetailsData]
+    [runSearchOnMainThread]
   );
 
   useEffect(() => {
@@ -3279,7 +3482,7 @@ const SearchResults: React.FC<{
 
     let isCancelled = false;
 
-    let timeoutId: number | undefined;
+    let timeoutId: ReturnType<typeof globalThis.setTimeout> | undefined;
 
     let currentIndex = 0;
 
