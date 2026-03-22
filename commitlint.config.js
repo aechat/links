@@ -43,7 +43,7 @@ export default {
         "*", // любая другая область, если ни одна из перечисленных не подходит
       ],
     ],
-    "header-max-length": [2, "always", 100],
+    "header-max-length": [2, "always", 150],
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [2, "always"],
     "type-case": [2, "always", "lower-case"],
