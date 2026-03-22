@@ -1990,6 +1990,25 @@ const pickBestCompactSnippet = (
   return bestHtml;
 };
 
+const applyAdditionSnippetStyles = (html: string): string => {
+  if (!html || !ADDITION_CONTAINER_SELECTOR) {
+    return html;
+  }
+
+  const temporaryDiv = document.createElement("div");
+
+  temporaryDiv.innerHTML = html;
+
+  for (const element of temporaryDiv.querySelectorAll(ADDITION_CONTAINER_SELECTOR)) {
+    if (element instanceof HTMLElement) {
+      element.style.fontSize = "0.9rem";
+      element.style.margin = "10px";
+    }
+  }
+
+  return temporaryDiv.innerHTML;
+};
+
 const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): string => {
   const temporaryDiv = document.createElement("div");
 
@@ -2009,22 +2028,22 @@ const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): s
     (tagMatch && hasMatch(tagMatch, compiledQuery)) ||
     (titleMatch && hasMatch(titleMatch, compiledQuery))
   ) {
-    return getFirstCleanParagraphOrElement(temporaryDiv);
+    return applyAdditionSnippetStyles(getFirstCleanParagraphOrElement(temporaryDiv));
   }
 
   const bestCompactSnippet = pickBestCompactSnippet(temporaryDiv, compiledQuery);
 
   if (bestCompactSnippet) {
-    return bestCompactSnippet;
+    return applyAdditionSnippetStyles(bestCompactSnippet);
   }
 
   const bestResult = pickBestListOrParagraphMatch(temporaryDiv, compiledQuery);
 
   if (!bestResult.result) {
-    return pickTableOrFallback(temporaryDiv, compiledQuery);
+    return applyAdditionSnippetStyles(pickTableOrFallback(temporaryDiv, compiledQuery));
   }
 
-  return bestResult.result;
+  return applyAdditionSnippetStyles(bestResult.result);
 };
 
 const computeTitleTagContentMatches = (
