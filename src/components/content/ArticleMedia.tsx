@@ -468,7 +468,8 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               className={styles["media-iframe"]}
               loading="lazy"
-              src={`https://www.youtube.com/embed/${videoId}`}
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
             />
             <div className={styles["media-youtube-actions"]}>
               <button
