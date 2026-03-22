@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
@@ -21,6 +21,30 @@ interface TargetDownload {
   fileSize?: string;
   href: string;
 }
+
+const isGithubRawDownloadLink = (href: string): boolean => {
+  try {
+    const url = new URL(href);
+
+    const path = url.pathname.toLowerCase();
+
+    if (url.hostname !== "github.com") {
+      return false;
+    }
+
+    const parts = path.split("/").filter(Boolean);
+
+    const [owner, repo] = parts;
+
+    if (owner !== "aechat" || repo !== "links") {
+      return false;
+    }
+
+    return path.includes("/raw/");
+  } catch {
+    return false;
+  }
+};
 
 const getDownloadFileMarkClass = (fileName: string): string => {
   const extension = fileName.split(".").pop()?.toLowerCase();
@@ -143,6 +167,10 @@ const getDownloadFileKind = (fileName: string): string => {
 export const useInternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [isDownloadStarting, setIsDownloadStarting] = useState(false);
+
+  const downloadAbortControllerReference = useRef<AbortController | undefined>(undefined);
+
   const [targetArticle, setTargetArticle] = useState<TargetArticle | undefined>();
 
   const [targetDownload, setTargetDownload] = useState<TargetDownload | undefined>();
@@ -199,7 +227,10 @@ export const useInternalLinkHandler = () => {
 
         const isExternalHttpLink = /^https?:\/\//i.test(href);
 
-        if (!isExternalHttpLink) {
+        const shouldHandleAsDownload =
+          !isExternalHttpLink || isGithubRawDownloadLink(href);
+
+        if (shouldHandleAsDownload) {
           event.preventDefault();
 
           const fileNameFromDownloadAttribute = downloadAnchor.getAttribute("download");
@@ -286,18 +317,72 @@ export const useInternalLinkHandler = () => {
 
   const handleOk = useCallback(() => {
     if (targetDownload) {
-      const downloadLink = document.createElement("a");
+      if (isDownloadStarting) {
+        return;
+      }
 
-      downloadLink.href = targetDownload.href;
-      downloadLink.download = targetDownload.fileName;
-      downloadLink.rel = "noopener noreferrer";
-      downloadLink.style.display = "none";
-      document.body.append(downloadLink);
-      downloadLink.click();
-      downloadLink.remove();
-      setIsModalOpen(false);
-      setTargetArticle(undefined);
-      setTargetDownload(undefined);
+      const startDownload = async () => {
+        setIsDownloadStarting(true);
+
+        try {
+          const downloadUrl = new URL(targetDownload.href, globalThis.location.href);
+
+          const controller = new AbortController();
+
+          downloadAbortControllerReference.current = controller;
+
+          const response = await fetch(downloadUrl.toString(), {
+            signal: controller.signal,
+          });
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch downloadable file");
+          }
+
+          const blob = await response.blob();
+
+          const objectUrl = URL.createObjectURL(blob);
+
+          const downloadLink = document.createElement("a");
+
+          downloadLink.href = objectUrl;
+          downloadLink.download = targetDownload.fileName;
+          downloadLink.rel = "noopener noreferrer";
+          downloadLink.style.display = "none";
+
+          document.body.append(downloadLink);
+          downloadLink.click();
+          downloadLink.remove();
+
+          globalThis.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
+
+          setIsModalOpen(false);
+          setTargetArticle(undefined);
+          setTargetDownload(undefined);
+        } catch (error) {
+          if (error instanceof DOMException && error.name === "AbortError") {
+            return;
+          }
+
+          const downloadLink = document.createElement("a");
+
+          downloadLink.href = targetDownload.href;
+          downloadLink.download = targetDownload.fileName;
+          downloadLink.rel = "noopener noreferrer";
+          downloadLink.style.display = "none";
+          document.body.append(downloadLink);
+          downloadLink.click();
+          downloadLink.remove();
+          setIsModalOpen(false);
+          setTargetArticle(undefined);
+          setTargetDownload(undefined);
+        } finally {
+          downloadAbortControllerReference.current = undefined;
+          setIsDownloadStarting(false);
+        }
+      };
+
+      void startDownload();
 
       return;
     }
@@ -325,10 +410,12 @@ export const useInternalLinkHandler = () => {
     setIsModalOpen(false);
     setTargetArticle(undefined);
     setTargetDownload(undefined);
-  }, [targetArticle, targetDownload]);
+  }, [isDownloadStarting, targetArticle, targetDownload]);
 
   const handleCancel = useCallback(() => {
+    downloadAbortControllerReference.current?.abort();
     setIsModalOpen(false);
+    setIsDownloadStarting(false);
     setTargetArticle(undefined);
     setTargetDownload(undefined);
   }, []);
@@ -352,10 +439,12 @@ export const useInternalLinkHandler = () => {
   let actionButtonLabel = "Перейти";
 
   if (targetDownload) {
-    actionButtonLabel = "Скачать";
-
-    if (targetDownload.fileSize) {
+    if (isDownloadStarting) {
+      actionButtonLabel = "Подготовка файла...";
+    } else if (targetDownload.fileSize) {
       actionButtonLabel = `Скачать (${targetDownload.fileSize})`;
+    } else {
+      actionButtonLabel = "Скачать";
     }
   }
 
@@ -397,6 +486,7 @@ export const useInternalLinkHandler = () => {
           )}
           <div className="flexible-links">
             <button
+              disabled={isDownloadStarting}
               onClick={handleOk}
               onMouseDown={ripple.onMouseDown}
             >

@@ -7,6 +7,25 @@ import modalStyles from "../components/modals/Modal.module.scss";
 
 import {useRipple} from "./useRipple";
 
+const isGithubRawFromLinksRepo = (href: string): boolean => {
+  try {
+    const url = new URL(href);
+
+    const parts = url.pathname.toLowerCase().split("/").filter(Boolean);
+
+    const [owner, repo] = parts;
+
+    return (
+      url.hostname === "github.com" &&
+      owner === "aechat" &&
+      repo === "links" &&
+      url.pathname.toLowerCase().includes("/raw/")
+    );
+  } catch {
+    return false;
+  }
+};
+
 export const useExternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,9 +39,13 @@ export const useExternalLinkHandler = () => {
     const anchor = target.closest("a[href]");
 
     if (anchor) {
+      if (anchor.hasAttribute("download")) {
+        return;
+      }
+
       const href = anchor.getAttribute("href");
 
-      if (href && /^https?:\/\//.test(href)) {
+      if (href && /^https?:\/\//.test(href) && !isGithubRawFromLinksRepo(href)) {
         event.preventDefault();
         setTargetUrl(href);
         setIsModalOpen(true);
