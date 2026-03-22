@@ -919,6 +919,38 @@ const cloneWithoutFigures = (element: Element): Element => {
   return clone;
 };
 
+const wrapSnippetWithClosestAddition = (
+  element: Element,
+  snippetHtml: string
+): string => {
+  const additionContainer = element.closest(ADDITION_CONTAINER_SELECTOR);
+
+  if (!additionContainer) {
+    return snippetHtml;
+  }
+
+  const containerTag = additionContainer.tagName.toLowerCase();
+
+  const containerClassName = additionContainer.getAttribute("class") || "";
+
+  const containerAttributes = containerClassName ? ` class="${containerClassName}"` : "";
+
+  return `<${containerTag}${containerAttributes}><div>${snippetHtml}</div></${containerTag}>`;
+};
+
+const wrapSnippetWithAdditionContainer = (
+  additionContainer: Element,
+  snippetHtml: string
+): string => {
+  const containerTag = additionContainer.tagName.toLowerCase();
+
+  const containerClassName = additionContainer.getAttribute("class") || "";
+
+  const containerAttributes = containerClassName ? ` class="${containerClassName}"` : "";
+
+  return `<${containerTag}${containerAttributes}><div>${snippetHtml}</div></${containerTag}>`;
+};
+
 const handleListWithNestedMatches = (
   element: Element,
   compiledQuery: CompiledSearchQuery
@@ -928,7 +960,10 @@ const handleListWithNestedMatches = (
   if (!ul) {
     const clone = cloneWithoutFigures(element);
 
-    return {matchCount: 1, result: clone.outerHTML};
+    return {
+      matchCount: 1,
+      result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
+    };
   }
 
   const nestedItems = [...ul.querySelectorAll("li")];
@@ -940,7 +975,10 @@ const handleListWithNestedMatches = (
   const clone = cloneWithoutFigures(element);
 
   if (matchingNestedItems.length === 0) {
-    return {matchCount: 1, result: clone.outerHTML};
+    return {
+      matchCount: 1,
+      result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
+    };
   }
 
   const newUl = document.createElement("ul");
@@ -959,7 +997,7 @@ const handleListWithNestedMatches = (
 
   return {
     matchCount: matchingNestedItems.length + 1,
-    result: clone.outerHTML,
+    result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
   };
 };
 
@@ -1019,7 +1057,10 @@ const processElement = (
       return handleListWithNestedMatches(element, compiledQuery);
     }
 
-    return {matchCount: 1, result: sanitizedElement.outerHTML};
+    return {
+      matchCount: 1,
+      result: wrapSnippetWithClosestAddition(element, sanitizedElement.outerHTML),
+    };
   }
 
   return processContainerChildren(element, compiledQuery);
@@ -1921,11 +1962,21 @@ const pickBestCompactSnippet = (
 
     let candidateHtml = processedCandidate.result;
 
+    const additionContainer = candidate.closest(ADDITION_CONTAINER_SELECTOR);
+
+    if (additionContainer) {
+      candidateHtml = wrapSnippetWithAdditionContainer(additionContainer, candidateHtml);
+    }
+
     if (stripHtml(candidateHtml).length > MAX_COMPACT_SNIPPET_TEXT_LENGTH) {
-      candidateHtml = extractMatchingLine(
+      const compactLineHtml = extractMatchingLine(
         candidateHtml,
         compiledQuery.searchWords.join(" ")
       );
+
+      candidateHtml = additionContainer
+        ? wrapSnippetWithAdditionContainer(additionContainer, compactLineHtml)
+        : compactLineHtml;
     }
 
     const candidateScore = getCompactSnippetScore(candidateHtml, compiledQuery);
