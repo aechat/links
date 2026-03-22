@@ -2201,8 +2201,39 @@ const collectFlexibleLinksTexts = (detail: Element): string[] => {
     .filter(Boolean);
 };
 
+const getTopLevelAdditionContainer = (
+  element: Element,
+  rootDetail: Element
+): Element | undefined => {
+  let additionContainer = element.closest(ADDITION_CONTAINER_SELECTOR);
+
+  if (!additionContainer) {
+    return;
+  }
+
+  while (additionContainer.parentElement) {
+    const parentAdditionContainer = additionContainer.parentElement.closest(
+      ADDITION_CONTAINER_SELECTOR
+    );
+
+    if (!parentAdditionContainer || !rootDetail.contains(parentAdditionContainer)) {
+      break;
+    }
+
+    additionContainer = parentAdditionContainer;
+  }
+
+  return additionContainer;
+};
+
 const buildAdditionsHtml = (detail: Element): string => {
-  const additions = [...detail.querySelectorAll(ADDITION_CONTAINER_SELECTOR)];
+  const additions = [...detail.querySelectorAll(ADDITION_CONTAINER_SELECTOR)].filter(
+    (addition) => {
+      const parentAddition = addition.parentElement?.closest(ADDITION_CONTAINER_SELECTOR);
+
+      return !parentAddition || !detail.contains(parentAddition);
+    }
+  );
 
   const htmlParts: string[] = [];
 
@@ -2403,7 +2434,7 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
       searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
 
     if (hasMatch) {
-      const additionContainer = ul.closest(ADDITION_CONTAINER_SELECTOR);
+      const additionContainer = getTopLevelAdditionContainer(ul, detail);
 
       if (additionContainer) {
         const additionClone = additionContainer.cloneNode(true) as Element;
