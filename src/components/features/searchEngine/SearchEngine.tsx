@@ -15,10 +15,8 @@ import {message} from "antd";
 import {copyText} from "../../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../../hooks/useLongPress";
 import {useRipple} from "../../../hooks/useRipple";
-import {resolveDetailsByAnchor} from "../../../utils/anchorResolvers";
 import {isMobileDevice} from "../../../utils/browserDetection";
 import {withSelectionHaptic} from "../../../utils/haptics";
-import {scrollToElement} from "../../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../../utils/stringUtilities";
 import additionStyles from "../../content/Addition.module.scss";
 
@@ -45,6 +43,10 @@ import {
   isTokenMatchingWordFeatures,
   renderHighlightedText,
 } from "./searchHighlightUtilities";
+import {
+  openSearchAnchorRuntime,
+  scrollSelectedResultIntoViewRuntime,
+} from "./searchInteractionUtilities";
 import {SearchModal} from "./SearchModal";
 import {
   getHorizontalNeighborIndex as getHorizontalNeighborIndexRuntime,
@@ -1464,117 +1466,19 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const scrollSelectedResultIntoView = useCallback(
     (behavior: ScrollBehavior = "smooth") => {
-      if (selectedResultIndex < 0) {
-        return;
-      }
-
-      if (isMobileDevice()) {
-        return;
-      }
-
-      const container = resultsContainerReference.current;
-
-      const selectedElement = resultReferences.current[selectedResultIndex];
-
-      if (!container || !selectedElement) {
-        return;
-      }
-
-      const containerRect = container.getBoundingClientRect();
-
-      const elementRect = selectedElement.getBoundingClientRect();
-
-      const absoluteElementTop =
-        elementRect.top - containerRect.top + container.scrollTop;
-
-      const centeredTop =
-        absoluteElementTop - (container.clientHeight - elementRect.height) / 2;
-
-      const maxScrollTop = Math.max(0, container.scrollHeight - container.clientHeight);
-
-      const targetTop = Math.min(maxScrollTop, Math.max(0, centeredTop));
-
-      container.scrollTo({
+      scrollSelectedResultIntoViewRuntime({
         behavior,
-        top: targetTop,
+        resultReferences: resultReferences.current,
+        resultsContainer: resultsContainerReference.current,
+        selectedResultIndex,
       });
-
-      // Chromium can keep stale anchor-based offset after masonry reflow.
-      // If element is still clipped after manual scroll, use native alignment fallback.
-      const verifyAndFallback = () => {
-        const currentContainer = resultsContainerReference.current;
-
-        const currentElement = resultReferences.current[selectedResultIndex];
-
-        if (!currentContainer || !currentElement) {
-          return;
-        }
-
-        const currentContainerRect = currentContainer.getBoundingClientRect();
-
-        const currentElementRect = currentElement.getBoundingClientRect();
-
-        const topGap = currentElementRect.top - currentContainerRect.top;
-
-        const bottomGap = currentContainerRect.bottom - currentElementRect.bottom;
-
-        const isOutOfView = topGap < 8 || bottomGap < 8;
-
-        if (isOutOfView) {
-          currentElement.scrollIntoView({
-            behavior,
-            block: "center",
-            inline: "nearest",
-          });
-        }
-      };
-
-      globalThis.requestAnimationFrame(verifyAndFallback);
     },
     [selectedResultIndex]
   );
 
   const handleLinkClick = useCallback(
     (anchorValue: string) => {
-      const resolvedDetails = resolveDetailsByAnchor(anchorValue);
-
-      if (resolvedDetails) {
-        const summaryElement = resolvedDetails.querySelector("summary");
-
-        if (!(summaryElement instanceof HTMLElement) || !summaryElement.id) {
-          return;
-        }
-
-        if (!resolvedDetails.hasAttribute("open")) {
-          resolvedDetails.setAttribute("open", "true");
-        }
-
-        scrollToElement(summaryElement);
-
-        const event = new CustomEvent("open-spoiler-by-id", {
-          detail: {id: summaryElement.id},
-        });
-
-        globalThis.dispatchEvent(event);
-
-        setTimeout(() => {
-          closeModal();
-        }, 0);
-
-        return;
-      }
-
-      const targetElement = document.getElementById(anchorValue);
-
-      if (!targetElement) {
-        return;
-      }
-
-      scrollToElement(targetElement);
-
-      setTimeout(() => {
-        closeModal();
-      }, 0);
+      openSearchAnchorRuntime({anchorValue, closeModal});
     },
     [closeModal]
   );
