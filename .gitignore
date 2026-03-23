@@ -34,3 +34,4 @@ pnpm*.yaml
 .aider*
 .psd
 !docs/**/*
+.venv*
