@@ -56,6 +56,7 @@ import {
 - поддерживает hotkeys и навигацию по результатам с клавиатуры;
 - long-press/контекстное меню на результатах и категориях копирует ссылку на конкретный якорь;
 - при нулевом результате показывает fallback с внешним поиском (Яндекс / Perplexity);
+- нормализует разделители в запросе (`en_us`, `en-us`, `en us`) в единый вид для стабильной выдачи;
 - использует собственный `SearchContext` и модальное окно на `antd/Modal`.
 
 Общие правила для feature-компонентов: [`feature-components-rules.md`](../content/feature-components-rules.md). Обзор: [`features-component.md`](./features-component.md). Настройка ранжирования и веса: [`search-ranking-weights.md`](./search-ranking-weights.md).

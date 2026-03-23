@@ -20,10 +20,13 @@ const NORMALIZATION_REGEX = /[^a-zа-яё0-9_+\-=()]/gi;
 
 const REPLACE_CHARS_REGEX = /ё/gi;
 
+const UNDERSCORE_REGEX = /_/g;
+
 export const normalizeText = (text: string): string => {
   return text
     .toLowerCase()
     .replaceAll(REPLACE_CHARS_REGEX, "е")
+    .replaceAll(UNDERSCORE_REGEX, " ")
     .replaceAll(NORMALIZATION_REGEX, " ")
     .replaceAll(/\s+/g, " ")
     .trim();
