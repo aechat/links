@@ -63,27 +63,3 @@
   margin-inline: 0;
   border-radius: $roundness * 0.75;
 }
-
-.change-os-in-addition {
-  margin-inline: -5px;
-  outline: 1px solid var(--color-status-info-border);
-  border-radius: $roundness * 0.5;
-  background-color: var(--color-status-info-background);
-  padding: 5px;
-  text-align: center;
-  line-height: 1.25;
-  color: var(--color-status-info-text);
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  button {
-    outline: 1px solid var(--color-status-info-border);
-    color: var(--color-status-info-text);
-  }
-}
