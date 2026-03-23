@@ -35,6 +35,11 @@ import {
   WORD_MATCH_PRIORITY,
   type WordFeatures,
 } from "./searchPhoneticUtilities";
+import {
+  searchDetails,
+  type SearchWorkerDetail,
+  type WorkerRankedResult,
+} from "./searchQueryCore";
 import {SearchResultCard} from "./SearchResultCard";
 import {
   getFieldMatchTypeScore,
@@ -48,11 +53,6 @@ import {
   normalizeText,
   normalizeWord,
 } from "./searchTextUtilities";
-import {
-  searchDetails,
-  type SearchWorkerDetail,
-  type WorkerRankedResult,
-} from "./searchWorker";
 
 export interface SearchContextType {
   closeModal: () => void;
