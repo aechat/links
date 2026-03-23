@@ -22,6 +22,14 @@ import {scrollToElement} from "../../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../../utils/stringUtilities";
 import additionStyles from "../../content/Addition.module.scss";
 
+import {
+  applyAdditionSnippetStyles,
+  buildAdditionsHtml,
+  getAdditionContainerSelector,
+  getTopLevelAdditionContainer,
+  wrapSnippetWithAdditionContainer,
+  wrapSnippetWithClosestAddition,
+} from "./searchAdditionUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 import {
   extractMatchingLine,
@@ -460,38 +468,6 @@ const cloneWithoutFigures = (element: Element): Element => {
   return clone;
 };
 
-const wrapSnippetWithClosestAddition = (
-  element: Element,
-  snippetHtml: string
-): string => {
-  const additionContainer = element.closest(ADDITION_CONTAINER_SELECTOR);
-
-  if (!additionContainer) {
-    return snippetHtml;
-  }
-
-  const containerTag = additionContainer.tagName.toLowerCase();
-
-  const containerClassName = additionContainer.getAttribute("class") || "";
-
-  const containerAttributes = containerClassName ? ` class="${containerClassName}"` : "";
-
-  return `<${containerTag}${containerAttributes}><div>${snippetHtml}</div></${containerTag}>`;
-};
-
-const wrapSnippetWithAdditionContainer = (
-  additionContainer: Element,
-  snippetHtml: string
-): string => {
-  const containerTag = additionContainer.tagName.toLowerCase();
-
-  const containerClassName = additionContainer.getAttribute("class") || "";
-
-  const containerAttributes = containerClassName ? ` class="${containerClassName}"` : "";
-
-  return `<${containerTag}${containerAttributes}><div>${snippetHtml}</div></${containerTag}>`;
-};
-
 const handleListWithNestedMatches = (
   element: Element,
   compiledQuery: CompiledSearchQuery
@@ -503,7 +479,11 @@ const handleListWithNestedMatches = (
 
     return {
       matchCount: 1,
-      result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
+      result: wrapSnippetWithClosestAddition(
+        element,
+        clone.outerHTML,
+        ADDITION_CONTAINER_SELECTOR
+      ),
     };
   }
 
@@ -518,7 +498,11 @@ const handleListWithNestedMatches = (
   if (matchingNestedItems.length === 0) {
     return {
       matchCount: 1,
-      result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
+      result: wrapSnippetWithClosestAddition(
+        element,
+        clone.outerHTML,
+        ADDITION_CONTAINER_SELECTOR
+      ),
     };
   }
 
@@ -538,7 +522,11 @@ const handleListWithNestedMatches = (
 
   return {
     matchCount: matchingNestedItems.length + 1,
-    result: wrapSnippetWithClosestAddition(element, clone.outerHTML),
+    result: wrapSnippetWithClosestAddition(
+      element,
+      clone.outerHTML,
+      ADDITION_CONTAINER_SELECTOR
+    ),
   };
 };
 
@@ -600,7 +588,11 @@ const processElement = (
 
     return {
       matchCount: 1,
-      result: wrapSnippetWithClosestAddition(element, sanitizedElement.outerHTML),
+      result: wrapSnippetWithClosestAddition(
+        element,
+        sanitizedElement.outerHTML,
+        ADDITION_CONTAINER_SELECTOR
+      ),
     };
   }
 
@@ -738,24 +730,7 @@ const pickTableOrFallback = (
 
 const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
 
-const escapeCssClassName = (className: string): string => {
-  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
-    return CSS.escape(className);
-  }
-
-  return className.replaceAll(/[^a-zA-Z0-9_-]/g, String.raw`\$&`);
-};
-
-const ADDITION_STYLE_CLASS_NAMES = [
-  additionStyles["addition-danger"],
-  additionStyles["addition-info"],
-  additionStyles["addition-tldr"],
-  additionStyles["addition-warning"],
-].filter(Boolean);
-
-const ADDITION_CONTAINER_SELECTOR = ADDITION_STYLE_CLASS_NAMES.map(
-  (className) => `.${escapeCssClassName(className)}`
-).join(", ");
+const ADDITION_CONTAINER_SELECTOR = getAdditionContainerSelector(additionStyles);
 
 const ENTITY_MARK_SELECTORS = [
   "mark.app",
@@ -946,29 +921,6 @@ const pickBestCompactSnippet = (
   return bestHtml;
 };
 
-const applyAdditionSnippetStyles = (html: string): string => {
-  if (!html || !ADDITION_CONTAINER_SELECTOR) {
-    return html;
-  }
-
-  const temporaryDiv = document.createElement("div");
-
-  temporaryDiv.innerHTML = html;
-
-  for (const element of temporaryDiv.querySelectorAll(ADDITION_CONTAINER_SELECTOR)) {
-    if (element instanceof HTMLElement) {
-      element.style.fontSize = "0.9rem";
-      element.style.margin = "10px";
-
-      if (element.closest("li")) {
-        element.style.marginInline = "0";
-      }
-    }
-  }
-
-  return temporaryDiv.innerHTML;
-};
-
 const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): string => {
   const temporaryDiv = document.createElement("div");
 
@@ -988,22 +940,28 @@ const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): s
     (tagMatch && hasMatch(tagMatch, compiledQuery)) ||
     (titleMatch && hasMatch(titleMatch, compiledQuery))
   ) {
-    return applyAdditionSnippetStyles(getFirstCleanParagraphOrElement(temporaryDiv));
+    return applyAdditionSnippetStyles(
+      getFirstCleanParagraphOrElement(temporaryDiv),
+      ADDITION_CONTAINER_SELECTOR
+    );
   }
 
   const bestCompactSnippet = pickBestCompactSnippet(temporaryDiv, compiledQuery);
 
   if (bestCompactSnippet) {
-    return applyAdditionSnippetStyles(bestCompactSnippet);
+    return applyAdditionSnippetStyles(bestCompactSnippet, ADDITION_CONTAINER_SELECTOR);
   }
 
   const bestResult = pickBestListOrParagraphMatch(temporaryDiv, compiledQuery);
 
   if (!bestResult.result) {
-    return applyAdditionSnippetStyles(pickTableOrFallback(temporaryDiv, compiledQuery));
+    return applyAdditionSnippetStyles(
+      pickTableOrFallback(temporaryDiv, compiledQuery),
+      ADDITION_CONTAINER_SELECTOR
+    );
   }
 
-  return applyAdditionSnippetStyles(bestResult.result);
+  return applyAdditionSnippetStyles(bestResult.result, ADDITION_CONTAINER_SELECTOR);
 };
 
 const collectDividerTexts = (detail: Element): string[] => {
@@ -1016,51 +974,6 @@ const collectFlexibleLinksTexts = (detail: Element): string[] => {
   return [...detail.querySelectorAll(".flexible-links a")]
     .map((element) => element.textContent?.trim() || "")
     .filter(Boolean);
-};
-
-const getTopLevelAdditionContainer = (
-  element: Element,
-  rootDetail: Element
-): Element | undefined => {
-  let additionContainer: Element | null = element.closest(ADDITION_CONTAINER_SELECTOR);
-
-  if (additionContainer === null) {
-    return;
-  }
-
-  while (additionContainer.parentElement !== null) {
-    const parentAdditionContainer: Element | null =
-      additionContainer.parentElement.closest(ADDITION_CONTAINER_SELECTOR);
-
-    if (!parentAdditionContainer || !rootDetail.contains(parentAdditionContainer)) {
-      break;
-    }
-
-    additionContainer = parentAdditionContainer;
-  }
-
-  return additionContainer ?? undefined;
-};
-
-const buildAdditionsHtml = (detail: Element): string => {
-  const additions = [...detail.querySelectorAll(ADDITION_CONTAINER_SELECTOR)].filter(
-    (addition) => {
-      const parentAddition = addition.parentElement?.closest(ADDITION_CONTAINER_SELECTOR);
-
-      return !parentAddition || !detail.contains(parentAddition);
-    }
-  );
-
-  const htmlParts: string[] = [];
-
-  for (const addition of additions) {
-    const clone = addition.cloneNode(true) as Element;
-
-    removeFigureContainers(clone);
-    htmlParts.push(clone.outerHTML);
-  }
-
-  return htmlParts.filter(Boolean).join("\n");
 };
 
 const collectLinkHrefs = (detail: Element): string[] => {
@@ -1250,7 +1163,11 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
       searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
 
     if (hasMatch) {
-      const additionContainer = getTopLevelAdditionContainer(ul, detail);
+      const additionContainer = getTopLevelAdditionContainer(
+        ul,
+        detail,
+        ADDITION_CONTAINER_SELECTOR
+      );
 
       if (additionContainer) {
         const additionClone = additionContainer.cloneNode(true) as Element;
@@ -1363,7 +1280,11 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
       const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
 
-      const additionsContent = buildAdditionsHtml(detail);
+      const additionsContent = buildAdditionsHtml(
+        detail,
+        ADDITION_CONTAINER_SELECTOR,
+        removeFigureContainers
+      );
 
       const linkHrefs = collectLinkHrefs(detail);
 
