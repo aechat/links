@@ -52,7 +52,6 @@ import {
   type CompiledSearchQuery,
   compileSearchQuery,
   getFieldMatchInfo,
-  hasCompiledQueryMatchInFields,
   hasCompiledQueryMatchInIndexes,
   searchDetails,
   type SearchWorkerDetail,
@@ -60,6 +59,10 @@ import {
   type WorkerRankedResult,
 } from "./searchQueryCore";
 import {SearchResultCard} from "./SearchResultCard";
+import {
+  getMatchingTagsByQuery,
+  mapRankedResultsToSearchResults as mapRankedResultsToSearchResultsRuntime,
+} from "./searchResultRuntimeUtilities";
 import {
   getFieldMatchTypeScore,
   getProximityBonus,
@@ -470,23 +473,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
   const mapRankedResultsToSearchResults = useCallback(
     (queryText: string, rankedResults: WorkerRankedResult[]): SearchResult[] => {
-      const compiledQuery = compileSearchQuery(queryText);
-
-      const mappedResults: SearchResult[] = [];
-
-      for (const workerResult of rankedResults) {
-        const detail = cachedDetailsByKey.get(
-          `${workerResult.id}::${workerResult.sourceOrder}`
-        );
-
-        if (!detail) {
-          continue;
-        }
-
-        mappedResults.push({
-          ...(detail.anchor ? {anchor: detail.anchor} : {}),
-          ...(detail.tag ? {tag: detail.tag} : {}),
-          content: formatSearchSnippetResult(detail.content, compiledQuery, {
+      return mapRankedResultsToSearchResultsRuntime(queryText, rankedResults, {
+        cachedDetailsByKey,
+        formatContent: (content, compiledQuery) =>
+          formatSearchSnippetResult(content, compiledQuery, {
             additionContainerSelector: ADDITION_CONTAINER_SELECTOR,
             applyAdditionSnippetStyles,
             extractKeyCombinationText,
@@ -497,15 +487,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
             wrapSnippetWithAdditionContainer,
             wrapSnippetWithClosestAddition,
           }),
-          hasTagMatch: workerResult.hasTagMatch,
-          hasTitleMatch: workerResult.hasTitleMatch,
-          id: detail.id,
-          isSingleParagraphMatch: workerResult.isSingleParagraphMatch,
-          title: detail.title,
-        });
-      }
-
-      return mappedResults;
+      });
     },
     [cachedDetailsByKey]
   );
@@ -813,25 +795,6 @@ const SearchCategories: React.FC<{
         </button>
       ))}
     </div>
-  );
-};
-
-const getMatchingTags = (tag: string | undefined, compiledQuery: CompiledSearchQuery) => {
-  if (!tag || tag.trim() === "") {
-    return [];
-  }
-
-  if (compiledQuery.searchWords.length === 0) {
-    return [];
-  }
-
-  const allTags = tag
-    .split(",")
-    .map((tag_) => tag_.trim())
-    .filter(Boolean);
-
-  return allTags.filter((tag_) =>
-    hasCompiledQueryMatchInFields([tag_], compiledQuery, "any")
   );
 };
 
@@ -1195,7 +1158,7 @@ const SearchResults: React.FC<{
   const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
     const {anchor, content, id, tag, title} = result;
 
-    const tagsToDisplay = getMatchingTags(tag, compiledQuery);
+    const tagsToDisplay = getMatchingTagsByQuery(tag, compiledQuery);
 
     const displayTitle = title.replace(/^[+-]+/, "").trim();
 
