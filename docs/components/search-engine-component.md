@@ -1,10 +1,12 @@
 # Компонент `SearchEngine`
 
-Файл: `src/components/features/searchEngine/SearchEngine.tsx` Связанные UI-подкомпоненты: `src/components/features/searchEngine/SearchModal.tsx`, `src/components/features/searchEngine/SearchResultCard.tsx`
+Файл: `src/components/features/searchEngine/SearchEngine.tsx` Связанные UI-подкомпоненты: `src/components/features/searchEngine/SearchModal.tsx`, `src/components/features/searchEngine/SearchCategories.tsx`, `src/components/features/searchEngine/SearchResults.tsx`, `src/components/features/searchEngine/SearchResultCard.tsx`, `src/components/features/searchEngine/SearchNoResults.tsx`
 
 ## Назначение
 
 Поиск по текущей странице FAQ/expr. Модуль состоит из провайдера состояния, кнопки открытия и модального интерфейса с результатами, навигацией по совпадениям и внешним поиском при отсутствии результатов.
+
+`SearchEngine.tsx` выступает как оркестратор: связывает контекст, бизнес-логику поиска и UI-подкомпоненты.
 
 ## Публичный интерфейс
 
