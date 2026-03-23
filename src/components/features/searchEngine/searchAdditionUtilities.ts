@@ -68,6 +68,26 @@ export const applyAdditionSnippetStyles = (
 
   temporaryDiv.innerHTML = html;
 
+  const nestedAdditionContainers = [
+    ...temporaryDiv.querySelectorAll(additionContainerSelector),
+  ].filter((element) => {
+    const parentAdditionContainer = element.parentElement?.closest(
+      additionContainerSelector
+    );
+
+    return Boolean(parentAdditionContainer);
+  });
+
+  for (const nestedAdditionContainer of nestedAdditionContainers) {
+    const fragment = document.createDocumentFragment();
+
+    while (nestedAdditionContainer.firstChild) {
+      fragment.append(nestedAdditionContainer.firstChild);
+    }
+
+    nestedAdditionContainer.replaceWith(fragment);
+  }
+
   for (const element of temporaryDiv.querySelectorAll(additionContainerSelector)) {
     if (element instanceof HTMLElement) {
       element.style.fontSize = "0.9rem";
