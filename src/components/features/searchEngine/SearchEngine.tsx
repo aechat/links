@@ -11,20 +11,28 @@ import React, {
   useState,
 } from "react";
 
-import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
-import {message, Modal} from "antd";
-import {RemoveScroll} from "react-remove-scroll";
+import {Search} from "@mui/icons-material";
+import {message} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
-import {useLongPress} from "../../hooks/useLongPress";
-import {useRipple} from "../../hooks/useRipple";
-import {resolveDetailsByAnchor} from "../../utils/anchorResolvers";
-import {isMobileDevice} from "../../utils/browserDetection";
-import {withSelectionHaptic} from "../../utils/haptics";
-import {scrollToElement} from "../../utils/scrollToAnchor";
-import {formatNestedQuotes} from "../../utils/stringUtilities";
-import additionStyles from "../content/Addition.module.scss";
-import modalStyles from "../modals/Modal.module.scss";
+import {copyText} from "../../../hooks/useCopyToClipboard";
+import {useLongPress} from "../../../hooks/useLongPress";
+import {useRipple} from "../../../hooks/useRipple";
+import {resolveDetailsByAnchor} from "../../../utils/anchorResolvers";
+import {isMobileDevice} from "../../../utils/browserDetection";
+import {withSelectionHaptic} from "../../../utils/haptics";
+import {scrollToElement} from "../../../utils/scrollToAnchor";
+import {formatNestedQuotes} from "../../../utils/stringUtilities";
+import additionStyles from "../../content/Addition.module.scss";
+import {
+  computeSearchScore,
+  getFieldMatchTypeScore,
+  getProximityBonus,
+  selectCandidatesForRescore,
+  type SearchScoringDependencies,
+} from "./searchScoringUtilities";
+import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
+import {SearchModal} from "./SearchModal";
+import {SearchResultCard} from "./SearchResultCard";
 
 import searchStyles from "./SearchEngine.module.scss";
 
@@ -236,14 +244,6 @@ const WORD_MATCH_PRIORITY: Record<WordMatchType, number> = {
   folded: 3,
   prefix: 3,
   stem: 1,
-};
-
-const WORD_MATCH_SCORE: Record<WordMatchType, number> = {
-  consonant: 10,
-  exact: 24,
-  folded: 16,
-  prefix: 14,
-  stem: 7,
 };
 
 const EMPTY_WORD_FEATURES: WordFeatures = {
@@ -1236,10 +1236,6 @@ const TAG_SCORING_DAMPING_START = 16;
 
 const TAG_SCORING_MAX_REDUCTION = 0.45;
 
-const PROXIMITY_MAX_BONUS = 56;
-
-const PROXIMITY_DECAY_PER_TOKEN = 5;
-
 const removeFigureContainers = (root: Element): void => {
   for (const element of root.querySelectorAll('[class*="media-figure"]'))
     element.remove();
@@ -1825,91 +1821,10 @@ const getTokenPositionsForWord = (
   return positions;
 };
 
-const getSmallestTokenRange = (tokenPositions: number[][]): number | undefined => {
-  if (
-    tokenPositions.length === 0 ||
-    tokenPositions.some((positions) => positions.length === 0)
-  ) {
-    return undefined;
-  }
-
-  const pointers = Array.from({length: tokenPositions.length}, () => 0);
-
-  let bestRange = Number.POSITIVE_INFINITY;
-
-  while (true) {
-    const currentValues = tokenPositions.map(
-      (positions, index) => positions[pointers[index]]
-    );
-
-    const minValue = Math.min(...currentValues);
-
-    const maxValue = Math.max(...currentValues);
-
-    bestRange = Math.min(bestRange, maxValue - minValue);
-
-    const minIndex = currentValues.indexOf(minValue);
-
-    pointers[minIndex] += 1;
-
-    if (pointers[minIndex] >= tokenPositions[minIndex].length) {
-      break;
-    }
-  }
-
-  return Number.isFinite(bestRange) ? bestRange : undefined;
-};
-
-const getProximityBonus = (
-  text: string,
-  compiledQuery: CompiledSearchQuery,
-  weight: number
-): number => {
-  if (compiledQuery.words.length < 2) {
-    return 0;
-  }
-
-  const normalizedWords = toNormalizedWords(text);
-
-  if (normalizedWords.length < 2) {
-    return 0;
-  }
-
-  const foldedWords = normalizeLatinPhonetics(normalizedWords.join(" "))
-    .split(" ")
-    .filter(Boolean);
-
-  const tokenPositions = compiledQuery.words.map(({features}) =>
-    getTokenPositionsForWord(normalizedWords, foldedWords, features)
-  );
-
-  const smallestRange = getSmallestTokenRange(tokenPositions);
-
-  if (smallestRange === undefined) {
-    return 0;
-  }
-
-  const rawBonus = Math.max(
-    0,
-    PROXIMITY_MAX_BONUS - smallestRange * PROXIMITY_DECAY_PER_TOKEN
-  );
-
-  return Math.round(rawBonus * weight);
-};
-
-const getFieldMatchTypeScore = (
-  fieldMatchInfo: FieldMatchInfo,
-  fieldWeight: number
-): number => {
-  let score = fieldMatchInfo.highestPriority * fieldWeight * 3;
-
-  for (const [matchType, count] of Object.entries(fieldMatchInfo.typeCounts) as Array<
-    [WordMatchType, number]
-  >) {
-    score += count * WORD_MATCH_SCORE[matchType] * fieldWeight;
-  }
-
-  return score;
+const searchScoringDependencies: SearchScoringDependencies<WordFeatures> = {
+  getTokenPositionsForWord,
+  normalizeLatinPhonetics,
+  toNormalizedWords,
 };
 
 const getCompactSnippetScore = (
@@ -1931,7 +1846,7 @@ const getCompactSnippetScore = (
   let score = getFieldMatchTypeScore(matchInfo, 1);
 
   score += matchInfo.totalMatched * 8;
-  score += getProximityBonus(plainText, compiledQuery, 0.4);
+  score += getProximityBonus(plainText, compiledQuery, 0.4, searchScoringDependencies);
 
   if (plainText.length > MAX_COMPACT_SNIPPET_TEXT_LENGTH) {
     score -= Math.min(
@@ -2114,83 +2029,22 @@ const computeScore = (
   entityMatchInfo: FieldMatchInfo,
   tagTokenCount: number
 ) => {
-  let score = 0;
-
   const tagLengthDampingFactor = getTagLengthDampingFactor(tagTokenCount);
 
-  if (titleMatchInfo.totalMatched && tagMatchInfo.totalMatched) {
-    score += 100;
-  } else if (titleMatchInfo.totalMatched || tagMatchInfo.totalMatched) {
-    score += 50;
-  }
-
-  score += Math.max(
-    titleMatchInfo.longestMatchedWordLength,
-    tagMatchInfo.longestMatchedWordLength,
-    0
-  );
-
-  score += 10 * (titleMatchInfo.totalMatched + tagMatchInfo.totalMatched - 1);
-  score += 5 * contentMatchInfo.totalMatched;
-  score += 7 * entityMatchInfo.totalMatched;
-
-  score += getFieldMatchTypeScore(titleMatchInfo, 5);
-
-  score += Math.round(
-    getFieldMatchTypeScore(tagScoringMatchInfo, 3) * tagLengthDampingFactor
-  );
-
-  score += getFieldMatchTypeScore(entityMatchInfo, 3);
-  score += getFieldMatchTypeScore(contentMatchInfo, 2);
-
-  if (compiledQuery.normalizedQuery.length > 1) {
-    const hasTitlePhraseMatch = normalizedTitle.includes(compiledQuery.normalizedQuery);
-
-    const hasTagPhraseMatch = normalizedTag.includes(compiledQuery.normalizedQuery);
-
-    if (hasTitlePhraseMatch) {
-      score += 260;
-    }
-
-    if (hasTagPhraseMatch) {
-      score += Math.round(180 * tagLengthDampingFactor);
-    }
-
-    if (
-      !hasTitlePhraseMatch &&
-      (titleMatchInfo.typeCounts.folded > 0 ||
-        titleMatchInfo.typeCounts.stem > 0 ||
-        titleMatchInfo.typeCounts.consonant > 0 ||
-        titleMatchInfo.typeCounts.prefix > 0)
-    ) {
-      score += 90;
-    }
-
-    if (normalizedContent.includes(compiledQuery.normalizedQuery)) {
-      score += 45;
-    }
-  }
-
-  score += getProximityBonus(normalizedTitle, compiledQuery, 1.1);
-
-  score += Math.round(
-    getProximityBonus(normalizedTag, compiledQuery, 0.85) * tagLengthDampingFactor
-  );
-
-  score += getProximityBonus(normalizedEntityText, compiledQuery, 0.75);
-
-  score += getProximityBonus(normalizedContent, compiledQuery, 0.55);
-
-  if (
-    !titleMatchInfo.totalMatched &&
-    !tagMatchInfo.totalMatched &&
-    !entityMatchInfo.totalMatched &&
-    contentMatchInfo.totalMatched
-  ) {
-    score -= 10;
-  }
-
-  return score;
+  return computeSearchScore({
+    compiledQuery,
+    contentMatchInfo,
+    dependencies: searchScoringDependencies,
+    entityMatchInfo,
+    normalizedContent,
+    normalizedEntityText,
+    normalizedTag,
+    normalizedTitle,
+    tagLengthDampingFactor,
+    tagMatchInfo,
+    tagScoringMatchInfo,
+    titleMatchInfo,
+  });
 };
 
 const collectDividerTexts = (detail: Element): string[] => {
@@ -2653,6 +2507,42 @@ const transformSearchResult = (
   };
 };
 
+const getPreliminaryRankScore = (
+  detail: BaseSearchResult,
+  compiledQuery: CompiledSearchQuery
+): number => {
+  const titleMatchInfo = getFieldMatchInfo(detail.searchIndexes.title, compiledQuery);
+  const tagMatchInfo = getFieldMatchInfo(detail.searchIndexes.tag, compiledQuery);
+  const contentMatchInfo = getFieldMatchInfo(detail.searchIndexes.content, compiledQuery);
+  const entityMatchInfo = getFieldMatchInfo(detail.searchIndexes.entity, compiledQuery);
+
+  let score = 0;
+
+  score += titleMatchInfo.totalMatched * 14;
+  score += tagMatchInfo.totalMatched * 10;
+  score += entityMatchInfo.totalMatched * 6;
+  score += contentMatchInfo.totalMatched * 3;
+
+  score += titleMatchInfo.longestMatchedWordLength * 2;
+  score += tagMatchInfo.longestMatchedWordLength;
+
+  if (
+    compiledQuery.normalizedQuery.length > 1 &&
+    detail.normalizedTitle.includes(compiledQuery.normalizedQuery)
+  ) {
+    score += 40;
+  }
+
+  if (
+    compiledQuery.normalizedQuery.length > 1 &&
+    detail.normalizedTag.includes(compiledQuery.normalizedQuery)
+  ) {
+    score += 24;
+  }
+
+  return score;
+};
+
 type FilteredSearchResult = Pick<
   BaseSearchResult,
   "fieldIndexes" | "id" | "normalizedKeyFields"
@@ -2869,7 +2759,18 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         filterDetail(detail, compiledQuery)
       );
 
-      const rankedResults = filtered
+      const candidatesForRescore =
+        filtered.length >= SEARCH_RESCORE_CONFIG.activationThreshold
+          ? selectCandidatesForRescore({
+              candidateLimit: SEARCH_RESCORE_CONFIG.candidateLimit,
+              getIdMatchPriority: (detail) =>
+                getIdMatchPriority(detail.id, compiledQuery.originalText),
+              getPreliminaryScore: (detail) => getPreliminaryRankScore(detail, compiledQuery),
+              items: filtered,
+            })
+          : filtered;
+
+      const rankedResults = candidatesForRescore
         .map((result) => transformSearchResult(result, compiledQuery))
         .toSorted((a, b) => {
           if (b.idMatchPriority !== a.idMatchPriority) {
@@ -3630,70 +3531,32 @@ const SearchResults: React.FC<{
     const isHovered = hoveredIndex === index;
 
     return (
-      <div
-        key={id}
-        className={searchStyles["search-results-item"]}
-      >
-        <button
-          ref={(element) => {
-            if (resultRefs.current) {
-              resultRefs.current[index] = element;
-            }
-          }}
-          className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
-          data-anchor={anchor}
-          data-id={id}
-          style={(() => {
-            if (isMobile) {
-              return {filter: "none", opacity: 1};
-            }
-
-            if (isSelected || isHovered) {
-              return {filter: "none"};
-            }
-
-            return {filter: "saturate(0.25)"};
-          })()}
-          tabIndex={0}
-          onClick={(event_) => {
-            setSelectedResultIndex(index);
-            handleResultClick(event_, anchor || id);
-          }}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(undefined)}
-        >
-          <div
-            className={`${searchStyles["search-header"]} ${
-              isSelected ? searchStyles["search-header-selected"] : ""
-            }`}
-          >
-            <p className={searchStyles["search-title"]}>{highlightedTitle}</p>
-            {tagsToDisplay.length > 0 && (
-              <span className={searchStyles["search-tags"]}>
-                {tagsToDisplay.map((t, tagIndex) => (
-                  <span
-                    key={`${t}-${tagIndex}`}
-                    className={searchStyles["search-tag-item"]}
-                  >
-                    {highlightedTags[tagIndex]}
-                  </span>
-                ))}
-              </span>
-            )}
-          </div>
-          <div
-            ref={(element) => {
-              resultContentReferences.current[id] = element;
-            }}
-            className={`${searchStyles["search-content"]} ${
-              overflowingResultIds.has(id) ? searchStyles["search-content-truncated"] : ""
-            } ${
-              isSelected ? searchStyles["search-content-selected"] : ""
-            } article-content no-copy`}
-            dangerouslySetInnerHTML={{__html: highlightedContent}}
-          />
-        </button>
-      </div>
+      <SearchResultCard
+        anchor={anchor}
+        content={highlightedContent}
+        highlightedTags={highlightedTags}
+        highlightedTitle={highlightedTitle}
+        id={id}
+        isContentOverflowing={overflowingResultIds.has(id)}
+        isHovered={isHovered}
+        isMobile={isMobile}
+        isSelected={isSelected}
+        tagsToDisplay={tagsToDisplay}
+        setResultRef={(element) => {
+          if (resultRefs.current) {
+            resultRefs.current[index] = element;
+          }
+        }}
+        setContentRef={(element) => {
+          resultContentReferences.current[id] = element;
+        }}
+        onClick={(event_) => {
+          setSelectedResultIndex(index);
+          handleResultClick(event_, anchor || id);
+        }}
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(undefined)}
+      />
     );
   };
 
@@ -4393,69 +4256,24 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   };
 
   return (
-    <RemoveScroll enabled={isModalOpen}>
-      <Modal
-        closeIcon={false}
-        footer={<></>}
-        open={isModalOpen}
-        width={1000}
-        onCancel={closeModal}
-      >
-        <div className={searchStyles["search"]}>
-          <div className={modalStyles["modal-content"]}>
-            <div className={searchStyles["search-input-wrapper"]}>
-              <input
-                ref={inputReference}
-                className={searchStyles["search-input"]}
-                placeholder="Введите что-нибудь для поиска..."
-                style={{cursor: "text"}}
-                type="search"
-                value={query}
-                onChange={(event_) => handleQueryChange(event_.target.value)}
-              />
-              <p className={searchStyles["search-counter"]}>
-                <span
-                  style={{
-                    color: "var(--color-surface-primary-text)",
-                    fontSize: "1.05em",
-                    fontWeight: 500,
-                  }}
-                >
-                  {results.length}
-                </span>{" "}
-                {getResultWord(results.length)}
-              </p>
-              {query.trim() !== "" && (
-                <button
-                  className={searchStyles["search-input-clear"]}
-                  style={{cursor: "pointer"}}
-                  onClick={() => {
-                    setQuery("");
-                    setIsSearching(false);
-                  }}
-                  onMouseDown={ripple.onMouseDown}
-                >
-                  <BackspaceOutlined fontSize="small" />
-                </button>
-              )}
-              <button
-                className={searchStyles["search-input-close"]}
-                onClick={closeModal}
-                onMouseDown={ripple.onMouseDown}
-              >
-                <CloseRounded />
-              </button>
-            </div>
-            <div
-              ref={resultsContainerReference}
-              className={`${searchStyles["search-results"]}${isFadeVisible ? " " + searchStyles["show-fade"] : ""}`}
-            >
-              {renderContent()}
-              {isFadeVisible}
-            </div>
-          </div>
-        </div>
-      </Modal>
-    </RemoveScroll>
+    <SearchModal
+      closeModal={closeModal}
+      inputRef={inputReference}
+      isFadeVisible={isFadeVisible}
+      isOpen={isModalOpen}
+      query={query}
+      resultWord={getResultWord(results.length)}
+      resultsContainerRef={resultsContainerReference}
+      resultsCount={results.length}
+      onChangeQuery={handleQueryChange}
+      onClearQuery={() => {
+        setQuery("");
+        setIsSearching(false);
+      }}
+      onCloseMouseDown={ripple.onMouseDown}
+      onInputClearMouseDown={ripple.onMouseDown}
+    >
+      {renderContent()}
+    </SearchModal>
   );
 };

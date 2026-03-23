@@ -1,5 +1,11 @@
 import {stemmer as englishStemmer} from "@orama/stemmers/english";
 import {stemmer as russianStemmer} from "@orama/stemmers/russian";
+import {
+  computeSearchScore,
+  type SearchScoringDependencies,
+  selectCandidatesForRescore,
+} from "./searchScoringUtilities";
+import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
 
 type TextSearchIndex = {
   consonantPrefixSet: Set<string>;
@@ -141,14 +147,6 @@ const WORD_MATCH_PRIORITY: Record<WordMatchType, number> = {
   folded: 3,
   prefix: 3,
   stem: 1,
-};
-
-const WORD_MATCH_SCORE: Record<WordMatchType, number> = {
-  consonant: 10,
-  exact: 24,
-  folded: 16,
-  prefix: 14,
-  stem: 7,
 };
 
 const EMPTY_WORD_FEATURES: WordFeatures = {
@@ -756,10 +754,6 @@ const isTokenMatchingWordFeatures = (
 const toNormalizedWords = (text: string): string[] =>
   normalizeText(text).split(" ").filter(Boolean);
 
-const PROXIMITY_MAX_BONUS = 56;
-
-const PROXIMITY_DECAY_PER_TOKEN = 5;
-
 const TAG_SCORING_TOKEN_CAP = 48;
 
 const TAG_SCORING_DAMPING_START = 16;
@@ -798,91 +792,10 @@ const getTokenPositionsForWord = (
   return positions;
 };
 
-const getSmallestTokenRange = (tokenPositions: number[][]): number | undefined => {
-  if (
-    tokenPositions.length === 0 ||
-    tokenPositions.some((positions) => positions.length === 0)
-  ) {
-    return undefined;
-  }
-
-  const pointers = Array.from({length: tokenPositions.length}, () => 0);
-
-  let bestRange = Number.POSITIVE_INFINITY;
-
-  while (true) {
-    const currentValues = tokenPositions.map(
-      (positions, index) => positions[pointers[index]]
-    );
-
-    const minValue = Math.min(...currentValues);
-
-    const maxValue = Math.max(...currentValues);
-
-    bestRange = Math.min(bestRange, maxValue - minValue);
-
-    const minIndex = currentValues.indexOf(minValue);
-
-    pointers[minIndex] += 1;
-
-    if (pointers[minIndex] >= tokenPositions[minIndex].length) {
-      break;
-    }
-  }
-
-  return Number.isFinite(bestRange) ? bestRange : undefined;
-};
-
-const getProximityBonus = (
-  text: string,
-  compiledQuery: CompiledSearchQuery,
-  weight: number
-): number => {
-  if (compiledQuery.words.length < 2) {
-    return 0;
-  }
-
-  const normalizedWords = toNormalizedWords(text);
-
-  if (normalizedWords.length < 2) {
-    return 0;
-  }
-
-  const foldedWords = normalizeLatinPhonetics(normalizedWords.join(" "))
-    .split(" ")
-    .filter(Boolean);
-
-  const tokenPositions = compiledQuery.words.map(({features}) =>
-    getTokenPositionsForWord(normalizedWords, foldedWords, features)
-  );
-
-  const smallestRange = getSmallestTokenRange(tokenPositions);
-
-  if (smallestRange === undefined) {
-    return 0;
-  }
-
-  const rawBonus = Math.max(
-    0,
-    PROXIMITY_MAX_BONUS - smallestRange * PROXIMITY_DECAY_PER_TOKEN
-  );
-
-  return Math.round(rawBonus * weight);
-};
-
-const getFieldMatchTypeScore = (
-  fieldMatchInfo: FieldMatchInfo,
-  fieldWeight: number
-): number => {
-  let score = fieldMatchInfo.highestPriority * fieldWeight * 3;
-
-  for (const [matchType, count] of Object.entries(fieldMatchInfo.typeCounts) as Array<
-    [WordMatchType, number]
-  >) {
-    score += count * WORD_MATCH_SCORE[matchType] * fieldWeight;
-  }
-
-  return score;
+const searchScoringDependencies: SearchScoringDependencies<WordFeatures> = {
+  getTokenPositionsForWord,
+  normalizeLatinPhonetics,
+  toNormalizedWords,
 };
 
 const computeScore = (
@@ -898,82 +811,22 @@ const computeScore = (
   entityMatchInfo: FieldMatchInfo,
   tagTokenCount: number
 ): number => {
-  let score = 0;
-
   const tagLengthDampingFactor = getTagLengthDampingFactor(tagTokenCount);
 
-  if (titleMatchInfo.totalMatched && tagMatchInfo.totalMatched) {
-    score += 100;
-  } else if (titleMatchInfo.totalMatched || tagMatchInfo.totalMatched) {
-    score += 50;
-  }
-
-  score += Math.max(
-    titleMatchInfo.longestMatchedWordLength,
-    tagMatchInfo.longestMatchedWordLength,
-    0
-  );
-
-  score += 10 * (titleMatchInfo.totalMatched + tagMatchInfo.totalMatched - 1);
-  score += 5 * contentMatchInfo.totalMatched;
-  score += 7 * entityMatchInfo.totalMatched;
-
-  score += getFieldMatchTypeScore(titleMatchInfo, 5);
-
-  score += Math.round(
-    getFieldMatchTypeScore(tagScoringMatchInfo, 3) * tagLengthDampingFactor
-  );
-
-  score += getFieldMatchTypeScore(entityMatchInfo, 3);
-  score += getFieldMatchTypeScore(contentMatchInfo, 2);
-
-  if (compiledQuery.normalizedQuery.length > 1) {
-    const hasTitlePhraseMatch = normalizedTitle.includes(compiledQuery.normalizedQuery);
-
-    const hasTagPhraseMatch = normalizedTag.includes(compiledQuery.normalizedQuery);
-
-    if (hasTitlePhraseMatch) {
-      score += 260;
-    }
-
-    if (hasTagPhraseMatch) {
-      score += Math.round(180 * tagLengthDampingFactor);
-    }
-
-    if (
-      !hasTitlePhraseMatch &&
-      (titleMatchInfo.typeCounts.folded > 0 ||
-        titleMatchInfo.typeCounts.stem > 0 ||
-        titleMatchInfo.typeCounts.consonant > 0 ||
-        titleMatchInfo.typeCounts.prefix > 0)
-    ) {
-      score += 90;
-    }
-
-    if (normalizedContent.includes(compiledQuery.normalizedQuery)) {
-      score += 45;
-    }
-  }
-
-  score += getProximityBonus(normalizedTitle, compiledQuery, 1.1);
-
-  score += Math.round(
-    getProximityBonus(normalizedTag, compiledQuery, 0.85) * tagLengthDampingFactor
-  );
-
-  score += getProximityBonus(normalizedEntityText, compiledQuery, 0.75);
-  score += getProximityBonus(normalizedContent, compiledQuery, 0.55);
-
-  if (
-    !titleMatchInfo.totalMatched &&
-    !tagMatchInfo.totalMatched &&
-    !entityMatchInfo.totalMatched &&
-    contentMatchInfo.totalMatched
-  ) {
-    score -= 10;
-  }
-
-  return score;
+  return computeSearchScore({
+    compiledQuery,
+    contentMatchInfo,
+    dependencies: searchScoringDependencies,
+    entityMatchInfo,
+    normalizedContent,
+    normalizedEntityText,
+    normalizedTag,
+    normalizedTitle,
+    tagLengthDampingFactor,
+    tagMatchInfo,
+    tagScoringMatchInfo,
+    titleMatchInfo,
+  });
 };
 
 const INDEX_QUERY_REGEX = /^\d+(?:[.-]\d+)*$/;
@@ -1094,6 +947,42 @@ const rankDetail = (
   };
 };
 
+const getPreliminaryRankScore = (
+  detail: SearchWorkerDetail,
+  compiledQuery: CompiledSearchQuery
+): number => {
+  const titleMatchInfo = getFieldMatchInfo(detail.searchIndexes.title, compiledQuery);
+  const tagMatchInfo = getFieldMatchInfo(detail.searchIndexes.tag, compiledQuery);
+  const contentMatchInfo = getFieldMatchInfo(detail.searchIndexes.content, compiledQuery);
+  const entityMatchInfo = getFieldMatchInfo(detail.searchIndexes.entity, compiledQuery);
+
+  let score = 0;
+
+  score += titleMatchInfo.totalMatched * 14;
+  score += tagMatchInfo.totalMatched * 10;
+  score += entityMatchInfo.totalMatched * 6;
+  score += contentMatchInfo.totalMatched * 3;
+
+  score += titleMatchInfo.longestMatchedWordLength * 2;
+  score += tagMatchInfo.longestMatchedWordLength;
+
+  if (
+    compiledQuery.normalizedQuery.length > 1 &&
+    detail.normalizedTitle.includes(compiledQuery.normalizedQuery)
+  ) {
+    score += 40;
+  }
+
+  if (
+    compiledQuery.normalizedQuery.length > 1 &&
+    detail.normalizedTag.includes(compiledQuery.normalizedQuery)
+  ) {
+    score += 24;
+  }
+
+  return score;
+};
+
 let cachedDetailsData: SearchWorkerDetail[] = [];
 
 globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
@@ -1134,7 +1023,17 @@ globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
     filterDetail(detail, compiledQuery)
   );
 
-  const ranked = filtered
+  const candidatesForRescore =
+    filtered.length >= SEARCH_RESCORE_CONFIG.activationThreshold
+      ? selectCandidatesForRescore({
+          candidateLimit: SEARCH_RESCORE_CONFIG.candidateLimit,
+          getIdMatchPriority: (detail) => getIdMatchPriority(detail.id, compiledQuery.originalText),
+          getPreliminaryScore: (detail) => getPreliminaryRankScore(detail, compiledQuery),
+          items: filtered,
+        })
+      : filtered;
+
+  const ranked = candidatesForRescore
     .map((detail) => rankDetail(detail, compiledQuery))
     .toSorted((a, b) => {
       if (b.idMatchPriority !== a.idMatchPriority) {
