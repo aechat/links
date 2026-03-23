@@ -35,6 +35,13 @@ import {
   type SearchScoringDependencies,
   selectCandidatesForRescore,
 } from "./searchScoringUtilities";
+import {
+  extractSearchWords,
+  isKeyCombinationSearch,
+  normalizeKeyCombination,
+  normalizeText,
+  normalizeWord,
+} from "./searchTextUtilities";
 
 export interface SearchContextType {
   closeModal: () => void;
@@ -140,21 +147,6 @@ export const extractMatchingLine = (content: string, query: string): string => {
   return firstElement?.outerHTML || content;
 };
 
-const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
-
-const KEY_MODIFIER_ALIASES: Record<string, string> = {
-  command: "cmd",
-  control: "ctrl",
-  windows: "win",
-};
-
-const ALIAS_REGEXES: Record<string, RegExp> = Object.fromEntries(
-  Object.entries(KEY_MODIFIER_ALIASES).map(([alias]) => [
-    alias,
-    new RegExp(escapeRegExp(alias), "g"),
-  ])
-);
-
 type SearchMatch = {
   result: string;
   matchCount: number;
@@ -172,19 +164,6 @@ const stripHtml = (html: string): string => {
   temporary.innerHTML = html;
 
   return temporary.textContent || "";
-};
-
-const normalizationRegex = /[^a-zа-яё0-9_+\-=()]/gi;
-
-const replaceCharsRegex = /ё/gi;
-
-const normalizeText = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replaceAll(replaceCharsRegex, "е")
-    .replaceAll(normalizationRegex, " ")
-    .replaceAll(/\s+/g, " ")
-    .trim();
 };
 
 type TextSearchIndex = {
@@ -262,8 +241,6 @@ const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
 });
 
 const WORD_FEATURES_CACHE = new Map<string, WordFeatures>();
-
-const normalizeWord = (word: string): string => normalizeText(word).replaceAll(" ", "");
 
 const LATIN_VOWELS_REGEX = /[aeiouyw]/g;
 
@@ -742,19 +719,6 @@ const getWordMatchType = (
   return undefined;
 };
 
-const extractSearchWords = (query: string): string[] => [
-  ...new Set(
-    query
-      .split(/\s+/)
-      .flatMap((word) => normalizeText(word).split(" ").filter(Boolean))
-      .filter(Boolean)
-  ),
-];
-
-const isKeyCombinationSearch = (text: string): boolean => {
-  return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
-};
-
 const compileSearchQuery = (text: string): CompiledSearchQuery => {
   const searchWords = extractSearchWords(text);
 
@@ -768,16 +732,6 @@ const compileSearchQuery = (text: string): CompiledSearchQuery => {
       normalizedWord,
     })),
   };
-};
-
-const normalizeKeyCombination = (text: string): string => {
-  let normalized = text.toLowerCase();
-
-  for (const [alias, standard] of Object.entries(KEY_MODIFIER_ALIASES)) {
-    normalized = normalized.replaceAll(ALIAS_REGEXES[alias], standard);
-  }
-
-  return normalized.replaceAll("+", " ").replaceAll(/\s+/g, " ").trim();
 };
 
 const extractKeyCombinationText = (element: Element): string => {
