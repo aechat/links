@@ -109,8 +109,7 @@ export const getTopLevelAdditionContainer = (
 
 export const buildAdditionsHtml = (
   detail: Element,
-  additionContainerSelector: string,
-  sanitizeElement: (element: Element) => void
+  additionContainerSelector: string
 ): string => {
   const additions = [...detail.querySelectorAll(additionContainerSelector)].filter(
     (addition) => {
@@ -125,9 +124,15 @@ export const buildAdditionsHtml = (
   for (const addition of additions) {
     const clone = addition.cloneNode(true) as Element;
 
-    sanitizeElement(clone);
+    removeFigureContainers(clone);
     htmlParts.push(clone.outerHTML);
   }
 
   return htmlParts.filter(Boolean).join("\n");
+};
+
+const removeFigureContainers = (root: Element): void => {
+  for (const element of root.querySelectorAll('[class*="media-figure"]')) {
+    element.remove();
+  }
 };

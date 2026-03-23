@@ -30,6 +30,14 @@ import {
   wrapSnippetWithAdditionContainer,
   wrapSnippetWithClosestAddition,
 } from "./searchAdditionUtilities";
+import {
+  buildListContentHtml,
+  buildParagraphsHtml,
+  buildTableGroupsHtml,
+  collectDividerTexts,
+  collectFlexibleLinksTexts,
+  collectLinkHrefs,
+} from "./searchContentExtractionUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 import {
   extractMatchingLine,
@@ -748,11 +756,6 @@ const ENTITY_MARK_SELECTORS = [
 
 const TAG_SCORING_TOKEN_CAP = 48;
 
-const removeFigureContainers = (root: Element): void => {
-  for (const element of root.querySelectorAll('[class*="media-figure"]'))
-    element.remove();
-};
-
 const toNormalizedWords = (text: string): string[] =>
   normalizeText(text).split(" ").filter(Boolean);
 
@@ -964,238 +967,6 @@ const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): s
   return applyAdditionSnippetStyles(bestResult.result, ADDITION_CONTAINER_SELECTOR);
 };
 
-const collectDividerTexts = (detail: Element): string[] => {
-  return [...detail.querySelectorAll(".ant-divider-inner-text")]
-    .map((element) => element.textContent?.trim() || "")
-    .filter(Boolean);
-};
-
-const collectFlexibleLinksTexts = (detail: Element): string[] => {
-  return [...detail.querySelectorAll(".flexible-links a")]
-    .map((element) => element.textContent?.trim() || "")
-    .filter(Boolean);
-};
-
-const collectLinkHrefs = (detail: Element): string[] => {
-  return [...detail.querySelectorAll("a[href]")]
-    .map((element) => element.getAttribute("href")?.trim() || "")
-    .filter(Boolean);
-};
-
-const buildParagraphsHtml = (detail: Element): string => {
-  const paragraphs = [...detail.querySelectorAll<HTMLParagraphElement>("p")];
-
-  const htmlParts: string[] = [];
-
-  for (const p of paragraphs) {
-    const clone = p.cloneNode(true) as Element;
-
-    removeFigureContainers(clone);
-    htmlParts.push(clone.outerHTML);
-  }
-
-  return htmlParts.filter(Boolean).join("\n");
-};
-
-const isKeyCombinationWords = (searchWords: string[]): boolean => {
-  return searchWords.some(
-    (word) =>
-      word.includes("ctrl") ||
-      word.includes("alt") ||
-      word.includes("shift") ||
-      word.includes("win") ||
-      word.includes("cmd")
-  );
-};
-
-const checkKeyCombinationMatch = (
-  clonedRow: HTMLTableRowElement,
-  searchWords: string[]
-): boolean => {
-  const searchPattern = normalizeKeyCombination(searchWords.join(" "));
-
-  const rowText = [...clonedRow.cells]
-    .map((cell) => {
-      const keyElements = cell.querySelectorAll("mark.key");
-
-      if (keyElements.length > 0) {
-        return [...keyElements]
-          .map((element) => element.textContent?.toLowerCase() || "")
-          .join(" ");
-      }
-
-      return cell.textContent?.toLowerCase() || "";
-    })
-    .join(" ");
-
-  const normalizedRowText = normalizeKeyCombination(rowText);
-
-  return normalizedRowText.includes(searchPattern);
-};
-
-const checkGeneralMatch = (
-  clonedRow: HTMLTableRowElement,
-  searchWords: string[]
-): boolean => {
-  const rowHTML = clonedRow.innerHTML.toLowerCase();
-
-  return searchWords.every((word) => rowHTML.includes(word.toLowerCase()));
-};
-
-const getExcludedColumnIndices = (table: HTMLTableElement): Set<number> => {
-  return new Set(
-    [...table.querySelectorAll("th")]
-      .map((th, index) =>
-        th.textContent?.toLowerCase().includes("описание") ? index : -1
-      )
-      .filter((index) => index !== -1)
-  );
-};
-
-const getFilteredTableRows = (table: HTMLTableElement): HTMLTableRowElement[] => {
-  return [...table.querySelectorAll("tr")].filter((row) => {
-    let parent = row.parentElement;
-
-    while (parent) {
-      if (parent.tagName.toLowerCase() === "thead") {
-        return false;
-      }
-
-      parent = parent.parentElement;
-    }
-
-    return true;
-  }) as HTMLTableRowElement[];
-};
-
-const extractTableHeaders = (table: HTMLTableElement): string[] => {
-  return [...table.querySelectorAll("th")]
-    .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
-    .filter((header) => !header.toLowerCase().includes("описание"));
-};
-
-const processTableRow = (
-  row: HTMLTableRowElement,
-  excludedColumns: Set<number>,
-  keyCombo: boolean,
-  searchWords: string[]
-): string | undefined => {
-  const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
-
-  for (const [index, cell] of [...clonedRow.cells].entries()) {
-    if (excludedColumns.has(index)) {
-      cell.remove();
-    }
-  }
-
-  if (clonedRow.cells.length === 0) {
-    return undefined;
-  }
-
-  const hasMatch = keyCombo
-    ? checkKeyCombinationMatch(clonedRow, searchWords)
-    : checkGeneralMatch(clonedRow, searchWords);
-
-  return hasMatch ? clonedRow.outerHTML : undefined;
-};
-
-const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string => {
-  const tableGroups: Record<string, string[]> = {};
-
-  const tables = [...detail.querySelectorAll<HTMLTableElement>("table")];
-
-  const keyCombo = isKeyCombinationWords(searchWords);
-
-  for (const table of tables) {
-    const headers = extractTableHeaders(table);
-
-    const headerKey = headers.join("|");
-
-    const allRows = getFilteredTableRows(table);
-
-    const excludedColumns = getExcludedColumnIndices(table);
-
-    const processedRows = allRows
-      .map((row) => processTableRow(row, excludedColumns, keyCombo, searchWords))
-      .filter(Boolean) as string[];
-
-    if (processedRows.length > 0) {
-      tableGroups[headerKey] ??= [];
-      tableGroups[headerKey].push(...processedRows);
-    }
-  }
-
-  return Object.entries(tableGroups)
-    .map(([headerKey, rows]) => {
-      const headers = headerKey.split("|").filter(Boolean);
-
-      let headerRow = "";
-
-      if (headers.length > 0) {
-        const headersHtml = headers.map((h) => `<th>${h}</th>`).join("");
-
-        headerRow = `<thead><tr>${headersHtml}</tr></thead>`;
-      }
-
-      return `<table>${headerRow}${rows.join("")}</table>`;
-    })
-    .join("");
-};
-
-const buildListContentHtml = (detail: Element, searchWords: string[]): string => {
-  const uls = [...detail.querySelectorAll<HTMLUListElement>("ul")];
-
-  const parts: string[] = [];
-
-  const addedParts = new Set<string>();
-
-  for (const ul of uls) {
-    const ulClone = ul.cloneNode(true) as Element;
-
-    removeFigureContainers(ulClone);
-
-    const ulText = stripHtml(ulClone.outerHTML);
-
-    const normalizedUlText = normalizeText(ulText);
-
-    const hasMatch =
-      searchWords.length === 0 ||
-      searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
-
-    if (hasMatch) {
-      const additionContainer = getTopLevelAdditionContainer(
-        ul,
-        detail,
-        ADDITION_CONTAINER_SELECTOR
-      );
-
-      if (additionContainer) {
-        const additionClone = additionContainer.cloneNode(true) as Element;
-
-        removeFigureContainers(additionClone);
-
-        const additionHtml = additionClone.outerHTML;
-
-        if (!addedParts.has(additionHtml)) {
-          parts.push(additionHtml);
-          addedParts.add(additionHtml);
-        }
-
-        continue;
-      }
-
-      const ulHtml = ulClone.outerHTML;
-
-      if (!addedParts.has(ulHtml)) {
-        parts.push(ulHtml);
-        addedParts.add(ulHtml);
-      }
-    }
-  }
-
-  return parts.filter(Boolean).join("\n");
-};
-
 const getSummaryTitle = (summary: Element): string => {
   const titleElement = summary.querySelector("h2");
 
@@ -1280,19 +1051,23 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
       const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
 
-      const additionsContent = buildAdditionsHtml(
-        detail,
-        ADDITION_CONTAINER_SELECTOR,
-        removeFigureContainers
-      );
+      const additionsContent = buildAdditionsHtml(detail, ADDITION_CONTAINER_SELECTOR);
 
       const linkHrefs = collectLinkHrefs(detail);
 
       const content = buildParagraphsHtml(detail);
 
-      const tableContent = buildTableGroupsHtml(detail, []);
+      const tableContent = buildTableGroupsHtml(detail, [], {
+        decodeHtmlEntities,
+        normalizeKeyCombination,
+      });
 
-      const listContent = buildListContentHtml(detail, []);
+      const listContent = buildListContentHtml(detail, [], {
+        additionContainerSelector: ADDITION_CONTAINER_SELECTOR,
+        getTopLevelAdditionContainer,
+        normalizeText,
+        stripHtml,
+      });
 
       const text = [
         content,
