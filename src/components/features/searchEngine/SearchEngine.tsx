@@ -36,6 +36,7 @@ import {
   type WordFeatures,
 } from "./searchPhoneticUtilities";
 import {
+  compileSearchQuery,
   searchDetails,
   type SearchWorkerDetail,
   type WorkerRankedResult,
@@ -47,8 +48,6 @@ import {
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
 import {
-  extractSearchWords,
-  isKeyCombinationSearch,
   normalizeKeyCombination,
   normalizeText,
   normalizeWord,
@@ -377,21 +376,6 @@ const getWordMatchType = (
   }
 
   return undefined;
-};
-
-const compileSearchQuery = (text: string): CompiledSearchQuery => {
-  const searchWords = extractSearchWords(text);
-
-  return {
-    isKeyCombination: isKeyCombinationSearch(text),
-    normalizedQuery: normalizeText(text),
-    originalText: text,
-    searchWords,
-    words: searchWords.map((normalizedWord) => ({
-      features: getWordFeatures(normalizedWord),
-      normalizedWord,
-    })),
-  };
 };
 
 const extractKeyCombinationText = (element: Element): string => {

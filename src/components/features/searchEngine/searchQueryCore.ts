@@ -23,7 +23,7 @@ import {
   normalizeWord,
 } from "./searchTextUtilities";
 
-type TextSearchIndex = {
+export type TextSearchIndex = {
   consonantPrefixSet: Set<string>;
   consonantSet: Set<string>;
   foldedPrefixSet: Set<string>;
@@ -43,7 +43,7 @@ type CompiledSearchWord = {
   normalizedWord: string;
 };
 
-type CompiledSearchQuery = {
+export type CompiledSearchQuery = {
   isKeyCombination: boolean;
   normalizedQuery: string;
   originalText: string;
@@ -51,7 +51,7 @@ type CompiledSearchQuery = {
   words: CompiledSearchWord[];
 };
 
-type FieldMatchInfo = {
+export type FieldMatchInfo = {
   highestPriority: number;
   longestMatchedWordLength: number;
   matchedWords: string[];
@@ -186,7 +186,7 @@ const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
   return Boolean(getWordMatchType(getWordFeatures(normalizedWord), index));
 };
 
-const hasAllQueryWordsMatch = (
+export const hasAllQueryWordsMatch = (
   textSearchIndex: TextSearchIndex,
   compiledQuery: CompiledSearchQuery
 ): boolean => {
@@ -212,7 +212,7 @@ const hasAnyQueryWordMatch = (
   return false;
 };
 
-const getFieldMatchInfo = (
+export const getFieldMatchInfo = (
   textSearchIndex: TextSearchIndex,
   compiledQuery: CompiledSearchQuery
 ): FieldMatchInfo => {
@@ -246,7 +246,7 @@ const getFieldMatchInfo = (
   };
 };
 
-const compileSearchQuery = (text: string): CompiledSearchQuery => {
+export const compileSearchQuery = (text: string): CompiledSearchQuery => {
   const searchWords = extractSearchWords(text);
 
   return {
@@ -261,7 +261,7 @@ const compileSearchQuery = (text: string): CompiledSearchQuery => {
   };
 };
 
-const hasCompiledQueryMatchInIndexes = (
+export const hasCompiledQueryMatchInIndexes = (
   fieldIndexes: TextSearchIndex[],
   compiledQuery: CompiledSearchQuery,
   mode: "all" | "any" = "all"
