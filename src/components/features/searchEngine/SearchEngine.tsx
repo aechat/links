@@ -46,21 +46,17 @@ import {
   renderHighlightedText,
 } from "./searchHighlightUtilities";
 import {SearchModal} from "./SearchModal";
+import {normalizeLatinPhonetics, type WordFeatures} from "./searchPhoneticUtilities";
 import {
-  getConsonantSignature,
-  getWordFeatures,
-  getWordStem,
-  MIN_CONSONANT_SIGNATURE_LENGTH,
-  MIN_PREFIX_LENGTH,
-  MIN_STEM_LENGTH,
-  normalizeLatinPhonetics,
-  WORD_MATCH_PRIORITY,
-  type WordFeatures,
-} from "./searchPhoneticUtilities";
-import {
+  buildSearchIndex,
+  type CompiledSearchQuery,
   compileSearchQuery,
+  getFieldMatchInfo,
+  hasCompiledQueryMatchInFields,
+  hasCompiledQueryMatchInIndexes,
   searchDetails,
   type SearchWorkerDetail,
+  type TextSearchIndex,
   type WorkerRankedResult,
 } from "./searchQueryCore";
 import {SearchResultCard} from "./SearchResultCard";
@@ -70,11 +66,7 @@ import {
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
 import {formatSearchSnippetResult} from "./searchSnippetUtilities";
-import {
-  normalizeKeyCombination,
-  normalizeText,
-  normalizeWord,
-} from "./searchTextUtilities";
+import {normalizeKeyCombination, normalizeText} from "./searchTextUtilities";
 
 export interface SearchContextType {
   closeModal: () => void;
@@ -131,208 +123,6 @@ const stripHtml = (html: string): string => {
   return temporary.textContent || "";
 };
 
-type TextSearchIndex = {
-  consonantPrefixSet: Set<string>;
-  consonantSet: Set<string>;
-  foldedPrefixSet: Set<string>;
-  normalizedText: string;
-  normalizedPrefixSet: Set<string>;
-  normalizedWordSet: Set<string>;
-  stemSet: Set<string>;
-  foldedText: string;
-  foldedWordSet: Set<string>;
-  foldedStemSet: Set<string>;
-};
-
-type WordMatchType = "exact" | "prefix" | "folded" | "consonant" | "stem";
-
-type CompiledSearchWord = {
-  features: WordFeatures;
-  normalizedWord: string;
-};
-
-type CompiledSearchQuery = {
-  isKeyCombination: boolean;
-  normalizedQuery: string;
-  originalText: string;
-  searchWords: string[];
-  words: CompiledSearchWord[];
-};
-
-type FieldMatchInfo = {
-  highestPriority: number;
-  longestMatchedWordLength: number;
-  matchedWords: string[];
-  totalMatched: number;
-  typeCounts: Record<WordMatchType, number>;
-};
-
-const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
-  consonant: 0,
-  exact: 0,
-  folded: 0,
-  prefix: 0,
-  stem: 0,
-});
-
-const buildWordPrefixSet = (words: string[]): Set<string> => {
-  const prefixSet = new Set<string>();
-
-  for (const word of words) {
-    for (let index = MIN_PREFIX_LENGTH; index < word.length; index += 1) {
-      prefixSet.add(word.slice(0, index));
-    }
-  }
-
-  return prefixSet;
-};
-
-const buildSearchIndex = (text: string): TextSearchIndex => {
-  const normalizedText = normalizeText(text);
-
-  const foldedText = normalizeLatinPhonetics(normalizedText);
-
-  const words = normalizedText.split(" ").filter(Boolean);
-
-  const foldedWords = foldedText.split(" ").filter(Boolean);
-
-  const normalizedWordSet = new Set(words);
-
-  const foldedWordSet = new Set(foldedWords);
-
-  const normalizedPrefixSet = buildWordPrefixSet(words);
-
-  const foldedPrefixSet = buildWordPrefixSet(foldedWords);
-
-  const stemSet = new Set(
-    words
-      .map((word) => getWordStem(word))
-      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
-  );
-
-  const foldedStemSet = new Set(
-    foldedWords
-      .map((word) => getWordStem(word))
-      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
-  );
-
-  const consonantSignatures = [
-    ...new Set(
-      [...words, ...foldedWords]
-        .map((word) => getConsonantSignature(word))
-        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
-    ),
-  ];
-
-  const consonantSet = new Set(consonantSignatures);
-
-  const consonantPrefixSet = new Set<string>();
-
-  for (const signature of consonantSignatures) {
-    for (
-      let index = MIN_CONSONANT_SIGNATURE_LENGTH;
-      index < signature.length;
-      index += 1
-    ) {
-      consonantPrefixSet.add(signature.slice(0, index));
-    }
-  }
-
-  return {
-    consonantPrefixSet,
-    consonantSet,
-    foldedPrefixSet,
-    foldedStemSet,
-    foldedText,
-    foldedWordSet,
-    normalizedPrefixSet,
-    normalizedText,
-    normalizedWordSet,
-    stemSet,
-  };
-};
-
-const hasExactVariantMatch = (
-  variants: string[],
-  text: string,
-  wordSet: Set<string>
-): boolean => {
-  return variants.some((variant) => text.includes(variant) || wordSet.has(variant));
-};
-
-const hasPrefixVariantMatch = (variants: string[], prefixSet: Set<string>): boolean => {
-  return variants.some(
-    (variant) => variant.length >= MIN_PREFIX_LENGTH && prefixSet.has(variant)
-  );
-};
-
-const hasConsonantSignatureMatch = (
-  signatures: string[],
-  consonantSet: Set<string>,
-  consonantPrefixSet: Set<string>
-): boolean => {
-  return signatures.some(
-    (signature) => consonantSet.has(signature) || consonantPrefixSet.has(signature)
-  );
-};
-
-const hasStemMatch = (
-  stems: string[],
-  stemSet: Set<string>,
-  foldedStemSet: Set<string>
-): boolean => {
-  return stems.some((stem) => stemSet.has(stem) || foldedStemSet.has(stem));
-};
-
-const getWordMatchType = (
-  wordFeatures: WordFeatures,
-  index: TextSearchIndex
-): WordMatchType | undefined => {
-  if (
-    hasExactVariantMatch(
-      wordFeatures.variants,
-      index.normalizedText,
-      index.normalizedWordSet
-    )
-  ) {
-    return "exact";
-  }
-
-  if (hasPrefixVariantMatch(wordFeatures.variants, index.normalizedPrefixSet)) {
-    return "prefix";
-  }
-
-  if (
-    hasExactVariantMatch(
-      wordFeatures.foldedVariants,
-      index.foldedText,
-      index.foldedWordSet
-    )
-  ) {
-    return "folded";
-  }
-
-  if (hasPrefixVariantMatch(wordFeatures.foldedVariants, index.foldedPrefixSet)) {
-    return "prefix";
-  }
-
-  if (
-    hasConsonantSignatureMatch(
-      wordFeatures.consonantSignatures,
-      index.consonantSet,
-      index.consonantPrefixSet
-    )
-  ) {
-    return "consonant";
-  }
-
-  if (hasStemMatch(wordFeatures.stemVariants, index.stemSet, index.foldedStemSet)) {
-    return "stem";
-  }
-
-  return undefined;
-};
-
 const extractKeyCombinationText = (element: Element): string => {
   const keyElements = element.querySelectorAll("mark.key");
 
@@ -345,90 +135,6 @@ const extractKeyCombinationText = (element: Element): string => {
   return element.textContent?.toLowerCase() || "";
 };
 
-const hasWordMatch = (searchWord: string, index: TextSearchIndex): boolean => {
-  const normalizedWord = normalizeWord(searchWord);
-
-  if (!normalizedWord) {
-    return false;
-  }
-
-  return Boolean(getWordMatchType(getWordFeatures(normalizedWord), index));
-};
-
-const hasAllQueryWordsMatch = (
-  textSearchIndex: TextSearchIndex,
-  compiledQuery: CompiledSearchQuery
-): boolean => {
-  for (const {normalizedWord} of compiledQuery.words) {
-    if (!hasWordMatch(normalizedWord, textSearchIndex)) {
-      return false;
-    }
-  }
-
-  return true;
-};
-
-const hasAnyQueryWordMatch = (
-  textSearchIndex: TextSearchIndex,
-  compiledQuery: CompiledSearchQuery
-): boolean => {
-  for (const {normalizedWord} of compiledQuery.words) {
-    if (hasWordMatch(normalizedWord, textSearchIndex)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-const matchTextWithCompiledQuery = (
-  text: string,
-  compiledQuery: CompiledSearchQuery,
-  mode: "all" | "any" = "all"
-): boolean => {
-  const textSearchIndex = buildSearchIndex(text);
-
-  if (mode === "any") {
-    return hasAnyQueryWordMatch(textSearchIndex, compiledQuery);
-  }
-
-  return hasAllQueryWordsMatch(textSearchIndex, compiledQuery);
-};
-
-const getFieldMatchInfo = (
-  textSearchIndex: TextSearchIndex,
-  compiledQuery: CompiledSearchQuery
-): FieldMatchInfo => {
-  const typeCounts = createEmptyTypeCounts();
-
-  const matchedWords: string[] = [];
-
-  let highestPriority = 0;
-
-  let longestMatchedWordLength = 0;
-
-  for (const {features, normalizedWord} of compiledQuery.words) {
-    const matchType = getWordMatchType(features, textSearchIndex);
-
-    if (!matchType) {
-      continue;
-    }
-
-    matchedWords.push(normalizedWord);
-    typeCounts[matchType] += 1;
-    highestPriority = Math.max(highestPriority, WORD_MATCH_PRIORITY[matchType]);
-    longestMatchedWordLength = Math.max(longestMatchedWordLength, normalizedWord.length);
-  }
-
-  return {
-    highestPriority,
-    longestMatchedWordLength,
-    matchedWords,
-    totalMatched: matchedWords.length,
-    typeCounts,
-  };
-};
-
 const hasMatch = (text: string, compiledQuery: CompiledSearchQuery): boolean => {
   if (compiledQuery.isKeyCombination) {
     const normalizedText = normalizeKeyCombination(text);
@@ -438,7 +144,7 @@ const hasMatch = (text: string, compiledQuery: CompiledSearchQuery): boolean => 
     return normalizedText.includes(normalizedSearch);
   }
 
-  return matchTextWithCompiledQuery(text, compiledQuery);
+  return hasCompiledQueryMatchInIndexes([buildSearchIndex(text)], compiledQuery);
 };
 
 const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
@@ -484,47 +190,6 @@ const extractEntityTextFromContent = (content: string): string => {
       .map((element) => element.textContent?.trim() || "")
       .filter(Boolean);
   }).join(" ");
-};
-
-const hasCompiledQueryMatchInIndexes = (
-  fieldIndexes: TextSearchIndex[],
-  compiledQuery: CompiledSearchQuery,
-  mode: "all" | "any" = "all"
-): boolean => {
-  if (fieldIndexes.length === 0) {
-    return false;
-  }
-
-  if (mode === "any") {
-    return fieldIndexes.some((fieldIndex) =>
-      hasAnyQueryWordMatch(fieldIndex, compiledQuery)
-    );
-  }
-
-  for (const {features} of compiledQuery.words) {
-    const hasWordMatchInAnyField = fieldIndexes.some((fieldIndex) =>
-      Boolean(getWordMatchType(features, fieldIndex))
-    );
-
-    if (!hasWordMatchInAnyField) {
-      return false;
-    }
-  }
-
-  return true;
-};
-
-const hasCompiledQueryMatchInFields = (
-  fields: string[],
-  compiledQuery: CompiledSearchQuery,
-  mode: "all" | "any" = "all"
-): boolean => {
-  const fieldIndexes = fields
-    .map((field) => field.trim())
-    .filter(Boolean)
-    .map((field) => buildSearchIndex(field));
-
-  return hasCompiledQueryMatchInIndexes(fieldIndexes, compiledQuery, mode);
 };
 
 const getTokenPositionsForWord = (

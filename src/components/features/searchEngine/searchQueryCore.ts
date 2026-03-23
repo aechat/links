@@ -97,6 +97,83 @@ const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
   stem: 0,
 });
 
+const buildWordPrefixSet = (words: string[]): Set<string> => {
+  const prefixSet = new Set<string>();
+
+  for (const word of words) {
+    for (let index = MIN_PREFIX_LENGTH; index < word.length; index += 1) {
+      prefixSet.add(word.slice(0, index));
+    }
+  }
+
+  return prefixSet;
+};
+
+export const buildSearchIndex = (text: string): TextSearchIndex => {
+  const normalizedText = normalizeText(text);
+
+  const foldedText = normalizeLatinPhonetics(normalizedText);
+
+  const words = normalizedText.split(" ").filter(Boolean);
+
+  const foldedWords = foldedText.split(" ").filter(Boolean);
+
+  const normalizedWordSet = new Set(words);
+
+  const foldedWordSet = new Set(foldedWords);
+
+  const normalizedPrefixSet = buildWordPrefixSet(words);
+
+  const foldedPrefixSet = buildWordPrefixSet(foldedWords);
+
+  const stemSet = new Set(
+    words
+      .map((word) => getWordStem(word))
+      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+  );
+
+  const foldedStemSet = new Set(
+    foldedWords
+      .map((word) => getWordStem(word))
+      .filter((stem) => stem.length >= MIN_STEM_LENGTH)
+  );
+
+  const consonantSignatures = [
+    ...new Set(
+      [...words, ...foldedWords]
+        .map((word) => getConsonantSignature(word))
+        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
+    ),
+  ];
+
+  const consonantSet = new Set(consonantSignatures);
+
+  const consonantPrefixSet = new Set<string>();
+
+  for (const signature of consonantSignatures) {
+    for (
+      let index = MIN_CONSONANT_SIGNATURE_LENGTH;
+      index < signature.length;
+      index += 1
+    ) {
+      consonantPrefixSet.add(signature.slice(0, index));
+    }
+  }
+
+  return {
+    consonantPrefixSet,
+    consonantSet,
+    foldedPrefixSet,
+    foldedStemSet,
+    foldedText,
+    foldedWordSet,
+    normalizedPrefixSet,
+    normalizedText,
+    normalizedWordSet,
+    stemSet,
+  };
+};
+
 const hasExactVariantMatch = (
   variants: string[],
   text: string,
@@ -287,6 +364,19 @@ export const hasCompiledQueryMatchInIndexes = (
   }
 
   return true;
+};
+
+export const hasCompiledQueryMatchInFields = (
+  fields: string[],
+  compiledQuery: CompiledSearchQuery,
+  mode: "all" | "any" = "all"
+): boolean => {
+  const fieldIndexes = fields
+    .map((field) => field.trim())
+    .filter(Boolean)
+    .map((field) => buildSearchIndex(field));
+
+  return hasCompiledQueryMatchInIndexes(fieldIndexes, compiledQuery, mode);
 };
 
 const hasTokenVariantMatch = (token: string, variants: string[]): boolean => {
