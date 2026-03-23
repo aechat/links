@@ -119,7 +119,7 @@ const ALIAS_REGEXES: Record<string, RegExp> = Object.fromEntries(
   ])
 );
 
-const normalizationRegex = /[^a-zа-яё0-9+\-=()]/gi;
+const normalizationRegex = /[^a-zа-яё0-9_+\-=()]/gi;
 
 const replaceCharsRegex = /ё/gi;
 
