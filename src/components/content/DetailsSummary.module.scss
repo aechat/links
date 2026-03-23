@@ -164,28 +164,7 @@
 }
 
 .details-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1px 5px;
-  align-items: center;
-  justify-content: flex-start;
-  max-width: fit-content;
-  text-transform: uppercase;
-  line-height: 1.1;
-
-  mark {
-    display: inline-flex;
-    align-items: center;
-    outline: none;
-    background: none;
-    padding: 0;
-    color: var(--color-text-tertiary);
-    font-size: min(
-      calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
-      0.675rem
-    );
-    font-weight: 500;
-  }
+  @include details-tags-base();
 
   &-toggle {
     opacity: 0.7;
@@ -196,60 +175,10 @@
 }
 
 .details-summary {
-  display: flex;
-  position: relative;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 1px solid var(--color-surface-primary-border);
-  background-color: var(--color-surface-primary-background);
-  cursor: pointer;
-  padding: 12px 15px;
-  text-transform: uppercase;
-  line-height: 1.3;
-  color: var(--color-surface-primary-text);
-  font-family: Onest, sans-serif;
-  font-size: min(
-    calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
-    1.225rem
-  );
-  font-weight: 650;
-
-  &:not(:last-child) {
-    border-top: 1px solid var(--color-surface-primary-border);
-    border-bottom: none;
-  }
-
-  &:hover {
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    background-color: var(--color-surface-primary-background-active);
-  }
-
-  h2 {
-    margin-inline-end: 15px;
-    text-wrap: balance;
-  }
-
-  &-left {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-  }
+  @include details-summary-base();
 
   &-icon {
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "JetBrains Mono", monospace;
-  }
-
-  &-text-content {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
   }
 }
 

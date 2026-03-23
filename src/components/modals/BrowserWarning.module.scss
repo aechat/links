@@ -68,29 +68,9 @@
 
     button,
     a {
-      display: flex;
-      flex: 1 0 250px;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      margin-block: 0;
-      border-radius: 0;
-      background-color: var(--color-button-group-background);
-      padding-block: 8px;
-      padding-inline: 10px;
-      vertical-align: middle;
-      text-align: center;
-      text-decoration: none;
-      line-height: 1.5;
-      color: var(--color-button-group-text);
-      font-family: Onest, sans-serif;
-      font-size: 0.975rem;
-      font-weight: 600;
+      @include button-group-item-base($flex-basis: 250px, $include-outline: false);
 
-      &::before {
-        display: none;
-      }
+      gap: 10px;
     }
 
     img {
