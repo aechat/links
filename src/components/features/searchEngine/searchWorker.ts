@@ -1,11 +1,12 @@
 import {stemmer as englishStemmer} from "@orama/stemmers/english";
 import {stemmer as russianStemmer} from "@orama/stemmers/russian";
+
+import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
 import {
   computeSearchScore,
   type SearchScoringDependencies,
   selectCandidatesForRescore,
 } from "./searchScoringUtilities";
-import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
 
 type TextSearchIndex = {
   consonantPrefixSet: Set<string>;
@@ -952,8 +953,11 @@ const getPreliminaryRankScore = (
   compiledQuery: CompiledSearchQuery
 ): number => {
   const titleMatchInfo = getFieldMatchInfo(detail.searchIndexes.title, compiledQuery);
+
   const tagMatchInfo = getFieldMatchInfo(detail.searchIndexes.tag, compiledQuery);
+
   const contentMatchInfo = getFieldMatchInfo(detail.searchIndexes.content, compiledQuery);
+
   const entityMatchInfo = getFieldMatchInfo(detail.searchIndexes.entity, compiledQuery);
 
   let score = 0;
@@ -1027,7 +1031,8 @@ globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
     filtered.length >= SEARCH_RESCORE_CONFIG.activationThreshold
       ? selectCandidatesForRescore({
           candidateLimit: SEARCH_RESCORE_CONFIG.candidateLimit,
-          getIdMatchPriority: (detail) => getIdMatchPriority(detail.id, compiledQuery.originalText),
+          getIdMatchPriority: (detail) =>
+            getIdMatchPriority(detail.id, compiledQuery.originalText),
           getPreliminaryScore: (detail) => getPreliminaryRankScore(detail, compiledQuery),
           items: filtered,
         })

@@ -23,18 +23,18 @@ import {withSelectionHaptic} from "../../../utils/haptics";
 import {scrollToElement} from "../../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../../utils/stringUtilities";
 import additionStyles from "../../content/Addition.module.scss";
+
+import searchStyles from "./SearchEngine.module.scss";
+import {SearchModal} from "./SearchModal";
+import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
+import {SearchResultCard} from "./SearchResultCard";
 import {
   computeSearchScore,
   getFieldMatchTypeScore,
   getProximityBonus,
-  selectCandidatesForRescore,
   type SearchScoringDependencies,
+  selectCandidatesForRescore,
 } from "./searchScoringUtilities";
-import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
-import {SearchModal} from "./SearchModal";
-import {SearchResultCard} from "./SearchResultCard";
-
-import searchStyles from "./SearchEngine.module.scss";
 
 export interface SearchContextType {
   closeModal: () => void;
@@ -2512,8 +2512,11 @@ const getPreliminaryRankScore = (
   compiledQuery: CompiledSearchQuery
 ): number => {
   const titleMatchInfo = getFieldMatchInfo(detail.searchIndexes.title, compiledQuery);
+
   const tagMatchInfo = getFieldMatchInfo(detail.searchIndexes.tag, compiledQuery);
+
   const contentMatchInfo = getFieldMatchInfo(detail.searchIndexes.content, compiledQuery);
+
   const entityMatchInfo = getFieldMatchInfo(detail.searchIndexes.entity, compiledQuery);
 
   let score = 0;
@@ -2765,7 +2768,8 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
               candidateLimit: SEARCH_RESCORE_CONFIG.candidateLimit,
               getIdMatchPriority: (detail) =>
                 getIdMatchPriority(detail.id, compiledQuery.originalText),
-              getPreliminaryScore: (detail) => getPreliminaryRankScore(detail, compiledQuery),
+              getPreliminaryScore: (detail) =>
+                getPreliminaryRankScore(detail, compiledQuery),
               items: filtered,
             })
           : filtered;
@@ -3541,15 +3545,15 @@ const SearchResults: React.FC<{
         isHovered={isHovered}
         isMobile={isMobile}
         isSelected={isSelected}
-        tagsToDisplay={tagsToDisplay}
+        setContentRef={(element) => {
+          resultContentReferences.current[id] = element;
+        }}
         setResultRef={(element) => {
           if (resultRefs.current) {
             resultRefs.current[index] = element;
           }
         }}
-        setContentRef={(element) => {
-          resultContentReferences.current[id] = element;
-        }}
+        tagsToDisplay={tagsToDisplay}
         onClick={(event_) => {
           setSelectedResultIndex(index);
           handleResultClick(event_, anchor || id);
@@ -4262,9 +4266,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       isFadeVisible={isFadeVisible}
       isOpen={isModalOpen}
       query={query}
-      resultWord={getResultWord(results.length)}
       resultsContainerRef={resultsContainerReference}
       resultsCount={results.length}
+      resultWord={getResultWord(results.length)}
       onChangeQuery={handleQueryChange}
       onClearQuery={() => {
         setQuery("");
