@@ -1,5 +1,3 @@
-import {stemmer as englishStemmer} from "@orama/stemmers/english";
-import {stemmer as russianStemmer} from "@orama/stemmers/russian";
 import debounce from "lodash/debounce";
 import React, {
   createContext,
@@ -26,14 +24,22 @@ import additionStyles from "../../content/Addition.module.scss";
 
 import searchStyles from "./SearchEngine.module.scss";
 import {SearchModal} from "./SearchModal";
-import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
+import {
+  getConsonantSignature,
+  getWordFeatures,
+  getWordStem,
+  MIN_CONSONANT_SIGNATURE_LENGTH,
+  MIN_PREFIX_LENGTH,
+  MIN_STEM_LENGTH,
+  normalizeLatinPhonetics,
+  WORD_MATCH_PRIORITY,
+  type WordFeatures,
+} from "./searchPhoneticUtilities";
 import {SearchResultCard} from "./SearchResultCard";
 import {
-  computeSearchScore,
   getFieldMatchTypeScore,
   getProximityBonus,
   type SearchScoringDependencies,
-  selectCandidatesForRescore,
 } from "./searchScoringUtilities";
 import {
   extractSearchWords,
@@ -42,6 +48,11 @@ import {
   normalizeText,
   normalizeWord,
 } from "./searchTextUtilities";
+import {
+  searchDetails,
+  type SearchWorkerDetail,
+  type WorkerRankedResult,
+} from "./searchWorker";
 
 export interface SearchContextType {
   closeModal: () => void;
@@ -181,13 +192,6 @@ type TextSearchIndex = {
 
 type WordMatchType = "exact" | "prefix" | "folded" | "consonant" | "stem";
 
-type WordFeatures = {
-  consonantSignatures: string[];
-  foldedVariants: string[];
-  stemVariants: string[];
-  variants: string[];
-};
-
 type CompiledSearchWord = {
   features: WordFeatures;
   normalizedWord: string;
@@ -209,29 +213,6 @@ type FieldMatchInfo = {
   typeCounts: Record<WordMatchType, number>;
 };
 
-const MIN_STEM_LENGTH = 3;
-
-const MIN_CONSONANT_SIGNATURE_LENGTH = 3;
-
-const MIN_PREFIX_LENGTH = 2;
-
-const MAX_WORD_FEATURES_CACHE_SIZE = 5000;
-
-const WORD_MATCH_PRIORITY: Record<WordMatchType, number> = {
-  consonant: 2,
-  exact: 4,
-  folded: 3,
-  prefix: 3,
-  stem: 1,
-};
-
-const EMPTY_WORD_FEATURES: WordFeatures = {
-  consonantSignatures: [],
-  foldedVariants: [],
-  stemVariants: [],
-  variants: [],
-};
-
 const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
   consonant: 0,
   exact: 0,
@@ -239,327 +220,6 @@ const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
   prefix: 0,
   stem: 0,
 });
-
-const WORD_FEATURES_CACHE = new Map<string, WordFeatures>();
-
-const LATIN_VOWELS_REGEX = /[aeiouyw]/g;
-
-const CYRILLIC_VOWELS_REGEX = /[аеёиоуыэюяй]/g;
-
-const REPEATED_CHARACTERS_REGEX = /(.)\1+/g;
-
-const getConsonantSignature = (word: string): string => {
-  return normalizeWord(word)
-    .replaceAll(LATIN_VOWELS_REGEX, "")
-    .replaceAll(CYRILLIC_VOWELS_REGEX, "")
-    .replaceAll(REPEATED_CHARACTERS_REGEX, "$1");
-};
-
-const CYR_TO_LAT: Record<string, string> = {
-  а: "a",
-  б: "b",
-  в: "v",
-  г: "g",
-  д: "d",
-  е: "e",
-  ё: "yo",
-  ж: "zh",
-  з: "z",
-  и: "i",
-  й: "y",
-  к: "k",
-  л: "l",
-  м: "m",
-  н: "n",
-  о: "o",
-  п: "p",
-  р: "r",
-  с: "s",
-  т: "t",
-  у: "u",
-  ф: "f",
-  х: "kh",
-  ц: "ts",
-  ч: "ch",
-  ш: "sh",
-  щ: "shch",
-  ъ: "",
-  ы: "y",
-  ь: "",
-  э: "e",
-  ю: "yu",
-  я: "ya",
-};
-
-const LAT_TO_CYR_ALIASES: Record<string, string> = {
-  eh: "э",
-  ia: "я",
-  ja: "я",
-  jh: "ж",
-  jo: "ё",
-  ju: "ю",
-  oo: "у",
-  ou: "у",
-  sch: "щ",
-};
-
-const LAT_TO_CYR_BASE: Record<string, string> = {
-  ...Object.fromEntries(
-    Object.entries(CYR_TO_LAT)
-      .filter(([, value]) => value.length > 0)
-      .map(([key, value]) => [value, key])
-  ),
-  c: "к",
-  h: "х",
-  j: "й",
-  q: "к",
-  w: "в",
-  x: "х",
-  ...LAT_TO_CYR_ALIASES,
-};
-
-const CYR_TO_LAT_MULTI = Object.entries(CYR_TO_LAT).filter(
-  ([, value]) => value.length > 1
-);
-
-const CYR_TO_LAT_SINGLE = Object.fromEntries(
-  Object.entries(CYR_TO_LAT).filter(([, value]) => value.length <= 1)
-);
-
-const LAT_TO_CYR_MULTI = Object.entries(LAT_TO_CYR_BASE)
-  .filter(([key]) => key.length > 1)
-  .toSorted((a, b) => b[0].length - a[0].length);
-
-const LAT_TO_CYR_SINGLE = Object.fromEntries(
-  Object.entries(LAT_TO_CYR_BASE).filter(([key]) => key.length === 1)
-);
-
-const translitCyrToLat = (text: string): string => {
-  let output = text.toLowerCase();
-
-  for (const [from, to] of CYR_TO_LAT_MULTI) {
-    output = output.replaceAll(from, to);
-  }
-
-  return [...output].map((char) => CYR_TO_LAT_SINGLE[char] ?? char).join("");
-};
-
-const translitLatToCyr = (text: string): string => {
-  let output = text.toLowerCase();
-
-  for (const [from, to] of LAT_TO_CYR_MULTI) {
-    output = output.replaceAll(from, to);
-  }
-
-  return [...output].map((char) => LAT_TO_CYR_SINGLE[char] ?? char).join("");
-};
-
-const normalizeLatinPhonetics = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replaceAll("qu", "kv")
-    .replaceAll("tch", "ch")
-    .replaceAll("dge", "j")
-    .replaceAll("wr", "r")
-    .replaceAll("wh", "w")
-    .replaceAll(/\bkn/g, "n")
-    .replaceAll(/\bgn/g, "n")
-    .replaceAll(/mb\b/g, "m")
-    .replaceAll("eigh", "ei")
-    .replaceAll("igh", "ai")
-    .replaceAll(/tion\b/g, "shn")
-    .replaceAll(/sion\b/g, "shn")
-    .replaceAll("ee", "i")
-    .replaceAll("ea", "i")
-    .replaceAll("oo", "u")
-    .replaceAll("ou", "au")
-    .replaceAll("ow", "au")
-    .replaceAll("ph", "f")
-    .replaceAll("ck", "k")
-    .replaceAll("x", "ks")
-    .replaceAll(/c(?=[eiy])/g, "s")
-    .replaceAll(/g(?=[eiy])/g, "j")
-    .replaceAll("c", "k")
-    .replaceAll(/\b([a-z]*?)a([b-df-hj-np-tv-z])e\b/g, "$1ei$2")
-    .replaceAll(/\b([a-z]*?)i([b-df-hj-np-tv-z])e\b/g, "$1ai$2")
-    .replaceAll(/\b([a-z]*?)o([b-df-hj-np-tv-z])e\b/g, "$1ou$2")
-    .replaceAll(/\b([a-z]*?)u([b-df-hj-np-tv-z])e\b/g, "$1yu$2")
-    .replaceAll(/\b([a-z]{4,})e\b/g, "$1")
-    .replaceAll("w", "v")
-    .replaceAll("q", "k")
-    .replaceAll("y", "i")
-    .replaceAll(/([b-df-hj-np-tv-z])\1+/g, "$1");
-};
-
-type VariantRule = (word: string, variants: Set<string>) => void;
-
-const createBidirectionalReplaceRule = (from: string, to: string): VariantRule => {
-  return (word, variants) => {
-    if (word.includes(from)) {
-      variants.add(word.replaceAll(from, to));
-    }
-
-    if (word.includes(to)) {
-      variants.add(word.replaceAll(to, from));
-    }
-  };
-};
-
-const addPhoneticVariants: VariantRule = (word, variants) => {
-  variants.add(normalizeLatinPhonetics(word));
-};
-
-const addPluralVariants: VariantRule = (word, variants) => {
-  if (!/^[a-z]+$/.test(word) || word.length < 4) {
-    return;
-  }
-
-  if (word.endsWith("es") && word.length > 5) {
-    variants.add(word.slice(0, -2));
-  }
-
-  if (word.endsWith("s") && word.length > 4) {
-    variants.add(word.slice(0, -1));
-  } else {
-    variants.add(`${word}s`);
-  }
-};
-
-const VARIANT_RULES: VariantRule[] = [
-  ...(
-    [
-      ["f", "ph"],
-      ["j", "g"],
-      ["k", "c"],
-      ["kw", "ku"],
-      ["qu", "ku"],
-      ["qu", "kw"],
-      ["kv", "ku"],
-      ["kv", "kw"],
-      ["sion", "shn"],
-      ["tion", "shn"],
-      ["x", "gz"],
-      ["x", "kh"],
-      ["x", "ks"],
-      ["ya", "ia"],
-      ["ye", "ie"],
-      ["yo", "io"],
-      ["yu", "iu"],
-      ["zh", "j"],
-    ] as const
-  ).map(([from, to]) => createBidirectionalReplaceRule(from, to)),
-  addPhoneticVariants,
-  addPluralVariants,
-];
-
-const applyVariantRule = (variants: Set<string>, rule: VariantRule): void => {
-  const variantsSnapshot = [...variants];
-
-  for (const variant of variantsSnapshot) {
-    rule(variant, variants);
-  }
-};
-
-const getAutomaticWordVariants = (word: string): string[] => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return [];
-  }
-
-  const variants = new Set<string>([
-    normalizedWord,
-    translitCyrToLat(normalizedWord),
-    translitLatToCyr(normalizedWord),
-  ]);
-
-  for (const rule of VARIANT_RULES) {
-    applyVariantRule(variants, rule);
-  }
-
-  return [...variants].filter(Boolean);
-};
-
-const getWordStem = (word: string): string => {
-  const normalized = normalizeWord(word);
-
-  if (!normalized) {
-    return "";
-  }
-
-  if (/[а-я]/i.test(normalized) || normalized.includes("ё")) {
-    return russianStemmer(normalized);
-  }
-
-  return englishStemmer(normalized);
-};
-
-const buildWordFeatures = (word: string): WordFeatures => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return EMPTY_WORD_FEATURES;
-  }
-
-  const variants = getAutomaticWordVariants(normalizedWord);
-
-  const foldedVariants = [
-    ...new Set(
-      variants.map((variant) => normalizeLatinPhonetics(variant)).filter(Boolean)
-    ),
-  ];
-
-  const consonantSignatures = [
-    ...new Set(
-      variants
-        .map((variant) => getConsonantSignature(variant))
-        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
-    ),
-  ];
-
-  const stemVariants = [
-    ...new Set(
-      variants
-        .map((variant) => getWordStem(variant))
-        .filter((stem) => stem.length >= MIN_STEM_LENGTH)
-    ),
-  ];
-
-  return {
-    consonantSignatures,
-    foldedVariants,
-    stemVariants,
-    variants,
-  };
-};
-
-const getWordFeatures = (word: string): WordFeatures => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return EMPTY_WORD_FEATURES;
-  }
-
-  const cachedFeatures = WORD_FEATURES_CACHE.get(normalizedWord);
-
-  if (cachedFeatures) {
-    return cachedFeatures;
-  }
-
-  const features = buildWordFeatures(normalizedWord);
-
-  WORD_FEATURES_CACHE.set(normalizedWord, features);
-
-  if (WORD_FEATURES_CACHE.size > MAX_WORD_FEATURES_CACHE_SIZE) {
-    const oldestKey = WORD_FEATURES_CACHE.keys().next().value;
-
-    if (typeof oldestKey === "string") {
-      WORD_FEATURES_CACHE.delete(oldestKey);
-    }
-  }
-
-  return features;
-};
 
 const buildWordPrefixSet = (words: string[]): Set<string> => {
   const prefixSet = new Set<string>();
@@ -1186,10 +846,6 @@ const ENTITY_MARK_SELECTORS = [
 
 const TAG_SCORING_TOKEN_CAP = 48;
 
-const TAG_SCORING_DAMPING_START = 16;
-
-const TAG_SCORING_MAX_REDUCTION = 0.45;
-
 const removeFigureContainers = (root: Element): void => {
   for (const element of root.querySelectorAll('[class*="media-figure"]'))
     element.remove();
@@ -1202,20 +858,6 @@ const getTagScoringText = (normalizedTag: string): string => {
   const tagWords = normalizedTag.split(" ").filter(Boolean);
 
   return tagWords.slice(0, TAG_SCORING_TOKEN_CAP).join(" ");
-};
-
-const getTagLengthDampingFactor = (tagTokenCount: number): number => {
-  if (tagTokenCount <= TAG_SCORING_DAMPING_START) {
-    return 1;
-  }
-
-  const maxOverflow = Math.max(1, TAG_SCORING_TOKEN_CAP - TAG_SCORING_DAMPING_START);
-
-  const overflow = Math.min(tagTokenCount - TAG_SCORING_DAMPING_START, maxOverflow);
-
-  const dampingRatio = Math.log1p(overflow) / Math.log1p(maxOverflow);
-
-  return 1 - dampingRatio * TAG_SCORING_MAX_REDUCTION;
 };
 
 const extractEntityTextFromContent = (content: string): string => {
@@ -1919,88 +1561,6 @@ const formatSearchResult = (text: string, compiledQuery: CompiledSearchQuery): s
   return applyAdditionSnippetStyles(bestResult.result);
 };
 
-const computeTitleTagContentMatches = (
-  compiledQuery: CompiledSearchQuery,
-  normalizedTitle: string,
-  normalizedTag: string,
-  normalizedContent: string,
-  normalizedEntityText: string,
-  prebuiltIndexes?: {
-    content: TextSearchIndex;
-    entity: TextSearchIndex;
-    tag: TextSearchIndex;
-    tagScoring: TextSearchIndex;
-    title: TextSearchIndex;
-  },
-  prebuiltTagTokenCount?: number
-) => {
-  const titleSearchIndex = prebuiltIndexes?.title ?? buildSearchIndex(normalizedTitle);
-
-  const tagSearchIndex = prebuiltIndexes?.tag ?? buildSearchIndex(normalizedTag);
-
-  const tagScoringSearchIndex =
-    prebuiltIndexes?.tagScoring ?? buildSearchIndex(getTagScoringText(normalizedTag));
-
-  const contentSearchIndex =
-    prebuiltIndexes?.content ?? buildSearchIndex(normalizedContent);
-
-  const entitySearchIndex =
-    prebuiltIndexes?.entity ?? buildSearchIndex(normalizedEntityText);
-
-  const titleMatchInfo = getFieldMatchInfo(titleSearchIndex, compiledQuery);
-
-  const tagMatchInfo = getFieldMatchInfo(tagSearchIndex, compiledQuery);
-
-  const tagScoringMatchInfo = getFieldMatchInfo(tagScoringSearchIndex, compiledQuery);
-
-  const contentMatchInfo = getFieldMatchInfo(contentSearchIndex, compiledQuery);
-
-  const entityMatchInfo = getFieldMatchInfo(entitySearchIndex, compiledQuery);
-
-  return {
-    contentMatchInfo,
-    entityMatchInfo,
-    tagMatches: tagMatchInfo.matchedWords,
-    tagMatchInfo,
-    tagScoringMatchInfo,
-    tagTokenCount:
-      prebuiltTagTokenCount ?? normalizedTag.split(" ").filter(Boolean).length,
-    titleMatches: titleMatchInfo.matchedWords,
-    titleMatchInfo,
-  };
-};
-
-const computeScore = (
-  compiledQuery: CompiledSearchQuery,
-  normalizedTitle: string,
-  normalizedTag: string,
-  normalizedContent: string,
-  normalizedEntityText: string,
-  titleMatchInfo: FieldMatchInfo,
-  tagMatchInfo: FieldMatchInfo,
-  tagScoringMatchInfo: FieldMatchInfo,
-  contentMatchInfo: FieldMatchInfo,
-  entityMatchInfo: FieldMatchInfo,
-  tagTokenCount: number
-) => {
-  const tagLengthDampingFactor = getTagLengthDampingFactor(tagTokenCount);
-
-  return computeSearchScore({
-    compiledQuery,
-    contentMatchInfo,
-    dependencies: searchScoringDependencies,
-    entityMatchInfo,
-    normalizedContent,
-    normalizedEntityText,
-    normalizedTag,
-    normalizedTitle,
-    tagLengthDampingFactor,
-    tagMatchInfo,
-    tagScoringMatchInfo,
-    titleMatchInfo,
-  });
-};
-
 const collectDividerTexts = (detail: Element): string[] => {
   return [...detail.querySelectorAll(".ant-divider-inner-text")]
     .map((element) => element.textContent?.trim() || "")
@@ -2017,16 +1577,15 @@ const getTopLevelAdditionContainer = (
   element: Element,
   rootDetail: Element
 ): Element | undefined => {
-  let additionContainer = element.closest(ADDITION_CONTAINER_SELECTOR);
+  let additionContainer: Element | null = element.closest(ADDITION_CONTAINER_SELECTOR);
 
-  if (!additionContainer) {
+  if (additionContainer === null) {
     return;
   }
 
-  while (additionContainer.parentElement) {
-    const parentAdditionContainer = additionContainer.parentElement.closest(
-      ADDITION_CONTAINER_SELECTOR
-    );
+  while (additionContainer.parentElement !== null) {
+    const parentAdditionContainer: Element | null =
+      additionContainer.parentElement.closest(ADDITION_CONTAINER_SELECTOR);
 
     if (!parentAdditionContainer || !rootDetail.contains(parentAdditionContainer)) {
       break;
@@ -2035,7 +1594,7 @@ const getTopLevelAdditionContainer = (
     additionContainer = parentAdditionContainer;
   }
 
-  return additionContainer;
+  return additionContainer ?? undefined;
 };
 
 const buildAdditionsHtml = (detail: Element): string => {
@@ -2309,231 +1868,11 @@ type BaseSearchResult = Omit<
   tagTokenCount: number;
 };
 
-const isSingleParagraphMatchForResult = (
-  lineSearchIndexes: TextSearchIndex[],
-  compiledQuery: CompiledSearchQuery
-): boolean => {
-  for (const lineSearchIndex of lineSearchIndexes) {
-    if (hasAllQueryWordsMatch(lineSearchIndex, compiledQuery)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-type RankedSearchResult = SearchResult & {
-  idMatchPriority: number;
-  score: number;
-  sourceOrder: number;
-};
-
-type SearchWorkerDetail = Pick<
-  BaseSearchResult,
-  | "fieldIndexes"
-  | "id"
-  | "lineSearchIndexes"
-  | "normalizedContent"
-  | "normalizedEntityText"
-  | "normalizedKeyFields"
-  | "normalizedTag"
-  | "normalizedTitle"
-  | "searchIndexes"
-  | "sourceOrder"
-  | "tagTokenCount"
->;
-
-type SearchWorkerResult = {
-  hasTagMatch: boolean;
-  hasTitleMatch: boolean;
-  id: string;
-  idMatchPriority: number;
-  isSingleParagraphMatch: boolean;
-  score: number;
-  sourceOrder: number;
-};
-
 type SearchWorkerResponse = {
   query: string;
   requestId: number;
-  results: SearchWorkerResult[];
+  results: WorkerRankedResult[];
   type: "results";
-};
-
-const INDEX_QUERY_REGEX = /^\d+(?:[.-]\d+)*$/;
-
-const normalizeIndexReference = (value: string): string => {
-  return value.trim().replace(/^#/, "").replaceAll(",", ".");
-};
-
-const isNumericIndexQuery = (value: string): boolean => {
-  const normalizedValue = normalizeIndexReference(value);
-
-  return INDEX_QUERY_REGEX.test(normalizedValue);
-};
-
-const getIdMatchPriority = (id: string, queryText: string): number => {
-  if (!isNumericIndexQuery(queryText)) {
-    return 0;
-  }
-
-  const normalizedId = normalizeIndexReference(id);
-
-  const normalizedQuery = normalizeIndexReference(queryText);
-
-  if (!normalizedId || !normalizedQuery) {
-    return 0;
-  }
-
-  if (normalizedId === normalizedQuery) {
-    return 3;
-  }
-
-  if (
-    normalizedId.startsWith(`${normalizedQuery}.`) ||
-    normalizedId.startsWith(`${normalizedQuery}-`)
-  ) {
-    return 2;
-  }
-
-  if (normalizedId.includes(normalizedQuery)) {
-    return 1;
-  }
-
-  return 0;
-};
-
-const transformSearchResult = (
-  result: BaseSearchResult,
-  compiledQuery: CompiledSearchQuery
-): RankedSearchResult => {
-  const isSingleParagraphMatch = isSingleParagraphMatchForResult(
-    result.lineSearchIndexes,
-    compiledQuery
-  );
-
-  const {
-    contentMatchInfo,
-    entityMatchInfo,
-    tagMatches,
-    tagMatchInfo,
-    tagScoringMatchInfo,
-    titleMatches,
-    titleMatchInfo,
-  } = computeTitleTagContentMatches(
-    compiledQuery,
-    result.normalizedTitle,
-    result.normalizedTag,
-    result.normalizedContent,
-    result.normalizedEntityText,
-    result.searchIndexes,
-    result.tagTokenCount
-  );
-
-  const score = computeScore(
-    compiledQuery,
-    result.normalizedTitle,
-    result.normalizedTag,
-    result.normalizedContent,
-    result.normalizedEntityText,
-    titleMatchInfo,
-    tagMatchInfo,
-    tagScoringMatchInfo,
-    contentMatchInfo,
-    entityMatchInfo,
-    result.tagTokenCount
-  );
-
-  const idMatchPriority = getIdMatchPriority(result.id, compiledQuery.originalText);
-
-  return {
-    anchor: result.anchor,
-    content: formatSearchResult(result.content, compiledQuery),
-    hasTagMatch: tagMatches.length > 0,
-    hasTitleMatch: titleMatches.length > 0,
-    id: result.id,
-    idMatchPriority,
-    isSingleParagraphMatch,
-    score,
-    sourceOrder: result.sourceOrder,
-    tag: result.tag,
-    title: result.title,
-  };
-};
-
-const getPreliminaryRankScore = (
-  detail: BaseSearchResult,
-  compiledQuery: CompiledSearchQuery
-): number => {
-  const titleMatchInfo = getFieldMatchInfo(detail.searchIndexes.title, compiledQuery);
-
-  const tagMatchInfo = getFieldMatchInfo(detail.searchIndexes.tag, compiledQuery);
-
-  const contentMatchInfo = getFieldMatchInfo(detail.searchIndexes.content, compiledQuery);
-
-  const entityMatchInfo = getFieldMatchInfo(detail.searchIndexes.entity, compiledQuery);
-
-  let score = 0;
-
-  score += titleMatchInfo.totalMatched * 14;
-  score += tagMatchInfo.totalMatched * 10;
-  score += entityMatchInfo.totalMatched * 6;
-  score += contentMatchInfo.totalMatched * 3;
-
-  score += titleMatchInfo.longestMatchedWordLength * 2;
-  score += tagMatchInfo.longestMatchedWordLength;
-
-  if (
-    compiledQuery.normalizedQuery.length > 1 &&
-    detail.normalizedTitle.includes(compiledQuery.normalizedQuery)
-  ) {
-    score += 40;
-  }
-
-  if (
-    compiledQuery.normalizedQuery.length > 1 &&
-    detail.normalizedTag.includes(compiledQuery.normalizedQuery)
-  ) {
-    score += 24;
-  }
-
-  return score;
-};
-
-type FilteredSearchResult = Pick<
-  BaseSearchResult,
-  "fieldIndexes" | "id" | "normalizedKeyFields"
->;
-
-const filterByKeyCombination = (
-  {normalizedKeyFields}: FilteredSearchResult,
-  originalText: string
-): boolean => {
-  const searchPattern = normalizeKeyCombination(originalText);
-
-  return normalizedKeyFields.some((field) => field.includes(searchPattern));
-};
-
-const filterByWords = (
-  {fieldIndexes, id}: FilteredSearchResult,
-  compiledQuery: CompiledSearchQuery
-): boolean => {
-  if (getIdMatchPriority(id, compiledQuery.originalText) > 0) {
-    return true;
-  }
-
-  return hasCompiledQueryMatchInIndexes(fieldIndexes, compiledQuery);
-};
-
-const filterDetail = (
-  detail: FilteredSearchResult,
-  compiledQuery: CompiledSearchQuery
-): boolean => {
-  if (compiledQuery.isKeyCombination) {
-    return filterByKeyCombination(detail, compiledQuery.originalText);
-  }
-
-  return filterByWords(detail, compiledQuery);
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
@@ -2708,44 +2047,47 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
   const workerRequestIdReference = useRef(0);
 
+  const mapRankedResultsToSearchResults = useCallback(
+    (queryText: string, rankedResults: WorkerRankedResult[]): SearchResult[] => {
+      const compiledQuery = compileSearchQuery(queryText);
+
+      const mappedResults: SearchResult[] = [];
+
+      for (const workerResult of rankedResults) {
+        const detail = cachedDetailsByKey.get(
+          `${workerResult.id}::${workerResult.sourceOrder}`
+        );
+
+        if (!detail) {
+          continue;
+        }
+
+        mappedResults.push({
+          ...(detail.anchor ? {anchor: detail.anchor} : {}),
+          ...(detail.tag ? {tag: detail.tag} : {}),
+          content: formatSearchResult(detail.content, compiledQuery),
+          hasTagMatch: workerResult.hasTagMatch,
+          hasTitleMatch: workerResult.hasTitleMatch,
+          id: detail.id,
+          isSingleParagraphMatch: workerResult.isSingleParagraphMatch,
+          title: detail.title,
+        });
+      }
+
+      return mappedResults;
+    },
+    [cachedDetailsByKey]
+  );
+
   const runSearchOnMainThread = useCallback(
     (text: string) => {
-      const compiledQuery = compileSearchQuery(text);
+      const rankedResults = searchDetails(workerDetailsData, text);
 
-      const filtered = cachedDetailsData.filter((detail) =>
-        filterDetail(detail, compiledQuery)
-      );
+      setResults(mapRankedResultsToSearchResults(text, rankedResults));
 
-      const candidatesForRescore =
-        filtered.length >= SEARCH_RESCORE_CONFIG.activationThreshold
-          ? selectCandidatesForRescore({
-              candidateLimit: SEARCH_RESCORE_CONFIG.candidateLimit,
-              getIdMatchPriority: (detail) =>
-                getIdMatchPriority(detail.id, compiledQuery.originalText),
-              getPreliminaryScore: (detail) =>
-                getPreliminaryRankScore(detail, compiledQuery),
-              items: filtered,
-            })
-          : filtered;
-
-      const rankedResults = candidatesForRescore
-        .map((result) => transformSearchResult(result, compiledQuery))
-        .toSorted((a, b) => {
-          if (b.idMatchPriority !== a.idMatchPriority) {
-            return b.idMatchPriority - a.idMatchPriority;
-          }
-
-          if (b.score !== a.score) {
-            return b.score - a.score;
-          }
-
-          return a.sourceOrder - b.sourceOrder;
-        });
-
-      setResults(rankedResults);
       setResultsQuery(text);
     },
-    [cachedDetailsData]
+    [mapRankedResultsToSearchResults, workerDetailsData]
   );
 
   useEffect(() => {
@@ -2778,32 +2120,8 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         return;
       }
 
-      const compiledQuery = compileSearchQuery(message_.query);
+      setResults(mapRankedResultsToSearchResults(message_.query, message_.results));
 
-      const rankedResults = message_.results
-        .map((workerResult) => {
-          const detail = cachedDetailsByKey.get(
-            `${workerResult.id}::${workerResult.sourceOrder}`
-          );
-
-          if (!detail) {
-            return;
-          }
-
-          return {
-            anchor: detail.anchor,
-            content: formatSearchResult(detail.content, compiledQuery),
-            hasTagMatch: workerResult.hasTagMatch,
-            hasTitleMatch: workerResult.hasTitleMatch,
-            id: detail.id,
-            isSingleParagraphMatch: workerResult.isSingleParagraphMatch,
-            tag: detail.tag,
-            title: detail.title,
-          };
-        })
-        .filter((result): result is SearchResult => result !== undefined);
-
-      setResults(rankedResults);
       setResultsQuery(message_.query);
     };
 
@@ -2817,7 +2135,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         searchWorkerReference.current = undefined;
       }
     };
-  }, [cachedDetailsByKey, isPageLoaded, workerDetailsData]);
+  }, [isPageLoaded, mapRankedResultsToSearchResults, workerDetailsData]);
 
   const handleSearch = useCallback(
     debounce((text: string) => {

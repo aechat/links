@@ -1,6 +1,14 @@
-import {stemmer as englishStemmer} from "@orama/stemmers/english";
-import {stemmer as russianStemmer} from "@orama/stemmers/russian";
-
+import {
+  getConsonantSignature,
+  getWordFeatures,
+  getWordStem,
+  MIN_CONSONANT_SIGNATURE_LENGTH,
+  MIN_PREFIX_LENGTH,
+  MIN_STEM_LENGTH,
+  normalizeLatinPhonetics,
+  WORD_MATCH_PRIORITY,
+  type WordFeatures,
+} from "./searchPhoneticUtilities";
 import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
 import {
   computeSearchScore,
@@ -30,13 +38,6 @@ type TextSearchIndex = {
 
 type WordMatchType = "exact" | "prefix" | "folded" | "consonant" | "stem";
 
-type WordFeatures = {
-  consonantSignatures: string[];
-  foldedVariants: string[];
-  stemVariants: string[];
-  variants: string[];
-};
-
 type CompiledSearchWord = {
   features: WordFeatures;
   normalizedWord: string;
@@ -58,7 +59,7 @@ type FieldMatchInfo = {
   typeCounts: Record<WordMatchType, number>;
 };
 
-type SearchWorkerDetail = {
+export type SearchWorkerDetail = {
   fieldIndexes: TextSearchIndex[];
   id: string;
   lineSearchIndexes: TextSearchIndex[];
@@ -78,7 +79,7 @@ type SearchWorkerDetail = {
   tagTokenCount: number;
 };
 
-type WorkerRankedResult = {
+export type WorkerRankedResult = {
   hasTagMatch: boolean;
   hasTitleMatch: boolean;
   id: string;
@@ -108,29 +109,6 @@ type WorkerResultMessage = {
   type: "results";
 };
 
-const MIN_STEM_LENGTH = 3;
-
-const MIN_CONSONANT_SIGNATURE_LENGTH = 3;
-
-const MIN_PREFIX_LENGTH = 2;
-
-const MAX_WORD_FEATURES_CACHE_SIZE = 5000;
-
-const WORD_MATCH_PRIORITY: Record<WordMatchType, number> = {
-  consonant: 2,
-  exact: 4,
-  folded: 3,
-  prefix: 3,
-  stem: 1,
-};
-
-const EMPTY_WORD_FEATURES: WordFeatures = {
-  consonantSignatures: [],
-  foldedVariants: [],
-  stemVariants: [],
-  variants: [],
-};
-
 const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
   consonant: 0,
   exact: 0,
@@ -138,327 +116,6 @@ const createEmptyTypeCounts = (): Record<WordMatchType, number> => ({
   prefix: 0,
   stem: 0,
 });
-
-const WORD_FEATURES_CACHE = new Map<string, WordFeatures>();
-
-const LATIN_VOWELS_REGEX = /[aeiouyw]/g;
-
-const CYRILLIC_VOWELS_REGEX = /[аеёиоуыэюяй]/g;
-
-const REPEATED_CHARACTERS_REGEX = /(.)\1+/g;
-
-const getConsonantSignature = (word: string): string => {
-  return normalizeWord(word)
-    .replaceAll(LATIN_VOWELS_REGEX, "")
-    .replaceAll(CYRILLIC_VOWELS_REGEX, "")
-    .replaceAll(REPEATED_CHARACTERS_REGEX, "$1");
-};
-
-const CYR_TO_LAT: Record<string, string> = {
-  а: "a",
-  б: "b",
-  в: "v",
-  г: "g",
-  д: "d",
-  е: "e",
-  ё: "yo",
-  ж: "zh",
-  з: "z",
-  и: "i",
-  й: "y",
-  к: "k",
-  л: "l",
-  м: "m",
-  н: "n",
-  о: "o",
-  п: "p",
-  р: "r",
-  с: "s",
-  т: "t",
-  у: "u",
-  ф: "f",
-  х: "kh",
-  ц: "ts",
-  ч: "ch",
-  ш: "sh",
-  щ: "shch",
-  ъ: "",
-  ы: "y",
-  ь: "",
-  э: "e",
-  ю: "yu",
-  я: "ya",
-};
-
-const LAT_TO_CYR_ALIASES: Record<string, string> = {
-  eh: "э",
-  ia: "я",
-  ja: "я",
-  jh: "ж",
-  jo: "ё",
-  ju: "ю",
-  oo: "у",
-  ou: "у",
-  sch: "щ",
-};
-
-const LAT_TO_CYR_BASE: Record<string, string> = {
-  ...Object.fromEntries(
-    Object.entries(CYR_TO_LAT)
-      .filter(([, value]) => value.length > 0)
-      .map(([key, value]) => [value, key])
-  ),
-  c: "к",
-  h: "х",
-  j: "й",
-  q: "к",
-  w: "в",
-  x: "х",
-  ...LAT_TO_CYR_ALIASES,
-};
-
-const CYR_TO_LAT_MULTI = Object.entries(CYR_TO_LAT).filter(
-  ([, value]) => value.length > 1
-);
-
-const CYR_TO_LAT_SINGLE = Object.fromEntries(
-  Object.entries(CYR_TO_LAT).filter(([, value]) => value.length <= 1)
-);
-
-const LAT_TO_CYR_MULTI = Object.entries(LAT_TO_CYR_BASE)
-  .filter(([key]) => key.length > 1)
-  .toSorted((a, b) => b[0].length - a[0].length);
-
-const LAT_TO_CYR_SINGLE = Object.fromEntries(
-  Object.entries(LAT_TO_CYR_BASE).filter(([key]) => key.length === 1)
-);
-
-const translitCyrToLat = (text: string): string => {
-  let output = text.toLowerCase();
-
-  for (const [from, to] of CYR_TO_LAT_MULTI) {
-    output = output.replaceAll(from, to);
-  }
-
-  return [...output].map((char) => CYR_TO_LAT_SINGLE[char] ?? char).join("");
-};
-
-const translitLatToCyr = (text: string): string => {
-  let output = text.toLowerCase();
-
-  for (const [from, to] of LAT_TO_CYR_MULTI) {
-    output = output.replaceAll(from, to);
-  }
-
-  return [...output].map((char) => LAT_TO_CYR_SINGLE[char] ?? char).join("");
-};
-
-const normalizeLatinPhonetics = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replaceAll("qu", "kv")
-    .replaceAll("tch", "ch")
-    .replaceAll("dge", "j")
-    .replaceAll("wr", "r")
-    .replaceAll("wh", "w")
-    .replaceAll(/\bkn/g, "n")
-    .replaceAll(/\bgn/g, "n")
-    .replaceAll(/mb\b/g, "m")
-    .replaceAll("eigh", "ei")
-    .replaceAll("igh", "ai")
-    .replaceAll(/tion\b/g, "shn")
-    .replaceAll(/sion\b/g, "shn")
-    .replaceAll("ee", "i")
-    .replaceAll("ea", "i")
-    .replaceAll("oo", "u")
-    .replaceAll("ou", "au")
-    .replaceAll("ow", "au")
-    .replaceAll("ph", "f")
-    .replaceAll("ck", "k")
-    .replaceAll("x", "ks")
-    .replaceAll(/c(?=[eiy])/g, "s")
-    .replaceAll(/g(?=[eiy])/g, "j")
-    .replaceAll("c", "k")
-    .replaceAll(/\b([a-z]*?)a([b-df-hj-np-tv-z])e\b/g, "$1ei$2")
-    .replaceAll(/\b([a-z]*?)i([b-df-hj-np-tv-z])e\b/g, "$1ai$2")
-    .replaceAll(/\b([a-z]*?)o([b-df-hj-np-tv-z])e\b/g, "$1ou$2")
-    .replaceAll(/\b([a-z]*?)u([b-df-hj-np-tv-z])e\b/g, "$1yu$2")
-    .replaceAll(/\b([a-z]{4,})e\b/g, "$1")
-    .replaceAll("w", "v")
-    .replaceAll("q", "k")
-    .replaceAll("y", "i")
-    .replaceAll(/([b-df-hj-np-tv-z])\1+/g, "$1");
-};
-
-type VariantRule = (word: string, variants: Set<string>) => void;
-
-const createBidirectionalReplaceRule = (from: string, to: string): VariantRule => {
-  return (word, variants) => {
-    if (word.includes(from)) {
-      variants.add(word.replaceAll(from, to));
-    }
-
-    if (word.includes(to)) {
-      variants.add(word.replaceAll(to, from));
-    }
-  };
-};
-
-const addPhoneticVariants: VariantRule = (word, variants) => {
-  variants.add(normalizeLatinPhonetics(word));
-};
-
-const addPluralVariants: VariantRule = (word, variants) => {
-  if (!/^[a-z]+$/.test(word) || word.length < 4) {
-    return;
-  }
-
-  if (word.endsWith("es") && word.length > 5) {
-    variants.add(word.slice(0, -2));
-  }
-
-  if (word.endsWith("s") && word.length > 4) {
-    variants.add(word.slice(0, -1));
-  } else {
-    variants.add(`${word}s`);
-  }
-};
-
-const VARIANT_RULES: VariantRule[] = [
-  ...(
-    [
-      ["f", "ph"],
-      ["j", "g"],
-      ["k", "c"],
-      ["kw", "ku"],
-      ["qu", "ku"],
-      ["qu", "kw"],
-      ["kv", "ku"],
-      ["kv", "kw"],
-      ["sion", "shn"],
-      ["tion", "shn"],
-      ["x", "gz"],
-      ["x", "kh"],
-      ["x", "ks"],
-      ["ya", "ia"],
-      ["ye", "ie"],
-      ["yo", "io"],
-      ["yu", "iu"],
-      ["zh", "j"],
-    ] as const
-  ).map(([from, to]) => createBidirectionalReplaceRule(from, to)),
-  addPhoneticVariants,
-  addPluralVariants,
-];
-
-const applyVariantRule = (variants: Set<string>, rule: VariantRule): void => {
-  const variantsSnapshot = [...variants];
-
-  for (const variant of variantsSnapshot) {
-    rule(variant, variants);
-  }
-};
-
-const getAutomaticWordVariants = (word: string): string[] => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return [];
-  }
-
-  const variants = new Set<string>([
-    normalizedWord,
-    translitCyrToLat(normalizedWord),
-    translitLatToCyr(normalizedWord),
-  ]);
-
-  for (const rule of VARIANT_RULES) {
-    applyVariantRule(variants, rule);
-  }
-
-  return [...variants].filter(Boolean);
-};
-
-const getWordStem = (word: string): string => {
-  const normalized = normalizeWord(word);
-
-  if (!normalized) {
-    return "";
-  }
-
-  if (/[а-я]/i.test(normalized) || normalized.includes("ё")) {
-    return russianStemmer(normalized);
-  }
-
-  return englishStemmer(normalized);
-};
-
-const buildWordFeatures = (word: string): WordFeatures => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return EMPTY_WORD_FEATURES;
-  }
-
-  const variants = getAutomaticWordVariants(normalizedWord);
-
-  const foldedVariants = [
-    ...new Set(
-      variants.map((variant) => normalizeLatinPhonetics(variant)).filter(Boolean)
-    ),
-  ];
-
-  const consonantSignatures = [
-    ...new Set(
-      variants
-        .map((variant) => getConsonantSignature(variant))
-        .filter((signature) => signature.length >= MIN_CONSONANT_SIGNATURE_LENGTH)
-    ),
-  ];
-
-  const stemVariants = [
-    ...new Set(
-      variants
-        .map((variant) => getWordStem(variant))
-        .filter((stem) => stem.length >= MIN_STEM_LENGTH)
-    ),
-  ];
-
-  return {
-    consonantSignatures,
-    foldedVariants,
-    stemVariants,
-    variants,
-  };
-};
-
-const getWordFeatures = (word: string): WordFeatures => {
-  const normalizedWord = normalizeWord(word);
-
-  if (!normalizedWord) {
-    return EMPTY_WORD_FEATURES;
-  }
-
-  const cachedFeatures = WORD_FEATURES_CACHE.get(normalizedWord);
-
-  if (cachedFeatures) {
-    return cachedFeatures;
-  }
-
-  const features = buildWordFeatures(normalizedWord);
-
-  WORD_FEATURES_CACHE.set(normalizedWord, features);
-
-  if (WORD_FEATURES_CACHE.size > MAX_WORD_FEATURES_CACHE_SIZE) {
-    const oldestKey = WORD_FEATURES_CACHE.keys().next().value;
-
-    if (typeof oldestKey === "string") {
-      WORD_FEATURES_CACHE.delete(oldestKey);
-    }
-  }
-
-  return features;
-};
 
 const hasExactVariantMatch = (
   variants: string[],
@@ -941,43 +598,17 @@ const getPreliminaryRankScore = (
 
 let cachedDetailsData: SearchWorkerDetail[] = [];
 
-globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
-  if (event.origin && event.origin !== globalThis.location.origin) {
-    return;
-  }
-
-  const message = event.data;
-
-  if (message.type === "init") {
-    cachedDetailsData = message.details;
-
-    return;
-  }
-
-  if (message.type !== "search") {
-    return;
-  }
-
-  const {query, requestId} = message;
-
+export const searchDetails = (
+  detailsData: SearchWorkerDetail[],
+  query: string
+): WorkerRankedResult[] => {
   if (!query.trim()) {
-    const response: WorkerResultMessage = {
-      query,
-      requestId,
-      results: [],
-      type: "results",
-    };
-
-    self.postMessage(response);
-
-    return;
+    return [];
   }
 
   const compiledQuery = compileSearchQuery(query);
 
-  const filtered = cachedDetailsData.filter((detail) =>
-    filterDetail(detail, compiledQuery)
-  );
+  const filtered = detailsData.filter((detail) => filterDetail(detail, compiledQuery));
 
   const candidatesForRescore =
     filtered.length >= SEARCH_RESCORE_CONFIG.activationThreshold
@@ -1004,12 +635,38 @@ globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
       return a.sourceOrder - b.sourceOrder;
     });
 
-  const response: WorkerResultMessage = {
-    query,
-    requestId,
-    results: ranked,
-    type: "results",
-  };
+  return ranked;
+};
 
-  self.postMessage(response);
-});
+const isWorkerRuntime = typeof document === "undefined";
+
+if (isWorkerRuntime) {
+  globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
+    if (event.origin && event.origin !== globalThis.location.origin) {
+      return;
+    }
+
+    const message = event.data;
+
+    if (message.type === "init") {
+      cachedDetailsData = message.details;
+
+      return;
+    }
+
+    if (message.type !== "search") {
+      return;
+    }
+
+    const {query, requestId} = message;
+
+    const response: WorkerResultMessage = {
+      query,
+      requestId,
+      results: searchDetails(cachedDetailsData, query),
+      type: "results",
+    };
+
+    self.postMessage(response);
+  });
+}
