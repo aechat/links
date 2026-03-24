@@ -188,11 +188,25 @@ const getCompactSnippetScore = (
 const getSummaryTitle = (summary: Element): string => {
   const titleElement = summary.querySelector("h2");
 
-  if (titleElement?.textContent?.trim()) {
-    return titleElement.textContent.trim();
+  const summaryId = summary.getAttribute("id")?.trim() ?? "";
+
+  const baseTitle = titleElement?.textContent?.trim()
+    ? titleElement.textContent.trim()
+    : (summary.textContent || "").replaceAll(/\s+/g, " ").trim();
+
+  if (!summaryId || !baseTitle) {
+    return baseTitle;
   }
 
-  return (summary.textContent || "").replaceAll(/\s+/g, " ").trim();
+  const normalizedBaseTitle = baseTitle.replaceAll(/\s+/g, " ").trim();
+
+  const expectedPrefix = `${summaryId}.`;
+
+  if (normalizedBaseTitle.startsWith(expectedPrefix)) {
+    return normalizedBaseTitle;
+  }
+
+  return `${summaryId}. ${normalizedBaseTitle}`;
 };
 
 type BaseSearchResult = Omit<
