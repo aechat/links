@@ -2644,15 +2644,15 @@ const AeExport: React.FC = () => {
           <mark className="select">«Window» → «Extensions» → «Bodymovin»</mark>.
         </p>
         <Addition type="info">
-          <sup>1</sup> Чтобы скачать расширение, зарегистрируйтесь на сайте{" "}
-          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
-          расширением, установите цену <mark>0</mark> в поле{" "}
-          <mark className="select">«Name Your Own Price»</mark>, добавьте его в корзину и
-          подтвердите заказ. Нужный плагин появится{" "}
+          <sup>1</sup> Чтобы бесплатно скачать расширение — зарегистрируйтесь или войдите
+          в аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем на странице
+          дополнения установите значение <mark>0</mark> в поле{" "}
+          <mark className="select">«Name Your Own Price»</mark> и оформите заказ. Ссылка
+          на скачивание появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>
-          , и вы сможете его скачать абсолютно бесплатно.
+          .
         </Addition>
         <Addition type="warning">
           <ul>

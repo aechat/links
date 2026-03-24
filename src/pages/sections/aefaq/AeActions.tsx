@@ -1418,10 +1418,11 @@ const AeActions: React.FC = () => {
           несколько, что позволяет анимировать каждую часть текста отдельно.
         </p>
         <Addition type="info">
-          <sup>1</sup> Чтобы скачать скрипт бесплатно, зарегистрируйтесь на{" "}
-          <a href="https://aescripts.com">aescripts</a>, на странице плагина установите
-          цену <mark>0</mark> в поле <mark className="select">«Name Your Own Price»</mark>
-          , добавьте его в корзину и оформите заказ. Ссылка на скачивание появится{" "}
+          <sup>1</sup> Чтобы бесплатно скачать скрипт — зарегистрируйтесь или войдите в
+          аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем на странице
+          дополнения установите значение <mark>0</mark> в поле{" "}
+          <mark className="select">«Name Your Own Price»</mark> и оформите заказ. Ссылка
+          на скачивание появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>

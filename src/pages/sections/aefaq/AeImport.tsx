@@ -1660,13 +1660,13 @@ const AeImport: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> Чтобы скачать расширение, зарегистрируйтесь на сайте{" "}
-              <a href="https://aescripts.com">aescripts.com</a>, добавьте его в корзину и
-              подтвердите заказ. Плагин появится{" "}
+              <sup>1</sup> Чтобы бесплатно скачать расширение — зарегистрируйтесь или
+              войдите в аккаунт на <a href="https://aescripts.com">aescripts</a> и
+              оформите заказ. Ссылка на скачивание появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
                 в вашем профиле
               </a>
-              , и вы сможете скачать его абсолютно бесплатно.
+              .
             </li>
             <li>
               Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
@@ -1766,15 +1766,15 @@ const AeImport: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> Чтобы скачать расширение, зарегистрируйтесь на сайте{" "}
-              <a href="https://aescripts.com">aescripts.com</a>, вернитесь на страницу с
-              плагином, установите цену <mark>0</mark> в{" "}
-              <mark className="select">«Name Your Own Price»</mark>, добавьте его в
-              корзину и подтвердите заказ. Плагин появится{" "}
+              <sup>1</sup> Чтобы бесплатно скачать расширение — зарегистрируйтесь или
+              войдите в аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем
+              на странице дополнения установите значение <mark>0</mark> в поле{" "}
+              <mark className="select">«Name Your Own Price»</mark> и оформите заказ.
+              Ссылка на скачивание появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
                 в вашем профиле
               </a>
-              , и вы сможете скачать его абсолютно бесплатно.
+              .
             </li>
             <li>
               Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
