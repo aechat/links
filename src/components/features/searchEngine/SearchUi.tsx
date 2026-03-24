@@ -16,7 +16,7 @@ import {getMatchingTagsByQuery} from "./searchContentUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 import {highlightMatchedTokens, renderHighlightedText} from "./searchHighlightUtilities";
 import {compileSearchQuery} from "./searchQueryCore";
-import {type SearchResult, type SearchSection, useSearch} from "./searchState";
+import {type SearchResult, type SearchSection, useSearch} from "./SearchState";
 
 interface SearchButtonProperties {
   className?: string;

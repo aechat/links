@@ -43,7 +43,7 @@ import {
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
 
-import type {SearchResult} from "./searchState";
+import type {SearchResult} from "./SearchState";
 
 const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");

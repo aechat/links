@@ -11,7 +11,7 @@ import {
   useSearchLogic,
   useSearchModalBehavior,
   useSearchViewState,
-} from "./searchState";
+} from "./SearchState";
 import {
   ExternalSearch,
   NoResults,
@@ -20,11 +20,11 @@ import {
   SearchResults,
 } from "./SearchUi";
 
-export type {SearchResult, SearchSection} from "./searchState";
+export type {SearchResult, SearchSection} from "./SearchState";
 
 export {extractMatchingLine, getResultWord} from "./searchContentUtilities";
 
-export {type SearchContextType, SearchProvider, useSearch} from "./searchState";
+export {type SearchContextType, SearchProvider, useSearch} from "./SearchState";
 
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
   const {closeModal, isModalOpen, isPageLoaded} = useSearch();
