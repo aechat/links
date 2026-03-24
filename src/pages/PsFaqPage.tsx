@@ -15,7 +15,10 @@ import {
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
-import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
+import {
+  SearchInPage,
+  SearchProvider,
+} from "../components/features/searchEngine/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";

@@ -1,4 +1,34 @@
-@use "../../styles/abstracts/mixins" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
+@mixin search-button-group-item-base {
+  box-sizing: border-box;
+  flex: 1 0 175px;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--color-button-group-border);
+  border-radius: 0;
+  background-color: var(--color-button-group-background);
+  padding-block: 8px;
+  padding-inline: 10px;
+  width: 100%;
+  min-width: 150px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.25;
+  color: var(--color-button-group-text);
+  font-family: Onest, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-wrap: wrap;
+
+  &:hover {
+    background-color: var(--color-button-group-background-hover);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: var(--color-button-group-background-active);
+  }
+}
 
 .search {
   &-input {
@@ -253,12 +283,6 @@
     font-size: 0.925rem;
     user-select: none;
 
-    .addition-info,
-    .addition-warning,
-    .addition-danger {
-      font-size: 0.9rem;
-    }
-
     p {
       margin-block: 8px;
       margin-inline: 12px;
@@ -372,33 +396,7 @@
 
     a,
     button {
-      box-sizing: border-box;
-      flex: 1 0 175px;
-      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: 1px solid var(--color-button-group-border);
-      border-radius: 0;
-      background-color: var(--color-button-group-background);
-      padding-block: 8px;
-      padding-inline: 10px;
-      width: 100%;
-      min-width: 150px;
-      text-align: center;
-      text-decoration: none;
-      line-height: 1.25;
-      color: var(--color-button-group-text);
-      font-family: Onest, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-wrap: wrap;
-
-      &:hover {
-        background-color: var(--color-button-group-background-hover);
-        cursor: pointer;
-      }
-
-      &:active {
-        background-color: var(--color-button-group-background-active);
-      }
+      @include search-button-group-item-base();
 
       @media (width <= 545px) {
         flex: 1 0 125px;
@@ -418,37 +416,12 @@
 
     a,
     button {
-      box-sizing: border-box;
+      @include search-button-group-item-base();
+
       display: flex;
-      flex: 1 0 175px;
       gap: 8px;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: 1px solid var(--color-button-group-border);
-      border-radius: 0;
-      background-color: var(--color-button-group-background);
-      padding-block: 8px;
-      padding-inline: 10px;
-      width: 100%;
-      min-width: 150px;
-      text-align: center;
-      text-decoration: none;
-      line-height: 1.25;
-      color: var(--color-button-group-text);
-      font-family: Onest, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-wrap: wrap;
-
-      &:hover {
-        background-color: var(--color-button-group-background-hover);
-        cursor: pointer;
-      }
-
-      &:active {
-        background-color: var(--color-button-group-background-active);
-      }
 
       svg {
         width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);

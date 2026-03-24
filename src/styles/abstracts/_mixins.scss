@@ -17,3 +17,175 @@ $roundness: 8px;
     }
   }
 }
+
+@mixin details-tags-base($margin-inline-end: null) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px 5px;
+  align-items: center;
+  justify-content: flex-start;
+
+  @if $margin-inline-end {
+    margin-inline-end: $margin-inline-end;
+  }
+
+  max-width: fit-content;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  mark {
+    display: inline-flex;
+    align-items: center;
+    outline: none;
+    background: none;
+    padding: 0;
+    color: var(--color-text-tertiary);
+    font-size: min(
+      calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+      0.675rem
+    );
+    font-weight: 500;
+  }
+}
+
+@mixin details-summary-base {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 1px solid var(--color-surface-primary-border);
+  background-color: var(--color-surface-primary-background);
+  cursor: pointer;
+  padding: 12px 15px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--color-surface-primary-text);
+  font-family: Onest, sans-serif;
+  font-size: min(
+    calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
+    1.225rem
+  );
+  font-weight: 650;
+
+  &:not(:last-child) {
+    border-top: 1px solid var(--color-surface-primary-border);
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
+
+  h2 {
+    margin-inline-end: 15px;
+    text-wrap: balance;
+  }
+
+  &-left {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &-icon {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  &-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@mixin button-group-item-base(
+  $flex-basis: 175px,
+  $font-size: 0.975rem,
+  $font-weight: 600,
+  $line-height: 1.5,
+  $include-outline: true
+) {
+  display: flex;
+  flex: 1 0 $flex-basis;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-block: 0;
+  border-radius: 0;
+  background-color: var(--color-button-group-background);
+  padding-block: 8px;
+  padding-inline: 10px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  line-height: $line-height;
+  color: var(--color-button-group-text);
+  font-family: Onest, sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+
+  @if $include-outline {
+    outline: 1px solid var(--color-button-group-border);
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+@mixin link-card-name-container-base {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  gap: 8px;
+  align-items: center;
+  padding-block: 8px;
+  padding-inline: 12px;
+  vertical-align: middle;
+}
+
+@mixin link-card-icon-base {
+  fill: var(--color-surface-card-text);
+  flex-shrink: 0;
+  width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+  height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+  color: var(--color-surface-card-text);
+
+  path {
+    margin-block: auto;
+  }
+}
+
+@mixin link-card-name-base {
+  text-align: left;
+  color: var(--color-surface-card-text);
+  font-family: Onest, sans-serif;
+  font-size: min(
+    calc(1.075rem + (1.1 - 1.075) * ((100vw - 320px) / (768 - 320))),
+    1.1rem
+  );
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+@mixin link-card-description-base {
+  opacity: 0.7;
+  padding-block: 8px;
+  padding-block-start: 0;
+  padding-inline: 12px;
+  vertical-align: middle;
+  text-align: left;
+  font-size: min(
+    calc(0.875rem + (0.9 - 0.875) * ((100vw - 320px) / (768 - 320))),
+    0.9rem
+  );
+  font-weight: 375;
+  text-wrap: balance;
+}

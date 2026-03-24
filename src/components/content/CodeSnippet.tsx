@@ -73,9 +73,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
 
     const textArea = document.createElement("textarea");
 
-    const codeText = codeReference.current?.textContent ?? "";
-
-    textArea.value = codeText;
+    textArea.value = codeReference.current?.textContent ?? "";
     document.body.append(textArea);
     textArea.select();
     document.execCommand("copy");

@@ -10,7 +10,7 @@ export async function runScript(scriptName, processor) {
 
   try {
     const allFiles = [];
-    await walk(cwd(), (filePath) => {
+    walk(cwd(), (filePath) => {
       if (filePath.endsWith(".tsx") || filePath.endsWith(".ts")) {
         // Include .ts for sortImports
         allFiles.push(filePath);

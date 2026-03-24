@@ -281,16 +281,20 @@ const ErrorFallback = ({error}: {error: Error}) => {
 };
 
 class ErrorBoundary extends React.Component<
-  {children: React.ReactNode},
+  {children: React.ReactNode; onError?: (error: Error) => void},
   {hasError: boolean; error: Error | undefined}
 > {
-  constructor(properties: {children: React.ReactNode}) {
+  constructor(properties: {children: React.ReactNode; onError?: (error: Error) => void}) {
     super(properties);
     this.state = {error: undefined, hasError: false};
   }
 
   static getDerivedStateFromError(error: Error) {
     return {error, hasError: true};
+  }
+
+  componentDidCatch(error: Error) {
+    this.props.onError?.(error);
   }
 
   render() {
@@ -425,6 +429,8 @@ const AppContent = () => {
 
   const [loadingError, setLoadingError] = useState<Error | undefined>();
 
+  const [boundaryError, setBoundaryError] = useState<Error | undefined>();
+
   const previousPathname = useRef(location.pathname);
 
   if (previousPathname.current !== location.pathname) {
@@ -433,19 +439,26 @@ const AppContent = () => {
   }
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading || boundaryError) {
       return;
     }
 
     const safetyTimer = setTimeout(() => {
-      setLoadingError(new Error("Page loading timed out after 60 seconds."));
+      setLoadingError((previousError) => {
+        if (previousError || boundaryError) {
+          return previousError;
+        }
+
+        return new Error("Page loading timed out after 60 seconds.");
+      });
     }, 60_000);
 
     return () => clearTimeout(safetyTimer);
-  }, [isLoading]);
+  }, [boundaryError, isLoading]);
 
   useEffect(() => {
     setLoadingError(undefined);
+    setBoundaryError(undefined);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -540,7 +553,7 @@ const AppContent = () => {
 
   const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
 
-  if (loadingError) {
+  if (loadingError && !boundaryError) {
     return <ErrorFallback error={loadingError} />;
   }
 
@@ -576,7 +589,7 @@ const AppContent = () => {
           webvisor: true,
         }}
       />
-      <ErrorBoundary>
+      <ErrorBoundary onError={setBoundaryError}>
         <SafariWarningModal
           open={isSafariWarningOpen}
           onClose={(dontShowAgain) => {

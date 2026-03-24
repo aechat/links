@@ -9,8 +9,6 @@
  * Есть возможность запомнить выбор для текущей сессии.
  */
 
-import {readFileSync, writeFileSync} from "fs";
-import {cwd} from "process";
 import {runScript} from "./utils/scriptRunner.js";
 import {rl, askForConfirmation} from "./utils/interactiveUtils.js";
 

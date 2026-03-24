@@ -1,5 +1,53 @@
 @use "../../styles/abstracts/mixins" as *;
 
+@mixin header-icon-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: -4px;
+  border-radius: $roundness;
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    opacity: 0.8;
+    background-color: var(--color-surface-primary-background-active);
+  }
+
+  a {
+    padding: 4px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@mixin header-logo-base {
+  transition: opacity 0.3s ease;
+  margin-block: 8px 10px;
+  margin-inline: 3px;
+  max-width: fit-content;
+  color: var(--color-accent);
+  font-family: "Red Hat Display", monospace;
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-style: italic;
+
+  sub {
+    font-size: 0.825rem;
+    font-weight: 500;
+  }
+}
+
 .header {
   display: flex;
   position: fixed;
@@ -41,51 +89,11 @@
     max-height: max-content;
 
     .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition:
-        background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-        opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      margin: -4px;
-      border-radius: $roundness;
-      width: 30px;
-      height: 30px;
-
-      &:hover {
-        background-color: var(--color-surface-primary-background-hover);
-      }
-
-      &:active {
-        opacity: 0.8;
-        background-color: var(--color-surface-primary-background-active);
-      }
-
-      a {
-        padding: 4px;
-      }
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
+      @include header-icon-base();
     }
 
     .logo {
-      transition: opacity 0.3s ease;
-      margin-block: 8px 10px;
-      margin-inline: 3px;
-      max-width: fit-content;
-      color: var(--color-accent);
-      font-family: "Red Hat Display", monospace;
-      font-size: 1.35rem;
-      font-weight: 800;
-      font-style: italic;
-
-      sub {
-        font-size: 0.825rem;
-        font-weight: 500;
-      }
+      @include header-logo-base();
     }
   }
 
@@ -120,51 +128,11 @@
 }
 
 .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: -4px;
-  border-radius: $roundness;
-  width: 30px;
-  height: 30px;
-
-  &:hover {
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    opacity: 0.8;
-    background-color: var(--color-surface-primary-background-active);
-  }
-
-  a {
-    padding: 4px;
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-  }
+  @include header-icon-base();
 }
 
 .logo {
-  transition: opacity 0.3s ease;
-  margin-block: 8px 10px;
-  margin-inline: 3px;
-  max-width: fit-content;
-  color: var(--color-accent);
-  font-family: "Red Hat Display", monospace;
-  font-size: 1.35rem;
-  font-weight: 800;
-  font-style: italic;
-
-  sub {
-    font-size: 0.825rem;
-    font-weight: 500;
-  }
+  @include header-logo-base();
 }
 
 .visible {

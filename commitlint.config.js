@@ -1,5 +1,38 @@
 export default {
   extends: ["@commitlint/config-conventional"],
+  plugins: [
+    {
+      rules: {
+        "scope-list-spacing": (parsed) => {
+          const header = parsed.header || "";
+          const scopeMatch = header.match(/^[^(]+\(([^)]+)\):/);
+
+          if (!scopeMatch) {
+            return [true];
+          }
+
+          const scopeRaw = scopeMatch[1];
+          const hasComma = scopeRaw.includes(",");
+
+          if (!hasComma) {
+            return [true];
+          }
+
+          const hasSpaceBeforeComma = /\s,/.test(scopeRaw);
+          const hasNoSpaceAfterComma = /,(?=\S)/.test(scopeRaw);
+          const hasTooManySpacesAfterComma = /, {2,}/.test(scopeRaw);
+
+          const isValid =
+            !hasSpaceBeforeComma && !hasNoSpaceAfterComma && !hasTooManySpacesAfterComma;
+
+          return [
+            isValid,
+            "При перечислении нескольких scope используйте формат `scope1, scope2` (запятая и один пробел).",
+          ];
+        },
+      },
+    },
+  ],
   rules: {
     "type-enum": [
       2,
@@ -21,29 +54,30 @@ export default {
       2,
       "always",
       [
-        // --- для кода и интерфейса ---
-        "app", // общие изменения в приложении (хуки, общая логика, маршрутизация)
-        "components", // изменения в react-компонентах (ui-элементы, переиспользуемые части)
-        "styles", // изменения в scss-стилях (файлы стилей, переменные, миксины)
-        "hooks", // изменения в пользовательских хуках
-        "utils", // изменения во вспомогательных функциях и утилитах
-        // --- для контента ---
-        "sections", // общие изменения для всех разделов со статьями
-        "aefaq", // статьи в faq по adobe after effects
-        "prfaq", // статьи в faq по adobe premiere pro
-        "psfaq", // статьи в faq по adobe photoshop
-        "aeexpr", // статьи на странице по выражениям в adobe after effects
-        "rules", // страница с правилами чатов
-        "links", // главная страница со ссылками
-        "docs", // для документации, не связанной с кодом
-        // --- для проекта и файлов ---
-        "config", // изменения в файлах конфигурации (vite, eslint, commitlint, tsconfig и т.д.)
-        "deps", // обновление зависимостей (yarn.lock, package.json)
-        "assets", // медиафайлы (изображения, видео, иконки в public/)
-        "*", // любая другая область, если ни одна из перечисленных не подходит
+        // код и интерфейс
+        "app",
+        "components",
+        "styles",
+        "hooks",
+        "utils",
+        // контент статей (перечисление через запятую с пробелом: aefaq, prfaq)
+        "aefaq",
+        "prfaq",
+        "psfaq",
+        "aeexpr",
+        "rules",
+        "links",
+        "docs",
+        // проектные области
+        "config",
+        "deps",
+        "assets",
+        "scripts",
+        "*",
       ],
     ],
-    "header-max-length": [2, "always", 100],
+    "header-max-length": [2, "always", 150],
+    "scope-list-spacing": [2, "always"],
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [2, "always"],
     "type-case": [2, "always", "lower-case"],
