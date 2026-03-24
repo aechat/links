@@ -192,6 +192,15 @@ const ErrorFallback = ({error}: {error: Error}) => {
       "message" in error.cause &&
       (error.cause as Error).message.includes("dynamically imported module"));
 
+  const isCssPreloadError =
+    error.message.includes("unable to preload css for /assets/") ||
+    (error.cause &&
+      typeof error.cause === "object" &&
+      "message" in error.cause &&
+      (error.cause as Error).message.includes("unable to preload css for /assets/"));
+
+  const isNewVersionError = isDynamicImportError || isCssPreloadError;
+
   const isTimeoutError = error.message.includes("timed out");
 
   return (
@@ -207,7 +216,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
               {(() => {
                 let errorTitle = "Произошла ошибка";
 
-                if (isDynamicImportError) {
+                if (isNewVersionError) {
                   errorTitle = "Доступна новая версия сайта";
                 } else if (isTimeoutError) {
                   errorTitle = "Загрузка страницы заняла слишком много времени";
@@ -222,7 +231,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
               {(() => {
                 let errorMessage = "Всякое бывает, попробуйте перезагрузить страницу.";
 
-                if (isDynamicImportError) {
+                if (isNewVersionError) {
                   errorMessage =
                     "Обновите страницу, чтобы получить доступ к последним изменениям.";
                 } else if (isTimeoutError) {
@@ -233,7 +242,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
                 return errorMessage;
               })()}
             </p>
-            {!isDynamicImportError && (
+            {!isNewVersionError && (
               <p>
                 <span
                   style={{cursor: "pointer", fontSize: "0.9rem", opacity: 0.5}}
@@ -252,7 +261,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
               </p>
             )}
             <div className="flexible-links">
-              {isDynamicImportError === false && (
+              {isNewVersionError === false && (
                 <button
                   onClick={() => {
                     if (globalThis.window !== undefined)
