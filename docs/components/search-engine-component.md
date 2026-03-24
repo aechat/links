@@ -1,13 +1,13 @@
 # Компонент `SearchEngine`
 
 Файл оркестратор и экспортов: `src/components/features/searchEngine/SearchEngine.tsx`  
-Основные модули: `src/components/features/searchEngine/searchState.tsx`, `src/components/features/searchEngine/SearchUi.tsx`, `src/components/features/searchEngine/useSearchLogic.ts`, `src/components/features/searchEngine/searchTypes.ts`
+Основные модули: `src/components/features/searchEngine/searchState.tsx`, `src/components/features/searchEngine/SearchUi.tsx`, `src/components/features/searchEngine/useSearchLogic.ts`, `src/components/features/searchEngine/searchContentUtilities.ts`
 
 ## Назначение
 
 Поиск по текущей странице FAQ/expr. Модуль состоит из провайдера состояния, кнопки открытия и модального интерфейса с результатами, навигацией по совпадениям и внешним поиском при отсутствии результатов.
 
-`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния и поведения находятся в `searchState.tsx`. UI-компоненты собираются через `SearchUi.tsx`. Общие типы поиска вынесены в `searchTypes.ts`.
+`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния, контекст и типы находятся в `searchState.tsx`. UI-компоненты собраны в `SearchUi.tsx`. Контентные утилиты и форматирование сниппетов вынесены в `searchContentUtilities.ts`.
 
 ## Публичный интерфейс
 
