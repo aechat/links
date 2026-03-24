@@ -1,4 +1,11 @@
 import {
+  extractSearchWords,
+  isKeyCombinationSearch,
+  normalizeKeyCombination,
+  normalizeText,
+  normalizeWord,
+} from "./searchContentUtilities";
+import {
   getConsonantSignature,
   getWordFeatures,
   getWordStem,
@@ -9,19 +16,12 @@ import {
   WORD_MATCH_PRIORITY,
   type WordFeatures,
 } from "./searchPhoneticUtilities";
-import {SEARCH_RESCORE_CONFIG} from "./searchRankingConfig";
 import {
   computeSearchScore,
+  SEARCH_RESCORE_CONFIG,
   type SearchScoringDependencies,
   selectCandidatesForRescore,
 } from "./searchScoringUtilities";
-import {
-  extractSearchWords,
-  isKeyCombinationSearch,
-  normalizeKeyCombination,
-  normalizeText,
-  normalizeWord,
-} from "./searchTextUtilities";
 
 export type TextSearchIndex = {
   consonantPrefixSet: Set<string>;

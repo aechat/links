@@ -6,19 +6,22 @@ import additionStyles from "../../content/Addition.module.scss";
 import {
   applyAdditionSnippetStyles,
   buildAdditionsHtml,
-  getAdditionContainerSelector,
-  getTopLevelAdditionContainer,
-  wrapSnippetWithAdditionContainer,
-  wrapSnippetWithClosestAddition,
-} from "./searchAdditionUtilities";
-import {
   buildListContentHtml,
   buildParagraphsHtml,
   buildTableGroupsHtml,
   collectDividerTexts,
   collectFlexibleLinksTexts,
   collectLinkHrefs,
-} from "./searchContentExtractionUtilities";
+  extractEntityTextFromContent,
+  formatSearchSnippetResult,
+  getAdditionContainerSelector,
+  getTopLevelAdditionContainer,
+  mapRankedResultsToSearchResults as mapRankedResultsToSearchResultsRuntime,
+  normalizeKeyCombination,
+  normalizeText,
+  wrapSnippetWithAdditionContainer,
+  wrapSnippetWithClosestAddition,
+} from "./searchContentUtilities";
 import {
   extractMatchingLine,
   isTokenMatchingWordFeatures,
@@ -34,16 +37,13 @@ import {
   type TextSearchIndex,
   type WorkerRankedResult,
 } from "./searchQueryCore";
-import {mapRankedResultsToSearchResults as mapRankedResultsToSearchResultsRuntime} from "./searchResultRuntimeUtilities";
 import {
   getFieldMatchTypeScore,
   getProximityBonus,
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
-import {formatSearchSnippetResult} from "./searchSnippetUtilities";
-import {normalizeKeyCombination, normalizeText} from "./searchTextUtilities";
 
-import type {SearchResult} from "./searchTypes";
+import type {SearchResult} from "./searchState";
 
 const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
@@ -89,20 +89,6 @@ const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
 
 const ADDITION_CONTAINER_SELECTOR = getAdditionContainerSelector(additionStyles);
 
-const ENTITY_MARK_SELECTORS = [
-  "mark.app",
-  "mark.plugin",
-  "mark.file",
-  "mark.key",
-  "mark.select",
-  "mark.video",
-  "mark.audio",
-  "mark.image",
-  "mark.path",
-  "mark.word",
-  "mark.tag",
-] as const;
-
 const TAG_SCORING_TOKEN_CAP = 48;
 
 const toNormalizedWords = (text: string): string[] =>
@@ -112,22 +98,6 @@ const getTagScoringText = (normalizedTag: string): string => {
   const tagWords = normalizedTag.split(" ").filter(Boolean);
 
   return tagWords.slice(0, TAG_SCORING_TOKEN_CAP).join(" ");
-};
-
-const extractEntityTextFromContent = (content: string): string => {
-  if (!content.trim()) {
-    return "";
-  }
-
-  const root = document.createElement("div");
-
-  root.innerHTML = content;
-
-  return ENTITY_MARK_SELECTORS.flatMap((selector) => {
-    return [...root.querySelectorAll(selector)]
-      .map((element) => element.textContent?.trim() || "")
-      .filter(Boolean);
-  }).join(" ");
 };
 
 const getTokenPositionsForWord = (

@@ -1,3 +1,1056 @@
-export {extractMatchingLine} from "./searchHighlightUtilities";
+import {
+  type CompiledSearchQuery,
+  compileSearchQuery,
+  hasCompiledQueryMatchInFields,
+  type WorkerRankedResult,
+} from "./searchQueryCore";
 
-export {getResultWord} from "./searchUiUtilities";
+type ListContentDependencies = {
+  additionContainerSelector: string;
+  getTopLevelAdditionContainer: (
+    element: Element,
+    rootDetail: Element,
+    additionContainerSelector: string
+  ) => Element | undefined;
+  normalizeText: (text: string) => string;
+  stripHtml: (html: string) => string;
+};
+
+type TableContentDependencies = {
+  decodeHtmlEntities: (text: string) => string;
+  normalizeKeyCombination: (text: string) => string;
+};
+
+type SearchMatch = {
+  result: string;
+  matchCount: number;
+};
+
+type SnippetFormattingDependencies = {
+  additionContainerSelector: string;
+  applyAdditionSnippetStyles: (html: string, additionContainerSelector: string) => string;
+  extractKeyCombinationText: (element: Element) => string;
+  extractMatchingLine: (content: string, query: string) => string;
+  getCompactSnippetScore: (html: string, compiledQuery: CompiledSearchQuery) => number;
+  hasMatch: (text: string, compiledQuery: CompiledSearchQuery) => boolean;
+  stripHtml: (html: string) => string;
+  wrapSnippetWithAdditionContainer: (
+    additionContainer: Element,
+    snippetHtml: string
+  ) => string;
+  wrapSnippetWithClosestAddition: (
+    element: Element,
+    snippetHtml: string,
+    additionContainerSelector: string
+  ) => string;
+};
+
+export type SearchResultMapped = {
+  anchor?: string;
+  content: string;
+  hasTagMatch: boolean;
+  hasTitleMatch: boolean;
+  id: string;
+  isSingleParagraphMatch: boolean;
+  tag?: string;
+  title: string;
+};
+
+export type CachedDetailForMapping = {
+  anchor?: string;
+  content: string;
+  id: string;
+  sourceOrder: number;
+  tag?: string;
+  title: string;
+};
+
+type MapSearchResultsDependencies = {
+  cachedDetailsByKey: Map<string, CachedDetailForMapping>;
+  formatContent: (content: string, compiledQuery: CompiledSearchQuery) => string;
+};
+
+const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
+
+const KEY_MODIFIER_ALIASES: Record<string, string> = {
+  command: "cmd",
+  control: "ctrl",
+  windows: "win",
+};
+
+const ADDITION_STYLE_KEYS = [
+  "addition-danger",
+  "addition-info",
+  "addition-tldr",
+  "addition-warning",
+] as const;
+
+const MAX_COMPACT_SNIPPET_TEXT_LENGTH = 780;
+
+const escapeRegExp = (string_: string) =>
+  string_.replaceAll(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
+
+const ALIAS_REGEXES: Record<string, RegExp> = Object.fromEntries(
+  Object.entries(KEY_MODIFIER_ALIASES).map(([alias]) => [
+    alias,
+    new RegExp(escapeRegExp(alias), "g"),
+  ])
+);
+
+const NORMALIZATION_REGEX = /[^a-zа-яё0-9_+\-=()]/gi;
+
+const REPLACE_CHARS_REGEX = /ё/gi;
+
+const UNDERSCORE_REGEX = /_/g;
+
+const removeFigureContainers = (root: Element): void => {
+  for (const element of root.querySelectorAll('[class*="media-figure"]')) {
+    element.remove();
+  }
+};
+
+const removeNestedDetailsContainers = (root: Element): void => {
+  for (const nestedDetails of root.querySelectorAll(
+    'details[data-nested-details-summary="true"], details.details-nested, .details-nested'
+  )) {
+    nestedDetails.remove();
+  }
+};
+
+const escapeCssClassName = (className: string): string => {
+  if (typeof CSS !== "undefined" && typeof CSS.escape === "function") {
+    return CSS.escape(className);
+  }
+
+  return className.replaceAll(/[^a-zA-Z0-9_-]/g, String.raw`\$&`);
+};
+
+const cloneWithoutFigures = (element: Element): Element => {
+  const clone = element.cloneNode(true) as Element;
+
+  removeFigureContainers(clone);
+  removeNestedDetailsContainers(clone);
+
+  return clone;
+};
+
+const isListOrParagraph = (element: Element): boolean => {
+  const tag = element.tagName;
+
+  return tag === "LI" || tag === "P";
+};
+
+const processTextNode = (
+  node: Text,
+  compiledQuery: CompiledSearchQuery,
+  hasMatch: SnippetFormattingDependencies["hasMatch"]
+): string => {
+  const text = node.textContent || "";
+
+  return hasMatch(text, compiledQuery) ? text : "";
+};
+
+const isKeyCombinationWords = (searchWords: string[]): boolean => {
+  return searchWords.some(
+    (word) =>
+      word.includes("ctrl") ||
+      word.includes("alt") ||
+      word.includes("shift") ||
+      word.includes("win") ||
+      word.includes("cmd")
+  );
+};
+
+const checkKeyCombinationMatch = (
+  clonedRow: HTMLTableRowElement,
+  searchWords: string[],
+  normalizeKeyCombination: (text: string) => string
+): boolean => {
+  const searchPattern = normalizeKeyCombination(searchWords.join(" "));
+
+  const rowText = [...clonedRow.cells]
+    .map((cell) => {
+      const keyElements = cell.querySelectorAll("mark.key");
+
+      if (keyElements.length > 0) {
+        return [...keyElements]
+          .map((element) => element.textContent?.toLowerCase() || "")
+          .join(" ");
+      }
+
+      return cell.textContent?.toLowerCase() || "";
+    })
+    .join(" ");
+
+  return normalizeKeyCombination(rowText).includes(searchPattern);
+};
+
+const checkGeneralMatch = (
+  clonedRow: HTMLTableRowElement,
+  searchWords: string[]
+): boolean => {
+  const rowHtml = clonedRow.innerHTML.toLowerCase();
+
+  return searchWords.every((word) => rowHtml.includes(word.toLowerCase()));
+};
+
+const getExcludedColumnIndices = (table: HTMLTableElement): Set<number> => {
+  return new Set(
+    [...table.querySelectorAll("th")]
+      .map((th, index) =>
+        th.textContent?.toLowerCase().includes("описание") ? index : -1
+      )
+      .filter((index) => index !== -1)
+  );
+};
+
+const getFilteredTableRows = (table: HTMLTableElement): HTMLTableRowElement[] => {
+  return [...table.querySelectorAll("tr")].filter((row) => {
+    let parent = row.parentElement;
+
+    while (parent) {
+      if (parent.tagName.toLowerCase() === "thead") {
+        return false;
+      }
+
+      parent = parent.parentElement;
+    }
+
+    return true;
+  }) as HTMLTableRowElement[];
+};
+
+const extractTableHeaders = (
+  table: HTMLTableElement,
+  decodeHtmlEntities: (text: string) => string
+): string[] => {
+  return [...table.querySelectorAll("th")]
+    .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
+    .filter((header) => !header.toLowerCase().includes("описание"));
+};
+
+const processTableRow = (
+  row: HTMLTableRowElement,
+  excludedColumns: Set<number>,
+  keyCombo: boolean,
+  searchWords: string[],
+  normalizeKeyCombination: (text: string) => string
+): string | undefined => {
+  const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
+
+  for (const [index, cell] of [...clonedRow.cells].entries()) {
+    if (excludedColumns.has(index)) {
+      cell.remove();
+    }
+  }
+
+  if (clonedRow.cells.length === 0) {
+    return;
+  }
+
+  const hasMatch = keyCombo
+    ? checkKeyCombinationMatch(clonedRow, searchWords, normalizeKeyCombination)
+    : checkGeneralMatch(clonedRow, searchWords);
+
+  return hasMatch ? clonedRow.outerHTML : undefined;
+};
+
+const processTable = (
+  table: HTMLTableElement,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): string | undefined => {
+  const rows = [...table.querySelectorAll("tr")];
+
+  const matchingRows = rows.filter((row) => {
+    const cells = [...row.querySelectorAll("td")];
+
+    return cells.some((cell) => {
+      const cellText = dependencies.extractKeyCombinationText(cell);
+
+      return dependencies.hasMatch(cellText, compiledQuery);
+    });
+  });
+
+  if (matchingRows.length > 0) {
+    const newTable = document.createElement("table");
+
+    const thead = table.querySelector("thead");
+
+    if (thead) {
+      newTable.append(thead.cloneNode(true));
+    }
+
+    const tbody = document.createElement("tbody");
+
+    for (const row of matchingRows) {
+      tbody.append(row.cloneNode(true));
+    }
+
+    newTable.append(tbody);
+
+    return newTable.outerHTML;
+  }
+
+  return undefined;
+};
+
+const processContainerChildren = (
+  element: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): SearchMatch => {
+  let result = "";
+
+  let matchCount = 0;
+
+  for (const node of element.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const textResult = processTextNode(
+        node as Text,
+        compiledQuery,
+        dependencies.hasMatch
+      );
+
+      if (textResult) {
+        result += textResult;
+        matchCount += 1;
+      }
+
+      continue;
+    }
+
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      const elementNode = node as Element;
+
+      if (elementNode.classList.toString().includes("media-figure")) {
+        continue;
+      }
+
+      const elementResult = processElement(elementNode, compiledQuery, dependencies);
+
+      if (elementResult.result) {
+        result += elementResult.result;
+        matchCount += elementResult.matchCount;
+      }
+    }
+  }
+
+  return {matchCount, result};
+};
+
+const handleListWithNestedMatches = (
+  element: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): SearchMatch => {
+  const ul = element.querySelector("ul");
+
+  if (!ul) {
+    const clone = cloneWithoutFigures(element);
+
+    return {
+      matchCount: 1,
+      result: dependencies.wrapSnippetWithClosestAddition(
+        element,
+        clone.outerHTML,
+        dependencies.additionContainerSelector
+      ),
+    };
+  }
+
+  const nestedItems = [...ul.querySelectorAll("li")];
+
+  const matchingNestedItems = nestedItems.filter((item) =>
+    dependencies.hasMatch(item.textContent || "", compiledQuery)
+  );
+
+  const clone = cloneWithoutFigures(element);
+
+  if (matchingNestedItems.length === 0) {
+    return {
+      matchCount: 1,
+      result: dependencies.wrapSnippetWithClosestAddition(
+        element,
+        clone.outerHTML,
+        dependencies.additionContainerSelector
+      ),
+    };
+  }
+
+  const newUl = document.createElement("ul");
+
+  for (const item of matchingNestedItems) {
+    const nestedItemClone = cloneWithoutFigures(item);
+
+    newUl.append(nestedItemClone);
+  }
+
+  const oldUl = clone.querySelector("ul");
+
+  if (oldUl) {
+    oldUl.replaceWith(newUl);
+  }
+
+  return {
+    matchCount: matchingNestedItems.length + 1,
+    result: dependencies.wrapSnippetWithClosestAddition(
+      element,
+      clone.outerHTML,
+      dependencies.additionContainerSelector
+    ),
+  };
+};
+
+const processElement = (
+  element: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): SearchMatch => {
+  if (isListOrParagraph(element)) {
+    const sanitizedElement = cloneWithoutFigures(element);
+
+    const fullText = (sanitizedElement as HTMLElement).textContent || "";
+
+    if (!dependencies.hasMatch(fullText, compiledQuery)) {
+      return {matchCount: 0, result: ""};
+    }
+
+    if (element.tagName === "LI") {
+      return handleListWithNestedMatches(element, compiledQuery, dependencies);
+    }
+
+    return {
+      matchCount: 1,
+      result: dependencies.wrapSnippetWithClosestAddition(
+        element,
+        sanitizedElement.outerHTML,
+        dependencies.additionContainerSelector
+      ),
+    };
+  }
+
+  return processContainerChildren(element, compiledQuery, dependencies);
+};
+
+const getFirstCleanParagraphOrElement = (root: Element): string => {
+  const firstParagraph = root.querySelector("details > p, details > div > p");
+
+  if (firstParagraph) {
+    const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
+
+    removeFigureContainers(cleanedParagraph);
+
+    return cleanedParagraph.outerHTML;
+  }
+
+  const firstElement = root.firstElementChild;
+
+  if (firstElement) {
+    const cleanedElement = firstElement.cloneNode(true) as Element;
+
+    removeFigureContainers(cleanedElement);
+
+    return cleanedElement.outerHTML;
+  }
+
+  return "";
+};
+
+const isKeyCombinationTablePresent = (tables: NodeListOf<HTMLTableElement>): boolean => {
+  return [...tables].some((table) => {
+    const headers = [...table.querySelectorAll("th")];
+
+    return headers.some((th) => {
+      const text = th.textContent?.toLowerCase() || "";
+
+      return text.includes("комбинация") || text.includes("действие");
+    });
+  });
+};
+
+const pickBestListOrParagraphMatch = (
+  root: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): SearchMatch => {
+  let bestResult: SearchMatch = {matchCount: 0, result: ""};
+
+  const listItems = root.querySelectorAll("ul > li");
+
+  for (const item of listItems) {
+    const itemResult = processElement(item, compiledQuery, dependencies);
+
+    if (itemResult.matchCount > bestResult.matchCount) {
+      bestResult = itemResult;
+    }
+  }
+
+  if (!bestResult.result) {
+    const paragraphs = root.querySelectorAll("p");
+
+    for (const paragraph of paragraphs) {
+      const paragraphResult = processElement(paragraph, compiledQuery, dependencies);
+
+      if (paragraphResult.matchCount > bestResult.matchCount) {
+        bestResult = paragraphResult;
+      }
+    }
+  }
+
+  return bestResult;
+};
+
+const pickTableOrFallback = (
+  root: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): string => {
+  const tables = root.querySelectorAll("table");
+
+  if (tables.length > 0) {
+    if (compiledQuery.isKeyCombination && isKeyCombinationTablePresent(tables)) {
+      for (const table of tables) {
+        const tableResult = processTable(table, compiledQuery, dependencies);
+
+        if (tableResult) {
+          return tableResult;
+        }
+      }
+    }
+
+    return tables[0].outerHTML;
+  }
+
+  return getFirstCleanParagraphOrElement(root);
+};
+
+const pickBestCompactSnippet = (
+  root: Element,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): string | undefined => {
+  const candidates = root.querySelectorAll("p, li");
+
+  let bestHtml: string | undefined;
+
+  let bestScore = Number.NEGATIVE_INFINITY;
+
+  for (const candidate of candidates) {
+    const processedCandidate = processElement(candidate, compiledQuery, dependencies);
+
+    if (!processedCandidate.result) {
+      continue;
+    }
+
+    let candidateHtml = processedCandidate.result;
+
+    const additionContainer = candidate.closest(dependencies.additionContainerSelector);
+
+    if (additionContainer) {
+      candidateHtml = dependencies.wrapSnippetWithAdditionContainer(
+        additionContainer,
+        candidateHtml
+      );
+    }
+
+    if (dependencies.stripHtml(candidateHtml).length > MAX_COMPACT_SNIPPET_TEXT_LENGTH) {
+      const compactLineHtml = dependencies.extractMatchingLine(
+        candidateHtml,
+        compiledQuery.searchWords.join(" ")
+      );
+
+      candidateHtml = additionContainer
+        ? dependencies.wrapSnippetWithAdditionContainer(
+            additionContainer,
+            compactLineHtml
+          )
+        : compactLineHtml;
+    }
+
+    const candidateScore = dependencies.getCompactSnippetScore(
+      candidateHtml,
+      compiledQuery
+    );
+
+    if (candidateScore > bestScore) {
+      bestScore = candidateScore;
+      bestHtml = candidateHtml;
+    }
+  }
+
+  return bestHtml;
+};
+
+export const normalizeText = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replaceAll(REPLACE_CHARS_REGEX, "е")
+    .replaceAll(UNDERSCORE_REGEX, " ")
+    .replaceAll(NORMALIZATION_REGEX, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim();
+};
+
+export const normalizeWord = (word: string): string => {
+  return normalizeText(word).replaceAll(" ", "");
+};
+
+export const extractSearchWords = (query: string): string[] => [
+  ...new Set(
+    query
+      .split(/\s+/)
+      .flatMap((word) => normalizeText(word).split(" ").filter(Boolean))
+      .filter(Boolean)
+  ),
+];
+
+export const isKeyCombinationSearch = (text: string): boolean => {
+  return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
+};
+
+export const normalizeKeyCombination = (text: string): string => {
+  let normalized = text.toLowerCase();
+
+  for (const [alias, standard] of Object.entries(KEY_MODIFIER_ALIASES)) {
+    normalized = normalized.replaceAll(ALIAS_REGEXES[alias], standard);
+  }
+
+  return normalized.replaceAll("+", " ").replaceAll(/\s+/g, " ").trim();
+};
+
+export const getAdditionContainerSelector = (
+  additionStyles: Record<string, string | undefined>
+): string => {
+  const classNames = ADDITION_STYLE_KEYS.map((key) => additionStyles[key]).filter(
+    (className): className is string => typeof className === "string"
+  );
+
+  return classNames.map((className) => `.${escapeCssClassName(className)}`).join(", ");
+};
+
+export const wrapSnippetWithClosestAddition = (
+  element: Element,
+  snippetHtml: string,
+  additionContainerSelector: string
+): string => {
+  const additionContainer = element.closest(additionContainerSelector);
+
+  if (!additionContainer) {
+    return snippetHtml;
+  }
+
+  return wrapSnippetWithAdditionContainer(additionContainer, snippetHtml);
+};
+
+export const wrapSnippetWithAdditionContainer = (
+  additionContainer: Element,
+  snippetHtml: string
+): string => {
+  const containerTag = additionContainer.tagName.toLowerCase();
+
+  const containerClassName = additionContainer.getAttribute("class") || "";
+
+  const containerAttributes = containerClassName ? ` class="${containerClassName}"` : "";
+
+  return `<${containerTag}${containerAttributes}><div>${snippetHtml}</div></${containerTag}>`;
+};
+
+export const applyAdditionSnippetStyles = (
+  html: string,
+  additionContainerSelector: string
+): string => {
+  if (!html || !additionContainerSelector) {
+    return html;
+  }
+
+  const temporaryDiv = document.createElement("div");
+
+  temporaryDiv.innerHTML = html;
+
+  const nestedAdditionContainers = [
+    ...temporaryDiv.querySelectorAll(additionContainerSelector),
+  ].filter((element) => {
+    const parentAdditionContainer = element.parentElement?.closest(
+      additionContainerSelector
+    );
+
+    return Boolean(parentAdditionContainer);
+  });
+
+  for (const nestedAdditionContainer of nestedAdditionContainers) {
+    const fragment = document.createDocumentFragment();
+
+    while (nestedAdditionContainer.firstChild) {
+      fragment.append(nestedAdditionContainer.firstChild);
+    }
+
+    nestedAdditionContainer.replaceWith(fragment);
+  }
+
+  for (const element of temporaryDiv.querySelectorAll(additionContainerSelector)) {
+    if (element instanceof HTMLElement) {
+      element.style.fontSize = "0.9rem";
+      element.style.margin = "10px";
+
+      if (element.closest("li")) {
+        element.style.marginInline = "0";
+      }
+    }
+  }
+
+  return temporaryDiv.innerHTML;
+};
+
+export const getTopLevelAdditionContainer = (
+  element: Element,
+  rootDetail: Element,
+  additionContainerSelector: string
+): Element | undefined => {
+  let additionContainer: Element | null = element.closest(additionContainerSelector);
+
+  if (additionContainer === null) {
+    return;
+  }
+
+  while (additionContainer.parentElement !== null) {
+    const parentAdditionContainer: Element | null =
+      additionContainer.parentElement.closest(additionContainerSelector);
+
+    if (!parentAdditionContainer || !rootDetail.contains(parentAdditionContainer)) {
+      break;
+    }
+
+    additionContainer = parentAdditionContainer;
+  }
+
+  return additionContainer ?? undefined;
+};
+
+export const buildAdditionsHtml = (
+  detail: Element,
+  additionContainerSelector: string
+): string => {
+  const additions = [...detail.querySelectorAll(additionContainerSelector)].filter(
+    (addition) => {
+      const parentAddition = addition.parentElement?.closest(additionContainerSelector);
+
+      return !parentAddition || !detail.contains(parentAddition);
+    }
+  );
+
+  const htmlParts: string[] = [];
+
+  for (const addition of additions) {
+    const clone = addition.cloneNode(true) as Element;
+
+    removeFigureContainers(clone);
+    htmlParts.push(clone.outerHTML);
+  }
+
+  return htmlParts.filter(Boolean).join("\n");
+};
+
+export const collectDividerTexts = (detail: Element): string[] => {
+  return [...detail.querySelectorAll(".ant-divider-inner-text")]
+    .map((element) => element.textContent?.trim() || "")
+    .filter(Boolean);
+};
+
+export const collectFlexibleLinksTexts = (detail: Element): string[] => {
+  return [...detail.querySelectorAll(".flexible-links a")]
+    .map((element) => element.textContent?.trim() || "")
+    .filter(Boolean);
+};
+
+export const collectLinkHrefs = (detail: Element): string[] => {
+  return [...detail.querySelectorAll("a[href]")]
+    .map((element) => element.getAttribute("href")?.trim() || "")
+    .filter(Boolean);
+};
+
+export const buildParagraphsHtml = (detail: Element): string => {
+  const paragraphs = [...detail.querySelectorAll<HTMLParagraphElement>("p")];
+
+  const htmlParts: string[] = [];
+
+  for (const paragraph of paragraphs) {
+    const clone = paragraph.cloneNode(true) as Element;
+
+    removeFigureContainers(clone);
+    htmlParts.push(clone.outerHTML);
+  }
+
+  return htmlParts.filter(Boolean).join("\n");
+};
+
+export const buildTableGroupsHtml = (
+  detail: Element,
+  searchWords: string[],
+  dependencies: TableContentDependencies
+): string => {
+  const tableGroups: Record<string, string[]> = {};
+
+  const tables = [...detail.querySelectorAll<HTMLTableElement>("table")];
+
+  const keyCombo = isKeyCombinationWords(searchWords);
+
+  for (const table of tables) {
+    const headers = extractTableHeaders(table, dependencies.decodeHtmlEntities);
+
+    const headerKey = headers.join("|");
+
+    const allRows = getFilteredTableRows(table);
+
+    const excludedColumns = getExcludedColumnIndices(table);
+
+    const processedRows = allRows
+      .map((row) =>
+        processTableRow(
+          row,
+          excludedColumns,
+          keyCombo,
+          searchWords,
+          dependencies.normalizeKeyCombination
+        )
+      )
+      .filter(Boolean) as string[];
+
+    if (processedRows.length > 0) {
+      tableGroups[headerKey] ??= [];
+      tableGroups[headerKey].push(...processedRows);
+    }
+  }
+
+  return Object.entries(tableGroups)
+    .map(([headerKey, rows]) => {
+      const headers = headerKey.split("|").filter(Boolean);
+
+      let headerRow = "";
+
+      if (headers.length > 0) {
+        const headersHtml = headers.map((header) => `<th>${header}</th>`).join("");
+
+        headerRow = `<thead><tr>${headersHtml}</tr></thead>`;
+      }
+
+      return `<table>${headerRow}${rows.join("")}</table>`;
+    })
+    .join("");
+};
+
+export const buildListContentHtml = (
+  detail: Element,
+  searchWords: string[],
+  dependencies: ListContentDependencies
+): string => {
+  const uls = [...detail.querySelectorAll<HTMLUListElement>("ul")];
+
+  const parts: string[] = [];
+
+  const addedParts = new Set<string>();
+
+  for (const ul of uls) {
+    const ulClone = ul.cloneNode(true) as Element;
+
+    removeFigureContainers(ulClone);
+
+    const ulText = dependencies.stripHtml(ulClone.outerHTML);
+
+    const normalizedUlText = dependencies.normalizeText(ulText);
+
+    const hasMatch =
+      searchWords.length === 0 ||
+      searchWords.some((word) =>
+        normalizedUlText.includes(dependencies.normalizeText(word))
+      );
+
+    if (!hasMatch) {
+      continue;
+    }
+
+    const additionContainer = dependencies.getTopLevelAdditionContainer(
+      ul,
+      detail,
+      dependencies.additionContainerSelector
+    );
+
+    if (additionContainer) {
+      const additionClone = additionContainer.cloneNode(true) as Element;
+
+      removeFigureContainers(additionClone);
+
+      const additionHtml = additionClone.outerHTML;
+
+      if (!addedParts.has(additionHtml)) {
+        parts.push(additionHtml);
+        addedParts.add(additionHtml);
+      }
+
+      continue;
+    }
+
+    const ulHtml = ulClone.outerHTML;
+
+    if (!addedParts.has(ulHtml)) {
+      parts.push(ulHtml);
+      addedParts.add(ulHtml);
+    }
+  }
+
+  return parts.filter(Boolean).join("\n");
+};
+
+export const extractEntityTextFromContent = (content: string): string => {
+  if (!content.trim()) {
+    return "";
+  }
+
+  const root = document.createElement("div");
+
+  root.innerHTML = content;
+
+  return [
+    "mark.app",
+    "mark.plugin",
+    "mark.file",
+    "mark.key",
+    "mark.select",
+    "mark.video",
+    "mark.audio",
+    "mark.image",
+    "mark.path",
+    "mark.word",
+    "mark.tag",
+  ]
+    .flatMap((selector) =>
+      [...root.querySelectorAll(selector)]
+        .map((element) => element.textContent?.trim() || "")
+        .filter(Boolean)
+    )
+    .join(" ");
+};
+
+export const formatSearchSnippetResult = (
+  text: string,
+  compiledQuery: CompiledSearchQuery,
+  dependencies: SnippetFormattingDependencies
+): string => {
+  const temporaryDiv = document.createElement("div");
+
+  temporaryDiv.innerHTML = text;
+
+  for (const element of temporaryDiv.querySelectorAll(
+    ".ant-divider, .ant-divider-inner-text"
+  )) {
+    element.remove();
+  }
+
+  const tagMatch = (temporaryDiv.querySelector("[data-tags]") as HTMLElement)?.dataset
+    .tags;
+
+  const titleMatch = temporaryDiv.querySelector("summary h2")?.textContent;
+
+  if (
+    (tagMatch && dependencies.hasMatch(tagMatch, compiledQuery)) ||
+    (titleMatch && dependencies.hasMatch(titleMatch, compiledQuery))
+  ) {
+    return dependencies.applyAdditionSnippetStyles(
+      getFirstCleanParagraphOrElement(temporaryDiv),
+      dependencies.additionContainerSelector
+    );
+  }
+
+  const bestCompactSnippet = pickBestCompactSnippet(
+    temporaryDiv,
+    compiledQuery,
+    dependencies
+  );
+
+  if (bestCompactSnippet) {
+    return dependencies.applyAdditionSnippetStyles(
+      bestCompactSnippet,
+      dependencies.additionContainerSelector
+    );
+  }
+
+  const bestResult = pickBestListOrParagraphMatch(
+    temporaryDiv,
+    compiledQuery,
+    dependencies
+  );
+
+  if (!bestResult.result) {
+    return dependencies.applyAdditionSnippetStyles(
+      pickTableOrFallback(temporaryDiv, compiledQuery, dependencies),
+      dependencies.additionContainerSelector
+    );
+  }
+
+  return dependencies.applyAdditionSnippetStyles(
+    bestResult.result,
+    dependencies.additionContainerSelector
+  );
+};
+
+export const mapRankedResultsToSearchResults = (
+  queryText: string,
+  rankedResults: WorkerRankedResult[],
+  dependencies: MapSearchResultsDependencies
+): SearchResultMapped[] => {
+  const compiledQuery = compileSearchQuery(queryText);
+
+  const mappedResults: SearchResultMapped[] = [];
+
+  for (const workerResult of rankedResults) {
+    const detail = dependencies.cachedDetailsByKey.get(
+      `${workerResult.id}::${workerResult.sourceOrder}`
+    );
+
+    if (!detail) {
+      continue;
+    }
+
+    mappedResults.push({
+      ...(detail.anchor ? {anchor: detail.anchor} : {}),
+      ...(detail.tag ? {tag: detail.tag} : {}),
+      content: dependencies.formatContent(detail.content, compiledQuery),
+      hasTagMatch: workerResult.hasTagMatch,
+      hasTitleMatch: workerResult.hasTitleMatch,
+      id: detail.id,
+      isSingleParagraphMatch: workerResult.isSingleParagraphMatch,
+      title: detail.title,
+    });
+  }
+
+  return mappedResults;
+};
+
+export const getMatchingTagsByQuery = (
+  tag: string | undefined,
+  compiledQuery: CompiledSearchQuery
+): string[] => {
+  if (!tag || tag.trim() === "" || compiledQuery.searchWords.length === 0) {
+    return [];
+  }
+
+  return tag
+    .split(",")
+    .map((tagItem) => tagItem.trim())
+    .filter(Boolean)
+    .filter((tagItem) => hasCompiledQueryMatchInFields([tagItem], compiledQuery, "any"));
+};
+
+export const getResultWord = (count: number): string => {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return "результат";
+  }
+
+  if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20)) {
+    return "результата";
+  }
+
+  return "результатов";
+};
+
+export {extractMatchingLine} from "./searchHighlightUtilities";

@@ -1,7 +1,7 @@
 import {stemmer as englishStemmer} from "@orama/stemmers/english";
 import {stemmer as russianStemmer} from "@orama/stemmers/russian";
 
-import {normalizeWord} from "./searchTextUtilities";
+import {normalizeWord} from "./searchContentUtilities";
 
 export type WordFeatures = {
   consonantSignatures: string[];

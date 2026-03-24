@@ -1,5 +1,6 @@
 import React, {type ReactNode} from "react";
 
+import {normalizeWord} from "./searchContentUtilities";
 import {
   getConsonantSignature,
   getWordStem,
@@ -10,7 +11,6 @@ import {
   WORD_MATCH_PRIORITY,
   type WordFeatures,
 } from "./searchPhoneticUtilities";
-import {normalizeWord} from "./searchTextUtilities";
 
 import type {CompiledSearchQuery} from "./searchQueryCore";
 
