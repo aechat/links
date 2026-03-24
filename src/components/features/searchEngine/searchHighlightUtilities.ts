@@ -405,9 +405,7 @@ const highlightSingleTextNode = (
     highlightElement.dataset.searchHit = "true";
     highlightElement.dataset.searchMatchType = matchType;
     highlightElement.textContent = originalText.slice(start, end);
-
     fragment.append(highlightElement);
-
     cursor = end;
   }
 

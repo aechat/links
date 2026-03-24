@@ -645,7 +645,6 @@ const getPreliminaryRankScore = (
   score += tagMatchInfo.totalMatched * 10;
   score += entityMatchInfo.totalMatched * 6;
   score += contentMatchInfo.totalMatched * 3;
-
   score += titleMatchInfo.longestMatchedWordLength * 2;
   score += tagMatchInfo.longestMatchedWordLength;
 

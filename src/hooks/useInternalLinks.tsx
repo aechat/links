@@ -328,13 +328,10 @@ export const useInternalLinkHandler = () => {
           downloadLink.download = targetDownload.fileName;
           downloadLink.rel = "noopener noreferrer";
           downloadLink.style.display = "none";
-
           document.body.append(downloadLink);
           downloadLink.click();
           downloadLink.remove();
-
           globalThis.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
-
           setIsModalOpen(false);
           setTargetArticle(undefined);
           setTargetDownload(undefined);

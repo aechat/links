@@ -389,7 +389,6 @@ export const getPhraseAndShortQueryAdjustment = ({
 
   if (normalizedQuery.length > 1) {
     hasTitlePhraseMatch = normalizedTitle.includes(normalizedQuery);
-
     hasTagPhraseMatch = normalizedTag.includes(normalizedQuery);
 
     if (hasTitlePhraseMatch) {
@@ -476,7 +475,6 @@ export const computeSearchScore = <TWordFeatures>({
 
   score += SEARCH_SCORING_WEIGHTS.contentMatchCount * contentMatchInfo.totalMatched;
   score += SEARCH_SCORING_WEIGHTS.entityMatchCount * entityMatchInfo.totalMatched;
-
   score += getFieldMatchTypeScore(titleMatchInfo, SEARCH_FIELD_WEIGHTS.title);
 
   score += Math.round(

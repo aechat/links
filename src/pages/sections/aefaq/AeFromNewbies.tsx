@@ -4561,7 +4561,6 @@ const AeFromNewbies: React.FC = () => {
                 В чём разница между «BCC» и «BCC+»?
               </a>
             </p>
-
             <ArticleMedia
               src="knBQt0MNGr0"
               type="youtube"
