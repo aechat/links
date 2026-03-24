@@ -9,7 +9,7 @@ import {formatNestedQuotes} from "../../../utils/stringUtilities";
 
 import searchStyles from "./SearchEngine.module.scss";
 
-import type {SearchSection} from "./SearchEngine";
+import type {SearchSection} from "./searchTypes";
 
 type SearchCategoriesProperties = {
   onLinkClick: (id: string, matchText?: string) => void;

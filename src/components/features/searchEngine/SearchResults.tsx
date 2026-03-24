@@ -13,7 +13,7 @@ import {compileSearchQuery} from "./searchQueryCore";
 import {SearchResultCard} from "./SearchResultCard";
 import {getMatchingTagsByQuery} from "./searchResultRuntimeUtilities";
 
-import type {SearchResult} from "./SearchEngine";
+import type {SearchResult} from "./searchTypes";
 
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
