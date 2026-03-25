@@ -41,7 +41,7 @@ const PsFromNewbies: React.FC = () => {
           </a>
           <a href="https://www.youtube.com/@grafon/videos">GRAFON Уроки фотошопа</a>
           <a href="https://www.youtube.com/@ps-master/videos">
-            Фотошопер - уроки фотошопа
+            Фотошопер — уроки фотошопа
           </a>
           <a href="https://www.youtube.com/@IntuitiveDesigns/videos">Intuitive Designs</a>
           <a href="https://www.youtube.com/@Texturelabs/videos">Texturelabs</a>

@@ -223,7 +223,7 @@ const AeExport: React.FC = () => {
           Чтобы отредактировать шаблон, нажмите <mark className="select">«Edit»</mark>,
           после чего откроется окно{" "}
           <mark className="select">«Output Module Settings»</mark>. Окно редактирования
-          шаблона экспорта, по сути, не отличается от обычной настройки типа вывода.
+          шаблона экспорта практически не отличается от обычной настройки типа вывода.
         </p>
         <ArticleMedia
           caption="Output Module Templates"
@@ -285,7 +285,7 @@ const AeExport: React.FC = () => {
               наложения эффектов, вы не получите файл идентичного размера.
             </li>
             <li>
-              Данная статья содержит только «душную» теорию, поэтому, если вы ищете, как
+              Эта статья содержит только «душную» теорию, поэтому, если вы ищете, как
               настроить экспорт, — прочитайте другие статьи, например{" "}
               <a href="#export-mp4">«Как экспортировать композицию в MP4?»</a> или{" "}
               <a href="#export-prores">«Как экспортировать композицию в Apple ProRes?»</a>{" "}
@@ -667,7 +667,7 @@ const AeExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="word">Яркость</mark> (Luma, Y) — это, по сути,
+            <mark className="word">Яркость</mark> (Luma, Y) — это фактически
             детализированная чёрно-белая версия изображения. Она отвечает за контуры,
             текстуры и чёткость. Наш глаз особенно чувствителен к этой информации.
           </li>
@@ -2561,8 +2561,8 @@ const AeExport: React.FC = () => {
             </ul>
           </li>
           <li>
-            <mark className="word">Видеостикер</mark> — это, по сути, обычное видео в
-            формате <mark className="video">WEBM</mark> с кодеком{" "}
+            <mark className="word">Видеостикер</mark> — обычное видео в формате{" "}
+            <mark className="video">WEBM</mark> с кодеком{" "}
             <mark className="video">VP9</mark>. Максимальное разрешение такого стикера —
             <mark>512</mark> на <mark>512</mark> пикселей.
           </li>
@@ -2712,9 +2712,9 @@ const AeExport: React.FC = () => {
         </p>
         <Divider>Экспортируем видеостикер</Divider>
         <p>
-          Видеостикер — это, по сути, короткий видеоролик в формате{" "}
-          <mark className="video">WEBM</mark> с кодеком <mark className="video">VP9</mark>
-          . Требования <mark className="app">Telegram</mark> к этому формату следующие:
+          Видеостикер — короткий видеоролик в формате <mark className="video">WEBM</mark>{" "}
+          с кодеком <mark className="video">VP9</mark>. Требования{" "}
+          <mark className="app">Telegram</mark> к этому формату следующие:
         </p>
         <ul>
           <li>
@@ -2788,8 +2788,8 @@ const AeExport: React.FC = () => {
         />
         <Addition type="info">
           <p>
-            Файл <mark className="file">MOGRT</mark> — это, по сути, архив, в котором
-            хранятся несколько файлов, формирующих шаблон.
+            Файл <mark className="file">MOGRT</mark> — архив, в котором хранятся несколько
+            файлов, формирующих шаблон.
           </p>
           <ul>
             <li>

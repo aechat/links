@@ -288,9 +288,9 @@ const PrInstallProblems: React.FC = () => {
                   <Addition type="warning">
                     Учтите, что не все плагины формата{" "}
                     <mark className="file">PLUGIN</mark> поддерживаются в{" "}
-                    <mark className="app">Adobe Premiere</mark>, так как по большей части
-                    они предназначены для <mark className="app">Adobe After Effects</mark>{" "}
-                    и не всегда имеют обратную совместимость с{" "}
+                    <mark className="app">Adobe Premiere</mark>, так как в основном они
+                    предназначены для <mark className="app">Adobe After Effects</mark> и
+                    не всегда имеют обратную совместимость с{" "}
                     <mark className="app">Adobe Premiere</mark>.
                   </Addition>
                   <Addition type="danger">
@@ -886,7 +886,7 @@ const PrInstallProblems: React.FC = () => {
                   <Addition type="warning">
                     Учтите, что не все плагины формата <mark className="file">AEX</mark>{" "}
                     поддерживаются в <mark className="app">Adobe Premiere</mark>, так как
-                    по большей части они предназначены для{" "}
+                    в основном они предназначены для{" "}
                     <mark className="app">Adobe After Effects</mark> и не всегда имеют
                     обратную совместимость с <mark className="app">Adobe Premiere</mark>.
                   </Addition>
@@ -1449,8 +1449,8 @@ const PrInstallProblems: React.FC = () => {
                 только репаков, но и плагинов, и других файлов из интернета — даже если
                 они абсолютно безопасны.{" "}
                 <i style={{opacity: "0.5"}}>
-                  А если не доверяете — не предъявляйте администраторам претензии,
-                  основанные на вашей паранойе, а просто купите лицензию.
+                  А если не доверяете, не предъявляйте администраторам претензии без
+                  подтверждённых фактов и используйте лицензионные версии.
                 </i>
               </p>
               <p>
@@ -1698,7 +1698,7 @@ const PrInstallProblems: React.FC = () => {
                 меняя директорию установки программы.
               </p>
               <p>
-                Но, к сожалению, в качестве аргумента на вопрос{" "}
+                Но в качестве аргумента на вопрос{" "}
                 <mark className="quote">
                   «А зачем вы, собственно, установили Premiere на другой раздел?»
                 </mark>{" "}
@@ -2049,7 +2049,7 @@ const PrInstallProblems: React.FC = () => {
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
         <p>
-          Данная ошибка возникает, когда вы пытаетесь открыть установщик репака от{" "}
+          Эта ошибка возникает, когда вы пытаетесь открыть установщик репака от{" "}
           <mark className="user">KpoJIuK</mark>, а он оказывается повреждённым и не может
           корректно распаковаться. Часто это происходит из-за некорректных действий
           пользователя или срабатывания антивирусной программы на вашем устройстве с{" "}
@@ -2148,7 +2148,7 @@ const PrInstallProblems: React.FC = () => {
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
         <p>
-          Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
+          Эта ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
           причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы решить эту
           проблему — проверьте содержимое директории{" "}
           <mark className="path">%WINDIR%\System32\Drivers\etc</mark>. Если в нём нет

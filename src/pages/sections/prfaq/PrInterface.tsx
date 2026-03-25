@@ -64,9 +64,9 @@ const PrInterface: React.FC = () => {
         <p>
           В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее{" "}
           <mark className="select">«Set to Frame Size»</mark> заменили на{" "}
-          <mark className="select">«Fit to Frame»</mark>. Данная функция увеличивает
-          значение <mark className="select">«Scale»</mark> до тех пор, пока не упрётся в
-          ближайшую сторону по высоте или ширине вашей секвенции.
+          <mark className="select">«Fit to Frame»</mark>. Эта функция увеличивает значение{" "}
+          <mark className="select">«Scale»</mark> до тех пор, пока не упрётся в ближайшую
+          сторону по высоте или ширине вашей секвенции.
         </p>
         <p>
           Вместе с этим обновлением добавили новую функцию{" "}
