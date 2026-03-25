@@ -4486,7 +4486,7 @@ const AeFromNewbies: React.FC = () => {
                     <p>
                       <mark className="word">Плагин</mark> — дополнение к{" "}
                       <mark className="app">Adobe After Effects</mark> и иногда к{" "}
-                      <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                      <mark className="app">Adobe Premiere</mark> и{" "}
                       <mark className="app">Adobe Media Encoder</mark> формата{" "}
                       <mark className="file">AEX</mark> на{" "}
                       <mark className="os">Windows</mark> и{" "}
