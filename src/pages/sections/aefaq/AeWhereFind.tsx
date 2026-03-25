@@ -3714,9 +3714,7 @@ const AeWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>
-                <mark className="plugin">—</mark>
-              </td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Unmult</mark>
               </td>
