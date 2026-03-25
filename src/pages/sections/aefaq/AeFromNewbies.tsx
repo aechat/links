@@ -4570,8 +4570,7 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <p>
               Пакеты от <mark className="company">Red Giant</mark>:{" "}
-              <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
-              полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
+              <mark className="plugin">Magic Bullet Suite</mark>,{" "}
               <mark className="plugin">Trapcode Suite</mark>,{" "}
               <mark className="plugin">VFX Suite</mark> и{" "}
               <mark className="plugin">Universe</mark>. Последние версии первых трёх
@@ -4582,9 +4581,12 @@ const AeFromNewbies: React.FC = () => {
             <p>
               Из ключевых эффектов этих пакетов можно выделить{" "}
               <mark className="plugin">Primatte Keyer</mark> и{" "}
-              <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
+              <mark className="plugin">Supercomp</mark> для композитинга,{" "}
               <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
-              <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
+              <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио, а
+              также <mark className="plugin">Magic Bullet Looks</mark> и{" "}
+              <mark className="plugin">Magic Bullet Cosmo</mark> для цветокоррекции и
+              ретуши.
             </p>
             <ArticleMedia
               src="y2HphEWcNTM"
@@ -4621,7 +4623,7 @@ const AeFromNewbies: React.FC = () => {
             <p>
               <mark className="plugin">Twixtor</mark> и{" "}
               <mark className="plugin">RSMB</mark> от{" "}
-              <mark className="company">RE:VisionFX</mark> — для создания плавного
+              <mark className="company">RE:VisionFX</mark> — эффекты для создания плавного
               замедления происходящего на слое и создания размытия в движении.{" "}
               <a href="#frame-interpolation">Чем ещё можно плавно замедлить видео?</a>
             </p>
@@ -4759,8 +4761,8 @@ const AeFromNewbies: React.FC = () => {
             </p>
             <Addition type="warning">
               На момент написания статьи компания <mark className="company">FXHome</mark>{" "}
-              прекратила своё существование, поэтому поддержка этих эффектов прекращена и
-              они больше недоступны на официальном сайте.
+              прекратила существование, поэтому поддержка этих эффектов завершена и они
+              больше недоступны на официальном сайте.
             </Addition>
             <ArticleMedia
               src="oV1PIx1HZNQ"
