@@ -4565,7 +4565,6 @@ const AeFromNewbies: React.FC = () => {
               src="knBQt0MNGr0"
               type="youtube"
             />
-            {/* */}
           </li>
           <li>
             <p>
