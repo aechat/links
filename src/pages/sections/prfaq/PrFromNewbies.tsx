@@ -1652,87 +1652,277 @@ const PrFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="recommended-plugins"
-        tag="рекомендация, топ плагинов"
-        title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
+        tag="список рекомендаций, топ плагинов, скрипты, расширения"
+        title="Какие полезные дополнения стоит установить для работы с проектами?"
       >
-        <Addition type="warning">
-          Сразу хочу{" "}
-          <b>
-            <u>предупредить</u>
-          </b>
-          : пожалуйста, не надо скачивать и устанавливать в программу все плагины мира
-          подряд. Для начала разберитесь с тем, что вам действительно нужно.
-        </Addition>
         <p>
-          Сторонние плагины и расширения в какой-то степени могут ускорить и
-          автоматизировать вашу рутинную работу с кадрами и шотами. Ниже приведу список
-          популярных плагинов.
+          Сторонние дополнения — вещь полезная, которая может ускорить{" "}
+          <i style={{opacity: "0.5"}}>или замедлить</i> выполнение разных действий с
+          композициями и слоями, а также расширить функционал{" "}
+          <mark className="app">Adobe Premiere</mark>. В этой статье собрана подборка
+          популярных дополнений и эффектов для разных задач.
         </p>
+        <Addition type="warning">
+          <ul>
+            <li>
+              Пожалуйста, не устанавливайте всё подряд в{" "}
+              <mark className="app">Adobe Premiere</mark>. Ставьте только те дополнения,
+              которые действительно планируете использовать в работе. Избыточное
+              количество плагинов и расширений перегружает программу и может заметно
+              замедлить её запуск и работу.
+            </li>
+            <li>Подборка автора статьи может не совпадать с вашим мнением.</li>
+          </ul>
+        </Addition>
         <Addition type="info">
+          <ul>
+            <li>
           Большинство дополнений из статьи можно найти в каналах{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
-          <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+              <Addition type="info">
+                Инструкции по установке популярных форматов дополнений вы можете найти в{" "}
+                <a href="#how-to-install">статье 2.1</a>.
+              </Addition>
+            </li>
+            <li>
+              <p>
+                Прежде, чем начать — отдельно хочется сказать по терминологии. Часто
+                новички загоняют под одну гребёнку слова{" "}
+                <mark className="word">плагин</mark> и{" "}
+                <mark className="word">расширения</mark>, хотя область действий у них
+                кардинально отличаются.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <p>
+                      <mark className="word">Плагин</mark> — дополнение к{" "}
+                      <mark className="app">Adobe Premiere</mark> и иногда к{" "}
+                      <mark className="app">Adobe After Effects</mark> и{" "}
+                      <mark className="app">Adobe Media Encoder</mark> формата{" "}
+                      <mark className="file">PRM</mark> или{" "}
+                      <mark className="file">AEX</mark> на{" "}
+                      <mark className="os">Windows</mark> и{" "}
+                      <mark className="file">BUNDLE</mark> или{" "}
+                      <mark className="file">PLUGIN</mark> на{" "}
+                      <mark className="os">macOS</mark>. Обычно с помощью них вы
+                      расширяете функционал программы за счёт добавления новых эффектов в{" "}
+                      <mark className="select">«Effects»</mark>, новый формат рендера или
+                      новых элементов меню.
+                    </p>
+                    <Addition type="danger">
+                      <ul>
+                        <li>
+                          Плагины формата <mark className="file">PRM</mark> и{" "}
+                          <mark className="file">AEX</mark> не подходят для устройств на{" "}
+                          <mark>macOS</mark>, так как они предназначены для устройств на{" "}
+                          <mark>Windows</mark>.
+                        </li>
+                        <li>
+                          Плагины формата <mark className="file">BUNDLE</mark> и{" "}
+                          <mark className="file">PLUGIN</mark> не подходят для устройств
+                          на <mark>Windows</mark>, так как они предназначены для устройств
+                          на <mark>macOS</mark>.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    <mark className="word">Расширение</mark> — дополнение формата{" "}
+                    <mark className="file">ZXP</mark>, которое может устанавливаться на
+                    обеих платформах — <mark>Windows</mark> и <mark>macOS</mark>. Чаще
+                    всего представляет собой веб-страницу в стеке{" "}
+                    <mark className="file">HTML</mark>, <mark className="file">CSS</mark>,{" "}
+                    <mark className="file">JS</mark>, бэкэндом и доступом к вашей файловой
+                    системе, выполняющее определённые действия и связывает веб-страницу с{" "}
+                    <mark className="app">Adobe After Effects</mark>. Сами страницы и
+                    скрипты для них могут писаться как на чистом <mark>JavaScript</mark>,
+                    так и с использованием различных фреймворков, например{" "}
+                    <mark className="app">React</mark> или{" "}
+                    <mark className="app">Vue</mark>.
+                  </li>
+                </ul>
+              </Addition>
+            </li>
+          </ul>
         </Addition>
         <Divider>Подборка для совместимости с чужими проектами</Divider>
         <ul>
           <li>
+            <p>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
-            <mark className="plugin">Boris FX Continuum</mark> — сборники эффектов и
-            различных переходов.
+              <mark className="plugin">Boris FX Continuum</mark> — пакеты популярных
+              эффектов от <mark className="company">Boris FX</mark>, которые дополняют
+              скудный стандартный набор инструментов.
+            </p>
+            <p>
+              Из ключевых эффектов этих пакетов можно выделить{" "}
+              <mark className="plugin">S_Shake</mark> для создания эффекта тряски слоя,{" "}
+              <mark className="plugin">S_LensFlare</mark> для создания имитации бликов
+              объектива, <mark className="plugin">BCC+Primatte Studio</mark> для кеинга и{" "}
+              <mark className="plugin">BCC+UpRes ML</mark> для улучшения «качества» слоя.{" "}
+              <a href="https://support.borisfx.com/hc/en-us/articles/11229342880141-What-s-the-difference-between-BCC-and-BCC">
+                В чём разница между «BCC» и «BCC+»?
+              </a>
+            </p>
+            <ArticleMedia
+              src="knBQt0MNGr0"
+              type="youtube"
+            />
           </li>
           <li>
+            <p>
+              Пакеты от <mark className="company">Red Giant</mark>:{" "}
             <mark className="plugin">Magic Bullet Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark> — ещё один сборник различных эффектов
-            и переходов.
+              <mark className="plugin">Universe</mark>. Последние версии первых трёх
+              пакетов объединены в один <mark className="plugin">Maxon Red Giant</mark>, а{" "}
+              <mark className="plugin">Maxon Universe</mark> по-прежнему устанавливается
+              отдельно.
+            </p>
+            <p>
+              Из ключевых эффектов этих пакетов можно выделить{" "}
+              <mark className="plugin">Primatte Keyer</mark> и{" "}
+              <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
+              <mark className="plugin">Magic Bullet Looks</mark> и{" "}
+              <mark className="plugin">Magic Bullet Cosmo</mark> для цветокоррекции и
+              ретуши.
+            </p>
+            <ArticleMedia
+              src="y2HphEWcNTM"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Boris FX Mocha Pro</mark> — плагин для планарного
-            трекинга различных объектов.
+            <mark className="plugin">Boris FX Mocha Pro</mark> — расширенная версия
+            стандартного плагина для трекинга <mark className="plugin">Mocha AE</mark> без
+            ограничений. <a href="#mocha-ae-vs-pro">Чем они отличаются?</a>
+            <ArticleMedia
+              src="Deajk1XAWVc"
+              type="youtube"
+            />
           </li>
           <li>
+            <p>
+              <mark className="plugin">Twixtor</mark> и{" "}
+              <mark className="plugin">RSMB</mark> от{" "}
+              <mark className="company">RE:VisionFX</mark> — эффекты для создания плавного
+              замедления происходящего на слое и создания размытия в движении.{" "}
+              <a href="#frame-interpolation">Чем ещё можно плавно замедлить видео?</a>
+            </p>
+            <ArticleMedia
+              src="20Smtrzt3m4"
+              type="youtube"
+            />
+          </li>
+          <li>
+            <p>
             <mark className="plugin">Film Impact Premium Transitions</mark> и{" "}
             <mark className="plugin">Film Impact Premium Effects</mark> — сборник
-            различных эффектов и переходов.
+              различных эффектов и переходов. Ранее этот набор был платным, но начиная с{" "}
+              <mark className="app">Adobe Premiere Pro 25.6 (2025)</mark> он входит в
+              стандартную поставку программы.
+            </p>
+            <ArticleMedia
+              src="TScee_B9Qt8"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">FXHome Ignite Pro</mark> — плагин для добавления
-            визуальных эффектов и переходов.
+            <p>
+              <mark className="plugin">FXHome Ignite Pro</mark> — сборник эффектов,
+              названия которых выглядят как стандартные эффекты{" "}
+              <mark className="app">Adobe Premiere</mark>. Иногда при открытии чужих
+              проектов с такими эффектами у пользователей без установленного пакета
+              возникает вопрос: откуда они взялись, являются ли они стандартными и как их
+              установить.
+            </p>
+            <Addition type="warning">
+              На момент написания статьи компания <mark className="company">FXHome</mark>{" "}
+              прекратила существование, поэтому поддержка этих эффектов завершена и они
+              больше недоступны на официальном сайте.
+            </Addition>
+            <ArticleMedia
+              src="oV1PIx1HZNQ"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            — плагины для плавного замедления клипа и добавления размытия в движении.
+            <p>
+              <mark className="plugin">FilmConvert</mark> — плагин для применения
+              различных фильтров для имитации плёнки.
+            </p>
+            <ArticleMedia
+              src="0GaskxpUwYo"
+              type="youtube"
+            />
+          </li>
+          <li>
+            <p>
+              <mark className="plugin">Neat Video</mark> — плагин для шумоподавления и
+              уменьшения мерцания на видео.
+            </p>
+            <ArticleMedia
+              src="DYKBQF7eIUo"
+              type="youtube"
+            />
           </li>
         </ul>
         <Divider>Подборка полезных инструментов</Divider>
         <li>
+          <p>
           <mark className="plugin">Excalibur</mark> — панель для быстрого применения
-          различных переходов, эффектов и выполнения различных действий. Вызывается по
-          умолчанию через комбинацию клавиш <mark className="key">Alt + Space</mark>, но
-          можно переназначить на другую комбинацию в настройках плагина. Данный плагин
-          считается аналогом <mark className="plugin">FX Console</mark> из{" "}
+            переходов и эффектов, а также для выполнения других действий. По умолчанию
+            вызывается комбинацией клавиш <mark className="key">Alt + Space</mark>, но её
+            можно переназначить в настройках расширения. Это расширение можно считать
+            аналогом <mark className="plugin">FX Console</mark> из{" "}
           <mark className="app">Adobe After Effects</mark> для{" "}
           <mark className="app">Adobe Premiere</mark>.
+          </p>
+          <ArticleMedia
+            src="lvlgHy5TQx8"
+            type="youtube"
+          />
         </li>
         <li>
           <p>
             <mark className="plugin">AtomX</mark>,{" "}
             <mark className="plugin">MotionBro</mark>,{" "}
-            <mark className="plugin">Premiere Composer</mark> и похожие плагины с
+            <mark className="plugin">Premiere Composer</mark> и похожие расширения с
             различными паками помогут ускорить работу за счёт быстрого применения
             разнообразных эффектов и переходов.
           </p>
+          <ArticleMedia
+            src="Cmq0ToqZZns"
+            type="youtube"
+          />
           <Addition type="warning">
-            Учтите, что при применении некоторых переходов у вас может снизиться
-            производительность проекта.
+            <ul>
+              <li>
+                Учтите, что при применении некоторых переходов из пакетов для этих
+                расширений производительность проекта может снизиться.
+              </li>
+              <li>
+                Не рекомендуется хранить файлы пакетов этих расширений по пути длиннее{" "}
+                <mark>255</mark> символов: это может вызвать ошибки импорта и нестабильную
+                работу расширений.
+              </li>
+            </ul>
           </Addition>
         </li>
         <li>
-          <mark className="app">Nobe OmniScope</mark> — программа, подключаемая к{" "}
-          <mark className="app">Adobe Premiere</mark> для отображения спектрограммы вашего
-          видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только лучше.
+          <p>
+            <mark className="app">Nobe OmniScope</mark> — дополнение, которое подключается
+            к <mark className="app">Adobe Premiere</mark> и другим монтажным программам
+            для отображения скопов вашего видео. Похоже на{" "}
+            <mark className="plugin">Lumetri Scopes</mark>, но функциональнее.
+          </p>
+          <ArticleMedia
+            src="2omKlqykk9w"
+            type="youtube"
+          />
         </li>
         <Divider>Подборка для синхронизации дорожек c разных камер</Divider>
         <ul>
@@ -1743,55 +1933,83 @@ const PrFromNewbies: React.FC = () => {
               видео, снятые с разных камер.
             </p>
             <Addition type="warning">
-              Для данной программы поддержка прекращена. Программой пользоваться можно, но
-              обновляться она уже не будет.{" "}
+              На момент написания статьи поддержка программы прекращена: пользоваться ей
+              можно, но новых обновлений не будет.{" "}
               <a href="https://support.maxon.net/hc/en-us/articles/7389361453340-PluralEyes-Limited-Maintenance-Mode">
                 Подробнее...
               </a>
             </Addition>
+            <ArticleMedia
+              src="oNwq2w2mNuA"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
-              <mark className="app">Syncaila</mark> или же{" "}
-              <mark className="app">Синкайла</mark> — отечественный продукт для
-              синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
-              истечении которого будет доступна синхронизация только 20 клипов на двух
-              дорожках.
+              <mark className="app">Syncaila</mark> — отечественный продукт для
+              синхронизации многокамерной съёмки.
             </p>
+            <ArticleMedia
+              src="sxhbLwIdTt8"
+              type="youtube"
+            />
             <Addition type="info">
-              Приобрести полную версию <mark className="app">Syncaila</mark> можно на{" "}
-              <a href="https://syncaila.com/ru#section-p7">официальном сайте</a>.
+              В программе доступна пробная версия на <mark>20 дней</mark>. После её
+              завершения синхронизация ограничивается <mark>20 клипами</mark> на двух
+              дорожках. Полную версию <mark className="app">Syncaila</mark> можно
+              приобрести на{" "}
+              <a href="https://syncaila.com/ru#section-licenses">официальном сайте</a>.
             </Addition>
           </li>
         </ul>
         <Divider>Подборка для создания субтитров</Divider>
         <ul>
           <li>
+            <p>
             <mark className="app">Subtitle Edit</mark> — сторонняя программа для
             редактирования и генерации субтитров из звука с помощью технологий{" "}
-            <mark>Whisper</mark> и <mark>Vosk/Kaldi</mark>.
+              <mark className="app">Whisper</mark> и{" "}
+              <mark className="app">Vosk/Kaldi</mark>.
+            </p>
+            <ArticleMedia
+              src="ZDXyBAzApH8"
+              type="youtube"
+            />
           </li>
           <li>
             <p>
-              <mark className="plugin">Submachine</mark> — плагин для создания
-              анимированных субтитров, как в &quot;тиктоках&quot; и &quot;рилсах&quot;.
-              Перед использованием плагина лучше уделить 20 минут и{" "}
-              <a href="https://youtu.be/xYidiPvc_LY">
-                посмотреть официальное обучающее видео по его использованию
-              </a>
-              .
+              <mark className="plugin">Submachine</mark> — расширение для создания
+              анимированных субтитров для <mark className="app">TikTok</mark>,{" "}
+              <mark className="app">YouTube Shorts</mark> или{" "}
+              <mark className="app">Instagram Reels</mark>
+              <sup>1</sup>. Перед использованием лучше уделить время на его изучение.
+              <ArticleMedia
+                src="xYidiPvc_LY"
+                type="youtube"
+              />
             </p>
             <Addition type="warning">
-              Данный плагин на <mark className="app">Adobe Premiere</mark> версий{" "}
-              <mark>24.2 (2024)</mark> и <mark>24.2.1 (2024)</mark> может работать
-              некорректно. Рекомендуется обновить программу до последней версии или
-              откатиться до <mark>24.1 (2024)</mark>.
+              Данное расширение на{" "}
+              <mark className="app">Adobe Premiere Pro 24.2 (2024)</mark> и{" "}
+              <mark className="app">Adobe Premiere Pro 24.2.1 (2024)</mark> может работать
+              некорректно.
+            </Addition>
+            <Addition type="danger">
+              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
+              признаны экстремистскими организациями и запрещены на территории Российской
+              Федерации.
             </Addition>
           </li>
           <li>
+            <p>
             <mark className="plugin">Captioneer</mark> — аналог предыдущего в списке
-            плагина, с его помощью тоже можно создавать анимированные субтитры и применять
-            на них стили из <mark className="file">MOGRT</mark> файлов.
+              дополнения, с его помощью тоже можно создавать анимированные субтитры и
+              применять на них стили из <mark className="file">MOGRT</mark> файлов.
+            </p>
+            <ArticleMedia
+              src="44MGfi6mNTw"
+              type="youtube"
+            />
           </li>
         </ul>
         <Divider>Подборка для обработки звука</Divider>
@@ -1802,10 +2020,16 @@ const PrFromNewbies: React.FC = () => {
         </Addition>
         <ul>
           <li>
+            <p>
             <mark className="plugin">iZotope RX</mark>,{" "}
             <mark className="plugin">iZotope Nectar</mark> и{" "}
             <mark className="plugin">iZotope Ozone</mark> — плагины для обработки звука,
             восстановления голоса и мастеринга.
+            </p>
+            <ArticleMedia
+              src="oWR5aGBmlYo"
+              type="youtube"
+            />
           </li>
           <li>
             <mark className="plugin">FabFilter Bundle</mark> — сборник различных плагинов
@@ -1814,28 +2038,6 @@ const PrFromNewbies: React.FC = () => {
           <li>
             <mark className="plugin">Antares Auto-Tune</mark> — знаменитый плагин для
             коррекции голоса.
-          </li>
-        </ul>
-        <Divider>Подборка для ретуши</Divider>
-        <ul>
-          <li>
-            <mark className="plugin">BeautyBox</mark> — плагин для ретуширования и
-            сглаживания кожи у человека на видео с сохранением естественного вида.
-          </li>
-        </ul>
-        <Divider>Подборка для цветокоррекции и шумоподавления</Divider>
-        <ul>
-          <li>
-            <mark className="plugin">FilmConvert</mark> — плагин для применения различных
-            фильтров для имитации плёнки.
-          </li>
-          <li>
-            <mark className="plugin">Magic Bullet Looks</mark> — плагин для применения
-            художественной цветокоррекции.
-          </li>
-          <li>
-            <mark className="plugin">Neat Video</mark> — плагин для шумоподавления и
-            уменьшения мерцания на видео.
           </li>
         </ul>
       </DetailsSummary>
