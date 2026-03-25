@@ -372,8 +372,9 @@ const AeInstallProblems: React.FC = () => {
                   <p>
                     Расширения формата <mark className="file">ZXP</mark> можно установить
                     двумя способами: с использованием{" "}
-                    <mark className="app">ZXP Installer от aescripts</mark> или ручной
-                    распаковкой расширения в нужную директорию. После корректной установки
+                    <mark className="app">ZXP Installer</mark> от{" "}
+                    <mark className="company">aescripts</mark> или ручной распаковкой
+                    расширения в нужную директорию. После корректной установки
                     установленные расширения появятся в{" "}
                     <mark className="select">«Window» → «Extensions»</mark> и будут
                     работать в своём новом окне, которое вы можете прикрепить в своё
@@ -429,10 +430,9 @@ const AeInstallProblems: React.FC = () => {
                       </p>
                       <Addition type="danger">
                         Пожалуйста, не используйте{" "}
-                        <a href="https://zxpinstaller.com/">
-                          ZXP Installer от ELEMENTS Storage Media
-                        </a>
-                        , если вы используете версии программ от
+                        <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                        <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                        используете версии программ от
                         <mark className="company">Adobe</mark>, которые отвязаны от
                         приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
                         <a href="https://zxpinstaller.com/">ZXP Installer</a> будет
@@ -969,8 +969,9 @@ const AeInstallProblems: React.FC = () => {
                   <p>
                     Расширения формата <mark className="file">ZXP</mark> можно установить
                     двумя способами: с использованием{" "}
-                    <mark className="app">ZXP Installer от aescripts</mark> или ручной
-                    распаковкой расширения в нужную директорию. После корректной установки
+                    <mark className="app">ZXP Installer</mark> от{" "}
+                    <mark className="company">aescripts</mark> или ручной распаковкой
+                    расширения в нужную директорию. После корректной установки
                     установленные расширения появятся в{" "}
                     <mark className="select">«Window» → «Extensions»</mark> и будут
                     работать в своём новом окне, который вы можете прикрепить в своё
@@ -1026,10 +1027,9 @@ const AeInstallProblems: React.FC = () => {
                       </p>
                       <Addition type="danger">
                         Пожалуйста, не используйте{" "}
-                        <a href="https://zxpinstaller.com/">
-                          ZXP Installer от ELEMENTS Storage Media
-                        </a>
-                        , если вы используете версии программ от
+                        <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                        <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                        используете версии программ от
                         <mark className="company">Adobe</mark>, которые отвязаны от
                         приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
                         <a href="https://zxpinstaller.com/">ZXP Installer</a> будет
@@ -2927,15 +2927,13 @@ const AeInstallProblems: React.FC = () => {
           Эта ошибка прямо указывает на то, что на вашем устройстве отсутствует программа{" "}
           <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь установить
           какое-либо расширение формата <mark className="file">ZXP</mark> с помощью{" "}
-          <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>{" "}
-          — откажитесь от него в пользу{" "}
-          <a href="https://aescripts.com/learn/zxp-installer/">
-            ZXP Installer от aescripts
-          </a>{" "}
-          или ручной распаковки расширения в нужное место. При этом{" "}
-          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
-          вы используете репаки от <mark className="user">KpoJluK</mark> или{" "}
-          <mark className="user">m0nkrus</mark>.
+          <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+          <mark className="company">ELEMENTS Storage Media</mark> — откажитесь от него в
+          пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
+          <mark className="company">aescripts</mark> или ручной распаковки расширения в
+          нужное место. При этом <mark className="app">Adobe Creative Cloud</mark>{" "}
+          устанавливать не нужно, если вы используете репаки от{" "}
+          <mark className="user">KpoJluK</mark> или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">
           Более подробную информацию об установке дополнительных материалов вы можете

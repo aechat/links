@@ -1631,19 +1631,16 @@ const PsInstallProblems: React.FC = () => {
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
         <p>
-          Данная ошибка прямым текстом указывает на то, что на вашем устройстве
-          отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
-          пытаетесь установить какое-либо расширение формата{" "}
-          <mark className="file">ZXP</mark> с помощью{" "}
-          <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
-          то откажитесь от него в пользу{" "}
-          <a href="https://aescripts.com/learn/zxp-installer/">
-            ZXP Installer от aescripts
-          </a>{" "}
-          или ручной распаковки расширения в нужное место. И даже{" "}
-          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
-          вы используете репаки от <mark className="user">KpoJluK</mark> или{" "}
-          <mark className="user">m0nkrus</mark>.
+          Эта ошибка прямо указывает на то, что на вашем устройстве отсутствует программа{" "}
+          <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь установить
+          какое-либо расширение формата <mark className="file">ZXP</mark> с помощью{" "}
+          <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+          <mark className="company">ELEMENTS Storage Media</mark> — откажитесь от него в
+          пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
+          <mark className="company">aescripts</mark> или ручной распаковки расширения в
+          нужное место. При этом <mark className="app">Adobe Creative Cloud</mark>{" "}
+          устанавливать не нужно, если вы используете репаки от{" "}
+          <mark className="user">KpoJluK</mark> или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">
           Более подробную информацию про установку дополнительных материалов вы можете
