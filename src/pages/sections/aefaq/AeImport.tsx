@@ -607,8 +607,8 @@ const AeImport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        anchor="fix-overexposed-video"
-        tag="пересвет, айфон, яркость, цветовое пространство, рек709"
+        anchor="fix-color-space"
+        tag="искаженные цвета, пересвет, айфон, яркость, цветовые пространства"
         title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
       ></DetailsSummary>
       <DetailsSummary
