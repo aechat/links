@@ -22,7 +22,8 @@ const AeInterface: React.FC = () => {
           некоторых «народных» версиях программы стартовый экран может не загружаться и
           оставаться пустым. Для решения этой проблемы достаточно войти в аккаунт{" "}
           <mark className="company">Adobe</mark> через{" "}
-          <mark className="select">«Help» → «Sign In»</mark>.
+          <mark className="select">«Help» → «Sign In»</mark>.{" "}
+          <i style={{opacity: "0.5"}}>Нет, псевдо-лицензия не слетит.</i>
         </p>
         <ArticleMedia
           caption="Пустое домашнее окно Adobe After Effects"
