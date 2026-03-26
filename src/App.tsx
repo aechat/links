@@ -129,10 +129,7 @@ const SafariWarningModal = ({
               ⚠ Предупреждение для Safari
             </div>
           </div>
-          <div
-            className={modalStyles["modal-text-balance"]}
-            style={{textAlign: "left"}}
-          >
+          <div className={modalStyles["modal-text-balance"]}>
             <p>
               В браузере <mark className="app">Safari</mark> при чтении некоторых статей
               данная страница может упасть в ошибку{" "}
