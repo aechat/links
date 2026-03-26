@@ -48,6 +48,7 @@ const PrPerformance: React.FC = () => {
         tag="mercury gpu acceleration, software rendering only, рендеринг на процессоре"
         title="Как переключить тип рендеринга и зачем это нужно делать?"
       ></DetailsSummary>
+      <DetailsSummary title="Что у меня постоянно обрабатывается в фоне после импорта исходников или как отключить «Media Intelligence Analysis»?"></DetailsSummary>
       <DetailsSummary
         anchor="configure-swapfile"
         tag="файл подкачки, виртуальная память, swapfile, paging file, virtual memory"
