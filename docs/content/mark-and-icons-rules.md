@@ -11,7 +11,12 @@
 
 - `file`, `path`, `copy`;
 - `app`, `plugin`, `company`, `user`;
-- `select`, `key`, `tag`, `word`, `quote`, `code`;
+- `web`;
+- `select`, `key`, `tag`, `word`, `quote`, `code`, `file-code`, `version`;
+- `hardware`;
+- `codec-param`;
+- `term`;
+- `color-space`;
 - `image`, `video`, `audio`;
 - `info`, `warning`, `danger`.
 
@@ -30,5 +35,17 @@
 </p>
 <p>
   Для выражения используйте <mark className="code">wiggle(3, 20)</mark>.
+</p>
+<p>
+  Ресурс: <mark className="web">Envato Elements</mark>.
+</p>
+<p>
+  Параметр кодирования: <mark className="codec-param">CBR</mark>.
+</p>
+<p>
+  Язык: <mark className="file-code">JavaScript</mark>.
+</p>
+<p>
+  Компонент: <mark className="hardware">Intel Core</mark>.
 </p>
 ```
