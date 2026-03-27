@@ -608,9 +608,197 @@ const AeImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-color-space"
-        tag="искаженные цвета, пересвет, айфон, яркость, цветовые пространства"
-        title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
-      ></DetailsSummary>
+        tag="пересвет, айфон, яркость, цветовые пространства"
+        title="Как исправить искажённые цвета после импорта исходников?"
+      >
+        <p>
+          Проблема искажённых цветов в предпросмотре всё чаще преследует монтажёров и
+          обычно возникает из-за несоответствия между цветовыми пространствами, указанными
+          в настройках проекта и у исходника. Например, когда вы импортируете исходник,
+          записанный в <mark className="color-space">Rec.2020</mark> с iPhone, в проект,
+          где в <mark className="select">«Working Color Space»</mark> установлено значение{" "}
+          <mark className="select">«Rec.709»</mark>.
+        </p>
+        <p>
+          Чтобы это исправить, нужно привести проект и исходник к одному виду, чтобы
+          совпадали их цветовое пространство и тип сигнала, или корректно интерпретировать
+          исходник. В этой статье действия по большей части ориентированы на работу с
+          исходниками, снятыми на iPhone, так как они встречаются чаще всего, однако те же
+          подходы применимы и к материалам с других камер.
+        </p>
+        <Divider>Что делать с цветовым пространством?</Divider>
+        <p>
+          По умолчанию в <mark className="app">Adobe After Effects</mark> управление
+          цветом отключено, так как в{" "}
+          <mark className="select">«Working Color Space»</mark> установлено значение{" "}
+          <mark className="select">«None»</mark>. Поэтому программа не выполняет
+          преобразования между цветовыми пространствами и отображает изображение «как
+          есть». Но в процессе работы с разными проектами вы могли изменить это значение,
+          например на <mark className="color-space">sRGB IEC61966-2.1</mark> или{" "}
+          <mark className="color-space">Rec.709 Gamma 2.4</mark>. В таком случае при
+          импорте HDR-исходников, например <mark className="color-space">Rec.2020</mark> с
+          iPhone, цвета могут выглядеть пересвеченными, потому что <mark>HDR</mark> сигнал
+          имеет больший диапазон яркости, чем может отобразить <mark>SDR</mark>.
+        </p>
+        <p>
+          В таком случае у вас есть два пути: изменить цветовое пространство всего проекта
+          или переопределить его для конкретных исходников. Первый вариант подходит, если
+          в проекте используются материалы с одинаковыми параметрами, например снятые на
+          одну и ту же камеру, а также если вывод планируется в том же цветовом
+          пространстве. Второй вариант — если исходники отличаются, например сняты в
+          разных цветовых пространствах, и их нужно привести к одному виду, например{" "}
+          <mark className="color-space">Rec.709 Gamma 2.4</mark>.
+        </p>
+        <Divider>Узнаём о цветовом пространстве исходника и проекта</Divider>
+        <p>
+          Прежде чем что-либо приводить к одному виду — сначала стоит узнать цветовое
+          пространство ваших исходников. Это можно узнать через онлайн-сервис{" "}
+          <a href="https://mediaarea.net/MediaInfoOnline">MediaInfo Online</a> или его
+          локальной версией <a href="https://mediaarea.net/en/MediaInfo">MediaInfo</a>,
+          доступной для многих операционных систем.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              Для подробного просмотра данных в <mark className="app">MediaInfo</mark>{" "}
+              используйте режим <mark className="select">«View» → «Tree»</mark> или{" "}
+              <mark className="select">«Вид» → «Дерево»</mark> в русской версии, либо
+              воспользуйтесь консольной версией программы —{" "}
+              <mark className="app">MediaInfo-CLI</mark>.
+            </li>
+            <li>
+              Если вы не хотите скачивать <mark className="app">MediaInfo</mark>, то он
+              может быть доступен в вашем видеопроигрывателе, например{" "}
+              <mark className="app">MPC-HC</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <p>
+          После открытия метаданных исходника стоит обратить внимание на два поля:{" "}
+          <mark className="select">«Transfer characteristics»</mark> и{" "}
+          <mark className="select">«Color primaries»</mark>. Первое показывает,{" "}
+          <mark>HDR</mark> это или <mark>SDR</mark>, а второе — какие используются
+          цветовые координаты. Например, <mark className="color-space">BT.2020</mark> с{" "}
+          <mark className="color-space">HLG/PQ</mark> означает, что перед вами исходник в{" "}
+          <mark>HDR</mark>, а <mark className="color-space">BT.709</mark> или{" "}
+          <mark className="color-space">BT.601</mark> вместе со значением гаммы обычно
+          указывают на <mark>SDR</mark>.
+        </p>
+        <Divider>
+          Про замену клипа с помощью{" "}
+          <mark className="select">«Replace With After Effects Composition»</mark>
+        </Divider>
+        <p>
+          Если вы переносите исходник из <mark className="app">Adobe Premiere</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark> с помощью функции{" "}
+          <mark className="select">«Replace With After Effects Composition»</mark>, цвета
+          могут заметно исказиться и стать либо пересвеченными, либо «плоскими». Причина
+          та же — несоответствие цветовых параметров, так как в{" "}
+          <mark className="app">Adobe After Effects</mark> они могут отличаться от
+          настроек в <mark className="app">Adobe Premiere</mark> или конфликтовать с ними.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Если секвенция в <mark className="app">Adobe Premiere</mark> настроена на
+              работу с цветовым пространством{" "}
+              <mark className="color-space">Rec.2100 HLG</mark>, то после замены клипа на
+              мониторе без включенной фукнции отображения <mark>HDR</mark> вы будете
+              видеть пересветы.
+            </p>
+            <p>
+              Проблема в том, что в <mark className="app">Adobe After Effects</mark> при
+              переносе выставляется цветовое пространство{" "}
+              <mark className="color-space">Rec.2100 HLG W203</mark> у которого яркостный
+              диапазон явно больше того, чем может показать <mark>SDR</mark> монитор. Если
+              ваш монитор не поддерживает <mark>HDR</mark> и вы не хотите видеть
+              пересветов и увидеть изображение «как есть» — откройте окно{" "}
+              <mark className="select">«Project Settings»</mark> с помощью комбинации
+              клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во
+              вкладку <mark className="select">«Color»</mark> и установите для параметра{" "}
+              <mark className="select">«Working Color Space»</mark> значение{" "}
+              <mark className="select">«None»</mark>.
+            </p>
+            <ArticleMedia
+              caption="Отключение рабочего цветового пространства"
+              src="legacy/aftereffects/disable_rec2100hlgw203.png"
+              type="image"
+            />
+            <Addition type="info">
+              <p>
+                Если после замены в <mark className="app">Adobe Premiere</mark> цвета
+                стали тусклее, проверьте, какое цветовое пространство установилось у
+                клипа. Если оно установлено как{" "}
+                <mark className="color-space">Rec.709</mark>, переопределите его на{" "}
+                <mark className="color-space">Rec.2100 HLG</mark>. Для этого выделите клип
+                и задайте нужное значение в{" "}
+                <mark className="select">«Override Media Color Space»</mark> в окне{" "}
+                <mark className="select">«Lumetri Color» → «Settings»</mark> или{" "}
+                <mark className="select">«Interpret Footage» → «Color»</mark>.{" "}
+                <i style={{opacity: "0.5"}}>
+                  Либо отключите управление цветом через{" "}
+                  <mark className="select">
+                    «Preserve RGB (disable input color management for this item)»
+                  </mark>
+                  .
+                </i>
+              </p>
+              <ArticleMedia
+                caption="Переопределяем цветовое пространство исходника как Rec.2100 HLG в Adobe Premiere"
+                src="legacy/premierepro/override_media_color_space_to_rec2100hlg.png"
+                type="image"
+              />
+            </Addition>
+            <p>
+              Таким образом вы оставите весь цветовой и яркостный диапазон и сможете
+              экспортировать секвенцию в <mark className="color-space">Rec.2100 HLG</mark>{" "}
+              из <mark className="app">Adobe Premiere</mark> без особых проблем.
+            </p>
+            <Addition type="warning">
+              <p>
+                Учтите, что вы не сможете экспортировать из{" "}
+                <mark className="app">Adobe Premiere</mark> в{" "}
+                <mark className="video">H.264</mark> и{" "}
+                <mark className="video">H.265</mark> секвенции в цветовых пространствах
+                отличные от <mark className="color-space">Rec.709</mark>. Для этого
+                выберите другой формат, например{" "}
+                <mark className="select">«QuickTime»</mark> с кодеком{" "}
+                <mark className="video">Apple ProRes 422 HQ</mark> и там установите нужное
+                цветовое пространство.
+              </p>
+              <p>
+                При необходимости вы можете конвертировать его позже в нужный вам кодек с
+                помощью <mark className="app">Shutter Encoder</mark> без изменения
+                цветового пространства.
+              </p>
+            </Addition>
+          </li>
+          <li>
+            <p>
+              Если секвенция в <mark className="app">Adobe Premiere</mark> была настроена
+              на работу с <mark className="color-space">Rec.709</mark>, то стоит
+              переопределить цветовое простраство у исходников в{" "}
+              <mark className="color-space">Rec.709</mark> если они изначально в другом, а
+              затем их же и заменить композицией.
+            </p>
+            <ArticleMedia
+              caption="Переопределяем цветовое пространство исходника как Rec.709 в Adobe Premiere"
+              src="legacy/premierepro/override_media_color_space_to_rec709.png"
+              type="image"
+            />
+            <p>
+              Да, цвета немного исказятся, но вы получите более предсказуемый вариант при
+              работе в двух программах. Тем более никто не запрещал позже делать
+              цветокоррекцию на ваше усмотрение.{" "}
+              <i style={{opacity: "0.5"}}>
+                И отключите на всякий случай{" "}
+                <mark className="select">«Input Tone Mapping»</mark> в секвенции в{" "}
+                <mark className="app">Adobe Premiere</mark>.
+              </i>
+            </p>
+          </li>
+        </ul>
+      </DetailsSummary>
       <DetailsSummary
         anchor="fix-artifacts"
         tag="зелёный экран, артефакты, глитчи, полосы, youtube, дисковый кэш, аппаратное декодирование"
