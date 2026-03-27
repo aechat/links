@@ -448,7 +448,7 @@ const AppContent = () => {
   }
 
   useEffect(() => {
-    if (!isLoading || boundaryError) {
+    if (!isLoading || boundaryError || !isAppReady || isSafariWarningOpen) {
       return;
     }
 
@@ -463,7 +463,7 @@ const AppContent = () => {
     }, 60_000);
 
     return () => clearTimeout(safetyTimer);
-  }, [boundaryError, isLoading]);
+  }, [boundaryError, isAppReady, isLoading, isSafariWarningOpen]);
 
   useEffect(() => {
     setLoadingError(undefined);
