@@ -385,10 +385,10 @@ const AeErrors: React.FC = () => {
           </li>
           <li>
             Убедитесь, что вы не используете исходники со слишком большим разрешением,
-            например <mark>4K</mark>. Чем выше разрешение слоя и композиции, тем больше
-            требуется оперативной памяти. Если вы используете исходники из интернета,
-            особенно с видеохостингов, стоит попробовать их конвертировать в монтажный
-            кодек, например <mark className="video">Apple ProRes 422</mark>, через{" "}
+            например 4K. Чем выше разрешение слоя и композиции, тем больше требуется
+            оперативной памяти. Если вы используете исходники из интернета, особенно с
+            видеохостингов, стоит попробовать их конвертировать в монтажный кодек,
+            например <mark className="video">Apple ProRes 422</mark>, через{" "}
             <a href="https://www.shutterencoder.com/">Shutter Encoder</a>, а затем
             заменить в проекте. Так вы обезопасите себя от различных багов.{" "}
             <a href="#import-workflow">Как это сделать?</a>
@@ -465,8 +465,9 @@ const AeErrors: React.FC = () => {
               сколько останется другим приложениям. Если выставить слишком большое
               значение, <mark className="company">Adobe</mark> может не хватить
               оперативной памяти. Чтобы выделить максимум для{" "}
-              <mark className="company">Adobe</mark>, установите значение <mark>0</mark> —
-              программа сама подставит минимально допустимое.
+              <mark className="company">Adobe</mark>, установите значение{" "}
+              <mark className="copy">0</mark> — программа сама подставит минимально
+              допустимое.
             </p>
             <Addition type="info">
               <sup>1</sup> В предыдущих версиях{" "}
@@ -481,8 +482,8 @@ const AeErrors: React.FC = () => {
           </li>
           <li>
             <p>
-              Проверьте, не установлена ли в настройках проекта глубина цвета{" "}
-              <mark>16</mark> или <mark>32 бит на канал</mark>. Для этого откройте{" "}
+              Проверьте, не установлена ли в настройках проекта глубина цвета 16 или 32
+              бит на канал. Для этого откройте{" "}
               <mark className="select">«Project Settings»</mark> комбинацией клавиш{" "}
               <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
               <mark className="select">«Color»</mark> и в параметре{" "}
@@ -499,16 +500,17 @@ const AeErrors: React.FC = () => {
             <p>
               Если у вас мало оперативной памяти, по возможности докупите её. В
               сегодняшних реалиях для комфортной работы в{" "}
-              <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
-              <mark>32 ГБ</mark> ОЗУ.
+              <mark className="app">Adobe After Effects</mark> требуется минимум 32 ГБ
+              ОЗУ.
             </p>
             <Addition type="info">
               <p>
-                В <mark className="app">Adobe After Effects 25.2 (2025)</mark> и новее
-                добавили функцию воспроизведения предпросмотра напрямую из дискового кэша,
-                без загрузки кадров в ОЗУ. Это может быть полезно, если у вас мало
-                оперативной памяти. Опция включена по умолчанию, если активен дисковый
-                кэш. Управлять ей можно в{" "}
+                В <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">25.2 (2025)</mark> и выше добавили функцию
+                воспроизведения предпросмотра напрямую из дискового кэша, без загрузки
+                кадров в ОЗУ. Это может быть полезно, если у вас мало оперативной памяти.
+                Опция включена по умолчанию, если активен дисковый кэш. Управлять ей можно
+                в{" "}
                 <mark className="select">
                   «Edit» → «Preferences» → «Disk» → «Enable Preview from Disk Cache»
                 </mark>
@@ -538,9 +540,8 @@ const AeErrors: React.FC = () => {
               <li>
                 Установите программу{" "}
                 <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> и
-                настройте автоматическую очистку оперативной памяти при заполнении на{" "}
-                <mark>90%</mark>. Эта утилита работает эффективнее, если у вас включён
-                файл подкачки.
+                настройте автоматическую очистку оперативной памяти при заполнении на 90%.
+                Эта утилита работает эффективнее, если у вас включён файл подкачки.
               </li>
               <li>
                 Если файл подкачки включён и вы уверены, что проблема не в программе,
@@ -560,7 +561,7 @@ const AeErrors: React.FC = () => {
         <p>
           Эта ошибка указывает, что видеопамять вашей видеокарты заполнена и эффект,
           использующий аппаратное ускорение, не может обработать кадр. Такое часто
-          происходит, если у вас видеокарта с объёмом видеопамяти менее <mark>4 ГБ</mark>.
+          происходит, если у вас видеокарта с объёмом видеопамяти менее 4 ГБ.
         </p>
         <ul>
           <li>
@@ -589,14 +590,15 @@ const AeErrors: React.FC = () => {
             />
             <Addition type="info">
               Параметры рендеринга показаны на примере связки «процессор{" "}
-              <mark className="company">AMD</mark> + видеокарта{" "}
-              <mark className="company">NVIDIA</mark>».
+              <mark className="hardware">AMD</mark> + видеокарта{" "}
+              <mark className="hardware">NVIDIA</mark>».
               <ul>
                 <li>
                   <mark className="select">«Mercury GPU Acceleration (CUDA)»</mark> —
-                  программа <u>по возможности</u> будет использовать видеокарту NVIDIA для
-                  обработки композиций. Это происходит не всегда, так как не все эффекты
-                  оптимизированы для работы с GPU.
+                  программа по возможности будет использовать видеокарту{" "}
+                  <mark className="hardware">NVIDIA</mark> для обработки композиций. Это
+                  происходит не всегда, так как не все эффекты оптимизированы для работы с
+                  GPU.
                 </li>
                 <li>
                   <mark className="select">«Mercury GPU Acceleration (OpenCL)»</mark> —
@@ -621,13 +623,12 @@ const AeErrors: React.FC = () => {
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> размер слоя не может
-          превышать <mark>30000</mark> пикселей по ширине или высоте — это ограничение
-          нельзя обойти. Ошибка часто появляется из-за эффектов, которые увеличивают
-          фактическое разрешение слоя, например{" "}
-          <mark className="plugin">Motion Tile</mark> или{" "}
+          превышать 30000 пикселей по ширине или высоте — это ограничение нельзя обойти.
+          Ошибка часто появляется из-за эффектов, которые увеличивают фактическое
+          разрешение слоя, например <mark className="plugin">Motion Tile</mark> или{" "}
           <mark className="plugin">CC Repetile</mark>. Если исходное разрешение и так
-          большое, например <mark>16384×16384</mark>, любое дополнительное расширение
-          может превысить лимит.
+          большое, например 16384×16384, то любое дополнительное расширение может
+          превысить лимит.
         </p>
         <p>
           Чтобы исправить эту ошибку, найдите эффект, который увеличивает изображение, и
@@ -678,10 +679,10 @@ const AeErrors: React.FC = () => {
         </Addition>
         <Divider>Включаем случайно отключённые эффекты</Divider>
         <p>
-          Начиная с версии <mark>23.4</mark> в{" "}
-          <mark className="app">Adobe After Effects</mark> появилась возможность отключать
-          эффекты с помощью <mark className="select">«Effect Manager»</mark>. Когда
-          какой-то эффект вызывает сбой, программа предлагает его выключить. Если вы
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.4 (2023)</mark> и выше появилась возможность
+          отключать эффекты с помощью <mark className="select">«Effect Manager»</mark>.
+          Когда какой-то эффект вызывает сбой, программа предлагает его выключить. Если вы
           согласились, плагин останется неактивным, пока вы не включите его вручную.
         </p>
         <p>
@@ -786,7 +787,8 @@ const AeErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.X (2024)</mark> и выше.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -849,7 +851,8 @@ const AeErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.X (2024)</mark> и выше.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -931,10 +934,11 @@ const AeErrors: React.FC = () => {
           windowsContent={
             <>
               <p>
-                В <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее
-                появился новый движок для трёхмерного рендеринга. Иногда он может работать
-                некорректно и выдавать ошибку при использовании. Причины такого поведения
-                могут быть разными: от простого бага, который решается запуском{" "}
+                В <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.1 (2024)</mark> и выше появился новый движок
+                для трёхмерного рендеринга. Иногда он может работать некорректно и
+                выдавать ошибку при использовании. Причины такого поведения могут быть
+                разными: от простого бага, который решается запуском{" "}
                 <mark className="app">Adobe After Effects</mark> от имени администратора,
                 до отсутствия поддержки движка вашим устройством.
               </p>
@@ -958,12 +962,12 @@ const AeErrors: React.FC = () => {
                   <Addition type="warning">
                     <sup>1</sup> Если у вас включён контроль учётных записей (UAC) и{" "}
                     <mark className="app">Adobe After Effects</mark> запущен от имени
-                    администратора, то импорт файлов с помощью <mark>drag-and-drop</mark>,
-                    например из <mark className="app">Проводника</mark>, работать не
-                    будет. Это не баг, а особенность безопасности <mark>Windows</mark>.
-                    Система просто не позволяет передавать файлы из приложений, запущенных
-                    с правами обычного пользователя, в те, которые работают от имени
-                    администратора.
+                    администратора, то импорт файлов с помощью{" "}
+                    <mark className="term">drag-and-drop</mark>, например из{" "}
+                    <mark className="app">Проводника</mark>, работать не будет. Это не
+                    баг, а особенность безопасности Windows. Система просто не позволяет
+                    передавать файлы из приложений, запущенных с правами обычного
+                    пользователя, в те, которые работают от имени администратора.
                   </Addition>
                   <ArticleMedia
                     caption="Настройка запуска от имени администратора"
@@ -995,7 +999,8 @@ const AeErrors: React.FC = () => {
                   </p>
                   <Addition type="info">
                     У меня, автора статьи, на ранних сборках{" "}
-                    <mark className="app">Adobe After Effects 24.X (2024)</mark> движок{" "}
+                    <mark className="app">Adobe After Effects</mark>{" "}
+                    <mark className="version">24.X (2024)</mark> движок{" "}
                     <mark className="plugin">Advanced 3D</mark> не запускался, выдавая
                     указанную в статье ошибку, однако после нескольких обновлений
                     программы он начал работать корректно.
@@ -1033,8 +1038,8 @@ const AeErrors: React.FC = () => {
         <p>
           Если вы используете репак <mark className="app">Adobe After Effects</mark> от{" "}
           <mark className="user">KpoJluK</mark>, эта ошибка может возникать из-за того,
-          что в его дистрибутивах <mark className="app">Adobe After Effects</mark> версий{" "}
-          <mark>2020</mark> и выше отсутствует{" "}
+          что в его дистрибутивах <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">17.X (2020)</mark> и выше отсутствует{" "}
           <mark className="plugin">Cinema 4D Lite</mark>. Это сделано для уменьшения
           размера инсталлятора, но из-за этого теряется возможность импорта{" "}
           <mark className="file">C4D</mark> файлов, некорректно работает плагин{" "}
@@ -1052,9 +1057,11 @@ const AeErrors: React.FC = () => {
           <ul>
             <li>
               Например, если в ошибке указано, что нужна{" "}
-              <mark className="app">Cinema 4D 2023</mark>, то устанавливайте любую
-              подверсию <mark>2023.X.X</mark>. Версии <mark>2024.X.X</mark> или другие в
-              таком случае не подойдут.
+              <mark className="app">Cinema 4D</mark> <mark className="version">2023</mark>
+              , то устанавливайте любую версию, относящуюся к данному релизному циклу.
+              Версии <mark className="app">Cinema 4D</mark>{" "}
+              <mark className="version">2024.X.X</mark> или другие в таком случае не
+              подойдут.
             </li>
             <li>
               Если вы установили нужную версию <mark className="app">Cinema 4D</mark>, но
@@ -1092,33 +1099,48 @@ const AeErrors: React.FC = () => {
         </Addition>
         <ul>
           <li>
-            <mark className="app">Adobe After Effects 25.1+</mark> требует{" "}
-            <mark className="app">Cinema 4D 2025.X.X</mark>.
+            <mark className="app">Adobe After Effects</mark>{" "}
+            <mark className="version">25.1</mark> и выше требует{" "}
+            <mark className="app">Cinema 4D</mark>{" "}
+            <mark className="version">2025.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 24.1-25.0</mark> требует{" "}
-            <mark className="app">Cinema 4D 2024.X.X</mark>.
+            <mark className="app">Adobe After Effects</mark> от{" "}
+            <mark className="version">24.1 (2024)</mark> до{" "}
+            <mark className="version">25.0 (2025)</mark> требует{" "}
+            <mark className="app">Cinema 4D</mark>{" "}
+            <mark className="version">2024.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 23.1-23.6</mark> требует{" "}
-            <mark className="app">Cinema 4D 2023.X.X</mark>.
+            <mark className="app">Adobe After Effects</mark> от{" "}
+            <mark className="version">23.1 (2023)</mark> до{" "}
+            <mark className="version">23.6 (2023)</mark> требует{" "}
+            <mark className="app">Cinema 4D</mark>{" "}
+            <mark className="version">2023.X.X</mark>.
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 22.X-23.0</mark> требует{" "}
-              <mark className="app">Cinema 4D R25.X.X</mark>.
+              <mark className="app">Adobe After Effects</mark> от{" "}
+              <mark className="version">22.X (2022)</mark> до{" "}
+              <mark className="version">23.0 (2023)</mark> требует{" "}
+              <mark className="app">Cinema 4D</mark>{" "}
+              <mark className="version">R25.X.X</mark>.
             </p>
             <Addition type="warning">
-              <mark className="app">Cinema 4D R26.X.X</mark> и новее несовместимы с{" "}
-              <mark className="app">Adobe After Effects</mark> ниже <mark>23.1</mark>.
+              <mark className="app">Cinema 4D</mark>{" "}
+              <mark className="version">R26.X.X</mark> и выше несовместимы с{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">23.1 (2023)</mark> и ниже.
             </Addition>
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 17.X-18.X (2020-2021)</mark>{" "}
-              требует <mark className="app">Cinema 4D R21.X.X</mark>. Путь к установленной
-              программе можно указать в настройках движка{" "}
-              <mark className="plugin">Cineware</mark>.
+              <mark className="app">Adobe After Effects</mark> от{" "}
+              <mark className="version">17.X (2020)</mark> до{" "}
+              <mark className="version">18.X (2021)</mark> требует{" "}
+              <mark className="app">Cinema 4D</mark>{" "}
+              <mark className="version">R21.X.X</mark>. Путь к установленной программе
+              можно указать в настройках движка <mark className="plugin">Cineware</mark>.
             </p>
             <div
               style={{
@@ -1155,23 +1177,22 @@ const AeErrors: React.FC = () => {
         <p>
           Это предупреждение указывает, что программа по какой-то причине не может
           использовать аппаратное ускорение видеокарты. Если вы недавно переустанавливали{" "}
-          <mark>Windows</mark> и устанавливали{" "}
-          <mark className="app">Adobe After Effects</mark> с нуля, скорее всего, вы просто
-          забыли установить драйверы для видеокарты.
+          Windows и устанавливали <mark className="app">Adobe After Effects</mark> с нуля,
+          скорее всего, вы просто забыли установить драйверы для видеокарты.
         </p>
         <Divider>Устанавливаем или обновляем драйверы</Divider>
         <ul>
           <li>
-            <mark className="company">NVIDIA</mark> — попробуйте установить драйверы
+            <mark className="hardware">NVIDIA</mark> — попробуйте установить драйверы
             редакции <mark className="app">NVIDIA Studio</mark>. Загрузить их можно с{" "}
             <a href="https://www.nvidia.com/en-eu/geforce/drivers/">официального сайта</a>
             . На странице укажите модель видеокарты, ОС и в поле{" "}
             <mark className="select">«Тип загрузки»</mark> выберите{" "}
-            <mark>Studio Driver</mark>.
+            <mark className="select">«Studio Driver»</mark>.
           </li>
           <li>
             <p>
-              <mark className="company">Intel</mark> — найдите и скачайте подходящий
+              <mark className="hardware">Intel</mark> — найдите и скачайте подходящий
               драйвер{" "}
               <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
                 на официальном сайте
@@ -1183,12 +1204,12 @@ const AeErrors: React.FC = () => {
               .
             </p>
             <Addition type="warning">
-              <mark className="company">Intel</mark> может блокировать доступ к сайту для
+              <mark className="hardware">Intel</mark> может блокировать доступ к сайту для
               пользователей из Российской Федерации.
             </Addition>
           </li>
           <li>
-            <mark className="company">AMD</mark> — воспользуйтесь{" "}
+            <mark className="hardware">AMD</mark> — воспользуйтесь{" "}
             <a href="https://www.amd.com/en/support/download/drivers.html">
               автоматическим установщиком с официального сайта
             </a>
@@ -1219,9 +1240,8 @@ const AeErrors: React.FC = () => {
             <>
               <Divider>Отключаем аппаратное ускорение</Divider>
               <p>
-                Попробуйте отключить аппаратное ускорение в параметрах{" "}
-                <mark>Windows 11</mark>. Для этого откройте{" "}
-                <mark className="app">Параметры</mark> комбинацией клавиш{" "}
+                Попробуйте отключить аппаратное ускорение в параметрах Windows 11. Для
+                этого откройте <mark className="app">Параметры</mark> комбинацией клавиш{" "}
                 <mark className="key">Win + I</mark>, перейдите в раздел{" "}
                 <mark className="select">«Система» → «Дисплей» → «Графика»</mark>.
                 Откройте{" "}
@@ -1261,10 +1281,16 @@ const AeErrors: React.FC = () => {
       >
         <p>
           Скорее всего, вы столкнулись с багом «народной» версии плагина{" "}
-          <mark className="plugin">Boris FX Sapphire</mark> <mark>2024.5</mark> или{" "}
-          <mark>2024.51</mark> в виде репака от <mark className="user">KpoJluK</mark>.
-          Из-за него вы не можете настраивать эффекты, так как их параметры не
-          отображаются. Проблема решается откатом на версию <mark>2024.4</mark> от того же{" "}
+          <mark className="plugin">Boris FX Sapphire</mark>{" "}
+          <mark className="version">2024.5</mark> и{" "}
+          <mark className="version">2024.51</mark> в виде репака от{" "}
+          <mark className="user">KpoJluK</mark>. Из-за него вы не можете настраивать
+          эффекты, так как их параметры не отображаются.
+        </p>
+        <p>
+          Эту проблему можно попробовать решить откатом на версию{" "}
+          <mark className="plugin">Boris FX Sapphire</mark>{" "}
+          <mark className="version">2024.4</mark> от того же{" "}
           <mark className="user">KpoJluK</mark> или установкой более свежих версий
           плагинов в виде репаков от <mark className="user">Team V.R.</mark>.
         </p>
@@ -1282,7 +1308,7 @@ const AeErrors: React.FC = () => {
                 <mark className="app">Adobe Media Encoder</mark> при наличии плагинов{" "}
                 <mark className="plugin">Boris FX Sapphire</mark>. В новых версиях его
                 исправили, но если вы столкнулись с этой проблемой, просто включите режим
-                совместимости с <mark>Windows 8</mark> в свойствах ярлыка{" "}
+                совместимости с Windows 8 в свойствах ярлыка{" "}
                 <mark className="app">Adobe Media Encoder</mark>.
               </p>
               <p>
@@ -1325,8 +1351,9 @@ const AeErrors: React.FC = () => {
           </li>
           <li>
             Если вы всё ещё сталкиваетесь с проблемой красной заливки и у вас установлен{" "}
-            <mark className="plugin">Twixtor</mark> версии <mark>8.X.X</mark>, попробуйте
-            установить <mark className="plugin">Twixtor</mark> версии <mark>7.X.X</mark>.
+            <mark className="plugin">Twixtor</mark> <mark className="version">8.X.X</mark>
+            , попробуйте установить <mark className="plugin">Twixtor</mark>{" "}
+            <mark className="version">7.X.X</mark>.
           </li>
         </ul>
       </DetailsSummary>
@@ -1337,18 +1364,21 @@ const AeErrors: React.FC = () => {
       >
         <p>
           Скорее всего, вы столкнулись со старым багом{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>CC 2019</mark>,
-          если используете репак от <mark className="user">KpoJluK</mark>. Проблема
-          решается откатом программы до версии <mark>15.X (2018)</mark>, установкой{" "}
-          <mark className="app">Adobe After Effects 16.X (2019)</mark> в виде сборки от{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">16.X (2019)</mark>, если используете репак от{" "}
+          <mark className="user">KpoJluK</mark>. Эту проблему можно решить откатом до
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">15.X (2018)</mark>, установкой{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">16.X (2019)</mark> в виде сборки от{" "}
           <mark className="user">m0nkrus</mark> или установкой более свежей версии
           программы от любого репакера.
         </p>
         <p>
           В более редких случаях невозможность выделить объект может быть вызвана
           использованием исходного материала с переменной частотой кадров. Такие исходники
-          рекомендуется преобразовать в видео со стабильной частотой кадров, например{" "}
-          <mark>30</mark> или <mark>60</mark>.
+          рекомендуется преобразовать в видео со стабильной частотой кадров, например 30
+          или 60.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1358,8 +1388,9 @@ const AeErrors: React.FC = () => {
       >
         <p>
           Если вчера проект открывался, а сегодня нет, возможно, программа была закрыта
-          некорректно или в системе произошёл сбой, например <mark>BSOD</mark>. В таком
-          случае восстановить проект будет крайне сложно, но шансы есть.
+          некорректно или в системе произошёл сбой, например{" "}
+          <mark className="term">BSOD</mark>. В таком случае восстановить проект будет
+          крайне сложно, но шансы есть.
         </p>
         <ul>
           <li>
@@ -1385,8 +1416,8 @@ const AeErrors: React.FC = () => {
                 <li>
                   Учтите, что при нажатии <mark className="key">Ctrl + S</mark> таймер
                   автосохранения сбрасывается. Рекомендуется установить в параметре{" "}
-                  <mark className="select">«Save Every»</mark> значение от <mark>1</mark>{" "}
-                  до <mark>3</mark> минут.
+                  <mark className="select">«Save Every»</mark> значение от одной до трёх
+                  минут.
                 </li>
                 <li>
                   Автосохранение не сработает, если проект ни разу не был сохранён. Всегда
@@ -1431,12 +1462,11 @@ const AeErrors: React.FC = () => {
                 </li>
                 <li>
                   В редких случаях файл может быть не повреждён, но не открываться, если
-                  на диске осталось крайне мало свободного места. Поскольку{" "}
-                  <mark>Windows</mark> не всегда предупреждает о нехватке места на
-                  разделах, вы могли упустить эту мелочь и столкнуться с невозможностью
-                  открыть проект в <mark className="app">Adobe After Effects</mark>. Для
-                  решения проблемы достаточно очистить систему от мусора, хотя бы кэш, и
-                  повторить попытку.
+                  на диске осталось крайне мало свободного места. Поскольку Windows не
+                  всегда предупреждает о нехватке места на разделах, вы могли упустить эту
+                  мелочь и столкнуться с невозможностью открыть проект в{" "}
+                  <mark className="app">Adobe After Effects</mark>. Для решения проблемы
+                  достаточно очистить систему от мусора, хотя бы кэш, и повторить попытку.
                 </li>
               </ul>
             </>
@@ -1515,12 +1545,12 @@ const AeErrors: React.FC = () => {
         title="Что делать с ошибками «Не удалось выполнить преобразование символов Unicode» или «Не удалось загрузить псевдоэффекты»?"
       >
         <p>
-          Если вы запускаете <mark className="app">Adobe After Effects</mark> с русской
-          локализацией, то можете столкнуться с этой проблемой. Она встречалась на старых
-          версиях и на версии <mark>24.4</mark> (позже её исправили). Решение —
-          переустановить <mark className="app">Adobe After Effects</mark> на английском
-          языке. Если не хотите менять язык, обновитесь до более свежей версии или
-          откатитесь на более старую.
+          Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.4 (2024)</mark> с русской локализацией, вы можете
+          столкнуться с этой проблемой, которую позже исправили в новых версиях. Обычно
+          она решается переустановкой программы с выбором английского языка интерфейса.
+          Если не хотите менять язык, обновитесь до более свежей версии или откатитесь на
+          более старую.
         </p>
         <p>
           Если вы используете другую версию{" "}
@@ -1529,8 +1559,8 @@ const AeErrors: React.FC = () => {
           <a href="https://community.adobe.com/t5/after-effects-discussions/faq-how-to-reset-trash-preferences-in-after-effects/td-p/10634342">
             сброс настроек
           </a>
-          . Общий совет: старайтесь не использовать кириллицу в путях к файлам, их
-          названиях и названиях слоёв.
+          . Также стоит избегать кириллицы в путях к файлам, их названиях и названиях
+          слоёв.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1548,8 +1578,8 @@ const AeErrors: React.FC = () => {
             <p>
               Ошибка может быть связана с исходниками, особенно с переменной частотой
               кадров. Если в окне <mark className="select">«Project»</mark> частота кадров
-              отображается как <mark>29.841</mark>, стоит интерпретировать или
-              перекодировать футаж в «ровную» частоту, например <mark>30 FPS</mark>, через{" "}
+              отображается как 29.841, стоит интерпретировать или перекодировать футаж в
+              «ровную» частоту, например 30 FPS, через{" "}
               <mark className="app">Shutter Encoder</mark>.{" "}
               <mark className="app">Adobe After Effects</mark> не любит плавающие значения
               частоты кадров.
@@ -1593,8 +1623,8 @@ const AeErrors: React.FC = () => {
             <p>
               Обычно предупреждение о несоответствии частоты кадров подсказывает, какую
               частоту нужно выставить для композиции. Например, если исходное видео имеет
-              частоту <mark>50 FPS</mark>, а композиция — <mark>30</mark>, программа
-              предложит настроить её на <mark>50 FPS</mark>.
+              частоту 50 FPS, а композиция — 30, программа предложит настроить её на 50
+              FPS.
             </p>
             <p>
               Чтобы изменить частоту кадров, откройте настройки композиции{" "}
@@ -1838,9 +1868,11 @@ const AeErrors: React.FC = () => {
             <>
               <p>
                 Эту ошибку вы можете встретить при попытке запустить{" "}
-                <mark className="app">Adobe After Effects 24.1 (2024)</mark> или новее.
-                Обычно у неё две причины: либо ваш процессор не поддерживает инструкции{" "}
-                <mark>AVX2</mark>, либо система каким-то образом повредилась.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.1 (2024)</mark> или выше. Обычно у неё две
+                причины: либо ваш процессор не поддерживает инструкции{" "}
+                <mark className="hardware">AVX2</mark>, либо система каким-то образом
+                повредилась.
               </p>
               <Divider>Проверяем системные требования</Divider>
               <p>
@@ -1848,24 +1880,25 @@ const AeErrors: React.FC = () => {
                 <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
                   официально для работы требуется
                 </a>{" "}
-                минимум <mark className="copy">Intel Core</mark> 6-го поколения или{" "}
-                <mark className="copy">AMD Ryzen</mark> 1000 и новее, на практике
+                минимум <mark className="hardware">Intel Core</mark> 6-го поколения или{" "}
+                <mark className="hardware">AMD Ryzen</mark> 1000 и новее, на практике
                 программа окажется менее требовательной, если ваше «железо» поддерживает
-                инструкции <mark>AVX2</mark>. Однако это же значит, что она точно не
-                запустится на <mark className="company">Intel</mark> 3-го поколения и
-                ниже, а также на более ранних процессорах{" "}
-                <mark className="company">AMD</mark>, где этих инструкций нет. Так что
-                если ваш процессор не подходит, решение простое: либо установите{" "}
-                <mark className="app">Adobe After Effects 23.6 (2023)</mark> или ниже,
-                либо, если возможно, обновите «железо».
+                инструкции <mark className="hardware">AVX2</mark>. Однако это же значит,
+                что она точно не запустится на <mark className="hardware">Intel</mark>{" "}
+                3-го поколения и ниже, а также на процессорах{" "}
+                <mark className="hardware">AMD</mark> того же поколения и ниже, где этих
+                инструкций нет. Так что если ваш процессор не подходит, решение простое:
+                либо установите <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">23.6 (2023)</mark> или ниже, либо, если
+                возможно, обновите «железо».
               </p>
               <Divider>Проверяем целостность системы</Divider>
               <p>
                 Если же ваше устройство подходит по всем системным требованиям, а
                 программа всё так же отказывается запускаться, скорее всего, вы имеете
-                дело с повреждёнными системными файлами <mark>Windows</mark>. Чтобы
-                проверить их целостность, выполните в командной строке от имени
-                администратора команды <mark className="code">sfc /scannow</mark> и{" "}
+                дело с повреждёнными системными файлами Windows. Чтобы проверить их
+                целостность, выполните в командной строке от имени администратора команды{" "}
+                <mark className="code">sfc /scannow</mark> и{" "}
                 <mark className="code">dism /online /cleanup-image /restorehealth</mark>.
               </p>
               <ArticleMedia
@@ -1874,14 +1907,13 @@ const AeErrors: React.FC = () => {
               />
               <p>
                 Также для уверенности можно попробовать «переустановить» систему без
-                потери данных и приложений. На <mark>Windows 11</mark> версии{" "}
-                <mark>22H2</mark> и выше эта функция доступна в центре обновлений, в
-                стандартном приложении <mark className="app">Параметры</mark>. Для этого
-                нужно перейти в{" "}
+                потери данных и приложений. На Windows 11 22H2 и выше эта функция доступна
+                в центре обновлений, в стандартном приложении{" "}
+                <mark className="app">Параметры</mark>. Для этого нужно перейти в{" "}
                 <mark className="select">
                   «Центр обновлений Windows» → «Дополнительные параметры» →
                   «Восстановление»
-                </mark>
+                </mark>{" "}
                 и нажать <mark className="select">«Переустановить сейчас»</mark> в{" "}
                 <mark className="select">
                   «Устранение неполадок с помощью Центра обновлений Windows»
@@ -1900,13 +1932,13 @@ const AeErrors: React.FC = () => {
                 удалённые, которые могли исчезнуть либо из-за ваших неосторожных действий
                 с «оптимизаторами», либо повредиться сами по себе. Ваши данные, настройки
                 и программы никуда не денутся, однако после такой «переустановки»,
-                возможно, придётся заново удалять ненужные компоненты <mark>Windows</mark>
-                , такие как <mark className="app">Windows Defender</mark> или{" "}
+                возможно, придётся заново удалять ненужные компоненты Windows, такие как{" "}
+                <mark className="app">Windows Defender</mark> или{" "}
                 <mark className="app">Microsoft OneDrive</mark>, если вы удаляли их ранее.
               </p>
               <p>
-                Если вы хотите переустановить систему «поверх» на <mark>Windows 10</mark>{" "}
-                или старой сборке <mark>Windows 11</mark>, вам понадобится оригинальный{" "}
+                Если вы хотите переустановить систему «поверх» на Windows 10 и старых
+                сборках Windows 11, вам понадобится оригинальный{" "}
                 <mark className="file">ISO</mark>-образ. После скачивания смонтируйте его
                 в виртуальный привод через контекстное меню{" "}
                 <mark className="app">Проводника</mark> и запустите{" "}
@@ -1926,16 +1958,17 @@ const AeErrors: React.FC = () => {
               </div>
               <Divider>Проверяем конфигурацию системы и BIOS</Divider>
               <p>
-                В редких случаях процессор может поддерживать инструкции <mark>AVX2</mark>
-                , но они бывают отключены в системе. Посмотрите настройки вашего{" "}
-                <mark>BIOS</mark> или попробуйте ввести команду{" "}
+                В редких случаях процессор может поддерживать инструкции{" "}
+                <mark className="hardware">AVX2</mark>, но они бывают отключены в системе.
+                Посмотрите настройки вашего <mark className="term">BIOS</mark> или
+                попробуйте ввести команду{" "}
                 <mark className="code">bcdedit /set xsavedisable 0</mark> в командной
                 строке от имени администратора и перезагрузить компьютер.
               </p>
               <Addition type="info">
-                Чтобы снова отключить <mark>AVX2</mark>, введите команду{" "}
-                <mark className="code">bcdedit /set xsavedisable 1</mark> и перезагрузите
-                устройство.
+                Чтобы снова отключить <mark className="hardware">AVX2</mark>, введите
+                команду <mark className="code">bcdedit /set xsavedisable 1</mark> и
+                перезагрузите устройство.
               </Addition>
             </>
           }
@@ -1970,14 +2003,14 @@ const AeErrors: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    <sup>1</sup> Узнать текущую версию <mark>Windows</mark> можно через
-                    утилиту <mark className="app">winver</mark>.
+                    <sup>1</sup> Узнать текущую версию Windows можно через утилиту{" "}
+                    <mark className="app">winver</mark>.
                   </li>
                   <li>
                     {" "}
                     <sup>2</sup> Если такое восстановление не сработало, скачайте образ{" "}
-                    <mark className="file">ISO</mark> текущей версии <mark>Windows</mark>{" "}
-                    и выполните обновление системы поверх установленной.
+                    <mark className="file">ISO</mark> текущей версии Windows и выполните
+                    обновление системы поверх установленной.
                   </li>
                 </ul>
               </Addition>
@@ -2022,15 +2055,17 @@ const AeErrors: React.FC = () => {
           Это предупреждение появляется при открытии старого проекта, использующего
           трёхмерный движок <mark className="plugin">Ray-Traced 3D</mark>, в новых версиях{" "}
           <mark className="app">Adobe After Effects</mark>. Этот движок был удалён начиная
-          с версии <mark>2020</mark>, поэтому открыть такой проект без дополнительных
-          действий не получится.
+          с <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">17.X (2020)</mark>, поэтому открыть такой проект без
+          дополнительных действий не получится.
         </p>
         <p>
           <mark className="plugin">Ray-Traced 3D</mark> впервые появился в{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>CS6</mark>. Чтобы
-          корректно открыть проект с этим устаревшим движком, используйте{" "}
-          <mark className="app">Adobe After Effects 16.X (2019)</mark> или более раннюю
-          версию, но не ниже <mark>CS6</mark>.
+          <mark className="app">Adobe After Effects CS6</mark>. Чтобы корректно открыть
+          проект с этим устаревшим движком, используйте версии{" "}
+          <mark className="app">Adobe After Effects</mark> от{" "}
+          <mark className="version">CS6</mark> до{" "}
+          <mark className="version">16.X (2019)</mark>.
         </p>
       </DetailsSummary>
     </div>

@@ -43,11 +43,11 @@ const PrInterface: React.FC = () => {
         title="Куда пропало окно «Essential Graphics»?"
       >
         <p>
-          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
-          панель <mark className="select">«Essential Graphics»</mark> убрали и перенесли
-          часть функционала в новое окно{" "}
-          <mark className="select">«Graphics Templates»</mark>. Открыть его можно в
-          контекстном меню <mark className="select">«Window»</mark>.
+          В <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.X (2025)</mark> и выше панель{" "}
+          <mark className="select">«Essential Graphics»</mark> убрали и перенесли часть
+          функционала в новое окно <mark className="select">«Graphics Templates»</mark>.
+          Открыть его можно в контекстном меню <mark className="select">«Window»</mark>.
         </p>
         <p>
           Из нового окна <mark className="select">«Graphics Templates»</mark> вы до сих
@@ -62,7 +62,8 @@ const PrInterface: React.FC = () => {
         title="Куда пропала кнопка «Set to Frame Size»?"
       >
         <p>
-          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее{" "}
+          В <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.X (2025)</mark> и выше{" "}
           <mark className="select">«Set to Frame Size»</mark> заменили на{" "}
           <mark className="select">«Fit to Frame»</mark>. Эта функция увеличивает значение{" "}
           <mark className="select">«Scale»</mark> до тех пор, пока не упрётся в ближайшую
@@ -82,8 +83,8 @@ const PrInterface: React.FC = () => {
       >
         <p>
           По умолчанию в <mark className="app">Adobe Premiere</mark> текущее время
-          отображается в формате <mark>ЧЧ:ММ:СС:Кадр</mark>, но иногда хочется поменять
-          вариант отображения на что-то другое.
+          отображается в формате ЧЧ:ММ:СС:Кадр, но иногда хочется поменять вариант
+          отображения на что-то другое.
         </p>
         <p>
           Для изменения формата отображения текущего времени нажмите на{" "}
@@ -154,17 +155,19 @@ const PrInterface: React.FC = () => {
         title="Как изменить акцентный цвет интерфейса программы?"
       >
         <Addition type="danger">
-          Для <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
-          данная инструкция неактуальна, после включения параметра в консоли в настройках
-          ничего не будет.
+          Для <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.X (2025)</mark> и выше данная инструкция
+          неактуальна, после включения параметра в консоли в настройках ничего не будет.
         </Addition>
         <p>
           Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
-          изменён цветовой акцент в интерфейсе программы. В версиях от <mark>2017</mark>{" "}
-          до <mark>2024</mark> можно включить возможность изменения акцента через консоль.
-          Для этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>.
-          Затем введите команду ниже в консоль в режиме{" "}
-          <mark className="select">«Console View»</mark> и нажмите на{" "}
+          изменён цветовой акцент в интерфейсе программы. В{" "}
+          <mark className="app">Adobe Premiere Pro</mark> от{" "}
+          <mark className="version">11.X (2017)</mark> до{" "}
+          <mark className="version">24.X (2024)</mark> можно включить возможность
+          изменения акцента через консоль. Для этого нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + F12</mark>. Затем введите команду ниже в консоль в
+          режиме <mark className="select">«Console View»</mark> и нажмите на{" "}
           <mark className="key">Enter</mark>.
         </p>
         <CodeSnippet>debug.set Enable_Theme_Colorizing=true</CodeSnippet>
@@ -198,12 +201,9 @@ const PrInterface: React.FC = () => {
         title="Как изменить картинку во время запуска программы?"
       >
         <Addition type="danger">
-          Действия с заменой файлов программы{" "}
-          <b>
-            <u>вы делаете на свой страх и риск!</u>
-          </b>{" "}
-          После обновления программы ваша картинка перезапишется на исходную. Инструкция
-          действительна только для устройств на <mark>Windows</mark>.
+          Действия с заменой файлов программы вы делаете на свой страх и риск! После
+          обновления программы ваша картинка перезапишется на исходную. Инструкция
+          действительна только для устройств на Windows.
         </Addition>
         <p>
           При запуске <mark className="app">Adobe Premiere</mark> вы часто видите
@@ -252,8 +252,8 @@ const PrInterface: React.FC = () => {
           переместите их обратно с заменой в папке с программой.
         </Addition>
         <p>
-          В качестве примера я заменю стандартное изображение на изображение автомобиля{" "}
-          <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark>.
+          В качестве примера я заменю стандартное изображение на изображение автомобиля
+          Ford Focus и сохраню его в <mark className="image">PNG</mark>.
         </p>
         <ArticleMedia
           caption="Пример модификации изображения при загрузке Adobe Premiere"

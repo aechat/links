@@ -53,11 +53,10 @@ const AePerformance: React.FC = () => {
           Прежде чем искать или приобретать новое устройство, определитесь с вашими
           задачами, подумайте, что вам больше подходит: ноутбук<sup>1</sup> или
           стационарный ПК, и выберите удобную для себя операционную систему. Версии{" "}
-          <mark className="app">Adobe After Effects</mark> для <mark>Windows</mark> и{" "}
-          <mark>macOS</mark> практически не отличаются по функциональности, поэтому
-          проекты, созданные в версии для <mark>Windows</mark>, можно спокойно открыть на{" "}
-          <mark>macOS</mark>. Однако на <mark>Windows</mark> обычно проще найти «народные»
-          версии плагинов и дополнительных инструментов, чем на <mark>macOS</mark>.
+          <mark className="app">Adobe After Effects</mark> для Windows и macOS практически
+          не отличаются по функциональности, поэтому проекты, созданные в версии для
+          Windows, можно спокойно открыть на macOS. Однако на Windows обычно проще найти
+          «народные» версии плагинов и дополнительных инструментов, чем на macOS.
         </p>
         <Addition type="info">
           <sup>1</sup> При выборе ноутбука обращайте внимание на диагональ дисплея:
@@ -81,9 +80,10 @@ const AePerformance: React.FC = () => {
           <li>
             <p>
               Для начала стоит определиться с вашими предпочтениями в мире процессоров:{" "}
-              <mark>Intel Core</mark> или <mark>AMD Ryzen</mark>. Существенной разницы
-              между ними нет: оба «лагеря» подходят для работы в творческих программах. Но
-              важно помнить: процессор является ключевым комплектующим в сборке для{" "}
+              <mark className="hardware">Intel Core</mark> или{" "}
+              <mark className="hardware">AMD Ryzen</mark>. Существенной разницы между ними
+              нет: оба «лагеря» подходят для работы в творческих программах. Но важно
+              помнить: процессор является ключевым комплектующим в сборке для{" "}
               <mark className="app">Adobe After Effects</mark>, поэтому выбирайте
               достаточно производительный вариант. Чем он мощнее, тем быстрее будут
               рендериться кадры в программе.
@@ -91,38 +91,40 @@ const AePerformance: React.FC = () => {
             <ul>
               <li>
                 <p>
-                  Процессоры от <mark className="company">Intel</mark> лучше подходят для
+                  Процессоры <mark className="hardware">Intel</mark> лучше подходят для
                   работы с видеоисходниками в кодеках <mark className="video">H.264</mark>{" "}
                   и <mark className="video">H.265</mark> за счёт встроенного видеоядра,
                   отвечающего за декодирование. Если вы собираете новый стационарный ПК,
-                  лучше остановиться на актуальных сокетах <mark>LGA 1700</mark> или{" "}
-                  <mark>LGA 1851</mark>.
+                  лучше остановиться на актуальных сокетах{" "}
+                  <mark className="hardware">LGA 1700</mark> или{" "}
+                  <mark className="hardware">LGA 1851</mark>.
                 </p>
                 <p>
                   В качестве бюджетного варианта можно выбрать{" "}
-                  <mark className="copy">Intel Core i5-13600K</mark> или{" "}
-                  <mark className="copy">Intel Core i5-14600K</mark>. В качестве
+                  <mark className="hardware">Intel Core i5-13600K</mark> или{" "}
+                  <mark className="hardware">Intel Core i5-14600K</mark>. В качестве
                   оптимального варианта подойдёт{" "}
-                  <mark className="copy">Intel Core Ultra 7 265K</mark> или{" "}
-                  <mark className="copy">Intel Core i7-14700K</mark>.
+                  <mark className="hardware">Intel Core Ultra 7 265K</mark> или{" "}
+                  <mark className="hardware">Intel Core i7-14700K</mark>.
                 </p>
                 <Addition type="warning">
                   <ul>
                     <li>
-                      Процессоры <mark>Intel Core</mark> 13-го и 14-го поколений известны
-                      проблемами со стабильностью, которые возникали в ранних партиях. Это
-                      связано с повышенным рабочим напряжением, которое процессор
-                      запрашивал самостоятельно, что могло приводить к быстрому износу и
-                      даже деградации до неработоспособного состояния.{" "}
-                      <mark className="company">Intel</mark> выпустила несколько
-                      обновлений прошивок для производителей материнских плат и
+                      Процессоры <mark className="hardware">Intel Core</mark> 13-го и
+                      14-го поколений известны проблемами со стабильностью, которые
+                      возникали в ранних партиях. Это связано с повышенным рабочим
+                      напряжением, которое процессор запрашивал самостоятельно, что могло
+                      приводить к быстрому износу и даже деградации до неработоспособного
+                      состояния. <mark className="company">Intel</mark> выпустила
+                      несколько обновлений прошивок для производителей материнских плат и
                       утверждает, что проблема деградации исправлена.
                     </li>
                     <li>
                       Не рекомендуется брать процессоры{" "}
-                      <mark className="company">Intel</mark> без встроенного видеоядра, с
-                      суффиксом <mark>F</mark> или <mark>KF</mark>, даже если кто-то
-                      убеждает в обратном.{" "}
+                      <mark className="hardware">Intel</mark> без встроенного видеоядра, с
+                      суффиксом <mark className="term">F</mark> или{" "}
+                      <mark className="term">KF</mark>, даже если кто-то убеждает в
+                      обратном.{" "}
                       <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%80%D0%BA%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%BE%D0%B2_%D1%84%D0%B8%D1%80%D0%BC%D1%8B_Intel">
                         Подробнее о маркировке процессоров Intel...
                       </a>
@@ -132,20 +134,20 @@ const AePerformance: React.FC = () => {
               </li>
               <li>
                 <p>
-                  Процессоры от <mark className="company">AMD</mark> также являются
-                  хорошим выбором благодаря отличному соотношению цены и
-                  производительности на ядро, если вы создаёте композиции с нуля без
-                  частого использования видеоисходников. На сегодняшний день платформа{" "}
-                  <mark>AM4</mark> уже неактуальна, поэтому, если вы собираете новый
-                  системный блок на <mark className="company">AMD</mark>, собирайте сразу
-                  на платформе <mark>AM5</mark>.
+                  Процессоры <mark className="hardware">AMD</mark> также являются хорошим
+                  выбором благодаря отличному соотношению цены и производительности на
+                  ядро, если вы создаёте композиции с нуля без частого использования
+                  видеоисходников. На сегодняшний день платформа{" "}
+                  <mark className="hardware">AM4</mark> уже неактуальна, поэтому, если вы
+                  собираете новый системный блок на <mark className="hardware">AMD</mark>,
+                  собирайте сразу на платформе <mark className="hardware">AM5</mark>.
                 </p>
                 <p>
                   В качестве бюджетного варианта можно взять практически любой процессор с
                   6 ядрами или больше, например{" "}
-                  <mark className="copy">AMD Ryzen 5 7500F</mark> или{" "}
-                  <mark className="copy">AMD Ryzen 7 7700</mark>. Оптимальным выбором
-                  будет <mark className="copy">AMD Ryzen 9 7900X</mark> или мощнее.
+                  <mark className="hardware">AMD Ryzen 5 7500F</mark> или{" "}
+                  <mark className="hardware">AMD Ryzen 7 7700</mark>. Оптимальным выбором
+                  будет <mark className="hardware">AMD Ryzen 9 7900X</mark> или мощнее.
                 </p>
               </li>
             </ul>
@@ -155,8 +157,8 @@ const AePerformance: React.FC = () => {
               Теперь об оперативной памяти. Многие пользователи{" "}
               <mark className="app">Adobe After Effects</mark> знают, что программа
               известна высоким потреблением оперативной памяти, поэтому для комфортной
-              работы потребуется минимум <mark>32 ГБ</mark> оперативной памяти типа{" "}
-              <mark>DDR5</mark>, а лучше — <mark>64 ГБ</mark> или больше.
+              работы потребуется минимум 32 ГБ оперативной памяти типа{" "}
+              <mark className="hardware">DDR5</mark>, а лучше — 64 ГБ или больше.
             </p>
             <Addition type="info">
               Рекомендуется <a href="#configure-swapfile">настроить файл подкачки</a>,
@@ -170,17 +172,17 @@ const AePerformance: React.FC = () => {
               Что касается видеокарты, <mark className="app">Adobe After Effects</mark>{" "}
               может задействовать её не во всех сценариях, даже если везде включено
               аппаратное ускорение. Выбор ускорителя зависит от вашего бюджета: для старта
-              подойдёт <mark className="copy">NVIDIA RTX 4060 Ti</mark> или{" "}
-              <mark className="copy">NVIDIA RTX 5060 Ti</mark> с <mark>16 ГБ</mark>{" "}
-              видеопамяти или, при ограниченном бюджете, —{" "}
-              <mark className="copy">NVIDIA RTX 3060</mark> с <mark>12 ГБ</mark>. На
-              момент написания статьи оптимальным вариантом по соотношению
+              подойдёт <mark className="hardware">NVIDIA RTX 4060 Ti</mark> или{" "}
+              <mark className="hardware">NVIDIA RTX 5060 Ti</mark> с 16 ГБ видеопамяти
+              или, при ограниченном бюджете, —{" "}
+              <mark className="hardware">NVIDIA RTX 3060</mark> с 12 ГБ. На момент
+              написания статьи оптимальным вариантом по соотношению
               «цена–производительность» для работы в программах, требующих видеокарту,
-              считается <mark className="copy">NVIDIA RTX 5070 Ti</mark>.
+              считается <mark className="hardware">NVIDIA RTX 5070 Ti</mark>.
             </p>
             <Addition type="danger">
               <p>
-                Видеокарты от <mark className="company">AMD</mark> считаются не лучшим
+                Видеокарты от <mark className="hardware">AMD</mark> считаются не лучшим
                 выбором для серьёзной работы в программах{" "}
                 <mark className="company">Adobe</mark> и другом творческом софте.
                 Программная поддержка для них развита слабее, поэтому многие эффекты с
@@ -188,10 +190,10 @@ const AePerformance: React.FC = () => {
               </p>
               <p>
                 В последние годы разработчики начали адаптировать свои эффекты под{" "}
-                <mark className="company">AMD</mark>, например{" "}
+                <mark className="hardware">AMD</mark>, например{" "}
                 <mark className="company">Boris FX</mark> с пакетом{" "}
                 <mark className="plugin">Sapphire</mark>. Но общая ситуация всё ещё в
-                пользу <mark className="company">NVIDIA</mark>: под её видеокарты
+                пользу <mark className="hardware">NVIDIA</mark>: под её видеокарты
                 оптимизировано значительно больше плагинов.
               </p>
             </Addition>
@@ -204,8 +206,8 @@ const AePerformance: React.FC = () => {
               Если у вас нет стационарного компьютера и вы не планируете его покупать,
               поскольку часто работаете с серьёзными проектами вне дома или часто
               переезжаете, то при солидном бюджете стоит обратить внимание на мощные
-              портативные модели с дискретными видеокартами от{" "}
-              <mark className="company">NVIDIA</mark>, например{" "}
+              портативные модели с дискретными видеокартами{" "}
+              <mark className="hardware">NVIDIA</mark>, например{" "}
               <mark className="copy">Lenovo ThinkBook 16p</mark>,{" "}
               <mark className="copy">ASUS Zephyrus</mark> или{" "}
               <mark className="copy">Honor MagicBook Pro 16</mark>.
@@ -214,12 +216,12 @@ const AePerformance: React.FC = () => {
               <ul>
                 <li>
                   Модели с дискретными видеокартами{" "}
-                  <mark className="company">NVIDIA</mark>, такими как{" "}
-                  <mark className="copy">RTX 5060</mark> или{" "}
-                  <mark className="copy">RTX 4050</mark>, стоит выбирать с осторожностью:
-                  в некоторых бюджетных ноутбуках процессор может быть слабым, а
-                  теплопакет (TDP) комплектующих — ограничен, из-за чего реальная
-                  производительность может оказаться ниже ожидаемой.
+                  <mark className="hardware">NVIDIA</mark>, такими как{" "}
+                  <mark className="hardware">RTX 5060</mark> или{" "}
+                  <mark className="hardware">RTX 4050</mark>, стоит выбирать с
+                  осторожностью: в некоторых бюджетных ноутбуках процессор может быть
+                  слабым, а теплопакет (TDP) комплектующих — ограничен, из-за чего
+                  реальная производительность может оказаться ниже ожидаемой.
                 </li>
                 <li>
                   Производительные ноутбуки могут быть тяжелее и быстрее разряжаться, чем
@@ -235,9 +237,9 @@ const AePerformance: React.FC = () => {
               выполнять на основной машине, то можно рассмотреть модель без дискретной
               видеокарты. Для таких задач не обязательно покупать «игровой» ноутбук.
               Подойдут, например, <mark className="copy">ASUS Vivobook Pro</mark> или{" "}
-              <mark className="copy">Lenovo ThinkBook 16+</mark> в комплектации с{" "}
-              <mark>32 ГБ</mark> оперативной памяти на <mark>AMD Ryzen</mark> или{" "}
-              <mark>Intel Core</mark>
+              <mark className="copy">Lenovo ThinkBook 16+</mark> в комплектации с 32 ГБ
+              оперативной памяти на <mark className="hardware">AMD Ryzen</mark> или{" "}
+              <mark className="hardware">Intel Core</mark>
               <sup>1</sup>.
             </p>
             <Addition type="warning">
@@ -246,28 +248,31 @@ const AePerformance: React.FC = () => {
                   <sup>1</sup> Некоторые сторонние эффекты, например{" "}
                   <mark className="plugin">Element 3D</mark> или{" "}
                   <mark className="plugin">Dehancer Pro</mark>, могут некорректно работать
-                  на встроенных видеочипах <mark>Intel HD Graphics</mark> и{" "}
-                  <mark>Intel Arc</mark> из-за отсутствия поддержки со стороны их
-                  разработчиков. Встроенные видеочипы от{" "}
-                  <mark className="company">AMD</mark> в этом плане выглядят выигрышнее.
+                  на встроенных видеочипах{" "}
+                  <mark className="hardware">Intel HD Graphics</mark> и{" "}
+                  <mark className="hardware">Intel Arc</mark> из-за отсутствия поддержки
+                  со стороны их разработчиков. Встроенные видеочипы от{" "}
+                  <mark className="hardware">AMD</mark> в этом плане выглядят выигрышнее.
                 </li>
                 <li>
                   Если вам важна точность цветопередачи, внимательно изучайте
                   характеристики экрана. В бюджетных моделях матрицы могут иметь
-                  ограниченный цветовой охват и не покрывать <mark>100%</mark>{" "}
-                  пространства <mark className="copy">sRGB</mark>. Также обратите внимание
-                  на максимальную яркость: для комфортной работы в условиях яркого
-                  освещения она должна быть не ниже <mark>400 кд/м²</mark>.
+                  ограниченный цветовой охват и не покрывать 100% пространства{" "}
+                  <mark className="color-space">sRGB</mark>. Также обратите внимание на
+                  максимальную яркость: для комфортной работы в условиях яркого освещения
+                  она должна быть не ниже 400 кд/м².
                 </li>
                 <li>
-                  Не стоит брать ноутбуки на <mark>Windows</mark> с процессорами{" "}
-                  <mark>Snapdragon X Elite</mark>, которых пока мало в продаже. Это
-                  архитектура <mark>ARM</mark>, а не привычная <mark>X86-64</mark>, и
-                  далеко не все творческие программы адаптированы под неё. Хоть и
-                  существует эмулятор <mark className="app">Windows Prism</mark>,
-                  позволяющий запускать <mark>X86-64</mark>-приложения на <mark>ARM</mark>
-                  , их стабильность и скорость работы заметно уступают программам,
-                  собранным специально для <mark>ARM</mark>.
+                  Не стоит брать ноутбуки на Windows с процессорами{" "}
+                  <mark className="hardware">Snapdragon X Elite</mark>, которых пока мало
+                  в продаже. Это архитектура <mark className="term">ARM</mark>, а не
+                  привычная <mark className="term">X86-64</mark>, и далеко не все
+                  творческие программы адаптированы под неё. Хоть и существует эмулятор{" "}
+                  <mark className="app">Windows Prism</mark>, позволяющий запускать{" "}
+                  <mark className="term">X86-64</mark>-приложения на{" "}
+                  <mark className="term">ARM</mark>, их стабильность и скорость работы
+                  заметно уступают программам, собранным специально для{" "}
+                  <mark className="term">ARM</mark>.
                 </li>
               </ul>
             </Addition>
@@ -277,22 +282,23 @@ const AePerformance: React.FC = () => {
         <ul>
           <li>
             <p>
-              Если вы хотите купить первый ноутбук от <mark>Apple</mark> или переезжаете с{" "}
-              <mark>MacBook</mark> на базе <mark className="company">Intel</mark>,
-              посмотрите в сторону <mark className="copy">MacBook Air</mark> на чипе{" "}
-              <mark>Apple M4</mark> или <mark className="copy">MacBook Pro</mark> на чипе{" "}
-              <mark>Apple M3 Pro</mark> или новее. Рекомендуется выбирать комплектацию с
-              объёмом оперативной памяти от <mark>16 ГБ</mark> и SSD от{" "}
-              <mark>512 ГБ</mark>.
+              Если вы хотите купить первый ноутбук от{" "}
+              <mark className="company">Apple</mark> или переезжаете с{" "}
+              <mark className="copy">MacBook</mark> на базе{" "}
+              <mark className="hardware">Intel</mark>, посмотрите в сторону{" "}
+              <mark className="copy">MacBook Air</mark> на чипе{" "}
+              <mark className="hardware">Apple M4</mark> или{" "}
+              <mark className="copy">MacBook Pro</mark> на чипе{" "}
+              <mark className="hardware">Apple M3 Pro</mark> или новее. Рекомендуется
+              выбирать комплектацию с объёмом оперативной памяти от 16 ГБ и SSD от 512 ГБ.
             </p>
             <Addition type="warning">
               <ul>
                 <li>
                   Работа в <mark className="app">Adobe After Effects</mark> и подобных
-                  программах с <mark>8 ГБ</mark> оперативной памяти может быть
-                  затруднительной, несмотря на то что <mark>macOS</mark> эффективно
-                  управляет оперативной памятью за счёт её сжатия и использования файла
-                  подкачки.
+                  программах с 8 ГБ оперативной памяти может быть затруднительной,
+                  несмотря на то что macOS эффективно управляет оперативной памятью за
+                  счёт её сжатия и использования файла подкачки.
                 </li>
                 <li>
                   Современные <mark className="copy">MacBook Air</mark> не имеют
@@ -306,19 +312,21 @@ const AePerformance: React.FC = () => {
           <li>
             <p>
               Если вы редко путешествуете и ищете стационарное решение, а ноутбуки{" "}
-              <mark>MacBook</mark> кажутся слишком дорогими, обратите внимание либо на{" "}
-              <mark className="copy">Mac Mini</mark> с чипом <mark>Apple M4</mark> и
-              мощнее, либо на <mark className="copy">Mac Studio</mark> с чипом{" "}
-              <mark>Apple M3 Max</mark> и мощнее.
+              <mark className="copy">MacBook</mark> кажутся слишком дорогими, обратите
+              внимание либо на <mark className="copy">Mac Mini</mark> с чипом{" "}
+              <mark className="hardware">Apple M4</mark> и мощнее, либо на{" "}
+              <mark className="copy">Mac Studio</mark> с чипом{" "}
+              <mark className="hardware">Apple M3 Max</mark> и мощнее.
             </p>
             <p>
-              <mark>Mac Studio</mark>, в отличие от <mark>Mac Mini</mark>, предлагает
-              более производительные чипы линеек <mark>Max</mark> и <mark>Ultra</mark>,
-              улучшенную систему охлаждения и большее количество портов. Эти компьютеры
-              станут хорошим выбором, если у вас уже есть монитор, клавиатура и мышь. В
-              качестве минимальной конфигурации рекомендуется рассматривать модели с{" "}
-              <mark>16–24 ГБ</mark> оперативной памяти и SSD объёмом от{" "}
-              <mark>512 ГБ</mark>.
+              <mark className="copy">Mac Studio</mark>, в отличие от{" "}
+              <mark className="copy">Mac Mini</mark>, предлагает более производительные
+              чипы линеек <mark className="hardware">Max</mark> и{" "}
+              <mark className="hardware">Ultra</mark>, улучшенную систему охлаждения и
+              большее количество портов. Эти компьютеры станут хорошим выбором, если у вас
+              уже есть монитор, клавиатура и мышь. В качестве минимальной конфигурации
+              рекомендуется рассматривать модели с 16–24 ГБ оперативной памяти и SSD
+              объёмом от 512 ГБ.
             </p>
           </li>
         </ul>
@@ -365,10 +373,13 @@ const AePerformance: React.FC = () => {
             <li>
               «Самой стабильной» версии <mark className="app">Adobe After Effects</mark>{" "}
               не существует. Если последние версии вас не устраивают, в качестве отправной
-              точки можно рассмотреть <mark>24.6</mark> или <mark>23.6</mark>, но не более
-              ранние. В то же время не стоит спешить с обновлением сразу после выхода
-              крупного релиза — в нём могут встречаться проблемы, которые исправляют в
-              последующих обновлениях.
+              точки можно рассмотреть <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">24.6 (2024)</mark> или{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">23.6 (2023)</mark>, но не более ранние. В то же
+              время не стоит спешить с обновлением сразу после выхода крупного релиза — в
+              нём могут встречаться проблемы, которые исправляют в последующих
+              обновлениях.
             </li>
             <li>
               Аналогично, нет и «самой быстрой» версии. Скорость работы зависит от
@@ -438,18 +449,21 @@ const AePerformance: React.FC = () => {
             </p>
             <Addition type="warning">
               Имейте в виду, что для установки последних версий{" "}
-              <mark className="app">Adobe After Effects</mark> требуется{" "}
-              <mark>Windows 11</mark> версии <mark>24H2</mark>: на более ранних сборках
-              программа может работать некорректно или вовсе не установиться. Узнать
-              текущую версию вашей ОС можно с помощью команды{" "}
+              <mark className="app">Adobe After Effects</mark> требуется Windows 11 24H2:
+              на более ранних сборках программа может работать некорректно или вовсе не
+              установиться. Узнать текущую версию вашей ОС можно с помощью команды{" "}
               <mark className="app">winver</mark>.
             </Addition>
           </li>
           <li>
             <p>
               Если вам нужна более «проверенная» пользователями и относительно современная
-              версия, попробуйте <mark>25.1 (2025)</mark>, <mark>24.6 (2024)</mark> или{" "}
-              <mark>23.6 (2023)</mark>.
+              версия, попробуйте <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">25.1 (2025)</mark>,{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">24.6 (2024)</mark> или{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">23.6 (2023)</mark>.
             </p>
             <Addition type="info">
               Современное оборудование требует более свежих версий{" "}
@@ -462,24 +476,31 @@ const AePerformance: React.FC = () => {
             <p>
               Если процессор вашего устройства не поддерживает{" "}
               <a href="https://www.youtube.com/watch?v=1IAwkEdRZZw">инструкции AVX2</a>,
-              вы можете установить версию <mark>23.6 (2023)</mark> или{" "}
-              <mark>24.0 (2024)</mark>.
+              вы можете установить <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">23.6 (2023)</mark> или{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">24.0 (2024)</mark>.
             </p>
             <Addition type="warning">
-              Если вы попытаетесь обойти требования к установке версии <mark>24.1</mark>{" "}
-              или новее на неподдерживаемом процессоре, то, скорее всего, столкнётесь с
-              ошибкой <mark className="code">0xc0000142</mark> при запуске программы.
-              Обойти это ограничение нельзя — придётся покупать новый процессор с
-              поддержкой инструкций <mark>AVX2</mark>.
+              Если вы попытаетесь обойти требования к установке версии{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">24.1 (2024)</mark> или выше на неподдерживаемом
+              процессоре, то, скорее всего, столкнётесь с ошибкой{" "}
+              <mark className="code">0xc0000142</mark> при запуске программы. Обойти это
+              ограничение нельзя — придётся покупать новый процессор с поддержкой
+              инструкций <mark className="hardware">AVX2</mark>.
             </Addition>
           </li>
           <li>
             <p>
-              Если вы используете устройство на <mark>Windows 7</mark> или{" "}
-              <mark>Windows 8.1</mark>, установите версию <mark>16.1 (2019)</mark> или{" "}
-              <mark>15.1 (2018)</mark>. Более свежие версии установить не получится из-за
-              прекращения официальной поддержки этих операционных систем компаниями{" "}
-              <mark className="company">Adobe</mark> и <mark>Microsoft</mark>.
+              Если вы используете устройство на Windows 7 или Windows 8.1, установите
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">16.1 (2019)</mark> или{" "}
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">15.1 (2018)</mark>. Более свежие версии установить
+              не получится из-за прекращения официальной поддержки этих операционных
+              систем компаниями <mark className="company">Adobe</mark> и{" "}
+              <mark className="company">Microsoft</mark>.
             </p>
             <Addition type="danger">
               <ul>
@@ -487,12 +508,14 @@ const AePerformance: React.FC = () => {
                   Если вы попытаетесь обойти требования к установке или запустить
                   программу на старой операционной системе, вероятность успешного запуска
                   крайне мала. Скорее всего, вы столкнётесь с ошибками, которые решаются
-                  только установкой более свежей версии <mark>Windows</mark>.
+                  только установкой более свежей версии Windows.
                 </li>
                 <li>
-                  Если программа более свежей версии, чем <mark>16.1</mark>, всё же
-                  запустится на неподдерживаемой операционной системе, её стабильная
-                  работа не гарантируется.
+                  Если программа более свежей версии, чем{" "}
+                  <mark className="app">Adobe After Effects</mark>{" "}
+                  <mark className="version">16.1 (2019)</mark>, всё же запустится на
+                  неподдерживаемой операционной системе, её стабильная работа не
+                  гарантируется.
                 </li>
               </ul>
             </Addition>
@@ -508,20 +531,26 @@ const AePerformance: React.FC = () => {
         </Addition>
         <p>
           При переходе с одной версии <mark className="app">Adobe After Effects</mark> на
-          другую в пределах одного «релизного года», например с <mark>24.1 (2024)</mark>{" "}
-          на <mark>24.6 (2024)</mark>, не нужно переносить файлы или выполнять какие-либо
-          дополнительные действия. В таком случае установщик перезапишет старые файлы
-          программы, не затрагивая пользовательские данные, включая установленные плагины.
-          При запуске обновлённой версии <mark className="app">Adobe After Effects</mark>{" "}
-          вам предложат перенести настройки из старой версии в новую.
+          другую в пределах одного «релизного года», например с{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.1 (2024)</mark> на{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.6 (2024)</mark>, не нужно переносить файлы или
+          выполнять какие-либо дополнительные действия. В таком случае установщик
+          перезапишет старые файлы программы, не затрагивая пользовательские данные,
+          включая установленные плагины. При запуске обновлённой версии{" "}
+          <mark className="app">Adobe After Effects</mark> вам предложат перенести
+          настройки из старой версии в новую.
         </p>
         <p>
           Но если вы решили обновить программу, перейдя на следующий «релизный год»,
-          например с <mark>23.6 (2023)</mark> на <mark>25.2 (2025)</mark>, потребуется
-          вручную перенести пользовательские файлы в новую версию, включая сторонние
-          эффекты и пресеты. При такой установке старая версия программы останется на
-          устройстве и не будет удалена автоматически.{" "}
-          <a href="#update-app">Подробнее о переносе...</a>
+          например с <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.6 (2023)</mark> на{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.2 (2025)</mark>, потребуется вручную перенести
+          пользовательские файлы в новую версию, включая сторонние эффекты и пресеты. При
+          такой установке старая версия программы останется на устройстве и не будет
+          удалена автоматически. <a href="#update-app">Подробнее о переносе...</a>
         </p>
         <Addition type="info">
           Не забывайте своевременно обновлять сторонние плагины и поддерживать
@@ -547,22 +576,26 @@ const AePerformance: React.FC = () => {
         </p>
         <p>
           Чтобы это доказать, проведём эксперимент на виртуальной машине с «облегчённой»
-          сборкой <mark>Windows 11 24H2</mark>. Выделим ей <mark>16 ГБ</mark> оперативной
-          памяти и 8 ядер процессора <mark>Intel Core Ultra 7 255H</mark>
-          <sup>1</sup> без аппаратного ускорения. Затем установим разные версии{" "}
-          <mark className="app">Adobe After Effects</mark>, на которых будем проверять
-          скорость рендеринга: <mark>13.2 (2014)</mark>, <mark>15.1.2 (2018)</mark>,{" "}
-          <mark>17.7 (2020)</mark>, <mark>23.6 (2023)</mark> и <mark>25.4 (2025)</mark>.
+          сборкой Windows 11 24H2. Выделим ей 16 ГБ оперативной памяти и 8 ядер процессора{" "}
+          <mark className="hardware">Intel Core Ultra 7 255H</mark>
+          <sup>1</sup> без аппаратного ускорения. Затем установим{" "}
+          <mark className="app">Adobe After Effects</mark> следующих версий:{" "}
+          <mark className="version">13.2 (2014)</mark>,{" "}
+          <mark className="version">15.1.2 (2018)</mark>,{" "}
+          <mark className="version">17.7 (2020)</mark>,{" "}
+          <mark className="version">23.6 (2023)</mark> и{" "}
+          <mark className="version">25.4 (2025)</mark>, после чего проверим скорость
+          рендеринга.
         </p>
         <Addition type="info">
           <sup>1</sup> Несмотря на то что это процессор для ноутбуков, для чистоты
           эксперимента на хост-системе были сняты все лимиты энергопотребления и включён
           режим максимальной производительности. Ноутбук работал от сети, а его система
           охлаждения — на полную мощность, без препятствий для потока воздуха. На
-          виртуальной машине частота процессора оставалась стабильной на уровне{" "}
-          <mark>3,69 ГГц</mark> без резких скачков и «троттлинга» во время тестов, хотя
-          хостовая система могла обеспечить и большую производительность. Однако это,
-          наоборот, поможет сделать результаты более сопоставимыми.
+          виртуальной машине частота процессора оставалась стабильной на уровне 3,69 ГГц
+          без резких скачков и «троттлинга» во время тестов, хотя хостовая система могла
+          обеспечить и большую производительность. Однако это, наоборот, поможет сделать
+          результаты более сопоставимыми.
         </Addition>
         <p>
           Тестирование будем проводить на{" "}
@@ -576,13 +609,17 @@ const AePerformance: React.FC = () => {
           программы.
         </p>
         <p>
-          Для «честного» сравнения в первом раунде в версии <mark>13.2 (2014)</mark> мы
-          отключим <mark className="select">«Multiprocessing»</mark>, а в версиях{" "}
-          <mark>23.6 (2023)</mark> и <mark>25.4 (2025)</mark> —{" "}
+          Для «честного» сравнения в первом раунде в версии{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">13.2 (2014)</mark> мы отключим{" "}
+          <mark className="select">«Multiprocessing»</mark>, а в{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.6 (2023)</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.4 (2025)</mark> —{" "}
           <mark className="select">«Multi-Frame Rendering»</mark>. Также во всех версиях
-          отключим дисковый кэш. В настройках каждой программы мы выделим по{" "}
-          <mark>12 ГБ</mark> оперативной памяти, а остальные параметры оставим по
-          умолчанию.
+          отключим дисковый кэш. В настройках каждой программы мы выделим по 12 ГБ
+          оперативной памяти, а остальные параметры оставим по умолчанию.
         </p>
         <ArticleMedia
           caption="Виртуальная машина"
@@ -601,9 +638,10 @@ const AePerformance: React.FC = () => {
         <ul>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 13.2 (2014)</mark> — 7 минут 33
-              секунды. Со включённым <mark className="select">«Multiprocessing»</mark> — 6
-              минут 3 секунды.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">13.2 (2014)</mark> — 7 минут 33 секунды. Со
+              включённым <mark className="select">«Multiprocessing»</mark> — 6 минут 3
+              секунды.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -613,8 +651,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 15.1.2 (2018)</mark> — 7 минут 27
-              секунд.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">15.1.2 (2018)</mark> — 7 минут 27 секунд.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -624,8 +662,8 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 17.7 (2020)</mark> — 8 минут 34
-              секунды.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">17.7 (2020)</mark> — 8 минут 34 секунды.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -635,8 +673,9 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 23.6 (2023)</mark> — 8 минут 15
-              секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">23.6 (2023)</mark> — 8 минут 15 секунд без{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -646,8 +685,9 @@ const AePerformance: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="app">Adobe After Effects 25.4 (2025)</mark> — 8 минут 18
-              секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">25.4 (2025)</mark> — 8 минут 18 секунд без{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>.
             </p>
             <ArticleMedia
               caption="Время экспорта"
@@ -657,24 +697,32 @@ const AePerformance: React.FC = () => {
           </li>
         </ul>
         <p>
-          После продолжительного рендеринга результат поразил: версии <mark>13.2</mark> и{" "}
-          <mark>15.1.2</mark> действительно превзошли более новые. Казалось бы, вопрос
-          можно закрывать: старые версии и правда быстрее, а автора нужно закидать тапками
-          за то, что он не разбирается в производительности{" "}
+          После продолжительного рендеринга результат поразил: версии{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">13.2 (2014)</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">15.1.2 (2018)</mark> действительно превзошли более
+          новые. Казалось бы, вопрос можно закрывать: старые версии и правда быстрее, а
+          автора нужно закидать тапками за то, что он не разбирается в производительности{" "}
           <mark className="app">Adobe After Effects</mark>. Но, как я и говорил, есть один
           нюанс: первые тесты проводились без многокадрового рендеринга.
         </p>
         <p>
           Стоило почистить кэш, перезапустить программу, включить{" "}
-          <mark className="select">«Multi-Frame Rendering»</mark> в версиях{" "}
-          <mark>23.6</mark> и <mark>25.4</mark> и запустить экспорт заново, как результат
-          снова поразил, но уже не в пользу «старичков»: 4 минуты 53 секунды и 3 минуты 49
-          секунд соответственно. Версия <mark>13.2 (2014)</mark> даже со включённым{" "}
+          <mark className="select">«Multi-Frame Rendering»</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.6 (2023)</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.4 (2025)</mark> и запустить экспорт заново, как
+          результат снова поразил, но уже не в пользу «старичков»: 4 минуты 53 секунды и 3
+          минуты 49 секунд соответственно. Версия{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">13.2 (2014)</mark> даже со включённым{" "}
           <mark className="select">«Multiprocessing»</mark> и рядом не стояла со своими 6
           минутами и 3 секундами. При этом потребление оперативной памяти во всех версиях
-          было примерно одинаковым и не выходило за установленный предел в{" "}
-          <mark>12 ГБ</mark>, так что настроенный «за кадром» файл подкачки в этом тесте
-          на скорость рендеринга особой роли не сыграл.
+          было примерно одинаковым и не выходило за установленный предел в 12 ГБ, так что
+          настроенный «за кадром» файл подкачки в этом тесте на скорость рендеринга особой
+          роли не сыграл.
         </p>
         <p>
           Какой вывод можно сделать из этого «странного» теста? По-моему, все эти
@@ -822,10 +870,10 @@ const AePerformance: React.FC = () => {
         <Divider>Отключаем кэширование при простое</Divider>
         <p>
           Если вам стало сложнее выполнять действия в программе из-за необъяснимых
-          «тормозов», возможно, вы не заметили, что в версиях{" "}
-          <mark className="app">Adobe After Effects 22.0 (2022)</mark> и новее по
-          умолчанию включена функция{" "}
-          <mark className="select">«Cache Frames When Idle»</mark>. Она начинает
+          «тормозов», возможно, вы не заметили, что в{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">22.0 (2022)</mark> и выше по умолчанию включена
+          функция <mark className="select">«Cache Frames When Idle»</mark>. Она начинает
           кэшировать композицию, заполняя оперативную память и дисковый кэш, если вы не
           взаимодействуете с программой в течение восьми секунд.
         </p>
@@ -846,11 +894,9 @@ const AePerformance: React.FC = () => {
           Каждый, кто хоть раз работал в <mark className="app">Adobe After Effects</mark>,
           знает не понаслышке, что программа «обожает» оперативную память. Её потребление
           зависит от множества факторов, главные из которых — разрешение композиции и
-          глубина цвета. Например, кадр размером <mark>1920×1080</mark> при{" "}
-          <mark>8 битах</mark> на канал требует <mark>7,9 МБ</mark> памяти, а кадр{" "}
-          <mark>7680×4320</mark> при <mark>16 битах</mark> — уже <mark>253 МБ</mark>.
-          Поэтому при работе с композициями высокого разрешения даже <mark>128 ГБ</mark>{" "}
-          ОЗУ может быстро закончиться.
+          глубина цвета. Например, кадр размером 1920×1080 при 8 битах на канал требует
+          7,9 МБ памяти, а кадр 7680×4320 при 16 битах — уже 253 МБ. Поэтому при работе с
+          композициями высокого разрешения даже 128 ГБ ОЗУ может быстро закончиться.
         </p>
         <p>
           Но это лишь вес готового кадра в кэше, без учёта затрат на его рендеринг. Чтобы
@@ -889,8 +935,9 @@ const AePerformance: React.FC = () => {
         <p>
           Когда оперативной памяти начинает не хватать,{" "}
           <mark className="app">Adobe After Effects</mark> выгружает старые кэшированные
-          кадры, а при включённом дисковом кэше — сохраняет их на диск. Причём начиная с
-          версии <mark>25.2</mark>, опция{" "}
+          кадры, а при включённом дисковом кэше — сохраняет их на диск. Причём в{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.2 (2025)</mark> и выше, опция{" "}
           <mark className="select">«Enable Preview from Disk Cache»</mark> позволяет
           воспроизводить предпросмотр напрямую с диска, не загружая их в ОЗУ, что особенно
           полезно при работе с длинными композициями.
@@ -924,10 +971,10 @@ const AePerformance: React.FC = () => {
               <p>
                 Для стабильной работы в <mark className="app">Adobe After Effects</mark>{" "}
                 также рекомендуется включить и настроить{" "}
-                <a href="#configure-swapfile">файл подкачки</a>. Некоторые сборки{" "}
-                <mark>Windows</mark> от энтузиастов и программы для «оптимизации» системы
-                отключают эту функцию, из-за чего рядовые пользователи сталкиваются с
-                ошибками нехватки памяти, даже когда её, казалось бы, достаточно.
+                <a href="#configure-swapfile">файл подкачки</a>. Некоторые сборки Windows
+                от энтузиастов и программы для «оптимизации» системы отключают эту
+                функцию, из-за чего рядовые пользователи сталкиваются с ошибками нехватки
+                памяти, даже когда её, казалось бы, достаточно.
               </p>
               <p>
                 Дело в том, что программа для каждого кадра требует непрерывный блок ОЗУ и
@@ -960,8 +1007,8 @@ const AePerformance: React.FC = () => {
           <sup>1</sup> Внимательно прочтите описание параметра. Указанный процент — это
           ресурсы, которые останутся для других программ, а не те, что будет использовать{" "}
           <mark className="app">Adobe After Effects</mark>. Например, если вы установите
-          значение <mark>70%</mark>, то для рендеринга будет использоваться только{" "}
-          <mark>30%</mark> мощности процессора.
+          значение <mark className="copy">70</mark> процентов, то для рендеринга будет
+          использоваться только 30% нагрузки процессора.
         </Addition>
         <Addition type="info">
           <sup>2</sup> В предыдущих версиях{" "}
@@ -1052,7 +1099,7 @@ const AePerformance: React.FC = () => {
           Больше всего проблем вызывают видео, сжатые кодеками для трансляции в интернете,
           например <mark className="video">H.264</mark> и{" "}
           <mark className="video">H.265</mark>, скачанные с{" "}
-          <mark className="app">YouTube</mark>, <mark className="app">VK Видео</mark> и
+          <mark className="web">YouTube</mark>, <mark className="web">VK Видео</mark> и
           похожих платформ. У них часто нет единого стандарта, гарантирующего стабильность
           в проекте, поэтому каждая платформа пережимает их по-своему. Такие видео
           кодируют для комфортного просмотра, а не для последующего монтажа, из-за чего
@@ -1096,10 +1143,10 @@ const AePerformance: React.FC = () => {
           Если же размер файла для вас критичен или нужен именно{" "}
           <mark className="video">H.264</mark>, то перекодируйте его через ранее
           упомянутые утилиты, даже если исходник уже был в этом кодеке. Это поможет
-          исправить «кривую» структуру <mark>GOP</mark>, характерную для многих видео из
-          интернета. Но учтите: без поддержки аппаратного ускорения для декодирования{" "}
-          <mark className="video">H.264</mark> на вашем процессоре или видеокарте вы вряд
-          ли ускорите работу с проектом.
+          исправить «кривую» структуру <mark className="codec-param">GOP</mark>,
+          характерную для многих видео из интернета. Но учтите: без поддержки аппаратного
+          ускорения для декодирования <mark className="video">H.264</mark> на вашем
+          процессоре или видеокарте вы вряд ли ускорите работу с проектом.
         </p>
         <p>
           А что будет с качеством изображения после конвертации? Если грамотно подойти к{" "}
@@ -1126,8 +1173,8 @@ const AePerformance: React.FC = () => {
           <li>
             С изображениями проблемы возникают реже, но тоже случаются.{" "}
             <mark className="app">Adobe After Effects</mark> «не любит» изображения с
-            огромным разрешением, цветовым профилем <mark>CMYK</mark> или слишком
-            агрессивным сжатием. В таком случае может помочь конвертация в{" "}
+            огромным разрешением, цветовым профилем <mark className="term">CMYK</mark> или
+            слишком агрессивным сжатием. В таком случае может помочь конвертация в{" "}
             <mark className="image">PNG</mark> через{" "}
             <mark className="app">FastStone Image Viewer</mark> или{" "}
             <mark className="app">Adobe Photoshop</mark>, а ещё лучше — в формат{" "}
@@ -1154,7 +1201,7 @@ const AePerformance: React.FC = () => {
           результате вы получаете «конфликты» эффектов, медленный рендеринг, «фризы» и
           «вылеты».{" "}
           <i style={{opacity: "0.5"}}>
-            Зато классный и красивый «эдит» для <mark className="app">TikTok</mark>{" "}
+            Зато классный и красивый «эдит» для <mark className="web">TikTok</mark>{" "}
             получился, да?
           </i>
         </p>
@@ -1220,9 +1267,10 @@ const AePerformance: React.FC = () => {
         <p>
           Если вы не понимаете, какой эффект замедляет рендеринг, вам поможет функция{" "}
           <mark className="select">«Render Time»</mark>, добавленная в{" "}
-          <mark className="app">Adobe After Effects</mark> в версиях <mark>22.0</mark>{" "}
-          (2022) и новее. Она работает как профайлер композиции и анализирует, сколько
-          времени занимает просчёт каждого слоя и эффекта.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">22.0 (2022)</mark> и выше. Она работает как профайлер
+          композиции и анализирует, сколько времени занимает просчёт каждого слоя и
+          эффекта.
         </p>
         <p>
           В поле <mark className="select">«Frame Render Time»</mark>, расположенном в
@@ -1253,10 +1301,10 @@ const AePerformance: React.FC = () => {
         </Addition>
         <Divider>Проверяем количество слоёв</Divider>
         <p>
-          Если на таймлайне в композиции слишком много слоёв, например, больше{" "}
-          <mark>800</mark>, программа может начать ощутимо тормозить, некорректно
-          отрисовывая интерфейс и реагируя на действия с задержкой. Чтобы этого избежать,
-          сгруппируйте слои в предварительную композицию. Для этого выделите их и нажмите{" "}
+          Если на таймлайне в композиции слишком много слоёв, например, больше 800,
+          программа может начать ощутимо тормозить, некорректно отрисовывая интерфейс и
+          реагируя на действия с задержкой. Чтобы этого избежать, сгруппируйте слои в
+          предварительную композицию. Для этого выделите их и нажмите{" "}
           <mark className="key">Ctrl + Shift + C</mark>, а затем подтвердите её создание.
         </p>
         <p>
@@ -1335,9 +1383,9 @@ const AePerformance: React.FC = () => {
         </Addition>
         <Divider>Пара слов о сторонних шаблонах</Divider>
         <p>
-          Многие шаблоны, например с <mark>Envato Elements</mark> и похожих ресурсов,
-          нередко перегружены лишними эффектами и слоями, которые замедляют работу. В
-          такой ситуации есть три выхода.
+          Многие шаблоны, например с <mark className="web">Envato Elements</mark> и
+          похожих ресурсов, нередко перегружены лишними эффектами и слоями, которые
+          замедляют работу. В такой ситуации есть три выхода.
         </p>
         <ul>
           <li>
@@ -1371,7 +1419,7 @@ const AePerformance: React.FC = () => {
           <li>
             Если вы ранее создавали <a href="#proxy-comp">прокси</a> для композиций, не
             забудьте включить опцию <mark className="select">«Use Proxies»</mark> в{" "}
-            <mark className="select">Render Settings</mark>. Иначе программа их
+            <mark className="select">«Render Settings»</mark>. Иначе программа их
             проигнорирует, начнёт просчитывать всё заново, и вы не получите прироста
             скорости при экспорте.
           </li>
@@ -1387,8 +1435,8 @@ const AePerformance: React.FC = () => {
               <mark className="select">«Project Settings»</mark>, это не значит, что оно
               будет работать всегда. Из-за отсутствия у некоторых эффектов поддержки
               аппаратного ускорения или их неспособности полностью загружать «железо», не
-              стоит ожидать <mark>100%</mark> использования процессора и видеокарты во
-              время рендеринга.
+              стоит ожидать 100% использования процессора и видеокарты во время
+              рендеринга.
             </p>
             <Addition type="info">
               <p>
@@ -1492,8 +1540,8 @@ const AePerformance: React.FC = () => {
                   <mark className="app">Adobe After Effects</mark> хранит кадры
                   фрагментированно, то потребление памяти растёт как на дрожжах, особенно
                   при работе с высоким разрешением и большой частотой кадров. Поэтому для
-                  комфортной работы рекомендуется иметь не менее <mark>32 ГБ</mark> ОЗУ и
-                  настроить <a href="#configure-swapfile">файл подкачки</a>.
+                  комфортной работы рекомендуется иметь не менее 32 ГБ ОЗУ и настроить{" "}
+                  <a href="#configure-swapfile">файл подкачки</a>.
                 </li>
                 <li>
                   <p>
@@ -1510,9 +1558,10 @@ const AePerformance: React.FC = () => {
                 </li>
                 <li>
                   Если операционная система, файлы проектов и дисковый кэш сидят на
-                  медленном <mark>HDD</mark>, тормозить будет всё из-за низкой скорости
-                  чтения и записи. Переход на <mark>SSD</mark> или <mark>NVMe</mark>{" "}
-                  существенно улучшит ситуацию.
+                  медленном <mark className="hardware">HDD</mark>, тормозить будет всё
+                  из-за низкой скорости чтения и записи. Переход на{" "}
+                  <mark className="hardware">SSD</mark> или{" "}
+                  <mark className="hardware">NVMe</mark> существенно улучшит ситуацию.
                 </li>
               </ul>
             </>
@@ -1605,7 +1654,7 @@ const AePerformance: React.FC = () => {
               <ul>
                 <li>
                   <p>
-                    Для видеокарт <mark className="company">NVIDIA</mark> рекомендуется
+                    Для видеокарт <mark className="hardware">NVIDIA</mark> рекомендуется
                     использовать <mark className="app">NVIDIA Studio Driver</mark>: он
                     оптимизирован для работы в творческих приложениях и обновляется реже,
                     чем <mark className="app">NVIDIA Game Ready Driver</mark>.
@@ -1622,7 +1671,8 @@ const AePerformance: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                    Для <mark className="company">Intel</mark> скачайте подходящий драйвер{" "}
+                    Для <mark className="hardware">Intel</mark> скачайте подходящий
+                    драйвер{" "}
                     <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
                       на официальном сайте
                     </a>{" "}
@@ -1633,12 +1683,12 @@ const AePerformance: React.FC = () => {
                     .
                   </p>
                   <Addition type="warning">
-                    <mark className="company">Intel</mark> может блокировать доступ к
+                    <mark className="hardware">Intel</mark> может блокировать доступ к
                     сайту для пользователей из Российской Федерации.
                   </Addition>
                 </li>
                 <li>
-                  Для <mark className="company">AMD</mark> воспользуйтесь{" "}
+                  Для <mark className="hardware">AMD</mark> воспользуйтесь{" "}
                   <a href="https://www.amd.com/en/support/download/drivers.html">
                     автоматическим установщиком с официального сайта
                   </a>
@@ -1685,11 +1735,9 @@ const AePerformance: React.FC = () => {
                 <ul>
                   <li>
                     <sup>1</sup>{" "}
-                    <mark className="app">
-                      Редактор локальной групповой политики (gpedit.msc)
-                    </mark>{" "}
-                    отсутствует в редакции <mark>Home</mark>, но есть в <mark>Pro</mark>,{" "}
-                    <mark>Enterprise</mark> и <mark>Education</mark>.
+                    <mark className="app">Редактор локальной групповой политики</mark> или
+                    же <mark className="app">gpedit.msc</mark> отсутствует в редакции
+                    Home, но есть в Pro, Enterprise и Education.
                   </li>
                   <li>
                     Имейте в виду: полное отключение обновлений может аукнуться в будущем,
@@ -1802,8 +1850,10 @@ const AePerformance: React.FC = () => {
               использовать при рендеринге и процессор, и видеокарту. Видеокарта будет
               задействована в тех случаях, когда применённый эффект её поддерживает.
               Иногда это значение может быть продублировано с указанием технологии вашей
-              видеокарты, например <mark>CUDA (NVIDIA)</mark>, <mark>OpenCL (AMD)</mark>,{" "}
-              <mark>OpenGL (Intel)</mark> или <mark>Metal (Apple Silicon)</mark>.
+              видеокарты, например <mark className="term">CUDA (NVIDIA)</mark>,{" "}
+              <mark className="term">OpenCL (AMD)</mark>,{" "}
+              <mark className="term">OpenGL (Intel)</mark> или{" "}
+              <mark className="term">Metal (Apple Silicon)</mark>.
             </p>
             <Addition type="warning">
               На видеокартах с малым объёмом видеопамяти часто возникает ошибка{" "}
@@ -1869,12 +1919,12 @@ const AePerformance: React.FC = () => {
                 рекомендуется настроить его параметры вручную.
               </p>
               <p>
-                В интернете и от некоторых создателей самодельных образов{" "}
-                <mark>Windows</mark> нередко можно встретить мнение, что файл подкачки
-                лучше отключить — якобы он «вредит» вашему твёрдотельному накопителю.
-                Отчасти в этом есть смысл, однако современные накопители рассчитаны на
-                такие нагрузки, и вы, скорее всего, смените своё устройство на новое
-                гораздо раньше, чем диск выйдет из строя.
+                В интернете и от некоторых создателей самодельных образов Windows нередко
+                можно встретить мнение, что файл подкачки лучше отключить — якобы он
+                «вредит» вашему твёрдотельному накопителю. Отчасти в этом есть смысл,
+                однако современные накопители рассчитаны на такие нагрузки, и вы, скорее
+                всего, смените своё устройство на новое гораздо раньше, чем диск выйдет из
+                строя.
               </p>
               <p>
                 С отключённым файлом подкачки в{" "}
@@ -1895,8 +1945,8 @@ const AePerformance: React.FC = () => {
                 перезагрузкой устройства.
               </p>
               <p>
-                Чтобы настроить размер файла подкачки в <mark>Windows</mark> или включить
-                его, следуйте пошаговой инструкции, приведённой ниже.
+                Чтобы настроить размер файла подкачки в Windows или включить его, следуйте
+                пошаговой инструкции, приведённой ниже.
               </p>
               <Divider>Инструкция для Windows 10 и 11</Divider>
               <ul>
@@ -1982,7 +2032,7 @@ const AePerformance: React.FC = () => {
                           установлена система. Размещение файла подкачки на медленном
                           диске может ухудшить работу как с{" "}
                           <mark className="app">Adobe After Effects</mark>, так и с{" "}
-                          <mark>Windows</mark> в целом.
+                          Windows в целом.
                         </p>
                         <Addition type="warning">
                           В некоторых случаях, если указать для файла подкачки не
@@ -1998,21 +2048,21 @@ const AePerformance: React.FC = () => {
                       </li>
                       <li>
                         <mark className="select">«Максимальный размер»</mark> — это
-                        граница, до которой <mark>Windows</mark> будет автоматически
-                        расширять файл при необходимости. Если система достигнет этой
-                        границы, файл больше расширяться не будет.
+                        граница, до которой Windows будет автоматически расширять файл при
+                        необходимости. Если система достигнет этой границы, файл больше
+                        расширяться не будет.
                       </li>
                       <li>
                         В качестве <mark className="select">«исходного размера»</mark> вы
-                        можете установить значение от <mark>1024 МБ</mark> до любого
-                        числа. <mark>Windows</mark> позволяет задать и более низкое
+                        можете установить значение от <mark className="copy">1024</mark>{" "}
+                        МБ до любого числа. Windows позволяет задать и более низкое
                         значение, но этого делать не рекомендуется, особенно если у вас
                         установлен медленный накопитель.
                       </li>
                       <li>
                         В качестве <mark className="select">«максимального размера»</mark>{" "}
                         для повседневных задач можно установить значение по формуле{" "}
-                        <mark>
+                        <mark className="quote">
                           «текущий объём оперативной памяти, умноженный на 3 или 4»
                         </mark>{" "}
                         или сразу задать своё максимальное значение, например{" "}

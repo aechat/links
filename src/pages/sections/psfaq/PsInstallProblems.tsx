@@ -54,8 +54,8 @@ const PsInstallProblems: React.FC = () => {
                   </p>
                   <p>
                     Автор статьи назначил{" "}
-                    <mark className="app">FastStone Image Viewer</mark> на{" "}
-                    <mark>Windows</mark> программой по умолчанию для просмотра{" "}
+                    <mark className="app">FastStone Image Viewer</mark> на Windows
+                    программой по умолчанию для просмотра{" "}
                     <mark className="image">PSD</mark>, чтобы открывать их без запуска{" "}
                     <mark className="app">Adobe Photoshop</mark>. При необходимости файл
                     можно открыть в <mark className="app">Adobe Photoshop</mark> по
@@ -173,10 +173,10 @@ const PsInstallProblems: React.FC = () => {
                   <Addition type="danger">
                     Если в архиве находится папка <mark className="path">_MACOSX</mark>,
                     то в нём нет никаких полезных файлов, установщиков и плагинов, которые
-                    предназначены именно для устройств <mark>macOS</mark>. Это скрытая
-                    системная папка, которая иногда создаётся операционной системой, в
-                    которой хранятся метаданные и информация о файловой системе. В нём нет
-                    ничего интересного для пользователя.
+                    предназначены именно для устройств macOS. Это скрытая системная папка,
+                    которая иногда создаётся операционной системой, в которой хранятся
+                    метаданные и информация о файловой системе. В нём нет ничего
+                    интересного для пользователя.
                   </Addition>
                   <p>
                     Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -237,10 +237,10 @@ const PsInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        По умолчанию в <mark>macOS</mark> вы не сможете без танцев с
-                        бубном открыть установщики от неподтверждённых разработчиков.
-                        Чтобы обойти этот запрет, нужно изменить настройки безопасности
-                        операционной системы. Подробнее об этом вы можете прочитать на{" "}
+                        По умолчанию в macOS вы не сможете без танцев с бубном открыть
+                        установщики от неподтверждённых разработчиков. Чтобы обойти этот
+                        запрет, нужно изменить настройки безопасности операционной
+                        системы. Подробнее об этом вы можете прочитать на{" "}
                         <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a> и
                         на{" "}
                         <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
@@ -250,9 +250,12 @@ const PsInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если вы сталкиваетесь с ошибкой{" "}
-                        <mark>«Не удаётся открыть программу „AppName”»</mark>, попробуйте
-                        открыть его через <mark className="key">ПКМ</mark>, выбрав в
-                        контекстном меню <mark className="select">«Открыть»</mark>.
+                        <mark className="quote">
+                          «Не удаётся открыть программу „AppName”»
+                        </mark>
+                        , попробуйте открыть его через <mark className="key">ПКМ</mark>,
+                        выбрав в контекстном меню{" "}
+                        <mark className="select">«Открыть»</mark>.
                       </li>
                     </ul>
                   </Addition>
@@ -261,35 +264,27 @@ const PsInstallProblems: React.FC = () => {
                   <p>
                     Если в архиве находится файл <mark className="file">ZXP</mark>, то
                     такие расширения обычно устанавливаются через{" "}
-                    <a href="https://aescripts.com/learn/zxp-installer/">
-                      ZXP Installer от aescripts
-                    </a>
-                    . Прежде чем устанавливать расширение такого формата, убедитесь в том,
-                    что ваша версия <mark className="app">Adobe Photoshop</mark> его
-                    поддерживает. После того как вы установите расширение, откройте
-                    терминал и введите команды ниже, их можно скопировать одним нажатием.
-                    Если терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
+                    <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a>{" "}
+                    от <mark className="web">aescripts</mark>. Прежде чем устанавливать
+                    расширение такого формата, убедитесь в том, что ваша версия{" "}
+                    <mark className="app">Adobe Photoshop</mark> его поддерживает. После
+                    того как вы установите расширение, откройте терминал и введите команды
+                    ниже, их можно скопировать одним нажатием. Если терминал не выдал
+                    никакие ошибки, то вы можете спокойно открыть{" "}
                     <mark className="app">Adobe Photoshop</mark> и проверить
                     работоспособность установленного расширения.
                   </p>
                   <Addition type="danger">
                     Пожалуйста, не используйте{" "}
-                    <a href="https://zxpinstaller.com/">
-                      ZXP Installer от ELEMENTS Storage Media
-                    </a>
-                    , если вы используете версии программ{" "}
+                    <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                    <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                    используете версии программ от
                     <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
-                    <mark className="app">Adobe Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
-                    выдавать ошибку <mark className="danger">-193</mark> до тех пор, пока
-                    вы не установите программу{" "}
-                    <mark className="app">Adobe Creative Cloud</mark>, а он же может вам
-                    поломать уже установленные программы. Для решения проблемы
-                    воспользуйтесь{" "}
-                    <a href="https://aescripts.com/learn/zxp-installer/">
-                      ZXP Installer от aescripts
-                    </a>{" "}
-                    или ручной установкой расширений.
+                    <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
+                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет выдавать
+                    вам ошибку <mark className="danger">-193</mark> до тех пор, пока вы не
+                    установите <mark className="app">Adobe Creative Cloud</mark>, а он, в
+                    свою очередь, может повредить уже установленные программы.
                   </Addition>
                   <Addition type="info">
                     <ul>
@@ -503,8 +498,8 @@ const PsInstallProblems: React.FC = () => {
                   </Addition>
                   <Addition type="danger">
                     Дополнения формата <mark className="file">PLUGIN</mark> не подходят
-                    для устройств на <mark>Windows</mark>, так как они предназначены для
-                    устройств на <mark>macOS</mark>.
+                    для устройств на Windows, так как они предназначены для устройств на
+                    macOS.
                   </Addition>
                 </li>
                 <li>
@@ -670,8 +665,8 @@ const PsInstallProblems: React.FC = () => {
                 только репаков, но и плагинов, и других файлов из интернета — даже если
                 они абсолютно безопасны.{" "}
                 <i style={{opacity: "0.5"}}>
-                  А если не доверяете — не предъявляйте администраторам претензии,
-                  основанные на вашей паранойе, а просто купите лицензию.
+                  А если не доверяете, не предъявляйте администраторам претензии без
+                  подтверждённых фактов и используйте лицензионные версии.
                 </i>
               </p>
               <p>
@@ -684,8 +679,7 @@ const PsInstallProblems: React.FC = () => {
               <Addition type="info">
                 Способы отключения и удаления{" "}
                 <mark className="app">Windows Defender</mark>, описанные в этой статье,
-                могут отличаться в зависимости от вашей установленной версии{" "}
-                <mark>Windows</mark>.
+                могут отличаться в зависимости от вашей установленной версии Windows.
               </Addition>
               <Divider>Отключаем Windows Defender на время</Divider>
               <p>
@@ -698,8 +692,8 @@ const PsInstallProblems: React.FC = () => {
               </p>
               <Addition type="warning">
                 <mark className="select">«Защита в реальном времени»</mark> в последних
-                сборках <mark>Windows</mark> имеет нездоровое свойство самостоятельно
-                включаться спустя несколько секунд. Не стесняйтесь отключать её заново.
+                сборках Windows имеет нездоровое свойство самостоятельно включаться спустя
+                несколько секунд. Не стесняйтесь отключать её заново.
               </Addition>
               <ArticleMedia
                 src="blwRAOQUjsM"
@@ -743,7 +737,7 @@ const PsInstallProblems: React.FC = () => {
               </div>
               <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
               <p>
-                В последних сборках <mark>Windows 11</mark> компания{" "}
+                В последних сборках Windows 11 компания{" "}
                 <mark className="company">Microsoft</mark>{" "}
                 <del>усилила меры безопасности</del> добавила пользователям проблем,
                 внедрив расширенный анализ исполняемых файлов через функцию{" "}
@@ -772,7 +766,7 @@ const PsInstallProblems: React.FC = () => {
               </p>
               <Addition type="info">
                 <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
-                вернуть без полной переустановки <mark>Windows</mark>, на базовую защиту{" "}
+                вернуть без полной переустановки Windows, на базовую защиту{" "}
                 <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
                 <i style={{opacity: "0.5"}}>Заодно избавитесь от лишних фильтров.</i>
               </Addition>
@@ -782,8 +776,8 @@ const PsInstallProblems: React.FC = () => {
                 type="video"
               />
               <p>
-                В <mark>Windows 10</mark> этот фильтр работает аналогично: при запуске
-                файла всплывает окно{" "}
+                В Windows 10 этот фильтр работает аналогично: при запуске файла всплывает
+                окно{" "}
                 <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
                 Так <mark className="app">Windows SmartScreen</mark> реагирует на файлы,
                 которые кажутся ему подозрительными.
@@ -837,10 +831,10 @@ const PsInstallProblems: React.FC = () => {
                 <p>
                   Полное удаление или отключение{" "}
                   <mark className="app">Windows Defender</mark> рекомендуется только
-                  опытным пользователям <mark>Windows</mark>, которые полностью осознают
-                  возможные последствия и используют альтернативные средства защиты —
-                  например собственную бдительность, сторонние антивирусы или регулярное
-                  резервное копирование данных.
+                  опытным пользователям Windows, которые полностью осознают возможные
+                  последствия и используют альтернативные средства защиты — например
+                  собственную бдительность, сторонние антивирусы или регулярное резервное
+                  копирование данных.
                 </p>
                 <p>
                   Если вы не слишком уверенный пользователь и не уверены в своих
@@ -850,10 +844,9 @@ const PsInstallProblems: React.FC = () => {
               </Addition>
               <Addition type="warning">
                 Удалённый <mark className="app">Windows Defender</mark> может вернуться
-                после установки крупного обновления, например при переходе с{" "}
-                <mark>Windows 11</mark> версии <mark>24H2</mark> на{" "}
-                <mark>Windows 11</mark> версии <mark>25H2</mark>. Чтобы от него
-                избавиться, просто повторите процесс удаления.
+                после установки крупного обновления, например при переходе с Windows 11
+                24H2 на Windows 11 25H2. Чтобы от него избавиться, просто повторите
+                процесс удаления.
               </Addition>
             </>
           }
@@ -866,11 +859,10 @@ const PsInstallProblems: React.FC = () => {
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
-          Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
-          повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
-          или были криво удалены предыдущие программы от{" "}
-          <mark className="company">Adobe</mark>. Чтобы исправить это — очистите остатки
-          предыдущих установок с помощью{" "}
+          Обычно ошибка 1 и 501 возникает из-за того, что у вас повреждено приложение{" "}
+          <mark className="app">Adobe Creative Cloud</mark> или были криво удалены
+          предыдущие программы от <mark className="company">Adobe</mark>. Чтобы исправить
+          это — очистите остатки предыдущих установок с помощью{" "}
           <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
@@ -914,10 +906,13 @@ const PsInstallProblems: React.FC = () => {
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
-          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
-          последних версий <mark className="app">Adobe Photoshop</mark>. Для решения
-          проблемы обновите процессор или установите более старую версию программы,
-          например <mark>23.6</mark> или <mark>24.0</mark>.
+          процессор не поддерживает инструкции <mark className="hardware">AVX2</mark>,
+          необходимые для последних версий <mark className="app">Adobe Photoshop</mark>.
+          Для решения проблемы обновите процессор или установите более старую версию
+          программы, например <mark className="app">Adobe Photoshop</mark>{" "}
+          <mark className="version">23.6 (2023)</mark> или{" "}
+          <mark className="app">Adobe Photoshop</mark>{" "}
+          <mark className="version">24.0 (2024)</mark>.
         </p>
         <Divider>
           Исправляем ошибку 21 —{" "}
@@ -928,17 +923,17 @@ const PsInstallProblems: React.FC = () => {
         </Divider>
         <p>
           Скорее всего, вы пытаетесь установить{" "}
-          <mark className="app">Adobe Photoshop 25.X (2024)</mark> или новее на несвежую
-          сборку <mark>Windows</mark>. В таком случае у вас есть только два выхода, по
-          какому пути идти — решать только вам.
+          <mark className="app">Adobe Photoshop</mark>{" "}
+          <mark className="version">25.X (2024)</mark> или выше на несвежую сборку
+          Windows. В таком случае у вас есть только два выхода, по какому пути идти —
+          решать только вам.
         </p>
         <ul>
           <li>
             <p>
               Если вы хотите установить свежую версию{" "}
               <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
-              систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
-              <mark>Windows 11</mark>. Обычно в{" "}
+              систему до Windows 10 22H2 или установить Windows 11. Обычно в{" "}
               <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
                 системных требованиях Adobe Photoshop
               </a>{" "}
@@ -947,16 +942,16 @@ const PsInstallProblems: React.FC = () => {
             <Addition type="info">
               <ul>
                 <li>
-                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
+                  Текущую сборку Windows вы можете посмотреть в{" "}
                   <mark className="app">winver</mark>.
                 </li>
                 <li>
-                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
-                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
-                  переустановить систему на редакцию <mark>Home</mark> или{" "}
-                  <mark>Pro</mark>.{" "}
+                  Если у вас стоит Windows 10 редакции LTSC, то сборку новее 21H2 вы не
+                  сможете установить. Вам нужно будет переустановить систему на редакцию{" "}
+                  <mark className="term">Home</mark> или <mark className="term">Pro</mark>
+                  .{" "}
                   <i style={{opacity: "0.5"}}>
-                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
+                    Или поэкспериментировать с редакцией LTSC для IoT.
                   </i>
                 </li>
               </ul>
@@ -964,9 +959,12 @@ const PsInstallProblems: React.FC = () => {
           </li>
           <li>
             Если вы не желаете обновлять или переустанавливать систему, то вы можете
-            установить более старую версию <mark className="app">Adobe Photoshop</mark>,
-            например <mark>23.6 (2023)</mark> или <mark>15.1 (2018)</mark>. В таком случае
-            установщик выполнит установку корректно.
+            установить более старую версию, например{" "}
+            <mark className="app">Adobe Photoshop</mark>{" "}
+            <mark className="version">23.6 (2023)</mark> или{" "}
+            <mark className="app">Adobe Photoshop</mark>{" "}
+            <mark className="version">15.1 (2018)</mark>. В таком случае установщик
+            выполнит установку корректно.
           </li>
         </ul>
         <Addition type="info">
@@ -999,11 +997,13 @@ const PsInstallProblems: React.FC = () => {
         </p>
         <Divider></Divider>
         <p>
-          С выходом <mark className="app">Adobe Photoshop 25.X (2024)</mark> многие начали
-          из каждого угла спрашивать, мол{" "}
-          <mark>«где народный фш с нейросетью можно скачать?»</mark>. Благодаря таким
-          повсеместным вопросам от халявщиков — <mark className="company">Adobe</mark>{" "}
-          прикрыл эту функцию с сентября 2023 года для тех, у кого отсутствует подписка{" "}
+          С выходом <mark className="app">Adobe Photoshop</mark>{" "}
+          <mark className="version">25.X (2024)</mark> многие начали из каждого угла
+          спрашивать, мол{" "}
+          <mark className="quote">«где народный фш с нейросетью можно скачать?»</mark>.
+          Благодаря таким повсеместным вопросам от халявщиков —{" "}
+          <mark className="company">Adobe</mark> прикрыл эту функцию с сентября 2023 года
+          для тех, у кого отсутствует подписка{" "}
           <mark className="app">Adobe Creative Cloud</mark>.{" "}
           <i style={{opacity: "0.5"}}>Да, перестаньте об этом спрашивать, пожалуйста.</i>
         </p>
@@ -1025,7 +1025,7 @@ const PsInstallProblems: React.FC = () => {
             Вы можете развернуть локальный <mark className="app">Stable Diffusion</mark> и
             использовать его в качестве плагина для{" "}
             <mark className="app">Adobe Photoshop</mark>. Данный способ требует хорошей
-            видеокарты с объёмом VRAM не менее <mark>8 ГБ</mark>.
+            видеокарты с объёмом VRAM не менее 8 ГБ.
           </li>
           <li>
             Либо вы можете воспользоваться различными онлайн-сервисами по генерации
@@ -1056,11 +1056,10 @@ const PsInstallProblems: React.FC = () => {
           <mark className="app">Adobe Photoshop</mark>
         </Divider>
         <Addition type="warning">
-          Действия проделываются на устройстве с операционной системой{" "}
-          <mark>Windows</mark>. Способ соединения{" "}
-          <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Adobe Photoshop</mark> на устройствах с <mark>macOS</mark>{" "}
-          не проверялся.
+          Действия проделываются на устройстве с операционной системой Windows. Способ
+          соединения <mark className="app">Stable Diffusion</mark> и{" "}
+          <mark className="app">Adobe Photoshop</mark> на устройствах с macOS не
+          проверялся.
         </Addition>
         <p>
           Для начала нам нужно загрузить сам <mark className="app">Stable Diffusion</mark>
@@ -1069,7 +1068,7 @@ const PsInstallProblems: React.FC = () => {
           <a href="https://github.com/LykosAI/StabilityMatrix/releases">
             страницы релизов на GitHub
           </a>
-          . Он доступен для <mark>Windows</mark> и <mark>macOS</mark>.
+          . Он доступен для Windows и macOS.
         </p>
         <Addition type="info">
           Если у вас уже установлен <mark className="app">Stable Diffusion</mark>, то вы
@@ -1094,12 +1093,11 @@ const PsInstallProblems: React.FC = () => {
               моделей для генерации изображений.
             </li>
             <li>
-              Рекомендуется иметь не менее <mark>20-30 ГБ</mark> свободного места на
-              накопителе, так как среднестатистическая модель Stable Diffusion занимает
-              около <mark>4-8 ГБ</mark> в зависимости от типа модели.
+              Рекомендуется иметь не менее 20-30 ГБ свободного места на накопителе, так
+              как среднестатистическая модель Stable Diffusion занимает около 4-8 ГБ в
+              зависимости от типа модели.
             </li>
             <li>
-              {" "}
               Если у вас возникают проблемы со скачиванием интерфейсов — попробуйте
               использовать <mark className="app">VPN</mark> во время загрузки.
             </li>
@@ -1110,7 +1108,8 @@ const PsInstallProblems: React.FC = () => {
           <mark className="app">Stable Diffusion</mark>. В данной статье я выберу{" "}
           <mark className="select">«Stable Diffusion reForge»</mark>, так как она хорошо
           оптимизирована для слабых видеокарт. Вы же можете выбрать любой другой
-          интерфейс, основанный на <mark>Automatic1111</mark> или следовать моему выбору.
+          интерфейс, основанный на <mark className="app">Automatic1111</mark> или
+          следовать моему выбору.
         </p>
         <ArticleMedia
           caption="Stability Matrix"
@@ -1130,8 +1129,9 @@ const PsInstallProblems: React.FC = () => {
           type="image"
         />
         <Addition type="info">
-          Если вы столкнулись с ошибкой <mark>«Package Modification Failed»</mark>, то
-          повторите попытку установки интерфейса снова, нажав на кнопку{" "}
+          Если вы столкнулись с ошибкой{" "}
+          <mark className="quote">«Package Modification Failed»</mark>, то повторите
+          попытку установки интерфейса снова, нажав на кнопку{" "}
           <mark className="select">«Add Package»</mark> в вкладке{" "}
           <mark className="select">«Packages»</mark>.
         </Addition>
@@ -1227,7 +1227,8 @@ const PsInstallProblems: React.FC = () => {
         </p>
         <p>
           Там нам нужно найти любую вам понравившуюся модель именно с пометкой{" "}
-          <mark>Inpainting</mark>. Различные версии можно найти на странице модели.
+          <mark className="term">Inpainting</mark>. Различные версии можно найти на
+          странице модели.
         </p>
         <ArticleMedia
           caption="Stability Matrix"
@@ -1256,8 +1257,8 @@ const PsInstallProblems: React.FC = () => {
           в браузере.
         </p>
         <Addition type="info">
-          Если у вас установлен <mark>ComfyUI</mark>, то вы можете оставить стандартную
-          галочку и указать другой адрес сервера при необходимости.
+          Если у вас установлен <mark className="app">ComfyUI</mark>, то вы можете
+          оставить стандартную галочку и указать другой адрес сервера при необходимости.
         </Addition>
         <ArticleMedia
           caption="Adobe Photoshop"
@@ -1265,10 +1266,10 @@ const PsInstallProblems: React.FC = () => {
           type="image"
         />
         <p>
-          Нам может выбить ошибка про отсутствие флага <mark>--api</mark>, который мы не
-          вставляли перед запуском <mark className="app">Stable Diffusion</mark>. И
-          естественно из-за этого пока не получится подключить{" "}
-          <mark className="app">Stable Diffusion</mark> и{" "}
+          Нам может выбить ошибка про отсутствие флага <mark className="code">--api</mark>
+          , который мы не вставляли перед запуском{" "}
+          <mark className="app">Stable Diffusion</mark>. И естественно из-за этого пока не
+          получится подключить <mark className="app">Stable Diffusion</mark> и{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
         <ArticleMedia
@@ -1281,7 +1282,7 @@ const PsInstallProblems: React.FC = () => {
           <mark className="app">Stability Matrix</mark>, открыть настройки запуска,
           пролистать вниз и в поле{" "}
           <mark className="select">«Extra Launch Arguments»</mark> впишите{" "}
-          <mark>--api</mark>.
+          <mark className="code">--api</mark>.
         </p>
         <ArticleMedia
           caption="Stability Matrix"
@@ -1435,10 +1436,10 @@ const PsInstallProblems: React.FC = () => {
           <mark className="path">
             %APPDATA%\Adobe\UXP\PluginsStorage\PHSP\XX\Internal\com.adobe.nfp.gallery\PluginData
           </mark>
-          , где <mark>XX</mark> — версия программы, указанная в первой части числа в{" "}
-          <mark className="select">«Help» → «About Photoshop»</mark>. Эта информация вам
-          пригодится, если вы хотите удалить файлы нейро-фильтров или распаковать их в
-          нужную папку из другого источника в интернете.
+          , где <mark className="version">XX</mark> — версия программы, указанная в первой
+          части числа в <mark className="select">«Help» → «About Photoshop»</mark>. Эта
+          информация вам пригодится, если вы хотите удалить файлы нейро-фильтров или
+          распаковать их в нужную папку из другого источника в интернете.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1447,10 +1448,11 @@ const PsInstallProblems: React.FC = () => {
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
         <p>
-          Данная ошибка возникает когда вы пытаетесь открыть установщик репака от{" "}
-          <mark>KpoJIuK</mark>, а он оказывается битым и не может корректно распаковаться.
-          Часто это происходит из-за некорректных действий пользователя или срабатывания
-          антивирусной программы на вашем устройстве с <mark>Windows</mark>.
+          Эта ошибка возникает, когда вы пытаетесь открыть установщик репака от{" "}
+          <mark className="user">KpoJIuK</mark>, а он оказывается битым и не может
+          корректно распаковаться. Часто это происходит из-за некорректных действий
+          пользователя или срабатывания антивирусной программы на вашем устройстве с
+          Windows.
         </p>
         <Divider>Устраняем эту ошибку</Divider>
         <ul>
@@ -1539,7 +1541,7 @@ const PsInstallProblems: React.FC = () => {
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
         <p>
-          Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
+          Эта ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
           причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы решить эту
           проблему — проверьте содержимое директории{" "}
           <mark className="path">%WINDIR%\System32\Drivers\etc</mark>. Если в нём нет
@@ -1559,11 +1561,11 @@ const PsInstallProblems: React.FC = () => {
         <p>
           По умолчанию в репаках от <mark className="user">KpoJluK</mark> включена галочка{" "}
           <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
-          установку <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой
-          страницы браузера или на установку <mark className="app">Яндекс.Браузера</mark>.
-          К счастью все эти нововведения можно удалить через{" "}
-          <mark className="app">Панель управления</mark> или любым удобным для вас
-          способом.
+          установку <mark className="web">me.fo</mark> или{" "}
+          <mark className="web">hi.ru</mark> в качестве стартовой страницы браузера или на
+          установку <mark className="app">Яндекс.Браузера</mark>. К счастью все эти
+          нововведения можно удалить через <mark className="app">Панель управления</mark>{" "}
+          или любым удобным для вас способом.
         </p>
         <p>
           В следующий раз не забывайте убирать галочку{" "}
@@ -1637,10 +1639,10 @@ const PsInstallProblems: React.FC = () => {
           <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
           <mark className="company">ELEMENTS Storage Media</mark> — откажитесь от него в
           пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
-          <mark className="company">aescripts</mark> или ручной распаковки расширения в
-          нужное место. При этом <mark className="app">Adobe Creative Cloud</mark>{" "}
-          устанавливать не нужно, если вы используете репаки от{" "}
-          <mark className="user">KpoJluK</mark> или <mark className="user">m0nkrus</mark>.
+          <mark className="web">aescripts</mark> или ручной распаковки расширения в нужное
+          место. При этом <mark className="app">Adobe Creative Cloud</mark> устанавливать
+          не нужно, если вы используете репаки от <mark className="user">KpoJluK</mark>{" "}
+          или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">
           Более подробную информацию про установку дополнительных материалов вы можете
@@ -1651,17 +1653,7 @@ const PsInstallProblems: React.FC = () => {
         anchor="safe-mode-and-reset"
         tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
         title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
-      >
-        {/*
-        REVIEW: HIGH - проверить валидность статьи - переписать
-        Черновое дополнение:
-        - Краткое введение: сброс настроек и безопасный запуск помогают исключить конфликтные настройки.
-        - Основные понятия: preferences, safe mode, reset preferences, plugins.
-        - Практические рекомендации: запускать Photoshop с модификаторами для сброса prefs, временно отключать плагины, очищать кэш.
-        - Возможные подводные камни: сброс удалит кастомные кисти/пресеты без бэкапа.
-        - Когда применять / когда не применять: при нестабильной работе после обновлений; если проблема только в одном файле — проверить его.
-        */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <Addition type="info">
         Некоторые решения проблем, которые могут у вас возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем

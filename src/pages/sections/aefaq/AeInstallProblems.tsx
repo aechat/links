@@ -89,12 +89,12 @@ const AeInstallProblems: React.FC = () => {
               <mark className="plugin">AtomX</mark>.
             </p>
             <Addition type="warning">
-              <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
-              импортировать пакеты, выдавая ошибку{" "}
+              <mark className="plugin">AtomX</mark> <mark className="version">3.0.9</mark>{" "}
+              может не импортировать пакеты, выдавая ошибку{" "}
               <mark className="danger">«Connection Failure»</mark> или просить код для
               активации. Для решения этой проблемы попробуйте установить{" "}
-              <mark className="plugin">AtomX</mark> версии <mark>3.0.8</mark> и повторить
-              попытку импорта пакета.
+              <mark className="plugin">AtomX</mark> <mark className="version">3.0.8</mark>{" "}
+              и повторить попытку импорта пакета.
             </Addition>
           </li>
           <li>
@@ -154,11 +154,10 @@ const AeInstallProblems: React.FC = () => {
                   <Addition type="warning">
                     Если в архиве находится папка <mark className="path">_MACOSX</mark>,
                     то в ней нет никаких полезных файлов, установщиков и плагинов, которые
-                    предназначены именно для устройств <mark>Mac</mark>. Это скрытая
-                    системная папка, которую иногда создаёт <mark>macOS</mark>, в ней
-                    хранятся метаданные и информация о файловой системе. Внутри данной
-                    директории нет ничего интересного для пользователя, поэтому смело
-                    игнорируйте её.
+                    предназначены именно для устройств Mac. Это скрытая системная папка,
+                    которую иногда создаёт macOS, в ней хранятся метаданные и информация о
+                    файловой системе. Внутри данной директории нет ничего интересного для
+                    пользователя, поэтому смело игнорируйте её.
                   </Addition>
                 </li>
                 <li>
@@ -171,10 +170,10 @@ const AeInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        По умолчанию в <mark>macOS</mark> вы не сможете без «танцев с
-                        бубном» открыть установщики от неподтверждённых разработчиков.
-                        Чтобы обойти этот запрет, нужно изменить настройки безопасности
-                        операционной системы. Подробнее об этом вы можете прочитать на{" "}
+                        По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
+                        установщики от неподтверждённых разработчиков. Чтобы обойти этот
+                        запрет, нужно изменить настройки безопасности операционной
+                        системы. Подробнее об этом вы можете прочитать на{" "}
                         <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,
                         на{" "}
                         <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
@@ -223,7 +222,8 @@ const AeInstallProblems: React.FC = () => {
                         <mark className="path">
                           /Applications/Adobe After Effects 20XX/Plug-Ins
                         </mark>
-                        , где <mark>20XX</mark> — ваша версия программы.
+                        , где <mark className="version">20XX</mark> — ваша версия
+                        программы.
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
@@ -236,8 +236,8 @@ const AeInstallProblems: React.FC = () => {
                   </Addition>
                   <Addition type="danger">
                     Плагины формата <mark className="file">AEX</mark> не подходят для
-                    устройств на <mark>macOS</mark>, так как они предназначены для
-                    устройств на <mark>Windows</mark>.
+                    устройств на macOS, так как они предназначены для устройств на
+                    Windows.
                   </Addition>
                 </li>
                 <li>
@@ -373,7 +373,7 @@ const AeInstallProblems: React.FC = () => {
                     Расширения формата <mark className="file">ZXP</mark> можно установить
                     двумя способами: с использованием{" "}
                     <mark className="app">ZXP Installer</mark> от{" "}
-                    <mark className="company">aescripts</mark> или ручной распаковкой
+                    <mark className="web">aescripts</mark> или ручной распаковкой
                     расширения в нужную директорию. После корректной установки
                     установленные расширения появятся в{" "}
                     <mark className="select">«Window» → «Extensions»</mark> и будут
@@ -384,7 +384,7 @@ const AeInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Расширения такого формата являются кросс-платформенными: они
-                        работают как в <mark>Windows</mark>, так и в <mark>macOS</mark>.
+                        работают как в Windows, так и в macOS.
                       </li>
                       <li>
                         Прежде чем устанавливать расширение такого формата — убедитесь в
@@ -756,7 +756,8 @@ const AeInstallProblems: React.FC = () => {
                           C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                           Files\Plug-ins
                         </mark>
-                        , где <mark>20XX</mark> — ваша версия программы.
+                        , где <mark className="version">20XX</mark> — ваша версия
+                        программы.
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
@@ -769,8 +770,8 @@ const AeInstallProblems: React.FC = () => {
                   </Addition>
                   <Addition type="danger">
                     Плагины формата <mark className="file">PLUGIN</mark> не подходят для
-                    устройств на <mark>Windows</mark>, так как они предназначены для
-                    устройств на <mark>macOS</mark>.
+                    устройств на Windows, так как они предназначены для устройств на
+                    macOS.
                   </Addition>
                 </li>
                 <li>
@@ -970,7 +971,7 @@ const AeInstallProblems: React.FC = () => {
                     Расширения формата <mark className="file">ZXP</mark> можно установить
                     двумя способами: с использованием{" "}
                     <mark className="app">ZXP Installer</mark> от{" "}
-                    <mark className="company">aescripts</mark> или ручной распаковкой
+                    <mark className="web">aescripts</mark> или ручной распаковкой
                     расширения в нужную директорию. После корректной установки
                     установленные расширения появятся в{" "}
                     <mark className="select">«Window» → «Extensions»</mark> и будут
@@ -981,7 +982,7 @@ const AeInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Расширения такого формата являются кросс-платформенными: они
-                        работают как в <mark>Windows</mark>, так и в <mark>macOS</mark>.
+                        работают как в Windows, так и в macOS.
                       </li>
                       <li>
                         Прежде чем устанавливать расширение такого формата — убедитесь в
@@ -1272,8 +1273,7 @@ const AeInstallProblems: React.FC = () => {
               <Addition type="info">
                 Способы отключения и удаления{" "}
                 <mark className="app">Windows Defender</mark>, описанные в этой статье,
-                могут отличаться в зависимости от вашей установленной версии{" "}
-                <mark>Windows</mark>.
+                могут отличаться в зависимости от вашей установленной версии Windows.
               </Addition>
               <Divider>Отключаем Windows Defender на время</Divider>
               <p>
@@ -1286,8 +1286,8 @@ const AeInstallProblems: React.FC = () => {
               </p>
               <Addition type="warning">
                 <mark className="select">«Защита в реальном времени»</mark> в последних
-                сборках <mark>Windows</mark> имеет нездоровое свойство самостоятельно
-                включаться спустя несколько секунд. Не стесняйтесь отключать её заново.
+                сборках Windows имеет нездоровое свойство самостоятельно включаться спустя
+                несколько секунд. Не стесняйтесь отключать её заново.
               </Addition>
               <ArticleMedia
                 src="blwRAOQUjsM"
@@ -1331,7 +1331,7 @@ const AeInstallProblems: React.FC = () => {
               </div>
               <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
               <p>
-                В последних сборках <mark>Windows 11</mark> компания{" "}
+                В последних сборках Windows 11 компания{" "}
                 <mark className="company">Microsoft</mark>{" "}
                 <del>усилила меры безопасности</del> добавила пользователям проблем,
                 внедрив расширенный анализ исполняемых файлов через функцию{" "}
@@ -1360,7 +1360,7 @@ const AeInstallProblems: React.FC = () => {
               </p>
               <Addition type="info">
                 <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
-                вернуть без полной переустановки <mark>Windows</mark>, на базовую защиту{" "}
+                вернуть без полной переустановки Windows, на базовую защиту{" "}
                 <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
                 <i style={{opacity: "0.5"}}>Заодно избавитесь от лишних фильтров.</i>
               </Addition>
@@ -1370,8 +1370,8 @@ const AeInstallProblems: React.FC = () => {
                 type="video"
               />
               <p>
-                В <mark>Windows 10</mark> этот фильтр работает аналогично: при запуске
-                файла всплывает окно{" "}
+                В Windows 10 этот фильтр работает аналогично: при запуске файла всплывает
+                окно{" "}
                 <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
                 Так <mark className="app">Windows SmartScreen</mark> реагирует на файлы,
                 которые кажутся ему подозрительными.
@@ -1425,10 +1425,10 @@ const AeInstallProblems: React.FC = () => {
                 <p>
                   Полное удаление или отключение{" "}
                   <mark className="app">Windows Defender</mark> рекомендуется только
-                  опытным пользователям <mark>Windows</mark>, которые полностью осознают
-                  возможные последствия и используют альтернативные средства защиты —
-                  например собственную бдительность, сторонние антивирусы или регулярное
-                  резервное копирование данных.
+                  опытным пользователям Windows, которые полностью осознают возможные
+                  последствия и используют альтернативные средства защиты — например
+                  собственную бдительность, сторонние антивирусы или регулярное резервное
+                  копирование данных.
                 </p>
                 <p>
                   Если вы не слишком уверенный пользователь и не уверены в своих
@@ -1438,10 +1438,9 @@ const AeInstallProblems: React.FC = () => {
               </Addition>
               <Addition type="warning">
                 Удалённый <mark className="app">Windows Defender</mark> может вернуться
-                после установки крупного обновления, например при переходе с{" "}
-                <mark>Windows 11</mark> версии <mark>24H2</mark> на{" "}
-                <mark>Windows 11</mark> версии <mark>25H2</mark>. Чтобы от него
-                избавиться, просто повторите процесс удаления.
+                после установки крупного обновления, например при переходе с Windows 11
+                24H2 на Windows 11 25H2. Чтобы от него избавиться, просто повторите
+                процесс удаления.
               </Addition>
             </>
           }
@@ -1474,7 +1473,7 @@ const AeInstallProblems: React.FC = () => {
                 будто <mark className="app">Adobe After Effects</mark> не найден, либо,
                 что ещё хуже, ставит плагины для другой программы. Например, найдя{" "}
                 <mark className="app">DaVinci Resolve</mark> по стандартному пути, он
-                установит <mark>OFX</mark>-версию плагина для него, а ваш{" "}
+                установит <mark className="term">OFX</mark>-версию плагина для него, а ваш{" "}
                 <mark className="app">Adobe After Effects</mark> останется ни с чем.
               </p>
               <p>
@@ -1517,9 +1516,9 @@ const AeInstallProblems: React.FC = () => {
                 </mark>
                 , и пользователь, у которого проблемы с установкой плагинов, не хочет идти
                 верным путём. Но и для таких случаев есть хорошие новости: в этой статье
-                разберём, как навести порядок в <mark>Windows</mark> или корректно
-                перенести программу на другой раздел — так, чтобы система считала её
-                установленной в стандартной директории.
+                разберём, как навести порядок в Windows или корректно перенести программу
+                на другой раздел — так, чтобы система считала её установленной в
+                стандартной директории.
               </p>
               <Divider>Очищаем системный раздел от мусора</Divider>
               <p>
@@ -1539,8 +1538,8 @@ const AeInstallProblems: React.FC = () => {
                   можно открыть из окна <mark className="app">«Выполнить»</mark>. В ней
                   вам нужно указать нужный раздел с системой и нажать{" "}
                   <mark className="select">«ОК»</mark>. Эта утилита проанализирует систему
-                  на наличие накопившихся обновлений <mark>Windows</mark>, старых точек
-                  восстановления и хлама, который можно выборочно удалить.
+                  на наличие накопившихся обновлений Windows, старых точек восстановления
+                  и хлама, который можно выборочно удалить.
                 </li>
                 <li>
                   <p>
@@ -1569,31 +1568,31 @@ const AeInstallProblems: React.FC = () => {
               </ul>
               <Divider>Сжимаем пространство на диске</Divider>
               <p>
-                В <mark>Windows</mark> есть функция сжатия операционной системы или целого
-                раздела. Она может помочь в тех случаях, когда в вашем устройстве
-                установлен накопитель со слишком малым объёмом памяти, и его не хватает
-                даже для базовых программ и утилит. Этой функцией можно воспользоваться с
-                помощью <mark className="app">командной строки Windows</mark> или{" "}
+                В Windows есть функция сжатия операционной системы или целого раздела. Она
+                может помочь в тех случаях, когда в вашем устройстве установлен накопитель
+                со слишком малым объёмом памяти, и его не хватает даже для базовых
+                программ и утилит. Этой функцией можно воспользоваться с помощью{" "}
+                <mark className="app">командной строки Windows</mark> или{" "}
                 <mark className="app">PowerShell</mark>.
               </p>
               <Addition type="danger">
                 Используйте функцию сжатия файлов с осторожностью и только если у вашего
                 устройства имеется производительный процессор и быстрый накопитель.
-                Использование <mark>NTFS-сжатия</mark> на медленном накопителе может
-                привести к замедлению работы системы в целом.
+                Использование <mark className="term">NTFS-сжатия</mark> на медленном
+                накопителе может привести к замедлению работы системы в целом.
               </Addition>
               <ul>
                 <li>
                   <p>
                     Чтобы сжать только операционную систему, воспользуйтесь командой{" "}
                     <mark className="code">compact /compactos:always</mark> и дождитесь
-                    окончания операции. Обычно сжатие системы освобождает примерно{" "}
-                    <mark>3–5 ГБ</mark> дискового пространства, которое можно занять
-                    установкой <mark className="app">Adobe After Effects</mark>.
+                    окончания операции. Обычно сжатие системы освобождает примерно 3–5 ГБ
+                    дискового пространства, которое можно занять установкой{" "}
+                    <mark className="app">Adobe After Effects</mark>.
                   </p>
                   <Addition type="info">
-                    Текущее состояние сжатия <mark>Windows</mark> можно узнать с помощью
-                    команды <mark className="code">compact /compactos:query</mark>.
+                    Текущее состояние сжатия Windows можно узнать с помощью команды{" "}
+                    <mark className="code">compact /compactos:query</mark>.
                   </Addition>
                 </li>
                 <li>
@@ -1613,17 +1612,16 @@ const AeInstallProblems: React.FC = () => {
               </ul>
               <Divider>Разбираемся с дисковыми разделами</Divider>
               <p>
-                Иногда при покупке нового ноутбука или устройства на <mark>Windows</mark>{" "}
-                с рук на нём уже зачем-то размечен один диск на два раздела — системный и
+                Иногда при покупке нового ноутбука или устройства на Windows с рук на нём
+                уже зачем-то размечен один диск на два раздела — системный и
                 пользовательский, то есть поделён на <mark className="path">C:\</mark> и{" "}
                 <mark className="path">D:\</mark>. Диск делят якобы для удобства, но на
                 деле разделение одного диска на несколько может привести к снижению его
                 производительности — особенно если диск один и на нём установлена
-                операционная система. Также разделы часто делят в соотношении примерно{" "}
-                <mark>30 (системный) к 70 (пользовательский)</mark>, что нередко приводит
-                к ситуациям, когда пользователь устанавливает программы не на стандартный
-                раздел, а затем сталкивается с проблемами при установке дополнительных
-                материалов.
+                операционная система. Также разделы часто делят в соотношении примерно
+                30:70 (системный к пользовательскому), что нередко приводит к ситуациям,
+                когда пользователь устанавливает программы не на стандартный раздел, а
+                затем сталкивается с проблемами при установке дополнительных материалов.
               </p>
               <p>
                 Если это ваш случай, я бы порекомендовал разобраться с текущими разделами
@@ -1651,16 +1649,10 @@ const AeInstallProblems: React.FC = () => {
                 Переносим программы на другой раздел с помощью символьных ссылок
               </Divider>
               <Addition type="danger">
-                Используйте функцию переноса программ с помощью символьных ссылок{" "}
-                <b>
-                  <u>только в крайнем случае</u>
-                </b>
-                , когда у вас нет возможности разобраться с разделами или почистить
-                систему от мусора. Стабильная работа программ при использовании символьных
-                ссылок{" "}
-                <b>
-                  <u>не гарантируется!</u>
-                </b>
+                Используйте функцию переноса программ с помощью символьных ссылок только в
+                крайнем случае, когда у вас нет возможности разобраться с разделами или
+                почистить систему от мусора. Стабильная работа программ при использовании
+                символьных ссылок не гарантируется!
               </Addition>
               <p>
                 Если вы действительно хотите перенести программы на другой раздел, можно
@@ -1703,12 +1695,11 @@ const AeInstallProblems: React.FC = () => {
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
-          Обычно ошибка <mark>1</mark> или <mark>501</mark> возникает из-за того, что у
-          вас повреждено приложение <mark className="app">Adobe Creative Cloud</mark> или
-          были некорректно удалены предыдущие программы от{" "}
-          <mark className="company">Adobe</mark>, а потом вы установили «народные» версии
-          программ. Чтобы это исправить — попробуйте очистить остатки предыдущих установок
-          с помощью{" "}
+          Обычно ошибка 1 или 501 возникает из-за того, что у вас повреждено приложение{" "}
+          <mark className="app">Adobe Creative Cloud</mark> или были некорректно удалены
+          предыдущие программы от <mark className="company">Adobe</mark>, а потом вы
+          установили «народные» версии программ. Чтобы это исправить — попробуйте очистить
+          остатки предыдущих установок с помощью{" "}
           <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
             Adobe Creative Cloud Cleaner Tool
           </a>{" "}
@@ -1753,12 +1744,15 @@ const AeInstallProblems: React.FC = () => {
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке программы — это означает, что
-          ваш процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
-          корректной работы последних версий{" "}
+          ваш процессор не поддерживает инструкции <mark className="hardware">AVX2</mark>,
+          необходимые для корректной работы последних версий{" "}
           <mark className="app">Adobe After Effects</mark>. Чтобы устранить проблему —
           обновите устройство или процессор на более современный либо установите более
-          старую версию программы, например <mark>23.6 (2023)</mark> или{" "}
-          <mark>24.0 (2024)</mark>.
+          старую версию программы, например{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.6 (2023)</mark> или{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.0 (2024)</mark>.
         </p>
         <Divider>
           Исправляем ошибку 21 —{" "}
@@ -1772,18 +1766,18 @@ const AeInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
-                <mark className="app">Adobe After Effects 24.X (2024)</mark> или новее на
-                устаревшую сборку <mark>Windows</mark>. В таком случае есть только два
-                решения.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.X (2024)</mark> или выше на устаревшую сборку
+                Windows. В таком случае есть только два решения.
               </p>
               <ul>
                 <li>
                   <p>
                     Если планируете установить свежую версию{" "}
-                    <mark className="app">Adobe After Effects</mark>, перейдите на{" "}
-                    <mark>Windows 11</mark>. Систему можно обновить поверх предыдущей
-                    версии с помощью образа <mark className="file">ISO</mark> — без потери
-                    данных, настроек и приложений. В{" "}
+                    <mark className="app">Adobe After Effects</mark>, перейдите на Windows
+                    11. Систему можно обновить поверх предыдущей версии с помощью образа{" "}
+                    <mark className="file">ISO</mark> — без потери данных, настроек и
+                    приложений. В{" "}
                     <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
                       системных требованиях After Effects
                     </a>{" "}
@@ -1793,27 +1787,25 @@ const AeInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        Последняя версия <mark className="app">Adobe After Effects</mark>,
-                        поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                        <mark>16.X (2019)</mark>.
+                        Последняя версия, поддерживающая Windows 7 и Windows 8.1, —{" "}
+                        <mark className="app">Adobe After Effects</mark>{" "}
+                        <mark className="version">16.X (2019)</mark>.
                       </li>
                       <li>
-                        Последняя версия <mark className="app">Adobe After Effects</mark>,
-                        поддерживающая <mark>Windows 10</mark> версии{" "}
-                        <mark>LTSC 21H2</mark> — <mark>23.X (2023)</mark>.
+                        Последняя версия, поддерживающая Windows 10 LTSC 21H2, —{" "}
+                        <mark className="app">Adobe After Effects</mark>{" "}
+                        <mark className="version">23.X (2023)</mark>.
                       </li>
                       <li>
                         Последняя версия <mark className="app">Adobe After Effects</mark>,{" "}
-                        <b>
-                          <u>официально</u>
-                        </b>{" "}
-                        поддерживающая <mark>Windows 10</mark> версии <mark>22H2</mark> —{" "}
-                        <mark>25.X (2025)</mark>.
+                        официально поддерживающая Windows 10 22H2 —{" "}
+                        <mark className="app">Adobe After Effects</mark>{" "}
+                        <mark className="version">25.X (2025)</mark>.
                       </li>
                     </ul>
                   </Addition>
                   <p>
-                    Проверить текущую сборку <mark>Windows</mark> можно с помощью команды{" "}
+                    Проверить текущую сборку Windows можно с помощью команды{" "}
                     <mark className="app">winver</mark> в окне{" "}
                     <mark className="app">Выполнить</mark>, которое открывается
                     комбинацией клавиш <mark className="key">Win + R</mark>.
@@ -1845,10 +1837,12 @@ const AeInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если вы не желаете обновлять или переустанавливать систему, то можете
-                  установить более старую версию{" "}
-                  <mark className="app">Adobe After Effects</mark>, например{" "}
-                  <mark>23.6 (2023)</mark> или <mark>15.1 (2018)</mark>. В таком случае
-                  установка пройдёт корректно.
+                  установить более старую версию, например{" "}
+                  <mark className="app">Adobe After Effects</mark>{" "}
+                  <mark className="version">23.6 (2023)</mark> или{" "}
+                  <mark className="app">Adobe After Effects</mark>{" "}
+                  <mark className="version">15.1 (2018)</mark>. В таком случае установка
+                  пройдёт корректно.
                 </li>
               </ul>
             </>
@@ -1858,8 +1852,8 @@ const AeInstallProblems: React.FC = () => {
           Исправляем ошибку <mark className="warning">«Недопустимый путь установки»</mark>
         </Divider>
         <p>
-          В старых репаках от <mark className="user">KpoJluK</mark> версий{" "}
-          <mark>CC 2017</mark> во время установки программ{" "}
+          В старых репаках от <mark className="user">KpoJluK</mark> версии{" "}
+          <mark className="version">14.X (2017)</mark> во время установки программ{" "}
           <mark className="company">Adobe</mark> могла появиться ошибка о недопустимом
           пути. На самом деле это не сбой, а особенность первых версий обновлённого
           инсталлятора: в них просто не было возможности изменить путь. В сборках это
@@ -1888,7 +1882,7 @@ const AeInstallProblems: React.FC = () => {
           <mark className="user">KpoJIuK</mark>, а он оказывается повреждённым и не может
           корректно распаковаться. Часто это происходит из-за некорректных действий
           пользователя или срабатывания антивирусной программы на вашем устройстве с{" "}
-          <mark>Windows</mark>.
+          Windows.
         </p>
         <Divider>Устраняем эту ошибку</Divider>
         <ul>
@@ -2003,11 +1997,11 @@ const AeInstallProblems: React.FC = () => {
         <p>
           По умолчанию в репаках от <mark className="user">KpoJluK</mark> включена галочка{" "}
           <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
-          установку ненужного <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве
-          стартовой страницы браузера или на установку{" "}
-          <mark className="app">Яндекс.Браузера</mark>. К счастью, все эти нововведения
-          можно удалить через <mark className="app">Панель управления</mark> или любым
-          другим удобным для вас способом, например через{" "}
+          установку ненужного <mark className="web">me.fo</mark> или{" "}
+          <mark className="web">hi.ru</mark> в качестве стартовой страницы браузера или на
+          установку <mark className="app">Яндекс.Браузера</mark>. К счастью, все эти
+          нововведения можно удалить через <mark className="app">Панель управления</mark>{" "}
+          или любым другим удобным для вас способом, например через{" "}
           <mark className="app">Revo Uninstaller</mark>.
         </p>
         <p>
@@ -2170,8 +2164,9 @@ const AeInstallProblems: React.FC = () => {
                   </p>
                   <Addition type="info">
                     Ранее <mark className="app">GenP</mark> распространялся через{" "}
-                    <mark className="app">Reddit</mark>, однако сабреддит{" "}
-                    <mark>r/genp</mark> был заблокирован за нарушение авторских прав.
+                    <mark className="web">Reddit</mark>, однако сабреддит{" "}
+                    <mark className="copy">r/genp</mark> был заблокирован за нарушение
+                    авторских прав.
                   </Addition>
                   <p>
                     Поскольку основная аудитория программ от{" "}
@@ -2252,41 +2247,51 @@ const AeInstallProblems: React.FC = () => {
             «Какую версию нужно устанавливать для связки AE, PR и ME?»
           </mark>{" "}
           — особенно если это первая установка нескольких программ от{" "}
-          <mark className="company">Adobe</mark>. Разберёмся, что означают цифры в версиях
-          программ и на какие из них действительно стоит обращать внимание.
+          <mark className="company">Adobe</mark>. Разберёмся, что означают цифры в
+          нумерации программ и на какие из них действительно стоит обращать внимание.
         </p>
         <Divider>Разбираемся с нумерацией версий</Divider>
         <p>
           При установке программ важно обращать внимание на «версию-год», например{" "}
-          <mark>2025</mark>, и на первые два числа в номере версии: мажорную версию и
-          релиз-поинт. Всё, что идёт после, — это номера патча и билда, которые можно
-          игнорировать. Они не влияют на работу{" "}
+          <mark className="version">25.X (2025)</mark>, и на первые два числа в номере
+          версии: мажорную версию и релиз-поинт. Всё, что идёт после, — это номера патча и
+          билда, которые можно игнорировать. Они не влияют на работу{" "}
           <mark className="plugin">Dynamic Link</mark> в рамках одного релизного цикла.
         </p>
         <p>
           Предположим, вы видите установщики:{" "}
-          <mark className="app">Adobe After Effects 25.3.2.2 (2025)</mark>,{" "}
-          <mark className="app">Adobe Premiere Pro 25.3.0.84 (2025)</mark> и{" "}
-          <mark className="app">Adobe Media Encoder 25.3.0.73 (2025)</mark>. Может
-          показаться, что из-за разницы в последних цифрах они не смогут «увидеть» друг
-          друга, однако это не так. Программы этих версий будут спокойно работать и
-          взаимодействовать между собой.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.3.2.2 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.3.0.84 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark>{" "}
+          <mark className="version">25.3.0.73 (2025)</mark>. Может показаться, что из-за
+          разницы в последних цифрах они не смогут «увидеть» друг друга, однако это не
+          так. Программы этих версий будут спокойно работать и взаимодействовать между
+          собой.
         </p>
         <p>
           Более того, точное совпадение релиз-поинта не всегда обязательно, если
           установлена одна и та же мажорная версия. Например, связка из{" "}
-          <mark className="app">Adobe After Effects 25.3 (2025)</mark>,{" "}
-          <mark className="app">Adobe Premiere Pro 25.1 (2025)</mark> и{" "}
-          <mark className="app">Adobe Media Encoder 25.0 (2025)</mark> будет работать без
-          особых проблем. Однако всё же лучше устанавливать программы одного релиз-поинта,
-          например <mark>25.3</mark> — это поможет избежать возможных сложностей.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.3 (2025)</mark>,{" "}
+          <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.1 (2025)</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark>{" "}
+          <mark className="version">25.0 (2025)</mark> будет работать без особых проблем.
+          Однако всё же лучше устанавливать программы одного релиз-поинта, например{" "}
+          <mark className="version">25.3 (2025)</mark> — это поможет избежать возможных
+          сложностей.
         </p>
         <p>
           Но если одна из программ окажется версией предыдущего релизного цикла, например{" "}
-          <mark>24.6 (2024)</mark>, а вторая — <mark>25.3 (2025)</mark>, они не смогут
-          «увидеть» друг друга, поскольку их мажорные версии не совпадают. Обратной
-          совместимости в таком случае нет, и <mark className="plugin">Dynamic Link</mark>{" "}
-          просто не будет работать с ними.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.6 (2024)</mark>, а вторая —{" "}
+          <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.3 (2025)</mark>, они не смогут «увидеть» друг
+          друга, поскольку их мажорные версии не совпадают. Обратной совместимости в таком
+          случае нет, и <mark className="plugin">Dynamic Link</mark> просто не будет
+          работать с ними.
         </p>
         <Divider>Проверяем совместимость сторонних плагинов</Divider>
         <p>
@@ -2294,9 +2299,10 @@ const AeInstallProblems: React.FC = () => {
           должны строго соответствовать версии{" "}
           <mark className="app">Adobe After Effects</mark>. Чаще всего такие плагины
           работают и на релизах двухлетней давности. Например, если установить{" "}
-          <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
-          <mark className="app">Adobe After Effects 23.X (2023)</mark>, всё будет работать
-          корректно.
+          <mark className="plugin">Boris FX Sapphire</mark>{" "}
+          <mark className="version">2025</mark> на{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.X (2023)</mark>, всё будет работать корректно.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2325,12 +2331,14 @@ const AeInstallProblems: React.FC = () => {
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
             <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
-            например, установлены{" "}
-            <mark className="app">Adobe After Effects 25.X (2025)</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro 24.X (2024)</mark> и{" "}
-            <mark className="app">Adobe Media Encoder 23.X (2023)</mark>, — они никогда не
-            смогут взаимодействовать через <mark className="plugin">Dynamic Link</mark>,
-            так как версии релизного цикла различаются.
+            например, установлены <mark className="app">Adobe After Effects</mark>{" "}
+            <mark className="version">25.X (2025)</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro</mark>{" "}
+            <mark className="version">24.X (2024)</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark>{" "}
+            <mark className="version">23.X (2023)</mark>, — они никогда не смогут
+            взаимодействовать через <mark className="plugin">Dynamic Link</mark>, так как
+            версии релизного цикла различаются.
           </li>
         </ul>
         <ContentFilter
@@ -2491,9 +2499,9 @@ const AeInstallProblems: React.FC = () => {
             <p>
               <mark className="word">CE</mark> — маркировка от группы релизеров{" "}
               <mark className="user">Team V.R.</mark>, расшифровывающаяся как{" "}
-              <mark>Corporate Edition</mark>. Так обозначаются дистрибутивы, которые можно
-              установить без дополнительных действий по активации. По сути, это маркировка{" "}
-              <mark className="word">репака</mark>.
+              <mark className="term">Corporate Edition</mark>. Так обозначаются
+              дистрибутивы, которые можно установить без дополнительных действий по
+              активации. По сути, это маркировка <mark className="word">репака</mark>.
             </p>
             <Addition type="warning">
               Однако такие установщики не всегда содержат полностью «пролечённый» продукт
@@ -2555,17 +2563,18 @@ const AeInstallProblems: React.FC = () => {
                 <li>
                   Проверьте версию вашей операционной системы — она должна соответствовать
                   системным требованиям. Если вы запускаете, например,{" "}
-                  <mark className="app">Adobe After Effects 24.X (2024)</mark> на{" "}
-                  <mark>Windows 10</mark> сборки <mark>1809</mark>, могут возникать ошибки
-                  даже со встроенными эффектами. В этом случае обновите систему до
-                  последней доступной сборки через <mark className="file">ISO</mark>.
-                  Узнать текущую сборку можно через <mark className="app">winver</mark>.
+                  <mark className="app">Adobe After Effects</mark>{" "}
+                  <mark className="version">24.X (2024)</mark> на Windows 10 1809, могут
+                  возникать ошибки даже со встроенными эффектами. В этом случае обновите
+                  систему до последней доступной сборки через{" "}
+                  <mark className="file">ISO</mark>. Узнать текущую сборку можно через{" "}
+                  <mark className="app">winver</mark>.
                 </li>
                 <li>
                   <p>
-                    В редких случаях в <mark>Windows</mark> могут повредиться системные
-                    файлы. Для восстановления системы выполните<sup>1</sup> в командной
-                    строке несколько команд: <mark className="code">sfc /scannow</mark>,{" "}
+                    В редких случаях в Windows могут повредиться системные файлы. Для
+                    восстановления системы выполните<sup>1</sup> в командной строке
+                    несколько команд: <mark className="code">sfc /scannow</mark>,{" "}
                     <mark className="code">
                       dism /online /cleanup-image /restorehealth
                     </mark>{" "}
@@ -2574,8 +2583,8 @@ const AeInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <sup>1</sup> Если после этого система автоматически не восстановилась,
                     скачайте образ <mark className="file">ISO</mark> операционной системы{" "}
-                    <mark>Windows</mark> и обновитесь поверх установленной версии. Версию
-                    системы можно узнать через <mark className="app">winver</mark>.
+                    Windows и обновитесь поверх установленной версии. Версию системы можно
+                    узнать через <mark className="app">winver</mark>.
                   </Addition>
                 </li>
                 <li>
@@ -2611,9 +2620,8 @@ const AeInstallProblems: React.FC = () => {
               <p>
                 Скорее всего, вы пытаетесь запустить{" "}
                 <mark className="app">Adobe After Effects</mark> или применить плагины на
-                неподдерживаемой операционной системе — например, на{" "}
-                <mark>Windows 7</mark> или на старой сборке <mark>Windows 10</mark>, такой
-                как <mark>1607</mark> или <mark>1809</mark>. Некоторые «репакеры» убирают
+                неподдерживаемой операционной системе — например, на Windows 7 и старых
+                сборках Windows 10, таких как 1607 или 1809. Некоторые «репакеры» убирают
                 проверку требований к версии операционной системы, чтобы программа
                 установилась без ошибок. Однако они не учитывают, что при работе на
                 устаревшей системе могут возникнуть различные проблемы. В следующий раз
@@ -2626,21 +2634,21 @@ const AeInstallProblems: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    Последняя версия <mark className="app">Adobe After Effects</mark>,
-                    поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                    <mark>16.X (2019)</mark>.
+                    Последняя версия, поддерживающая Windows 7 и Windows 8.1, —{" "}
+                    <mark className="app">Adobe After Effects</mark>{" "}
+                    <mark className="version">16.X (2019)</mark>.
                   </li>
                   <li>
-                    Последняя версия <mark className="app">Adobe After Effects</mark>,
-                    поддерживающая <mark>Windows 10</mark> версии <mark>LTSC 21H2</mark> —{" "}
-                    <mark>23.X (2023)</mark>.
+                    Последняя версия, поддерживающая Windows 10 LTSC 21H2, —{" "}
+                    <mark className="app">Adobe After Effects</mark>{" "}
+                    <mark className="version">23.X (2023)</mark>.
                   </li>
                 </ul>
               </Addition>
               <p>
                 Эти ошибки решаются обновлением операционной системы до последней
-                доступной версии. Посмотреть текущую сборку <mark>Windows</mark> можно с
-                помощью команды <mark className="app">winver</mark> в окне{" "}
+                доступной версии. Посмотреть текущую сборку Windows можно с помощью
+                команды <mark className="app">winver</mark> в окне{" "}
                 <mark className="app">Выполнить</mark>, которое открывается комбинацией
                 клавиш <mark className="key">Win + R</mark>.
               </p>
@@ -2701,9 +2709,9 @@ const AeInstallProblems: React.FC = () => {
               <p>
                 В этом окне сообщается, что вы установили плагин, который не поддерживает
                 вашу версию <mark className="app">Adobe After Effects</mark>. Чаще всего
-                это происходит, если вы установили на <mark>Mac</mark> с новыми
-                процессорами <mark>Apple Silicon</mark> старый плагин, адаптированный для{" "}
-                <mark>Mac</mark> на <mark className="company">Intel</mark>. У новых
+                это происходит, если вы установили на Mac с новыми процессорами{" "}
+                <mark className="hardware">Apple Silicon</mark> старый плагин,
+                адаптированный для Mac на <mark className="hardware">Intel</mark>. У новых
                 процессоров другая архитектура, поэтому старые программы и плагины
                 несовместимы без прослойки <mark className="app">Rosetta</mark>. У этого
                 предупреждения есть две вариации — в зависимости от того, какая версия{" "}
@@ -2718,16 +2726,17 @@ const AeInstallProblems: React.FC = () => {
                 <ul>
                   <li>
                     <mark className="app">Rosetta</mark> — это слой эмуляции, позволяющий
-                    запускать на <mark>Mac</mark> с <mark>Apple Silicon</mark> программы,
-                    разработанные для <mark>Mac</mark> на{" "}
-                    <mark className="company">Intel</mark>.
+                    запускать на Mac с <mark className="hardware">Apple Silicon</mark>{" "}
+                    программы, разработанные для Mac на{" "}
+                    <mark className="hardware">Intel</mark>.
                   </li>
                   <li>
-                    <mark>Apple Silicon</mark> — линейка процессоров от{" "}
-                    <mark className="company">Apple</mark> на архитектуре <mark>ARM</mark>
-                    . Под этим названием имеются в виду все <mark>Mac</mark> с
-                    процессорами <mark>M-серии</mark> — будь то <mark>M1</mark>,{" "}
-                    <mark>M2 Pro</mark> и другие.
+                    <mark className="hardware">Apple Silicon</mark> — линейка процессоров
+                    от <mark className="company">Apple</mark> на архитектуре{" "}
+                    <mark className="term">ARM</mark>. Под этим названием имеются в виду
+                    все Mac с процессорами <mark className="term">M-серии</mark> — будь то{" "}
+                    <mark className="hardware">M1</mark>,{" "}
+                    <mark className="hardware">M2 Pro</mark> и другие.
                   </li>
                 </ul>
               </Addition>
@@ -2748,23 +2757,26 @@ const AeInstallProblems: React.FC = () => {
                 <ul>
                   <li>
                     <sup>1</sup> Запустить программу в режиме совместимости можно лишь с
-                    оговоркой: <mark className="app">Adobe After Effects</mark>, начиная с
-                    версии <mark>24.0</mark>, больше не поддерживает эмуляцию через{" "}
-                    <mark className="app">Rosetta</mark>. То есть в этих версиях нельзя
-                    открыть сборку программы для <mark className="company">Intel</mark> на
-                    процессорах <mark>Apple Silicon</mark>. Если вы видите этот текст в
-                    окне предупреждения, но в меню <mark className="select">«Help»</mark>{" "}
-                    у вас отсутствует кнопка{" "}
+                    оговоркой: <mark className="app">Adobe After Effects</mark>{" "}
+                    <mark className="version">24.0 (2024)</mark> и выше больше не
+                    поддерживает эмуляцию через <mark className="app">Rosetta</mark>. То
+                    есть в этих версиях нельзя открыть сборку программы для{" "}
+                    <mark className="hardware">Intel</mark> на процессорах{" "}
+                    <mark className="hardware">Apple Silicon</mark>. Если вы видите этот
+                    текст в окне предупреждения, но в меню{" "}
+                    <mark className="select">«Help»</mark> у вас отсутствует кнопка{" "}
                     <mark className="select">«Open using Rosetta»</mark>, скорее всего,{" "}
                     <mark className="company">Adobe</mark> просто не убрала старую
                     подсказку. Последняя версия, в которой ещё можно открыть{" "}
                     <mark className="app">Adobe After Effects</mark> через{" "}
-                    <mark className="app">Rosetta</mark>, — <mark>23.6</mark>.
+                    <mark className="app">Rosetta</mark>, —{" "}
+                    <mark className="app">Adobe After Effects</mark>{" "}
+                    <mark className="version">23.6 (2023)</mark>.
                   </li>
                   <li>
-                    Плагины, адаптированные исключительно под <mark>Apple Silicon</mark>,
-                    могут не работать в режиме совместимости с помощью{" "}
-                    <mark className="app">Rosetta</mark>.
+                    Плагины, адаптированные исключительно под{" "}
+                    <mark className="hardware">Apple Silicon</mark>, могут не работать в
+                    режиме совместимости с помощью <mark className="app">Rosetta</mark>.
                   </li>
                 </ul>
               </Addition>
@@ -2773,11 +2785,12 @@ const AeInstallProblems: React.FC = () => {
               </Divider>
               <p>
                 А в этом случае всё уже серьёзнее: <mark className="company">Adobe</mark>{" "}
-                убрала поддержку <mark>Rosetta</mark> в последних версиях{" "}
-                <mark className="app">Adobe After Effects</mark>, начиная с{" "}
-                <mark>24.0</mark>. Поэтому плагины, созданные для <mark>Mac</mark> на{" "}
-                <mark className="company">Intel</mark>, больше не смогут работать в режиме
-                совместимости. В такой ситуации у вас остаются три варианта.
+                убрала поддержку <mark className="app">Rosetta</mark> в последних версиях{" "}
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.0 (2024)</mark> и выше. Поэтому плагины,
+                созданные для Mac на <mark className="hardware">Intel</mark>, больше не
+                смогут работать в режиме совместимости. В такой ситуации у вас остаются
+                три варианта.
               </p>
               <ul>
                 <li>
@@ -2786,15 +2799,16 @@ const AeInstallProblems: React.FC = () => {
                   открыть <mark className="app">Adobe After Effects</mark>.
                 </li>
                 <li>
-                  Если нужные плагины давно не обновлялись или недоступны для{" "}
-                  <mark>Mac</mark> на <mark>Apple Silicon</mark>, откатитесь на версию{" "}
-                  <mark className="app">Adobe After Effects 23.6 (2023)</mark> — в ней ещё
-                  доступна возможность запуска через <mark className="app">Rosetta</mark>{" "}
-                  на старых <mark>Mac</mark> с <mark className="company">Intel</mark>.
+                  Если нужные плагины давно не обновлялись или недоступны для Mac на{" "}
+                  <mark className="hardware">Apple Silicon</mark>, откатитесь на версию{" "}
+                  <mark className="app">Adobe After Effects</mark>{" "}
+                  <mark className="version">23.6 (2023)</mark> — в ней ещё доступна
+                  возможность запуска через <mark className="app">Rosetta</mark> на старых
+                  Mac с <mark className="hardware">Intel</mark>.
                 </li>
                 <li>
-                  Или найдите у себя старый <mark>Mac</mark> на процессоре{" "}
-                  <mark className="company">Intel</mark> — и работайте на нём.
+                  Или найдите у себя старый Mac на процессоре{" "}
+                  <mark className="hardware">Intel</mark> — и работайте на нём.
                 </li>
               </ul>
             </>
@@ -2809,8 +2823,8 @@ const AeInstallProblems: React.FC = () => {
         <p>
           Скорее всего, вы пытаетесь установить плагины от{" "}
           <mark className="plugin">Red Giant</mark>, не распаковав архив полностью. При
-          использовании стандартного просмотрщика архивов в <mark>Windows 10 или 11</mark>{" "}
-          и при запуске из него файла <mark className="file">EXE</mark> остальные
+          использовании стандартного просмотрщика архивов в Windows 10 или 11 и при
+          запуске из него файла <mark className="file">EXE</mark> остальные
           файлы-зависимости остаются внутри архива. В результате установщик не может найти
           нужные данные и выдаёт ошибку.
         </p>
@@ -2844,7 +2858,7 @@ const AeInstallProblems: React.FC = () => {
           Чтобы это исправить, запустите указанный файл из архива или записи — или
           перечитайте инструкцию к релизу. Если предупреждение появится снова, повторно
           примените активатор или установите более старую версию плагинов — например,{" "}
-          <mark>2024.1</mark> или более раннюю.
+          <mark className="version">2024.1</mark> или ниже.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2862,9 +2876,9 @@ const AeInstallProblems: React.FC = () => {
           Чтобы корректно применить активатор, закройте проблемный сервис с помощью{" "}
           <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
           <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
-          <mark className="select">«Подробности» (Windows 10 или 11 21H2)</mark> или{" "}
-          <mark className="select">«Сведения» (Windows 11 22H2+)</mark>. После завершения
-          проблемного процесса, повторите попытку активации с помощью{" "}
+          <mark className="select">«Подробности»</mark> (Windows 10 или 11 21H2) или{" "}
+          <mark className="select">«Сведения»</mark> (Windows 11 22H2 и выше). После
+          завершения проблемного процесса, повторите попытку активации с помощью{" "}
           <mark className="select">«Спробувати знову»</mark> — она должна пройти
           нормально.
         </p>
@@ -2930,10 +2944,10 @@ const AeInstallProblems: React.FC = () => {
           <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
           <mark className="company">ELEMENTS Storage Media</mark> — откажитесь от него в
           пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
-          <mark className="company">aescripts</mark> или ручной распаковки расширения в
-          нужное место. При этом <mark className="app">Adobe Creative Cloud</mark>{" "}
-          устанавливать не нужно, если вы используете репаки от{" "}
-          <mark className="user">KpoJluK</mark> или <mark className="user">m0nkrus</mark>.
+          <mark className="web">aescripts</mark> или ручной распаковки расширения в нужное
+          место. При этом <mark className="app">Adobe Creative Cloud</mark> устанавливать
+          не нужно, если вы используете репаки от <mark className="user">KpoJluK</mark>{" "}
+          или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">
           Более подробную информацию об установке дополнительных материалов вы можете
@@ -2955,8 +2969,10 @@ const AeInstallProblems: React.FC = () => {
         </p>
         <Addition type="info">
           Под «годом» обычно подразумевается мажорная версия в названии программы,
-          например <mark className="app">Adobe After Effects 2023</mark> или{" "}
-          <mark className="app">Adobe Media Encoder 2025</mark>.
+          например <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.X (2023)</mark> или{" "}
+          <mark className="app">Adobe Media Encoder</mark>{" "}
+          <mark className="version">25.X (2025)</mark>.
         </Addition>
         <Divider>Что произойдёт с моими проектами после обновления программы?</Divider>
         <p>
@@ -2978,9 +2994,13 @@ const AeInstallProblems: React.FC = () => {
         <Divider>Обновляемся между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
-          пределах «одного года», например с <mark>24.0 (2024)</mark> на{" "}
-          <mark>24.6 (2024)</mark>, достаточно запустить инсталлятор и выполнить
-          стандартное обновление кнопками <mark className="select">«Установить»</mark> и{" "}
+          пределах «одного года», например с{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.0 (2024)</mark> на{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.6 (2024)</mark>, достаточно запустить инсталлятор и
+          выполнить стандартное обновление кнопками{" "}
+          <mark className="select">«Установить»</mark> и{" "}
           <mark className="select">«Продолжить»</mark>. Установщик перезапишет только
           основные файлы программы, сохранив ваши дополнения, поэтому переносить плагины и
           пресеты вручную не придётся.
@@ -3022,7 +3042,10 @@ const AeInstallProblems: React.FC = () => {
             <>
               <p>
                 При обновлении с «одного года» на другой, например с{" "}
-                <mark>23.6 (2023)</mark> на <mark>25.2 (2025)</mark>, вам придётся немного
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">23.6 (2023)</mark> на{" "}
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">25.2 (2025)</mark>, вам придётся немного
                 повозиться с переносом некоторых типов дополнений.
               </p>
               <Addition type="info">
@@ -3062,7 +3085,8 @@ const AeInstallProblems: React.FC = () => {
                       C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                       Files\Plug-ins
                     </mark>
-                    , где <mark>20XX</mark> — предыдущая версия программы.
+                    , где <mark className="version">20XX</mark> — предыдущая версия
+                    программы.
                   </p>
                   <Addition type="info">
                     <ul>
@@ -3105,7 +3129,8 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="path">
                     C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User Presets
                   </mark>
-                  , где <mark>20XX</mark> — предыдущая версия программы.
+                  , где <mark className="version">20XX</mark> — предыдущая версия
+                  программы.
                 </li>
                 <li>
                   <p>
@@ -3120,7 +3145,8 @@ const AeInstallProblems: React.FC = () => {
                       C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                       Files\Scripts\ScriptUI Panels
                     </mark>
-                    , где <mark>20XX</mark> — предыдущая версия программы.
+                    , где <mark className="version">20XX</mark> — предыдущая версия
+                    программы.
                   </p>
                   <Addition type="info">
                     Скрипты из директорий{" "}
@@ -3216,8 +3242,8 @@ const AeInstallProblems: React.FC = () => {
               </ul>
               <Divider>Перезаписываем старую версию программы новой</Divider>
               <Addition type="danger">
-                Данный способ обновления не гарантирует <mark>100%</mark> стабильной
-                работы программы, поэтому все действия вы выполняете на свой страх и риск.
+                Данный способ обновления не гарантирует 100% стабильной работы программы,
+                поэтому все действия вы выполняете на свой страх и риск.
               </Addition>
               <p>
                 Второй способ обновления с сохранением плагинов и пресетов заключается в
@@ -3230,9 +3256,12 @@ const AeInstallProblems: React.FC = () => {
                 Для этого откройте директорию с программами{" "}
                 <mark className="company">Adobe</mark>, обычно это{" "}
                 <mark className="path">C:\Program Files\Adobe</mark>. Затем продублируйте
-                папку старой версии, уберите из имени приставку <mark>«- копия»</mark> и
-                измените год на нужный. Например, при переходе с <mark>23.6 (2023)</mark>{" "}
-                на <mark>25.2 (2025)</mark> переименуйте папку{" "}
+                папку старой версии, уберите из имени приставку{" "}
+                <mark className="quote">«- копия»</mark> и измените год на нужный.
+                Например, при переходе с <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">23.6 (2023)</mark> на{" "}
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">25.2 (2025)</mark> переименуйте папку{" "}
                 <mark className="path">Adobe After Effects 2023</mark> в{" "}
                 <mark className="path">Adobe After Effects 2025</mark>.
               </p>
@@ -3352,10 +3381,9 @@ const AeInstallProblems: React.FC = () => {
                 </a>{" "}
                 или любого другого деинсталлятора, например{" "}
                 <mark className="app">Revo Uninstaller</mark>. По желанию после удаления
-                программы вы можете почистить реестр <mark>Windows</mark>, например с
-                помощью <mark className="app">Vit Registry Fix</mark>, или
-                проанализировать оставшиеся директории с помощью{" "}
-                <mark className="app">WizTree</mark> (
+                программы вы можете почистить реестр Windows, например с помощью{" "}
+                <mark className="app">Vit Registry Fix</mark>, или проанализировать
+                оставшиеся директории с помощью <mark className="app">WizTree</mark> (
                 <mark className="path">%APPDATA%</mark>,{" "}
                 <mark className="path">Program Files</mark> или{" "}
                 <mark className="path">%USERPROFILE%/Documents</mark>).

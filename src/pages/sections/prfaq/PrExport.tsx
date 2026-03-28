@@ -22,7 +22,7 @@ const PrExport: React.FC = () => {
         <p>
           Предположим, вы хотите вывести качественное видео с минимальным весом в кодеке{" "}
           <mark className="video">H.264</mark> или <mark className="video">H.265</mark>, а
-          также в цветовом пространстве <mark>Rec.709</mark>. Из{" "}
+          также в цветовом пространстве <mark className="color-space">Rec.709</mark>. Из{" "}
           <mark className="app">Adobe Premiere</mark> можно вывести тремя способами.
         </p>
         <ul>
@@ -31,14 +31,14 @@ const PrExport: React.FC = () => {
           </li>
           <li>
             Через сторонний плагин <mark className="plugin">Voukoder</mark>. Доступен
-            только для <mark>Windows</mark>, поддержка устройств на <mark>macOS</mark>{" "}
-            косвенно присутствует с версий Voukoder Pro 2.0 и новее, но мы его
-            рассматривать не будем.
+            только для Windows, поддержка устройств на macOS косвенно присутствует с
+            <mark className="plugin">Voukoder Pro</mark>{" "}
+            <mark className="version">2.0</mark> и выше, но мы его рассматривать не будем.
           </li>
           <li>
             Через сторонний плагин <mark className="plugin">AfterCodecs</mark>. Доступен
-            для <mark>Windows</mark> и <mark>macOS</mark>, а также поддерживает достаточно
-            много старых версий программы.
+            для Windows и macOS, а также поддерживает достаточно много старых версий
+            программы.
           </li>
         </ul>
         <Addition type="warning">
@@ -76,9 +76,9 @@ const PrExport: React.FC = () => {
           Если вам нужно изменить тип битрейта и скорость передачи данных, раскройте
           вкладку <mark className="select">«Video»</mark> и измените нужные параметры. Вам
           доступны изменение битрейта, частоты кадров, цветового профиля, включение
-          эффектов и переключение между <mark>Software</mark>- и <mark>Hardware</mark>
-          -кодированием. Чтобы изменить «заблокированные настройки», просто уберите флажок
-          справа от нужного параметра.
+          эффектов и переключение между <mark className="select">«Software»</mark>- и{" "}
+          <mark className="select">«Hardware»</mark>-кодированием. Чтобы изменить
+          «заблокированные настройки», просто уберите флажок справа от нужного параметра.
         </p>
         <ArticleMedia
           caption="Настройки экспорта видео"
@@ -110,14 +110,14 @@ const PrExport: React.FC = () => {
             </li>
             <li>
               В этой статье используется версия{" "}
-              <mark className="plugin">Voukoder Classic 13.4.1</mark>. К сожалению,
-              исходный репозиторий на{" "}
-              <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">GitHub</a>{" "}
+              <mark className="plugin">Voukoder Classic</mark>{" "}
+              <mark className="version">13.4.1</mark>. К сожалению, исходный репозиторий
+              на <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">GitHub</a>{" "}
               был удалён, поэтому последнюю классическую версию вы можете найти в{" "}
               <a href="https://t.me/+Qd9xu7A4TeIwNzY6">складе стройматериалов</a> по
               хештегу <mark className="tag">#voukoder</mark>. Демонстрируемая версия
               плагина <mark className="plugin">Voukoder</mark> недоступна для устройств с{" "}
-              <mark>macOS</mark>.
+              macOS.
             </li>
           </ul>
         </Addition>
@@ -157,8 +157,8 @@ const PrExport: React.FC = () => {
         </p>
         <Addition type="info">
           Варианты кодирования показаны на устройстве со связкой процессора{" "}
-          <mark className="company">AMD</mark> и видеокарты{" "}
-          <mark className="company">NVIDIA</mark>. Выбор у вас может отличаться в
+          <mark className="hardware">AMD</mark> и видеокарты{" "}
+          <mark className="hardware">NVIDIA</mark>. Выбор у вас может отличаться в
           зависимости от вашего железа.
         </Addition>
         <ul>
@@ -167,19 +167,19 @@ const PrExport: React.FC = () => {
             <mark className="video">H.265</mark> есть три варианта для кодирования.
           </p>
           <li>
-            <mark>x264</mark> или <mark>x265</mark> используется для кодирования видео на
-            процессоре без дополнительного использования видеокарты. Стабильно, но не
-            всегда быстро.
+            <mark className="video">x264</mark> или <mark className="video">x265</mark>{" "}
+            используется для кодирования видео на процессоре без дополнительного
+            использования видеокарты. Стабильно, но не всегда быстро.
           </li>
           <li>
             <mark className="select">«NVIDIA NVENC»</mark> используется для кодирования
-            видео с использованием видеокарты <mark className="company">NVIDIA</mark>.
+            видео с использованием видеокарты <mark className="hardware">NVIDIA</mark>.
             Может ускорить процесс рендера, но не гарантирует 100% использование
             видеокарты.
           </li>
           <li>
             <mark className="select">«AMD AMF»</mark> — то же самое, что и предыдущий
-            параметр, но на встроенном видеочипе <mark className="company">AMD</mark>.
+            параметр, но на встроенном видеочипе <mark className="hardware">AMD</mark>.
           </li>
         </ul>
         <ArticleMedia
@@ -192,8 +192,9 @@ const PrExport: React.FC = () => {
           <mark className="video">H.264 (NVIDIA NVENC)</mark>), нужно перейти во вкладку{" "}
           <mark className="select">«Параметры»</mark>. В этой вкладке можно указать
           качество желаемого видео. По умолчанию там уже стоит то, что нам нужно, а именно
-          параметр квантования и его фактор. <mark>CQP</mark> или <mark>CRF</mark> — это
-          некий эквивалент качества, чем меньше — тем лучше качество, но больше вес.
+          параметр квантования и его фактор. <mark className="codec-param">CQP</mark> или{" "}
+          <mark className="code">CRF</mark> — это некий эквивалент качества, чем меньше —
+          тем лучше качество, но больше вес.
         </p>
         <ArticleMedia
           caption="Voukoder 13.4.1"
@@ -203,8 +204,9 @@ const PrExport: React.FC = () => {
         <ul>
           <li>
             <p>
-              Значения <mark>23</mark> или <mark>25</mark> хватит с головой для экспорта
-              видео в YouTube, VK Видео и подобные видеоплощадки.
+              Значения <mark className="copy">23</mark> или{" "}
+              <mark className="copy">25</mark> хватит с головой для экспорта видео в
+              YouTube, VK Видео и подобные видеоплощадки.
             </p>
             <Addition type="info">
               Учтите, что многие видеоплощадки всё равно будут сжимать видео по-своему,
@@ -213,19 +215,19 @@ const PrExport: React.FC = () => {
           </li>
           <li>
             Если вам нужно почти максимальное качество, тогда укажите значение квантования{" "}
-            <mark>17</mark> или <mark>20</mark>. В таком случае вес файла заметно
-            возрастёт.
+            <mark className="vesrion">17</mark> или <mark className="vesrion">20</mark>. В
+            таком случае вес файла заметно возрастёт.
           </li>
           <li>
             <p>
-              Если вы хотите получить видео с хорошим соотношением{" "}
-              <mark>качество/минимальный вес</mark>, тогда укажите значение{" "}
-              <mark>30</mark>. Можете поэкспериментировать со значением в большую или
-              меньшую сторону.
+              Если вы хотите получить видео с хорошим соотношением качество/минимальный
+              вес, тогда укажите значение <mark className="copy">30</mark>. Можете
+              поэкспериментировать со значением в большую или меньшую сторону.
             </p>
             <Addition type="warning">
-              Экстремальные значения, например <mark>50</mark>, не рекомендуется
-              использовать, так как можете получить кашу из кадров на выходе.
+              Экстремальные значения, например <mark className="copy">50</mark>, не
+              рекомендуется использовать, так как можете получить кашу из кадров на
+              выходе.
             </Addition>
           </li>
         </ul>
@@ -279,7 +281,8 @@ const PrExport: React.FC = () => {
           </li>
           <li>
             Значение для скорости кодирования <mark className="select">«Speed»</mark>{" "}
-            можно поставить <mark>2</mark> или <mark>4</mark>.
+            можно поставить <mark className="copy">2</mark> или{" "}
+            <mark className="copy">4</mark>.
           </li>
           <li>
             В разделе <mark className="select">«Colors»</mark> можно изменить битность и
@@ -287,8 +290,9 @@ const PrExport: React.FC = () => {
           </li>
           <li>
             В <mark className="select">«Audio»</mark> лучше указать значение{" "}
-            <mark>512</mark> вместо <mark>Auto</mark>, чтобы вывести звук без сильной
-            потери качества.
+            <mark className="copy">512</mark> вместо{" "}
+            <mark className="select">«Auto»</mark>, чтобы вывести звук без сильной потери
+            качества.
           </li>
           <Addition type="warning">
             Параметры <mark className="select">«Tuning»</mark>,{" "}
@@ -407,8 +411,7 @@ const PrExport: React.FC = () => {
         </p>
         <Addition type="warning">
           Имейте в виду, что поддержка <mark className="video">WEBM</mark> на прозрачном
-          фоне в <mark className="app">Safari</mark> для устройств на <mark>iOS</mark> и{" "}
-          <mark>macOS</mark>
+          фоне в <mark className="app">Safari</mark> для устройств на iOS и macOS
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
         </Addition>
       </DetailsSummary>
@@ -442,7 +445,7 @@ const PrExport: React.FC = () => {
           <li>
             С помощью конвертации вашего видео через онлайн-сервис{" "}
             <a href="https://ezgif.com/video-to-gif">Ezgif</a>. Он даёт самый адекватный
-            результат по соотношению <mark>качество/размер файла</mark>.
+            результат по соотношению качество/размер файла.
           </li>
         </ul>
         <Addition type="warning">
@@ -453,7 +456,8 @@ const PrExport: React.FC = () => {
           <ul>
             <li>
               Данный формат не поддерживает полупрозрачность, только два цвета для
-              альфа-канала: <mark>#FFFFFF</mark> и <mark>#000000</mark>.
+              альфа-канала: <mark className="code">#FFFFFF</mark> и{" "}
+              <mark className="code">#000000</mark>.
             </li>
             <li>
               <mark className="image">GIF</mark> вмещает в себя только 256 цветов, поэтому
@@ -461,9 +465,8 @@ const PrExport: React.FC = () => {
             </li>
             <li>
               Полученный файл может быть огромным по весу, если указать большое разрешение
-              или FPS. Максимально рекомендуемо использовать разрешение{" "}
-              <mark>1024x576</mark> и <mark>15 FPS</mark> для секвенций с соотношением
-              сторон <mark>16:9</mark>.
+              или FPS. Максимально рекомендуемо использовать разрешение 1024×576 и 15 FPS
+              для секвенций с соотношением сторон 16:9.
             </li>
           </ul>
         </Addition>
@@ -486,9 +489,10 @@ const PrExport: React.FC = () => {
         />
         <Addition type="warning">
           Если вы выберете в качестве формата параметр{" "}
-          <mark className="select">«GIF»</mark> без слова <mark>Animated</mark>, то вы
-          получите только кадры отдельными изображениями формата{" "}
-          <mark className="image">GIF</mark> и забьёте себе папку для сохранения.
+          <mark className="select">«GIF»</mark> без слова{" "}
+          <mark className="select">«Animated»</mark>, то вы получите только кадры
+          отдельными изображениями формата <mark className="image">GIF</mark> и забьёте
+          себе папку для сохранения.
         </Addition>
         <p>
           После завершения настроек просто нажмите на кнопку{" "}
@@ -534,9 +538,10 @@ const PrExport: React.FC = () => {
         />
         <Addition type="warning">
           Если вы выберете в качестве формата параметр{" "}
-          <mark className="select">«GIF»</mark> без слова <mark>Animated</mark>, то вы
-          получите только кадры отдельными изображениями формата{" "}
-          <mark className="image">GIF</mark> и забьёте себе папку для сохранения.
+          <mark className="select">«GIF»</mark> без слова{" "}
+          <mark className="select">«Animated»</mark>, то вы получите только кадры
+          отдельными изображениями формата <mark className="image">GIF</mark> и забьёте
+          себе папку для сохранения.
         </Addition>
         <p>
           После настройки просто нажмите на кнопку <mark className="select">«OK»</mark> и
@@ -564,9 +569,8 @@ const PrExport: React.FC = () => {
         />
         <Addition type="warning">
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
-          <mark>200 МБ</mark>. Максимальная длина не должна превышать 60 секунд для
-          конвертации в <mark>5 FPS</mark>
-          или 15 секунд для конвертации в <mark>20 FPS</mark>.
+          200 МБ. Максимальная длина не должна превышать 60 секунд для конвертации в 5 FPS
+          или 15 секунд для конвертации в 20 FPS.
         </Addition>
         <p>
           После загрузки видео вы сможете настроить FPS и нужное разрешение. Выбор из
@@ -595,7 +599,7 @@ const PrExport: React.FC = () => {
         <Addition type="warning">
           В <mark className="video">H.264</mark> и <mark className="video">MP4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
-          устройствах с <mark>macOS</mark> и при использовании кодека{" "}
+          устройствах с macOS и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
         </Addition>
         <p>
@@ -726,13 +730,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Include Alpha Channel»</mark>.
         </Addition>
         <p>
-          Затем{" "}
-          <b>
-            <u>не забудьте</u>
-          </b>{" "}
-          создать новую пустую папку, куда вы хотите экспортировать все кадры, и указать
-          её в качестве пути для вывода. <mark className="app">Adobe Premiere</mark> не
-          создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
+          Затем не забудьте создать новую пустую папку, куда вы хотите экспортировать все
+          кадры, и указать её в качестве пути для вывода.{" "}
+          <mark className="app">Adobe Premiere</mark> не создаёт автоматически подпапку
+          для секвенции изображений, как это делает{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>

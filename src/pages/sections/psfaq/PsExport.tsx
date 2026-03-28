@@ -59,9 +59,9 @@ const PsExport: React.FC = () => {
         title="Как вернуть старый механизм сохранения файлов?"
       >
         <p>
-          В <mark className="app">Adobe Photoshop</mark> с версии <mark>22.4.2</mark>{" "}
-          решили немного изменить логику сохранения файлов в окнах{" "}
-          <mark className="select">«Save As»</mark> и{" "}
+          В <mark className="app">Adobe Photoshop</mark>{" "}
+          <mark className="version">22.4.2 (2022)</mark> решили немного изменить логику
+          сохранения файлов в окнах <mark className="select">«Save As»</mark> и{" "}
           <mark className="select">«Export As»</mark>. Не всем это нововведение может
           понравиться, так как в новом варианте не хватало многих форматов для сохранения
           и приходилось пользоваться <mark className="select">«Save As Copy»</mark>.

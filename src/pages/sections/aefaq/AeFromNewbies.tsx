@@ -28,7 +28,7 @@ const AeFromNewbies: React.FC = () => {
           <ul>
             <li>
               Учтите, что большинство авторов курсов и каналов на{" "}
-              <mark className="app">YouTube</mark> работают в английской версии программы.
+              <mark className="web">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
               <a href="#switch-language">изменить язык программы на английский</a>, если у
               вас установлена русская версия. Это поможет избежать путаницы с переводом
@@ -102,7 +102,7 @@ const AeFromNewbies: React.FC = () => {
             <p>
               Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
               неуверенно, попробуйте изучить каналы на{" "}
-              <mark className="app">YouTube</mark> из списка ниже: они помогут прокачать
+              <mark className="web">YouTube</mark> из списка ниже: они помогут прокачать
               ваши навыки.
             </p>
             <div className="flexible-links">
@@ -224,9 +224,9 @@ const AeFromNewbies: React.FC = () => {
         <ul>
           <li>
             <p>
-              Если вам регулярно попадаются «эдиты» в <mark className="app">TikTok</mark>,{" "}
-              <mark className="app">YouTube Shorts</mark> или{" "}
-              <mark className="app">Instagram Reels</mark>
+              Если вам регулярно попадаются «эдиты» в <mark className="web">TikTok</mark>,{" "}
+              <mark className="web">YouTube Shorts</mark> или{" "}
+              <mark className="web">Instagram Reels</mark>
               <sup>1</sup> и хочется попробовать создать что-то подобное, обратите
               внимание на обучающие видео на каналах ниже.
             </p>
@@ -243,9 +243,9 @@ const AeFromNewbies: React.FC = () => {
               <a href="https://www.youtube.com/@ReverseStark/videos">ReverseStark</a>
             </div>
             <Addition type="danger">
-              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
-              признаны экстремистскими организациями и запрещены на территории Российской
-              Федерации.
+              <sup>1</sup> <mark className="web">Instagram</mark> и{" "}
+              <mark className="company">Meta</mark> признаны экстремистскими организациями
+              и запрещены на территории Российской Федерации.
             </Addition>
           </li>
           <li>
@@ -316,13 +316,13 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-              На популярных видеоплощадках, таких как <mark className="app">TikTok</mark>{" "}
-              и <mark className="app">YouTube Shorts</mark> нередко используют спорные
+              На популярных видеоплощадках, таких как <mark className="web">TikTok</mark>{" "}
+              и <mark className="web">YouTube Shorts</mark> нередко используют спорные
               приёмы «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
               <mark className="plugin">Sharpen</mark> и{" "}
               <mark className="plugin">Unsharpen Mask</mark> с чрезмерными значениями,
-              завышают контраст и насыщенность, а затем называют видео <mark>4K</mark>,
-              хотя фактическое разрешение меньше.{" "}
+              завышают контраст и насыщенность, а затем называют видео 4K, хотя
+              фактическое разрешение меньше.{" "}
               <i style={{opacity: "0.5"}}>
                 Пожалуйста, не доводите до максимума значения эффектов{" "}
                 <mark className="plugin">Unsharpen Mask</mark> и{" "}
@@ -382,13 +382,14 @@ const AeFromNewbies: React.FC = () => {
           менеджера<sup>1</sup>.
         </p>
         <Addition type="warning">
-          <sup>1</sup> В <mark>Windows</mark>, если у вас включён контроль учётных записей
-          (UAC) и <mark className="app">Adobe After Effects</mark> запущен от имени
-          администратора, то импорт файлов с помощью <mark>drag-n-drop</mark>, например из{" "}
+          <sup>1</sup> В Windows, если у вас включён контроль учётных записей (UAC) и{" "}
+          <mark className="app">Adobe After Effects</mark> запущен от имени
+          администратора, то импорт файлов с помощью{" "}
+          <mark className="term">drag-n-drop</mark>, например из{" "}
           <mark className="app">Проводника</mark>, работать не будет. Это не баг, а
-          особенность безопасности <mark>Windows</mark>. Система просто не позволяет
-          передавать файлы из приложений, запущенных с правами обычного пользователя, в
-          те, которые работают от имени администратора.
+          особенность безопасности Windows. Система просто не позволяет передавать файлы
+          из приложений, запущенных с правами обычного пользователя, в те, которые
+          работают от имени администратора.
         </Addition>
         <Divider>Порядок рендеринга</Divider>
         <p>
@@ -505,7 +506,7 @@ const AeFromNewbies: React.FC = () => {
                 <sup>4</sup>, <mark className="image">EXR</mark> и другие.
               </p>
               <Addition type="warning">
-                <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
+                <sup>1</sup> В Windows для импорта файлов{" "}
                 <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
                 <a href="#import-hevc">соответствующие кодеки</a>.
               </Addition>
@@ -515,7 +516,7 @@ const AeFromNewbies: React.FC = () => {
                     <p>
                       <sup>2</sup> <mark className="image">RAW</mark> — необработанные
                       изображения, создаваемые камерой или смартфоном в режиме{" "}
-                      <mark>RAW</mark>. Формат зависит от производителя:{" "}
+                      <mark className="image">RAW</mark>. Формат зависит от производителя:{" "}
                       <mark className="image">DNG</mark>,{" "}
                       <mark className="image">CR3</mark>,{" "}
                       <mark className="image">NEF</mark>,{" "}
@@ -562,7 +563,7 @@ const AeFromNewbies: React.FC = () => {
                     </p>
                     <Addition type="warning">
                       Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
-                      отличном от <mark>RGB</mark>, — послойный импорт в{" "}
+                      отличном от <mark className="term">RGB</mark>, — послойный импорт в{" "}
                       <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
                       <a href="#import-layered-psd">Подробнее...</a>
                     </Addition>
@@ -611,11 +612,11 @@ const AeFromNewbies: React.FC = () => {
                     отрендеренными кадрами и выберите внизу опцию{" "}
                     <mark className="select">«PNG Sequence»</mark> в разделе{" "}
                     <mark className="select">«Sequence Settings»</mark>, где вместо{" "}
-                    <mark>PNG</mark> — ваш формат изображений.
+                    <mark className="image">PNG</mark> — ваш формат изображений.
                   </li>
                   <li>
-                    Чтобы изменить <mark>FPS</mark> после импорта секвенции,
-                    воспользуйтесь функцией{" "}
+                    Чтобы изменить <mark className="term">FPS</mark> после импорта
+                    секвенции, воспользуйтесь функцией{" "}
                     <mark className="select">«Interpret Footage»</mark>. Чтобы её открыть
                     — выделите нужную секвенцию в окне{" "}
                     <mark className="select">«Project»</mark> и нажмите комбинацию клавиш{" "}
@@ -650,9 +651,9 @@ const AeFromNewbies: React.FC = () => {
               </p>
               <Addition type="warning">
                 <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
-                <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы
-                это исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
-                <a href="#import-layered-psd">Как?</a>
+                <mark className="term">CMYK</mark>, не поддерживают послойный импорт слоёв
+                в проект. Чтобы это исправить — измените цветовой режим файла на{" "}
+                <mark className="term">RGB</mark>. <a href="#import-layered-psd">Как?</a>
               </Addition>
               <ArticleMedia
                 src="e1ZJfivOloM"
@@ -863,9 +864,8 @@ const AeFromNewbies: React.FC = () => {
                         </li>
                         <li>
                           <mark className="select">«Iris Diffraction Fringe»</mark> —
-                          имитация световой дифракции на бликах. До значения{" "}
-                          <mark>200</mark> эффект почти незаметен, но при <mark>500</mark>{" "}
-                          становится выраженным.
+                          имитация световой дифракции на бликах. До значения 200 эффект
+                          почти незаметен, но при 500 становится выраженным.
                         </li>
                       </ul>
                     </Addition>
@@ -889,9 +889,9 @@ const AeFromNewbies: React.FC = () => {
                           определяет порог яркости, с которого начинают работать{" "}
                           <mark className="select">«Highlight Gain»</mark> и{" "}
                           <mark className="select">«Highlight Saturation»</mark>. По
-                          умолчанию установлено значение <mark>255</mark>; пока вы не
-                          снизите этот порог, остальные два параметра не окажут никакого
-                          эффекта.
+                          умолчанию установлено значение <mark className="copy">255</mark>
+                          ; пока вы не снизите этот порог, остальные два параметра не
+                          окажут никакого эффекта.
                         </li>
                         <li>
                           <mark className="select">«Highlight Saturation»</mark> —
@@ -1227,9 +1227,9 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Paragraph»</mark>.
               </p>
               <Addition type="info">
-                Начиная с <mark className="app">Adobe After Effects 23.4 (2023)</mark>,
-                большинство этих параметров доступно в окне{" "}
-                <mark className="select">«Properties»</mark>.
+                Начиная с <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">23.4 (2023)</mark>, большинство этих параметров
+                доступно в окне <mark className="select">«Properties»</mark>.
               </Addition>
               <ul>
                 <li>
@@ -1282,8 +1282,8 @@ const AeFromNewbies: React.FC = () => {
                 умолчанию) и <mark className="select">«Vertical Text Tool»</mark>.
                 Вертикальный текст чаще используется в азиатских языках, но может
                 пригодиться и для латиницы или кириллицы — например, для создания{" "}
-                <mark>monospace-like</mark> шрифта. Это полезно для анимации счётчиков,
-                чтобы текст не прыгал.
+                <mark className="term">monospace-like</mark> шрифта. Это полезно для
+                анимации счётчиков, чтобы текст не прыгал.
               </p>
               <ArticleMedia
                 src="__-rPlFfRow"
@@ -1346,7 +1346,8 @@ const AeFromNewbies: React.FC = () => {
             <p>
               <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт
               которых стал доступен с помощью <mark className="plugin">Advanced 3D</mark>{" "}
-              в <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее
+              в <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">24.1 (2024)</mark> и выше
               <sup>1</sup>.
             </p>
             <Addition type="info">
@@ -1392,9 +1393,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
                 <mark className="file">GLB</mark> или <mark className="file">GLTF</mark>,
                 импорт которых стал возможен в{" "}
-                <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее с
-                помощью <mark className="plugin">Advanced 3D</mark>. Такие модели можно
-                создать в любом популярном 3D-редакторе, например{" "}
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.1 (2024)</mark> и выше с помощью{" "}
+                <mark className="plugin">Advanced 3D</mark>. Такие модели можно создать в
+                любом популярном 3D-редакторе, например{" "}
                 <mark className="app">Blender</mark>,{" "}
                 <mark className="app">Cinema 4D</mark> или{" "}
                 <mark className="app">Substance 3D Painter</mark>.
@@ -1405,9 +1407,10 @@ const AeFromNewbies: React.FC = () => {
               />
               <Addition type="info">
                 Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
-                версии ниже <mark>24.0</mark> — используйте сторонний плагин{" "}
-                <mark className="plugin">Element 3D</mark> для импорта моделей формата{" "}
-                <mark className="file">OBJ</mark> и <mark className="file">E3D</mark>.
+                <mark className="version">24.0 (2024)</mark> или более старую версию —
+                используйте сторонний плагин <mark className="plugin">Element 3D</mark>{" "}
+                для импорта моделей формата <mark className="file">OBJ</mark> и{" "}
+                <mark className="file">E3D</mark>.
               </Addition>
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Файлы Maxon Cinema 4D">
@@ -1487,7 +1490,7 @@ const AeFromNewbies: React.FC = () => {
                       <sup>2</sup> Настройка <mark className="select">«Drop Frame»</mark>{" "}
                       и <mark className="select">«Non-Drop Frame»</mark> доступна только
                       при некоторых значениях частоты кадров с плавающей точкой, например{" "}
-                      <mark>29,97</mark> или <mark>59,94</mark>.
+                      29,97 или 59,94.
                     </p>
                     <Addition type="info">
                       <ul>
@@ -1496,10 +1499,10 @@ const AeFromNewbies: React.FC = () => {
                           нумерации, при котором иногда пропускаются номера кадров, но
                           сами кадры при этом не теряются. Это делается для того, чтобы
                           таймкод точно совпадал с реальным временем. Потому что,
-                          например, <mark>29,97</mark> кадров в секунду — это не ровно{" "}
-                          <mark>30</mark>, и со временем смещение накапливается. Чтобы
-                          избежать расхождений, через определённые интервалы пропускают
-                          несколько номеров кадров в счётчике — включают пропуск кадров.
+                          например, 29,97 кадров в секунду — это не ровно 30, и со
+                          временем смещение накапливается. Чтобы избежать расхождений,
+                          через определённые интервалы пропускают несколько номеров кадров
+                          в счётчике — включают пропуск кадров.
                         </li>
                         <li>
                           <mark className="select">«Non-Drop Frame»</mark> — нумерация
@@ -1514,7 +1517,7 @@ const AeFromNewbies: React.FC = () => {
                     отвечает за соотношение сторон пикселя. В большинстве современных
                     видео пиксели квадратные — их ширина равна высоте, и изменение этого
                     соотношения сейчас встречается редко. Однако в некоторых
-                    видеоформатах, например <mark className="video">DV PAL</mark>, пиксели
+                    видеоформатах, например <mark className="term">DV PAL</mark>, пиксели
                     прямоугольные — то есть ширина и высота не равны. При необходимости вы
                     можете включить предпросмотр с коррекцией под неквадратный пиксель:
                     откройте контекстное меню окна предпросмотра композиции и включите{" "}
@@ -1535,19 +1538,17 @@ const AeFromNewbies: React.FC = () => {
                       Например, если вы выделили три слоя: первый начинается на второй
                       секунде, второй — на четвёртой, а третий заканчивается на седьмой,
                       то новая прекомпозиция будет иметь длину ровно 5 секунд и начнётся
-                      не с <mark>00:00:00:00</mark>, а с <mark>00:00:02:00</mark> — с
-                      момента появления самого раннего слоя в родительской композиции.
+                      не с 00:00:00:00, а с 00:00:02:00 — с момента появления самого
+                      раннего слоя в родительской композиции.
                     </Addition>
                   </li>
                   <li>
                     <sup>5</sup> По умолчанию в{" "}
                     <mark className="app">Adobe After Effects</mark> продолжительность
-                    выражается в формате <mark>ЧЧ:ММ:СС:КК</mark>, где <mark>Ч</mark> —
-                    часы, <mark>М</mark> — минуты, <mark>С</mark> — секунды,{" "}
-                    <mark>К</mark> — кадры. При желании вы можете изменить формат времени
-                    на отображение количества кадров, нажав{" "}
-                    <mark className="key">ЛКМ</mark> по таймкоду на таймлайне с зажатым{" "}
-                    <mark className="key">Ctrl</mark>.
+                    выражается в формате ЧЧ:ММ:СС:КК, где Ч — часы, М — минуты, С —
+                    секунды, К — кадры. При желании вы можете изменить формат времени на
+                    отображение количества кадров, нажав <mark className="key">ЛКМ</mark>{" "}
+                    по таймкоду на таймлайне с зажатым <mark className="key">Ctrl</mark>.
                   </li>
                   <li>
                     <sup>6</sup> Параметр <mark className="select">«Resolution»</mark>{" "}
@@ -1705,10 +1706,9 @@ const AeFromNewbies: React.FC = () => {
                     — создать прекомпозицию, параметры которой (разрешение, частота
                     кадров) будут основаны на исходном файле, а не на родительской
                     композиции. Все свойства, атрибуты и эффекты при этом останутся в
-                    родительской композиции. Например, если на таймлайн с частотой{" "}
-                    <mark>60 FPS</mark> вы добавили видеофайл с частотой{" "}
-                    <mark>25 FPS</mark> и создали прекомпоз с этой опцией, то новая
-                    композиция тоже будет иметь частоту <mark>25 FPS</mark>.
+                    родительской композиции. Например, если на таймлайн с частотой 60 FPS
+                    вы добавили видеофайл с частотой 25 FPS и создали прекомпоз с этой
+                    опцией, то новая композиция тоже будет иметь частоту 25 FPS.
                   </p>
                   <Addition type="warning">
                     Эта опция доступна только тогда, когда выделен один слой, а также если
@@ -1902,11 +1902,11 @@ const AeFromNewbies: React.FC = () => {
                 Особенности работы с «Track Matte» в разных версиях программы
               </Divider>
               <p>
-                В <mark className="app">Adobe After Effects 23.0 (2023)</mark> и новее
-                интерфейс работы с <mark className="select">«Track Matte»</mark> обновили,
-                что часто путает пользователей при просмотре старых уроков, хотя принцип
-                действия остался прежним. Выбор режимов{" "}
-                <mark className="select">«Alpha»</mark> и{" "}
+                В <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">23.0 (2023)</mark> и выше интерфейс работы с{" "}
+                <mark className="select">«Track Matte»</mark> обновили, что часто путает
+                пользователей при просмотре старых уроков, хотя принцип действия остался
+                прежним. Выбор режимов <mark className="select">«Alpha»</mark> и{" "}
                 <mark className="select">«Luma»</mark> вместе с инверсией заменили на
                 иконки, а привязку сделали удобнее: теперь один слой-маску можно
                 использовать сразу для нескольких слоёв композиции.
@@ -1931,8 +1931,8 @@ const AeFromNewbies: React.FC = () => {
               </p>
               <p>
                 Его можно использовать при наложении технических оверлеев, таких как
-                границы интерфейса <mark className="app">TikTok</mark> или
-                <mark className="app">YouTube Shorts</mark>, а также для передачи
+                границы интерфейса <mark className="web">TikTok</mark> или
+                <mark className="web">YouTube Shorts</mark>, а также для передачи
                 инструкций коллегам по проекту, чтобы им было проще внести правки позже.
               </p>
               <Addition type="info">
@@ -2023,9 +2023,9 @@ const AeFromNewbies: React.FC = () => {
         </div>
         <Addition type="info">
           Чтобы открыть нужную статью на русском языке — добавьте{" "}
-          <mark className="copy">/ru</mark> в ссылку после <mark>helpx.adobe.com</mark>.
-          Учтите, что статьи, переведённые на другие языки, могут быть переведены
-          некорректно или иметь устаревшую информацию.
+          <mark className="copy">/ru</mark> в ссылку после helpx.adobe.com. Учтите, что
+          статьи, переведённые на другие языки, могут быть переведены некорректно или
+          иметь устаревшую информацию.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -2120,12 +2120,11 @@ const AeFromNewbies: React.FC = () => {
               <mark className="select">«Quarter»</mark>.
             </p>
             <Addition type="info">
-              Если у вас есть композиция с разрешением <mark>1280×720</mark>, а в{" "}
+              Если у вас есть композиция с разрешением 1280×720, а в{" "}
               <mark className="select">«Render Settings»</mark> вы указали{" "}
-              <mark className="select">«Resize»</mark> до <mark>3840×2160</mark>, вы
-              просто растянете видео с <mark>720p</mark> до <mark>4K</mark> без
-              фактического улучшения качества. Композиция не будет рендериться сразу в{" "}
-              <mark>4K</mark>.
+              <mark className="select">«Resize»</mark> до 3840×2160, вы просто растянете
+              видео с 720p до 4K без фактического улучшения качества. Композиция не будет
+              рендериться сразу в 4K.
             </Addition>
           </li>
           <li>
@@ -2374,14 +2373,13 @@ const AeFromNewbies: React.FC = () => {
               <mark className="word">Выражения</mark>,{" "}
               <mark className="word">expressions</mark> или{" "}
               <mark className="word">экспрешены</mark> — код на языке, похожем на{" "}
-              <mark>JavaScript</mark>, который используется для управления параметрами или
-              вычисления значений. Часто применяется для создания сложных анимаций или
-              привязки свойств друг к другу.
+              <mark className="file-code">JavaScript</mark>, который используется для
+              управления параметрами или вычисления значений. Часто применяется для
+              создания сложных анимаций или привязки свойств друг к другу.
             </p>
             <Addition type="info">
-              Чтобы активировать режим редактирования выражения, нажмите на{" "}
-              <mark className="select">секундомер</mark> нужного параметра, зажав{" "}
-              <mark className="key">Alt</mark>.
+              Чтобы активировать режим редактирования выражения, нажмите на иконку
+              секундомера у нужного параметра, зажав <mark className="key">Alt</mark>.
             </Addition>
           </li>
           <li>
@@ -2491,9 +2489,9 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="word">Плагин</mark> — подключаемый эффект в виде файла,
-              обычно с расширением <mark className="file">AEX</mark> для{" "}
-              <mark>Windows</mark> или <mark className="file">PLUGIN</mark> для{" "}
-              <mark>macOS</mark>. Часто используется с вопросом «где скачать?».
+              обычно с расширением <mark className="file">AEX</mark> для Windows или{" "}
+              <mark className="file">PLUGIN</mark> для macOS. Часто используется с
+              вопросом «где скачать?».
             </p>
             <Addition type="info">
               Инструкцию по установке плагинов вы можете найти в{" "}
@@ -2549,7 +2547,7 @@ const AeFromNewbies: React.FC = () => {
             <Addition type="info">
               Чтобы скачать его, нужно зарегистрироваться на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, на странице плагина указать
-              цену <mark>0</mark> и оформить заказ.
+              цену 0 и оформить заказ.
             </Addition>
           </li>
           <li>
@@ -2582,8 +2580,8 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="word">Альфа-канал</mark> — четвёртый канал в цветовой
-              модели <mark>RGBA</mark>, отвечающий за прозрачность. Например,{" "}
-              <mark className="file">PNG</mark> поддерживает множество уровней
+              модели <mark className="term">RGBA</mark>, отвечающий за прозрачность.
+              Например, <mark className="image">PNG</mark> поддерживает множество уровней
               прозрачности, а <mark className="image">GIF</mark> — только полную
               прозрачность или её отсутствие. Чтобы сохранить видео с прозрачностью,
               подойдут контейнеры <mark className="video">MOV</mark>,{" "}
@@ -2601,14 +2599,13 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="word">Битрейт</mark> — скорость передачи данных
-              видеопотока, обычно измеряется в <mark>Мбит/с</mark>. Он определяет,
-              насколько сильно сжаты данные. Чем выше битрейт, тем лучше качество видео,
-              особенно в динамичных сценах.
+              видеопотока, обычно измеряется в Мбит/с. Он определяет, насколько сильно
+              сжаты данные. Чем выше битрейт, тем лучше качество видео, особенно в
+              динамичных сценах.
             </p>
             <Addition type="info">
-              Если у исходного видео битрейт <mark>10 Мбит/с</mark>, а при экспорте вы
-              укажете <mark>50 Мбит/с</mark> — качество не улучшится. Вы просто увеличите
-              размер файла.
+              Если у исходного видео битрейт 10 Мбит/с, а при экспорте вы укажете 50
+              Мбит/с — качество не улучшится. Вы просто увеличите размер файла.
             </Addition>
             <Divider>Виды битрейта</Divider>
             <ul>
@@ -2631,8 +2628,8 @@ const AeFromNewbies: React.FC = () => {
                   <mark className="word">Квантование (Constant Quality)</mark> — метод
                   сжатия, при котором уровень качества остаётся постоянным на протяжении
                   всего видео. Чем меньше значение <mark className="word">CQ</mark>, тем
-                  лучше качество, но больше размер. Обычно значения <mark>23</mark>{" "}
-                  хватает для большинства случаев.
+                  лучше качество, но больше размер. Обычно значения 23 хватает для
+                  большинства случаев.
                 </p>
                 <Addition type="info">
                   Чтобы экспортировать композицию с использованием{" "}
@@ -2673,8 +2670,10 @@ const AeFromNewbies: React.FC = () => {
                   альфа-каналом.
                 </p>
                 <Addition type="info">
-                  У каждого варианта данного кодека — <mark>422</mark>,{" "}
-                  <mark>422 LT</mark> или <mark>4444</mark> — свой фиксированный битрейт.
+                  У каждого варианта данного кодека —{" "}
+                  <mark className="codec-param">422</mark>,{" "}
+                  <mark className="codec-param">422 LT</mark> или{" "}
+                  <mark className="codec-param">4444</mark> — свой фиксированный битрейт.
                   Ручная настройка не предусмотрена.{" "}
                   <a href="https://ru.wikipedia.org/wiki/Apple_ProRes#%D0%A1%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%BE%D0%B2_%D1%81%D0%B5%D0%BC%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B0_ProRes">
                     Подробнее...
@@ -2704,14 +2703,12 @@ const AeFromNewbies: React.FC = () => {
                 <Addition type="danger">
                   <ul>
                     <li>
-                      <b>
-                        <u>Крайне не рекомендуется</u>
-                      </b>{" "}
-                      использовать для монтажа видео из интернета, закодированные этими
-                      кодеками. Такие кодеки предназначены только для финального вывода.
-                      При монтаже скачанных с <mark className="app">YouTube</mark> видео
-                      вы можете получить артефакты или «зелёный экран», так как монтажная
-                      программа не всегда может корректно с ними работать.
+                      Крайне не рекомендуется использовать для монтажа видео из интернета,
+                      закодированные этими кодеками. Такие кодеки предназначены только для
+                      финального вывода. При монтаже скачанных с{" "}
+                      <mark className="web">YouTube</mark> видео вы можете получить
+                      артефакты или «зелёный экран», так как монтажная программа не всегда
+                      может корректно с ними работать.
                     </li>
                     <li>
                       Прежде чем использовать видео из интернета для монтажа, их стоит
@@ -2722,7 +2719,7 @@ const AeFromNewbies: React.FC = () => {
                     <li>
                       «Проблема зелёного экрана» часто встречается при работе с «кривыми»
                       исходниками в <mark className="video">H.264</mark> или при
-                      использовании видеокарт от <mark className="company">AMD</mark>.
+                      использовании видеокарт <mark className="hardware">AMD</mark>.
                       Иногда для решения проблемы достаточно отключить аппаратное
                       ускорение декодирования в{" "}
                       <mark className="select">«Edit» → «Preferences» → «Import»</mark>,
@@ -2746,7 +2743,7 @@ const AeFromNewbies: React.FC = () => {
               </li>
               <li>
                 <mark className="video">MPEG</mark> — устаревший кодек. Раньше его
-                использовали для записи видео на <mark>DVD</mark> и <mark>Blu-ray</mark>.
+                использовали для записи видео на DVD и Blu-ray.
               </li>
             </ul>
           </li>
@@ -2795,8 +2792,9 @@ const AeFromNewbies: React.FC = () => {
               <mark className="word">Мультифрейм-рендер</mark>, или{" "}
               <mark className="word">MFR</mark>, — функция{" "}
               <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
-              <mark className="app">Adobe After Effects 22.X (2022)</mark> и новее. Она
-              ускоряет финальный рендер, обрабатывая сразу несколько кадров параллельно.
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">22.X (2022)</mark> и выше. Она ускоряет финальный
+              рендер, обрабатывая сразу несколько кадров параллельно.
             </p>
             <Addition type="warning">
               Использование <mark className="select">«Multi-Frame Rendering»</mark> может
@@ -2902,20 +2900,19 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Эдиты</mark> — как правило, видео под музыку на основе
             кадров из фильмов, аниме или игр. Часто встречаются на{" "}
-            <mark className="app">YouTube</mark> и <mark className="app">TikTok</mark>.
+            <mark className="web">YouTube</mark> и <mark className="web">TikTok</mark>.
           </li>
           <li>
             <p>
               <mark className="word">Рилсы</mark>, или{" "}
               <mark className="word">шортсы</mark>, — короткие вертикальные видеоролики
-              формата <mark>9:16</mark>, публикующиеся в{" "}
-              <mark className="app">Instagram</mark>
-              <sup>1</sup> или <mark className="app">YouTube</mark>.
+              формата 9:16, публикующиеся в <mark className="web">Instagram</mark>
+              <sup>1</sup> или <mark className="web">YouTube</mark>.
             </p>
             <Addition type="danger">
-              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
-              признаны экстремистскими организациями и запрещены на территории Российской
-              Федерации.
+              <sup>1</sup> <mark className="web">Instagram</mark> и{" "}
+              <mark className="company">Meta</mark> признаны экстремистскими организациями
+              и запрещены на территории Российской Федерации.
             </Addition>
           </li>
         </ul>
@@ -4501,13 +4498,13 @@ const AeFromNewbies: React.FC = () => {
                       <ul>
                         <li>
                           Плагины формата <mark className="file">AEX</mark> не подходят
-                          для устройств на <mark>macOS</mark>, так как они предназначены
-                          для устройств на <mark>Windows</mark>.
+                          для устройств на macOS, так как они предназначены для устройств
+                          на Windows.
                         </li>
                         <li>
                           Плагины формата <mark className="file">PLUGIN</mark> не подходят
-                          для устройств на <mark>Windows</mark>, так как они предназначены
-                          для устройств на <mark>macOS</mark>.
+                          для устройств на Windows, так как они предназначены для
+                          устройств на macOS.
                         </li>
                       </ul>
                     </Addition>
@@ -4516,27 +4513,29 @@ const AeFromNewbies: React.FC = () => {
                     <mark className="word">Скрипт</mark> — файл{" "}
                     <mark className="file">JSX</mark> или{" "}
                     <mark className="file">JSXBIN</mark>, содержащий интерпретируемый код,
-                    написанный на <mark>JavaScript</mark> или <mark>ExtendScript</mark>,
-                    выполняющий различные действия и имеющий доступ к вашей файловой
-                    системе, если вы это разрешите в настройках программы. Они могут быть
-                    как с интерфейсом, так и без. Если у скрипта есть интерфейс — он будет
-                    открываться в отдельной плавающей панели. При необходимости вы можете
-                    его прикрепить к вашему рабочему пространству.{" "}
+                    написанный на <mark className="file-code">JavaScript</mark> или{" "}
+                    <mark className="file-code">ExtendScript</mark>, выполняющий различные
+                    действия и имеющий доступ к вашей файловой системе, если вы это
+                    разрешите в настройках программы. Они могут быть как с интерфейсом,
+                    так и без. Если у скрипта есть интерфейс — он будет открываться в
+                    отдельной плавающей панели. При необходимости вы можете его прикрепить
+                    к вашему рабочему пространству.{" "}
                     <a href="#customize-workspace">Как?</a>
                   </li>
                   <li>
                     <mark className="word">Расширение</mark> — дополнение формата{" "}
                     <mark className="file">ZXP</mark>, которое может устанавливаться на
-                    обеих платформах — <mark>Windows</mark> и <mark>macOS</mark>. Чаще
-                    всего представляет собой веб-страницу в стеке{" "}
-                    <mark className="file">HTML</mark>, <mark className="file">CSS</mark>,{" "}
-                    <mark className="file">JS</mark>, бэкэндом и доступом к вашей файловой
-                    системе, выполняющее определённые действия и связывает веб-страницу с{" "}
-                    <mark className="app">Adobe After Effects</mark>. Сами страницы и
-                    скрипты для них могут писаться как на чистом <mark>JavaScript</mark>,
-                    так и с использованием различных фреймворков, например{" "}
-                    <mark className="app">React</mark> или{" "}
-                    <mark className="app">Vue</mark>.
+                    обеих платформах — Windows и macOS. Чаще всего представляет собой
+                    веб-страницу в стеке <mark className="file-code">HTML</mark>,{" "}
+                    <mark className="file-code">CSS</mark> и{" "}
+                    <mark className="file-code">JavaScript</mark>, бэкэндом и доступом к
+                    вашей файловой системе, выполняющее определённые действия и связывает
+                    веб-страницу с <mark className="app">Adobe After Effects</mark>. Сами
+                    страницы и скрипты для них могут писаться как на чистом{" "}
+                    <mark className="file-code">JavaScript</mark>, так и с использованием
+                    различных фреймворков, например{" "}
+                    <mark className="file-code">React</mark> или{" "}
+                    <mark className="file-code">Vue</mark>.
                   </li>
                 </ul>
               </Addition>
@@ -4654,11 +4653,12 @@ const AeFromNewbies: React.FC = () => {
                 <li>
                   Если вы не планируете использовать обе версии — перенесите параметры из
                   старой версии эффекта в новую в старых проектах. Начиная с{" "}
-                  <mark className="plugin">Deep Glow 2</mark> версии <mark>1.1</mark>, в
-                  комплект поставляется скрипт{" "}
+                  <mark className="plugin">Deep Glow 2</mark>{" "}
+                  <mark className="version">1.1</mark>, в комплект поставляется скрипт{" "}
                   <mark className="file">DEEP GLOW UPGRADER.JSX</mark>, который находит в
-                  проекте первую версию <mark className="plugin">Deep Glow</mark> и
-                  заменяет её на <mark className="plugin">Deep Glow 2</mark>.
+                  проекте все вхождения первой версии{" "}
+                  <mark className="plugin">Deep Glow</mark> и заменяет их на{" "}
+                  <mark className="plugin">Deep Glow 2</mark>.
                 </li>
               </ul>
             </Addition>
@@ -4782,9 +4782,9 @@ const AeFromNewbies: React.FC = () => {
               type="youtube"
             />
             <Addition type="info">
-              Начиная с <mark className="app">Adobe After Effects 26.0 (2026)</mark> и
-              новее, часть функционала кадрирования слоёв стала доступна без использования
-              сторонних инструментов.{" "}
+              Начиная с <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">26.0 (2026)</mark> и новее, часть функционала
+              кадрирования слоёв стала доступна без использования сторонних инструментов.{" "}
               <a href="https://helpx.adobe.com/after-effects/using/composition-basics.html#crop-composition-to-selected-layer-bounds">
                 Подробнее...
               </a>
@@ -5036,7 +5036,8 @@ const AeFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.X (2024)</mark> и выше.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -5099,7 +5100,8 @@ const AeFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
-                <mark className="app">Adobe After Effects 24.X (2024)</mark> и новее.
+                <mark className="app">Adobe After Effects</mark>{" "}
+                <mark className="version">24.X (2024)</mark> и выше.
               </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -5198,12 +5200,12 @@ const AeFromNewbies: React.FC = () => {
         title="Как отключить автоматическое кэширование предпросмотра при бездействии?"
       >
         <p>
-          В <mark className="app">Adobe After Effects 22.X (2022)</mark> и новее по
-          умолчанию включено автоматическое кэширование кадров во время простоя. На слабых
-          компьютерах или при использовании ресурсоёмких эффектов это может вызывать
-          дискомфорт, излишне нагружая систему и заполняя оперативную память.
-          Неудивительно, что из-за такого поведения программы некоторые «староверы» до сих
-          пор ворчат, мол,{" "}
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">22.X (2022)</mark> и выше по умолчанию включено
+          автоматическое кэширование кадров во время простоя. На слабых компьютерах или
+          при использовании ресурсоёмких эффектов это может вызывать дискомфорт, излишне
+          нагружая систему и заполняя оперативную память. Неудивительно, что из-за такого
+          поведения программы некоторые «староверы» до сих пор ворчат, мол,{" "}
           <mark className="quote">
             «раньше было лучше, а сейчас всё лагает на ровном месте!!1!»
           </mark>
@@ -5229,12 +5231,13 @@ const AeFromNewbies: React.FC = () => {
           которого начнётся автоматическое кэширование, — перейдите в{" "}
           <mark className="select">«Edit» → «Preferences» → «Previews»</mark>. В параметре{" "}
           <mark className="select">«Idle Delay Before Caching Starts»</mark> вы можете
-          указать любое число от <mark>2</mark> до <mark>15</mark> секунд.
+          указать любое число от 2 до 15 секунд.
         </p>
         <Addition type="info">
           Чуть ниже этого параметра можно настроить область и направление кэширования:{" "}
-          <mark>«вокруг временной метки»</mark>, <mark>«от временной метки»</mark> или{" "}
-          <mark>«от начала рабочей области»</mark>.
+          <mark className="select">«Around Current Time»</mark>,{" "}
+          <mark className="select">«From Current Time»</mark> или{" "}
+          <mark className="select">«From Start of Range»</mark>.
         </Addition>
         <ArticleMedia
           caption="Настраиваем время до старта кэширования при простое"
@@ -5265,8 +5268,8 @@ const AeFromNewbies: React.FC = () => {
           хранилище с включённой автоматической синхронизацией. У популярных сервисов,
           например <mark className="app">Яндекс.Диск</mark>,{" "}
           <mark className="app">Google Drive</mark>, <mark className="app">Dropbox</mark>{" "}
-          есть клиенты для <mark>Windows</mark> и <mark>macOS</mark>, которые
-          синхронизируют указанные вами папки автоматически.
+          есть клиенты для Windows и macOS, которые синхронизируют указанные вами папки
+          автоматически.
         </p>
         <p>
           Во многих таких сервисах доступна история версий — она позволяет вернуть старую
@@ -5294,19 +5297,17 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Создаём локальные резервные копии стандартными средствами ОС</Divider>
         <p>
           Если вариант с облачным хранилищем не подходит, можно организовать систему
-          резервного копирования локально. И в <mark>Windows</mark>, и в{" "}
-          <mark>macOS</mark> есть встроенные функции для этого. Обычно для их работы
-          требуется отдельный накопитель.
+          резервного копирования локально. И в Windows, и в macOS есть встроенные функции
+          для этого. Обычно для их работы требуется отдельный накопитель.
         </p>
         <ContentFilter
           macContent={
             <>
               <p>
-                В <mark>macOS</mark> эта функция называется{" "}
-                <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
-                системы и файлов каждый час или по нажатию кнопки. Для работы{" "}
-                <mark className="app">Time Machine</mark> нужен внешний накопитель,
-                желательно объёмом от <mark>512 ГБ</mark>.
+                В macOS эта функция называется <mark className="app">Time Machine</mark>.
+                Она создаёт «снимки» вашей системы и файлов каждый час или по нажатию
+                кнопки. Для работы <mark className="app">Time Machine</mark> нужен внешний
+                накопитель, желательно объёмом от 512 ГБ.
               </p>
               <ArticleMedia
                 src="Gx76i28c150"
@@ -5317,7 +5318,7 @@ const AeFromNewbies: React.FC = () => {
           windowsContent={
             <>
               <p>
-                В <mark>Windows</mark> эта функция называется{" "}
+                В Windows эта функция называется{" "}
                 <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
                 другой папке или на другом диске. С её помощью можно восстановить
                 удалённый или предыдущую версию файла. Для работы этой функции нужно
@@ -5349,10 +5350,10 @@ const AeFromNewbies: React.FC = () => {
           Если возможностей стандартных решений в вашей операционной системе оказалось
           недостаточно, можно воспользоваться сторонними программами для бэкапов, например{" "}
           <mark className="app">AOMEI Backupper</mark> или{" "}
-          <mark className="app">Acronis True Image</mark>. Они доступны как для{" "}
-          <mark>Windows</mark>, так и для <mark>macOS</mark>. С их помощью вы можете
-          настроить автоматическое резервное копирование папок, разделов диска или даже
-          целого образа системы — по расписанию или при наступлении определённых событий.
+          <mark className="app">Acronis True Image</mark>. Они доступны как для Windows,
+          так и для macOS. С их помощью вы можете настроить автоматическое резервное
+          копирование папок, разделов диска или даже целого образа системы — по расписанию
+          или при наступлении определённых событий.
         </p>
         <ArticleMedia
           src="ImCjFVlF3gQ"
@@ -5498,7 +5499,7 @@ const AeFromNewbies: React.FC = () => {
           Это можно сделать несколькими способами.
         </p>
         <Divider>
-          Заменяем через <mark className="select">Replace Footage</mark>
+          Заменяем через <mark className="select">«Replace Footage»</mark>
         </Divider>
         <p>
           Найдите в окне <mark className="select">«Project»</mark> исходник, который нужно
@@ -5853,10 +5854,9 @@ const AeFromNewbies: React.FC = () => {
           заранее.
         </p>
         <p>
-          Текущий <mark>FPS</mark> предпросмотра отображается в окне{" "}
-          <mark className="select">«Info»</mark>. Если он ниже, чем <mark>FPS</mark>{" "}
-          композиции (например, <mark>22,787/25</mark>), значит, воспроизведение идёт не в
-          реальном времени.
+          Текущий FPS предпросмотра отображается в окне{" "}
+          <mark className="select">«Info»</mark>. Если он ниже, чем FPS композиции
+          (например, 22,787/25), значит, воспроизведение идёт не в реальном времени.
         </p>
         <ArticleMedia
           caption="Info"
@@ -5889,15 +5889,14 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Значение <mark className="select">«Frame Rate»</mark> работает следующим
-          образом: если вы установили значение <mark>30</mark> для{" "}
-          <mark className="select">«Frame Rate»</mark>, а у самой композиции тоже{" "}
-          <mark>30 FPS</mark>, то изменений в скорости вы не заметите. Однако если
-          изменить частоту кадров композиции, например, на <mark>60</mark>, а{" "}
-          <mark className="select">«Frame Rate»</mark> в{" "}
+          образом: если вы установили значение <mark className="copy">30</mark> для{" "}
+          <mark className="select">«Frame Rate»</mark>, а у самой композиции тоже 30 FPS,
+          то изменений в скорости вы не заметите. Однако если изменить частоту кадров
+          композиции, например, на 60, а <mark className="select">«Frame Rate»</mark> в{" "}
           <mark className="select">«Preview»</mark> оставить прежним, то воспроизведение
           будет в два раза медленнее. Если установить значение{" "}
           <mark className="select">«Auto»</mark>, скорость будет автоматически
-          подстраиваться под <mark>FPS</mark> композиции.
+          подстраиваться под FPS композиции.
         </Addition>
         <ArticleMedia
           caption="Preview"
@@ -5940,7 +5939,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="file">MP4</mark> часто содержат нестабильные свойства —
           например, переменную частоту кадров или непредсказуемые алгоритмы сжатия, что
           особенно характерно для геймплейных записей или видео с{" "}
-          <mark className="app">YouTube</mark>. Особенно это касается{" "}
+          <mark className="web">YouTube</mark>. Особенно это касается{" "}
           <mark className="video">H.264</mark> и <mark className="video">H.265</mark>: они
           отлично подходят для просмотра, но плохо ведут себя при монтаже. Постоянная
           декомпрессия этих кодеков приводит к появлению «артефактов» на превью и
@@ -5983,7 +5982,7 @@ const AeFromNewbies: React.FC = () => {
                   отключить их автоматическое обновление
                 </a>
                 , чтобы подобные ситуации не повторялись. Если у вас установлена
-                видеокарта от <mark className="company">NVIDIA</mark>, рекомендуется
+                видеокарта <mark className="hardware">NVIDIA</mark>, рекомендуется
                 загрузить и установить драйвер редакции{" "}
                 <mark className="app">«NVIDIA Studio»</mark> с{" "}
                 <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
@@ -6033,7 +6032,7 @@ const AeFromNewbies: React.FC = () => {
           воспроизводить аудио, если в проекте используются файлы с «кривыми» алгоритмами
           сжатия. Особенно часто это происходит с форматом{" "}
           <mark className="audio">MP3</mark> или с видео, скачанными из интернета, —
-          например, с <mark className="app">YouTube</mark>. Проблемы могут проявляться в
+          например, с <mark className="web">YouTube</mark>. Проблемы могут проявляться в
           виде пропущенных фрагментов, искажений или «растягивания» звука. Решение зависит
           от типа исходника: если проблема в отдельном аудиофайле, его следует
           конвертировать в формат <mark className="audio">WAV</mark> с помощью{" "}
@@ -6150,7 +6149,7 @@ const AeFromNewbies: React.FC = () => {
               вы неправильно поняли описание и оставили программам{" "}
               <mark className="company">Adobe</mark> слишком мало памяти, это может
               вызвать проблемы с проигрыванием предпросмотра. Чтобы выделить максимум ОЗУ,
-              поставьте <mark>0</mark> в поле{" "}
+              поставьте <mark className="copy">0</mark> в поле{" "}
               <mark className="select">«RAM reserved for other applications»</mark>.
               Программа сама подставит минимальное корректное значение памяти для других
               приложений.
@@ -6180,9 +6179,8 @@ const AeFromNewbies: React.FC = () => {
                   <mark className="copy">1024</mark> до{" "}
                   <mark className="copy">65536</mark> или{" "}
                   <mark className="copy">131072</mark>. После настройки система создаст
-                  файл подкачки с начальным размером <mark>1 ГБ</mark>, который сможет
-                  динамически расширяться до <mark>64–128 ГБ</mark> в зависимости от ваших
-                  настроек.
+                  файл подкачки с начальным размером 1 ГБ, который сможет динамически
+                  расширяться до 64–128 ГБ в зависимости от ваших настроек.
                 </p>
               }
             />
@@ -6227,10 +6225,11 @@ const AeFromNewbies: React.FC = () => {
         />
         <Divider>Используем дисковый кэш для предпросмотра</Divider>
         <p>
-          В <mark className="app">Adobe After Effects 25.2 (2025)</mark> и новее появилась
-          новая функция воспроизведения предпросмотра напрямую из дискового кэша. Она
-          позволяет проигрывать превью прямо с диска, не загружая кадры в оперативную
-          память. Эта опция может спасти, когда даже файл подкачки не помогает.
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.2 (2025)</mark> и выше появилась новая функция
+          воспроизведения предпросмотра напрямую из дискового кэша. Она позволяет
+          проигрывать превью прямо с диска, не загружая кадры в оперативную память. Эта
+          опция может спасти, когда даже файл подкачки не помогает.
         </p>
         <p>
           Для активации перейдите в{" "}
@@ -6239,8 +6238,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Enable Disk Cache»</mark> и активируйте параметр{" "}
           <mark className="select">«Enable Preview from Disk Cache»</mark>. Размер кэша{" "}
           <mark className="select">«Maximum Disk Cache Size»</mark> должен быть не меньше{" "}
-          <mark>100 ГБ</mark>, так как программа любит пожирать много дискового
-          пространства.
+          100 ГБ, так как программа любит пожирать много дискового пространства.
         </p>
         <Addition type="info">
           <ul>
@@ -6251,8 +6249,7 @@ const AeFromNewbies: React.FC = () => {
             </li>
             <li>
               Для комфортной работы с дисковым кэшем нужен быстрый накопитель. Можете
-              купить дешёвый <mark>SSD</mark> на <mark>256–512 ГБ</mark> и использовать
-              его специально для кэша.
+              купить дешёвый SSD на 256–512 ГБ и использовать его специально для кэша.
             </li>
           </ul>
         </Addition>
@@ -6298,9 +6295,8 @@ const AeFromNewbies: React.FC = () => {
         <p>
           Если предпросмотр остаётся размытым и пиксельным даже при качестве{" "}
           <mark className="select">«Full»</mark>, убедитесь, что его масштаб не превышает{" "}
-          <mark>100%</mark>, а у самой композиции достаточно высокое разрешение. Изменить
-          его можно в настройках композиции сочетанием клавиш{" "}
-          <mark className="key">Ctrl + K</mark>.
+          100%, а у самой композиции достаточно высокое разрешение. Изменить его можно в
+          настройках композиции сочетанием клавиш <mark className="key">Ctrl + K</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -6319,9 +6315,9 @@ const AeFromNewbies: React.FC = () => {
         <p>
           В <mark className="app">Adobe After Effects</mark> же при создании композиции вы
           задаёте её разрешение в пикселях, и всё, что в неё помещается, ограничено этим
-          разрешением. Поэтому при увеличении масштаба предпросмотра более чем на{" "}
-          <mark>100%</mark> вы всегда будете видеть пиксели, потому что увеличиваете уже
-          отрендеренное растровое изображение, даже если в проекте есть векторные слои.
+          разрешением. Поэтому при увеличении масштаба предпросмотра более чем на 100% вы
+          всегда будете видеть пиксели, потому что увеличиваете уже отрендеренное
+          растровое изображение, даже если в проекте есть векторные слои.
         </p>
         <Divider>Разбираемся, как работают «векторные» слои</Divider>
         <p>
@@ -6372,8 +6368,8 @@ const AeFromNewbies: React.FC = () => {
         <p>
           Некоторые эффекты работают только в пределах размера слоя, из-за чего их
           действие может обрезаться по краям. Например: если ваша основная композиция
-          имеет размер <mark>1920×1080</mark>, а слой, на который вы применяете эффект,
-          меньше, то эффект будет ограничен размером этого слоя.
+          имеет размер 1920×1080, а слой, на который вы применяете эффект, меньше, то
+          эффект будет ограничен размером этого слоя.
         </p>
         <Divider>Расширяем границы с помощью Grow Bounds</Divider>
         <p>
@@ -6417,8 +6413,8 @@ const AeFromNewbies: React.FC = () => {
         <p>
           Скорее всего, у вас включён рендер-движок{" "}
           <mark className="plugin">Advanced 3D</mark>, который стал использоваться по
-          умолчанию, начиная с{" "}
-          <mark className="app">Adobe After Effects 24.1 (2024)</mark>, или{" "}
+          умолчанию, начиная с <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.1 (2024)</mark>, или{" "}
           <mark className="plugin">Cinema 4D</mark>. При использовании таких движков
           режимы наложения, эффекты и прочие функции могут быть недоступны. Чтобы вернуть
           их работу, нужно переключиться на рендер{" "}
@@ -6449,16 +6445,18 @@ const AeFromNewbies: React.FC = () => {
             отбрасывания теней от источника света
           </a>{" "}
           при использовании модуля <mark className="plugin">Advanced 3D</mark> добавили в{" "}
-          <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее. В
-          предыдущих сборках включить <mark className="select">«Casts Shadows»</mark> было
-          нельзя, так как эта возможность ещё не была доступна в стабильном релизе и
-          находилась на стадии бета-тестирования.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> и выше. В предыдущих сборках
+          включить <mark className="select">«Casts Shadows»</mark> было нельзя, так как
+          эта возможность ещё не была доступна в стабильном релизе и находилась на стадии
+          бета-тестирования.
         </p>
         <Addition type="info">
           Если вы смотрите обучающее видео, где автор активирует{" "}
           <mark className="select">«Casts Shadows»</mark> в{" "}
-          <mark className="app">Adobe After Effects 25.X (2025)</mark>, значит, на момент
-          записи у него была установлена публичная бета-версия программы.
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">25.X (2025)</mark>, значит, на момент записи у него
+          была установлена публичная бета-версия программы.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -6511,9 +6509,9 @@ const AeFromNewbies: React.FC = () => {
             .
           </p>
           <Addition type="info">
-            <sup>1</sup> Чтобы бесплатно скачать скрипт — зарегистрируйтесь или войдите в
+            <sup>1</sup> Чтобы бесплатно скачать скрипт, зарегистрируйтесь или войдите в
             аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем на странице
-            дополнения установите значение <mark>0</mark> в поле{" "}
+            дополнения установите значение <mark className="copy">0</mark> в поле{" "}
             <mark className="select">«Name Your Own Price»</mark> и оформите заказ. Ссылка
             на скачивание появится{" "}
             <a href="https://aescripts.com/downloadable/customer/products/">
@@ -6549,9 +6547,9 @@ const AeFromNewbies: React.FC = () => {
           распаковать.
         </p>
         <Addition type="info">
-          <sup>1</sup> Чтобы бесплатно скачать скрипт — зарегистрируйтесь или войдите в
+          <sup>1</sup> Чтобы бесплатно скачать скрипт, зарегистрируйтесь или войдите в
           аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем на странице
-          дополнения установите значение <mark>0</mark> в поле{" "}
+          дополнения установите значение <mark className="copy">0</mark> в поле{" "}
           <mark className="select">«Name Your Own Price»</mark> и оформите заказ. Ссылка
           на скачивание появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
@@ -6638,7 +6636,8 @@ const AeFromNewbies: React.FC = () => {
           После успешной установки плагин появится в двух местах: в меню{" "}
           <mark className="select">«Layer» → «Auto Crop»</mark> — для быстрого
           кадрирования композиции по краям всех слоёв, а также в меню{" "}
-          <mark>«Window» → «Auto Crop.jsxbin»</mark> — для дополнительных действий.
+          <mark className="select">«Window» → «Auto Crop.jsxbin»</mark> — для
+          дополнительных действий.
         </p>
         <ArticleMedia
           caption="Открываем Auto Crop"
@@ -6700,8 +6699,7 @@ const AeFromNewbies: React.FC = () => {
         <p>
           Чтобы это исправить, откройте настройки композиции с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + K</mark> и в поле{" "}
-          <mark className="select">«Start Timecode»</mark> укажите{" "}
-          <mark>00:00:00:00</mark>.
+          <mark className="select">«Start Timecode»</mark> укажите 00:00:00:00.
         </p>
         <ArticleMedia
           caption="Composition Settings"
@@ -6789,11 +6787,8 @@ const AeFromNewbies: React.FC = () => {
           type="video"
         />
         <Addition type="warning">
-          Приведённые ниже способы{" "}
-          <u>
-            <b>не являются панацеей</b>
-          </u>{" "}
-          и лишь помогают исключить некоторые проблемы.
+          Приведённые ниже способы не являются панацеей и лишь помогают исключить
+          некоторые проблемы.
         </Addition>
         <ul>
           <li>
@@ -6888,8 +6883,9 @@ const AeFromNewbies: React.FC = () => {
         title="Что такое «секретные» настройки и как их открыть?"
       >
         <Addition type="danger">
-          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее данные
-          настройки были удалены.
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> и выше данные настройки были
+          удалены.
         </Addition>
         <p>
           Разработчики оставили некоторые функции, спрятав их в «секретном» разделе{" "}

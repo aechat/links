@@ -32,10 +32,11 @@ const AeExportProblems: React.FC = () => {
       >
         <p>
           Скорее всего, вы столкнулись с багом{" "}
-          <mark className="app">Adobe After Effects 23.1 (2023)</mark>. Из-за кириллицы
-          или символов вне <mark>ASCII</mark> в пути сохранения при экспорте через
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.1 (2023)</mark>. Из-за кириллицы или символов вне{" "}
+          <mark className="term">ASCII</mark> в пути сохранения при экспорте через
           встроенный кодек <mark className="video">H.264</mark> получается повреждённый
-          файл размером <mark>1 КБ</mark>, который не открывается ни одной программой.
+          файл размером 1 КБ, который не открывается ни одной программой.
         </p>
         <Addition type="info">
           Проверить текущую версию <mark className="app">Adobe After Effects</mark> можно
@@ -43,8 +44,8 @@ const AeExportProblems: React.FC = () => {
         </Addition>
         <p>
           Для решения этой проблемы достаточно обновить{" "}
-          <mark className="app">Adobe After Effects</mark> до актуальной версии или до{" "}
-          <mark>23.6</mark>, в которой ошибка исправлена, и повторить экспорт.
+          <mark className="app">Adobe After Effects</mark> до версии{" "}
+          <mark className="version">23.6 (2023)</mark> или выше и повторить экспорт.
         </p>
         <p>
           Если не хотите или не можете обновить программу, экспортируйте видео через
@@ -125,11 +126,11 @@ const AeExportProblems: React.FC = () => {
           программами.
         </p>
         <p>
-          Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
-          <mark>23.0</mark>, то, скорее всего, вы пытались экспортировать композицию без
-          детальной настройки <mark className="select">«Output Module»</mark>. В старых
-          версиях по умолчанию стоял неоптимальный пресет —{" "}
-          <mark className="video">AVI</mark> с кодеком{" "}
+          Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">23.0 (2023)</mark> и ниже, то, скорее всего, вы
+          пытались экспортировать композицию без детальной настройки{" "}
+          <mark className="select">«Output Module»</mark>. В старых версиях по умолчанию
+          стоял неоптимальный пресет — <mark className="video">AVI</mark> с кодеком{" "}
           <mark className="video">Animation</mark> без сжатия, из-за чего экспортированный
           файл получался огромным.{" "}
           <i style={{opacity: "0.5"}}>
@@ -152,9 +153,9 @@ const AeExportProblems: React.FC = () => {
         <p>
           Для быстрой конвертации видео можно воспользоваться{" "}
           <mark className="app">Shutter Encoder</mark> — это бесплатный графический
-          интерфейс для утилиты <mark className="app">FFmpeg</mark>, доступный для{" "}
-          <mark>Windows</mark> и <mark>macOS</mark>. Он позволяет конвертировать видео в
-          распространённые форматы и гибко настраивать параметры кодирования.
+          интерфейс для утилиты <mark className="app">FFmpeg</mark>, доступный для Windows
+          и macOS. Он позволяет конвертировать видео в распространённые форматы и гибко
+          настраивать параметры кодирования.
         </p>
         <Addition type="info">
           <ul>
@@ -222,7 +223,7 @@ const AeExportProblems: React.FC = () => {
                 оборудовании. <mark className="video">VP9</mark> — его открытая и
                 бесплатная альтернатива от <mark className="company">Google</mark> со
                 схожим уровнем сжатия, широко используемая на{" "}
-                <mark className="app">YouTube</mark>.
+                <mark className="web">YouTube</mark>.
               </li>
               <li>
                 Для наилучшего сжатия существуют <mark className="video">AV1</mark> и{" "}
@@ -281,17 +282,16 @@ const AeExportProblems: React.FC = () => {
                   <ul>
                     <li>
                       Чем меньше значение <mark className="select">«CQ»</mark>, тем лучше
-                      качество. По умолчанию устанавливается <mark>23</mark> — этого
-                      достаточно для большинства случаев.
+                      качество. По умолчанию устанавливается 23 — этого достаточно для
+                      большинства случаев.
                     </li>
                     <li>
                       Если нужно сохранить почти максимальное качество, укажите значение
-                      от <mark>17</mark> до <mark>20</mark>. Однако размер файла при этом
-                      заметно возрастёт.
+                      от 17 до 20. Однако размер файла при этом заметно возрастёт.
                     </li>
                     <li>
-                      Экстремальные значения, например <mark>50</mark>, использовать не
-                      рекомендуется — в итоге можно получить «кашу» из пикселей.
+                      Экстремальные значения, например 50, использовать не рекомендуется —
+                      в итоге можно получить «кашу» из пикселей.
                     </li>
                   </ul>
                 </Addition>
@@ -300,7 +300,7 @@ const AeExportProblems: React.FC = () => {
                 <p>
                   Укажите битрейт для аудио в параметре{" "}
                   <mark className="select">«Audio Bitrate»</mark>; достаточно установить
-                  значение <mark>320</mark> Кбит/с.
+                  значение <mark className="copy">320</mark> Кбит/с.
                 </p>
                 <ArticleMedia
                   caption="Shutter Encoder"
@@ -421,8 +421,8 @@ const AeExportProblems: React.FC = () => {
           Иногда при экспорте или предпросмотре композиции изображение может выглядеть
           сплюснутым или искажённым. Скорее всего, вы указали неквадратный пиксель в
           настройках композиции или попытались экспортировать видео в формате вроде{" "}
-          <mark className="video">DV PAL</mark>, у которого соотношение сторон пикселя
-          отличается от <mark>1:1</mark>.
+          <mark className="term">DV PAL</mark>, у которого соотношение сторон пикселя
+          отличается от 1:1.
         </p>
         <Divider>Проверяем настройки композиции</Divider>
         <p>
@@ -441,7 +441,7 @@ const AeExportProblems: React.FC = () => {
         <Divider>Включаем коррекцию соотношения сторон пикселя</Divider>
         <p>
           Если вы всё же хотите использовать неквадратный пиксель для композиции, например
-          для экспорта в <mark className="video">DV PAL</mark>, включите коррекцию
+          для экспорта в <mark className="term">DV PAL</mark>, включите коррекцию
           соотношения сторон для предпросмотра. Она активируется параметром{" "}
           <mark className="select">«Pixel Aspect Ratio Correction»</mark> в меню окна
           предпросмотра. Это позволит корректно отображать видео и предотвратить
@@ -480,16 +480,15 @@ const AeExportProblems: React.FC = () => {
         <p>
           Основная причина такого явления — ограниченная глубина цвета, вам просто не
           хватает цветов для отображения. Например, 8-битное изображение может отобразить
-          лишь <mark>256</mark> градаций на цветовой канал, и если для плавного перехода
-          их требуется больше, происходит округление до ближайших доступных значений. Это
-          и создаёт видимую ступенчатость: вместо мягкой смены оттенков появляются
-          отдельные полосы.
+          лишь 256 градаций на цветовой канал, и если для плавного перехода их требуется
+          больше, происходит округление до ближайших доступных значений. Это и создаёт
+          видимую ступенчатость: вместо мягкой смены оттенков появляются отдельные полосы.
         </p>
         <p>
           Проблема усугубляется и выбором кодека. Кодеки, такие как{" "}
           <mark className="video">H.264</mark>, при экспорте применяют цветовую
-          субдискретизацию <mark>4:2:0</mark>, которая значительно сокращает объём
-          информации о цвете, что также может привести к появлению полос.
+          субдискретизацию <mark className="codec-param">4:2:0</mark>, которая значительно
+          сокращает объём информации о цвете, что также может привести к появлению полос.
         </p>
         <ArticleMedia
           src="h9j89L8eQQk"
@@ -507,8 +506,8 @@ const AeExportProblems: React.FC = () => {
               помощью комбинации клавиш{" "}
               <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
               <mark className="select">«Color»</mark> и в параметре{" "}
-              <mark className="select">«Bit Depth»</mark> установите значение{" "}
-              <mark>16 бит</mark> или <mark>32 бит</mark> на канал.
+              <mark className="select">«Bit Depth»</mark> установите значение 16 бит или
+              32 бит на канал.
             </p>
             <Addition type="warning">
               Если вы увеличите глубину цвета, для рендеринга одного кадра потребуется
@@ -523,18 +522,20 @@ const AeExportProblems: React.FC = () => {
           </li>
           <li>
             Чтобы цветовая информация не сжималась, экспортируйте композицию в кодеке с
-            поддержкой цветовой субдискретизации <mark>4:4:4</mark> — например, в{" "}
+            поддержкой цветовой субдискретизации{" "}
+            <mark className="codec-param">4:4:4</mark> — например, в{" "}
             <mark className="video">Apple Prores 4444</mark>. В качестве альтернативы
             используйте <mark className="plugin">Voukoder</mark> для экспорта в{" "}
             <mark className="video">H.264</mark> и его производные с субдискретизацией{" "}
-            <mark>4:4:4</mark> вместо <mark>4:2:0</mark>.
+            <mark className="codec-param">4:4:4</mark> вместо{" "}
+            <mark className="codec-param">4:2:0</mark>.
           </li>
           <li>
             <p>
               Уменьшить эффект полос помогает и наложение шума. Для этого создайте
               корректирующий слой поверх всех остальных и примените к нему стандартный
               эффект <mark className="plugin">Add Grain</mark> или{" "}
-              <mark className="plugin">Noise</mark> со значением <mark>1–5%</mark>.
+              <mark className="plugin">Noise</mark> со значением 1–5%.
             </p>
             <p>
               В качестве альтернативы можно применить эффект{" "}
@@ -619,12 +620,15 @@ const AeExportProblems: React.FC = () => {
         <p>
           Проверьте версии используемых вами программ. Вероятно, вы используете{" "}
           <mark className="app">Adobe Media Encoder</mark> и{" "}
-          <mark className="app">Adobe After Effects</mark> версий с <mark>23.1</mark> по{" "}
-          <mark>23.5</mark>, в которых присутствует этот баг.
+          <mark className="app">Adobe After Effects</mark> версий от{" "}
+          <mark className="version">23.1 (2023)</mark> до{" "}
+          <mark className="version">23.5 (2023)</mark>, в которых присутствует этот баг.
         </p>
         <p>
-          Для решения проблемы достаточно обновить все программы до версии{" "}
-          <mark>23.6</mark> или новее либо отказаться от{" "}
+          Для решения проблемы достаточно обновить{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> до версии{" "}
+          <mark className="version">23.6 (2023)</mark> или выше либо отказаться от{" "}
           <mark className="app">Adobe Media Encoder</mark> в пользу прямого экспорта из{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>

@@ -124,23 +124,26 @@ const AeImport: React.FC = () => {
           Так вот: проигрыватель и <mark className="app">Adobe After Effects</mark> — это
           не одно и то же. Возьмём для примера <mark className="video">H.264</mark>,
           который многие так любят тащить в проект. Это кодек для просмотра и хранения
-          видео, а не для монтажа. В нём есть только опорные <mark>I-кадры</mark> —
-          единственные полноценные картинки во всём потоке. Всё остальное — это прогнозные{" "}
-          <mark>P-кадры</mark>, которые несут в себе только инструкцию типа «возьми
-          предыдущий кадр и подвинь вот тот кусок», и, что хуже всего, двунаправленные{" "}
-          <mark>B-кадры</mark>, которые для отрисовки требуют заглянуть не только в
-          прошлое, но и в будущее, ссылаясь на кадры, которые ещё даже не были показаны.
-          Подробнее о структуре <mark className="word">GOP</mark> можно почитать в{" "}
+          видео, а не для монтажа. В нём есть только опорные{" "}
+          <mark className="codec-param">I-кадры</mark> — единственные полноценные картинки
+          во всём потоке. Всё остальное — это прогнозные{" "}
+          <mark className="codec-param">P-кадры</mark>, которые несут в себе только
+          инструкцию типа «возьми предыдущий кадр и подвинь вот тот кусок», и, что хуже
+          всего, двунаправленные <mark className="codec-param">B-кадры</mark>, которые для
+          отрисовки требуют заглянуть не только в прошлое, но и в будущее, ссылаясь на
+          кадры, которые ещё даже не были показаны. Подробнее о структуре{" "}
+          <mark className="codec-param">GOP</mark> можно почитать в{" "}
           <a href="#advanced-export-settings">этой статье</a>.
         </p>
         <p>
           И вот тут проявляется разница: <mark className="app">Adobe After Effects</mark>{" "}
           не просто показывает видео, а разбирает его и преобразует в свой внутренний,
           несжатый формат, чтобы вы могли работать с каждым кадром. Из-за этого процессору
-          приходится распутывать сложный поток из <mark>P</mark>, <mark>I</mark> и{" "}
-          <mark>B</mark>-кадров при каждом действии пользователя. Это не только дико
-          тормозит всю работу, но и вытаскивает наружу все косяки сжатия: артефакты,
-          дёргания, «чёрные кадры», а также утечки оперативной памяти и ошибки вроде{" "}
+          приходится распутывать сложный поток из <mark className="codec-param">P</mark>,{" "}
+          <mark className="codec-param">I</mark> и <mark className="codec-param">B</mark>
+          -кадров при каждом действии пользователя. Это не только дико тормозит всю
+          работу, но и вытаскивает наружу все косяки сжатия: артефакты, дёргания, «чёрные
+          кадры», а также утечки оперативной памяти и ошибки вроде{" "}
           <mark className="warning">«Out of Memory»</mark>.
         </p>
         <ArticleMedia
@@ -188,13 +191,15 @@ const AeImport: React.FC = () => {
         </Addition>
         <Divider>Разбираемся с цветовыми пространствами</Divider>
         <p>
-          Современные <mark>iPhone</mark>, если не копаться в настройках, по умолчанию
-          записывают видео в <mark>HLG</mark> или <mark>Rec.2020</mark>. Это цветовое
-          пространство шире стандартного <mark>Rec.709</mark>. На бумаге звучит круто, но
-          на практике при работе в <mark className="app">Adobe After Effects</mark> и
-          других монтажных программах это почти всегда оборачивается проблемами: кадры
-          выглядят выжженными и пересвеченными из-за несоответствия между цветовыми
-          пространствами исходников и самого проекта.
+          Современные iPhone, если не копаться в настройках, по умолчанию записывают видео
+          в <mark className="color-space">HLG</mark> или{" "}
+          <mark className="color-space">Rec.2020</mark>. Это цветовое пространство шире
+          стандартного <mark className="color-space">Rec.709</mark>. На бумаге звучит
+          круто, но на практике при работе в{" "}
+          <mark className="app">Adobe After Effects</mark> и других монтажных программах
+          это почти всегда оборачивается проблемами: кадры выглядят выжженными и
+          пересвеченными из-за несоответствия между цветовыми пространствами исходников и
+          самого проекта.
         </p>
         <ArticleMedia
           caption="Терминал — MediaInfo-CLI"
@@ -218,12 +223,13 @@ const AeImport: React.FC = () => {
           </li>
         </ul>
         <Addition type="warning">
-          При конвертации из цветового пространства исходника в <mark>Rec.709</mark> цвета
-          могут незначительно измениться, а также немного сузятся возможности для
-          детальной цветокоррекции, поскольку часть информации будет утрачена. Однако для
-          большинства задач, не связанных с цветокоррекцией, этот способ является
-          предпочтительным из-за своей простоты и предсказуемости при внедрении в
-          какой-нибудь проект с разными камерами.
+          При конвертации из цветового пространства исходника в{" "}
+          <mark className="color-space">Rec.709</mark> цвета могут незначительно
+          измениться, а также немного сузятся возможности для детальной цветокоррекции,
+          поскольку часть информации будет утрачена. Однако для большинства задач, не
+          связанных с цветокоррекцией, этот способ является предпочтительным из-за своей
+          простоты и предсказуемости при внедрении в какой-нибудь проект с разными
+          камерами.
         </Addition>
         <ArticleMedia
           src="vlFdAqoriL0"
@@ -232,14 +238,13 @@ const AeImport: React.FC = () => {
         <Divider>Разбираемся с частотой кадров</Divider>
         <p>
           Теперь поговорим про переменную частоту кадров. Многие смартфоны и некоторые
-          камеры пишут видео именно в этом режиме. Даже если в настройках записи стоит{" "}
-          <mark>60 FPS</mark>, на деле частота может плавать из-за перегрева устройства
-          или плохого освещения. Такие перепады{" "}
-          <mark className="app">Adobe After Effects</mark> переносит плохо: кадры могут
-          дублироваться или перемешиваться, а алгоритмы — например, трекинг объекта —
-          работать с ошибками. Чтобы этого избежать, видео стоит предварительно
-          конвертировать<sup>1</sup> в постоянную частоту кадров, например через{" "}
-          <mark className="app">Shutter Encoder</mark> или{" "}
+          камеры пишут видео именно в этом режиме. Даже если в настройках записи стоит 60
+          FPS, на деле частота может плавать из-за перегрева устройства или плохого
+          освещения. Такие перепады <mark className="app">Adobe After Effects</mark>{" "}
+          переносит плохо: кадры могут дублироваться или перемешиваться, а алгоритмы —
+          например, трекинг объекта — работать с ошибками. Чтобы этого избежать, видео
+          стоит предварительно конвертировать<sup>1</sup> в постоянную частоту кадров,
+          например через <mark className="app">Shutter Encoder</mark> или{" "}
           <mark className="app">HandBrake</mark>.
         </p>
         <Addition type="warning">
@@ -336,8 +341,8 @@ const AeImport: React.FC = () => {
                   type="image"
                 />
                 <Addition type="info">
-                  Если вы конвертируете исходник, снятый на свежие <mark>iPhone</mark>, —
-                  отключите вторую аудиодорожку во вкладке{" "}
+                  Если вы конвертируете исходник, снятый на свежие iPhone, — отключите
+                  вторую аудиодорожку во вкладке{" "}
                   <mark className="select">«Audio Settings»</mark>, иначе при нажатии на{" "}
                   <mark className="select">«Start function»</mark> вы можете столкнуться с
                   ошибкой{" "}
@@ -376,19 +381,19 @@ const AeImport: React.FC = () => {
                     </p>
                     <ul>
                       <li>
-                        <mark className="select">CQ (Constant Quality)</mark> —
+                        <mark className="codec-param">CQ (Constant Quality)</mark> —
                         динамически распределяет битрейт в зависимости от сложности сцены
                         и поддерживает стабильное качество на всём протяжении ролика. Это
                         оптимальный выбор для большинства задач.
                       </li>
                       <li>
-                        <mark className="select">VBR (Variable Bitrate)</mark> — требует
-                        настройки целевого и максимального битрейта, подобрать которые с
-                        первого раза непросто, особенно если важно сохранить высокое
-                        качество и при этом не получить слишком тяжёлый файл.
+                        <mark className="codec-param">VBR (Variable Bitrate)</mark> —
+                        требует настройки целевого и максимального битрейта, подобрать
+                        которые с первого раза непросто, особенно если важно сохранить
+                        высокое качество и при этом не получить слишком тяжёлый файл.
                       </li>
                       <li>
-                        <mark className="select">CBR (Constant Bitrate)</mark> —
+                        <mark className="codec-param">CBR (Constant Bitrate)</mark> —
                         использует постоянный битрейт независимо от сложности кадра, что
                         нередко приводит к «раздутому» размеру файла и не гарантирует
                         стабильное качество в разных частях видео.
@@ -409,17 +414,20 @@ const AeImport: React.FC = () => {
                       <ul>
                         <li>
                           Чем меньше значение <mark className="select">«CQ»</mark>, тем
-                          лучше качество. По умолчанию устанавливается <mark>23</mark> —
-                          этого достаточно для большинства случаев.
+                          лучше качество. По умолчанию устанавливается{" "}
+                          <mark className="copy">23</mark> — этого достаточно для
+                          большинства случаев.
                         </li>
                         <li>
                           Если нужно сохранить почти максимальное качество, укажите
-                          значение от <mark>17</mark> до <mark>20</mark>. Однако размер
-                          файла при этом заметно возрастёт.
+                          значение от <mark className="copy">17</mark> до{" "}
+                          <mark className="copy">20</mark>. Однако размер файла при этом
+                          заметно возрастёт.
                         </li>
                         <li>
-                          Экстремальные значения, например <mark>50</mark>, использовать
-                          не рекомендуется — в итоге можно получить «кашу» из пикселей.
+                          Экстремальные значения, например{" "}
+                          <mark className="copy">50</mark>, использовать не рекомендуется
+                          — в итоге можно получить «кашу» из пикселей.
                         </li>
                       </ul>
                     </Addition>
@@ -428,7 +436,7 @@ const AeImport: React.FC = () => {
                     <p>
                       Укажите битрейт для аудио в параметре{" "}
                       <mark className="select">«Audio Bitrate»</mark>; достаточно
-                      установить значение <mark>320</mark> Кбит/с.
+                      установить значение <mark className="copy">320</mark> Кбит/с.
                     </p>
                     <ArticleMedia
                       caption="Shutter Encoder"
@@ -461,8 +469,8 @@ const AeImport: React.FC = () => {
             <p>
               При необходимости конвертируйте цветовое пространство во вкладке{" "}
               <mark className="select">«Colorimetry»</mark>, если оно отличается от{" "}
-              <mark>Rec.709</mark>. Цветовое пространство исходника можно узнать через{" "}
-              <mark className="app">MediaInfo</mark>.
+              <mark className="color-space">Rec.709</mark>. Цветовое пространство
+              исходника можно узнать через <mark className="app">MediaInfo</mark>.
             </p>
             <Addition type="warning">
               Цвета после конвертации из одного цветового пространства в другое могут
@@ -637,8 +645,9 @@ const AeImport: React.FC = () => {
           например на <mark className="color-space">sRGB IEC61966-2.1</mark> или{" "}
           <mark className="color-space">Rec.709 Gamma 2.4</mark>. В таком случае при
           импорте HDR-исходников, например <mark className="color-space">Rec.2020</mark> с
-          iPhone, цвета могут выглядеть пересвеченными, потому что <mark>HDR</mark> сигнал
-          имеет больший диапазон яркости, чем может отобразить <mark>SDR</mark>.
+          iPhone, цвета могут выглядеть пересвеченными, потому что{" "}
+          <mark className="term">HDR</mark> сигнал имеет больший диапазон яркости, чем
+          может отобразить <mark className="term">SDR</mark>.
         </p>
         <p>
           В таком случае у вас есть два пути: изменить цветовое пространство всего проекта
@@ -677,12 +686,13 @@ const AeImport: React.FC = () => {
           После открытия метаданных исходника стоит обратить внимание на два поля:{" "}
           <mark className="select">«Transfer characteristics»</mark> и{" "}
           <mark className="select">«Color primaries»</mark>. Первое показывает,{" "}
-          <mark>HDR</mark> это или <mark>SDR</mark>, а второе — какие используются
-          цветовые координаты. Например, <mark className="color-space">BT.2020</mark> с{" "}
+          <mark className="term">HDR</mark> это или <mark className="term">SDR</mark>, а
+          второе — какие используются цветовые координаты. Например,{" "}
+          <mark className="color-space">BT.2020</mark> с{" "}
           <mark className="color-space">HLG/PQ</mark> означает, что перед вами исходник в{" "}
-          <mark>HDR</mark>, а <mark className="color-space">BT.709</mark> или{" "}
-          <mark className="color-space">BT.601</mark> вместе со значением гаммы обычно
-          указывают на <mark>SDR</mark>.
+          <mark className="term">HDR</mark>, а <mark className="color-space">BT.709</mark>{" "}
+          или <mark className="color-space">BT.601</mark> вместе со значением гаммы обычно
+          указывают на <mark className="term">SDR</mark>.
         </p>
         <Divider>
           Про замену клипа с помощью{" "}
@@ -703,16 +713,17 @@ const AeImport: React.FC = () => {
               Если секвенция в <mark className="app">Adobe Premiere</mark> настроена на
               работу с цветовым пространством{" "}
               <mark className="color-space">Rec.2100 HLG</mark>, то после замены клипа на
-              мониторе без включенной фукнции отображения <mark>HDR</mark> вы будете
-              видеть пересветы.
+              мониторе без включенной фукнции отображения{" "}
+              <mark className="term">HDR</mark> вы будете видеть пересветы.
             </p>
             <p>
               Проблема в том, что в <mark className="app">Adobe After Effects</mark> при
               переносе выставляется цветовое пространство{" "}
               <mark className="color-space">Rec.2100 HLG W203</mark> у которого яркостный
-              диапазон явно больше того, чем может показать <mark>SDR</mark> монитор. Если
-              ваш монитор не поддерживает <mark>HDR</mark> и вы не хотите видеть
-              пересветов и увидеть изображение «как есть» — откройте окно{" "}
+              диапазон явно больше того, чем может показать{" "}
+              <mark className="term">SDR</mark> монитор. Если ваш монитор не поддерживает{" "}
+              <mark className="term">HDR</mark> и вы не хотите видеть пересветов и увидеть
+              изображение «как есть» — откройте окно{" "}
               <mark className="select">«Project Settings»</mark> с помощью комбинации
               клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во
               вкладку <mark className="select">«Color»</mark> и установите для параметра{" "}
@@ -830,10 +841,9 @@ const AeImport: React.FC = () => {
           type="image"
         />
         <p>
-          При наличии хотя бы <mark>32–64 ГБ</mark> оперативной памяти и мощного
-          процессора дисковый кэш можно отключить, особенно если вы редко работаете со
-          сложными сценами. Для этого снимите флажок{" "}
-          <mark className="select">«Enable Disk Cache»</mark> в{" "}
+          При наличии хотя бы 32 ГБ оперативной памяти и мощного процессора дисковый кэш
+          можно отключить, особенно если вы редко работаете со сложными сценами. Для этого
+          снимите флажок <mark className="select">«Enable Disk Cache»</mark> в{" "}
           <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
           <sup></sup>. Это снизит риск сбоев при воспроизведении кэшированных кадров,
           однако функция предпросмотра кадров с диска станет недоступна.
@@ -852,12 +862,13 @@ const AeImport: React.FC = () => {
         <p>
           Непредсказуемые артефакты часто возникают, если в проект импортированы
           материалы, скачанные из интернета — например, с{" "}
-          <mark className="app">YouTube</mark>. Такие сервисы перекодируют видео
+          <mark className="web">YouTube</mark>. Такие сервисы перекодируют видео
           собственными алгоритмами, которые не всегда подходят для монтажа. В конечном
           итоге процессору приходится каждый раз распутывать поток кадров и сложные
-          последовательности <mark>P</mark>, <mark>I</mark> и <mark>B</mark>-кадров.
-          Иногда он делает это с ошибками — и на экране предпросмотра могут появиться
-          артефакты.
+          последовательности <mark className="codec-param">P</mark>,{" "}
+          <mark className="codec-param">I</mark> и <mark className="codec-param">B</mark>
+          -кадров. Иногда он делает это с ошибками — и на экране предпросмотра могут
+          появиться артефакты.
         </p>
         <ArticleMedia
           caption="Пример артефактов проблемного исходника из интернета"
@@ -930,8 +941,8 @@ const AeImport: React.FC = () => {
                 флажок{" "}
                 <mark className="select">«Enable hardware accelerated decoding»</mark> и
                 перезагрузите программу. Такое поведение часто встречается на устройствах
-                с дискретным или встроенным в процессор видеочипом от{" "}
-                <mark className="company">AMD</mark>. Если это не поможет, придётся
+                с дискретным или встроенным в процессор видеочипом{" "}
+                <mark className="hardware">AMD</mark>. Если это не поможет, придётся
                 отправлять исходники на конвертацию.
               </p>
               <ArticleMedia
@@ -939,14 +950,17 @@ const AeImport: React.FC = () => {
                 src="legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 type="image"
               />
-              <Divider>Боремся с артефактами из-за драйверов NVIDIA</Divider>
+              <Divider>
+                Боремся с артефактами из-за драйверов{" "}
+                <mark className="hardware">NVIDIA</mark>
+              </Divider>
               <p>
-                В некоторых версиях драйверов <mark className="company">NVIDIA</mark>, как{" "}
-                <mark>Game Ready</mark>, так и <mark>Studio</mark>, могут появляться
-                разные артефакты. Например, баг, создающий «полосы» на изображении в
-                предпросмотре и при экспорте, связан с некорректной работой драйверов
-                версий от <mark>55X</mark> до <mark>56X</mark>. Для решения достаточно
-                обновить драйверы видеокарты — желательно до версии{" "}
+                В некоторых версиях драйверов <mark className="hardware">NVIDIA</mark>,
+                как <mark className="copy">Game Ready</mark>, так и{" "}
+                <mark className="copy">Studio</mark>, могут появляться разные артефакты.
+                Например, баг, создающий «полосы» на изображении в предпросмотре и при
+                экспорте, связан с некорректной работой драйверов версий от 55X до 56X.
+                Для решения достаточно обновить драйверы видеокарты — желательно до версии{" "}
                 <mark className="app">NVIDIA Studio Driver</mark> для более стабильной
                 работы с монтажными программами — либо установить более старую версию.
               </p>
@@ -1018,7 +1032,7 @@ const AeImport: React.FC = () => {
                     <mark className="select">«Formats»</mark> обратно на{" "}
                     <mark className="select">
                       «Use Influx for new formats, codecs and as a fallback (Default)»
-                    </mark>
+                    </mark>{" "}
                     и перекодируйте ваши исходники в монтажный кодек.
                   </li>
                 </ul>
@@ -1189,9 +1203,9 @@ const AeImport: React.FC = () => {
           windowsContent={
             <>
               <p>
-                Пользователи <mark>Windows</mark> могут столкнуться с проблемой открытия и
-                импорта в <mark className="app">Adobe After Effects</mark> таких файлов,
-                если в системе отсутствуют кодеки для работы с соответствующими форматами
+                Пользователи Windows могут столкнуться с проблемой открытия и импорта в{" "}
+                <mark className="app">Adobe After Effects</mark> таких файлов, если в
+                системе отсутствуют кодеки для работы с соответствующими форматами
                 изображений и видео. Чтобы корректно открывать такие изображения и видео,
                 вам нужно установить нужные кодеки. Для их загрузки посетите{" "}
                 <a href="https://store.rg-adguard.net/">
@@ -1241,8 +1255,7 @@ const AeImport: React.FC = () => {
                 <ul>
                   <li>
                     <sup>1</sup> «Быстрая» установка будет работать в том случае, если вы
-                    не используете слишком урезанную сборку <mark>Windows</mark>, в
-                    которой отсутствуют
+                    не используете слишком урезанную сборку Windows, в которой отсутствуют
                     <mark className="app">WinGet</mark> или{" "}
                     <mark className="app">Microsoft Store</mark>. Если система предлагает
                     открыть файл с помощью{" "}
@@ -1429,9 +1442,9 @@ const AeImport: React.FC = () => {
           <mark className="app">Adobe Illustrator</mark>, послойно в{" "}
           <mark className="app">Adobe After Effects</mark> без потери градиентов и других
           деталей, его нужно предварительно подготовить к импорту. Дело в том, что многие
-          проекты, особенно скачанные с <mark>Envato Elements</mark> и других стоков, в{" "}
-          <mark className="app">Adobe Illustrator</mark> выполняются в одном слое, внутри
-          которого находятся объекты. Однако при попытке импорта в{" "}
+          проекты, особенно скачанные с <mark className="web">Envato Elements</mark> и
+          других стоков, в <mark className="app">Adobe Illustrator</mark> выполняются в
+          одном слое, внутри которого находятся объекты. Однако при попытке импорта в{" "}
           <mark className="app">Adobe After Effects</mark> с выбранным режимом{" "}
           <mark className="select">«Import As» → «Composition»</mark> вы получите лишь тот
           самый слой без возможности послойного взаимодействия с объектами, которые были
@@ -1464,8 +1477,7 @@ const AeImport: React.FC = () => {
         </p>
         <p>
           При сохранении файла <mark className="image">AI</mark> в{" "}
-          <mark className="app">Adobe Illustrator</mark>
-          не забудьте активировать опцию{" "}
+          <mark className="app">Adobe Illustrator</mark> не забудьте активировать опцию{" "}
           <mark className="select">«Create PDF Compatible File»</mark>. Если этого не
           сделать, <mark className="app">Adobe After Effects</mark> не предложит
           импортировать файл послойно, а вместо графики вы получите плейсхолдер с чёрным
@@ -1524,8 +1536,8 @@ const AeImport: React.FC = () => {
         </Addition>
         <Divider>Про конвертацию слоёв в фигуры</Divider>
         <p>
-          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и новее появилась
-          возможность{" "}
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> и выше появилась возможность{" "}
           <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html#convert-Illustrator-layers-to-shape-layers">
             преобразовывать слои Illustrator в фигуры без потери градиентов
           </a>
@@ -1546,9 +1558,9 @@ const AeImport: React.FC = () => {
         </Addition>
         <Divider>Создаём фигуры с градиентами на предыдущих версиях программы</Divider>
         <Addition type="tldr">
-          Обновите <mark className="app">Adobe After Effects</mark> до версии{" "}
-          <mark>26.0 (2026)</mark> или пользуйтесь сторонними расширениями, например{" "}
-          <mark className="plugin">Overlord</mark>.
+          Обновите <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> или пользуйтесь сторонними
+          расширениями, например <mark className="plugin">Overlord</mark>.
         </Addition>
         <p>
           В этом и заключается главная проблема импорта из{" "}
@@ -1712,10 +1724,11 @@ const AeImport: React.FC = () => {
           <mark className="plugin">Advanced 3D</mark>
         </Divider>
         <p>
-          В <mark className="app">Adobe After Effects 24.1 (2024)</mark> и новее появился
-          новый движок рендеринга <mark className="plugin">Advanced 3D</mark>, который
-          позволяет импортировать трёхмерные объекты без использования сторонних плагинов.
-          В последней версии <mark className="app">Adobe After Effects</mark> на момент
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">24.1 (2024)</mark> и выше появился новый движок
+          рендеринга <mark className="plugin">Advanced 3D</mark>, который позволяет
+          импортировать трёхмерные объекты без использования сторонних плагинов. В
+          последней версии <mark className="app">Adobe After Effects</mark> на момент
           написания статьи поддерживается импорт <mark className="file">OBJ</mark>,{" "}
           <mark className="file">FBX</mark>, <mark className="file">GLTF</mark> и{" "}
           <mark className="file">GLB</mark> без использования сторонних инструментов.
@@ -1843,14 +1856,16 @@ const AeImport: React.FC = () => {
           <a href="https://aescripts.com/lottiefiles/">aescripts.com</a>. После установки
           расширение появится в <mark className="select">«Window» → «Extensions»</mark>.
           При первом открытии потребуется войти<sup>2</sup> в аккаунт{" "}
-          <mark>LottieFiles</mark>.
+          <mark className="web">LottieFiles</mark>.
         </p>
         <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> Чтобы бесплатно скачать расширение — зарегистрируйтесь или
-              войдите в аккаунт на <a href="https://aescripts.com">aescripts</a> и
-              оформите заказ. Ссылка на скачивание появится{" "}
+              <sup>1</sup> Чтобы бесплатно скачать расширение, зарегистрируйтесь или
+              войдите в аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем
+              на странице дополнения установите значение <mark className="copy">0</mark> в
+              поле <mark className="select">«Name Your Own Price»</mark> и оформите заказ.
+              Ссылка на скачивание появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
                 в вашем профиле
               </a>
@@ -1877,9 +1892,9 @@ const AeImport: React.FC = () => {
           </ul>
         </Addition>
         <p>
-          После успешного входа в аккаунт <mark>LottieFiles</mark> перейдите во вкладку{" "}
-          <mark className="select">«Import»</mark> в расширении и нажмите кнопку{" "}
-          <mark className="select">«Browse»</mark> для выбора файла формата{" "}
+          После успешного входа в аккаунт <mark className="web">LottieFiles</mark>{" "}
+          перейдите во вкладку <mark className="select">«Import»</mark> в расширении и
+          нажмите кнопку <mark className="select">«Browse»</mark> для выбора файла формата{" "}
           <mark className="file">JSON</mark>, <mark className="file">SVG</mark> или{" "}
           <mark className="file">Lottie</mark>.
         </p>
@@ -1954,10 +1969,10 @@ const AeImport: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> Чтобы бесплатно скачать расширение — зарегистрируйтесь или
+              <sup>1</sup> Чтобы бесплатно скачать расширение, зарегистрируйтесь или
               войдите в аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем
-              на странице дополнения установите значение <mark>0</mark> в поле{" "}
-              <mark className="select">«Name Your Own Price»</mark> и оформите заказ.
+              на странице дополнения установите значение <mark className="copy">0</mark> в
+              поле <mark className="select">«Name Your Own Price»</mark> и оформите заказ.
               Ссылка на скачивание появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
                 в вашем профиле
@@ -2157,8 +2172,8 @@ const AeImport: React.FC = () => {
         </p>
         <Addition type="info">
           Проекты, созданные в одной версии{" "}
-          <mark className="app">Adobe After Effects</mark> на <mark>Windows</mark>, без
-          проблем откроются в версии для <mark>macOS</mark> и наоборот.
+          <mark className="app">Adobe After Effects</mark> на Windows, в большинстве
+          случаев без проблем откроются в версии для macOS и наоборот.
         </Addition>
         <Divider>
           Конвертируем проект для старой версии{" "}
@@ -2181,10 +2196,13 @@ const AeImport: React.FC = () => {
         <p>
           Обратите внимание, что новые версии{" "}
           <mark className="app">Adobe After Effects</mark> уже не позволяют сохранять
-          проекты для версий <mark>18.X</mark> или <mark>22.X</mark>. В таком случае
-          придётся установить несколько версий программы и последовательно конвертировать
-          проект через каждую. Лучше выполнять этот процесс в виртуальной машине, чтобы
-          избежать возможных проблем в основной системе.
+          проекты для версий <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">18.X (2021)</mark> или{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">22.X (2022)</mark>. В таком случае придётся установить
+          несколько версий программы и последовательно конвертировать проект через каждую.
+          Лучше выполнять этот процесс в виртуальной машине, чтобы избежать возможных
+          проблем в основной системе.
         </p>
         <p>
           После конвертации до нужной версии откройте сохранённый файл в вашей версии{" "}

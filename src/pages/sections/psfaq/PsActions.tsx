@@ -29,12 +29,12 @@ const PsActions: React.FC = () => {
           приходится использовать обе программы.
         </p>
         <p>
-          Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
-          <mark>50 ГБ</mark> свободного места на диске: примерно <mark>43 ГБ</mark> в{" "}
-          <mark className="path">ProgramData</mark>, около <mark>2 ГБ</mark> в{" "}
-          <mark className="path">Program Files</mark> и ещё около <mark>5 ГБ</mark> под
-          временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
-          <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
+          Для <mark className="app">Topaz Photo AI</mark> понадобится около 50 ГБ
+          свободного места на диске: примерно 43 ГБ в{" "}
+          <mark className="path">ProgramData</mark>, около 2 ГБ в{" "}
+          <mark className="path">Program Files</mark> и ещё около 5 ГБ под временные
+          файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около 20 ГБ. И это
+          без учёта будущих обновлений.
         </p>
         <Addition type="info">
           Про различия <mark className="app">Topaz Photo AI</mark> и{" "}

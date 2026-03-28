@@ -81,12 +81,12 @@ const PrActions: React.FC = () => {
           <a href="https://www.topazlabs.com/pai-vs-gp">Чем эти программы отличаются?</a>
         </p>
         <Addition type="warning">
-          Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
-          <mark>50 ГБ</mark> свободного места на диске: примерно <mark>43 ГБ</mark> в{" "}
-          <mark className="path">ProgramData</mark>, около <mark>2 ГБ</mark> в{" "}
-          <mark className="path">Program Files</mark> и ещё около <mark>5 ГБ</mark> под
-          временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
-          <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
+          Для <mark className="app">Topaz Photo AI</mark> понадобится около 50 ГБ
+          свободного места на диске: примерно 43 ГБ в{" "}
+          <mark className="path">ProgramData</mark>, около 2 ГБ в{" "}
+          <mark className="path">Program Files</mark> и ещё около 5 ГБ под временные
+          файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около 20 ГБ. И это
+          без учёта будущих обновлений.
         </Addition>
         <ArticleMedia
           src="J6vDYRvjbGY"
@@ -190,11 +190,10 @@ const PrActions: React.FC = () => {
           «Уплавняем» видео вне <mark className="app">Adobe Premiere</mark>
         </Divider>
         <p>
-          Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
-          <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
-          более плавного воспроизведения, можно обойтись без{" "}
-          <mark className="app">Adobe Premiere</mark> и воспользоваться программой{" "}
-          <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
+          Если стоит задача увеличить частоту кадров, например, с 24 FPS до 60 FPS или
+          даже 120 FPS для дальнейшей обработки или более плавного воспроизведения, можно
+          обойтись без <mark className="app">Adobe Premiere</mark> и воспользоваться
+          программой <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
           <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
           <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
           расширенным функционалом.
@@ -274,8 +273,8 @@ const PrActions: React.FC = () => {
                 <a href="https://brew.sh/">Что ещё за Homebrew?</a>
               </Addition>
               <p>
-                Для установки <mark className="app">FFmpeg</mark> на <mark>macOS</mark>{" "}
-                достаточно выполнить в терминале команду{" "}
+                Для установки <mark className="app">FFmpeg</mark> на macOS достаточно
+                выполнить в терминале команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
             </>
@@ -290,7 +289,7 @@ const PrActions: React.FC = () => {
               <Addition type="warning">
                 <ul>
                   <li>
-                    Если в вашей сборке <mark>Windows</mark> утилита{" "}
+                    Если в вашей сборке Windows утилита{" "}
                     <mark className="app">winget</mark> отсутствует,{" "}
                     <a href="https://github.com/microsoft/winget-cli/releases">
                       установите её вручную
@@ -323,8 +322,8 @@ const PrActions: React.FC = () => {
           <ul>
             <li>
               <p>
-                Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или
-                относительный путь к вашему видео.
+                Вместо <mark className="code">INPUT_VIDEO_NAME.mp4</mark> введите
+                абсолютный или относительный путь к вашему видео.
               </p>
               <Addition type="info">
                 <ul>
@@ -345,12 +344,12 @@ const PrActions: React.FC = () => {
               </Addition>
             </li>
             <li>
-              Вместо <mark>FRAME_RATE</mark> введите целевую частоту кадров, например,{" "}
-              <mark>29.97</mark> или <mark>60</mark>.
+              Вместо <mark className="code">FRAME_RATE</mark> введите целевую частоту
+              кадров, например, 29.97 или 60.
             </li>
             <li>
-              Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите директорию, имя и
-              расширение для итогового файла.
+              Вместо <mark className="code">OUTPUT_VIDEO_NAME.mp4</mark> введите
+              директорию, имя и расширение для итогового файла.
             </li>
           </ul>
         </Addition>
@@ -361,12 +360,12 @@ const PrActions: React.FC = () => {
         title="Чем можно подавить шумы на видео?"
       >
         <p>
-          Если видео было снято при плохом освещении и с высоким <mark>ISO</mark>, вы,
-          скорее всего, столкнётесь с цифровым шумом. Этот дефект возникает из-за
-          особенностей работы сенсоров камер и самой природы света. Шум особенно заметен
-          на однотонных поверхностях: небе, коже, стенах и в тенях. Полностью от него
-          избавиться сложно, но его можно заметно подавить с помощью специальных
-          инструментов.
+          Если видео было снято при плохом освещении и с высоким{" "}
+          <mark className="term">ISO</mark>, вы, скорее всего, столкнётесь с цифровым
+          шумом. Этот дефект возникает из-за особенностей работы сенсоров камер и самой
+          природы света. Шум особенно заметен на однотонных поверхностях: небе, коже,
+          стенах и в тенях. Полностью от него избавиться сложно, но его можно заметно
+          подавить с помощью специальных инструментов.
         </p>
         <Addition type="warning">
           Чрезмерное подавление шума может ухудшить качество исходного материала. Важно
@@ -512,9 +511,10 @@ const PrActions: React.FC = () => {
         title="Как сделать автоматические субтитры из речи?"
       >
         <p>
-          В <mark className="app">Adobe Premiere Pro 22.X (2022)</mark> и новее добавили
-          поддержку автоматического перевода речи в текст. Работает как на лицензионных,
-          так и на «народных» версиях.
+          В <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">22.X (2022)</mark> и выше добавили поддержку
+          автоматического перевода речи в текст. Работает как на лицензионных, так и на
+          «народных» версиях.
         </p>
         <Addition type="info">
           <ul>
@@ -541,10 +541,12 @@ const PrActions: React.FC = () => {
                 <mark className="app">Adobe Premiere</mark>, отличной от вашей, вы просто
                 зря займёте место на диске, а язык не установится, и программа будет
                 постоянно предлагать его скачать. То есть, если у вас установлен{" "}
-                <mark className="app">Adobe Premiere Pro 24.6 (2024)</mark>, а языковой
-                пакет, который вы скачали и установили, предназначен для{" "}
-                <mark>24.1 (2024)</mark>, то в вашей версии программы он попросту не
-                появится.
+                <mark className="app">Adobe Premiere Pro</mark>{" "}
+                <mark className="version">24.6 (2024)</mark>, а языковой пакет, который вы
+                скачали и установили, предназначен для{" "}
+                <mark className="app">Adobe Premiere Pro</mark>{" "}
+                <mark className="version">24.1 (2024)</mark>, то в вашей версии программы
+                он попросту не появится.
               </p>
               <Addition type="info">
                 Информацию о текущей сборке программы вы можете узнать в{" "}
@@ -602,10 +604,10 @@ const PrActions: React.FC = () => {
         </Divider>
         <Addition type="warning">
           Демонстрируемая программа <mark className="app">Subtitle Edit</mark> для
-          редактирования и генерации субтитров доступна только для устройств на{" "}
-          <mark>Windows</mark>. Пользователи устройств на <mark>macOS</mark> могут
-          воспользоваться альтернативами в виде <mark className="app">MacWhisper</mark>{" "}
-          или <mark className="app">Tero Subtitler</mark>.
+          редактирования и генерации субтитров доступна только для устройств на Windows.
+          Пользователи устройств на macOS могут воспользоваться альтернативами в виде{" "}
+          <mark className="app">MacWhisper</mark> или{" "}
+          <mark className="app">Tero Subtitler</mark>.
         </Addition>
         <p>
           Сначала скачайте <mark className="app">Subtitle Edit</mark> со{" "}
@@ -630,8 +632,9 @@ const PrActions: React.FC = () => {
           Затем перейдите в <mark className="select">«Video»</mark> и выберите{" "}
           <mark className="select">«Audio to text (Whisper)»</mark> или{" "}
           <mark className="select">«Audio to text (Vosk/Kaldi)»</mark>. В этой статье
-          будет рассматриваться генерация через <mark>Whisper</mark>. При первом запуске
-          программа предложит установить <mark className="app">FFmpeg</mark> и движок{" "}
+          будет рассматриваться генерация через <mark className="app">Whisper</mark>. При
+          первом запуске программа предложит установить{" "}
+          <mark className="app">FFmpeg</mark> и движок{" "}
           <mark className="app">Purfview&apos;s Faster Whisper</mark> — это стоит
           подтвердить.
         </p>
@@ -652,8 +655,8 @@ const PrActions: React.FC = () => {
                 <mark className="app">Whisper.cpp</mark>, лучше отказаться от его
                 скачивания, нажав <mark className="select">«No»</mark> в диалоговом окне,
                 так как он работает нестабильно. Вместо него следует установить{" "}
-                <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
-                <mark className="select">«Engine»</mark> выберите{" "}
+                <mark className="app">Purfview&apos;s Faster Whisper</mark>. Для этого в
+                окне в параметре <mark className="select">«Engine»</mark> выберите{" "}
                 <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
                 подтвердите загрузку.
               </p>
@@ -668,9 +671,10 @@ const PrActions: React.FC = () => {
         <p>
           Далее нужно скачать языковую модель. Для этого рядом с{" "}
           <mark className="select">«Choose model»</mark> нажмите на три точки. В
-          открывшемся окне вы можете выбрать любую модель, например <mark>large-v3</mark>{" "}
-          или <mark>large-v2</mark>, чтобы перевести русскоязычную речь в текст с
-          относительно хорошей точностью.
+          открывшемся окне вы можете выбрать любую модель, например{" "}
+          <mark className="select">«large-v3»</mark> или{" "}
+          <mark className="select">«large-v2»</mark>, чтобы перевести русскоязычную речь в
+          текст с относительно хорошей точностью.
         </p>
         <Addition type="info">
           Чем меньше весит модель, тем быстрее она работает, но при этом может ухудшаться
@@ -745,7 +749,7 @@ const PrActions: React.FC = () => {
           программ для разделения трека на 4 или 6 дорожек (биты, инструментал, бас и
           голос). Скачать её можно{" "}
           <a href="https://www.stemroller.com/">по этой ссылке</a> для устройств на{" "}
-          <mark>Windows</mark> и <mark>macOS</mark>.
+          Windows и macOS.
         </p>
         <p>
           После распаковки архива откройте программу и перетащите в неё аудиофайл. После

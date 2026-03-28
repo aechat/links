@@ -11,6 +11,7 @@ const PsInterface: React.FC = () => {
     <div className="article-content">
       <DetailsSummary
         anchor="disable-home-screen"
+        tag="home screen, стартовое окно, последние проекты, запуск программы"
         title="Как отключить стартовое окно с последними открытыми проектами при запуске?"
       >
         <p>
@@ -29,6 +30,7 @@ const PsInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="change-theme-color"
+        tag="тема интерфейса, светлый интерфейс, тёмный интерфейс, ui brightness"
         title="Как сделать фон программы светлее или темнее?"
       >
         <p>
@@ -58,15 +60,13 @@ const PsInterface: React.FC = () => {
       ></DetailsSummary>
       <DetailsSummary
         anchor="custom-splash-screen"
+        tag="заставка, изображение запуска, resource hacker, dll, startup image, splash screen customization"
         title="Как изменить картинку во время запуска программы?"
       >
         <Addition type="danger">
-          Действия с заменой файлов программы{" "}
-          <b>
-            <u>вы делаете на свой страх и риск!</u>
-          </b>{" "}
-          После обновления программы ваша картинка перезапишется на исходную. Инструкция
-          действительна только для устройств на <mark>Windows</mark>.
+          Действия с заменой файлов программы вы делаете на свой страх и риск! После
+          обновления программы ваша картинка перезапишется на исходную. Инструкция
+          действительна только для устройств на Windows.
         </Addition>
         <p>
           При запуске <mark className="app">Adobe Photoshop</mark> вы часто видите
@@ -75,8 +75,8 @@ const PsInterface: React.FC = () => {
           сделать с помощью правок <mark className="file">DAT</mark>-файлов, расположенных
           в папке <mark className="path">Resources</mark> в директории с установленной
           программой. Для этого нам пригодится утилита{" "}
-          <mark className="app">Photoshop Splash Screen Extractor</mark> от{" "}
-          <mark>Pronama</mark>, которую можно загрузить{" "}
+          <mark className="app">Photoshop Splash Screen Extractor</mark> от Pronama,
+          которую можно загрузить{" "}
           <a
             download
             href="files/Photoshop Splash Screen Extractor.rar"
@@ -119,9 +119,9 @@ const PsInterface: React.FC = () => {
           type="video"
         />
         <p>
-          В качестве примера я заменю стандартное изображение на изображение автомобиля{" "}
-          <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark> в той
-          же директории, куда были распакованы картинки интерфейса{" "}
+          В качестве примера я заменю стандартное изображение на изображение автомобиля
+          Ford Focus и сохраню его в <mark className="image">PNG</mark> в той же
+          директории, куда были распакованы картинки интерфейса{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
         <ArticleMedia

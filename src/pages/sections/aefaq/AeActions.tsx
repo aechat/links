@@ -66,13 +66,13 @@ const AeActions: React.FC = () => {
         />
         <Divider>«Наваливаем» эффекты для цветокоррекции</Divider>
         <p>
-          На популярных видеоплощадках, таких как <mark className="app">TikTok</mark> и{" "}
-          <mark className="app">YouTube Shorts</mark>, часто применяют спорные методы
+          На популярных видеоплощадках, таких как <mark className="web">TikTok</mark> и{" "}
+          <mark className="web">YouTube Shorts</mark>, часто применяют спорные методы
           «улучшения» качества с помощью цветокоррекции: используют эффекты{" "}
           <mark className="plugin">Sharpen</mark> и{" "}
           <mark className="plugin">Unsharpen Mask</mark> с «задранными» значениями,
-          завышают контраст и насыщенность, а видео при этом называют <mark>4K</mark>,
-          хотя на деле оно опубликовано в меньшем разрешении.
+          завышают контраст и насыщенность, а видео при этом называют как 4K, хотя на деле
+          оно опубликовано в меньшем разрешении.
         </p>
         <ArticleMedia
           src="d9ESpD7vc2Y"
@@ -94,12 +94,12 @@ const AeActions: React.FC = () => {
           <a href="https://www.topazlabs.com/pai-vs-gp">Чем эти программы отличаются?</a>
         </p>
         <Addition type="warning">
-          Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
-          <mark>50 ГБ</mark> свободного места на диске: примерно <mark>43 ГБ</mark> в{" "}
-          <mark className="path">ProgramData</mark>, около <mark>2 ГБ</mark> в{" "}
-          <mark className="path">Program Files</mark> и ещё около <mark>5 ГБ</mark> под
-          временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
-          <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
+          Для <mark className="app">Topaz Photo AI</mark> понадобится около 50 ГБ
+          свободного места на диске: примерно 43 ГБ в{" "}
+          <mark className="path">ProgramData</mark>, около 2 ГБ в{" "}
+          <mark className="path">Program Files</mark> и ещё около 5 ГБ под временные
+          файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около 20 ГБ. И это
+          без учёта будущих обновлений.
         </Addition>
         <ArticleMedia
           src="J6vDYRvjbGY"
@@ -205,11 +205,10 @@ const AeActions: React.FC = () => {
           «Уплавняем» видео вне <mark className="app">Adobe After Effects</mark>
         </Divider>
         <p>
-          Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
-          <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
-          более плавного воспроизведения, можно обойтись без{" "}
-          <mark className="app">Adobe After Effects</mark> и воспользоваться программой{" "}
-          <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
+          Если стоит задача увеличить частоту кадров, например, с 24 FPS до 60 FPS или
+          даже 120 FPS для дальнейшей обработки или более плавного воспроизведения, можно
+          обойтись без <mark className="app">Adobe After Effects</mark> и воспользоваться
+          программой <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
           <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
           <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
           расширенным функционалом.
@@ -327,8 +326,8 @@ const AeActions: React.FC = () => {
                 <a href="https://brew.sh/">Что ещё за Homebrew?</a>
               </Addition>
               <p>
-                Для установки <mark className="app">FFmpeg</mark> на <mark>macOS</mark>{" "}
-                достаточно выполнить в терминале команду{" "}
+                Для установки <mark className="app">FFmpeg</mark> на macOS достаточно
+                выполнить в терминале команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
             </>
@@ -343,7 +342,7 @@ const AeActions: React.FC = () => {
               <Addition type="warning">
                 <ul>
                   <li>
-                    Если в вашей сборке <mark>Windows</mark> утилита{" "}
+                    Если в вашей сборке Windows утилита{" "}
                     <mark className="app">winget</mark> отсутствует,{" "}
                     <a href="https://github.com/microsoft/winget-cli/releases">
                       установите её вручную
@@ -376,8 +375,8 @@ const AeActions: React.FC = () => {
           <ul>
             <li>
               <p>
-                Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или
-                относительный путь к вашему видео.
+                Вместо <mark className="code">INPUT_VIDEO_NAME.mp4</mark> введите
+                абсолютный или относительный путь к вашему видео.
               </p>
               <Addition type="info">
                 <ul>
@@ -398,12 +397,12 @@ const AeActions: React.FC = () => {
               </Addition>
             </li>
             <li>
-              Вместо <mark>FRAME_RATE</mark> введите целевую частоту кадров, например,{" "}
-              <mark>29.97</mark> или <mark>60</mark>.
+              Вместо <mark className="code">FRAME_RATE</mark> введите целевую частоту
+              кадров, например, 29.97 или 60.
             </li>
             <li>
-              Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите директорию, имя и
-              расширение для итогового файла.
+              Вместо <mark className="code">OUTPUT_VIDEO_NAME.mp4</mark> введите
+              директорию, имя и расширение для итогового файла.
             </li>
           </ul>
         </Addition>
@@ -414,12 +413,12 @@ const AeActions: React.FC = () => {
         title="Чем можно подавить шумы на видео?"
       >
         <p>
-          Если видео было снято при плохом освещении и с высоким <mark>ISO</mark>, вы,
-          скорее всего, столкнётесь с цифровым шумом. Этот дефект возникает из-за
-          особенностей работы сенсоров камер и самой природы света. Шум особенно заметен
-          на однотонных поверхностях: небе, коже, стенах и в тенях. Полностью от него
-          избавиться сложно, но его можно заметно подавить с помощью специальных
-          инструментов.
+          Если видео было снято при плохом освещении и с высоким{" "}
+          <mark className="term">ISO</mark>, вы, скорее всего, столкнётесь с цифровым
+          шумом. Этот дефект возникает из-за особенностей работы сенсоров камер и самой
+          природы света. Шум особенно заметен на однотонных поверхностях: небе, коже,
+          стенах и в тенях. Полностью от него избавиться сложно, но его можно заметно
+          подавить с помощью специальных инструментов.
         </p>
         <Addition type="warning">
           Чрезмерное подавление шума может ухудшить качество исходного материала. Важно
@@ -752,10 +751,10 @@ const AeActions: React.FC = () => {
           удобный инструмент <mark className="plugin">Roto Brush</mark>, который
           вызывается сочетанием клавиш <mark className="key">Alt + W</mark> и позволяет
           отделять объект от фона практически любой сложности. В последних версиях{" "}
-          <mark className="app">Adobe After Effects</mark> он обновлён до версии{" "}
-          <mark>3.0</mark>, добавив алгоритмы с использованием искусственного интеллекта.
-          При грамотной работе этот инструмент способен дать действительно впечатляющий
-          результат.
+          <mark className="app">Adobe After Effects</mark> он обновлён до{" "}
+          <mark className="plugin">Roto Brush</mark> <mark className="version">3.0</mark>,
+          добавив алгоритмы с использованием искусственного интеллекта. При грамотной
+          работе этот инструмент способен дать действительно впечатляющий результат.
         </p>
         <ArticleMedia
           src="eoOIrdb_0ko"
@@ -785,8 +784,8 @@ const AeActions: React.FC = () => {
         <Addition type="danger">
           Все перечисленные в этой статье способы очень требовательны к мощности
           видеокарты, объёму видеопамяти и оперативной памяти. Рекомендуется использовать
-          видеокарты от <mark className="company">NVIDIA</mark>, так как все эти
-          инструменты используют ядра <mark>CUDA</mark>.
+          видеокарты <mark className="hardware">NVIDIA</mark>, так как все эти инструменты
+          используют ядра <mark className="term">CUDA</mark>.
         </Addition>
         <Divider>
           Генерируем карту глубины в <mark className="app">Adobe After Effects</mark>
@@ -810,8 +809,8 @@ const AeActions: React.FC = () => {
           type="youtube"
         />
         <p>
-          Также в <mark className="plugin">Boris FX Continuum</mark> версии{" "}
-          <mark>2025.5</mark> и новее появился{" "}
+          Также в <mark className="plugin">Boris FX Continuum</mark>{" "}
+          <mark className="version">2025.5</mark> и выше появился{" "}
           <mark className="plugin">BCC+Depth Map ML</mark>. С его помощью тоже можно
           генерировать карту глубины и использовать её для создания различных эффектов.
         </p>
@@ -831,13 +830,13 @@ const AeActions: React.FC = () => {
           windowsContent={
             <>
               <Addition type="warning">
-                На <mark>macOS</mark> процесс установки{" "}
-                <mark className="app">Python</mark> и зависимостей может отличаться.
+                На macOS процесс установки <mark className="app">Python</mark> и
+                зависимостей может отличаться.
               </Addition>
               <p>
                 Перед установкой <mark className="app">Depth Anything V2</mark> нужно
                 подготовить окружение, установив <mark className="app">Python</mark>{" "}
-                версии <mark>3.11</mark>. Скачать его можно{" "}
+                <mark className="version">3.11</mark>. Скачать его можно{" "}
                 <a href="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe">
                   по этой ссылке
                 </a>
@@ -879,18 +878,20 @@ const AeActions: React.FC = () => {
               <Addition type="warning">
                 <ul>
                   <li>
-                    На более свежих версиях <mark className="app">Python</mark>, например,
-                    <mark>3.12</mark> и новее, некоторые зависимости могут не установиться
-                    без «танцев с бубном».
+                    На <mark className="app">Python</mark>{" "}
+                    <mark className="version">3.12</mark> или выше некоторые зависимости
+                    могут не установиться без «танцев с бубном».
                   </li>
                   <li>
                     Учтите, что по умолчанию устанавливается{" "}
-                    <mark className="app">Torch</mark> без поддержки <mark>CUDA</mark>, и
-                    обработка будет выполняться на процессоре. Чтобы включить ускорение на
-                    видеокарте <mark className="company">NVIDIA</mark>, сначала удалите
+                    <mark className="app">Torch</mark> без поддержки{" "}
+                    <mark className="term">CUDA</mark>, и обработка будет выполняться на
+                    процессоре. Чтобы включить ускорение на видеокарте{" "}
+                    <mark className="hardware">NVIDIA</mark>, сначала удалите
                     установленный <mark className="app">Torch</mark> с помощью команды{" "}
                     <mark className="code">pip uninstall torch torchvision -y</mark>, а
-                    затем установите версию с поддержкой <mark>CUDA</mark> —{" "}
+                    затем установите версию с поддержкой{" "}
+                    <mark className="term">CUDA</mark> —{" "}
                     <mark className="code">
                       pip install torch torchvision --index-url
                       https://download.pytorch.org/whl/cu121
@@ -898,9 +899,10 @@ const AeActions: React.FC = () => {
                     .
                   </li>
                   <li>
-                    Если у вас видеокарта <mark className="company">NVIDIA</mark> серии{" "}
-                    <mark>1000</mark> и предыдущая команда не сработала, попробуйте версию
-                    для <mark>CUDA 11.8</mark>:{" "}
+                    Если у вас видеокарта <mark className="hardware">NVIDIA</mark> серии{" "}
+                    1000 и предыдущая команда не сработала, попробуйте версию для{" "}
+                    <mark className="term">CUDA</mark>{" "}
+                    <mark className="version">11.8</mark>:{" "}
                     <mark className="code">
                       pip install torch torchvision --index-url
                       https://download.pytorch.org/whl/cu118
@@ -1014,9 +1016,9 @@ const AeActions: React.FC = () => {
         <Divider>Используем Unmult</Divider>
         <p>
           Для футажей со множеством мелких деталей в{" "}
-          <mark className="app">Adobe After Effects</mark>
-          начиная с версии <mark>2026</mark> можно использовать новый эффект{" "}
-          <mark className="plugin">Unmult</mark>.{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> и выше можно использовать новый
+          эффект <mark className="plugin">Unmult</mark>.{" "}
           <a href="https://helpx.adobe.com/after-effects/using/keying-effects.html#unmult">
             Подробнее...
           </a>
@@ -1272,7 +1274,8 @@ const AeActions: React.FC = () => {
         title="Как сделать анимацию толщины шрифта?"
       >
         <p>
-          В <mark className="app">Adobe After Effects 26.0 (2026)</mark> и выше добавили{" "}
+          В <mark className="app">Adobe After Effects</mark>{" "}
+          <mark className="version">26.0 (2026)</mark> и выше добавили{" "}
           <a href="https://helpx.adobe.com/after-effects/using/variable-font-axes-support.html">
             поддержку вариативных шрифтов
           </a>{" "}
@@ -1334,8 +1337,9 @@ const AeActions: React.FC = () => {
             <Addition type="warning">
               <mark className="plugin">Duik Bassel</mark> может выдавать ошибку{" "}
               <mark className="warning">«themeColor is no longer available»</mark> в{" "}
-              <mark className="app">Adobe After Effects 25.X (2025)</mark>. Эта проблема
-              решается либо переходом на <mark className="plugin">Duik Angela</mark>, либо
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">25.X (2025)</mark> и выше. Эта проблема решается
+              либо переходом на <mark className="plugin">Duik Angela</mark>, либо
               самодельным багофиксом из{" "}
               <a href="https://www.reddit.com/r/AfterEffects/comments/1jams32/i_got_duik_bassel_to_work_in_after_effects_2025">
                 темы на Reddit
@@ -1418,9 +1422,9 @@ const AeActions: React.FC = () => {
           несколько, что позволяет анимировать каждую часть текста отдельно.
         </p>
         <Addition type="info">
-          <sup>1</sup> Чтобы бесплатно скачать скрипт — зарегистрируйтесь или войдите в
+          <sup>1</sup> Чтобы бесплатно скачать скрипт, зарегистрируйтесь или войдите в
           аккаунт на <a href="https://aescripts.com">aescripts</a>, а затем на странице
-          дополнения установите значение <mark>0</mark> в поле{" "}
+          дополнения установите значение <mark className="copy">0</mark> в поле{" "}
           <mark className="select">«Name Your Own Price»</mark> и оформите заказ. Ссылка
           на скачивание появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">

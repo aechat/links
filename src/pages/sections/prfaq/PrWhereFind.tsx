@@ -132,12 +132,9 @@ const PrWhereFind: React.FC = () => {
           по выгодным ценам.
         </Addition>
         <Addition type="danger">
-          Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
-          которые не используют подписочную модель распространения,{" "}
-          <b>
-            <u>не поддерживаются</u>
-          </b>
-          .
+          Файлы из <mark className="web">Videohive</mark>,{" "}
+          <mark className="web">Shutterstock</mark> и других сервисов, которые не
+          используют подписочную модель распространения, не поддерживаются.
         </Addition>
         <Addition type="warning">
           Контент, предоставленный в <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
@@ -153,12 +150,12 @@ const PrWhereFind: React.FC = () => {
             <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> — канал с
             творческими программами, утилитами и плагинами к различным программам по
             демократичным ценам для пользователей устройств на операционной системе{" "}
-            <mark>Windows</mark>.
+            Windows.
           </li>
           <li>
             <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> — такой же канал с
-            программами, как и <mark>склад стройматериалов</mark>, но для пользователей
-            устройств на <mark>macOS</mark>.
+            программами, как и склад стройматериалов, но для пользователей устройств на
+            macOS.
           </li>
         </ul>
         <Addition type="info">
@@ -167,7 +164,8 @@ const PrWhereFind: React.FC = () => {
           <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </Addition>
         <Addition type="warning">
-          При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
+          При установке программ с пометкой{" "}
+          <mark className="quote">«репак от кролика»</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
           забывайте убирать галочку <mark className="select">«Реклама»</mark> и отключать
           антивирус перед установкой, иначе можете столкнуться с ошибкой{" "}
@@ -210,9 +208,9 @@ const PrWhereFind: React.FC = () => {
       >
         <p>
           В Интернете существует множество онлайн-видеостоков, среди которых многие
-          предоставляют материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>.
-          Это означает, что вы можете использовать их в своих коммерческих проектах, не
-          указывая авторство.
+          предоставляют материалы с лицензией{" "}
+          <mark className="term">Creative Commons Zero (CC0)</mark>. Это означает, что вы
+          можете использовать их в своих коммерческих проектах, не указывая авторство.
         </p>
         <div className="flexible-links">
           <a
@@ -744,8 +742,9 @@ const PrWhereFind: React.FC = () => {
           <li>
             <p>
               После обработки изображения ниже у вас появится список возможных шрифтов. В
-              моём примере был использован шрифт <mark>Berlin Sans FB</mark>, и с его
-              нахождением сервис отлично справился.
+              моём примере был использован шрифт{" "}
+              <mark className="copy">Berlin Sans FB</mark>, и с его нахождением сервис
+              отлично справился.
             </p>
             <ArticleMedia
               caption="Результат распознавания"
@@ -773,9 +772,10 @@ const PrWhereFind: React.FC = () => {
           таблице перевода.
         </p>
         <Addition type="danger">
-          В <mark className="app">Adobe Premiere Pro 25.X (2025)</mark> и новее убрали
-          папку <mark className="path">Obsolete</mark>, где были расположены устаревшие,
-          по мнению <mark className="company">Adobe</mark>, эффекты. Эффекты всё ещё будут
+          В <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.X (2025)</mark> и выше убрали папку{" "}
+          <mark className="path">Obsolete</mark>, где были расположены устаревшие, по
+          мнению <mark className="company">Adobe</mark>, эффекты. Эффекты всё ещё будут
           доступны для проектов, которые были созданы в предыдущих версиях{" "}
           <mark className="app">Adobe Premiere</mark>, но без танцев с бубном их применить
           в новых проектах не получится.{" "}

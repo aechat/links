@@ -393,7 +393,7 @@ const PrFromNewbies: React.FC = () => {
                           <mark className="select">«History States»</mark> в контекстном
                           меню панели{" "}
                           <mark className="select">«History» → «Settings»</mark>. По
-                          умолчанию установлено значение <mark>32</mark>.
+                          умолчанию установлено значение <mark className="copy">32</mark>.
                         </p>
                         <Addition type="warning">
                           История последних действий хранится только в пределах текущей
@@ -467,9 +467,10 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">Ctrl + V</mark>
                       <Addition type="info">
-                        До версии <mark>22.5</mark> данная комбинация клавиш была
-                        назначена на действие <mark className="select">«Paste»</mark>,
-                        которое работает как{" "}
+                        В <mark className="app">Adobe Premiere Pro</mark>{" "}
+                        <mark className="version">22.5 (2022)</mark> и ниже данная
+                        комбинация клавиш была назначена на действие{" "}
+                        <mark className="select">«Paste»</mark>, которое работает как{" "}
                         <mark className="select">«Paste To Target Track»</mark>.
                       </Addition>
                     </td>
@@ -482,8 +483,9 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">Ctrl + Shift + V</mark>
                       <Addition type="info">
-                        До версии <mark>22.5</mark> данная комбинация клавиш была
-                        назначена на действие{" "}
+                        В <mark className="app">Adobe Premiere Pro</mark>{" "}
+                        <mark className="version">22.5 (2022)</mark> и ниже данная
+                        комбинация клавиш была назначена на действие{" "}
                         <mark className="select">«Paste Insert»</mark>, которое работает
                         как <mark className="select">«Paste Insert To Target Track»</mark>
                         .
@@ -682,9 +684,9 @@ const PrFromNewbies: React.FC = () => {
                       рендеринга
                       <Addition type="info">
                         При желании вы также можете настроить комбинацию клавиш для
-                        действия <mark>Render In to Out</mark>, которое выполняет
-                        пререндер участков секвенции, отмеченных жёлтыми и красными
-                        полосами рендеринга, например на{" "}
+                        действия <mark className="select">«Render In to Out»</mark>,
+                        которое выполняет пререндер участков секвенции, отмеченных жёлтыми
+                        и красными полосами рендеринга, например на{" "}
                         <mark className="key">Shift + Enter</mark>.{" "}
                         <a href="#render-bar-colors">Что эти цвета означают?</a>
                       </Addition>
@@ -858,9 +860,8 @@ const PrFromNewbies: React.FC = () => {
                           <li>
                             <sup>1</sup> По умолчанию в{" "}
                             <mark className="app">Adobe Premiere</mark> настроено на
-                            смещение в пределах <mark>5 кадров</mark> или{" "}
-                            <mark>100 единиц времени аудио</mark>. Данные значения можно
-                            изменить в{" "}
+                            смещение в пределах 5 кадров или 100 единиц времени аудио.
+                            Данные значения можно изменить в{" "}
                             <mark className="select">
                               «Edit» → «Preferences» → «Trim»
                             </mark>
@@ -889,9 +890,8 @@ const PrFromNewbies: React.FC = () => {
                           <li>
                             <sup>1</sup> По умолчанию в{" "}
                             <mark className="app">Adobe Premiere</mark> настроено на
-                            смещение в пределах <mark>5 кадров</mark> или{" "}
-                            <mark>100 единиц времени аудио</mark>. Данные значения можно
-                            изменить в{" "}
+                            смещение в пределах 5 кадров или 100 единиц времени аудио.
+                            Данные значения можно изменить в{" "}
                             <mark className="select">
                               «Edit» → «Preferences» → «Trim»
                             </mark>
@@ -1470,7 +1470,7 @@ const PrFromNewbies: React.FC = () => {
                       <Addition type="info">
                         <sup>1</sup> По умолчанию в{" "}
                         <mark className="app">Adobe Premiere</mark> шаг смещения
-                        составляет <mark>5 кадров</mark>. Изменить это значение можно в{" "}
+                        составляет 5 кадров. Изменить это значение можно в{" "}
                         <mark className="select">
                           «Edit» → «Preferences» → «Playback»
                         </mark>{" "}
@@ -1504,7 +1504,7 @@ const PrFromNewbies: React.FC = () => {
                       <Addition type="info">
                         <sup>1</sup> По умолчанию в{" "}
                         <mark className="app">Adobe Premiere</mark> шаг смещения
-                        составляет <mark>5 кадров</mark>. Изменить это значение можно в{" "}
+                        составляет 5 кадров. Изменить это значение можно в{" "}
                         <mark className="select">
                           «Edit» → «Preferences» → «Playback»
                         </mark>{" "}
@@ -1677,8 +1677,8 @@ const PrFromNewbies: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-          Большинство дополнений из статьи можно найти в каналах{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+              Большинство дополнений из статьи можно найти в каналах{" "}
+              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
               <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
               или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
               <Addition type="info">
@@ -1717,14 +1717,12 @@ const PrFromNewbies: React.FC = () => {
                         <li>
                           Плагины формата <mark className="file">PRM</mark> и{" "}
                           <mark className="file">AEX</mark> не подходят для устройств на{" "}
-                          <mark>macOS</mark>, так как они предназначены для устройств на{" "}
-                          <mark>Windows</mark>.
+                          macOS, так как они предназначены для устройств на Windows.
                         </li>
                         <li>
                           Плагины формата <mark className="file">BUNDLE</mark> и{" "}
                           <mark className="file">PLUGIN</mark> не подходят для устройств
-                          на <mark>Windows</mark>, так как они предназначены для устройств
-                          на <mark>macOS</mark>.
+                          на Windows, так как они предназначены для устройств на macOS.
                         </li>
                       </ul>
                     </Addition>
@@ -1732,16 +1730,17 @@ const PrFromNewbies: React.FC = () => {
                   <li>
                     <mark className="word">Расширение</mark> — дополнение формата{" "}
                     <mark className="file">ZXP</mark>, которое может устанавливаться на
-                    обеих платформах — <mark>Windows</mark> и <mark>macOS</mark>. Чаще
-                    всего представляет собой веб-страницу в стеке{" "}
-                    <mark className="file">HTML</mark>, <mark className="file">CSS</mark>,{" "}
-                    <mark className="file">JS</mark>, бэкэндом и доступом к вашей файловой
-                    системе, выполняющее определённые действия и связывает веб-страницу с{" "}
-                    <mark className="app">Adobe After Effects</mark>. Сами страницы и
-                    скрипты для них могут писаться как на чистом <mark>JavaScript</mark>,
-                    так и с использованием различных фреймворков, например{" "}
-                    <mark className="app">React</mark> или{" "}
-                    <mark className="app">Vue</mark>.
+                    обеих платформах — Windows и macOS. Чаще всего представляет собой
+                    веб-страницу в стеке <mark className="file-code">HTML</mark>,{" "}
+                    <mark className="file-code">CSS</mark> и{" "}
+                    <mark className="file-code">JavaScript</mark>, бэкэндом и доступом к
+                    вашей файловой системе, выполняющее определённые действия и связывает
+                    веб-страницу с <mark className="app">Adobe After Effects</mark>. Сами
+                    страницы и скрипты для них могут писаться как на чистом{" "}
+                    <mark className="file-code">JavaScript</mark>, так и с использованием
+                    различных фреймворков, например{" "}
+                    <mark className="file-code">React</mark> или{" "}
+                    <mark className="file-code">Vue</mark>.
                   </li>
                 </ul>
               </Addition>
@@ -1752,7 +1751,7 @@ const PrFromNewbies: React.FC = () => {
         <ul>
           <li>
             <p>
-            <mark className="plugin">Boris FX Sapphire</mark> и{" "}
+              <mark className="plugin">Boris FX Sapphire</mark> и{" "}
               <mark className="plugin">Boris FX Continuum</mark> — пакеты популярных
               эффектов от <mark className="company">Boris FX</mark>, которые дополняют
               скудный стандартный набор инструментов.
@@ -1775,8 +1774,8 @@ const PrFromNewbies: React.FC = () => {
           <li>
             <p>
               Пакеты от <mark className="company">Red Giant</mark>:{" "}
-            <mark className="plugin">Magic Bullet Suite</mark>,{" "}
-            <mark className="plugin">VFX Suite</mark> и{" "}
+              <mark className="plugin">Magic Bullet Suite</mark>,{" "}
+              <mark className="plugin">VFX Suite</mark> и{" "}
               <mark className="plugin">Universe</mark>. Последние версии первых трёх
               пакетов объединены в один <mark className="plugin">Maxon Red Giant</mark>, а{" "}
               <mark className="plugin">Maxon Universe</mark> по-прежнему устанавливается
@@ -1819,11 +1818,12 @@ const PrFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-            <mark className="plugin">Film Impact Premium Transitions</mark> и{" "}
-            <mark className="plugin">Film Impact Premium Effects</mark> — сборник
+              <mark className="plugin">Film Impact Premium Transitions</mark> и{" "}
+              <mark className="plugin">Film Impact Premium Effects</mark> — сборник
               различных эффектов и переходов. Ранее этот набор был платным, но начиная с{" "}
-              <mark className="app">Adobe Premiere Pro 25.6 (2025)</mark> он входит в
-              стандартную поставку программы.
+              <mark className="app">Adobe Premiere Pro</mark>{" "}
+              <mark className="version">25.6 (2025)</mark> он входит в стандартную
+              поставку программы.
             </p>
             <ArticleMedia
               src="TScee_B9Qt8"
@@ -1873,13 +1873,13 @@ const PrFromNewbies: React.FC = () => {
         <Divider>Подборка полезных инструментов</Divider>
         <li>
           <p>
-          <mark className="plugin">Excalibur</mark> — панель для быстрого применения
+            <mark className="plugin">Excalibur</mark> — панель для быстрого применения
             переходов и эффектов, а также для выполнения других действий. По умолчанию
             вызывается комбинацией клавиш <mark className="key">Alt + Space</mark>, но её
             можно переназначить в настройках расширения. Это расширение можно считать
             аналогом <mark className="plugin">FX Console</mark> из{" "}
-          <mark className="app">Adobe After Effects</mark> для{" "}
-          <mark className="app">Adobe Premiere</mark>.
+            <mark className="app">Adobe After Effects</mark> для{" "}
+            <mark className="app">Adobe Premiere</mark>.
           </p>
           <ArticleMedia
             src="lvlgHy5TQx8"
@@ -1905,9 +1905,9 @@ const PrFromNewbies: React.FC = () => {
                 расширений производительность проекта может снизиться.
               </li>
               <li>
-                Не рекомендуется хранить файлы пакетов этих расширений по пути длиннее{" "}
-                <mark>255</mark> символов: это может вызвать ошибки импорта и нестабильную
-                работу расширений.
+                Не рекомендуется хранить файлы пакетов этих расширений по пути длиннее 255
+                символов: это может вызвать ошибки импорта и нестабильную работу
+                расширений.
               </li>
             </ul>
           </Addition>
@@ -1954,10 +1954,9 @@ const PrFromNewbies: React.FC = () => {
               type="youtube"
             />
             <Addition type="info">
-              В программе доступна пробная версия на <mark>20 дней</mark>. После её
-              завершения синхронизация ограничивается <mark>20 клипами</mark> на двух
-              дорожках. Полную версию <mark className="app">Syncaila</mark> можно
-              приобрести на{" "}
+              В программе доступна пробная версия на 20 дней. После её завершения
+              синхронизация ограничивается 20 клипами на двух дорожках. Полную версию{" "}
+              <mark className="app">Syncaila</mark> можно приобрести на{" "}
               <a href="https://syncaila.com/ru#section-licenses">официальном сайте</a>.
             </Addition>
           </li>
@@ -1966,8 +1965,8 @@ const PrFromNewbies: React.FC = () => {
         <ul>
           <li>
             <p>
-            <mark className="app">Subtitle Edit</mark> — сторонняя программа для
-            редактирования и генерации субтитров из звука с помощью технологий{" "}
+              <mark className="app">Subtitle Edit</mark> — сторонняя программа для
+              редактирования и генерации субтитров из звука с помощью технологий{" "}
               <mark className="app">Whisper</mark> и{" "}
               <mark className="app">Vosk/Kaldi</mark>.
             </p>
@@ -1979,9 +1978,9 @@ const PrFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="plugin">Submachine</mark> — расширение для создания
-              анимированных субтитров для <mark className="app">TikTok</mark>,{" "}
-              <mark className="app">YouTube Shorts</mark> или{" "}
-              <mark className="app">Instagram Reels</mark>
+              анимированных субтитров для <mark className="web">TikTok</mark>,{" "}
+              <mark className="web">YouTube Shorts</mark> или{" "}
+              <mark className="web">Instagram Reels</mark>
               <sup>1</sup>. Перед использованием лучше уделить время на его изучение.
               <ArticleMedia
                 src="xYidiPvc_LY"
@@ -1989,20 +1988,20 @@ const PrFromNewbies: React.FC = () => {
               />
             </p>
             <Addition type="warning">
-              Данное расширение на{" "}
-              <mark className="app">Adobe Premiere Pro 24.2 (2024)</mark> и{" "}
-              <mark className="app">Adobe Premiere Pro 24.2.1 (2024)</mark> может работать
-              некорректно.
+              Данное расширение на <mark className="app">Adobe Premiere Pro</mark>{" "}
+              <mark className="version">24.2 (2024)</mark> и{" "}
+              <mark className="app">Adobe Premiere Pro</mark>{" "}
+              <mark className="version">24.2.1 (2024)</mark> может работать некорректно.
             </Addition>
             <Addition type="danger">
-              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
-              признаны экстремистскими организациями и запрещены на территории Российской
-              Федерации.
+              <sup>1</sup> <mark className="web">Instagram</mark> и{" "}
+              <mark className="company">Meta</mark> признаны экстремистскими организациями
+              и запрещены на территории Российской Федерации.
             </Addition>
           </li>
           <li>
             <p>
-            <mark className="plugin">Captioneer</mark> — аналог предыдущего в списке
+              <mark className="plugin">Captioneer</mark> — аналог предыдущего в списке
               дополнения, с его помощью тоже можно создавать анимированные субтитры и
               применять на них стили из <mark className="file">MOGRT</mark> файлов.
             </p>
@@ -2021,10 +2020,10 @@ const PrFromNewbies: React.FC = () => {
         <ul>
           <li>
             <p>
-            <mark className="plugin">iZotope RX</mark>,{" "}
-            <mark className="plugin">iZotope Nectar</mark> и{" "}
-            <mark className="plugin">iZotope Ozone</mark> — плагины для обработки звука,
-            восстановления голоса и мастеринга.
+              <mark className="plugin">iZotope RX</mark>,{" "}
+              <mark className="plugin">iZotope Nectar</mark> и{" "}
+              <mark className="plugin">iZotope Ozone</mark> — плагины для обработки звука,
+              восстановления голоса и мастеринга.
             </p>
             <ArticleMedia
               src="oWR5aGBmlYo"
@@ -2140,8 +2139,8 @@ const PrFromNewbies: React.FC = () => {
           хранилище с включённой автоматической синхронизацией. У популярных сервисов,
           например <mark className="app">Яндекс.Диск</mark>,{" "}
           <mark className="app">Google Drive</mark>, <mark className="app">Dropbox</mark>{" "}
-          есть клиенты для <mark>Windows</mark> и <mark>macOS</mark>, которые
-          синхронизируют указанные вами папки автоматически.
+          есть клиенты для Windows и macOS, которые синхронизируют указанные вами папки
+          автоматически.
         </p>
         <p>
           Во многих таких сервисах доступна история версий — она позволяет вернуть старую
@@ -2169,19 +2168,17 @@ const PrFromNewbies: React.FC = () => {
         <Divider>Создаём локальные резервные копии стандартными средствами ОС</Divider>
         <p>
           Если вариант с облачным хранилищем не подходит, можно организовать систему
-          резервного копирования локально. И в <mark>Windows</mark>, и в{" "}
-          <mark>macOS</mark> есть встроенные функции для этого. Обычно для их работы
-          требуется отдельный накопитель.
+          резервного копирования локально. И в Windows, и в macOS есть встроенные функции
+          для этого. Обычно для их работы требуется отдельный накопитель.
         </p>
         <ContentFilter
           macContent={
             <>
               <p>
-                В <mark>macOS</mark> эта функция называется{" "}
-                <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
-                системы и файлов каждый час или по нажатию кнопки. Для работы{" "}
-                <mark className="app">Time Machine</mark> нужен внешний накопитель,
-                желательно объёмом от <mark>512 ГБ</mark>.
+                В macOS эта функция называется <mark className="app">Time Machine</mark>.
+                Она создаёт «снимки» вашей системы и файлов каждый час или по нажатию
+                кнопки. Для работы <mark className="app">Time Machine</mark> нужен внешний
+                накопитель, желательно объёмом от 512 ГБ.
               </p>
               <ArticleMedia
                 src="Gx76i28c150"
@@ -2192,7 +2189,7 @@ const PrFromNewbies: React.FC = () => {
           windowsContent={
             <>
               <p>
-                В <mark>Windows</mark> эта функция называется{" "}
+                В Windows эта функция называется{" "}
                 <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
                 другой папке или на другом диске. С её помощью можно восстановить
                 удалённый или предыдущую версию файла. Для работы этой функции нужно
@@ -2224,10 +2221,10 @@ const PrFromNewbies: React.FC = () => {
           Если возможностей стандартных решений в вашей операционной системе оказалось
           недостаточно, можно воспользоваться сторонними программами для бэкапов, например{" "}
           <mark className="app">AOMEI Backupper</mark> или{" "}
-          <mark className="app">Acronis True Image</mark>. Они доступны как для{" "}
-          <mark>Windows</mark>, так и для <mark>macOS</mark>. С их помощью вы можете
-          настроить автоматическое резервное копирование папок, разделов диска или даже
-          целого образа системы — по расписанию или при наступлении определённых событий.
+          <mark className="app">Acronis True Image</mark>. Они доступны как для Windows,
+          так и для macOS. С их помощью вы можете настроить автоматическое резервное
+          копирование папок, разделов диска или даже целого образа системы — по расписанию
+          или при наступлении определённых событий.
         </p>
         <ArticleMedia
           src="ImCjFVlF3gQ"
@@ -2264,14 +2261,14 @@ const PrFromNewbies: React.FC = () => {
         title="Что такое Nest, как их создать и распаковывать?"
       >
         <p>
-          <mark>Nest</mark> — функция объединения нескольких клипов или слоев в одну
-          секвенцию, которая затем может быть использована как единый элемент в таймлайне.
-          Это бывает полезным для организации материала или применения эффектов к группе
-          клипов одновременно.
+          <mark className="select">«Nest»</mark> — функция объединения нескольких клипов
+          или слоев в одну секвенцию, которая затем может быть использована как единый
+          элемент в таймлайне. Это бывает полезным для организации материала или
+          применения эффектов к группе клипов одновременно.
         </p>
         <p>
-          Для создания <mark>Nest</mark> нужно выделить нужные клипы, нажать на{" "}
-          <mark className="key">ПКМ</mark> и нажать на кнопку{" "}
+          Для создания <mark className="select">«Nest»</mark> нужно выделить нужные клипы,
+          нажать на <mark className="key">ПКМ</mark> и нажать на кнопку{" "}
           <mark className="select">«Nest»</mark>. После этого откроется окно в которое вы
           можете вписать название новой секвенции.
         </p>
@@ -2281,14 +2278,14 @@ const PrFromNewbies: React.FC = () => {
           type="video"
         />
         <p>
-          А чтобы распаковать <mark>Nest</mark> или же наложить на таймлайн
-          &quot;распакованную&quot; секвенцию — найдите нужную секвенцию в окне{" "}
+          А чтобы распаковать <mark className="select">«Nest»</mark> или же наложить на
+          таймлайн «распакованную» секвенцию — найдите нужную секвенцию в окне{" "}
           <mark className="select">«Project»</mark>, отключите функцию{" "}
           <mark className="select">
             «Insert and overwrite sequences as nests or individual clips»
           </mark>{" "}
-          и перетяните секвенцию прямо на таймлайн. Старый <mark>Nest</mark> можно удалить
-          без всяких проблем.
+          и перетяните секвенцию прямо на таймлайн. Старый{" "}
+          <mark className="select">«Nest»</mark> можно удалить без всяких проблем.
         </p>
         <ArticleMedia
           caption="Adobe Premiere"
@@ -2356,8 +2353,7 @@ const PrFromNewbies: React.FC = () => {
               ПК.
             </p>
             <Addition type="warning">
-              Если вы уменьшите клип, записанный в <mark>4K</mark> под секвенцию{" "}
-              <mark>1080p</mark> через{" "}
+              Если вы уменьшите клип, записанный в 4K под секвенцию 1080p через{" "}
               <mark className="select">«Scale to Frame Size»</mark>, то вы заметите, что
               качество просядет. Также это касается и увеличения клипов.
             </Addition>
@@ -2469,7 +2465,7 @@ const PrFromNewbies: React.FC = () => {
           Функцию выделения клипа при перемещении временной метки можно отключить, убрав
           галочку с <mark className="select">«Select Follow Playhead»</mark> в{" "}
           <mark className="select">«Sequence»</mark>. Выделение клипа зависит от выбранных
-          дорожек с помощью <mark>Track Targeting</mark>.
+          дорожек с помощью <mark className="select">«Track Targeting»</mark>.
         </p>
         <Addition type="info">
           <ul>
