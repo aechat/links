@@ -227,8 +227,11 @@ const PrInstallProblems: React.FC = () => {
                         установщики от неподтверждённых разработчиков. Чтобы обойти этот
                         запрет, нужно изменить настройки безопасности операционной
                         системы. Подробнее об этом вы можете прочитать на{" "}
-                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,
-                        на{" "}
+                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
+                        <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
+                          Яблык
+                        </a>
+                        ,{" "}
                         <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
                           iPhones.ru
                         </a>{" "}

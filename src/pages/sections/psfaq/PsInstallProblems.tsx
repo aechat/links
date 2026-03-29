@@ -227,33 +227,38 @@ const PsInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                    Если в архиве или в записи находится файл{" "}
-                    <mark className="file">DMG</mark>, <mark className="file">APP</mark>{" "}
-                    или <mark className="file">PKG</mark>, то обычно в нём содержится
-                    автоматический установщик плагина. Для установки таких файлов нужно
-                    следовать инструкциям инсталлятора, например перенести файл из одного
-                    места в другое и так далее.
+                    Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
+                    <mark className="file">APP</mark> или{" "}
+                    <mark className="file">PKG</mark> — достаточно открыть такой файл
+                    двойным кликом и следовать инструкциям инсталлятора.
                   </p>
                   <Addition type="info">
                     <ul>
                       <li>
-                        По умолчанию в macOS вы не сможете без танцев с бубном открыть
+                        По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
                         установщики от неподтверждённых разработчиков. Чтобы обойти этот
                         запрет, нужно изменить настройки безопасности операционной
                         системы. Подробнее об этом вы можете прочитать на{" "}
-                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a> и
-                        на{" "}
+                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
+                        <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
+                          Яблык
+                        </a>
+                        ,{" "}
                         <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
                           iPhones.ru
+                        </a>{" "}
+                        или в{" "}
+                        <a href="https://appstorrent.ru/200-mistakes.html">
+                          решениях проблем с установкой на appstorrent
                         </a>
                         .
                       </li>
                       <li>
                         Если вы сталкиваетесь с ошибкой{" "}
-                        <mark className="quote">
+                        <mark className="danger">
                           «Не удаётся открыть программу „AppName”»
                         </mark>
-                        , попробуйте открыть его через <mark className="key">ПКМ</mark>,
+                        , попробуйте открыть её через <mark className="key">ПКМ</mark>,
                         выбрав в контекстном меню{" "}
                         <mark className="select">«Открыть»</mark>.
                       </li>
