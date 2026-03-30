@@ -179,6 +179,26 @@ const getSummaryTitle = (summary: Element): string => {
   return `${summaryId}. ${normalizedBaseTitle}`;
 };
 
+const isPlaceholderOnlyDetail = (detail: Element): boolean => {
+  const placeholder = detail.querySelector(".article-placeholder");
+
+  if (!placeholder) {
+    return false;
+  }
+
+  const detailClone = detail.cloneNode(true) as Element;
+
+  for (const element of detailClone.querySelectorAll(
+    "summary, .article-placeholder, .ant-divider, .ant-divider-inner-text, [class*='media-figure']"
+  )) {
+    element.remove();
+  }
+
+  const remainingText = (detailClone.textContent || "").replaceAll(/\s+/g, " ").trim();
+
+  return remainingText.length === 0;
+};
+
 type BaseSearchResult = Omit<
   SearchResult,
   "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
@@ -231,6 +251,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     const data: BaseSearchResult[] = [];
 
     for (const [sourceOrder, detail] of cachedDetails.entries()) {
+      if (isPlaceholderOnlyDetail(detail)) {
+        continue;
+      }
+
       const summary = detail.querySelector(":scope > summary");
 
       if (!summary) {
