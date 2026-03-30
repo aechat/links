@@ -11,6 +11,7 @@ import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
+import {useAprilFoolsTelegramReplace} from "./hooks/useAprilFoolsTelegramReplace";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {useRipple} from "./hooks/useRipple";
@@ -347,6 +348,8 @@ const AppContent = () => {
   const location = useLocation();
 
   const {accentHue, saturateRatio, theme} = useTheme();
+
+  useAprilFoolsTelegramReplace();
 
   useEffect(() => {
     setupHapticMessageFeedback();
