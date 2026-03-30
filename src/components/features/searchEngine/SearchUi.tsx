@@ -334,6 +334,7 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
 type SearchResultCardProperties = {
   anchor?: string;
   content: string;
+  isContentUnclamped: boolean;
   highlightedTags: React.ReactNode[];
   highlightedTitle: React.ReactNode;
   id: string;
@@ -356,6 +357,7 @@ const SearchResultCard: React.FC<SearchResultCardProperties> = ({
   highlightedTitle,
   id,
   isContentOverflowing,
+  isContentUnclamped,
   isHovered,
   isMobile,
   isSelected,
@@ -412,11 +414,31 @@ const SearchResultCard: React.FC<SearchResultCardProperties> = ({
           ref={setContentRef}
           className={`${searchStyles["search-content"]} ${
             isContentOverflowing ? searchStyles["search-content-truncated"] : ""
-          } ${isSelected ? searchStyles["search-content-selected"] : ""} article-content no-copy`}
+          } ${isContentUnclamped ? searchStyles["search-content-unclamped"] : ""} ${
+            isSelected ? searchStyles["search-content-selected"] : ""
+          } article-content no-copy`}
           dangerouslySetInnerHTML={{__html: content}}
         />
       </button>
     </div>
+  );
+};
+
+const hasMatchingTableInContent = (contentHtml: string): boolean => {
+  if (!contentHtml.includes("<table")) {
+    return false;
+  }
+
+  const temporaryRoot = document.createElement("div");
+
+  temporaryRoot.innerHTML = contentHtml;
+
+  const tables = [...temporaryRoot.querySelectorAll("table")];
+
+  return tables.some(
+    (table) =>
+      table.querySelector('[data-search-hit="true"]') ||
+      table.querySelector("mark[data-search-hit='true']")
   );
 };
 
@@ -820,6 +842,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       }
     }
 
+    const shouldDisableContentClamp = hasMatchingTableInContent(highlightedContent);
+
     const isSelected = index === selectedResultIndex;
 
     const isHovered = hoveredIndex === index;
@@ -831,7 +855,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
         highlightedTags={highlightedTags}
         highlightedTitle={highlightedTitle}
         id={id}
-        isContentOverflowing={overflowingResultIds.has(id)}
+        isContentOverflowing={!shouldDisableContentClamp && overflowingResultIds.has(id)}
+        isContentUnclamped={shouldDisableContentClamp}
         isHovered={isHovered}
         isMobile={isMobile}
         isSelected={isSelected}

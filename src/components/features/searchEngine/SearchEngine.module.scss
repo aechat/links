@@ -345,6 +345,11 @@
     }
   }
 
+  &-content-unclamped {
+    max-height: none;
+    overflow: visible;
+  }
+
   &-selected {
     transition:
       background-color,
