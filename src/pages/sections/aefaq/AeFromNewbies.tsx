@@ -2055,9 +2055,10 @@ const AeFromNewbies: React.FC = () => {
         </div>
         <Addition type="info">
           Чтобы открыть нужную статью на русском языке — добавьте{" "}
-          <mark className="copy">/ru</mark> в ссылку после helpx.adobe.com. Учтите, что
-          статьи, переведённые на другие языки, могут быть переведены некорректно или
-          иметь устаревшую информацию.
+          <mark className="copy">/ru</mark> в ссылку после{" "}
+          <mark className="web">helpx.adobe.com</mark>. Учтите, что статьи, переведённые
+          на другие языки, могут быть переведены некорректно или иметь устаревшую
+          информацию.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
