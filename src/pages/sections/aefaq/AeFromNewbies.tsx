@@ -1931,7 +1931,7 @@ const AeFromNewbies: React.FC = () => {
               </p>
               <p>
                 Его можно использовать при наложении технических оверлеев, таких как
-                границы интерфейса <mark className="web">TikTok</mark> или
+                границы интерфейса <mark className="web">TikTok</mark> или{" "}
                 <mark className="web">YouTube Shorts</mark>, а также для передачи
                 инструкций коллегам по проекту, чтобы им было проще внести правки позже.
               </p>
