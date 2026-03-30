@@ -1969,6 +1969,38 @@ const AeFromNewbies: React.FC = () => {
                 type="youtube"
               />
             </NestedDetailsSummary>
+            <NestedDetailsSummary title="Маркеры">
+              <p>
+                <mark className="select">«Markers»</mark> — это метки с возможностью
+                добавления комментария, которые можно ставить на слой или на таймлайн
+                композиции. Они помогают отмечать важные моменты, например биты в музыке
+                или начало определённого действия.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Чтобы поставить маркер на выделенный слой — нажмите{" "}
+                    <mark className="key">
+                      *{" "}
+                      <span style={{fontWeight: "450", opacity: "0.5"}}>(на Numpad)</span>
+                    </mark>{" "}
+                    на цифровом блоке клавиатуры.
+                  </li>
+                  <li>
+                    Чтобы поставить маркер на слой и сразу открыть окно его настроек —
+                    нажмите{" "}
+                    <mark className="key">
+                      Alt + *{" "}
+                      <span style={{fontWeight: "450", opacity: "0.5"}}>(на Numpad)</span>
+                    </mark>
+                    .
+                  </li>
+                  <li>
+                    Если слой не выделен, маркер будет поставлен на таймлайн композиции.
+                  </li>
+                </ul>
+              </Addition>
+            </NestedDetailsSummary>
           </li>
         </ul>
         <Divider>
