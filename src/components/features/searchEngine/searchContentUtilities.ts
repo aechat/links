@@ -509,13 +509,28 @@ const pickTableOrFallback = (
   const tables = root.querySelectorAll("table");
 
   if (tables.length > 0) {
-    if (compiledQuery.isKeyCombination && isKeyCombinationTablePresent(tables)) {
-      for (const table of tables) {
-        const tableResult = processTable(table, compiledQuery, dependencies);
+    const shouldPrioritizeKeyCombinationTable =
+      compiledQuery.isKeyCombination && isKeyCombinationTablePresent(tables);
 
-        if (tableResult) {
-          return tableResult;
+    for (const table of tables) {
+      if (shouldPrioritizeKeyCombinationTable) {
+        const headers = [...table.querySelectorAll("th")];
+
+        const isKeyCombinationTable = headers.some((th) => {
+          const text = th.textContent?.toLowerCase() || "";
+
+          return text.includes("комбинация") || text.includes("действие");
+        });
+
+        if (!isKeyCombinationTable) {
+          continue;
         }
+      }
+
+      const tableResult = processTable(table, compiledQuery, dependencies);
+
+      if (tableResult) {
+        return tableResult;
       }
     }
 
