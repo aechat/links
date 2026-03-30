@@ -669,24 +669,105 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     [results]
   );
 
-  const resultById = useMemo(
-    () => new Map(results.map((result) => [result.id, result])),
-    [results]
-  );
+  const [masonryColumns, setMasonryColumns] = useState<
+    Array<Array<{index: number; result: SearchResult}>>
+  >([]);
 
-  const masonryColumns = useMemo(() => {
+  const fallbackMasonryColumns = useMemo(() => {
     if (isSingleColumnLayout) {
       return [resultEntries];
     }
 
     const columns: Array<Array<{index: number; result: SearchResult}>> = [[], []];
 
-    for (const [index, entry] of resultEntries.entries()) {
-      columns[index % 2].push(entry);
+    for (const [entryIndex, entry] of resultEntries.entries()) {
+      columns[entryIndex % 2].push(entry);
     }
 
     return columns;
   }, [isSingleColumnLayout, resultEntries]);
+
+  const resultById = useMemo(
+    () => new Map(results.map((result) => [result.id, result])),
+    [results]
+  );
+
+  const recalculateMasonryColumns = useCallback(() => {
+    if (isSingleColumnLayout) {
+      setMasonryColumns([resultEntries]);
+
+      return;
+    }
+
+    const columns: Array<Array<{index: number; result: SearchResult}>> = [[], []];
+
+    const columnHeights = [0, 0];
+
+    const measuredHeights = resultEntries.map((entry) => {
+      const element = resultRefs.current?.[entry.index];
+
+      return element?.getBoundingClientRect().height ?? 0;
+    });
+
+    const hasMeasuredHeights = measuredHeights.some((height) => height > 0);
+
+    if (!hasMeasuredHeights) {
+      for (const [entryIndex, entry] of resultEntries.entries()) {
+        columns[entryIndex % 2].push(entry);
+      }
+
+      setMasonryColumns(columns);
+
+      return;
+    }
+
+    for (const [entryIndex, entry] of resultEntries.entries()) {
+      const targetColumnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
+
+      columns[targetColumnIndex].push(entry);
+
+      const measuredHeight = measuredHeights[entryIndex];
+
+      const fallbackHeight = 220;
+
+      columnHeights[targetColumnIndex] +=
+        measuredHeight > 0 ? measuredHeight : fallbackHeight;
+    }
+
+    setMasonryColumns(columns);
+  }, [isSingleColumnLayout, resultEntries, resultRefs]);
+
+  useEffect(() => {
+    const rafId = globalThis.requestAnimationFrame(recalculateMasonryColumns);
+
+    const secondPassTimerId = globalThis.setTimeout(() => {
+      globalThis.requestAnimationFrame(recalculateMasonryColumns);
+    }, 60);
+
+    const resizeObserver = new ResizeObserver(() => {
+      recalculateMasonryColumns();
+    });
+
+    for (const entry of resultEntries) {
+      const element = resultRefs.current?.[entry.index];
+
+      if (element) {
+        resizeObserver.observe(element);
+      }
+    }
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+      globalThis.clearTimeout(secondPassTimerId);
+      resizeObserver.disconnect();
+    };
+  }, [
+    highlightEligibleIds,
+    isHighlightReady,
+    query,
+    recalculateMasonryColumns,
+    resultEntries,
+  ]);
 
   const checkResultOverflow = useCallback(() => {
     const overflowedIds = new Set<string>();
@@ -891,16 +972,16 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
             : searchStyles["search-results-layout-masonry"]
         }`}
       >
-        {isSingleColumnLayout
-          ? masonryColumns[0].map((entry) => renderResult(entry))
-          : masonryColumns.map((column, columnIndex) => (
-              <div
-                key={columnIndex}
-                className={searchStyles["search-results-column"]}
-              >
-                {column.map((entry) => renderResult(entry))}
-              </div>
-            ))}
+        {(masonryColumns.length > 0 ? masonryColumns : fallbackMasonryColumns).map(
+          (column, columnIndex) => (
+            <div
+              key={columnIndex}
+              className={searchStyles["search-results-column"]}
+            >
+              {column.map((entry) => renderResult(entry))}
+            </div>
+          )
+        )}
       </div>
     </div>
   );
