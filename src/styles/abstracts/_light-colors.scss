@@ -139,6 +139,28 @@ $light-theme-map: (
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
       text: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 25%),
     ),
+    search: (
+      header: (
+        border: var(--color-surface-primary-border),
+        background: var(--color-surface-primary-background),
+        background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
+        background-active: hsl(var(--accent-hue) calc(65% * var(--saturate-ratio)) 93%),
+        selected-border: var(--color-accent),
+        selected-background: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 95%),
+        selected-hover: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 93%),
+        selected-active: hsl(var(--accent-hue) calc(70% * var(--saturate-ratio)) 91%),
+      ),
+      content: (
+        border: var(--color-border-primary),
+        background: hsl(var(--accent-hue) 0% 97%),
+        background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 96%),
+        background-active: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 94%),
+        selected-border: var(--color-border-primary),
+        selected-background: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 96%),
+        selected-hover: hsl(var(--accent-hue) calc(40% * var(--saturate-ratio)) 94%),
+        selected-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 92%),
+      ),
+    ),
     icon: (
       primary: hsl(var(--accent-hue) calc(85% * var(--saturate-ratio)) 40%),
       primary-hover: hsl(var(--accent-hue) calc(85% * var(--saturate-ratio)) 50%),
