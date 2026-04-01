@@ -73,11 +73,11 @@
       }
 
       &:hover {
-        opacity: 0.65;
+        opacity: var(--color-interaction-text-hover-opacity);
       }
 
       &:active {
-        opacity: 0.45;
+        opacity: var(--color-interaction-text-active-opacity);
       }
 
       &:visited {
