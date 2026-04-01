@@ -8,7 +8,12 @@ $light-theme-map: (
       header: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 98% / 75%),
       modal: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 99% / 85%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 98%),
-      table-hover: hsl(0deg calc(0% * var(--saturate-ratio)) 96%),
+      table-hover: color-mix(
+          in hsl,
+          var(--color-background-table)
+            calc(100% - var(--color-interaction-neutral-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-neutral-hover-shift)
+        ),
       divider: hsl(var(--accent-hue) calc(41% * var(--saturate-ratio)) 97%),
     ),
     text: (
@@ -16,6 +21,20 @@ $light-theme-map: (
       tertiary: hsl(0deg 0% 50%),
     ),
     accent: hsl(var(--accent-hue) calc(65% * var(--saturate-ratio)) 45%),
+    interaction: (
+      mix-color: hsl(var(--accent-hue) calc(28% * var(--saturate-ratio)) 42%),
+      primary-hover-shift: 8%,
+      primary-active-shift: 11%,
+      secondary-hover-shift: 8%,
+      secondary-active-shift: 14%,
+      tertiary-hover-shift: 10%,
+      tertiary-active-shift: 16%,
+      neutral-hover-shift: 6%,
+      neutral-active-shift: 12%,
+      text-hover-opacity: 0.65,
+      text-active-opacity: 0.45,
+      ripple: hsl(var(--accent-hue) calc(25% * var(--saturate-ratio)) 50% / 15%),
+    ),
     border: (
       primary: hsl(0deg 0% 85%),
       content: hsl(0deg 0% 90%),
@@ -28,37 +47,95 @@ $light-theme-map: (
     surface: (
       primary: (
         background: hsl(var(--accent-hue) calc(41% * var(--saturate-ratio)) 97%),
-        background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
-        background-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 93%),
+        background-hover: color-mix(
+            in hsl,
+            var(--color-surface-primary-background)
+              calc(100% - var(--color-interaction-primary-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-hover-shift)
+          ),
+        background-active: color-mix(
+            in hsl,
+            var(--color-surface-primary-background)
+              calc(100% - var(--color-interaction-primary-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-active-shift)
+          ),
         border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
         text: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 40%),
         open-shadow: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 75%),
       ),
       card: (
         background: hsl(var(--accent-hue) calc(41% * var(--saturate-ratio)) 97%),
-        background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
-        background-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 93%),
+        background-hover: color-mix(
+            in hsl,
+            var(--color-surface-card-background)
+              calc(100% - var(--color-interaction-secondary-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-secondary-hover-shift)
+          ),
+        background-active: color-mix(
+            in hsl,
+            var(--color-surface-card-background)
+              calc(100% - var(--color-interaction-secondary-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-secondary-active-shift)
+          ),
         border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
         text: hsl(var(--accent-hue) calc(85% * var(--saturate-ratio)) 35%),
       ),
       dropdown: (
-        background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
-        background-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 93%),
+        background: hsl(var(--accent-hue) calc(41% * var(--saturate-ratio)) 97%),
+        background-hover: color-mix(
+            in hsl,
+            var(--color-surface-dropdown-background)
+              calc(100% - var(--color-interaction-secondary-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-secondary-hover-shift)
+          ),
+        background-active: color-mix(
+            in hsl,
+            var(--color-surface-dropdown-background)
+              calc(100% - var(--color-interaction-secondary-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-secondary-active-shift)
+          ),
         border-hover: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
       ),
     ),
     button-group: (
       background: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 95%),
-      background-hover: hsl(var(--accent-hue) calc(40% * var(--saturate-ratio)) 93%),
-      background-active: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 87.5%),
+      background-hover: color-mix(
+          in hsl,
+          var(--color-button-group-background)
+            calc(100% - var(--color-interaction-tertiary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-tertiary-hover-shift)
+        ),
+      background-active: color-mix(
+          in hsl,
+          var(--color-button-group-background)
+            calc(100% - var(--color-interaction-tertiary-active-shift)),
+          var(--color-interaction-mix-color)
+            var(--color-interaction-tertiary-active-shift)
+        ),
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
       text: hsl(var(--accent-hue) calc(40% * var(--saturate-ratio)) 42.5%),
       selected: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 91%),
     ),
     widget: (
       background: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
-      background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 93%),
-      background-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 91%),
+      background-hover: color-mix(
+          in hsl,
+          var(--color-widget-background)
+            calc(100% - var(--color-interaction-neutral-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-neutral-hover-shift)
+        ),
+      background-active: color-mix(
+          in hsl,
+          var(--color-widget-background)
+            calc(100% - var(--color-interaction-neutral-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-neutral-active-shift)
+        ),
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
       text: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 25%),
     ),
