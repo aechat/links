@@ -13,6 +13,23 @@ yarn format
 
 Команда последовательно запускает `tsc`, `stylelint --fix`, `eslint --fix`, `prettier --write`.
 
+## Интерактивные цвета
+
+- Для интерактивных состояний используйте семантические токены `--color-interaction-*`, а не локальные `hsl(...)` в компонентах.
+- Стандарт для `light`: базовый цвет смешивается с акцентно-тонированным `--color-interaction-mix-color` (для мягкого затемнения) на процент из `--color-interaction-*-shift`.
+- Стандарт для `dark`: базовый цвет смешивается с акцентно-тонированным `--color-interaction-mix-color` (для мягкого высветления) на процент из `--color-interaction-*-shift`.
+- Силу интерактивов меняйте централизованно через `--color-interaction-primary/secondary/tertiary/neutral-*-shift`.
+- Для текста и ссылок в интерактивах используйте `--color-interaction-text-hover-opacity` и `--color-interaction-text-active-opacity`.
+- Для эффектов нажатия (например, ripple) используйте `--color-interaction-ripple`.
+
+### Исключение для SearchEngine
+
+- Блок `search` в `src/styles/abstracts/_light-colors.scss` и `src/styles/abstracts/_dark-colors.scss` использует отдельные фиксированные `hsl(...)`-токены для `header/content` и их `hover/active/selected`-состояний.
+- Для `search` не применяйте `color-mix(...)`/миксин-вычисления в токенах состояний: палитра задается явно, чтобы упростить визуальный тюнинг и дебаг.
+- `header` должен оставаться светлее `content` в обеих темах.
+- Для `selected` контрастный акцентный бордер хранится у `header` (`--color-search-header-selected-border`), у `content` используется нейтральный бордер (`--color-search-content-selected-border`).
+- В компоненте `src/components/features/searchEngine/SearchEngine.module.scss` состояния `hover/active/selected-hover/selected-active` должны менять `header` и `content` раздельно через соответствующие токены `--color-search-header-*` и `--color-search-content-*`.
+
 ## Импорты и структура файла
 
 Используйте порядок, принятый в `src/pages/sections/**/*.tsx`:
