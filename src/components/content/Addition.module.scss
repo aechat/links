@@ -5,6 +5,8 @@
   &-warning,
   &-danger,
   &-tldr {
+    @include fluid-inset(padding-block, 8px, 12px, padding-inline, 15px, 20px);
+
     box-sizing: content-box;
     display: flex;
     flex-direction: row;
@@ -12,8 +14,6 @@
     align-items: center;
     margin-block: 15px;
     margin-inline: 0;
-    padding-block: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
-    padding-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
     line-height: 1.6;
     font-size: 0.95rem;
     font-weight: 425;
@@ -284,8 +284,7 @@
   .addition-warning,
   .addition-danger,
   .addition-tldr {
-    padding-block: min(calc(5px + (7 - 5) * ((100vw - 320px) / (768 - 320))), 7px);
-    padding-inline: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
+    @include fluid-inset(padding-block, 5px, 7px, padding-inline, 10px, 15px);
   }
 
   .addition-info {

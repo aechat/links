@@ -70,12 +70,12 @@
 }
 
 .modal-header {
+  @include fluid-inset(padding-block, 12px, 14px, padding-inline, 6px, 7px);
+
   display: flex;
   gap: 15px;
   align-items: center;
   justify-content: space-between;
-  padding-block: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
-  padding-inline: min(calc(6px + (7 - 6) * ((100vw - 320px) / (768 - 320))), 7px);
   text-transform: uppercase;
   line-height: 1.25;
   text-wrap: balance;

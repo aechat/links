@@ -23,8 +23,8 @@
 
   &-content {
     p {
-      margin-block: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
-      margin-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
+      @include fluid-inset(margin-block, 10px, 15px, margin-inline, 15px, 20px);
+
       line-height: 1.75;
       text-wrap: stable;
     }

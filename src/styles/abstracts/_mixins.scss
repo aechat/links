@@ -37,6 +37,52 @@ $roundness: 8px;
   );
 }
 
+@mixin fluid-size(
+  $property,
+  $min-size,
+  $max-size,
+  $viewport-min: 320px,
+  $viewport-max: 768px
+) {
+  $min-size-value: math.div($min-size, 1px);
+  $max-size-value: math.div($max-size, 1px);
+  $viewport-min-value: math.div($viewport-min, 1px);
+  $viewport-max-value: math.div($viewport-max, 1px);
+  $size-step: $max-size-value - $min-size-value;
+  $viewport-step: $viewport-max-value - $viewport-min-value;
+
+  #{$property}: min(
+    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
+    #{$max-size}
+  );
+}
+
+@mixin fluid-inset(
+  $property-block,
+  $min-block-size,
+  $max-block-size,
+  $property-inline,
+  $min-inline-size,
+  $max-inline-size,
+  $viewport-min: 320px,
+  $viewport-max: 768px
+) {
+  @include fluid-size(
+    $property-block,
+    $min-block-size,
+    $max-block-size,
+    $viewport-min,
+    $viewport-max
+  );
+  @include fluid-size(
+    $property-inline,
+    $min-inline-size,
+    $max-inline-size,
+    $viewport-min,
+    $viewport-max
+  );
+}
+
 @mixin details-tags-base($margin-inline-end: null) {
   display: flex;
   flex-wrap: wrap;

@@ -2,7 +2,8 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .media {
-  margin: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
+  @include fluid-size(margin, 15px, 20px);
+
   text-align: center;
 
   &-figure {
