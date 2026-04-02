@@ -49,8 +49,7 @@
       }
 
       svg {
-        width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-        height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+        @include fluid-icon-size(17px, 19px);
       }
     }
   }

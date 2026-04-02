@@ -42,14 +42,14 @@ mark {
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &::before {
+      @include fluid-icon-size(13px, 15px);
+
       display: inline-block;
       margin-block: 1px;
       margin-inline-end: 3px;
       background-color: var(--color-mark-text);
       background-repeat: no-repeat;
       background-size: contain;
-      width: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
-      height: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
       vertical-align: sub;
       content: "";
     }
