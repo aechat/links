@@ -8,6 +8,14 @@ interface RippleOptions {
   haptic?: HapticInput | false;
 }
 
+const RIPPLE_MIN_SIZE = 128;
+
+const RIPPLE_MAX_SIZE = 336;
+
+const MARK_RIPPLE_MIN_SIZE = 176;
+
+const MARK_RIPPLE_MAX_SIZE = 280;
+
 const findActiveRect = (
   element: HTMLElement,
   clientX: number,
@@ -33,18 +41,46 @@ const findActiveRect = (
   return {activeRect: rectByPointer ?? elementRect, lineRects};
 };
 
-const prepareHostElement = (hostElement: HTMLElement, isFixedRipple: boolean) => {
-  if (isFixedRipple) {
-    return;
-  }
-
+const ensurePositionedHost = (hostElement: HTMLElement) => {
   const computedStyle = globalThis.getComputedStyle(hostElement);
 
   if (computedStyle.position === "static") {
     hostElement.style.position = "relative";
   }
+};
 
-  hostElement.style.overflow = "hidden";
+const isInlineLikeElement = (hostElement: HTMLElement): boolean => {
+  const {display} = globalThis.getComputedStyle(hostElement);
+
+  return display.startsWith("inline");
+};
+
+const getRippleLayer = (hostElement: HTMLElement): HTMLSpanElement => {
+  const existingLayer = hostElement.querySelector<HTMLSpanElement>(
+    ":scope > .ripple-container[data-ripple-layer='true']"
+  );
+
+  if (existingLayer) {
+    return existingLayer;
+  }
+
+  const layer = document.createElement("span");
+
+  layer.classList.add("ripple-container");
+  layer.dataset.rippleLayer = "true";
+  layer.style.position = "absolute";
+  layer.style.inset = "0";
+  layer.style.overflow = "hidden";
+  layer.style.borderRadius = "inherit";
+  layer.style.pointerEvents = "none";
+
+  hostElement.append(layer);
+
+  return layer;
+};
+
+const clamp = (value: number, min: number, max: number): number => {
+  return Math.min(max, Math.max(min, value));
 };
 
 export const applyRipple = (
@@ -76,13 +112,19 @@ export const applyRipple = (
 
   const hostElement = isFixedRipple ? document.body : element;
 
-  const markRippleSize = 128;
-
   const ripple = document.createElement("span");
 
-  const inlineOverflow = hostElement.style.overflow;
+  const rippleHost = isFixedRipple
+    ? hostElement
+    : (() => {
+        ensurePositionedHost(hostElement);
 
-  prepareHostElement(hostElement, isFixedRipple);
+        if (isInlineLikeElement(hostElement)) {
+          return hostElement;
+        }
+
+        return getRippleLayer(hostElement);
+      })();
 
   const layoutWidth = element.offsetWidth || activeRect.width;
 
@@ -92,7 +134,15 @@ export const applyRipple = (
 
   const scaleY = activeRect.height > 0 ? activeRect.height / layoutHeight : 1;
 
-  const size = isMarkElement ? markRippleSize : Math.max(layoutWidth, layoutHeight) * 2;
+  const maxSide = Math.max(layoutWidth, layoutHeight);
+
+  const diagonal = Math.hypot(layoutWidth, layoutHeight);
+
+  const baseSize = Math.max(maxSide * 1.45, diagonal * 0.95);
+
+  const size = isMarkElement
+    ? clamp(baseSize, MARK_RIPPLE_MIN_SIZE, MARK_RIPPLE_MAX_SIZE)
+    : clamp(baseSize, RIPPLE_MIN_SIZE, RIPPLE_MAX_SIZE);
 
   const x = isFixedRipple ? clientX : (clientX - activeRect.left) / scaleX;
 
@@ -108,15 +158,11 @@ export const applyRipple = (
     ripple.style.zIndex = "10000";
   }
 
-  hostElement.append(ripple);
+  rippleHost.append(ripple);
 
   setTimeout(() => {
     if (ripple.parentElement) {
       ripple.remove();
-    }
-
-    if (!isFixedRipple && !hostElement.querySelector(".ripple")) {
-      hostElement.style.overflow = inlineOverflow;
     }
   }, 750);
 };
