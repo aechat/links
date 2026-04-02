@@ -10,10 +10,10 @@ import React, {
 import {
   CloseRounded,
   DarkModeRounded,
-  FormatColorFillOutlined,
   HideSourceRounded,
   LightModeRounded,
   RestartAlt,
+  TuneRounded,
 } from "@mui/icons-material";
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
@@ -309,7 +309,7 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProperties> = ({classN
         onClick={openModal}
         onMouseDown={ripple.onMouseDown}
       >
-        <FormatColorFillOutlined />
+        <TuneRounded />
       </button>
       <ThemeModal
         closeModal={closeModal}
@@ -425,7 +425,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
       <div className={modalStyles["modal"]}>
         <div className={modalStyles["modal-content"]}>
           <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>Оформление</div>
+            <div className={modalStyles["modal-header-title"]}>Настройки страницы</div>
             <button
               className={modalStyles["modal-header-button"]}
               onClick={closeModal}

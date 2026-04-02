@@ -121,14 +121,13 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
     >
       <div className={styles["header-left"]}>
         {currentPath === "/" ? undefined : (
-          <span className={styles.icon}>
-            <Link
-              to="/"
-              onMouseDown={rippleLink.onMouseDown}
-            >
-              <ArrowBackRounded />
-            </Link>
-          </span>
+          <Link
+            className={styles.icon}
+            to="/"
+            onMouseDown={rippleLink.onMouseDown}
+          >
+            <ArrowBackRounded />
+          </Link>
         )}
         <div className={styles.logo}>
           {tooltipMessage ? (

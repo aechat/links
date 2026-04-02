@@ -280,9 +280,11 @@ const scrollSelectedResultIntoViewRuntime = ({
   resultsContainer: HTMLDivElement | null;
   selectedResultIndex: number;
 }): void => {
-  if (selectedResultIndex < 0 || isMobileDevice()) {
+  if (selectedResultIndex < 0) {
     return;
   }
+
+  const resolvedBehavior: ScrollBehavior = isMobileDevice() ? "auto" : behavior;
 
   const selectedElement = resultReferences[selectedResultIndex];
 
@@ -308,7 +310,7 @@ const scrollSelectedResultIntoViewRuntime = ({
   const targetTop = Math.min(maxScrollTop, Math.max(0, centeredTop));
 
   resultsContainer.scrollTo({
-    behavior,
+    behavior: resolvedBehavior,
     top: targetTop,
   });
 
@@ -331,7 +333,7 @@ const scrollSelectedResultIntoViewRuntime = ({
 
     if (isOutOfView) {
       currentElement.scrollIntoView({
-        behavior,
+        behavior: resolvedBehavior,
         block: "center",
         inline: "nearest",
       });

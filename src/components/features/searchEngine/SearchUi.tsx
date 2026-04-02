@@ -196,9 +196,9 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
         width={1000}
         onCancel={closeModal}
       >
-        <div className={searchStyles["search"]}>
+        <div className={searchStyles["modal"]}>
           <div className={modalStyles["modal-content"]}>
-            <div className={searchStyles["search-input-wrapper"]}>
+            <div className={modalStyles["modal-header"]}>
               <input
                 ref={inputRef}
                 className={searchStyles["search-input"]}
@@ -208,22 +208,22 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
                 value={query}
                 onChange={(event_) => onChangeQuery(event_.target.value)}
               />
-              <p className={searchStyles["search-counter"]}>
-                <span
-                  style={{
-                    color: "var(--color-surface-primary-text)",
-                    fontSize: "1.05em",
-                    fontWeight: 500,
-                  }}
-                >
-                  {resultsCount}
-                </span>{" "}
-                {resultWord}
-              </p>
+              {resultsCount > 0 && (
+                <span className={searchStyles["search-counter"]}>
+                  <span
+                    style={{
+                      color: "var(--color-surface-primary-text)",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {resultsCount}
+                  </span>{" "}
+                  {resultWord}
+                </span>
+              )}
               {query.trim() !== "" && (
                 <button
-                  className={searchStyles["search-input-clear"]}
-                  style={{cursor: "pointer"}}
+                  className={modalStyles["modal-header-button"]}
                   onClick={onClearQuery}
                   onMouseDown={onInputClearMouseDown}
                 >
@@ -231,7 +231,7 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
                 </button>
               )}
               <button
-                className={searchStyles["search-input-close"]}
+                className={modalStyles["modal-header-button"]}
                 onClick={closeModal}
                 onMouseDown={onCloseMouseDown}
               >

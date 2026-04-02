@@ -1,6 +1,11 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .modal {
+  --header-control-height: min(
+    calc(26px + (30 - 26) * ((100vw - 320px) / (768 - 320))),
+    30px
+  );
+
   display: flex;
   flex-direction: column;
 
@@ -66,14 +71,14 @@
 
 .modal-header {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   justify-content: space-between;
-  margin-block: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
-  margin-inline: min(calc(12px + (15 - 12) * ((100vw - 320px) / (768 - 320))), 15px);
-  margin-inline-end: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
   border-top-left-radius: $roundness;
   border-top-right-radius: $roundness;
+  padding-block: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
+  padding-inline: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
+  padding-inline-end: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
   text-transform: uppercase;
   line-height: 1.25;
   text-wrap: balance;
@@ -86,27 +91,89 @@
   }
 
   &-button {
+    appearance: none;
+    box-sizing: border-box;
+    display: flex;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     transition:
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
       color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin: -4px;
+    outline: 1px solid transparent;
+    border: none;
     border-radius: $roundness * 0.75;
-    padding: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    height: var(--header-control-height, 30px);
+    min-height: var(--header-control-height, 30px);
+    line-height: 1;
     color: var(--color-surface-primary-text);
+    aspect-ratio: 1 / 1;
 
     &:hover {
+      outline-color: var(--color-surface-primary-border-hover);
       background-color: var(--color-surface-primary-background-hover);
     }
 
     &:active {
+      outline-color: var(--color-surface-primary-border-active);
       background-color: var(--color-surface-primary-background-active);
     }
 
     svg {
-      width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-      height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+      @include fluid-icon-size(18px, 20px);
     }
+  }
+}
+
+.modal-support-header-button {
+  appearance: none;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--color-widget-border);
+  border: none;
+  border-radius: $roundness * 0.75;
+  background: var(--color-widget-background);
+  padding: 5px;
+  height: var(--header-control-height, 30px);
+  min-height: var(--header-control-height, 30px);
+  line-height: 1;
+  color: var(--color-widget-text);
+  font-size: 0.85rem;
+  font-weight: 400;
+
+  &:hover {
+    outline: 1px solid var(--color-surface-primary-border-hover);
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    outline: 1px solid var(--color-surface-primary-border-active);
+    background-color: var(--color-surface-primary-background-active);
+  }
+
+  &:focus:not(:active),
+  &:focus-visible:not(:active) {
+    outline: 1px solid var(--color-widget-border);
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  svg {
+    fill: var(--color-accent);
+    width: 17px;
+    height: 17px;
   }
 }
 
@@ -137,8 +204,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition:
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   margin: 0 auto;
+  outline: 1px solid transparent;
   border: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
   background-color: var(--color-surface-primary-background);
@@ -150,10 +220,12 @@
   font-weight: 700;
 
   &:hover {
+    outline-color: var(--color-surface-primary-border-hover);
     background-color: var(--color-surface-primary-background-hover);
   }
 
   &:active {
+    outline-color: var(--color-surface-primary-border-active);
     background-color: var(--color-surface-primary-background-active);
   }
 }
@@ -206,39 +278,6 @@
     text-decoration: underline;
     color: var(--color-accent);
     font-weight: 700;
-  }
-
-  &-header-button {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: 1px solid var(--color-widget-border);
-    border-radius: $roundness * 0.75;
-    background: var(--color-widget-background);
-    padding: 5px;
-    color: var(--color-widget-text);
-    font-size: 0.85rem;
-    font-weight: 400;
-
-    &:hover {
-      background-color: var(--color-widget-background-hover);
-    }
-
-    &:active {
-      background-color: var(--color-widget-background-active);
-    }
-
-    &:focus,
-    &:active {
-      outline: 1px solid var(--color-widget-border);
-    }
-
-    svg {
-      fill: var(--color-accent);
-      width: 17px;
-      height: 17px;
-    }
   }
 
   &-button {
@@ -312,19 +351,23 @@
   font-weight: 400;
 
   svg {
-    width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-    height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+    @include fluid-icon-size(16px, 18px);
   }
 
   button {
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    outline: 1px solid transparent;
     border-radius: 100%;
 
     &:hover {
+      outline-color: var(--color-button-group-border-hover);
       background-color: var(--color-button-group-background-hover);
     }
 
     &:active {
+      outline-color: var(--color-button-group-border-active);
       background-color: var(--color-button-group-background-active);
     }
 
@@ -339,45 +382,66 @@
       height: 28px;
 
       svg {
-        width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-        height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+        @include fluid-icon-size(16px, 18px);
       }
     }
   }
 }
 
 .modal-controls-group {
-  display: flex;
+  @include grouped-controls-container(10px, space-between);
+
   flex-shrink: 0;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 10px;
-  border: 1px solid var(--color-button-group-border);
-  border-radius: $roundness * 0.75;
   width: calc(100% - 20px);
-  overflow: hidden;
   color: var(--color-button-group-text);
 }
 
 .modal-controls-option {
   display: flex;
+  position: relative;
   flex: 1 0 100px;
   flex-wrap: nowrap;
   gap: 6px;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    z-index 0s linear 0.25s;
+  z-index: 0;
   outline: 1px solid var(--color-button-group-border) !important;
+  border: none !important;
+  box-shadow: 0 10px 24px transparent;
   background-color: var(--color-button-group-background);
   padding: 10px;
   max-width: 100%;
   font-weight: 500;
+  will-change: transform;
 
   &:hover {
+    transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
+    transition-delay: 0.2s, 0.2s, 0s, 0.2s, 0.2s;
+    z-index: 4;
+    outline-color: var(--color-button-group-border-hover) !important;
+    box-shadow: 0 10px 24px var(--shadow-primary);
     background-color: var(--color-button-group-background-hover);
   }
 
   &:active {
+    transform: scale(
+      var(--links-active-scale-x, 1.01),
+      var(--links-active-scale-y, 1.01)
+    );
+    transition-delay: 0s;
+    z-index: 4;
+    outline-color: var(--color-button-group-border-active) !important;
+    box-shadow: 0 10px 24px var(--shadow-secondary);
     background-color: var(--color-button-group-background-active);
   }
 
@@ -387,14 +451,30 @@
   }
 
   svg {
+    @include fluid-icon-size(17px, 19px);
+
     fill: var(--color-button-group-text);
-    width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-    height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
   }
 
   &-selected {
     background-color: var(--color-button-group-selected);
   }
+}
+
+:global(.group-corner-tl).modal-controls-option {
+  border-top-left-radius: $roundness * 0.75;
+}
+
+:global(.group-corner-tr).modal-controls-option {
+  border-top-right-radius: $roundness * 0.75;
+}
+
+:global(.group-corner-bl).modal-controls-option {
+  border-bottom-left-radius: $roundness * 0.75;
+}
+
+:global(.group-corner-br).modal-controls-option {
+  border-bottom-right-radius: $roundness * 0.75;
 }
 
 .modal-controls-row {
