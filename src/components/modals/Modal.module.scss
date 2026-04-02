@@ -71,14 +71,11 @@
 
 .modal-header {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
   justify-content: space-between;
-  border-top-left-radius: $roundness;
-  border-top-right-radius: $roundness;
-  padding-block: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
-  padding-inline: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
-  padding-inline-end: min(calc(8px + (12 - 8) * ((100vw - 320px) / (768 - 320))), 12px);
+  padding-block: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
+  padding-inline: min(calc(6px + (7 - 6) * ((100vw - 320px) / (768 - 320))), 7px);
   text-transform: uppercase;
   line-height: 1.25;
   text-wrap: balance;
@@ -99,11 +96,11 @@
     justify-content: center;
     transition:
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
       color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin: -4px;
-    outline: 1px solid transparent;
-    border: none;
+    outline: none;
+    border: 1px solid transparent;
     border-radius: $roundness * 0.75;
     background-color: transparent;
     cursor: pointer;
@@ -114,13 +111,18 @@
     color: var(--color-surface-primary-text);
     aspect-ratio: 1 / 1;
 
+    &:focus,
+    &:focus-visible {
+      outline: none !important;
+    }
+
     &:hover {
-      outline-color: var(--color-surface-primary-border-hover);
+      border-color: var(--color-surface-primary-border-hover);
       background-color: var(--color-surface-primary-background-hover);
     }
 
     &:active {
-      outline-color: var(--color-surface-primary-border-active);
+      border-color: var(--color-surface-primary-border-active);
       background-color: var(--color-surface-primary-background-active);
     }
 
@@ -327,8 +329,6 @@
   gap: 10px;
   align-items: center;
   justify-content: space-between;
-  margin-block-end: 12px;
-  margin-inline: 24px;
   line-height: 1.35;
 
   button {
@@ -345,54 +345,15 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-block: 10px 2px;
-  margin-inline: 16px;
   font-size: 0.9rem;
   font-weight: 400;
-
-  svg {
-    @include fluid-icon-size(16px, 18px);
-  }
-
-  button {
-    transition:
-      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: 1px solid transparent;
-    border-radius: 100%;
-
-    &:hover {
-      outline-color: var(--color-button-group-border-hover);
-      background-color: var(--color-button-group-background-hover);
-    }
-
-    &:active {
-      outline-color: var(--color-button-group-border-active);
-      background-color: var(--color-button-group-background-active);
-    }
-
-    &.modal-controls-reset {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      width: 28px;
-      height: 28px;
-
-      svg {
-        @include fluid-icon-size(16px, 18px);
-      }
-    }
-  }
 }
 
 .modal-controls-group {
   @include grouped-controls-container(10px, space-between);
 
   flex-shrink: 0;
-  width: calc(100% - 20px);
+  margin: 0;
   color: var(--color-button-group-text);
 }
 
@@ -477,15 +438,20 @@
   border-bottom-right-radius: $roundness * 0.75;
 }
 
+.modal-controls-element {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  margin-block: 15px;
+  margin-inline: 16px;
+}
+
 .modal-controls-row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   margin-block: 15px;
   margin-inline: 16px;
-
-  .modal-controls-title {
-    margin: 0 !important;
-  }
 }
