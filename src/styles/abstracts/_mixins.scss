@@ -1,5 +1,6 @@
 $roundness: 8px;
 
+@use "sass:math";
 @use "sass:meta";
 
 @mixin generate-vars-from-map($map, $prefix: "") {
@@ -19,13 +20,21 @@ $roundness: 8px;
 }
 
 @mixin fluid-icon-size($min-size, $max-size, $viewport-min: 320px, $viewport-max: 768px) {
-  $size-delta: #{$max-size} - #{$min-size};
-  $viewport-range: #{$viewport-max} - #{$viewport-min};
-  $viewport-progress: (100vw - #{$viewport-min}) / #{$viewport-range};
-  $fluid-size: calc(#{$min-size} + (#{$size-delta} * #{$viewport-progress}));
+  $min-size-value: math.div($min-size, 1px);
+  $max-size-value: math.div($max-size, 1px);
+  $viewport-min-value: math.div($viewport-min, 1px);
+  $viewport-max-value: math.div($viewport-max, 1px);
+  $size-step: $max-size-value - $min-size-value;
+  $viewport-step: $viewport-max-value - $viewport-min-value;
 
-  width: min($fluid-size, #{$max-size});
-  height: min($fluid-size, #{$max-size});
+  width: min(
+    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
+    #{$max-size}
+  );
+  height: min(
+    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
+    #{$max-size}
+  );
 }
 
 @mixin details-tags-base($margin-inline-end: null) {
