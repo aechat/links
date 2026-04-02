@@ -9,6 +9,7 @@ import Snowfall from "react-snowfall";
 import BrowserWarning from "./components/modals/BrowserWarning";
 import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
+import GroupedCornersManager from "./components/ui/GroupedCornersManager";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {useAprilFoolsTelegramReplace} from "./hooks/useAprilFoolsTelegramReplace";
@@ -587,6 +588,7 @@ const AppContent = () => {
 
   return (
     <ConfigProvider theme={getAntTheme(isDarkMode, accentHue, saturateRatio)}>
+      <GroupedCornersManager pathKey={location.pathname} />
       <SnowfallManager />
       <MetrikaCounter
         id={96_346_999}
