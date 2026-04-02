@@ -445,6 +445,34 @@
   justify-content: space-between;
   margin-block: 15px;
   margin-inline: 16px;
+
+  .modal-controls-title .modal-controls-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px solid transparent;
+    border: none;
+    border-radius: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 3px;
+
+    &:hover {
+      outline-color: var(--color-button-group-border-hover);
+      background-color: var(--color-button-group-background-hover);
+    }
+
+    &:active {
+      outline-color: var(--color-button-group-border-active);
+      background-color: var(--color-button-group-background-active);
+    }
+
+    svg {
+      @include fluid-icon-size(16px, 18px);
+
+      aspect-ratio: 1 / 1;
+    }
+  }
 }
 
 .modal-controls-row {
