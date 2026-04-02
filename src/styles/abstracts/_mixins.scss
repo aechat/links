@@ -18,6 +18,16 @@ $roundness: 8px;
   }
 }
 
+@mixin fluid-icon-size($min-size, $max-size, $viewport-min: 320px, $viewport-max: 768px) {
+  $size-delta: #{$max-size} - #{$min-size};
+  $viewport-range: #{$viewport-max} - #{$viewport-min};
+  $viewport-progress: (100vw - #{$viewport-min}) / #{$viewport-range};
+  $fluid-size: calc(#{$min-size} + (#{$size-delta} * #{$viewport-progress}));
+
+  width: min($fluid-size, #{$max-size});
+  height: min($fluid-size, #{$max-size});
+}
+
 @mixin details-tags-base($margin-inline-end: null) {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +64,9 @@ $roundness: 8px;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition:
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border: 1px solid var(--color-surface-primary-border);
   background-color: var(--color-surface-primary-background);
   cursor: pointer;
@@ -71,14 +83,16 @@ $roundness: 8px;
 
   &:not(:last-child) {
     border-top: 1px solid var(--color-surface-primary-border);
-    border-bottom: none;
+    border-bottom: 1px solid transparent;
   }
 
   &:hover {
+    border-color: var(--color-surface-primary-border-hover);
     background-color: var(--color-surface-primary-background-hover);
   }
 
   &:active {
+    border-color: var(--color-surface-primary-border-active);
     background-color: var(--color-surface-primary-background-active);
   }
 
@@ -113,12 +127,24 @@ $roundness: 8px;
   $include-outline: true
 ) {
   display: flex;
+  position: relative;
   flex: 1 0 $flex-basis;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    z-index 0s linear 0.25s;
+  z-index: 0;
   margin-block: 0;
   border-radius: 0;
+  box-shadow: 0 10px 24px transparent;
   background-color: var(--color-button-group-background);
   padding-block: 8px;
   padding-inline: 10px;
@@ -130,13 +156,59 @@ $roundness: 8px;
   font-family: Onest, sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
-
-  @if $include-outline {
-    outline: 1px solid var(--color-button-group-border);
-  }
+  will-change: transform;
 
   &::before {
     display: none;
+  }
+
+  &:hover {
+    transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
+    transition-delay: 0.2s, 0.2s, 0s, 0.2s, 0.2s;
+    z-index: 4;
+    outline-color: var(--color-button-group-border-hover);
+    box-shadow: 0 10px 24px var(--shadow-primary);
+  }
+
+  &:active {
+    transform: scale(
+      var(--links-active-scale-x, 1.01),
+      var(--links-active-scale-y, 1.01)
+    );
+    transition-delay: 0s;
+    z-index: 4;
+    outline-color: var(--color-button-group-border-active);
+    box-shadow: 0 10px 24px var(--shadow-secondary);
+  }
+
+  @if $include-outline {
+    outline: 1px solid var(--color-button-group-border);
+    border: none;
+  }
+}
+
+@mixin grouped-controls-container($margin: 10px, $justify-content: flex-start) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: $justify-content;
+  margin: $margin;
+}
+
+@mixin grouped-controls-corners($radius: $roundness) {
+  > .group-corner-tl {
+    border-top-left-radius: $radius;
+  }
+
+  > .group-corner-tr {
+    border-top-right-radius: $radius;
+  }
+
+  > .group-corner-bl {
+    border-bottom-left-radius: $radius;
+  }
+
+  > .group-corner-br {
+    border-bottom-right-radius: $radius;
   }
 }
 
@@ -152,10 +224,10 @@ $roundness: 8px;
 }
 
 @mixin link-card-icon-base {
+  @include fluid-icon-size(18px, 21px);
+
   fill: var(--color-surface-card-text);
   flex-shrink: 0;
-  width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
-  height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
   color: var(--color-surface-card-text);
 
   path {
