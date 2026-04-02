@@ -433,19 +433,19 @@ export const useInternalLinkHandler = () => {
       onCancel={handleCancel}
     >
       <div className={modalStyles["modal"]}>
-        <div className={modalStyles["modal-content"]}>
-          <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>
-              {targetDownload ? "Скачивание файла" : "Переход на другую статью"}
-            </div>
-            <button
-              className={modalStyles["modal-header-button"]}
-              onClick={handleCancel}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <CloseRounded />
-            </button>
+        <div className={modalStyles["modal-header"]}>
+          <div className={modalStyles["modal-header-title"]}>
+            {targetDownload ? "Скачивание файла" : "Переход на другую статью"}
           </div>
+          <button
+            className={modalStyles["modal-header-button"]}
+            onClick={handleCancel}
+            onMouseDown={ripple.onMouseDown}
+          >
+            <CloseRounded />
+          </button>
+        </div>
+        <div className={modalStyles["modal-content"]}>
           {targetDownload ? (
             <p>
               Вы уверены, что хотите скачать {targetDownload.fileKind}{" "}

@@ -197,47 +197,47 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
         onCancel={closeModal}
       >
         <div className={searchStyles["modal"]}>
-          <div className={modalStyles["modal-content"]}>
-            <div className={modalStyles["modal-header"]}>
-              <input
-                ref={inputRef}
-                className={searchStyles["search-input"]}
-                placeholder="Введите что-нибудь для поиска..."
-                style={{cursor: "text"}}
-                type="search"
-                value={query}
-                onChange={(event_) => onChangeQuery(event_.target.value)}
-              />
-              {resultsCount > 0 && (
-                <span className={searchStyles["search-counter"]}>
-                  <span
-                    style={{
-                      color: "var(--color-surface-primary-text)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {resultsCount}
-                  </span>{" "}
-                  {resultWord}
-                </span>
-              )}
-              {query.trim() !== "" && (
-                <button
-                  className={modalStyles["modal-header-button"]}
-                  onClick={onClearQuery}
-                  onMouseDown={onInputClearMouseDown}
+          <div className={modalStyles["modal-header"]}>
+            <input
+              ref={inputRef}
+              className={searchStyles["search-input"]}
+              placeholder="Введите что-нибудь для поиска..."
+              style={{cursor: "text"}}
+              type="search"
+              value={query}
+              onChange={(event_) => onChangeQuery(event_.target.value)}
+            />
+            {resultsCount > 0 && (
+              <span className={searchStyles["search-counter"]}>
+                <span
+                  style={{
+                    color: "var(--color-surface-primary-text)",
+                    fontWeight: 500,
+                  }}
                 >
-                  <BackspaceOutlined fontSize="small" />
-                </button>
-              )}
+                  {resultsCount}
+                </span>{" "}
+                {resultWord}
+              </span>
+            )}
+            {query.trim() !== "" && (
               <button
                 className={modalStyles["modal-header-button"]}
-                onClick={closeModal}
-                onMouseDown={onCloseMouseDown}
+                onClick={onClearQuery}
+                onMouseDown={onInputClearMouseDown}
               >
-                <CloseRounded />
+                <BackspaceOutlined fontSize="small" />
               </button>
-            </div>
+            )}
+            <button
+              className={modalStyles["modal-header-button"]}
+              onClick={closeModal}
+              onMouseDown={onCloseMouseDown}
+            >
+              <CloseRounded />
+            </button>
+          </div>
+          <div className={modalStyles["modal-content"]}>
             <div
               ref={resultsContainerRef}
               className={resultsClassName}

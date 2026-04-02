@@ -423,43 +423,45 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
       onCancel={closeModal}
     >
       <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-header"]}>
+          <div className={modalStyles["modal-header-title"]}>Настройки страницы</div>
+          <button
+            className={modalStyles["modal-header-button"]}
+            onClick={closeModal}
+            onMouseDown={ripple.onMouseDown}
+          >
+            <CloseRounded />
+          </button>
+        </div>
         <div className={modalStyles["modal-content"]}>
-          <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>Настройки страницы</div>
-            <button
-              className={modalStyles["modal-header-button"]}
-              onClick={closeModal}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <CloseRounded />
-            </button>
-          </div>
-          <div className={modalStyles["modal-controls-title"]}>Цветовая схема</div>
-          <div className={modalStyles["modal-controls-group"]}>
-            <ThemeOptionButton
-              isSelected={theme === "light"}
-              onClick={() => setTheme("light")}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <LightModeRounded />
-              Светлая
-            </ThemeOptionButton>
-            <ThemeOptionButton
-              isSelected={theme === "dark"}
-              onClick={() => setTheme("dark")}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <DarkModeRounded />
-              Тёмная
-            </ThemeOptionButton>
-            <ThemeOptionButton
-              isSelected={theme === "system"}
-              onClick={() => setTheme("system")}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <HideSourceRounded />
-              Системная
-            </ThemeOptionButton>
+          <div className={modalStyles["modal-controls-element"]}>
+            <div className={modalStyles["modal-controls-title"]}>Цветовая схема</div>
+            <div className={modalStyles["modal-controls-group"]}>
+              <ThemeOptionButton
+                isSelected={theme === "light"}
+                onClick={() => setTheme("light")}
+                onMouseDown={ripple.onMouseDown}
+              >
+                <LightModeRounded />
+                Светлая
+              </ThemeOptionButton>
+              <ThemeOptionButton
+                isSelected={theme === "dark"}
+                onClick={() => setTheme("dark")}
+                onMouseDown={ripple.onMouseDown}
+              >
+                <DarkModeRounded />
+                Тёмная
+              </ThemeOptionButton>
+              <ThemeOptionButton
+                isSelected={theme === "system"}
+                onClick={() => setTheme("system")}
+                onMouseDown={ripple.onMouseDown}
+              >
+                <HideSourceRounded />
+                Системная
+              </ThemeOptionButton>
+            </div>
           </div>
           {showSpoilerAnimationSelector && (
             <>
@@ -505,48 +507,52 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               />
             </div>
           )}
-          <div className={modalStyles["modal-controls-title"]}>
-            Оттенок акцентного цвета
-            <Tooltip title="Сбросить оттенок">
-              <button
-                className={modalStyles["modal-controls-reset"]}
-                onClick={() => setAccentHue(210)}
-                onMouseDown={ripple.onMouseDown}
-              >
-                <RestartAlt />
-              </button>
-            </Tooltip>
+          <div className={modalStyles["modal-controls-element"]}>
+            <div className={modalStyles["modal-controls-title"]}>
+              Оттенок акцентного цвета
+              <Tooltip title="Сбросить оттенок">
+                <button
+                  className={modalStyles["modal-controls-reset"]}
+                  onClick={() => setAccentHue(210)}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  <RestartAlt />
+                </button>
+              </Tooltip>
+            </div>
+            <div className={modalStyles["modal-controls-slider"]}>
+              <Slider
+                max={360}
+                min={0}
+                value={temporaryHue}
+                onAfterChange={handleAccentHueAfterChange}
+                onChange={setTemporaryHue}
+              />
+            </div>
           </div>
-          <div className={modalStyles["modal-controls-slider"]}>
-            <Slider
-              max={360}
-              min={0}
-              value={temporaryHue}
-              onAfterChange={handleAccentHueAfterChange}
-              onChange={setTemporaryHue}
-            />
-          </div>
-          <div className={modalStyles["modal-controls-title"]}>
-            Насыщенность акцентного цвета
-            <Tooltip title="Сбросить насыщенность">
-              <button
-                className={modalStyles["modal-controls-reset"]}
-                onClick={() => setSaturateRatio(1)}
-                onMouseDown={ripple.onMouseDown}
-              >
-                <RestartAlt />
-              </button>
-            </Tooltip>
-          </div>
-          <div className={modalStyles["modal-controls-slider"]}>
-            <Slider
-              max={1}
-              min={0}
-              step={0.025}
-              value={temporarySaturate}
-              onAfterChange={handleSaturationAfterChange}
-              onChange={setTemporarySaturate}
-            />
+          <div className={modalStyles["modal-controls-element"]}>
+            <div className={modalStyles["modal-controls-title"]}>
+              Насыщенность акцентного цвета
+              <Tooltip title="Сбросить насыщенность">
+                <button
+                  className={modalStyles["modal-controls-reset"]}
+                  onClick={() => setSaturateRatio(1)}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  <RestartAlt />
+                </button>
+              </Tooltip>
+            </div>
+            <div className={modalStyles["modal-controls-slider"]}>
+              <Slider
+                max={1}
+                min={0}
+                step={0.025}
+                value={temporarySaturate}
+                onAfterChange={handleSaturationAfterChange}
+                onChange={setTemporarySaturate}
+              />
+            </div>
           </div>
         </div>
       </div>

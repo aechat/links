@@ -722,19 +722,19 @@ const Links = () => {
             onCancel={closeModal}
           >
             <div className={modalStyles["modal"]}>
-              <div className={modalStyles["modal-content"]}>
-                <div className={modalStyles["modal-header"]}>
-                  <div className={modalStyles["modal-header-title"]}>
-                    Остерегайтесь мошенников!
-                  </div>
-                  <button
-                    className={modalStyles["modal-header-button"]}
-                    onClick={closeModal}
-                    onMouseDown={ripple.onMouseDown}
-                  >
-                    <CloseRounded />
-                  </button>
+              <div className={modalStyles["modal-header"]}>
+                <div className={modalStyles["modal-header-title"]}>
+                  Остерегайтесь мошенников!
                 </div>
+                <button
+                  className={modalStyles["modal-header-button"]}
+                  onClick={closeModal}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  <CloseRounded />
+                </button>
+              </div>
+              <div className={modalStyles["modal-content"]}>
                 <p>
                   Пожалуйста, будьте внимательны при выполнении заказов на фрилансе — вы
                   можете столкнуться с недобросовестным заказчиком или попасть в ловко

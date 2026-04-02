@@ -123,14 +123,14 @@ const SafariWarningModal = ({
       width={450}
     >
       <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-header"]}>
+          <div className={modalStyles["modal-header-title"]}>
+            ⚠ Предупреждение для Safari
+          </div>
+        </div>
         <div
           className={`${modalStyles["modal-content"]} ${modalStyles["modal-content--error"]}`}
         >
-          <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>
-              ⚠ Предупреждение для Safari
-            </div>
-          </div>
           <div className={modalStyles["modal-text-balance"]}>
             <p>
               В браузере <mark className="app">Safari</mark> при чтении некоторых статей
@@ -209,22 +209,22 @@ const ErrorFallback = ({error}: {error: Error}) => {
         className={modalStyles["modal"]}
         style={{margin: "15px", maxWidth: "450px"}}
       >
-        <div className={`${modalStyles["modal-content"]}`}>
-          <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>
-              {(() => {
-                let errorTitle = "Произошла ошибка";
+        <div className={modalStyles["modal-header"]}>
+          <div className={modalStyles["modal-header-title"]}>
+            {(() => {
+              let errorTitle = "Произошла ошибка";
 
-                if (isNewVersionError) {
-                  errorTitle = "Доступна новая версия сайта";
-                } else if (isTimeoutError) {
-                  errorTitle = "Загрузка страницы заняла слишком много времени";
-                }
+              if (isNewVersionError) {
+                errorTitle = "Доступна новая версия сайта";
+              } else if (isTimeoutError) {
+                errorTitle = "Загрузка страницы заняла слишком много времени";
+              }
 
-                return errorTitle;
-              })()}
-            </div>
+              return errorTitle;
+            })()}
           </div>
+        </div>
+        <div className={`${modalStyles["modal-content"]}`}>
           <div className={modalStyles["modal-text-balance"]}>
             <p>
               {(() => {
