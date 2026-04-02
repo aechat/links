@@ -233,6 +233,16 @@
     transform: none !important;
     box-shadow: 0 10px 24px transparent;
   }
+
+  .details-summary-root.is-open .details-summary:hover,
+  .details-summary-root[open] .details-summary:hover {
+    border-bottom: 1px solid var(--color-surface-primary-border-hover);
+  }
+
+  .details-summary-root.is-open .details-summary:active,
+  .details-summary-root[open] .details-summary:active {
+    border-bottom: 1px solid var(--color-surface-primary-border-active);
+  }
 }
 
 :global(html.no-spoiler-hover-effects) {
