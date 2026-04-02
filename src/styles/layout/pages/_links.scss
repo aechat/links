@@ -19,7 +19,9 @@
   &-button {
     box-sizing: border-box;
     flex: 1 1 225px;
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     outline: 1px solid var(--color-surface-card-border);
     border-radius: 0;
     box-shadow: none;
@@ -28,11 +30,13 @@
     min-width: 150px;
 
     &:hover {
+      outline: 1px solid var(--color-surface-card-border-hover);
       background-color: var(--color-surface-card-background-hover);
       cursor: pointer;
     }
 
     &:active {
+      outline: 1px solid var(--color-surface-card-border-active);
       background-color: var(--color-surface-card-background-active);
     }
 

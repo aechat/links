@@ -97,9 +97,9 @@
 
   .details-summary-root {
     &:last-of-type .details-summary {
-      border-bottom: 1px solid var(--color-surface-primary-border);
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
+      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &:first-of-type .details-summary {
@@ -108,15 +108,15 @@
     }
 
     &:has(+ .details-summary-root[open]) .details-summary {
-      border-bottom: 1px solid var(--color-surface-primary-border);
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
+      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &[open] {
       .details-summary {
-        border-bottom: 1px solid var(--color-surface-primary-border);
         border-radius: $roundness;
+        border-bottom-color: var(--color-surface-primary-border);
       }
 
       .details-section {
@@ -190,6 +190,7 @@
       transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
       box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
       border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
     box-shadow: 0 10px 24px transparent;
     will-change: transform;
@@ -200,16 +201,18 @@
     &:active {
       transform: scale(1.01);
       margin-block: 4px;
-      border-bottom: 1px solid var(--color-surface-primary-border);
       border-radius: $roundness;
+      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &:hover {
+      border-color: var(--color-surface-primary-border-hover);
       box-shadow: 0 10px 24px var(--shadow-primary);
     }
 
     &:active {
       transform: scale(1.005);
+      border-color: var(--color-surface-primary-border-active);
       box-shadow: 0 10px 24px var(--shadow-secondary);
     }
   }
@@ -222,7 +225,7 @@
       + .details-summary-root:not(.is-open, [open]) .details-summary:active
     )
     .details-summary:not(:last-child) {
-    border-bottom: 1px solid var(--color-surface-primary-border);
+    border-bottom-color: var(--color-surface-primary-border);
   }
 
   .details-summary-root.is-open .details-summary,

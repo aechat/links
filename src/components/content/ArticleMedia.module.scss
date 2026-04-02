@@ -24,7 +24,9 @@
     width: 100%;
 
     button {
-      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition:
+        background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+        outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       opacity: 0.75;
       outline: 1px solid var(--color-figure-youtube-border);
       border-radius: $roundness * 0.75;
@@ -37,10 +39,12 @@
       font-weight: 600;
 
       &:hover {
+        outline-color: var(--color-button-group-border-hover);
         background-color: var(--color-figure-youtube-button-hover);
       }
 
       &:active {
+        outline-color: var(--color-button-group-border-active);
         background-color: var(--color-figure-youtube-button-active);
       }
 
@@ -151,6 +155,7 @@
       justify-content: center;
       transition:
         background-color 0.2s,
+        border-color 0.2s,
         transform 0.2s;
       z-index: 10000;
       border: 1px solid var(--color-button-group-border);
@@ -162,10 +167,12 @@
       color: var(--color-button-group-text);
 
       &:hover {
+        border-color: var(--color-button-group-border-hover);
         background: var(--color-button-group-background-hover);
       }
 
       &:active {
+        border-color: var(--color-button-group-border-active);
         background: var(--color-button-group-background-active);
       }
 

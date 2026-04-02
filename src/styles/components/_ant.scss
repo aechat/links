@@ -94,11 +94,12 @@
     border-radius: $roundness;
 
     &:hover {
-      outline: 1px solid var(--color-surface-dropdown-border-hover);
+      outline-color: var(--color-surface-dropdown-border-hover);
       background-color: var(--color-surface-dropdown-background-hover);
     }
 
     &:active {
+      outline-color: var(--color-surface-dropdown-border-active);
       background-color: var(--color-surface-dropdown-background-active);
     }
 
