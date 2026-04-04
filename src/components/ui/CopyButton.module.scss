@@ -2,9 +2,9 @@
 
 .copy-button {
   flex: none;
-  transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: -15px;
-  padding: 15px;
+  transition: fill $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: -$space-16;
+  padding: $space-16;
   fill: var(--color-icon-primary);
 
   &:hover {
@@ -16,7 +16,7 @@
   }
 
   svg {
-    @include fluid-icon-size(17px, 19px);
+    @include fluid-icon-size($space-16, $space-20);
   }
 
   &.disabled {

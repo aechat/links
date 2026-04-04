@@ -10,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 100000;
+    z-index: $z-loader;
     background-color: var(--color-background-primary);
     width: 100vw;
     height: 100vh;
@@ -34,7 +34,7 @@
     white-space: nowrap;
     color: var(--color-accent);
     font-family: "Red Hat Display", monospace;
-    font-size: 3.5rem;
+    font-size: $font-size-display-sm;
     font-weight: 800;
     font-style: italic;
   }
@@ -42,9 +42,10 @@
   &-tagline {
     display: inline-block;
     animation:
-      tagline-intro-shift 0.75s cubic-bezier(0, 0.75, 0.25, 1) 0.5s forwards,
+      tagline-intro-shift $duration-750 cubic-bezier(0, 0.75, 0.25, 1) $duration-500
+        forwards,
       tagline-shift 3s cubic-bezier(0.6, 0, 0.4, 1) infinite;
-    animation-delay: 0.5s, calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
+    animation-delay: $duration-500, calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
     color: var(--color-accent);
     font-family: "Red Hat Display", monospace;
     font-size: 1.35em;
@@ -55,7 +56,7 @@
 
   &-tagline-wrapper {
     display: inline-block;
-    transform: translateY(10px);
+    transform: translateY($space-12);
     padding-left: 0.2em;
     white-space: nowrap;
   }
@@ -63,9 +64,9 @@
   &-letter-wrapper {
     display: inline-block;
     animation:
-      tracking-slide 1s cubic-bezier(0, 0.75, 0.25, 1) 0.5s forwards,
+      tracking-slide $duration-1000 cubic-bezier(0, 0.75, 0.25, 1) $duration-500 forwards,
       tracking-loop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 0.5s, calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
+    animation-delay: $duration-500, calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
     will-change: transform;
   }
 
@@ -74,7 +75,7 @@
     backface-visibility: hidden;
     transform: scale(0.0001);
     animation:
-      smooth-scale 0.75s cubic-bezier(0, 0.75, 0.25, 1) forwards,
+      smooth-scale $duration-750 cubic-bezier(0, 0.75, 0.25, 1) forwards,
       smooth-loop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay:
       var(--intro-delay, 0s), calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
@@ -155,11 +156,11 @@
 }
 
 .fade-in {
-  animation: fade-in 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: fade-in $duration-500 cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .fade-out {
-  animation: fade-out 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: fade-out $duration-500 cubic-bezier(0.25, 1, 0.5, 1) forwards;
   pointer-events: none;
 }
 
@@ -184,7 +185,7 @@
 }
 
 .progress-bar-container {
-  transition: opacity 0.75s cubic-bezier(0.25, 0, 0, 1);
+  transition: opacity $duration-750 cubic-bezier(0.25, 0, 0, 1);
   opacity: 0;
 
   &.visible {

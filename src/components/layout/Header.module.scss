@@ -5,13 +5,13 @@
   align-items: center;
   justify-content: center;
   transition:
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: -4px;
-  outline: 1px solid transparent;
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: -$space-4;
+  outline: $stroke-1 solid transparent;
   border-radius: $roundness * 0.75;
-  padding: 5px;
+  padding: $space-4;
   height: var(--header-control-height, 30px);
   min-height: var(--header-control-height, 30px);
   line-height: 1;
@@ -34,18 +34,18 @@
 }
 
 @mixin header-logo-base {
-  transition: opacity 0.3s ease;
-  margin-block: 8px 10px;
-  margin-inline: 3px;
+  transition: opacity $duration-250 ease;
+  margin-block: $space-8 $space-8;
+  margin-inline: $space-4;
   max-width: fit-content;
   color: var(--color-accent);
   font-family: "Red Hat Display", monospace;
-  font-size: 1.35rem;
+  font-size: $font-size-brand;
   font-weight: 800;
   font-style: italic;
 
   sub {
-    font-size: 0.825rem;
+    font-size: $font-size-label;
     font-weight: 500;
   }
 }
@@ -64,14 +64,14 @@
   justify-content: space-between;
   transform: translateX(-50%);
   transition:
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    border 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  z-index: 10000;
-  outline: 1px solid var(--color-border-header);
-  box-shadow: 0 0 15px 0 var(--shadow-secondary);
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    box-shadow $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    border $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: $z-top;
+  outline: $stroke-1 solid var(--color-border-header);
+  box-shadow: 0 0 15px 0 var(--shadow-soft);
   background-color: var(--color-background-header);
-  padding-inline: 15px;
+  padding-inline: $space-16;
   width: 100%;
   max-width: 1075px;
   translate: 0 0 0;
@@ -89,10 +89,10 @@
     align-items: center;
     justify-content: center;
     transition:
-      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      visibility 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      box-shadow $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      visibility $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     max-height: max-content;
 
     .icon {
@@ -105,31 +105,31 @@
   }
 
   &-left {
-    gap: 8px;
+    gap: $space-8;
 
     mark {
-      margin-inline: 8px;
-      outline: 1px solid var(--color-status-danger-border);
+      margin-inline: $space-8;
+      outline: $stroke-1 solid var(--color-status-danger-border);
       background: var(--color-status-danger-mark-background);
       color: var(--color-status-danger-text);
-      font-size: 1rem;
+      font-size: $font-size-body-md;
       font-style: normal;
     }
   }
 
   &-right {
-    gap: 15px;
+    gap: $space-16;
     margin-block: 0;
   }
 
   @media screen and (width <= 768px) {
-    z-index: 100;
+    z-index: $z-header;
   }
 
   @media screen and (width >= 1075px) {
     transform: translateX(calc(-50% - 0.5px));
-    border-bottom-left-radius: $roundness * 1.5;
-    border-bottom-right-radius: $roundness * 1.5;
+    border-bottom-left-radius: $roundness;
+    border-bottom-right-radius: $roundness;
     width: calc(100% - 8px);
   }
 }

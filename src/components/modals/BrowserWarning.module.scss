@@ -7,7 +7,7 @@
     inset: 0;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: $z-modal;
     width: 100vw;
     height: 100dvh;
     overflow: hidden;
@@ -17,17 +17,17 @@
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(5px);
-    filter: drop-shadow(0 0 10px var(--shadow-primary));
-    outline: 1px solid var(--color-border-modal);
+    filter: $shadow-filter-overlay;
+    outline: $stroke-1 solid var(--color-border-modal);
     border-radius: $roundness;
     background-color: var(--color-background-modal);
     max-width: 500px;
 
     p {
-      margin-block: 10px;
-      margin-inline: 15px;
+      margin-block: $space-8;
+      margin-inline: $space-16;
       line-height: 1.65;
-      font-size: 0.95rem;
+      font-size: $font-size-body-md;
     }
   }
 
@@ -37,23 +37,23 @@
     text-transform: uppercase;
     white-space: nowrap;
     font-family: Onest, sans-serif;
-    font-size: 18rem;
+    font-size: $font-size-display-xl;
     font-weight: 900;
     font-style: italic;
     pointer-events: none;
   }
 
   &-title {
-    outline: 1px solid var(--color-surface-primary-border);
+    outline: $stroke-1 solid var(--color-surface-primary-border);
     border-radius: $roundness;
     background-color: var(--color-surface-primary-background);
-    padding-block: 10px;
-    padding-inline: 15px;
+    padding-block: $space-8;
+    padding-inline: $space-16;
     text-transform: uppercase;
     line-height: 1.25;
     color: var(--color-surface-primary-text);
     font-family: Onest, sans-serif;
-    font-size: 1.15rem;
+    font-size: $font-size-title-sm;
     font-weight: 500;
     text-wrap: balance;
   }
@@ -62,7 +62,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    margin-inline: 10px;
+    margin-inline: $space-8;
     border-radius: $roundness;
     overflow: hidden;
 
@@ -70,7 +70,7 @@
     a {
       @include button-group-item-base($flex-basis: 250px, $include-outline: false);
 
-      gap: 10px;
+      gap: $space-8;
     }
 
     img {
