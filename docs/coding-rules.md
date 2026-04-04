@@ -22,6 +22,47 @@ yarn format
 - Для текста и ссылок в интерактивах используйте `--color-interaction-text-hover-opacity` и `--color-interaction-text-active-opacity`.
 - Для эффектов нажатия (например, ripple) используйте `--color-interaction-ripple`.
 
+## Цветовые токены (новый контракт)
+
+- Цветовая система строится в 3 слоя:
+  - `primitive` — базовые значения темы (`light/dark` карты);
+  - `semantic` — токены поведения и состояний (`--color-semantic-*`);
+  - `component` — зональные токены интерфейса (`--color-<zone>-<role>-<state>`).
+- Для новых UI-частей не используйте прямые `hsl(...)`/`rgb(...)` в стилях компонентов, кроме явно согласованных исключений.
+- Канонический формат зональных токенов:
+  - `--color-<zone>-<role>-<state>`;
+  - примеры: `--color-header-background-default`, `--color-details-summary-border-hover`, `--color-buttons-background-active`.
+- Обязательные состояния для новых токенов:
+  - `default`, `hover`, `active`, `disabled`, `focus-visible`, `invalid`, `success`, `warning`.
+- Для шкалы важности используйте `primary/secondary/tertiary` на semantic-слое.
+- Токены глубины вложенности:
+  - `level-0..3` (`level-3` использовать как верхний clamp для более глубоких вложений);
+  - минимально depth-aware должны быть `details` и `addition` по `background/border` и `hover/active`.
+
+## Радиусы вложенности
+
+- Базовое внешнее скругление сохраняется как есть через `$roundness`.
+- Для fallback-скруглений используйте предсказуемые множители:
+  - внешний/основной уровень: `$roundness`;
+  - вложенный контентный уровень: `$roundness * 0.75`;
+  - плотные вложенные элементы: `$roundness * 0.5`.
+- Не вводите прокси-переменные для текущего радиуса (`--*-current`) без необходимости.
+
+## Нецветовые токены
+
+- Для нецветовых значений используйте только токены из `src/styles/abstracts/_mixins.scss`.
+- Не вводите «особые» шаги (`7px`, `10px`, `17px` и т.п.) для `space/inset/stroke/radius/duration/z-index`, если это не обоснованный edge-case.
+- Базовая сетка для `space/inset`: `0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64`.
+- Длительности анимаций/переходов задавайте через токены `duration` (`250/500/750/1000`).
+- Слои интерфейса (`z-index`) задавайте через токены `z-*` вместо literal-чисел в компонентах.
+- Для `drop-shadow` используйте только контекстные токены:
+  - `content-soft`, `content-strong`, `surface`, `overlay`, `state-open`.
+- Для интерактивного `box-shadow` используйте только:
+  - `shadow-box-interactive-base`, `shadow-box-interactive-hover`, `shadow-box-interactive-active`.
+- Размеры шрифтов задавайте через семантические токены:
+  - `caption`, `caption-strong`, `label`, `body-sm`, `body-md`, `body-lg`, `title-sm`, `title`, `brand`, `title-lg`, `display-sm/md/lg/xl`.
+  - Базовый body-размер проекта: `body-md = 1rem`.
+
 ### Исключение для SearchEngine
 
 - Блок `search` в `src/styles/abstracts/_light-colors.scss` и `src/styles/abstracts/_dark-colors.scss` использует отдельные фиксированные `hsl(...)`-токены для `header/content` и их `hover/active/selected`-состояний.
