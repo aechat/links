@@ -209,12 +209,7 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
             />
             {resultsCount > 0 && (
               <span className={searchStyles["search-counter"]}>
-                <span
-                  style={{
-                    color: "var(--color-surface-primary-text)",
-                    fontWeight: 500,
-                  }}
-                >
+                <span className={searchStyles["search-counter-value"]}>
                   {resultsCount}
                 </span>{" "}
                 {resultWord}
