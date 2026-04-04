@@ -5,17 +5,24 @@
   &-warning,
   &-danger,
   &-tldr {
-    @include fluid-inset(padding-block, 8px, 12px, padding-inline, 15px, 20px);
+    @include fluid-inset(
+      padding-block,
+      $space-8,
+      $space-12,
+      padding-inline,
+      $space-16,
+      $space-20
+    );
 
     box-sizing: content-box;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: $space-16;
     align-items: center;
-    margin-block: 15px;
+    margin-block: $space-16;
     margin-inline: 0;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: $font-size-body-md;
     font-weight: 425;
 
     > div {
@@ -23,7 +30,7 @@
     }
 
     p {
-      margin-block: 10px;
+      margin-block: $space-8;
       margin-inline: 0;
       line-height: 1.6;
 
@@ -36,11 +43,11 @@
       }
 
       &:not(:first-child) {
-        margin-block-start: 10px;
+        margin-block-start: $space-8;
       }
 
       &:not(:last-child) {
-        margin-block-end: 10px;
+        margin-block-end: $space-8;
       }
     }
 
@@ -50,7 +57,7 @@
     }
 
     mark {
-      padding: 2px 2.5px 2px 2px;
+      padding: 2px 3px;
 
       &::before {
         @include fluid-icon-size(11px, 13px);
@@ -59,31 +66,31 @@
 
     ul {
       margin-block: 0;
-      margin-inline: -10px 0;
+      margin-inline: -$space-8 0;
 
       &:not(:first-child) {
-        margin-block-start: 10px;
+        margin-block-start: $space-8;
       }
 
       &:not(:last-child) {
-        margin-block-end: 10px;
+        margin-block-end: $space-8;
       }
     }
 
     li {
       position: relative;
-      margin-block: 5px;
-      margin-inline-start: 20px;
-      padding-block: 3px;
-      padding-inline: 2px;
+      margin-block: $space-4;
+      margin-inline-start: $space-20;
+      padding-block: $space-4;
+      padding-inline: $space-4;
       line-height: 1.6;
 
       &::before {
         display: inline-block;
         position: absolute;
-        top: 8px;
-        bottom: 7px;
-        left: -12px;
+        top: $inset-8;
+        bottom: $inset-8;
+        left: -$inset-12;
         opacity: 0.5;
         border-radius: $roundness;
         width: 1px;
@@ -91,7 +98,7 @@
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid;
+        border-bottom: $stroke-1 solid;
       }
 
       &:first-child {
@@ -103,13 +110,13 @@
       }
 
       & > ul {
-        margin-block: 5px;
+        margin-block: $space-4;
 
         & > li {
           padding-inline: 0;
 
           &::before {
-            left: -12px;
+            left: -$inset-12;
           }
         }
       }
@@ -117,7 +124,7 @@
   }
 
   &-info {
-    outline: 1px solid var(--color-status-info-border);
+    outline: $stroke-1 solid var(--color-status-info-border);
     background-color: var(--color-status-info-background);
     color: var(--color-status-info-text);
 
@@ -126,6 +133,14 @@
 
       &::before {
         background-color: var(--color-status-info-text);
+      }
+
+      &:visited {
+        color: var(--color-status-info-visited-text);
+
+        &::before {
+          background-color: var(--color-status-info-visited-text);
+        }
       }
     }
 
@@ -140,18 +155,29 @@
     }
 
     mark {
-      outline: 1px solid var(--color-status-info-border);
+      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline: $stroke-1 solid var(--color-status-info-border);
       background-color: var(--color-status-info-mark-background);
       color: var(--color-status-info-text);
 
       &::before {
         background-color: var(--color-status-info-text) !important;
       }
+
+      &:where(.copy, [style*="cursor: pointer"]):hover {
+        outline-color: var(--color-status-info-border);
+        background-color: var(--color-status-info-mark-background-hover);
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):active {
+        outline-color: var(--color-status-info-border);
+        background-color: var(--color-status-info-mark-background-active);
+      }
     }
   }
 
   &-warning {
-    outline: 1px solid var(--color-status-warning-border);
+    outline: $stroke-1 solid var(--color-status-warning-border);
     background-color: var(--color-status-warning-background);
     color: var(--color-status-warning-text);
 
@@ -160,6 +186,14 @@
 
       &::before {
         background-color: var(--color-status-warning-text);
+      }
+
+      &:visited {
+        color: var(--color-status-warning-visited-text);
+
+        &::before {
+          background-color: var(--color-status-warning-visited-text);
+        }
       }
     }
 
@@ -174,18 +208,29 @@
     }
 
     mark {
-      outline: 1px solid var(--color-status-warning-border);
+      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline: $stroke-1 solid var(--color-status-warning-border);
       background-color: var(--color-status-warning-mark-background);
       color: var(--color-status-warning-text);
 
       &::before {
         background-color: var(--color-status-warning-text) !important;
       }
+
+      &:where(.copy, [style*="cursor: pointer"]):hover {
+        outline-color: var(--color-status-warning-border);
+        background-color: var(--color-status-warning-mark-background-hover);
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):active {
+        outline-color: var(--color-status-warning-border);
+        background-color: var(--color-status-warning-mark-background-active);
+      }
     }
   }
 
   &-danger {
-    outline: 1px solid var(--color-status-danger-border);
+    outline: $stroke-1 solid var(--color-status-danger-border);
     background-color: var(--color-status-danger-background);
     color: var(--color-status-danger-text);
 
@@ -195,6 +240,14 @@
       &::before {
         background-color: var(--color-status-danger-text);
       }
+
+      &:visited {
+        color: var(--color-status-danger-visited-text);
+
+        &::before {
+          background-color: var(--color-status-danger-visited-text);
+        }
+      }
     }
 
     li {
@@ -203,23 +256,34 @@
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid var(--color-status-danger-border);
+        border-bottom: $stroke-1 solid var(--color-status-danger-border);
       }
     }
 
     mark {
-      outline: 1px solid var(--color-status-danger-border);
+      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline: $stroke-1 solid var(--color-status-danger-border);
       background-color: var(--color-status-danger-mark-background);
       color: var(--color-status-danger-text);
 
       &::before {
         background-color: var(--color-status-danger-text) !important;
       }
+
+      &:where(.copy, [style*="cursor: pointer"]):hover {
+        outline-color: var(--color-status-danger-border);
+        background-color: var(--color-status-danger-mark-background-hover);
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):active {
+        outline-color: var(--color-status-danger-border);
+        background-color: var(--color-status-danger-mark-background-active);
+      }
     }
   }
 
   &-tldr {
-    outline: 1px solid var(--color-status-tldr-border);
+    outline: $stroke-1 solid var(--color-status-tldr-border);
     background-color: var(--color-status-tldr-background);
     color: var(--color-status-tldr-text);
 
@@ -228,6 +292,14 @@
 
       &::before {
         background-color: var(--color-status-tldr-text);
+      }
+
+      &:visited {
+        color: var(--color-status-tldr-visited-text);
+
+        &::before {
+          background-color: var(--color-status-tldr-visited-text);
+        }
       }
     }
 
@@ -242,12 +314,23 @@
     }
 
     mark {
-      outline: 1px solid var(--color-status-tldr-border);
+      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline: $stroke-1 solid var(--color-status-tldr-border);
       background-color: var(--color-status-tldr-mark-background);
       color: var(--color-status-tldr-text);
 
       &::before {
         background-color: var(--color-status-tldr-text) !important;
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):hover {
+        outline-color: var(--color-status-tldr-border);
+        background-color: var(--color-status-tldr-mark-background-hover);
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):active {
+        outline-color: var(--color-status-tldr-border);
+        background-color: var(--color-status-tldr-mark-background-active);
       }
     }
   }
@@ -259,7 +342,7 @@
     > .addition-warning,
     > .addition-danger,
     > .addition-tldr {
-      margin-block: 10px;
+      margin-block: $space-8;
       border-radius: $roundness * 0.5;
 
       &:first-child {
@@ -271,11 +354,11 @@
       }
 
       &:not(:first-child) {
-        margin-block-start: 10px;
+        margin-block-start: $space-8;
       }
 
       &:not(:last-child) {
-        margin-block-end: 10px;
+        margin-block-end: $space-8;
       }
     }
   }
@@ -284,7 +367,14 @@
   .addition-warning,
   .addition-danger,
   .addition-tldr {
-    @include fluid-inset(padding-block, 5px, 7px, padding-inline, 10px, 15px);
+    @include fluid-inset(
+      padding-block,
+      $space-4,
+      $space-8,
+      padding-inline,
+      $space-8,
+      $space-16
+    );
   }
 
   .addition-info {
@@ -387,6 +477,24 @@
         }
       }
     }
+
+    :is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
+      .addition-info {
+        background-color: var(--color-status-info-background-level-3);
+      }
+
+      .addition-warning {
+        background-color: var(--color-status-warning-background-level-3);
+      }
+
+      .addition-danger {
+        background-color: var(--color-status-danger-background-level-3);
+      }
+
+      .addition-tldr {
+        background-color: var(--color-status-tldr-background-level-3);
+      }
+    }
   }
 }
 
@@ -403,8 +511,8 @@ li,
     margin-left: 0;
     margin-inline: 0;
     border-radius: $roundness;
-    padding-inline: 15px;
-    font-size: 0.935rem;
+    padding-inline: $space-16;
+    font-size: $font-size-body-md;
   }
 }
 
@@ -413,7 +521,7 @@ li,
   & > .addition-warning,
   & > .addition-danger,
   & > .addition-tldr {
-    margin-block: 10px;
+    margin-block: $space-8;
     margin-inline: 0;
     border-radius: 0;
   }
@@ -437,11 +545,11 @@ table {
 }
 
 %article-content-first-child {
-  margin-top: 10px;
+  margin-top: $space-8;
 }
 
 %article-content-last-child {
-  margin-bottom: 10px;
+  margin-bottom: $space-8;
 }
 
 .article-content,
@@ -466,7 +574,7 @@ li {
   .addition-warning,
   .addition-danger,
   .addition-tldr {
-    margin-block: 10px;
+    margin-block: $space-8;
     margin-inline: 0;
     border-radius: $roundness * 0.75;
   }
@@ -477,7 +585,7 @@ li {
 .addition-danger :global(.flexible-links),
 .addition-tldr :global(.flexible-links) {
   margin: 0;
-  outline-width: 1px;
+  outline-width: $stroke-1;
 
   &:first-child {
     margin-block-start: 0;
@@ -488,11 +596,11 @@ li {
   }
 
   &:not(:first-child) {
-    margin-block-start: 15px;
+    margin-block-start: $space-16;
   }
 
   &:not(:last-child) {
-    margin-block-end: 15px;
+    margin-block-end: $space-16;
   }
 
   a {
@@ -518,6 +626,10 @@ li {
       background-color: var(--color-status-info-secondary-active-background);
     }
   }
+
+  a:visited {
+    color: var(--color-status-info-visited-text);
+  }
 }
 
 .addition-warning :global(.flexible-links) {
@@ -537,6 +649,10 @@ li {
     &:active {
       background-color: var(--color-status-warning-secondary-active-background);
     }
+  }
+
+  a:visited {
+    color: var(--color-status-warning-visited-text);
   }
 }
 
@@ -558,6 +674,10 @@ li {
       background-color: var(--color-status-danger-secondary-active-background);
     }
   }
+
+  a:visited {
+    color: var(--color-status-danger-visited-text);
+  }
 }
 
 .addition-tldr :global(.flexible-links) {
@@ -578,4 +698,24 @@ li {
       background-color: var(--color-status-tldr-secondary-active-background);
     }
   }
+
+  a:visited {
+    color: var(--color-status-tldr-visited-text);
+  }
+}
+
+.addition-info.addition-info a:visited {
+  color: var(--color-status-info-visited-text);
+}
+
+.addition-warning.addition-warning a:visited {
+  color: var(--color-status-warning-visited-text);
+}
+
+.addition-danger.addition-danger a:visited {
+  color: var(--color-status-danger-visited-text);
+}
+
+.addition-tldr.addition-tldr a:visited {
+  color: var(--color-status-tldr-visited-text);
 }

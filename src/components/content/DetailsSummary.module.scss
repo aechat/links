@@ -11,8 +11,8 @@
   );
 
   position: relative;
-  transition: z-index 0s linear 0.25s;
-  z-index: 0;
+  transition: z-index 0s linear $duration-250;
+  z-index: $z-base;
   user-select: none;
 
   &:hover,
@@ -32,8 +32,8 @@
   }
 
   .details-content-wrapper {
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-block-start: -15px;
+    transition: max-height $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+    margin-block-start: -$space-16;
     max-height: 0;
     overflow: hidden;
 
@@ -76,8 +76,8 @@
   );
 
   position: relative;
-  transition: z-index 0s linear 0.25s;
-  z-index: 0;
+  transition: z-index 0s linear $duration-250;
+  z-index: $z-base;
 
   &:hover,
   &:active {
@@ -90,16 +90,121 @@
   }
 }
 
+:global(
+  details[data-nested-details-summary="true"] details[data-nested-details-summary="true"]
+) {
+  --spoiler-depth: 2;
+}
+
+:global(
+  details[data-nested-details-summary="true"]
+    details[data-nested-details-summary="true"]
+    details[data-nested-details-summary="true"]
+) {
+  --spoiler-depth: 3;
+}
+
+@mixin details-summary-level-colors($selector, $background, $border) {
+  #{$selector} {
+    .details-summary {
+      border-color: $border;
+      background-color: $background;
+    }
+  }
+
+  :global(.article-content) {
+    #{$selector} {
+      &:last-of-type .details-summary,
+      &:has(+ .details-summary-root[open]) .details-summary,
+      &[open] .details-summary {
+        border-bottom-color: $border;
+      }
+    }
+  }
+
+  :global(html:not(.no-spoiler-hover-effects)) {
+    #{$selector}:not(.is-open, [open]) .details-summary {
+      &:hover,
+      &:active {
+        border-bottom-color: $border;
+      }
+
+      &:hover {
+        border-color: color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        );
+      }
+
+      &:active {
+        border-color: color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        );
+      }
+    }
+
+    #{$selector}:has(+ #{$selector}:not(.is-open, [open]) .details-summary:hover)
+      .details-summary:not(:last-child),
+    #{$selector}:has(+ #{$selector}:not(.is-open, [open]) .details-summary:active)
+      .details-summary:not(:last-child) {
+      border-bottom-color: $border;
+    }
+
+    #{$selector}.is-open .details-summary:hover,
+    #{$selector}[open] .details-summary:hover {
+      border-bottom: $stroke-1 solid
+        color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        );
+    }
+
+    #{$selector}.is-open .details-summary:active,
+    #{$selector}[open] .details-summary:active {
+      border-bottom: $stroke-1 solid
+        color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        );
+    }
+  }
+}
+
+@include details-summary-level-colors(
+  ".details-summary-root",
+  var(--color-surface-primary-background),
+  var(--color-surface-primary-border)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-1),
+  var(--color-details-summary-border-level-1)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true'] details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-2),
+  var(--color-details-summary-border-level-2)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true'] details[data-nested-details-summary='true'] details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-3),
+  var(--color-details-summary-border-level-3)
+);
+
 :global(.article-content) {
   .details-summary-root:not([open]) {
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: $duration-1000 cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   .details-summary-root {
     &:last-of-type .details-summary {
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
-      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &:first-of-type .details-summary {
@@ -110,13 +215,11 @@
     &:has(+ .details-summary-root[open]) .details-summary {
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
-      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &[open] {
       .details-summary {
         border-radius: $roundness;
-        border-bottom-color: var(--color-surface-primary-border);
       }
 
       .details-section {
@@ -150,7 +253,7 @@
     }
 
     .details-summary-root[open] {
-      filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
+      filter: $shadow-filter-state-open;
     }
 
     :global(.details-nested):not([open]) {
@@ -178,7 +281,7 @@
   @include details-summary-base();
 
   &-icon {
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -186,13 +289,13 @@
   .details-summary {
     transform-origin: center center;
     transition:
-      margin 0.5s cubic-bezier(0.2, 0.65, 0.25, 1),
+      margin $duration-500 cubic-bezier(0.2, 0.65, 0.25, 1),
       transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
       box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
-      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-      border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
-    box-shadow: 0 10px 24px transparent;
+    box-shadow: $shadow-box-interactive-base;
     will-change: transform;
   }
 
@@ -200,20 +303,17 @@
     &:hover,
     &:active {
       transform: scale(1.01);
-      margin-block: 4px;
+      margin-block: $space-4;
       border-radius: $roundness;
-      border-bottom-color: var(--color-surface-primary-border);
     }
 
     &:hover {
-      border-color: var(--color-surface-primary-border-hover);
-      box-shadow: 0 10px 24px var(--shadow-primary);
+      box-shadow: $shadow-box-interactive-hover;
     }
 
     &:active {
       transform: scale(1.005);
-      border-color: var(--color-surface-primary-border-active);
-      box-shadow: 0 10px 24px var(--shadow-secondary);
+      box-shadow: $shadow-box-interactive-active;
     }
   }
 
@@ -225,33 +325,23 @@
       + .details-summary-root:not(.is-open, [open]) .details-summary:active
     )
     .details-summary:not(:last-child) {
-    border-bottom-color: var(--color-surface-primary-border);
+    border-bottom-color: transparent;
   }
 
   .details-summary-root.is-open .details-summary,
   .details-summary-root[open] .details-summary {
     transform: none !important;
-    box-shadow: 0 10px 24px transparent;
-  }
-
-  .details-summary-root.is-open .details-summary:hover,
-  .details-summary-root[open] .details-summary:hover {
-    border-bottom: 1px solid var(--color-surface-primary-border-hover);
-  }
-
-  .details-summary-root.is-open .details-summary:active,
-  .details-summary-root[open] .details-summary:active {
-    border-bottom: 1px solid var(--color-surface-primary-border-active);
+    box-shadow: $shadow-box-interactive-base;
   }
 }
 
 :global(html.no-spoiler-hover-effects) {
   .details-summary-root {
-    z-index: 0;
+    z-index: $z-base;
 
     &:hover,
     &:active {
-      z-index: 0;
+      z-index: $z-base;
     }
 
     &.is-open,
@@ -261,11 +351,11 @@
   }
 
   :global(details[data-nested-details-summary="true"]) {
-    z-index: 0;
+    z-index: $z-base;
 
     &:hover,
     &:active {
-      z-index: 0;
+      z-index: $z-base;
     }
 
     &[open] {
@@ -275,15 +365,15 @@
 }
 
 .details-section {
-  margin-block-end: -1px;
-  border: solid 1px var(--color-border-primary);
+  margin-block-end: 0;
+  border: solid $stroke-1 var(--color-border-primary);
   background-color: var(--color-background-secondary);
-  padding-block: 15px 1px;
+  padding-block: $space-16 $space-0;
 }
 
 .details-content-wrapper {
-  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-block-start: -15px;
+  transition: max-height $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+  margin-block-start: -$space-16;
   max-height: 0;
   overflow: hidden;
 }

@@ -5,7 +5,7 @@
     margin-inline: auto;
     width: calc(100% - clamp(16px, 5vw, 64px));
     max-width: 1175px;
-    filter: drop-shadow(0 10px 15px var(--shadow-primary));
+    filter: $shadow-filter-surface;
 
     &-flex {
       display: flex;
@@ -23,7 +23,14 @@
 
   &-content {
     p {
-      @include fluid-inset(margin-block, 10px, 15px, margin-inline, 15px, 20px);
+      @include fluid-inset(
+        margin-block,
+        $space-8,
+        $space-16,
+        margin-inline,
+        $space-16,
+        $space-20
+      );
 
       line-height: 1.75;
       text-wrap: stable;
@@ -31,17 +38,17 @@
 
     .ant-divider-inner-text {
       opacity: 1;
-      outline: 1px solid var(--color-border-divider);
+      outline: $stroke-1 solid var(--color-border-divider);
       border-radius: $roundness * 0.75;
       background-color: var(--color-background-divider);
-      padding: 6px 9px;
+      padding: $space-8 $space-8;
       width: 100%;
       max-width: fit-content;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: wrap;
       font-family: Inter, sans-serif;
-      font-size: 0.85rem;
+      font-size: $font-size-body-sm;
       font-weight: 700;
       text-wrap: stable;
 
@@ -52,7 +59,7 @@
     }
 
     a {
-      transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
       text-decoration: underline;
       color: var(--color-accent);
       font-weight: 700;
@@ -61,9 +68,9 @@
         @include fluid-icon-size(13px, 15px);
 
         display: inline-block;
-        margin-block: 1px;
-        margin-inline-end: 3px;
-        background-color: var(--color-accent);
+        margin-block: $space-0;
+        margin-inline-end: $space-4;
+        background-color: currentcolor;
         background-repeat: no-repeat;
         background-size: contain;
         vertical-align: sub;
@@ -81,7 +88,7 @@
       }
 
       &:visited {
-        filter: saturate(0.5);
+        color: var(--color-link-visited);
       }
     }
 
@@ -91,7 +98,7 @@
 
     li {
       position: relative;
-      padding-block: 10px;
+      padding-block: $space-8;
       padding-inline: min(calc(20px + (30 - 20) * ((100vw - 320px) / (768 - 320))), 30px)
         15px;
       list-style-type: none;
@@ -101,8 +108,8 @@
       &::before {
         display: inline-block;
         position: absolute;
-        top: 12px;
-        bottom: 12px;
+        top: $inset-12;
+        bottom: $inset-12;
         left: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
         opacity: 0.5;
         border-radius: $roundness;
@@ -112,11 +119,11 @@
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid var(--color-border-primary);
+        border-bottom: $stroke-1 solid var(--color-border-primary);
       }
 
       p {
-        margin-block: 15px;
+        margin-block: $space-16;
         margin-inline: 0;
 
         &:first-child {
@@ -129,7 +136,7 @@
       }
 
       .media {
-        margin-block: 15px;
+        margin-block: $space-16;
         margin-inline: 0;
 
         &:first-child {
@@ -144,14 +151,14 @@
       > .addition-info,
       > .addition-warning,
       > .addition-danger {
-        margin-block: 15px;
+        margin-block: $space-16;
 
         &:first-child {
-          margin-block-start: 5px;
+          margin-block-start: $space-4;
         }
 
         &:last-child {
-          margin-block-end: 5px;
+          margin-block-end: $space-4;
         }
       }
 
@@ -164,7 +171,7 @@
       }
 
       > ul {
-        margin-block: 5px;
+        margin-block: $space-4;
 
         &:last-child {
           margin-block-end: 0;
@@ -192,12 +199,12 @@
 
 .article-placeholder {
   opacity: 0.25;
-  margin: 40px;
+  margin: $space-40;
   margin-inline: auto;
   max-width: 600px;
   text-align: center;
   color: var(--color-surface-primary-text);
-  font-size: 1.15rem;
+  font-size: $font-size-title-sm;
   font-weight: 600;
   font-style: italic;
 

@@ -2,14 +2,14 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .media {
-  @include fluid-size(margin, 15px, 20px);
+  @include fluid-size(margin, $space-16, $space-20);
 
   text-align: center;
 
   &-figure {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: $space-8;
     align-items: center;
     max-width: 100%;
 
@@ -20,23 +20,23 @@
 
   &-youtube-actions {
     display: flex;
-    gap: 10px;
+    gap: $space-8;
     justify-content: flex-end;
     width: 100%;
 
     button {
       transition:
-        background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-        outline-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+        outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
       opacity: 0.75;
-      outline: 1px solid var(--color-figure-youtube-border);
+      outline: $stroke-1 solid var(--color-figure-youtube-border);
       border-radius: $roundness * 0.75;
       background-color: var(--color-figure-youtube-button);
-      padding: 6px;
+      padding: $space-8;
       text-align: center;
       line-height: 1.25;
       color: var(--color-figure-youtube-button-text);
-      font-size: 0.825rem;
+      font-size: $font-size-label;
       font-weight: 600;
 
       &:hover {
@@ -50,7 +50,7 @@
       }
 
       svg {
-        @include fluid-icon-size(17px, 19px);
+        @include fluid-icon-size($space-16, $space-20);
       }
     }
   }
@@ -62,22 +62,22 @@
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 5px 5px var(--shadow-primary));
+    filter: $shadow-filter-content-soft;
 
     &--image {
-      outline: 1px solid var(--color-border-content);
+      outline: $stroke-1 solid var(--color-border-content);
       max-height: 60vh;
     }
 
     &--video {
-      outline: 1px solid var(--color-border-content);
+      outline: $stroke-1 solid var(--color-border-content);
       max-height: 55dvh;
     }
   }
 
   &-iframe {
-    filter: drop-shadow(0 5px 5px var(--shadow-primary));
-    outline: 1px solid var(--color-border-content);
+    filter: $shadow-filter-content-soft;
+    outline: $stroke-1 solid var(--color-border-content);
     border: none;
     border-radius: $roundness;
     width: 100%;
@@ -93,10 +93,10 @@
   }
 
   &-caption {
-    padding: 5px;
+    padding: $space-4;
     text-align: center;
     color: var(--color-text-tertiary);
-    font-size: 0.9rem;
+    font-size: $font-size-body-sm;
     font-style: italic;
   }
 
@@ -108,7 +108,7 @@
       left: 0;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
+      z-index: $z-modal;
       background-color: var(--color-background-overlay);
       width: 100vw;
       height: 100vh;
@@ -121,25 +121,25 @@
       position: relative;
       align-items: center;
       justify-content: center;
-      padding: 10px;
+      padding: $space-8;
       width: 100%;
       height: 100%;
       overflow: hidden;
 
       @media (width >= 769px) {
-        padding-top: 50px;
+        padding-top: $space-48;
       }
     }
 
     &-image {
-      border-radius: 8px;
+      border-radius: $roundness;
       cursor: grab;
       max-width: 100%;
       max-height: 100%;
       will-change: transform;
       object-fit: contain;
       user-select: none;
-      filter: drop-shadow(0 5px 10px var(--shadow-primary));
+      filter: $shadow-filter-content-strong;
 
       &:active {
         cursor: grabbing;
@@ -149,16 +149,16 @@
     &-close {
       display: flex;
       position: absolute;
-      top: 60px;
-      right: 20px;
+      top: $inset-64;
+      right: $inset-20;
       align-items: center;
       justify-content: center;
       transition:
-        background-color 0.2s,
-        border-color 0.2s,
-        transform 0.2s;
-      z-index: 10000;
-      border: 1px solid var(--color-button-group-border);
+        background-color $duration-250,
+        border-color $duration-250,
+        transform $duration-250;
+      z-index: $z-top;
+      border: $stroke-1 solid var(--color-button-group-border);
       border-radius: $roundness;
       background: var(--color-button-group-background);
       cursor: pointer;
@@ -183,7 +183,7 @@
       }
 
       @media (width <= 768px) {
-        top: 20px;
+        top: $inset-20;
       }
     }
   }

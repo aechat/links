@@ -17,21 +17,21 @@
   }
 
   &-section {
-    margin-block-end: -1px;
-    border: solid 1px var(--color-border-primary);
+    margin-block-end: 0;
+    border: solid $stroke-1 var(--color-border-primary);
     background-color: var(--color-background-secondary);
-    padding-block: 15px 1px;
+    padding-block: $space-16 $space-0;
   }
 }
 
 .article-content {
   details:not([open]) {
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: $duration-1000 cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   > details {
     &:last-of-type .details-summary {
-      border-bottom: 1px solid var(--color-surface-primary-border);
+      border-bottom: $stroke-1 solid var(--color-surface-primary-border);
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
     }
@@ -42,20 +42,20 @@
     }
 
     &:has(+ details[open]) .details-summary {
-      border-bottom: 1px solid var(--color-surface-primary-border);
+      border-bottom: $stroke-1 solid var(--color-surface-primary-border);
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
     }
 
     &[open] {
       .details-summary {
-        border-bottom: 1px solid var(--color-surface-primary-border);
+        border-bottom: $stroke-1 solid var(--color-surface-primary-border);
         border-radius: $roundness;
       }
 
       .details-section {
-        border-bottom-left-radius: $roundness;
-        border-bottom-right-radius: $roundness;
+        border-bottom-left-radius: $roundness * 0.75;
+        border-bottom-right-radius: $roundness * 0.75;
       }
 
       & + details .details-summary {
@@ -67,10 +67,10 @@
 
   & details[open] {
     transition:
-      transform 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
-      filter 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
-      margin-block 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-bottom: 1px solid var(--color-border-primary);
+      transform $duration-750 cubic-bezier(0.075, 0.82, 0.165, 1),
+      filter $duration-750 cubic-bezier(0.075, 0.82, 0.165, 1),
+      margin-block $duration-750 cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-bottom: $stroke-1 solid var(--color-border-primary);
     border-bottom-left-radius: $roundness;
     border-bottom-right-radius: $roundness;
   }
@@ -81,7 +81,7 @@ body {
     > details[open] {
       transform: scale(1.01);
       transform-origin: top;
-      margin-block: 15px;
+      margin-block: $space-16;
     }
 
     .details-nested[open] {
@@ -100,7 +100,7 @@ body {
     }
 
     > details[open] {
-      filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
+      filter: $shadow-filter-state-open;
     }
 
     .details-nested:not([open]) {
@@ -126,13 +126,13 @@ details {
     }
 
     .details-summary-icon {
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
   .details-content-wrapper {
-    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-block-start: -15px;
+    transition: max-height $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+    margin-block-start: -$space-16;
     max-height: 0;
     overflow: hidden;
 
