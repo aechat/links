@@ -153,17 +153,7 @@ const SafariWarningModal = ({
               Продолжить
             </button>
           </div>
-          <label
-            style={{
-              alignItems: "center",
-              cursor: "pointer",
-              display: "flex",
-              fontSize: "0.9rem",
-              gap: "8px",
-              margin: "15px",
-              opacity: "0.75",
-            }}
-          >
+          <label className="warning-dismiss-option">
             <input
               checked={dontShowAgain}
               type="checkbox"
@@ -205,10 +195,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
   return (
     <div className="error-container">
       <div className="error-backtitle">Ошибка</div>
-      <div
-        className={modalStyles["modal"]}
-        style={{margin: "15px", maxWidth: "450px"}}
-      >
+      <div className={`${modalStyles["modal"]} error-modal`}>
         <div className={modalStyles["modal-header"]}>
           <div className={modalStyles["modal-header-title"]}>
             {(() => {
@@ -244,7 +231,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
             {!isNewVersionError && (
               <p>
                 <span
-                  style={{cursor: "pointer", fontSize: "0.9rem", opacity: 0.5}}
+                  className="error-message-copyable"
                   onClick={async () => {
                     const success = await copyText(error.message);
 

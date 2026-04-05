@@ -116,4 +116,30 @@
     font-size: $font-size-body-sm;
     filter: saturate(100%);
   }
+
+  &-time {
+    opacity: 0.5;
+    text-align: center;
+    font-size: 0.725rem;
+  }
+}
+
+.chat {
+  &-rules {
+    &-container {
+      margin-block-start: $space-20;
+    }
+
+    &-muted {
+      opacity: 0.5;
+    }
+
+    &-list-compact {
+      margin-inline: -15px;
+    }
+
+    &-links-inline {
+      margin-inline: 0;
+    }
+  }
 }

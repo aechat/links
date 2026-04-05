@@ -20,6 +20,14 @@
     margin-inline: auto;
     max-width: 800px;
   }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .animated-text {
@@ -187,6 +195,9 @@
 .progress-bar-container {
   transition: opacity $duration-750 cubic-bezier(0.25, 0, 0, 1);
   opacity: 0;
+  margin-inline: 20px;
+  width: 180px;
+  max-width: 35vw;
 
   &.visible {
     opacity: 1;

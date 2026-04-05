@@ -219,15 +219,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
         setIsFadingOut(false);
       }}
     >
-      <div
-        style={{
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
+      <div className={styles["loading-content"]}>
         {showIntro && (
           <div className={styles["animated-text-container"]}>
             {title && (
@@ -317,16 +309,13 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
             isProgressBarVisible ? styles["visible"] : ""
           }`}
           style={{
-            marginInline: "20px",
             marginTop: showIntro ? "30px" : "0",
-            maxWidth: "35vw",
             transitionDelay: `${progressBarDelay}s`,
-            width: "180px",
           }}
         >
           <LinearProgress
             color="inherit"
-            style={{borderRadius: "4px", height: "3px", opacity: "0.5"}}
+            style={{borderRadius: "4px", height: "2px", opacity: "0.5"}}
           />
         </div>
       </div>

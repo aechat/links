@@ -66,6 +66,7 @@
 
 .search {
   &-input {
+    cursor: text;
     width: 100%;
     color: var(--color-surface-primary-text);
     font-size: $font-size-body-md;
@@ -537,6 +538,11 @@
       width: 100%;
       font-size: $font-size-label;
       text-wrap: balance;
+    }
+
+    &-highlight {
+      color: var(--color-surface-primary-text);
+      font-weight: 600;
     }
 
     &-tip {

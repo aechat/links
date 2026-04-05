@@ -1,6 +1,11 @@
 @use "../abstracts/mixins" as *;
 
 .error {
+  &-modal {
+    margin: 15px;
+    max-width: 450px;
+  }
+
   &-container {
     display: flex;
     position: relative;
@@ -28,5 +33,23 @@
       writing-mode: vertical-rl;
       text-orientation: upright;
     }
+  }
+
+  &-message-copyable {
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: $font-size-body-sm;
+  }
+}
+
+.warning {
+  &-dismiss-option {
+    display: flex;
+    gap: $space-8;
+    align-items: center;
+    opacity: 0.75;
+    margin: $space-16;
+    cursor: pointer;
+    font-size: $font-size-body-sm;
   }
 }

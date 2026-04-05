@@ -771,7 +771,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -913,7 +913,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -1119,7 +1119,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -1392,7 +1392,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -1618,7 +1618,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -2230,7 +2230,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -2817,7 +2817,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -2915,7 +2915,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -3338,7 +3338,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -3549,7 +3549,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -3726,7 +3726,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -3824,7 +3824,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -4026,7 +4026,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -4192,7 +4192,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -4362,7 +4362,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -4644,7 +4644,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -5041,7 +5041,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -5091,7 +5091,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -5235,7 +5235,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion
@@ -5505,7 +5505,7 @@ const AeWhereFind: React.FC = () => {
             <tr>
               <th>Эффект на русском</th>
               <th>Эффект на английском</th>
-              <th style={{width: "15%"}}>
+              <th className="where-find-index-column">
                 Описание эффекта
                 <br />
                 от Jake In Motion

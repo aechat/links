@@ -202,7 +202,6 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
               ref={inputRef}
               className={searchStyles["search-input"]}
               placeholder="Введите что-нибудь для поиска..."
-              style={{cursor: "text"}}
               type="search"
               value={query}
               onChange={(event_) => onChangeQuery(event_.target.value)}
@@ -307,15 +306,8 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
     <div className={searchStyles["search-no-results"]}>
       <p className={searchStyles["search-no-results-title"]}>
         По вашему запросу на этой странице{" "}
-        <span
-          style={{
-            color: "var(--color-surface-primary-text)",
-            fontWeight: 600,
-          }}
-        >
-          ничего
-        </span>{" "}
-        не нашлось
+        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+        нашлось
       </p>
       <p className={searchStyles["search-no-results-message"]}>
         Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или

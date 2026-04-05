@@ -186,9 +186,7 @@ mark {
   }
 }
 
-.article-content,
-.details-section,
-.details-nested-section {
+@mixin interactive-copy-mark-context {
   mark:where(.copy, [style*="cursor: pointer"]) {
     $hover-shift: "var(--color-interaction-neutral-hover-shift) * var(--color-mark-interaction-hover-factor)";
     $active-shift: "var(--color-interaction-neutral-active-shift) * var(--color-mark-interaction-active-factor)";
@@ -222,5 +220,18 @@ mark {
         var(--color-interaction-mix-color) calc(#{$active-shift})
       );
     }
+  }
+}
+
+.article {
+  &-content {
+    @include interactive-copy-mark-context();
+  }
+}
+
+.details {
+  &-section,
+  &-nested-section {
+    @include interactive-copy-mark-context();
   }
 }
