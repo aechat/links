@@ -23,7 +23,7 @@ const AeInterface: React.FC = () => {
           оставаться пустым. Для решения этой проблемы достаточно войти в аккаунт{" "}
           <mark className="company">Adobe</mark> через{" "}
           <mark className="select">«Help» → «Sign In»</mark>.{" "}
-          <i style={{opacity: "0.5"}}>Нет, псевдо-лицензия не слетит.</i>
+          <em className="article-note-muted">Нет, псевдо-лицензия не слетит.</em>
         </p>
         <ArticleMedia
           caption="Пустое домашнее окно Adobe After Effects"
@@ -836,9 +836,9 @@ const AeInterface: React.FC = () => {
           пользователям новых версий программы и наоборот. Если вы учитесь по старым
           урокам, адаптируйтесь к изменениям или поищите актуальные видео, записанные в
           последних версиях <mark className="app">Adobe After Effects</mark>.{" "}
-          <i style={{opacity: "0.5"}}>
+          <em className="article-note-muted">
             Или установите ту же версию программы, что демонстрируется на видео.
-          </i>
+          </em>
         </p>
         <Addition type="info">
           Дополнительную информацию об этом обновлении можно{" "}

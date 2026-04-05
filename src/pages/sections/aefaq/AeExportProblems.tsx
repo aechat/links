@@ -133,11 +133,11 @@ const AeExportProblems: React.FC = () => {
           стоял неоптимальный пресет — <mark className="video">AVI</mark> с кодеком{" "}
           <mark className="video">Animation</mark> без сжатия, из-за чего экспортированный
           файл получался огромным.{" "}
-          <i style={{opacity: "0.5"}}>
+          <em className="article-note-muted">
             Хотя достаточно было просто выбрать другой формат перед экспортом или
             воспользоваться <mark className="plugin">Voukoder</mark> или{" "}
             <mark className="plugin">AfterCodecs</mark>.
-          </i>
+          </em>
         </p>
         <p>
           Если вы не хотите заново экспортировать композицию из{" "}

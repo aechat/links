@@ -323,12 +323,12 @@ const AeFromNewbies: React.FC = () => {
               <mark className="plugin">Unsharpen Mask</mark> с чрезмерными значениями,
               завышают контраст и насыщенность, а затем называют видео 4K, хотя
               фактическое разрешение меньше.{" "}
-              <i style={{opacity: "0.5"}}>
+              <em className="article-note-muted">
                 Пожалуйста, не доводите до максимума значения эффектов{" "}
                 <mark className="plugin">Unsharpen Mask</mark> и{" "}
                 <mark className="plugin">Sharpen</mark> в погоне за «качеством» — после
                 таких «улучшений» результат обычно выглядит так себе.
-              </i>
+              </em>
             </p>
             <ArticleMedia
               src="d9ESpD7vc2Y"
@@ -1779,7 +1779,8 @@ const AeFromNewbies: React.FC = () => {
                 возможность независимой анимации. Поэтому, если родитель уже анимирован,
                 привязку лучше делать в тот момент, когда{" "}
                 <mark className="select">«Current Time Indicator»</mark> стоит в её
-                начале. <i style={{opacity: "0.5"}}>Хотя всё зависит от ситуации...</i>
+                начале.{" "}
+                <em className="article-note-muted">Хотя всё зависит от ситуации...</em>
               </p>
               <p>
                 Данный функционал полезен для создания персонажной анимации или для
@@ -1981,8 +1982,7 @@ const AeFromNewbies: React.FC = () => {
                   <li>
                     Чтобы поставить маркер на выделенный слой — нажмите{" "}
                     <mark className="key">
-                      *{" "}
-                      <span style={{fontWeight: "450", opacity: "0.5"}}>(на Numpad)</span>
+                      * <span className="shortcut-hint">(на Numpad)</span>
                     </mark>{" "}
                     на цифровом блоке клавиатуры.
                   </li>
@@ -1990,8 +1990,7 @@ const AeFromNewbies: React.FC = () => {
                     Чтобы поставить маркер на слой и сразу открыть окно его настроек —
                     нажмите{" "}
                     <mark className="key">
-                      Alt + *{" "}
-                      <span style={{fontWeight: "450", opacity: "0.5"}}>(на Numpad)</span>
+                      Alt + * <span className="shortcut-hint">(на Numpad)</span>
                     </mark>
                     .
                   </li>
@@ -2980,7 +2979,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3081,7 +3080,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3253,7 +3252,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3292,8 +3291,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + `{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                        Ctrl + ` <span className="shortcut-hint">(Ё)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3475,7 +3473,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3584,8 +3582,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Alt + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3598,8 +3595,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Alt + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3612,8 +3608,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + Shift + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Alt + Shift + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3626,8 +3621,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + Shift + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Alt + Shift + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3668,7 +3662,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3724,7 +3718,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -3888,7 +3882,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        [ <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                        [ <span className="shortcut-hint">(Х)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3901,7 +3895,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ] <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                        ] <span className="shortcut-hint">(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3933,8 +3927,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + [{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                        Alt + [ <span className="shortcut-hint">(Х)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3947,8 +3940,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Alt + ]{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                        Alt + ] <span className="shortcut-hint">(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3995,8 +3987,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + [{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                        Ctrl + [ <span className="shortcut-hint">(Х)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4007,8 +3998,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + ]{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                        Ctrl + ] <span className="shortcut-hint">(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4034,7 +4024,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -4099,7 +4089,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -4182,8 +4172,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">PgUp</mark> или{" "}
                       <mark className="key">
-                        Ctrl + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Ctrl + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4195,8 +4184,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">PgDown</mark> или{" "}
                       <mark className="key">
-                        Ctrl + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Ctrl + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4283,10 +4271,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        *{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (на Numpad)
-                        </span>
+                        * <span className="shortcut-hint">(на Numpad)</span>
                       </mark>
                       <Addition type="info">
                         Если у вас клавиатура без цифрового блока, можно переназначить эту
@@ -4302,7 +4287,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -4334,8 +4319,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + &apos;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                        Ctrl + &apos; <span className="shortcut-hint">(Э)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4346,8 +4330,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + ;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                        Ctrl + ; <span className="shortcut-hint">(Ж)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4358,8 +4341,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Shift + ;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                        Ctrl + Shift + ; <span className="shortcut-hint">(Ж)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4371,8 +4353,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        &apos;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                        &apos; <span className="shortcut-hint">(Э)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4383,11 +4364,11 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        . <span style={{fontWeight: "450", opacity: "0.5"}}>(Ю)</span>
+                        . <span className="shortcut-hint">(Ю)</span>
                       </mark>{" "}
                       или{" "}
                       <mark className="key">
-                        , <span style={{fontWeight: "450", opacity: "0.5"}}>(Б)</span>
+                        , <span className="shortcut-hint">(Б)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4412,7 +4393,7 @@ const AeFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -4423,8 +4404,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Alt + ;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                        Ctrl + Alt + ; <span className="shortcut-hint">(Ж)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4435,8 +4415,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Alt + &apos;{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                        Ctrl + Alt + &apos; <span className="shortcut-hint">(Э)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4447,7 +4426,7 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ` <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                        ` <span className="shortcut-hint">(Ё)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4473,8 +4452,8 @@ const AeFromNewbies: React.FC = () => {
       >
         <p>
           Сторонние дополнения — вещь полезная, которая может ускорить{" "}
-          <i style={{opacity: "0.5"}}>или замедлить</i> выполнение разных действий с
-          композициями и слоями, а также расширить функционал{" "}
+          <em className="article-note-muted">или замедлить</em> выполнение разных действий
+          с композициями и слоями, а также расширить функционал{" "}
           <mark className="app">Adobe After Effects</mark>. В этой статье собрана подборка
           популярных дополнений и эффектов для разных задач.
         </p>
@@ -5244,7 +5223,7 @@ const AeFromNewbies: React.FC = () => {
           </mark>
           . Благо, в <mark className="company">Adobe</mark> при внедрении этой функции
           предусмотрели возможность её отключения.{" "}
-          <i style={{opacity: "0.5"}}>И не все об этом в курсе.</i>
+          <em className="article-note-muted">И не все об этом в курсе.</em>
         </p>
         <Divider>Отключаем кэширование в простое</Divider>
         <p>
@@ -6503,7 +6482,9 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Render Settings»</mark>, найдите параметр{" "}
           <mark className="select">«Composite Settings»</mark> и выберите значение{" "}
           <mark className="select">«Transparent»</mark>.{" "}
-          <i style={{opacity: "0.5"}}>И режимы наложения больше не понадобятся.</i>
+          <em className="article-note-muted">
+            И режимы наложения больше не понадобятся.
+          </em>
         </p>
         <Addition type="info">
           Чтобы включить сетку прозрачности — нажмите на кнопку{" "}

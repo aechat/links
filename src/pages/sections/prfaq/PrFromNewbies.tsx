@@ -83,7 +83,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -212,7 +212,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -380,7 +380,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -576,7 +576,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -615,7 +615,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        , <span style={{fontWeight: "450", opacity: "0.5"}}>(Б)</span>
+                        , <span className="shortcut-hint">(Б)</span>
                       </mark>
                     </td>
                   </tr>
@@ -628,7 +628,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        . <span style={{fontWeight: "450", opacity: "0.5"}}>(Ю)</span>
+                        . <span className="shortcut-hint">(Ю)</span>
                       </mark>
                     </td>
                   </tr>
@@ -673,7 +673,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -743,7 +743,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ↓ <span style={{fontWeight: "450", opacity: "0.5"}}>(вниз)</span>
+                        ↓ <span className="shortcut-hint">(вниз)</span>
                       </mark>
                     </td>
                   </tr>
@@ -768,7 +768,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ↑ <span style={{fontWeight: "450", opacity: "0.5"}}>(вверх)</span>
+                        ↑ <span className="shortcut-hint">(вверх)</span>
                       </mark>
                     </td>
                   </tr>
@@ -784,8 +784,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Shift + ↓{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вниз)</span>
+                        Shift + ↓ <span className="shortcut-hint">(вниз)</span>
                       </mark>
                     </td>
                   </tr>
@@ -803,8 +802,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Shift + ↑{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вверх)</span>
+                        Shift + ↑ <span className="shortcut-hint">(вверх)</span>
                       </mark>
                     </td>
                   </tr>
@@ -827,8 +825,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Ctrl + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -842,8 +839,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Ctrl + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -872,8 +868,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Shift + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Ctrl + Shift + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -902,8 +897,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Shift + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Ctrl + Shift + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1088,7 +1082,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1207,7 +1201,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1245,8 +1239,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + ]{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                        Ctrl + ] <span className="shortcut-hint">(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1258,8 +1251,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + [{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                        Ctrl + [ <span className="shortcut-hint">(Х)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1270,8 +1262,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Alt + ]{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                        Ctrl + Alt + ] <span className="shortcut-hint">(Ъ)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1282,8 +1273,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + Alt + [{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                        Ctrl + Alt + [ <span className="shortcut-hint">(Х)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1294,7 +1284,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1386,7 +1376,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1459,7 +1449,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ← <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1480,8 +1470,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Shift + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                        Shift + ← <span className="shortcut-hint">(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1492,8 +1481,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1514,8 +1502,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Shift + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                        Shift + → <span className="shortcut-hint">(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1557,7 +1544,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1597,7 +1584,7 @@ const PrFromNewbies: React.FC = () => {
                 <thead>
                   <tr>
                     <th>Действие</th>
-                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                    <th className="shortcut-column">Комбинация</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1610,7 +1597,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ` <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                        ` <span className="shortcut-hint">(Ё)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1621,8 +1608,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Shift + `{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                        Shift + ` <span className="shortcut-hint">(Ё)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1633,8 +1619,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        Ctrl + `{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                        Ctrl + ` <span className="shortcut-hint">(Ё)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1657,8 +1642,8 @@ const PrFromNewbies: React.FC = () => {
       >
         <p>
           Сторонние дополнения — вещь полезная, которая может ускорить{" "}
-          <i style={{opacity: "0.5"}}>или замедлить</i> выполнение разных действий с
-          композициями и слоями, а также расширить функционал{" "}
+          <em className="article-note-muted">или замедлить</em> выполнение разных действий
+          с композициями и слоями, а также расширить функционал{" "}
           <mark className="app">Adobe Premiere</mark>. В этой статье собрана подборка
           популярных дополнений и эффектов для разных задач.
         </p>

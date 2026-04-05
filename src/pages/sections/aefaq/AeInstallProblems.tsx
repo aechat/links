@@ -678,10 +678,10 @@ const AeInstallProblems: React.FC = () => {
                         <a href="https://www.rarlab.com/download.htm">этой ссылке</a>, а{" "}
                         <mark className="app">7-Zip</mark> — по{" "}
                         <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
-                        <i style={{opacity: 0.5}}>
+                        <em className="article-note-muted">
                           Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
                           <mark className="app">WinRAR</mark>.
-                        </i>
+                        </em>
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -1261,10 +1261,10 @@ const AeInstallProblems: React.FC = () => {
                 отключите антивирус, чтобы избежать проблем при установке. Это касается не
                 только репаков, но и плагинов, и других файлов из интернета — даже если
                 они абсолютно безопасны.{" "}
-                <i style={{opacity: "0.5"}}>
+                <em className="article-note-muted">
                   А если не доверяете, не предъявляйте администраторам претензии без
                   подтверждённых фактов и используйте лицензионные версии.
-                </i>
+                </em>
               </p>
               <p>
                 В этой статье в качестве примера{" "}
@@ -1365,7 +1365,9 @@ const AeInstallProblems: React.FC = () => {
                 <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
                 вернуть без полной переустановки Windows, на базовую защиту{" "}
                 <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
-                <i style={{opacity: "0.5"}}>Заодно избавитесь от лишних фильтров.</i>
+                <em className="article-note-muted">
+                  Заодно избавитесь от лишних фильтров.
+                </em>
               </Addition>
               <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
@@ -2392,7 +2394,9 @@ const AeInstallProblems: React.FC = () => {
                   перезагрузить устройство. Возможно, процессы, отвечающие за{" "}
                   <mark className="plugin">Dynamic Link</mark>, дали сбой и не уведомили
                   об этом.{" "}
-                  <i style={{opacity: "0.5"}}>Или просто переустановите программы.</i>
+                  <em className="article-note-muted">
+                    Или просто переустановите программы.
+                  </em>
                 </li>
               </ul>
               <p>

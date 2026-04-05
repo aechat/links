@@ -417,10 +417,10 @@ const PsInstallProblems: React.FC = () => {
                         <a href="https://www.rarlab.com/download.htm">этой ссылке</a>, а{" "}
                         <mark className="app">7-Zip</mark> — по{" "}
                         <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
-                        <i style={{opacity: 0.5}}>
+                        <em className="article-note-muted">
                           Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
                           <mark className="app">WinRAR</mark>.
-                        </i>
+                        </em>
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -669,10 +669,10 @@ const PsInstallProblems: React.FC = () => {
                 отключите антивирус, чтобы избежать проблем при установке. Это касается не
                 только репаков, но и плагинов, и других файлов из интернета — даже если
                 они абсолютно безопасны.{" "}
-                <i style={{opacity: "0.5"}}>
+                <em className="article-note-muted">
                   А если не доверяете, не предъявляйте администраторам претензии без
                   подтверждённых фактов и используйте лицензионные версии.
-                </i>
+                </em>
               </p>
               <p>
                 В этой статье в качестве примера{" "}
@@ -773,7 +773,9 @@ const PsInstallProblems: React.FC = () => {
                 <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
                 вернуть без полной переустановки Windows, на базовую защиту{" "}
                 <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
-                <i style={{opacity: "0.5"}}>Заодно избавитесь от лишних фильтров.</i>
+                <em className="article-note-muted">
+                  Заодно избавитесь от лишних фильтров.
+                </em>
               </Addition>
               <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
@@ -955,9 +957,9 @@ const PsInstallProblems: React.FC = () => {
                   сможете установить. Вам нужно будет переустановить систему на редакцию{" "}
                   <mark className="term">Home</mark> или <mark className="term">Pro</mark>
                   .{" "}
-                  <i style={{opacity: "0.5"}}>
+                  <em className="article-note-muted">
                     Или поэкспериментировать с редакцией LTSC для IoT.
-                  </i>
+                  </em>
                 </li>
               </ul>
             </Addition>
@@ -1010,7 +1012,9 @@ const PsInstallProblems: React.FC = () => {
           <mark className="company">Adobe</mark> прикрыл эту функцию с сентября 2023 года
           для тех, у кого отсутствует подписка{" "}
           <mark className="app">Adobe Creative Cloud</mark>.{" "}
-          <i style={{opacity: "0.5"}}>Да, перестаньте об этом спрашивать, пожалуйста.</i>
+          <em className="article-note-muted">
+            Да, перестаньте об этом спрашивать, пожалуйста.
+          </em>
         </p>
         <Addition type="info">
           Источники, распространяющие в интернете{" "}

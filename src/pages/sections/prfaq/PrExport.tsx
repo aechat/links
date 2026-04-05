@@ -439,7 +439,7 @@ const PrExport: React.FC = () => {
           </li>
           <li>
             Либо вывести <mark className="image">GIF</mark> через{" "}
-            <del style={{opacity: 0.5}}>упаси боже</del>{" "}
+            <del className="article-note-muted">упаси боже</del>{" "}
             <mark className="plugin">Media Encoder</mark>.
           </li>
           <li>
@@ -844,14 +844,7 @@ const PrExport: React.FC = () => {
                 отправить его другому человеку по кусочкам. После создания архива,
                 отправьте его другому человеку любым удобным для вас способом.
               </p>
-              <div
-                style={{
-                  alignItems: "center",
-                  display: "grid",
-                  gap: "10px",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                }}
-              >
+              <div className="article-media-gallery-grid">
                 <ArticleMedia
                   caption="Выбор формата архива"
                   src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"

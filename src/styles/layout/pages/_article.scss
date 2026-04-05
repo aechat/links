@@ -96,6 +96,18 @@
       opacity: 0.5;
     }
 
+    .article-note-muted {
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    .article-media-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 10px;
+      align-items: center;
+    }
+
     li {
       position: relative;
       padding-block: $space-8;
@@ -195,20 +207,20 @@
       hyphens: auto;
     }
   }
-}
 
-.article-placeholder {
-  opacity: 0.25;
-  margin: $space-40;
-  margin-inline: auto;
-  max-width: 600px;
-  text-align: center;
-  color: var(--color-surface-primary-text);
-  font-size: $font-size-title-sm;
-  font-weight: 600;
-  font-style: italic;
+  &-placeholder {
+    opacity: 0.25;
+    margin: $space-40;
+    margin-inline: auto;
+    max-width: 600px;
+    text-align: center;
+    color: var(--color-surface-primary-text);
+    font-size: $font-size-title-sm;
+    font-weight: 600;
+    font-style: italic;
 
-  p {
-    line-height: 1.3;
+    p {
+      line-height: 1.3;
+    }
   }
 }
