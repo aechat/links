@@ -50,7 +50,8 @@ yarn format
 
 ## Нецветовые токены
 
-- Для нецветовых значений используйте только токены из `src/styles/abstracts/_mixins.scss`.
+- Для нецветовых значений используйте только токены из `src/styles/abstracts/_tokens.scss`.
+- В `src/styles/abstracts/_mixins.scss` оставляйте только переиспользуемые `@mixin`/`@function`.
 - Не вводите «особые» шаги (`7px`, `10px`, `17px` и т.п.) для `space/inset/stroke/radius/duration/z-index`, если это не обоснованный edge-case.
 - Базовая сетка для `space/inset`: `0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64`.
 - Длительности анимаций/переходов задавайте через токены `duration` (`250/500/750/1000`).
