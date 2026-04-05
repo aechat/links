@@ -35,8 +35,8 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
           <mark className="select">«Are you connected to the internet?»</mark>, то, скорее
           всего, программа не может выйти в интернет. Для решения этой проблемы временно
-          включите <mark className="app">VPN</mark> или разрешите программе доступ в сеть
-          в настройках <mark className="app">брандмауэра</mark>.
+          разрешите программе доступ в сеть в настройках{" "}
+          <mark className="app">брандмауэра</mark>.
         </p>
         <Addition type="info">
           Чтобы открыть <mark className="app">брандмауэр</mark>, запустите{" "}

@@ -1102,10 +1102,6 @@ const PsInstallProblems: React.FC = () => {
               как среднестатистическая модель Stable Diffusion занимает около 4-8 ГБ в
               зависимости от типа модели.
             </li>
-            <li>
-              Если у вас возникают проблемы со скачиванием интерфейсов — попробуйте
-              использовать <mark className="app">VPN</mark> во время загрузки.
-            </li>
           </ul>
         </Addition>
         <p>
@@ -1391,11 +1387,12 @@ const PsInstallProblems: React.FC = () => {
           аккаунт.
         </p>
         <Addition type="info">
-          Не переживайте, псевдо-лицензия после входа в аккаунт не слетит. Если после
-          нажатия на <mark className="select">«Sign In»</mark> вместо окна входа в аккаунт
-          появляется окно об отсутствии интернета, то просто попробуйте включить{" "}
-          <mark className="app">VPN</mark>. Обычно они игнорируют правила блокировки
-          доступа программе в интернет.
+          Если при попытке входа в аккаунт вы столкнулись с окном{" "}
+          <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
+          <mark className="select">«Are you connected to the internet?»</mark>, то, скорее
+          всего, программа не может выйти в интернет. Для решения этой проблемы временно
+          разрешите программе доступ в сеть в настройках{" "}
+          <mark className="app">брандмауэра</mark>.
         </Addition>
         <ArticleMedia
           caption="Adobe Photoshop"

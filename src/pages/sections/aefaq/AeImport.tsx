@@ -1855,7 +1855,7 @@ const AeImport: React.FC = () => {
           <a href="https://lottiefiles.com/">LottieFiles</a>. Скачать его можно с{" "}
           <a href="https://aescripts.com/lottiefiles/">aescripts.com</a>. После установки
           расширение появится в <mark className="select">«Window» → «Extensions»</mark>.
-          При первом открытии потребуется войти<sup>2</sup> в аккаунт{" "}
+          При первом открытии потребуется войти в аккаунт{" "}
           <mark className="web">LottieFiles</mark>.
         </p>
         <Addition type="info">
@@ -1883,11 +1883,6 @@ const AeImport: React.FC = () => {
                 «Edit» → «Preferences» → «Scripting & Expressions»
               </mark>
               .
-            </li>
-            <li>
-              <sup>2</sup> Пользователям из Российской Федерации для входа в аккаунт может
-              потребоваться использование <mark className="app">VPN</mark>. После
-              авторизации его можно отключить.
             </li>
           </ul>
         </Addition>

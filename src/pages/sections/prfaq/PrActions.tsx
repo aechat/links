@@ -646,10 +646,6 @@ const PrActions: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              Если вы сталкиваетесь с проблемами при загрузке — попробуйте использовать{" "}
-              <mark className="app">VPN</mark>.
-            </li>
-            <li>
               <p>
                 Если после установки программа предложит скачать{" "}
                 <mark className="app">Whisper.cpp</mark>, лучше отказаться от его
