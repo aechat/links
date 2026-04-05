@@ -64,6 +64,15 @@ yarn format
   - `caption`, `caption-strong`, `label`, `body-sm`, `body-md`, `body-lg`, `title-sm`, `title`, `brand`, `title-lg`, `display-sm/md/lg/xl`.
   - Базовый body-размер проекта: `body-md = 1rem`.
 
+## Inline-стили и SCSS
+
+- Если стиль используется только в одном месте и не повторяется, его можно оставить inline.
+- Если одинаковый или почти одинаковый inline-стиль встречается в нескольких местах, его нужно унифицировать через общий SCSS-класс.
+- Для вынесенных стилей используйте семантические имена, связанные с объектом интерфейса, а не утилитарные классы.
+- Связанные стили одного объекта группируйте в SCSS под общим блоком/префиксом, а не разрозненными плоскими селекторами.
+- Для группировки используйте паттерн вложенности (`&-*`) по аналогии с существующими блоками в проекте.
+- Пример: вместо отдельных `.chat-rules-container`, `.chat-rules-muted`, `.chat-rules-list-compact` предпочтителен единый блок `.chat-rules { &-container { ... } &-muted { ... } &-list-compact { ... } }`.
+
 ### Исключение для SearchEngine
 
 - Блок `search` в `src/styles/abstracts/_light-colors.scss` и `src/styles/abstracts/_dark-colors.scss` использует отдельные фиксированные `hsl(...)`-токены для `header/content` и их `hover/active/selected`-состояний.
