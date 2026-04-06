@@ -411,22 +411,8 @@ const SearchResultCard: React.FC<SearchResultCardProperties> = ({
   );
 };
 
-const hasMatchingTableInContent = (contentHtml: string): boolean => {
-  if (!contentHtml.includes("<table")) {
-    return false;
-  }
-
-  const temporaryRoot = document.createElement("div");
-
-  temporaryRoot.innerHTML = contentHtml;
-
-  const tables = [...temporaryRoot.querySelectorAll("table")];
-
-  return tables.some(
-    (table) =>
-      table.querySelector('[data-search-hit="true"]') ||
-      table.querySelector("mark[data-search-hit='true']")
-  );
+const hasTableInContent = (contentHtml: string): boolean => {
+  return contentHtml.includes("<table");
 };
 
 type SearchResultsProperties = {
@@ -829,7 +815,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       }
     }
 
-    const shouldDisableContentClamp = hasMatchingTableInContent(highlightedContent);
+    const isContentUnclamped = hasTableInContent(content);
 
     const isSelected = index === selectedResultIndex;
 
@@ -842,8 +828,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
         highlightedTags={highlightedTags}
         highlightedTitle={highlightedTitle}
         id={id}
-        isContentOverflowing={!shouldDisableContentClamp && overflowingResultIds.has(id)}
-        isContentUnclamped={shouldDisableContentClamp}
+        isContentOverflowing={!isContentUnclamped && overflowingResultIds.has(id)}
+        isContentUnclamped={isContentUnclamped}
         isHovered={isHovered}
         isMobile={isMobile}
         isSelected={isSelected}
