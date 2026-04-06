@@ -54,17 +54,17 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
         onCancel={closeDonateModal}
       >
         <div className={modalStyles["modal"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
+            <button
+              className={modalStyles["modal-header-button"]}
+              onClick={closeDonateModal}
+              onMouseDown={ripple.onMouseDown}
+            >
+              <CloseRounded />
+            </button>
+          </div>
           <div className={modalStyles["modal-content"]}>
-            <div className={modalStyles["modal-header"]}>
-              <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
-              <button
-                className={modalStyles["modal-header-button"]}
-                onClick={closeDonateModal}
-                onMouseDown={ripple.onMouseDown}
-              >
-                <CloseRounded />
-              </button>
-            </div>
             <p>
               Если вам понравился этот сайт и вы хотели бы, чтобы я продолжил развивать
               его, то вы можете поддержать меня любой суммой и любым удобным вам способом.
@@ -86,19 +86,19 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 onCancel={closeSberModal}
               >
                 <div className={modalStyles["modal"]}>
-                  <div className={modalStyles["modal-content"]}>
-                    <div className={modalStyles["modal-header"]}>
-                      <div className={modalStyles["modal-header-title"]}>
-                        Поддержать на Сбербанк
-                      </div>
-                      <button
-                        className={modalStyles["modal-header-button"]}
-                        onClick={closeSberModal}
-                        onMouseDown={ripple.onMouseDown}
-                      >
-                        <CloseRounded />
-                      </button>
+                  <div className={modalStyles["modal-header"]}>
+                    <div className={modalStyles["modal-header-title"]}>
+                      Поддержать на Сбербанк
                     </div>
+                    <button
+                      className={modalStyles["modal-header-button"]}
+                      onClick={closeSberModal}
+                      onMouseDown={ripple.onMouseDown}
+                    >
+                      <CloseRounded />
+                    </button>
+                  </div>
+                  <div className={modalStyles["modal-content"]}>
                     <p>
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
@@ -133,19 +133,19 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 onCancel={closeYoomoneyModal}
               >
                 <div className={modalStyles["modal"]}>
-                  <div className={modalStyles["modal-content"]}>
-                    <div className={modalStyles["modal-header"]}>
-                      <div className={modalStyles["modal-header-title"]}>
-                        Поддержать на ЮMoney
-                      </div>
-                      <button
-                        className={modalStyles["modal-header-button"]}
-                        onClick={closeYoomoneyModal}
-                        onMouseDown={ripple.onMouseDown}
-                      >
-                        <CloseRounded />
-                      </button>
+                  <div className={modalStyles["modal-header"]}>
+                    <div className={modalStyles["modal-header-title"]}>
+                      Поддержать на ЮMoney
                     </div>
+                    <button
+                      className={modalStyles["modal-header-button"]}
+                      onClick={closeYoomoneyModal}
+                      onMouseDown={ripple.onMouseDown}
+                    >
+                      <CloseRounded />
+                    </button>
+                  </div>
+                  <div className={modalStyles["modal-content"]}>
                     <p>Для пополнения кошелька вам нужно проделать несколько действий:</p>
                     <ul>
                       <li>Зайдите в приложение своего банка.</li>

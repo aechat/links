@@ -5,7 +5,7 @@
     opacity: 0.8;
     text-transform: uppercase;
     font-family: Onest, sans-serif !important;
-    font-size: 0.785rem;
+    font-size: $font-size-caption-strong;
     font-weight: 600 !important;
   }
 
@@ -20,16 +20,16 @@
     font-family: Inter, sans-serif;
 
     &-notice-wrapper .ant-message-notice-content {
-      outline: 1px solid var(--color-border-primary) !important;
+      outline: $stroke-1 solid var(--color-border-primary) !important;
       background: var(--color-background-secondary) !important;
-      font-size: 0.9rem !important;
+      font-size: $font-size-body-sm !important;
       font-weight: 400;
     }
   }
 
   &-tooltip {
     font-family: Inter, sans-serif;
-    font-size: 0.9rem !important;
+    font-size: $font-size-body-sm !important;
   }
 
   &-modal-root .ant-modal-mask.ant-modal-mask-blur {
@@ -38,11 +38,11 @@
   }
 
   &-breadcrumb {
-    font-size: 0.875rem;
+    font-size: $font-size-body-sm;
   }
 
   &-modal {
-    top: 10px;
+    top: $inset-12;
     margin: 0 auto !important;
     max-width: calc(100% - clamp(16px, 5vw, 64px)) !important;
 
@@ -61,7 +61,7 @@
     }
 
     @media screen and (width >= 768px) {
-      top: 64px;
+      top: $inset-64;
     }
   }
 
@@ -90,15 +90,16 @@
   }
 
   &-dropdown-menu-item {
-    outline: 1px solid transparent;
+    outline: $stroke-1 solid transparent;
     border-radius: $roundness;
 
     &:hover {
-      outline: 1px solid var(--color-surface-dropdown-border-hover);
+      outline-color: var(--color-surface-dropdown-border-hover);
       background-color: var(--color-surface-dropdown-background-hover);
     }
 
     &:active {
+      outline-color: var(--color-surface-dropdown-border-active);
       background-color: var(--color-surface-dropdown-background-active);
     }
 
@@ -108,11 +109,11 @@
   }
 
   &-dropdown-menu-title-content {
-    font-size: 0.875rem;
+    font-size: $font-size-body-sm;
   }
 
   &-dropdown {
-    border: 1px solid var(--color-border-dropdown);
+    border: $stroke-1 solid var(--color-border-dropdown);
     border-radius: $roundness;
   }
 }

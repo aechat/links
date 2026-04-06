@@ -78,17 +78,17 @@ export const useExternalLinkHandler = () => {
       onCancel={handleCancel}
     >
       <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-header"]}>
+          <div className={modalStyles["modal-header-title"]}>{targetUrl}</div>
+          <button
+            className={modalStyles["modal-header-button"]}
+            onClick={handleCancel}
+            onMouseDown={ripple.onMouseDown}
+          >
+            <CloseRounded />
+          </button>
+        </div>
         <div className={modalStyles["modal-content"]}>
-          <div className={modalStyles["modal-header"]}>
-            <div className={modalStyles["modal-header-title"]}>{targetUrl}</div>
-            <button
-              className={modalStyles["modal-header-button"]}
-              onClick={handleCancel}
-              onMouseDown={ripple.onMouseDown}
-            >
-              <CloseRounded />
-            </button>
-          </div>
           <p>Вы уверены, что хотите перейти по внешней ссылке?</p>
           <div className="flexible-links">
             <button

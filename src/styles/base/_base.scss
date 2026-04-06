@@ -6,7 +6,7 @@
 
 html,
 body {
-  transition: background-color 0.75s cubic-bezier(0.25, 0, 0, 1);
+  transition: background-color $duration-750 cubic-bezier(0.25, 0, 0, 1);
   margin: 0;
   background: var(--color-background-primary);
   padding: 0;

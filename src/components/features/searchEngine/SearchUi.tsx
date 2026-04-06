@@ -196,48 +196,42 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
         width={1000}
         onCancel={closeModal}
       >
-        <div className={searchStyles["search"]}>
-          <div className={modalStyles["modal-content"]}>
-            <div className={searchStyles["search-input-wrapper"]}>
-              <input
-                ref={inputRef}
-                className={searchStyles["search-input"]}
-                placeholder="Введите что-нибудь для поиска..."
-                style={{cursor: "text"}}
-                type="search"
-                value={query}
-                onChange={(event_) => onChangeQuery(event_.target.value)}
-              />
-              <p className={searchStyles["search-counter"]}>
-                <span
-                  style={{
-                    color: "var(--color-surface-primary-text)",
-                    fontSize: "1.05em",
-                    fontWeight: 500,
-                  }}
-                >
+        <div className={searchStyles["modal"]}>
+          <div className={modalStyles["modal-header"]}>
+            <input
+              ref={inputRef}
+              className={searchStyles["search-input"]}
+              placeholder="Введите что-нибудь для поиска..."
+              type="search"
+              value={query}
+              onChange={(event_) => onChangeQuery(event_.target.value)}
+            />
+            {resultsCount > 0 && (
+              <span className={searchStyles["search-counter"]}>
+                <span className={searchStyles["search-counter-value"]}>
                   {resultsCount}
                 </span>{" "}
                 {resultWord}
-              </p>
-              {query.trim() !== "" && (
-                <button
-                  className={searchStyles["search-input-clear"]}
-                  style={{cursor: "pointer"}}
-                  onClick={onClearQuery}
-                  onMouseDown={onInputClearMouseDown}
-                >
-                  <BackspaceOutlined fontSize="small" />
-                </button>
-              )}
+              </span>
+            )}
+            {query.trim() !== "" && (
               <button
-                className={searchStyles["search-input-close"]}
-                onClick={closeModal}
-                onMouseDown={onCloseMouseDown}
+                className={modalStyles["modal-header-button"]}
+                onClick={onClearQuery}
+                onMouseDown={onInputClearMouseDown}
               >
-                <CloseRounded />
+                <BackspaceOutlined fontSize="small" />
               </button>
-            </div>
+            )}
+            <button
+              className={modalStyles["modal-header-button"]}
+              onClick={closeModal}
+              onMouseDown={onCloseMouseDown}
+            >
+              <CloseRounded />
+            </button>
+          </div>
+          <div className={modalStyles["modal-content"]}>
             <div
               ref={resultsContainerRef}
               className={resultsClassName}
@@ -312,15 +306,8 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
     <div className={searchStyles["search-no-results"]}>
       <p className={searchStyles["search-no-results-title"]}>
         По вашему запросу на этой странице{" "}
-        <span
-          style={{
-            color: "var(--color-surface-primary-text)",
-            fontWeight: 600,
-          }}
-        >
-          ничего
-        </span>{" "}
-        не нашлось
+        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+        нашлось
       </p>
       <p className={searchStyles["search-no-results-message"]}>
         Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или

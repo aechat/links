@@ -1142,14 +1142,7 @@ const AeErrors: React.FC = () => {
               <mark className="version">R21.X.X</mark>. Путь к установленной программе
               можно указать в настройках движка <mark className="plugin">Cineware</mark>.
             </p>
-            <div
-              style={{
-                alignItems: "center",
-                display: "grid",
-                gap: "10px",
-                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              }}
-            >
+            <div className="article-media-gallery-grid">
               <ArticleMedia
                 caption="Composition Settings"
                 src="legacy/aftereffects/composition_settings_3drenderer_cinema4d.png"
@@ -1523,10 +1516,10 @@ const AeErrors: React.FC = () => {
           Чтобы настроить расположение дискового кэша, перейдите в{" "}
           <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
           <sup>1</sup> и укажите нужную директорию.{" "}
-          <i style={{opacity: "0.5"}}>
+          <em className="article-note-muted">
             Или просто отключите дисковый кэш, сняв флажок с{" "}
             <mark className="select">«Enable Disk Cache»</mark>.
-          </i>
+          </em>
         </p>
         <Addition type="info">
           <sup>1</sup> В предыдущих версиях{" "}

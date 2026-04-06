@@ -746,13 +746,13 @@ const AeImport: React.FC = () => {
                 <mark className="select">«Override Media Color Space»</mark> в окне{" "}
                 <mark className="select">«Lumetri Color» → «Settings»</mark> или{" "}
                 <mark className="select">«Interpret Footage» → «Color»</mark>.{" "}
-                <i style={{opacity: "0.5"}}>
+                <em className="article-note-muted">
                   Либо отключите управление цветом через{" "}
                   <mark className="select">
                     «Preserve RGB (disable input color management for this item)»
                   </mark>
                   .
-                </i>
+                </em>
               </p>
               <ArticleMedia
                 caption="Переопределяем цветовое пространство исходника как Rec.2100 HLG в Adobe Premiere"
@@ -801,11 +801,11 @@ const AeImport: React.FC = () => {
               Да, цвета немного исказятся, но вы получите более предсказуемый вариант при
               работе в двух программах. Тем более никто не запрещал позже делать
               цветокоррекцию на ваше усмотрение.{" "}
-              <i style={{opacity: "0.5"}}>
+              <em className="article-note-muted">
                 И отключите на всякий случай{" "}
                 <mark className="select">«Input Tone Mapping»</mark> в секвенции в{" "}
                 <mark className="app">Adobe Premiere</mark>.
-              </i>
+              </em>
             </p>
           </li>
         </ul>
@@ -1956,7 +1956,7 @@ const AeImport: React.FC = () => {
           <mark className="plugin">LottieFiles</mark>, который также поддерживает работу с{" "}
           <mark className="file">JSON</mark>, поэтому далее речь пойдёт о способе импорта
           анимаций с помощью <mark className="plugin">Bodymovin</mark>.{" "}
-          <i style={{opacity: "0.5"}}>Ну не повторяться же?</i>
+          <em className="article-note-muted">Ну не повторяться же?</em>
         </p>
         <p>
           <mark className="plugin">Bodymovin</mark> — альтернативное бесплатное
@@ -2165,10 +2165,10 @@ const AeImport: React.FC = () => {
           актуальной версии. Второй способ проще и быстрее: имеет смысл потратить полчаса
           на установку новой версии <mark className="app">Adobe After Effects</mark> и{" "}
           <a href="#update-app">перенос настроек с плагинами</a>.{" "}
-          <i style={{opacity: "0.5"}}>
+          <em className="article-note-muted">
             Это значительно сэкономит время в будущем, если вы часто работаете с чужими
             проектами.
-          </i>
+          </em>
         </p>
         <Addition type="info">
           Проекты, созданные в одной версии{" "}

@@ -96,17 +96,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
             Продолжить
           </button>
         </div>
-        <label
-          style={{
-            alignItems: "center",
-            cursor: "pointer",
-            display: "flex",
-            fontSize: "0.9rem",
-            gap: "8px",
-            margin: "15px",
-            opacity: "0.75",
-          }}
-        >
+        <label className="warning-dismiss-option">
           <input
             checked={dontShowAgain}
             type="checkbox"

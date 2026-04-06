@@ -1,14 +1,34 @@
 @use "../../../styles/abstracts/mixins" as *;
 
 @mixin search-button-group-item-base {
+  @include fluid-inset(
+    padding-block,
+    $space-4,
+    $space-8,
+    padding-inline,
+    $space-4,
+    $space-8
+  );
+
   box-sizing: border-box;
+  position: relative;
   flex: 1 0 175px;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  outline: 1px solid var(--color-button-group-border);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    z-index 0s linear $duration-250;
+  z-index: $z-base;
+  outline: $stroke-1 solid var(--color-button-group-border);
+  border: none;
   border-radius: 0;
+  box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-button-group-background);
-  padding-block: 8px;
-  padding-inline: 10px;
   width: 100%;
   min-width: 150px;
   text-align: center;
@@ -16,27 +36,40 @@
   line-height: 1.25;
   color: var(--color-button-group-text);
   font-family: Onest, sans-serif;
-  font-size: 0.95rem;
+  font-size: $font-size-body-md;
   font-weight: 500;
   text-wrap: wrap;
+  will-change: transform;
 
   &:hover {
+    transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
+    transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
+    z-index: $z-raised;
+    outline-color: var(--color-button-group-border-hover);
+    box-shadow: $shadow-box-interactive-hover;
     background-color: var(--color-button-group-background-hover);
     cursor: pointer;
   }
 
   &:active {
+    transform: scale(
+      var(--links-active-scale-x, 1.01),
+      var(--links-active-scale-y, 1.01)
+    );
+    transition-delay: 0s;
+    z-index: $z-raised;
+    outline-color: var(--color-button-group-border-active);
+    box-shadow: $shadow-box-interactive-active;
     background-color: var(--color-button-group-background-active);
   }
 }
 
 .search {
   &-input {
-    padding-block: 8px;
-    padding-inline-start: 14px;
+    cursor: text;
     width: 100%;
     color: var(--color-surface-primary-text);
-    font-size: 1rem;
+    font-size: $font-size-body-md;
     font-weight: 600;
 
     &::-webkit-search-decoration,
@@ -49,9 +82,8 @@
 
     &::placeholder {
       opacity: 0.75;
-      text-align: center;
       font-family: Onest, sans-serif, monospace;
-      font-size: 0.85rem;
+      font-size: $font-size-body-sm;
       font-weight: 450;
       font-style: italic;
     }
@@ -61,35 +93,9 @@
       position: relative;
       flex-flow: row nowrap;
       justify-content: space-between;
-      z-index: 100;
-      outline: 1px solid var(--color-surface-primary-border);
+      z-index: $z-header;
+      outline: $stroke-1 solid var(--color-surface-primary-border);
       border-radius: $roundness;
-      background-color: var(--color-surface-primary-background);
-    }
-
-    &-close,
-    &-clear {
-      display: flex;
-      flex-grow: 0;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      width: 40px;
-      color: var(--color-surface-primary-text);
-
-      &:hover {
-        background-color: var(--color-surface-primary-background-hover);
-      }
-
-      &:active {
-        background-color: var(--color-surface-primary-background-active);
-      }
-
-      svg {
-        width: 17px;
-        height: 17px;
-      }
     }
   }
 
@@ -97,10 +103,10 @@
     display: block;
     position: relative;
     transition:
-      -webkit-mask-position 0.5s ease,
-      mask-position 0.5s ease;
+      -webkit-mask-position $duration-500 ease,
+      mask-position $duration-500 ease;
     border-radius: $roundness;
-    padding-top: 10px;
+    padding-top: $space-8;
     max-height: clamp(
       47.5svh,
       calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
@@ -128,39 +134,44 @@
     display: block;
     position: relative;
     transition:
-      background-color 0.35s cubic-bezier(0.2, 0, 0.2, 1),
-      outline-color 0.35s cubic-bezier(0.2, 0, 0.2, 1),
-      box-shadow 0.35s cubic-bezier(0.2, 0, 0.2, 1),
-      transform 0.35s cubic-bezier(0.2, 0, 0.2, 1);
-    outline: 1px solid transparent;
+      background-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+      outline-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+      box-shadow $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+      transform $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
+    outline: $stroke-1 solid transparent;
     width: 100%;
 
     &:hover {
       .search-header {
+        outline-color: var(--color-search-header-border-hover);
         background-color: var(--color-search-header-background-hover);
       }
 
       .search-content {
+        outline-color: var(--color-search-content-border-hover);
         background-color: var(--color-search-content-background-hover);
       }
     }
 
     &:active {
       .search-header {
+        outline-color: var(--color-search-header-border-active);
         background-color: var(--color-search-header-background-active);
       }
 
       .search-content {
+        outline-color: var(--color-search-content-border-active);
         background-color: var(--color-search-content-background-active);
       }
     }
   }
 
   &-results-layout {
+    @include fluid-size(gap, $space-4, $space-8);
+    @include fluid-size(margin-top, $space-0, $space-4);
+    @include fluid-size(padding-inline, $space-4, $space-8);
+
     display: flex;
-    gap: 10px;
-    margin-top: 2px;
-    padding-inline: 10px;
 
     &-single {
       flex-direction: column;
@@ -176,7 +187,7 @@
     display: flex;
     flex: 1 0 400px;
     flex-direction: column;
-    gap: 10px;
+    gap: $space-8;
     min-width: 0;
   }
 
@@ -187,26 +198,42 @@
 
   &-counter {
     display: flex;
-    gap: 3px;
+    gap: $space-4;
+    place-content: center space-between;
     align-items: center;
     opacity: 0.75;
-    padding: 5px;
     text-align: center;
-    font-size: 0.825rem;
+    font-size: $font-size-label;
+  }
+
+  &-counter-value {
+    color: var(--color-surface-primary-text);
+    font-weight: 500;
   }
 
   &-header {
+    @include fluid-inset(
+      padding-block,
+      $space-4,
+      $space-8,
+      padding-inline,
+      $space-8,
+      $space-12
+    );
+
     display: flex;
     position: relative;
     flex-direction: column;
-    gap: 2px;
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    z-index: 1000;
-    outline: 1px solid var(--color-search-header-border);
+    gap: $space-4;
+    transition:
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: $z-overlay;
+    outline: $stroke-1 solid transparent;
+    border: $stroke-1 solid var(--color-search-header-border);
     border-radius: $roundness * 0.75;
     background-color: var(--color-search-header-background);
     cursor: pointer;
-    padding: 8px 12px;
   }
 
   &-title {
@@ -230,10 +257,10 @@
   &-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 1px 5px;
+    gap: $space-0 $space-4;
     align-items: center;
     justify-content: flex-start;
-    margin-inline-end: 10px;
+    margin-inline-end: $space-8;
     max-width: fit-content;
     text-transform: uppercase;
     line-height: 1.1;
@@ -276,50 +303,144 @@
 
   &-content {
     position: relative;
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin-block-start: -16px;
-    outline: solid 1px var(--color-search-content-border);
+    transition:
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-block-start: -$space-16;
+    outline: solid $stroke-1 transparent;
+    border: solid $stroke-1 var(--color-search-content-border);
     border-top: none;
     border-bottom-left-radius: $roundness * 0.75;
     border-bottom-right-radius: $roundness * 0.75;
     background-color: var(--color-search-content-background);
     padding: 0;
-    padding-block-start: 16px;
+    padding-block-start: $space-16;
     max-height: 400px;
     overflow: hidden;
-    font-size: 0.925rem;
+    font-size: $font-size-body-sm;
     user-select: none;
 
     p {
-      margin-block: 8px;
-      margin-inline: 12px;
+      @include fluid-inset(
+        margin-block,
+        $space-4,
+        $space-8,
+        margin-inline,
+        $space-8,
+        $space-12
+      );
     }
 
     li > p {
       margin: 0;
     }
 
-    mark:hover,
-    a {
-      transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    a:visited {
+      color: var(--color-accent);
+    }
+
+    a:hover,
+    a:active {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    a:hover::before,
+    a:active::before,
+    a:visited::before {
+      background-color: currentcolor;
+    }
+
+    mark:where(.copy, [style*="cursor: pointer"]):hover,
+    mark:where(.copy, [style*="cursor: pointer"]):active {
+      outline-color: var(--color-mark-border);
+      background-color: var(--color-mark-background);
+    }
+
+    .addition-info a:hover,
+    .addition-info a:active,
+    .addition-info a:visited {
+      color: var(--color-status-info-text);
+    }
+
+    .addition-warning a:hover,
+    .addition-warning a:active,
+    .addition-warning a:visited {
+      color: var(--color-status-warning-text);
+    }
+
+    .addition-danger a:hover,
+    .addition-danger a:active,
+    .addition-danger a:visited {
+      color: var(--color-status-danger-text);
+    }
+
+    .addition-tldr a:hover,
+    .addition-tldr a:active,
+    .addition-tldr a:visited {
+      color: var(--color-status-tldr-text);
+    }
+
+    .addition-info a:hover::before,
+    .addition-info a:active::before,
+    .addition-info a:visited::before {
+      background-color: var(--color-status-info-text);
+    }
+
+    .addition-warning a:hover::before,
+    .addition-warning a:active::before,
+    .addition-warning a:visited::before {
+      background-color: var(--color-status-warning-text);
+    }
+
+    .addition-danger a:hover::before,
+    .addition-danger a:active::before,
+    .addition-danger a:visited::before {
+      background-color: var(--color-status-danger-text);
+    }
+
+    .addition-tldr a:hover::before,
+    .addition-tldr a:active::before,
+    .addition-tldr a:visited::before {
+      background-color: var(--color-status-tldr-text);
+    }
+
+    .addition-info mark:where(.copy, [style*="cursor: pointer"]):hover,
+    .addition-info mark:where(.copy, [style*="cursor: pointer"]):active {
+      outline-color: var(--color-status-info-border);
+      background-color: var(--color-status-info-mark-background);
+    }
+
+    .addition-warning mark:where(.copy, [style*="cursor: pointer"]):hover,
+    .addition-warning mark:where(.copy, [style*="cursor: pointer"]):active {
+      outline-color: var(--color-status-warning-border);
+      background-color: var(--color-status-warning-mark-background);
+    }
+
+    .addition-danger mark:where(.copy, [style*="cursor: pointer"]):hover,
+    .addition-danger mark:where(.copy, [style*="cursor: pointer"]):active {
+      outline-color: var(--color-status-danger-border);
+      background-color: var(--color-status-danger-mark-background);
+    }
+
+    .addition-tldr mark:where(.copy, [style*="cursor: pointer"]):hover,
+    .addition-tldr mark:where(.copy, [style*="cursor: pointer"]):active {
+      outline-color: var(--color-status-tldr-border);
+      background-color: var(--color-status-tldr-mark-background);
     }
 
     &.no-copy mark {
       transition: none;
-
-      &:hover,
-      &:active {
-        opacity: initial;
-      }
-    }
-
-    a:hover {
-      opacity: 1;
     }
 
     table {
       margin-block: 0;
-      padding-block: 10px;
+      padding-block: $space-8;
+
+      tbody tr:hover td {
+        border-color: var(--color-border-table);
+        background-color: var(--color-background-table);
+      }
     }
 
     p,
@@ -360,76 +481,88 @@
   &-selected {
     transition:
       background-color,
-      outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   &-header-selected {
-    outline: 1px solid var(--color-search-header-selected-border);
+    outline: $stroke-1 solid transparent;
+    border: $stroke-1 solid var(--color-search-header-selected-border);
     background-color: var(--color-search-header-selected-background);
   }
 
   &-content-selected {
-    outline: 1px solid var(--color-search-content-selected-border);
+    outline: $stroke-1 solid transparent;
+    border: $stroke-1 solid var(--color-search-content-selected-border);
     background-color: var(--color-search-content-selected-background);
   }
 
   &-selected:hover {
     .search-header-selected {
+      outline-color: var(--color-search-header-selected-border-hover);
       background-color: var(--color-search-header-selected-hover);
     }
 
     .search-content-selected {
+      outline-color: var(--color-search-content-selected-border-hover);
       background-color: var(--color-search-content-selected-hover);
     }
   }
 
   &-selected:active {
     .search-header-selected {
+      outline-color: var(--color-search-header-selected-border-active);
       background-color: var(--color-search-header-selected-active);
     }
 
     .search-content-selected {
+      outline-color: var(--color-search-content-selected-border-active);
       background-color: var(--color-search-content-selected-active);
     }
   }
 
   &-no-results {
-    padding-block-start: 10px;
+    padding-block-start: $space-8;
 
     &-title {
-      padding-inline: 15px;
+      @include fluid-size(padding-inline, $space-12, $space-16);
+
       font-family: Onest, sans-serif;
-      font-size: 1.1rem;
+      font-size: $font-size-title-sm;
       text-wrap: balance;
     }
 
     &-message {
+      @include fluid-size(padding-inline, $space-12, $space-16);
+
       opacity: 0.5;
-      padding-inline: 15px;
       width: 100%;
-      font-size: 0.825rem;
+      font-size: $font-size-label;
       text-wrap: balance;
     }
 
+    &-highlight {
+      color: var(--color-surface-primary-text);
+      font-weight: 600;
+    }
+
     &-tip {
+      @include fluid-size(margin-block, $space-12, $space-16);
+      @include fluid-size(padding-inline, $space-4, $space-8);
+
       opacity: 0.35;
-      margin-block: 15px;
       margin-inline-start: auto;
-      padding-inline: 10px;
       text-align: right;
       line-height: 1.25;
-      font-size: 0.725rem !important;
+      font-size: $font-size-caption !important;
       text-wrap: balance;
     }
   }
 
   &-external-links {
-    display: flex;
-    flex-flow: wrap;
-    margin: 10px;
-    outline: 1px solid var(--color-button-group-border);
-    border-radius: $roundness;
-    overflow: hidden;
+    @include grouped-controls-container();
+    @include grouped-controls-corners-global-children(
+      var(--group-corner-radius, #{$roundness * 0.75})
+    );
 
     a,
     button {
@@ -442,27 +575,22 @@
   }
 
   &-category {
-    display: flex;
-    flex-flow: wrap;
-    margin-top: 2px;
-    margin-bottom: 8px;
-    margin-inline: 10px;
-    outline: 1px solid var(--color-button-group-border);
-    border-radius: $roundness * 0.5;
-    overflow: hidden;
+    @include grouped-controls-container($space-4 $space-12 $space-8);
+    @include grouped-controls-corners-global-children(
+      var(--group-corner-radius, #{$roundness * 0.5})
+    );
 
     a,
     button {
       @include search-button-group-item-base();
 
       display: flex;
-      gap: 8px;
+      gap: $space-8;
       align-items: center;
       justify-content: center;
 
       svg {
-        width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-        height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+        @include fluid-icon-size(16px, 20px);
       }
 
       @media screen and (width <= 545px) {
@@ -472,62 +600,103 @@
 
     &-tip {
       opacity: 0.4;
-      margin-block: 2px 15px;
-      padding-inline: 15px;
+      margin-block: $space-4 $space-16;
+      padding-inline: $space-16;
       text-align: center;
       line-height: 1.25;
-      font-size: 0.75rem;
+      font-size: $font-size-caption;
       text-wrap: balance;
     }
   }
 }
 
 button {
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .search-button {
+  appearance: none;
+  box-sizing: border-box;
   display: flex;
-  gap: 4px;
+  position: relative;
+  gap: $space-4;
   align-items: center;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  outline: 1px solid var(--color-widget-border);
+  justify-content: center;
+  transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: $stroke-1 solid var(--color-widget-border);
+  border: none;
   border-radius: $roundness * 0.75;
   background: var(--color-widget-background);
-  padding: 5px;
+  padding: $space-4;
+  height: var(--header-control-height, 30px);
+  min-height: var(--header-control-height, 30px);
+  line-height: 1;
   color: var(--color-widget-text);
   font-family: Onest, Inter, sans-serif;
-  font-size: 0.85rem;
+  font-size: $font-size-body-sm;
   font-weight: 400;
 
   &:hover {
-    background-color: var(--color-widget-background-hover);
+    outline: $stroke-1 solid var(--color-surface-primary-border-hover);
+    background-color: var(--color-surface-primary-background-hover);
   }
 
   &:active {
-    background-color: var(--color-widget-background-active);
+    outline: $stroke-1 solid var(--color-surface-primary-border-active);
+    background-color: var(--color-surface-primary-background-active);
   }
 
-  &:focus,
-  &:active {
-    outline: 1px solid var(--color-widget-border);
+  &:focus:not(:active),
+  &:focus-visible:not(:active) {
+    outline: $stroke-1 solid var(--color-widget-border);
+  }
+
+  &:hover mark {
+    outline-color: color-mix(
+      in hsl,
+      var(--color-surface-primary-border-hover) 78%,
+      var(--color-accent) 22%
+    );
+    background-color: color-mix(
+      in hsl,
+      var(--color-surface-primary-background-hover) 90%,
+      var(--color-accent) 10%
+    );
+  }
+
+  &:active mark {
+    outline-color: color-mix(
+      in hsl,
+      var(--color-surface-primary-border-active) 70%,
+      var(--color-accent) 30%
+    );
+    background-color: color-mix(
+      in hsl,
+      var(--color-surface-primary-background-active) 82%,
+      var(--color-accent) 18%
+    );
   }
 
   svg {
     fill: var(--color-accent);
-    width: 17px;
-    height: 17px;
+    width: $space-16;
+    height: $space-16;
   }
 
   span {
+    white-space: nowrap;
     text-wrap-mode: nowrap;
   }
 
   mark {
+    transition:
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     margin: 0;
-    margin-inline-start: 2px;
+    margin-inline-start: $space-4;
     border-radius: $roundness * 0.5;
-    padding-inline: 5px;
+    padding-inline: $space-4;
+    color: inherit;
     font-weight: 600;
   }
 }

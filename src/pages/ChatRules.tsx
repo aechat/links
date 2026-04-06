@@ -134,10 +134,7 @@ const ChatRules = () => {
       <Header title="rules" />
       <PageTransition className="main">
         <div className="article-container-flex">
-          <div
-            className="article-container"
-            style={{marginBlockStart: "20px"}}
-          >
+          <div className="article-container chat-rules-container">
             <div className="article-title">
               <h1>Правила AEChat и DWChat</h1>
             </div>
@@ -196,7 +193,7 @@ const ChatRules = () => {
                   Пожалуйста, старайтесь не выходить за рамки тематик чатов, обсуждая,
                   например, другое ПО или компьютерное железо — для этого есть{" "}
                   <Link to="/">другие чаты</Link>.{" "}
-                  <i style={{opacity: "0.5"}}>
+                  <i className="chat-rules-muted">
                     Возможны исключения по усмотрению администрации.
                   </i>
                 </Addition>
@@ -236,7 +233,7 @@ const ChatRules = () => {
                         <u>не освобождает</u>
                       </b>{" "}
                       от ответственности.{" "}
-                      <i style={{opacity: "0.5"}}>
+                      <i className="chat-rules-muted">
                         Правила могут не распространяться на действующих членов
                         администрации чата.
                       </i>
@@ -303,15 +300,7 @@ const ChatRules = () => {
                     <div className="message-flex">
                       <div className="message-incorrect">
                         <div className="message-left">всем плотнейший салам</div>
-                        <div
-                          style={{
-                            fontSize: "0.725rem",
-                            opacity: 0.5,
-                            textAlign: "center",
-                          }}
-                        >
-                          Прошло 3 минуты
-                        </div>
+                        <div className="message-time">Прошло 3 минуты</div>
                         <div className="message-left">бля але, кто живой есть?</div>
                         <div className="message-right">
                           Привет, это не техподдержка{" "}
@@ -333,15 +322,7 @@ const ChatRules = () => {
                           оказались? Просто привлечь внимание и отнимать чужое время?
                         </div>
                         <div className="message-left">чел ебать ты токсик</div>
-                        <div
-                          style={{
-                            fontSize: "0.725rem",
-                            opacity: 0.5,
-                            textAlign: "center",
-                          }}
-                        >
-                          Прошло N минут
-                        </div>
+                        <div className="message-time">Прошло N минут</div>
                         <div className="message-left">
                           ладно, исправляюсь... поставил скрипт, а как его закрепить в
                           рабочей области, чтобы как панель был?
@@ -354,13 +335,7 @@ const ChatRules = () => {
                           меню <mark className="select">«Window»</mark>, и его можно будет
                           открыть и закрепить как панель.
                         </div>
-                        <div
-                          style={{
-                            fontSize: "0.725rem",
-                            opacity: 0.5,
-                            textAlign: "center",
-                          }}
-                        >
+                        <div className="message-time">
                           Время переписки: ~5–30 минут с учётом времени ожидания ответа
                         </div>
                       </div>
@@ -377,15 +352,7 @@ const ChatRules = () => {
                           где его можно будет открыть и закрепить.
                         </div>
                         <div className="message-left">Спасибо, всё получилось!</div>
-                        <div
-                          style={{
-                            fontSize: "0.725rem",
-                            opacity: 0.5,
-                            textAlign: "center",
-                          }}
-                        >
-                          Время переписки: ~30 секунд
-                        </div>
+                        <div className="message-time">Время переписки: ~30 секунд</div>
                       </div>
                     </div>
                   </li>
@@ -421,7 +388,7 @@ const ChatRules = () => {
                             Для создания скриншота и записи экрана предусмотрены полезные
                             комбинации клавиш, которые не раз пригодятся в жизни.
                           </p>
-                          <ul style={{marginInline: "-15px"}}>
+                          <ul className="chat-rules-list-compact">
                             <li>
                               <mark className="key">Ctrl + Command + Shift + 3</mark>{" "}
                               позволяет сделать скриншот всего экрана. Изображение
@@ -520,10 +487,7 @@ const ChatRules = () => {
                             использовать <mark className="app">«Ножницы»</mark> — есть ряд
                             сторонних утилит для съёмки экрана и создания скриншотов.
                           </p>
-                          <div
-                            className="flexible-links"
-                            style={{marginInline: "0"}}
-                          >
+                          <div className="flexible-links chat-rules-links-inline">
                             <a
                               href="https://github.com/ShareX/ShareX/releases"
                               rel="noreferrer"
