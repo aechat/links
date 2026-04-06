@@ -14,8 +14,8 @@
     "scss/comment-no-empty": true,
     "scss/double-slash-comment-whitespace-inside": "always",
     "scss/no-global-function-names": true,
-    "scss/operator-no-newline-after": true,
-    "scss/operator-no-newline-before": true,
+    "scss/operator-no-newline-after": null,
+    "scss/operator-no-newline-before": null,
     "scss/operator-no-unspaced": true,
     "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(--[a-z0-9]+(-[a-z0-9]+)*)?$",
     "selector-pseudo-class-no-unknown": [
