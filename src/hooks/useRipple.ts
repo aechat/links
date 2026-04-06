@@ -73,7 +73,6 @@ const getRippleLayer = (hostElement: HTMLElement): HTMLSpanElement => {
   layer.style.overflow = "hidden";
   layer.style.borderRadius = "inherit";
   layer.style.pointerEvents = "none";
-
   hostElement.append(layer);
 
   return layer;

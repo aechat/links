@@ -225,14 +225,12 @@ $light-theme-map: (
     semantic-action: (
       primary-background-hover: color-mix(
           in hsl,
-          var(--color-accent)
-            calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-accent) calc(100% - var(--color-interaction-primary-hover-shift)),
           var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
         ),
       primary-background-active: color-mix(
           in hsl,
-          var(--color-accent)
-            calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-accent) calc(100% - var(--color-interaction-primary-active-shift)),
           var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
         ),
       primary-background-disabled: color-mix(
@@ -288,7 +286,8 @@ $light-theme-map: (
       info: (
         background-level-3: color-mix(
             in hsl,
-            var(--color-status-info-tertiary-background) calc(100% - var(--color-depth-step-2)),
+            var(--color-status-info-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
             var(--color-interaction-mix-color) var(--color-depth-step-2)
           ),
         mark-background-hover: color-mix(
@@ -338,7 +337,8 @@ $light-theme-map: (
       warning: (
         background-level-3: color-mix(
             in hsl,
-            var(--color-status-warning-tertiary-background) calc(100% - var(--color-depth-step-2)),
+            var(--color-status-warning-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
             var(--color-interaction-mix-color) var(--color-depth-step-2)
           ),
         mark-background-hover: color-mix(
@@ -388,7 +388,8 @@ $light-theme-map: (
       danger: (
         background-level-3: color-mix(
             in hsl,
-            var(--color-status-danger-tertiary-background) calc(100% - var(--color-depth-step-2)),
+            var(--color-status-danger-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
             var(--color-interaction-mix-color) var(--color-depth-step-2)
           ),
         mark-background-hover: color-mix(
@@ -438,7 +439,8 @@ $light-theme-map: (
       tldr: (
         background-level-3: color-mix(
             in hsl,
-            var(--color-status-tldr-tertiary-background) calc(100% - var(--color-depth-step-2)),
+            var(--color-status-tldr-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
             var(--color-interaction-mix-color) var(--color-depth-step-2)
           ),
         mark-background-hover: color-mix(

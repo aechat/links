@@ -64,4 +64,3 @@ const getAntTheme = (isDarkMode: boolean, accentHue: number, saturateRatio: numb
 };
 
 export default getAntTheme;
-
