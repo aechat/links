@@ -549,6 +549,11 @@ export const useSearchModalBehavior = ({
     [resultReferences, selectedResultIndex]
   );
 
+  const resultsSignature = useMemo(
+    () => results.map((result) => result.id).join("|"),
+    [results]
+  );
+
   useEffect(() => {
     const handleKeyDown = (event_: KeyboardEvent) => {
       if (!isModalOpen || results.length === 0) {
@@ -705,6 +710,26 @@ export const useSearchModalBehavior = ({
       globalThis.cancelAnimationFrame(rafId);
     };
   }, [isModalOpen, resultReferences, scrollSelectedResultIntoView, selectedResultIndex]);
+
+  useEffect(() => {
+    if (!isModalOpen || selectedResultIndex < 0 || results.length === 0) {
+      return;
+    }
+
+    const rafId = globalThis.requestAnimationFrame(() => {
+      scrollSelectedResultIntoView("smooth");
+    });
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+    };
+  }, [
+    isModalOpen,
+    results.length,
+    resultsSignature,
+    scrollSelectedResultIntoView,
+    selectedResultIndex,
+  ]);
 
   useEffect(() => {
     const container = resultsContainerReference.current;
