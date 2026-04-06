@@ -436,6 +436,12 @@
     table {
       margin-block: 0;
       padding-block: $space-8;
+      font-size: $font-size-body-sm;
+
+      th,
+      td {
+        font-size: $font-size-body-sm;
+      }
 
       tbody tr:hover td {
         border-color: var(--color-border-table);
@@ -448,8 +454,14 @@
     mark,
     .addition-info,
     .addition-warning,
-    .addition-danger {
+    .addition-danger,
+    .addition-tldr {
+      font-size: $font-size-body-sm;
       user-select: none;
+    }
+
+    a {
+      font-size: $font-size-body-sm;
     }
 
     [data-search-hit] {
