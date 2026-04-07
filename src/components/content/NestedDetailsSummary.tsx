@@ -152,6 +152,49 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     return textualAnchor;
   }, [anchor, displayAnchorId, getParentAnchorData]);
 
+  const assignFallbackSummaryId = useCallback((summaryElement: HTMLElement): string => {
+    if (summaryElement.id) {
+      return summaryElement.id;
+    }
+
+    const nestedDetailsElement = detailsReference.current;
+
+    const parentDetailsElement = nestedDetailsElement?.parentElement?.closest(
+      'details:not([data-nested-details-summary="true"])'
+    );
+
+    if (!(parentDetailsElement instanceof HTMLDetailsElement)) {
+      return "";
+    }
+
+    const parentSummaryElement = parentDetailsElement.querySelector("summary");
+
+    const parentSummaryId =
+      parentSummaryElement instanceof HTMLElement ? parentSummaryElement.id : "";
+
+    if (!parentSummaryId) {
+      return "";
+    }
+
+    const nestedSummaryElements = [
+      ...parentDetailsElement.querySelectorAll<HTMLElement>(
+        'details[data-nested-details-summary="true"] > summary'
+      ),
+    ];
+
+    const nestedIndex = nestedSummaryElements.indexOf(summaryElement);
+
+    if (nestedIndex === -1) {
+      return "";
+    }
+
+    const fallbackId = `${parentSummaryId}.${nestedIndex + 1}`;
+
+    summaryElement.id = fallbackId;
+
+    return fallbackId;
+  }, []);
+
   useEffect(() => {
     const detailsElement = detailsReference.current;
 
@@ -242,7 +285,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         `.${styles["details-nested-summary"]}`
       );
 
-      if (summaryElement && summaryElement.id === id) {
+      const resolvedSummaryId =
+        summaryElement instanceof HTMLElement
+          ? summaryElement.id || assignFallbackSummaryId(summaryElement)
+          : "";
+
+      if (summaryElement && resolvedSummaryId === id) {
         if (isOpenReference.current) {
           doScroll();
         } else {
@@ -254,7 +302,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     globalThis.addEventListener("open-spoiler-by-id", handleOpenEvent);
 
     return () => globalThis.removeEventListener("open-spoiler-by-id", handleOpenEvent);
-  }, [doScroll]);
+  }, [assignFallbackSummaryId, doScroll]);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -267,9 +315,14 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           return;
         }
 
-        const summaryId = detailsReference.current?.querySelector(
+        const summaryElement = detailsReference.current?.querySelector(
           `.${styles["details-nested-summary"]}`
-        )?.id;
+        );
+
+        const summaryId =
+          summaryElement instanceof HTMLElement
+            ? summaryElement.id || assignFallbackSummaryId(summaryElement)
+            : "";
 
         const resolvedAnchor = getEffectiveAnchor();
 
@@ -302,7 +355,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
       clearTimeout(timeoutId);
     };
-  }, [getEffectiveAnchor, updateUrlHash]);
+  }, [assignFallbackSummaryId, getEffectiveAnchor, updateUrlHash]);
 
   useEffect(() => {
     const details = detailsReference.current;
@@ -435,8 +488,11 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     }
 
     const checkId = () => {
-      if (summaryElement.id) {
-        setDisplayAnchorId(summaryElement.id);
+      const resolvedSummaryId =
+        summaryElement.id || assignFallbackSummaryId(summaryElement);
+
+      if (resolvedSummaryId) {
+        setDisplayAnchorId(resolvedSummaryId);
 
         return true;
       }
@@ -455,7 +511,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     }, 100);
 
     return () => clearInterval(checkIdInterval);
-  }, []);
+  }, [assignFallbackSummaryId]);
 
   const handleCopyAnchor = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
@@ -467,7 +523,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           `.${styles["details-nested-summary"]}`
         );
 
-        const numericAnchor = summaryElement?.id ?? "";
+        const numericAnchor =
+          summaryElement instanceof HTMLElement
+            ? summaryElement.id || assignFallbackSummaryId(summaryElement)
+            : "";
 
         const anchorToCopy = getEffectiveAnchor() || numericAnchor;
 
@@ -479,7 +538,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
       return true;
     },
-    [getEffectiveAnchor]
+    [assignFallbackSummaryId, getEffectiveAnchor]
   );
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
