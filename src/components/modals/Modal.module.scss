@@ -58,7 +58,7 @@
 .modal li,
 .modal-open-button,
 .modal-controls-option {
-  font-size: $font-size-body-md;
+  font-size: $font-size-text-base;
 }
 
 .modal-header,
@@ -90,7 +90,7 @@
   &-title {
     overflow: hidden;
     color: var(--color-surface-primary-text);
-    font-size: $font-size-title-sm;
+    font-size: $font-size-heading-xs;
     font-weight: 550;
   }
 
@@ -157,7 +157,7 @@
   min-height: var(--header-control-height, 30px);
   line-height: 1;
   color: var(--color-widget-text);
-  font-size: $font-size-body-sm;
+  font-size: $font-size-text-sm;
   font-weight: 400;
 
   &:hover {
@@ -205,7 +205,7 @@
 
 .modal-message {
   opacity: 0.5;
-  font-size: $font-size-body-sm !important;
+  font-size: $font-size-text-sm !important;
   font-weight: 600;
 }
 
@@ -253,7 +253,7 @@
   padding-inline: $space-16;
   text-align: center;
   line-height: 1.25;
-  font-size: $font-size-body-sm;
+  font-size: $font-size-text-sm;
   font-weight: 450;
 }
 
@@ -264,7 +264,7 @@
   max-width: 400px;
   text-align: right;
   line-height: 1.25;
-  font-size: $font-size-caption;
+  font-size: $font-size-text-xs;
   text-wrap: balance;
 }
 
@@ -281,14 +281,14 @@
 
   &-title {
     line-height: 1.25;
-    font-size: $font-size-title-lg;
+    font-size: $font-size-heading-lg;
     font-weight: 700;
   }
 
   &-recipient-info {
     text-align: center;
     color: var(--color-text-tertiary);
-    font-size: $font-size-caption-strong !important;
+    font-size: $font-size-text-xs !important;
   }
 
   &-yoomoney-link {
@@ -317,7 +317,7 @@
     border-radius: $roundness * 0.75;
     background-color: var(--color-surface-primary-background);
     color: var(--color-surface-primary-text) !important;
-    font-size: $font-size-title-sm;
+    font-size: $font-size-heading-xs;
     font-weight: 700;
 
     &:hover {
@@ -336,7 +336,7 @@
     padding: $space-4;
     width: calc(100% - 20px);
     text-align: center;
-    font-size: $font-size-title;
+    font-size: $font-size-heading-sm;
 
     &--yoomoney {
       margin-inline: 0;
@@ -368,7 +368,7 @@
   display: flex;
   gap: $space-8;
   align-items: center;
-  font-size: $font-size-body-sm;
+  font-size: $font-size-text-sm;
   font-weight: 400;
 }
 

@@ -5,7 +5,7 @@
     opacity: 0.8;
     text-transform: uppercase;
     font-family: Onest, sans-serif !important;
-    font-size: $font-size-caption-strong;
+    font-size: $font-size-text-xs;
     font-weight: 600 !important;
   }
 
@@ -22,14 +22,14 @@
     &-notice-wrapper .ant-message-notice-content {
       outline: $stroke-1 solid var(--color-border-primary) !important;
       background: var(--color-background-secondary) !important;
-      font-size: $font-size-body-sm !important;
+      font-size: $font-size-text-sm !important;
       font-weight: 400;
     }
   }
 
   &-tooltip {
     font-family: Inter, sans-serif;
-    font-size: $font-size-body-sm !important;
+    font-size: $font-size-text-sm !important;
   }
 
   &-modal-root .ant-modal-mask.ant-modal-mask-blur {
@@ -38,7 +38,7 @@
   }
 
   &-breadcrumb {
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
   }
 
   &-modal {
@@ -109,7 +109,7 @@
   }
 
   &-dropdown-menu-title-content {
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
   }
 
   &-dropdown {

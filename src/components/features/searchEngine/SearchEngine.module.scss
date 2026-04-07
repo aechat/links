@@ -36,7 +36,7 @@
   line-height: 1.25;
   color: var(--color-button-group-text);
   font-family: Onest, sans-serif;
-  font-size: $font-size-body-md;
+  font-size: $font-size-text-base;
   font-weight: 500;
   text-wrap: wrap;
   will-change: transform;
@@ -69,7 +69,7 @@
     cursor: text;
     width: 100%;
     color: var(--color-surface-primary-text);
-    font-size: $font-size-body-md;
+    font-size: $font-size-text-base;
     font-weight: 600;
 
     &::-webkit-search-decoration,
@@ -83,7 +83,7 @@
     &::placeholder {
       opacity: 0.75;
       font-family: Onest, sans-serif, monospace;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
       font-weight: 450;
       font-style: italic;
     }
@@ -203,7 +203,7 @@
     align-items: center;
     opacity: 0.75;
     text-align: center;
-    font-size: $font-size-label;
+    font-size: $font-size-text-xs;
   }
 
   &-counter-value {
@@ -317,7 +317,7 @@
     padding-block-start: $space-16;
     max-height: 400px;
     overflow: hidden;
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
     user-select: none;
 
     p {
@@ -436,11 +436,11 @@
     table {
       margin-block: 0;
       padding-block: $space-8;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
 
       th,
       td {
-        font-size: $font-size-body-sm;
+        font-size: $font-size-text-sm;
       }
 
       tbody tr:hover td {
@@ -456,12 +456,12 @@
     .addition-warning,
     .addition-danger,
     .addition-tldr {
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
       user-select: none;
     }
 
     a {
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
     }
 
     [data-search-hit] {
@@ -539,7 +539,7 @@
       @include fluid-size(padding-inline, $space-12, $space-16);
 
       font-family: Onest, sans-serif;
-      font-size: $font-size-title-sm;
+      font-size: $font-size-heading-xs;
       text-wrap: balance;
     }
 
@@ -548,7 +548,7 @@
 
       opacity: 0.5;
       width: 100%;
-      font-size: $font-size-label;
+      font-size: $font-size-text-xs;
       text-wrap: balance;
     }
 
@@ -565,7 +565,7 @@
       margin-inline-start: auto;
       text-align: right;
       line-height: 1.25;
-      font-size: $font-size-caption !important;
+      font-size: $font-size-text-xs !important;
       text-wrap: balance;
     }
   }
@@ -600,6 +600,7 @@
       gap: $space-8;
       align-items: center;
       justify-content: center;
+      font-size: $font-size-text-md;
 
       svg {
         @include fluid-icon-size(16px, 20px);
@@ -616,7 +617,7 @@
       padding-inline: $space-16;
       text-align: center;
       line-height: 1.25;
-      font-size: $font-size-caption;
+      font-size: $font-size-text-xs;
       text-wrap: balance;
     }
   }
@@ -645,7 +646,7 @@ button {
   line-height: 1;
   color: var(--color-widget-text);
   font-family: Onest, Inter, sans-serif;
-  font-size: $font-size-body-sm;
+  font-size: $font-size-text-sm;
   font-weight: 400;
 
   &:hover {

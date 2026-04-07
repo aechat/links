@@ -7,7 +7,7 @@
     margin-block: $space-16 !important;
     margin-inline: $space-4 !important;
     color: var(--color-text-tertiary);
-    font-size: $font-size-label;
+    font-size: $font-size-text-xs;
   }
 
   &-dragger {
@@ -21,7 +21,7 @@
     }
 
     &-text {
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
     }
   }
 
@@ -70,7 +70,7 @@
 
     &-title {
       font-family: Onest, sans-serif;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
       font-weight: 500;
     }
 
@@ -88,7 +88,7 @@
 
     &-hint {
       color: var(--color-text-tertiary);
-      font-size: $font-size-caption;
+      font-size: $font-size-text-xs;
     }
   }
 }

@@ -27,7 +27,7 @@
       margin-block: $space-8;
       margin-inline: $space-16;
       line-height: 1.65;
-      font-size: $font-size-body-md;
+      font-size: $font-size-text-base;
     }
   }
 
@@ -53,7 +53,7 @@
     line-height: 1.25;
     color: var(--color-surface-primary-text);
     font-family: Onest, sans-serif;
-    font-size: $font-size-title-sm;
+    font-size: $font-size-heading-xs;
     font-weight: 500;
     text-wrap: balance;
   }

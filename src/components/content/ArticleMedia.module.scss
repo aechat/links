@@ -36,7 +36,7 @@
       text-align: center;
       line-height: 1.25;
       color: var(--color-figure-youtube-button-text);
-      font-size: $font-size-label;
+      font-size: $font-size-text-xs;
       font-weight: 600;
 
       &:hover {
@@ -96,7 +96,7 @@
     padding: $space-4;
     text-align: center;
     color: var(--color-text-tertiary);
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
     font-style: italic;
   }
 

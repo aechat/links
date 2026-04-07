@@ -40,12 +40,12 @@
   max-width: fit-content;
   color: var(--color-accent);
   font-family: "Red Hat Display", monospace;
-  font-size: $font-size-brand;
+  font-size: $font-size-heading-md;
   font-weight: 800;
   font-style: italic;
 
   sub {
-    font-size: $font-size-label;
+    font-size: $font-size-text-xs;
     font-weight: 500;
   }
 }
@@ -112,7 +112,7 @@
       outline: $stroke-1 solid var(--color-status-danger-border);
       background: var(--color-status-danger-mark-background);
       color: var(--color-status-danger-text);
-      font-size: $font-size-body-md;
+      font-size: $font-size-text-base;
       font-style: normal;
     }
   }

@@ -97,7 +97,7 @@
     text-align: left;
     line-height: 1.5;
     color: var(--color-mark-text);
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
     filter: saturate(0%);
   }
 
@@ -113,7 +113,7 @@
     text-align: right;
     line-height: 1.5;
     color: var(--color-mark-text);
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
     filter: saturate(100%);
   }
 

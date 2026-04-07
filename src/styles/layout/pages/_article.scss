@@ -48,7 +48,7 @@
       text-overflow: ellipsis;
       white-space: wrap;
       font-family: Inter, sans-serif;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
       font-weight: 700;
       text-wrap: stable;
 
@@ -215,7 +215,7 @@
     max-width: 600px;
     text-align: center;
     color: var(--color-surface-primary-text);
-    font-size: $font-size-title-sm;
+    font-size: $font-size-heading-xs;
     font-weight: 600;
     font-style: italic;
 

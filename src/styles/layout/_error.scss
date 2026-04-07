@@ -38,7 +38,7 @@
   &-message-copyable {
     opacity: 0.5;
     cursor: pointer;
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
   }
 }
 
@@ -50,6 +50,6 @@
     opacity: 0.75;
     margin: $space-16;
     cursor: pointer;
-    font-size: $font-size-body-sm;
+    font-size: $font-size-text-sm;
   }
 }

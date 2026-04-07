@@ -6,7 +6,7 @@ table {
   overflow: hidden;
   border-collapse: separate;
   border-spacing: 4px;
-  font-size: $font-size-body-md;
+  font-size: $font-size-text-base;
 
   td,
   th {
@@ -26,7 +26,7 @@ table {
       padding-block: $space-8;
       padding-inline: $space-12;
       text-align: left;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
 
       &:last-child {
         margin-block-end: 0;
@@ -38,7 +38,7 @@ table {
 
       mark,
       a {
-        font-size: $font-size-body-sm;
+        font-size: $font-size-text-sm;
 
         &::before {
           width: min(
@@ -82,7 +82,7 @@ table {
     a {
       outline: none;
       background: none;
-      font-size: $font-size-body-md;
+      font-size: $font-size-text-base;
 
       &::before {
         width: min(
@@ -147,13 +147,13 @@ table {
     td,
     th {
       padding: $space-4 $space-4;
-      font-size: $font-size-body-sm;
+      font-size: $font-size-text-sm;
 
       > [class*="addition-info"],
       > [class*="addition-warning"],
       > [class*="addition-danger"],
       > [class*="addition-tldr"] {
-        font-size: $font-size-caption-strong;
+        font-size: $font-size-text-xs;
       }
     }
   }
