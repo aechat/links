@@ -516,12 +516,12 @@ li,
   }
 }
 
-.rules-section {
+:global(.rules-section) {
   & > .addition-info,
   & > .addition-warning,
   & > .addition-danger,
   & > .addition-tldr {
-    margin-block: $space-8;
+    margin-block: $space-16;
     margin-inline: 0;
     border-radius: 0;
   }
