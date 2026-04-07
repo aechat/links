@@ -745,7 +745,9 @@ const AeActions: React.FC = () => {
           например, когда у оператора не было возможности снять объект на хромакее, а
           вырезать его на постобработке всё равно нужно.
         </p>
-        <Divider>Выделяем объект с помощью встроенного Roto Brush</Divider>
+        <Divider>
+          Выделяем объект с помощью встроенного <mark className="plugin">Roto Brush</mark>
+        </Divider>
         <p>
           В базовой поставке <mark className="app">Adobe After Effects</mark> давно есть
           удобный инструмент <mark className="plugin">Roto Brush</mark>, который
@@ -1000,7 +1002,9 @@ const AeActions: React.FC = () => {
         tag="extract, удаление цвета, удаление фона, кеинг, unmult, черный фон, белый фон"
         title="Как и чем можно вырезать белый или чёрный цвет со слоя?"
       >
-        <Divider>Отделяем объект с помощью Extract</Divider>
+        <Divider>
+          Отделяем объект с помощью <mark className="plugin">Extract</mark>
+        </Divider>
         <p>
           Для удаления чёрного или белого фона можно использовать стандартный эффект
           <mark className="plugin">Extract</mark>. Он вырезает участки по цветовому каналу
@@ -1013,7 +1017,9 @@ const AeActions: React.FC = () => {
           src="v7pqZ9gtn8I"
           type="youtube"
         />
-        <Divider>Используем Unmult</Divider>
+        <Divider>
+          Используем <mark className="plugin">Unmult</mark>
+        </Divider>
         <p>
           Для футажей со множеством мелких деталей в{" "}
           <mark className="app">Adobe After Effects</mark>{" "}
@@ -1478,7 +1484,9 @@ const AeActions: React.FC = () => {
           слоёв или используют обходные методы вроде создания предварительных композиций
           или использования масок.
         </p>
-        <Divider>Используем Red Giant Supercomp</Divider>
+        <Divider>
+          Используем <mark className="plugin">Red Giant Supercomp</mark>
+        </Divider>
         <p>
           Для реализации первого «костыля» с помощью маски понадобится эффект{" "}
           <mark className="plugin">Supercomp</mark> из пакета{" "}

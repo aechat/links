@@ -1332,7 +1332,10 @@ const PsInstallProblems: React.FC = () => {
           <mark className="app">Stability Matrix</mark>, если он не был запущен. Да, это
           может быть не удобно, но куда деваться.
         </Addition>
-        <Divider>Firefly в Lightroom для устройств на Android</Divider>
+        <Divider>
+          <mark className="app">Firefly</mark> в{" "}
+          <mark className="app">Adobe Lightroom</mark> для устройств на Android
+        </Divider>
         <p>
           Если вам прям позарез нужно использовать{" "}
           <mark className="company">Adobe Firefly</mark> для одноразового использования,

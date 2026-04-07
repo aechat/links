@@ -231,7 +231,9 @@ const PrImport: React.FC = () => {
           цветовом пространстве <mark className="term">HLG</mark>. Для решения цветовых
           проблем есть два способа.
         </p>
-        <Divider>Включаем Auto Tone Map Media</Divider>
+        <Divider>
+          Включаем <mark className="select">Auto Tone Map Media</mark>
+        </Divider>
         <p>
           В <mark className="app">Adobe Premiere Pro</mark>{" "}
           <mark className="version">23.2 (2023)</mark> и выше появилась возможность

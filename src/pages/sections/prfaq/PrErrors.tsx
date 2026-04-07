@@ -86,7 +86,9 @@ const PrErrors: React.FC = () => {
                 src="VcDYAbH6U_c"
                 type="youtube"
               />
-              <Divider>Блокируем доступ с помощью Radio Silence</Divider>
+              <Divider>
+                Блокируем доступ с помощью <mark className="app">Radio Silence</mark>
+              </Divider>
               <p>
                 Если редактирование <mark className="file">HOSTS</mark> не помогло,
                 попробуйте воспользоваться программой{" "}

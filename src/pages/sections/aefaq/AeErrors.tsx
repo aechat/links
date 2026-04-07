@@ -87,7 +87,9 @@ const AeErrors: React.FC = () => {
                 src="VcDYAbH6U_c"
                 type="youtube"
               />
-              <Divider>Блокируем доступ с помощью Radio Silence</Divider>
+              <Divider>
+                Блокируем доступ с помощью <mark className="app">Radio Silence</mark>
+              </Divider>
               <p>
                 Если редактирование файла <mark className="file">HOSTS</mark> не помогло,
                 попробуйте воспользоваться программой{" "}
@@ -301,7 +303,7 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Проделайте то же самое для{" "}
+                  Проделайте аналогичные действия и для{" "}
                   <mark className="select">«Правил для исходящего подключения»</mark>.
                 </li>
               </ul>

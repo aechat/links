@@ -1132,7 +1132,9 @@ const AeInterface: React.FC = () => {
           <mark className="app">Windhawk</mark> с модификацией{" "}
           <mark className="select">«Dark mode context menus»</mark>.
         </p>
-        <Divider>Разбираемся с Mica For Everyone</Divider>
+        <Divider>
+          Разбираемся с <mark className="app">Mica For Everyone</mark>
+        </Divider>
         <p>
           <mark className="app">Mica For Everyone</mark> — утилита для принудительного
           изменения цвета рамок, типа скругления окон и эффекта размытия фона заголовка

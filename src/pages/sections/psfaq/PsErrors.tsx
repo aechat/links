@@ -84,7 +84,9 @@ const PsErrors: React.FC = () => (
               src="VcDYAbH6U_c"
               type="youtube"
             />
-            <Divider>Блокируем доступ с помощью Radio Silence</Divider>
+            <Divider>
+              Блокируем доступ с помощью <mark className="app">Radio Silence</mark>
+            </Divider>
             <p>
               Если внесение адресов в <mark className="file">HOSTS</mark> вам не помогло,
               то попробуйте воспользоваться программой{" "}

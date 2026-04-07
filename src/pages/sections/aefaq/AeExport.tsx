@@ -921,8 +921,8 @@ const AeExport: React.FC = () => {
           очередь и запустить экспорт.
         </Addition>
         <Divider>
-          Разбираем проблемы при использовании{" "}
-          <mark className="app">Adobe Media Encoder</mark>
+          Какие проблемы могут возникнуть при использовании{" "}
+          <mark className="app">Adobe Media Encoder</mark>?
         </Divider>
         <ul>
           <li>

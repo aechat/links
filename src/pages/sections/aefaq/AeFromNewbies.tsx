@@ -6404,7 +6404,9 @@ const AeFromNewbies: React.FC = () => {
           имеет размер 1920×1080, а слой, на который вы применяете эффект, меньше, то
           эффект будет ограничен размером этого слоя.
         </p>
-        <Divider>Расширяем границы с помощью Grow Bounds</Divider>
+        <Divider>
+          Расширяем границы с помощью <mark className="plugin">Grow Bounds</mark>
+        </Divider>
         <p>
           Чтобы это исправить, попробуйте применить стандартный эффект{" "}
           <mark className="plugin">Grow Bounds</mark> перед всеми остальными эффектами и
@@ -6421,7 +6423,9 @@ const AeFromNewbies: React.FC = () => {
           <mark className="plugin">Grow Bounds</mark> из пакета{" "}
           <mark className="plugin">Red Giant Trapcode Suite</mark>.
         </Addition>
-        <Divider>Разбираемся с краями у эффекта Saber</Divider>
+        <Divider>
+          Разбираемся с краями у эффекта <mark className="plugin">Saber</mark>
+        </Divider>
         <p>
           Если вы применили <mark className="plugin">Saber</mark> на слой, размер которого
           меньше размера композиции (например, на слой-фигуру), то{" "}
@@ -6570,7 +6574,9 @@ const AeFromNewbies: React.FC = () => {
           эффектах, например ссылка на слой в эффекте{" "}
           <mark className="plugin">Displacement Map</mark>.
         </Addition>
-        <Divider>Используем Un-PreCompose</Divider>
+        <Divider>
+          Используем <mark className="plugin">Un-PreCompose</mark>
+        </Divider>
         <p>
           Для решения этой проблемы был создан бесплатный<sup>1</sup> скрипт{" "}
           <a href="https://aescripts.com/un-precompose/">Un-PreCompose</a>. После
