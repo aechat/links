@@ -3,7 +3,8 @@
 
 .details-nested {
   position: relative;
-  margin: $space-8;
+  margin-block: $space-8;
+  margin-inline: $space-16;
   border-radius: $roundness;
   font-size: 0.95em;
 
@@ -15,8 +16,7 @@
     justify-content: space-between;
     transition:
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
-      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: $stroke-1 solid transparent;
+      border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     border: $stroke-1 solid var(--color-surface-primary-border);
     border-radius: $roundness;
     background-color: var(--color-surface-primary-background);
@@ -30,12 +30,12 @@
     font-weight: 600;
 
     &:hover {
-      outline-color: var(--color-surface-primary-border-hover);
+      border-color: var(--color-surface-primary-border-hover);
       background-color: var(--color-surface-primary-background-hover);
     }
 
     &:active {
-      outline-color: var(--color-surface-primary-border-active);
+      border-color: var(--color-surface-primary-border-active);
       background-color: var(--color-surface-primary-background-active);
     }
 
