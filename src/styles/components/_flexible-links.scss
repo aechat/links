@@ -38,6 +38,10 @@
     outline-color: var(--color-button-group-border);
     background-color: var(--color-button-group-selected);
   }
+
+  > :is(button, a):only-child {
+    border-radius: $roundness * 0.75;
+  }
 }
 
 li > .flexible-links {
