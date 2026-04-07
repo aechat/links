@@ -1159,7 +1159,7 @@ const AeExport: React.FC = () => {
         </Divider>
         <Addition type="info">
           Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
-          <mark className="version">23.0 (2023)</mark> и ниже, пролистайте эту статью
+          <mark className="version">22.6 (2022)</mark> и ниже, пролистайте эту статью
           дальше для ознакомления с альтернативными способами экспорта.
         </Addition>
         <p>
