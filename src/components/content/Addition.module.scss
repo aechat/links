@@ -22,7 +22,7 @@
     margin-block: $space-16;
     margin-inline: 0;
     line-height: 1.6;
-    font-size: $font-size-addition;
+    font-size: $font-size-text-md;
     font-weight: 425;
 
     > div {
@@ -84,6 +84,7 @@
       padding-block: $space-4;
       padding-inline: $space-4;
       line-height: 1.6;
+      font-size: inherit !important;
 
       &::before {
         display: inline-block;
@@ -512,7 +513,7 @@ li,
     margin-inline: 0;
     border-radius: $roundness;
     padding-inline: $space-16;
-    font-size: $font-size-addition;
+    font-size: $font-size-text-md;
   }
 }
 
