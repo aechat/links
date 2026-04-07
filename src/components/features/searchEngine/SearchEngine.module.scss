@@ -135,32 +135,31 @@
     position: relative;
     transition:
       background-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
-      outline-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+      border-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       box-shadow $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       transform $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
-    outline: $stroke-1 solid transparent;
     width: 100%;
 
     &:hover {
       .search-header {
-        outline-color: var(--color-search-header-border-hover);
+        border-color: var(--color-search-header-border-hover);
         background-color: var(--color-search-header-background-hover);
       }
 
       .search-content {
-        outline-color: var(--color-search-content-border-hover);
+        border-color: var(--color-search-content-border-hover);
         background-color: var(--color-search-content-background-hover);
       }
     }
 
     &:active {
       .search-header {
-        outline-color: var(--color-search-header-border-active);
+        border-color: var(--color-search-header-border-active);
         background-color: var(--color-search-header-background-active);
       }
 
       .search-content {
-        outline-color: var(--color-search-content-border-active);
+        border-color: var(--color-search-content-border-active);
         background-color: var(--color-search-content-background-active);
       }
     }
@@ -497,37 +496,35 @@
   }
 
   &-header-selected {
-    outline: $stroke-1 solid transparent;
-    border: $stroke-1 solid var(--color-search-header-selected-border);
+    border-color: var(--color-search-header-selected-border);
     background-color: var(--color-search-header-selected-background);
   }
 
   &-content-selected {
-    outline: $stroke-1 solid transparent;
-    border: $stroke-1 solid var(--color-search-content-selected-border);
+    border-color: var(--color-search-content-selected-border);
     background-color: var(--color-search-content-selected-background);
   }
 
   &-selected:hover {
     .search-header-selected {
-      outline-color: var(--color-search-header-selected-border-hover);
+      border-color: var(--color-search-header-selected-border-hover);
       background-color: var(--color-search-header-selected-hover);
     }
 
     .search-content-selected {
-      outline-color: var(--color-search-content-selected-border-hover);
+      border-color: var(--color-search-content-selected-border-hover);
       background-color: var(--color-search-content-selected-hover);
     }
   }
 
   &-selected:active {
     .search-header-selected {
-      outline-color: var(--color-search-header-selected-border-active);
+      border-color: var(--color-search-header-selected-border-active);
       background-color: var(--color-search-header-selected-active);
     }
 
     .search-content-selected {
-      outline-color: var(--color-search-content-selected-border-active);
+      border-color: var(--color-search-content-selected-border-active);
       background-color: var(--color-search-content-selected-active);
     }
   }
