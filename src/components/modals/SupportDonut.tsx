@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
-import {Modal} from "antd";
+import {message, Modal} from "antd";
 
-import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
 import {withSoftHaptic} from "../../utils/haptics";
 
@@ -14,8 +14,6 @@ interface SupportDonutProperties {
 }
 
 const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
-  const {copyElementContent} = useCopyToClipboard();
-
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
@@ -32,8 +30,25 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
-  const handleCopyAccount = withSoftHaptic((element: HTMLElement) => {
-    void copyElementContent(element);
+  const SBER_CARD_NUMBER = "2202202357342488";
+
+  const YOOMONEY_WALLET_NUMBER = "410016763684808";
+
+  const formatGroupedNumber = (numberValue: string) => {
+    return numberValue
+      .replaceAll(/\D/g, "")
+      .replaceAll(/(\d{4})(?=\d)/g, "$1 ")
+      .trim();
+  };
+
+  const handleCopyAccount = withSoftHaptic(async (account: string) => {
+    const success = await copyText(account);
+
+    if (success) {
+      message.success("Реквизиты скопированы в буфер обмена");
+    } else {
+      message.error("Не удалось скопировать реквизиты");
+    }
   });
 
   return (
@@ -103,12 +118,13 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <mark
+                    <button
                       className={modalStyles["modal-support-account-number"]}
-                      onClick={(event) => handleCopyAccount(event.currentTarget)}
+                      type="button"
+                      onClick={() => handleCopyAccount(SBER_CARD_NUMBER)}
                     >
-                      2202202357342488
-                    </mark>
+                      {formatGroupedNumber(SBER_CARD_NUMBER)}
+                    </button>
                     <p className={modalStyles["modal-support-recipient-info"]}>
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
@@ -162,12 +178,13 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <mark
-                          className={modalStyles["modal-support-account-number"]}
-                          onClick={(event) => handleCopyAccount(event.currentTarget)}
+                        <button
+                          className={`${modalStyles["modal-support-account-number"]} ${modalStyles["modal-support-account-number--yoomoney"]}`}
+                          type="button"
+                          onClick={() => handleCopyAccount(YOOMONEY_WALLET_NUMBER)}
                         >
-                          410016763684808
-                        </mark>
+                          {formatGroupedNumber(YOOMONEY_WALLET_NUMBER)}
+                        </button>
                         <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a

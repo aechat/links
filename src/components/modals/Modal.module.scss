@@ -292,7 +292,7 @@
   }
 
   &-yoomoney-link {
-    text-decoration: underline;
+    text-decoration: underline !important;
     color: var(--color-accent);
     font-weight: 700;
   }
@@ -330,19 +330,33 @@
   }
 
   &-account-number {
-    display: block;
-    margin: $space-8;
-    cursor: pointer;
-    padding: $space-4;
-    width: calc(100% - 20px);
-    text-align: center;
-    font-size: $font-size-heading-sm;
+    @include button-group-item-base(
+      $flex-basis: 100%,
+      $font-size: $font-size-text-base,
+      $include-outline: false
+    );
 
-    &--yoomoney {
-      margin-inline: 0;
-      width: 100%;
+    display: flex;
+    margin: $space-16;
+    border: $stroke-1 solid var(--color-button-group-border);
+    border-radius: $roundness * 0.75;
+    width: calc(100% - #{$space-32});
+
+    &:hover {
+      border-color: var(--color-button-group-border-hover);
+      background-color: var(--color-surface-primary-background-hover);
+    }
+
+    &:active {
+      border-color: var(--color-button-group-border-active);
+      background-color: var(--color-surface-primary-background-active);
     }
   }
+}
+
+.modal li > .modal-support-account-number {
+  margin-inline: 0;
+  width: 100%;
 }
 
 .modal-controls-slider {
