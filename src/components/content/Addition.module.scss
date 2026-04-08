@@ -570,14 +570,25 @@ table {
   }
 }
 
-li {
-  .addition-info,
-  .addition-warning,
-  .addition-danger,
-  .addition-tldr {
+li:not(:has(> :global(.details-nested))) {
+  > .addition-info,
+  > .addition-warning,
+  > .addition-danger,
+  > .addition-tldr {
     margin-block: $space-8;
     margin-inline: 0;
     border-radius: $roundness * 0.75;
+  }
+}
+
+li:has(> :global(.details-nested)) {
+  > .addition-info,
+  > .addition-warning,
+  > .addition-danger,
+  > .addition-tldr {
+    margin-block: $space-16;
+    margin-inline: 0;
+    border-radius: $roundness;
   }
 }
 
@@ -719,4 +730,40 @@ li {
 
 .addition-tldr.addition-tldr a:visited {
   color: var(--color-status-tldr-visited-text);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-info li::before {
+  background-color: var(--color-status-info-text);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-info li:not(:last-child) {
+  border-bottom-color: var(--color-status-info-border);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-warning li::before {
+  background-color: var(--color-status-warning-text);
+}
+
+:global(details[data-nested-details-summary="true"])
+  .addition-warning
+  li:not(:last-child) {
+  border-bottom-color: var(--color-status-warning-border);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-danger li::before {
+  background-color: var(--color-status-danger-text);
+}
+
+:global(details[data-nested-details-summary="true"])
+  .addition-danger
+  li:not(:last-child) {
+  border-bottom-color: var(--color-status-danger-border);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-tldr li::before {
+  background-color: var(--color-status-tldr-text);
+}
+
+:global(details[data-nested-details-summary="true"]) .addition-tldr li:not(:last-child) {
+  border-bottom-color: var(--color-status-tldr-border);
 }

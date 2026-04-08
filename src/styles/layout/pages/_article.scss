@@ -134,7 +134,7 @@
         border-bottom: $stroke-1 solid var(--color-border-primary);
       }
 
-      p {
+      > p {
         margin-block: $space-16;
         margin-inline: 0;
 
@@ -147,7 +147,7 @@
         }
       }
 
-      .media {
+      > .media {
         margin-block: $space-16;
         margin-inline: 0;
 
@@ -174,7 +174,7 @@
         }
       }
 
-      code {
+      > code {
         margin-inline: 0;
 
         &:last-child {
