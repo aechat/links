@@ -7,13 +7,13 @@
   gap: $space-8;
   align-items: center;
   justify-content: space-between;
-  margin-block: $space-8 !important;
+  margin-block: $space-16 !important;
   outline: $stroke-1 solid var(--color-status-warning-border);
   background-color: var(--color-status-warning-background);
   padding: $space-8 $space-16;
   line-height: 1.5;
   color: var(--color-status-warning-text);
-  font-size: $font-size-text-base;
+  font-size: $font-size-text-md;
 
   button {
     transition: opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
