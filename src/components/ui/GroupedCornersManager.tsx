@@ -184,7 +184,7 @@ const getStructuralRadiusByLayout = (group: HTMLElement) => {
   let accumulatedInset = 0;
 
   while (currentChild && currentChild.parentElement) {
-    const currentParent = currentChild.parentElement;
+    const currentParent: HTMLElement | null = currentChild.parentElement;
 
     if (!(currentParent instanceof HTMLElement)) {
       break;
@@ -214,7 +214,7 @@ const getStructuralRadiusByLayout = (group: HTMLElement) => {
 
   const clampedRatio = Math.max(MIN_RADIUS_RATIO, Math.min(1, rawRatio));
 
-  let quantizedRatio = RADIUS_LEVELS[2];
+  let quantizedRatio: number = RADIUS_LEVELS[2];
 
   if (clampedRatio >= 0.875) {
     quantizedRatio = RADIUS_LEVELS[0];
