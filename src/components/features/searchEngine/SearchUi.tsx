@@ -154,6 +154,7 @@ type SearchModalProperties = {
   closeModal: () => void;
   inputRef: React.RefObject<HTMLInputElement | null>;
   isFadeVisible: boolean;
+  isScrollableContent: boolean;
   isOpen: boolean;
   onChangeQuery: (value: string) => void;
   onClearQuery: () => void;
@@ -171,6 +172,7 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   inputRef,
   isFadeVisible,
   isOpen,
+  isScrollableContent,
   onChangeQuery,
   onClearQuery,
   onCloseMouseDown,
@@ -259,8 +261,8 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
     };
   }, [handleDocumentFocusIn, handleDocumentFocusOut, isOpen, updateKeyboardState]);
 
-  const resultsClassName = [
-    searchStyles["search-results"],
+  const scrollShellClassName = [
+    searchStyles["search-results-shell"],
     isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
     isFadeVisible ? searchStyles["show-fade"] : "",
   ]
@@ -311,15 +313,23 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
               <CloseRounded />
             </button>
           </div>
-          <div className={modalStyles["modal-content"]}>
+          {isScrollableContent ? (
+            <div className={scrollShellClassName}>
+              <div
+                ref={resultsContainerRef}
+                className={searchStyles["search-results-scroll"]}
+              >
+                {children}
+              </div>
+            </div>
+          ) : (
             <div
               ref={resultsContainerRef}
-              className={resultsClassName}
+              className={searchStyles["search-static"]}
             >
               {children}
-              {isFadeVisible}
             </div>
-          </div>
+          )}
         </div>
       </Modal>
     </RemoveScroll>
@@ -616,7 +626,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     const rafId = globalThis.requestAnimationFrame(updateHighlightEligibility);
 
     const scrollContainer = document.querySelector(
-      `.${searchStyles["search-results"]}`
+      `.${searchStyles["search-results-scroll"]}`
     ) as HTMLElement | null;
 
     scrollContainer?.addEventListener("scroll", updateHighlightEligibility, {

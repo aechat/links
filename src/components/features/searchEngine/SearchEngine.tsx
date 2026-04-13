@@ -59,43 +59,57 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setSelectedResultIndex,
     });
 
-  const renderContent = () => {
+  const getModalContent = () => {
     if (!isSearching) {
-      return (
+      return {
+        content: (
+          <SearchCategories
+            sections={sections}
+            onLinkClick={handleLinkClick}
+          />
+        ),
+        isScrollableContent: false,
+      };
+    }
+
+    if (results.length > 0) {
+      return {
+        content: (
+          <>
+            <SearchResults
+              query={resultsQuery}
+              resultRefs={resultReferences}
+              results={results}
+              selectedResultIndex={selectedResultIndex}
+              setSelectedResultIndex={setSelectedResultIndex}
+              onLinkClick={handleLinkClick}
+            />
+            <ExternalSearch query={debouncedQuery} />
+          </>
+        ),
+        isScrollableContent: true,
+      };
+    }
+
+    if (query.trim() !== "" && results.length === 0 && isResultsProcessed) {
+      return {
+        content: <NoResults query={query} />,
+        isScrollableContent: true,
+      };
+    }
+
+    return {
+      content: (
         <SearchCategories
           sections={sections}
           onLinkClick={handleLinkClick}
         />
-      );
-    }
-
-    if (results.length > 0) {
-      return (
-        <>
-          <SearchResults
-            query={resultsQuery}
-            resultRefs={resultReferences}
-            results={results}
-            selectedResultIndex={selectedResultIndex}
-            setSelectedResultIndex={setSelectedResultIndex}
-            onLinkClick={handleLinkClick}
-          />
-          <ExternalSearch query={debouncedQuery} />
-        </>
-      );
-    }
-
-    if (query.trim() !== "" && results.length === 0 && isResultsProcessed) {
-      return <NoResults query={query} />;
-    }
-
-    return (
-      <SearchCategories
-        sections={sections}
-        onLinkClick={handleLinkClick}
-      />
-    );
+      ),
+      isScrollableContent: false,
+    };
   };
+
+  const {content, isScrollableContent} = getModalContent();
 
   return (
     <SearchModal
@@ -103,6 +117,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       inputRef={inputReference}
       isFadeVisible={isFadeVisible}
       isOpen={isModalOpen}
+      isScrollableContent={isScrollableContent}
       query={query}
       resultsContainerRef={resultsContainerReference}
       resultsCount={results.length}
@@ -112,7 +127,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       onCloseMouseDown={ripple.onMouseDown}
       onInputClearMouseDown={ripple.onMouseDown}
     >
-      {renderContent()}
+      {content}
     </SearchModal>
   );
 };
