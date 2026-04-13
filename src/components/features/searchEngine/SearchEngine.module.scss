@@ -602,7 +602,7 @@
   &-external-links {
     @include grouped-controls-container($space-16 $space-4);
     @include grouped-controls-corners-global-children(
-      var(--group-corner-radius, #{$roundness * 0.75})
+      var(--group-corner-radius, #{$roundness})
     );
 
     a,
@@ -616,7 +616,7 @@
   }
 
   &-category {
-    @include grouped-controls-container($space-4);
+    @include grouped-controls-container($space-4 $space-8);
     @include grouped-controls-corners-global-children(
       var(--group-corner-radius, #{$roundness})
     );
