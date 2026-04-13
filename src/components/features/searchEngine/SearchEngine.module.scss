@@ -100,7 +100,7 @@
   }
 
   &-results-shell {
-    --search-results-safe-inline: #{$space-8};
+    --search-results-safe-inline: #{$space-4};
     --search-results-safe-block-end: #{$space-12};
     --search-results-max-height: clamp(
       70svh,
@@ -111,6 +111,7 @@
     filter: $shadow-filter-overlay;
     position: relative;
     transition: max-height $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
+    margin: $space-4;
     border-radius: $roundness;
     max-height: var(--search-results-max-height);
     overflow: visible;
@@ -126,7 +127,7 @@
       -webkit-mask-position $duration-500 ease,
       mask-position $duration-500 ease;
     border-radius: $roundness;
-    padding-top: $space-8;
+    padding-top: $space-4;
     padding-bottom: var(--search-results-safe-block-end);
     padding-inline: var(--search-results-safe-inline);
     max-height: inherit;
@@ -156,7 +157,8 @@
     filter: $shadow-filter-overlay;
     display: block;
     position: relative;
-    padding-top: $space-8;
+    margin: $space-4;
+    padding-top: $space-4;
   }
 
   &-link {
@@ -598,7 +600,7 @@
   }
 
   &-external-links {
-    @include grouped-controls-container();
+    @include grouped-controls-container($space-16 $space-4);
     @include grouped-controls-corners-global-children(
       var(--group-corner-radius, #{$roundness * 0.75})
     );
@@ -614,7 +616,7 @@
   }
 
   &-category {
-    @include grouped-controls-container($space-8);
+    @include grouped-controls-container($space-4);
     @include grouped-controls-corners-global-children(
       var(--group-corner-radius, #{$roundness})
     );
