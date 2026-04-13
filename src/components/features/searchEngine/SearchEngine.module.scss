@@ -100,18 +100,21 @@
   }
 
   &-results {
+    --search-results-max-height: clamp(
+      70svh,
+      calc(70svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
+      100svh
+    );
+
     display: block;
     position: relative;
     transition:
+      max-height $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       -webkit-mask-position $duration-500 ease,
       mask-position $duration-500 ease;
     border-radius: $roundness;
     padding-top: $space-8;
-    max-height: clamp(
-      47.5svh,
-      calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
-      100svh
-    );
+    max-height: var(--search-results-max-height);
     overflow-y: auto;
     overflow-anchor: none;
     mask-image: linear-gradient(to bottom, black 92.5%, transparent 100%);
@@ -127,6 +130,14 @@
 
     &.show-fade {
       mask-position: 0 100%;
+    }
+
+    &-keyboard-open {
+      --search-results-max-height: clamp(
+        47.5svh,
+        calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
+        100svh
+      );
     }
   }
 

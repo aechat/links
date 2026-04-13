@@ -180,8 +180,88 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   resultsCount,
   resultWord,
 }) => {
+  const KEYBOARD_OPEN_THRESHOLD_PX = 120;
+
+  const keyboardBaselineViewportHeightReference = useRef(0);
+
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
+  const updateKeyboardState = useCallback(() => {
+    const viewport = globalThis.visualViewport;
+
+    if (!viewport) {
+      setIsKeyboardOpen(false);
+
+      return;
+    }
+
+    const currentViewportHeight = viewport.height;
+
+    if (
+      keyboardBaselineViewportHeightReference.current === 0 ||
+      currentViewportHeight > keyboardBaselineViewportHeightReference.current
+    ) {
+      keyboardBaselineViewportHeightReference.current = currentViewportHeight;
+    }
+
+    const currentActiveElement = document.activeElement;
+
+    const isSearchInputFocused =
+      inputRef.current !== null && currentActiveElement === inputRef.current;
+
+    const keyboardHeightDelta =
+      keyboardBaselineViewportHeightReference.current - currentViewportHeight;
+
+    setIsKeyboardOpen(
+      isSearchInputFocused && keyboardHeightDelta > KEYBOARD_OPEN_THRESHOLD_PX
+    );
+  }, [inputRef]);
+
+  const handleDocumentFocusIn = useCallback(
+    (event_: FocusEvent) => {
+      if (inputRef.current !== null && event_.target === inputRef.current) {
+        setIsKeyboardOpen(true);
+      }
+
+      updateKeyboardState();
+    },
+    [inputRef, updateKeyboardState]
+  );
+
+  const handleDocumentFocusOut = useCallback(() => {
+    updateKeyboardState();
+  }, [updateKeyboardState]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      keyboardBaselineViewportHeightReference.current = 0;
+      setIsKeyboardOpen(false);
+
+      return;
+    }
+
+    updateKeyboardState();
+
+    const viewport = globalThis.visualViewport;
+
+    if (!viewport) {
+      return;
+    }
+
+    viewport.addEventListener("resize", updateKeyboardState);
+    document.addEventListener("focusin", handleDocumentFocusIn);
+    document.addEventListener("focusout", handleDocumentFocusOut);
+
+    return () => {
+      viewport.removeEventListener("resize", updateKeyboardState);
+      document.removeEventListener("focusin", handleDocumentFocusIn);
+      document.removeEventListener("focusout", handleDocumentFocusOut);
+    };
+  }, [handleDocumentFocusIn, handleDocumentFocusOut, isOpen, updateKeyboardState]);
+
   const resultsClassName = [
     searchStyles["search-results"],
+    isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
     isFadeVisible ? searchStyles["show-fade"] : "",
   ]
     .filter(Boolean)
