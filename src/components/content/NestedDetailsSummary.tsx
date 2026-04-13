@@ -479,7 +479,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   }, [isOpen, isParentOpen]);
 
   useEffect(() => {
-    const summaryElement = detailsReference.current?.querySelector(
+    const summaryElement = detailsReference.current?.querySelector<HTMLElement>(
       `.${styles["details-nested-summary"]}`
     );
 
