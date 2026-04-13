@@ -13,6 +13,13 @@ interface SupportDonutProperties {
   wide?: boolean;
 }
 
+const formatGroupedNumber = (numberValue: string) => {
+  return numberValue
+    .replaceAll(/\D/g, "")
+    .replaceAll(/(\d{4})(?=\d)/g, "$1 ")
+    .trim();
+};
+
 const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
@@ -33,13 +40,6 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const SBER_CARD_NUMBER = "2202202357342488";
 
   const YOOMONEY_WALLET_NUMBER = "410016763684808";
-
-  const formatGroupedNumber = (numberValue: string) => {
-    return numberValue
-      .replaceAll(/\D/g, "")
-      .replaceAll(/(\d{4})(?=\d)/g, "$1 ")
-      .trim();
-  };
 
   const handleCopyAccount = withSoftHaptic(async (account: string) => {
     const success = await copyText(account);
