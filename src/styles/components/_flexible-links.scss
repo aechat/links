@@ -1,7 +1,15 @@
 @use "../abstracts/mixins" as *;
 
 .flexible-links {
-  @include grouped-controls-container();
+  @include grouped-controls-container($space-0);
+  @include fluid-inset(
+    margin-block,
+    $space-8,
+    $space-12,
+    margin-inline,
+    $space-8,
+    $space-12
+  );
   @include grouped-controls-corners();
 
   button,

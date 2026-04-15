@@ -1,6 +1,21 @@
 @use "../../abstracts/mixins" as *;
 
 .article {
+  .flexible-links {
+    @include fluid-inset(
+      margin-block,
+      $space-12,
+      $space-16,
+      margin-inline,
+      $space-12,
+      $space-16
+    );
+  }
+
+  li > .flexible-links {
+    margin-inline: 0;
+  }
+
   &-container {
     margin-inline: auto;
     width: calc(100% - clamp(16px, 5vw, 64px));

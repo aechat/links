@@ -1,15 +1,6 @@
 @use "../../../styles/abstracts/mixins" as *;
 
 @mixin search-button-group-item-base {
-  @include fluid-inset(
-    padding-block,
-    $space-4,
-    $space-8,
-    padding-inline,
-    $space-4,
-    $space-8
-  );
-
   box-sizing: border-box;
   position: relative;
   flex: 1 0 175px;
@@ -29,6 +20,7 @@
   border-radius: 0;
   box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-button-group-background);
+  padding: $space-8;
   width: 100%;
   min-width: 150px;
   text-align: center;
@@ -100,7 +92,6 @@
   }
 
   &-results-shell {
-    --search-results-safe-inline: #{$space-4};
     --search-results-safe-block-end: #{$space-12};
     --search-results-max-height: clamp(
       70svh,
@@ -111,7 +102,6 @@
     filter: $shadow-filter-overlay;
     position: relative;
     transition: max-height $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
-    margin: $space-4;
     border-radius: $roundness;
     max-height: var(--search-results-max-height);
     overflow: visible;
@@ -129,7 +119,6 @@
     border-radius: $roundness;
     padding-top: $space-4;
     padding-bottom: var(--search-results-safe-block-end);
-    padding-inline: var(--search-results-safe-inline);
     max-height: inherit;
     overflow-y: auto;
     overflow-anchor: none;
@@ -157,7 +146,6 @@
     filter: $shadow-filter-overlay;
     display: block;
     position: relative;
-    margin: $space-4;
   }
 
   &-link {
@@ -197,11 +185,8 @@
 
   &-results-layout {
     @include fluid-size(gap, $space-4, $space-8);
-    @include fluid-size(margin-top, $space-0, $space-4);
-    @include fluid-size(padding-inline, $space-4, $space-8);
 
     display: flex;
-    margin-inline: calc(var(--search-results-safe-inline) * -1);
 
     &-single {
       flex-direction: column;
@@ -261,7 +246,7 @@
     z-index: $z-overlay;
     outline: $stroke-1 solid transparent;
     border: $stroke-1 solid var(--color-search-header-border);
-    border-radius: $roundness * 0.75;
+    border-radius: $roundness;
     background-color: var(--color-search-header-background);
     cursor: pointer;
   }
@@ -340,8 +325,8 @@
     outline: solid $stroke-1 transparent;
     border: solid $stroke-1 var(--color-search-content-border);
     border-top: none;
-    border-bottom-left-radius: $roundness * 0.75;
-    border-bottom-right-radius: $roundness * 0.75;
+    border-bottom-left-radius: $roundness;
+    border-bottom-right-radius: $roundness;
     background-color: var(--color-search-content-background);
     padding: 0;
     padding-block-start: $space-16;
@@ -599,9 +584,9 @@
   }
 
   &-external-links {
-    @include grouped-controls-container($space-16 $space-4);
+    @include grouped-controls-container($space-16 $space-8);
     @include grouped-controls-corners-global-children(
-      var(--group-corner-radius, #{$roundness})
+      var(--group-corner-radius, #{$roundness * 0.75})
     );
 
     a,
@@ -615,9 +600,9 @@
   }
 
   &-category {
-    @include grouped-controls-container($space-4 $space-8);
+    @include grouped-controls-container($space-0);
     @include grouped-controls-corners-global-children(
-      var(--group-corner-radius, #{$roundness})
+      var(--group-corner-radius, #{$roundness * 0.75})
     );
 
     a,

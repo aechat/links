@@ -18,15 +18,22 @@ const GROUP_SELECTORS = [
   "[class*='search-external-links']",
 ] as const;
 
+const PREFERRED_RADIUS_SOURCE_SELECTORS = [
+  "[class*='modal-content']",
+  ".article",
+  "[class*='search-results-shell']",
+  "[class*='search-static']",
+] as const;
+
 const HOVER_GROWTH_PX = 6;
 
 const ACTIVE_GROWTH_PX = 3;
 
-const MIN_RADIUS_RATIO = 0.5;
+const MIN_RADIUS_RATIO = 0.75;
 
 const MIN_RADIUS_FALLBACK_PX = 2;
 
-const RADIUS_LEVELS = [1, 0.75, 0.5] as const;
+const RADIUS_LEVELS = [1, 0.875, 0.75] as const;
 
 const parsePixelValue = (value: string) => {
   const numericValue = Number.parseFloat(value);
@@ -105,6 +112,23 @@ const getElementMaxPadding = (element: HTMLElement) => {
   return Math.max(...paddings);
 };
 
+const getElementPriorityInlinePadding = (element: HTMLElement) => {
+  const styles = getComputedStyle(element);
+
+  const inlinePaddings = [
+    parsePixelValue(styles.paddingLeft) ?? 0,
+    parsePixelValue(styles.paddingRight) ?? 0,
+  ];
+
+  const maxInlinePadding = Math.max(...inlinePaddings);
+
+  if (maxInlinePadding > 0) {
+    return maxInlinePadding;
+  }
+
+  return getElementMaxPadding(element);
+};
+
 const getElementMaxBorder = (element: HTMLElement) => {
   const styles = getComputedStyle(element);
 
@@ -135,6 +159,39 @@ const getElementRadius = (element: HTMLElement) => {
   return Math.min(...cornerRadii);
 };
 
+const findPreferredRadiusSourceElement = (group: HTMLElement) => {
+  let current = group.parentElement;
+
+  while (current) {
+    for (const selector of PREFERRED_RADIUS_SOURCE_SELECTORS) {
+      if (current.matches(selector) && (getElementRadius(current) ?? 0) > 0) {
+        return current;
+      }
+    }
+
+    current = current.parentElement;
+  }
+};
+
+const resolveSourceRadius = (
+  parent: HTMLElement,
+  preferredSource: HTMLElement | undefined
+) => {
+  if (preferredSource) {
+    if (parent !== preferredSource) {
+      return;
+    }
+
+    return getElementRadius(parent);
+  }
+
+  const parentRadius = getElementRadius(parent);
+
+  if (parentRadius !== undefined && parentRadius > 0) {
+    return parentRadius;
+  }
+};
+
 const clearCornerClasses = (element: HTMLElement) => {
   for (const cornerClass of CORNER_CLASSES) {
     element.classList.remove(cornerClass);
@@ -159,6 +216,16 @@ const applyScaleVariables = (element: HTMLElement) => {
 };
 
 const getStructuralRadiusSource = (group: HTMLElement) => {
+  const preferredSource = findPreferredRadiusSourceElement(group);
+
+  if (preferredSource) {
+    return {
+      border: getElementMaxBorder(preferredSource),
+      padding: getElementPriorityInlinePadding(preferredSource),
+      radius: getElementRadius(preferredSource) ?? 0,
+    };
+  }
+
   let current = group.parentElement;
 
   while (current) {
@@ -167,7 +234,7 @@ const getStructuralRadiusSource = (group: HTMLElement) => {
     if (radius !== undefined && radius > 0) {
       return {
         border: getElementMaxBorder(current),
-        padding: getElementMaxPadding(current),
+        padding: getElementPriorityInlinePadding(current),
         radius,
       };
     }
@@ -177,6 +244,8 @@ const getStructuralRadiusSource = (group: HTMLElement) => {
 };
 
 const getStructuralRadiusByLayout = (group: HTMLElement) => {
+  const preferredSource = findPreferredRadiusSourceElement(group);
+
   let currentChild: HTMLElement | null = group;
 
   let sourceRadius: number | undefined;
@@ -196,10 +265,10 @@ const getStructuralRadiusByLayout = (group: HTMLElement) => {
 
     accumulatedInset += parentBorder + inset;
 
-    const parentRadius = getElementRadius(currentParent);
+    const resolvedSourceRadius = resolveSourceRadius(currentParent, preferredSource);
 
-    if (parentRadius !== undefined && parentRadius > 0) {
-      sourceRadius = parentRadius;
+    if (resolvedSourceRadius !== undefined) {
+      sourceRadius = resolvedSourceRadius;
       break;
     }
 
@@ -216,9 +285,9 @@ const getStructuralRadiusByLayout = (group: HTMLElement) => {
 
   let quantizedRatio: number = RADIUS_LEVELS[2];
 
-  if (clampedRatio >= 0.875) {
+  if (clampedRatio >= 0.9375) {
     quantizedRatio = RADIUS_LEVELS[0];
-  } else if (clampedRatio >= 0.625) {
+  } else if (clampedRatio >= 0.8125) {
     quantizedRatio = RADIUS_LEVELS[1];
   }
 
@@ -261,7 +330,7 @@ const applyGroupCornerRadius = (group: HTMLElement, items: HTMLElement[]) => {
   }
 
   if (parentPadding === undefined) {
-    parentPadding = getElementMaxPadding(group);
+    parentPadding = getElementPriorityInlinePadding(group);
   }
 
   if (parentBorder === undefined) {
