@@ -2777,65 +2777,119 @@ const PrInstallProblems: React.FC = () => {
       >
         <p>
           Скорее всего, вы пытаетесь установить плагины от{" "}
-          <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
-          полностью. При использовании стандартного просмотрщика архивов в Windows 10 или
-          11 и при открытии в нём любого <mark className="file">EXE</mark>-файла остальные
-          файлы-зависимости не будут распакованы. Поэтому установщик не видит файлы для
-          распаковки и выдаёт эту ошибку.
+          <mark className="plugin">Red Giant</mark>, не распаковав архив полностью. При
+          использовании стандартного просмотрщика архивов в Windows 10 или 11 и при
+          запуске из него файла <mark className="file">EXE</mark> остальные
+          файлы-зависимости остаются внутри архива. В результате установщик не может найти
+          нужные данные и выдаёт ошибку.
         </p>
         <p>
-          Чтобы установить плагины от <mark className="plugin">Red Giant</mark> корректно,
-          вы должны распаковать архив полностью или использовать{" "}
+          Чтобы установка прошла корректно, распакуйте весь архив заранее или используйте{" "}
           <a
             href="https://www.rarlab.com/download.htm"
             title="Официальный сайт WinRAR"
           >
             WinRAR
-          </a>{" "}
-          при открытии <mark className="file">EXE</mark>-файла из нераспакованного архива.
-          Он умеет распаковывать весь архив во временную папку при открытии{" "}
-          <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
-          установочных файлов.
+          </a>
+          . <mark className="app">WinRAR</mark> умеет временно извлекать весь архив при
+          открытии установочных файлов вроде <mark className="file">EXE</mark> или{" "}
+          <mark className="file">MSI</mark>, даже если вы открыли их напрямую из архива.
         </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="unlicensed-red-giant"
-        tag="please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
+        tag="red giant, maxon, активация, unlicensed, нет лицензии, redgiant activation service unlocker, please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
         title="«Red Giant is unlicensed» при применении любого эффекта от Maxon"
       >
         <p>
-          Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
+          Эта ошибка возникает из-за того, что у вас банально не активированы плагины от{" "}
           <mark className="company">Red Giant</mark>. Если вы недавно устанавливали
-          «народную» версию, то скорее всего, вы пропустили важный пункт в инструкции.
-          Пользователи часто забывают запустить{" "}
-          <mark className="app">RedGiant Activation Service Unlocker.exe</mark> после
-          установки — и в итоге получают сообщение об отсутствии лицензии.
+          «народную» версию плагинов, то, скорее всего, вы не полностью прочитали или
+          проигнорировали инструкцию по их активации.
         </p>
-        <p>
-          Чтобы это исправить, запустите указанный файл из архива или записи — или
-          перечитайте инструкцию к релизу. Если предупреждение появится снова, повторно
-          примените активатор или установите более старую версию плагинов — например,{" "}
-          <mark className="version">2024.1</mark> или ниже.
-        </p>
+        <ContentFilter
+          windowsContent={
+            <>
+              <Divider>Перечитываем инструкцию по активации</Divider>
+              <p>
+                Согласно «современной» инструкции по активации «народной» версии этих
+                дополнений, после основной установки{" "}
+                <mark className="app">Maxon App</mark> и плагинов нужно ещё запустить{" "}
+                <mark className="app">RedGiant Activation Service Unlocker.exe</mark>, про
+                который некоторые пользователи почему-то забывают.
+              </p>
+              <p>
+                После открытия утилиты пройдите этап применения патча и, желательно,
+                перезагрузите устройство. После этого ошибка об отсутствии лицензии должна
+                исчезнуть.
+              </p>
+              <Divider>
+                Проверяем состояние сервиса <mark className="app">Red Giant Service</mark>
+              </Divider>
+              <p>
+                В некоторых случаях, даже после активации с помощью{" "}
+                <mark className="app">RedGiant Activation Service Unlocker.exe</mark>, сам
+                сервис <mark className="app">Red Giant Service</mark> может быть не
+                запущен или отключён в настройках служб.
+              </p>
+              <p>
+                Чтобы проверить состояние службы{" "}
+                <mark className="app">Red Giant Service</mark>, воспользуйтесь окном{" "}
+                <mark className="app">«Выполнить»</mark>: нажмите{" "}
+                <mark className="key">Win + R</mark>, введите в поле{" "}
+                <mark className="select">«Открыть»</mark> значение{" "}
+                <mark className="code">services.msc</mark> и нажмите{" "}
+                <mark className="key">Enter</mark>. Затем в открывшемся приложении найдите{" "}
+                <mark className="app">Red Giant Service</mark>, нажмите по нему{" "}
+                <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
+                <mark className="select">«Запустить»</mark> или{" "}
+                <mark className="select">«Перезапустить»</mark>.
+              </p>
+              <ArticleMedia
+                caption="Ручной запуск Red Giant Service"
+                src="legacy/start_red_giant_service.png"
+                type="image"
+              />
+              <p>
+                Также проверьте тип запуска сервиса в его свойствах — он должен быть
+                установлен на <mark className="select">«Автоматически»</mark>. Если
+                указано иное — измените значение на нужное и нажмите{" "}
+                <mark className="select">«Применить»</mark>.
+              </p>
+              <ArticleMedia
+                caption="Проверяем тип запуска Red Giant Service"
+                src="legacy/red_giant_service_start_type.png"
+                type="image"
+              />
+              <Divider />
+              <p>
+                Если ни один из способов не помог и предупреждение появляется снова —
+                повторно примените активатор или установите более старую версию эффектов,
+                например <mark className="version">2024.1</mark> или ниже.
+              </p>
+            </>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-red-giant-unlocker-error"
-        tag="select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
-        title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе» при применении активатора от Team V.R. для пакетов Red Giant"
+        tag="red giant, team v.r., активатор, ошибка 5, отказано в доступе, access denied, deletefile, red giant service, select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
+        title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора от Team V.R. для пакетов Red Giant"
       >
         <p>
-          Эта ошибка указывает на то, что активатор не может перезаписать файл, так как он
-          открыт в фоновом режиме. В окне ошибки должен отобразиться полный путь к
-          «виновнику торжества» — скорее всего, это будет запущенный в фоне{" "}
-          <mark className="app">Red Giant Service</mark>.
+          Эта ошибка означает, что активатор не может перезаписать какой-то файл, потому
+          что он у вас открыт в фоновом режиме. В вашем окне ошибки должен отобразиться
+          полный путь до «виновника торжества» — скорее всего, это будет висящий в фоне{" "}
+          <mark className="app">Red Giant Service.exe</mark>.
         </p>
         <p>
           Чтобы корректно применить активатор, закройте проблемный сервис с помощью{" "}
           <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
           <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
-          <mark className="select">«Подробности (Windows 10 или 11 21H2)»</mark> или{" "}
-          <mark className="select">«Сведения (Windows 11 22H2 и выше)»</mark>. После
-          завершения проблемного процесса повторите попытку активации — она должна пройти
+          <mark className="select">«Подробности»</mark> (Windows 10 или 11 21H2) или{" "}
+          <mark className="select">«Сведения»</mark> (Windows 11 22H2 и выше). После
+          завершения проблемного процесса, повторите попытку активации, нажав на{" "}
+          <mark className="select">«Спробувати знову»</mark> — она должна пройти
           нормально.
         </p>
         <ArticleMedia

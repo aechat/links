@@ -2850,19 +2850,74 @@ const AeInstallProblems: React.FC = () => {
         title="«Red Giant is unlicensed» при применении любого эффекта от Maxon"
       >
         <p>
-          Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
+          Эта ошибка возникает из-за того, что у вас банально не активированы плагины от{" "}
           <mark className="company">Red Giant</mark>. Если вы недавно устанавливали
-          «народную» версию, то скорее всего, вы пропустили важный пункт в инструкции.
-          Пользователи часто забывают запустить{" "}
-          <mark className="app">RedGiant Activation Service Unlocker.exe</mark> после
-          установки — и в итоге получают сообщение об отсутствии лицензии.
+          «народную» версию плагинов, то, скорее всего, вы не полностью прочитали или
+          проигнорировали инструкцию по их активации.
         </p>
-        <p>
-          Чтобы это исправить, запустите указанный файл из архива или записи — или
-          перечитайте инструкцию к релизу. Если предупреждение появится снова, повторно
-          примените активатор или установите более старую версию плагинов — например,{" "}
-          <mark className="version">2024.1</mark> или ниже.
-        </p>
+        <ContentFilter
+          windowsContent={
+            <>
+              <Divider>Перечитываем инструкцию по активации</Divider>
+              <p>
+                Согласно «современной» инструкции по активации «народной» версии этих
+                дополнений, после основной установки{" "}
+                <mark className="app">Maxon App</mark> и плагинов нужно ещё запустить{" "}
+                <mark className="app">RedGiant Activation Service Unlocker.exe</mark>, про
+                который некоторые пользователи почему-то забывают.
+              </p>
+              <p>
+                После открытия утилиты пройдите этап применения патча и, желательно,
+                перезагрузите устройство. После этого ошибка об отсутствии лицензии должна
+                исчезнуть.
+              </p>
+              <Divider>
+                Проверяем состояние сервиса <mark className="app">Red Giant Service</mark>
+              </Divider>
+              <p>
+                В некоторых случаях, даже после активации с помощью{" "}
+                <mark className="app">RedGiant Activation Service Unlocker.exe</mark>, сам
+                сервис <mark className="app">Red Giant Service</mark> может быть не
+                запущен или отключён в настройках служб.
+              </p>
+              <p>
+                Чтобы проверить состояние службы{" "}
+                <mark className="app">Red Giant Service</mark>, воспользуйтесь окном{" "}
+                <mark className="app">«Выполнить»</mark>: нажмите{" "}
+                <mark className="key">Win + R</mark>, введите в поле{" "}
+                <mark className="select">«Открыть»</mark> значение{" "}
+                <mark className="code">services.msc</mark> и нажмите{" "}
+                <mark className="key">Enter</mark>. Затем в открывшемся приложении найдите{" "}
+                <mark className="app">Red Giant Service</mark>, нажмите по нему{" "}
+                <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
+                <mark className="select">«Запустить»</mark> или{" "}
+                <mark className="select">«Перезапустить»</mark>.
+              </p>
+              <ArticleMedia
+                caption="Ручной запуск Red Giant Service"
+                src="legacy/start_red_giant_service.png"
+                type="image"
+              />
+              <p>
+                Также проверьте тип запуска сервиса в его свойствах — он должен быть
+                установлен на <mark className="select">«Автоматически»</mark>. Если
+                указано иное — измените значение на нужное и нажмите{" "}
+                <mark className="select">«Применить»</mark>.
+              </p>
+              <ArticleMedia
+                caption="Проверяем тип запуска Red Giant Service"
+                src="legacy/red_giant_service_start_type.png"
+                type="image"
+              />
+              <Divider />
+              <p>
+                Если ни один из способов не помог и предупреждение появляется снова —
+                повторно примените активатор или установите более старую версию эффектов,
+                например <mark className="version">2024.1</mark> или ниже.
+              </p>
+            </>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-red-giant-unlocker-error"
@@ -2881,7 +2936,7 @@ const AeInstallProblems: React.FC = () => {
           <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
           <mark className="select">«Подробности»</mark> (Windows 10 или 11 21H2) или{" "}
           <mark className="select">«Сведения»</mark> (Windows 11 22H2 и выше). После
-          завершения проблемного процесса, повторите попытку активации с помощью{" "}
+          завершения проблемного процесса, повторите попытку активации, нажав на{" "}
           <mark className="select">«Спробувати знову»</mark> — она должна пройти
           нормально.
         </p>
