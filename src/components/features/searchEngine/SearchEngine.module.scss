@@ -126,11 +126,15 @@
     mask-position: 0 50%;
     mask-size: 100% 200%;
     mask-repeat: no-repeat;
-    scrollbar-color: var(--color-surface-primary-border) var(--color-background-modal);
+    scrollbar-color: var(--color-surface-primary-border) transparent;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
-      width: 3px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
     }
   }
 
