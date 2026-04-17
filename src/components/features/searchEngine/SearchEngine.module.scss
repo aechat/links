@@ -116,9 +116,11 @@
     transition:
       -webkit-mask-position $duration-500 ease,
       mask-position $duration-500 ease;
+    margin-inline: -$space-8;
     border-radius: $roundness;
     padding-top: $space-4;
     padding-bottom: var(--search-results-safe-block-end);
+    padding-inline: $space-8;
     max-height: inherit;
     overflow-y: auto;
     overflow-anchor: none;
@@ -155,14 +157,24 @@
   &-link {
     display: block;
     position: relative;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1);
+    transform-origin: center center;
     transition:
       background-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       border-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       box-shadow $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       transform $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
     width: 100%;
+    will-change: transform;
 
     &:hover {
+      transform: scale(
+        var(--links-hover-scale-x, 1.02),
+        var(--links-hover-scale-y, 1.02)
+      );
+      transition-delay: 0s, $duration-250, $duration-250, $duration-250;
+
       .search-header {
         border-color: var(--color-search-header-border-hover);
         background-color: var(--color-search-header-background-hover);
@@ -175,6 +187,12 @@
     }
 
     &:active {
+      transform: scale(
+        var(--links-active-scale-x, 1.01),
+        var(--links-active-scale-y, 1.01)
+      );
+      transition-delay: 0s;
+
       .search-header {
         border-color: var(--color-search-header-border-active);
         background-color: var(--color-search-header-background-active);
@@ -245,6 +263,7 @@
     flex-direction: column;
     gap: $space-4;
     transition:
+      border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     z-index: $z-overlay;
@@ -323,6 +342,7 @@
   &-content {
     position: relative;
     transition:
+      border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block-start: -$space-16;
@@ -507,12 +527,6 @@
   &-content-unclamped {
     max-height: none;
     overflow: visible;
-  }
-
-  &-selected {
-    transition:
-      background-color,
-      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   &-header-selected {
