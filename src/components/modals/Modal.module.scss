@@ -10,8 +10,15 @@
   flex-direction: column;
 
   p {
-    margin-block: $space-8;
-    margin-inline: $space-16;
+    @include fluid-inset(
+      margin-block,
+      $space-8,
+      $space-12,
+      margin-inline,
+      $space-12,
+      $space-16
+    );
+
     line-height: 1.65;
   }
 
@@ -22,16 +29,23 @@
   }
 
   ul {
-    margin-block: $space-8;
+    @include fluid-size(margin-block, $space-4, $space-8);
   }
 
   li {
+    @include fluid-inset(
+      padding-block,
+      $space-4,
+      $space-8,
+      padding-inline,
+      $space-12,
+      $space-16
+    );
+    @include fluid-size(padding-inline-start, $space-24, $space-32);
+
     position: relative;
     flex-direction: column;
     gap: $space-8;
-    padding-block: $space-8;
-    padding-inline: $space-16;
-    padding-inline-start: $space-32;
     list-style-type: none;
     line-height: 1.75;
 
@@ -72,8 +86,8 @@
 .modal-header {
   @include fluid-inset(
     padding-block,
+    $space-8,
     $space-12,
-    $space-16,
     padding-inline,
     $space-8,
     $space-8
@@ -95,6 +109,9 @@
   }
 
   &-button {
+    @include fluid-size(margin, -$space-0, -$space-4);
+    @include fluid-size(padding, $space-0, $space-4);
+
     appearance: none;
     box-sizing: border-box;
     display: flex;
@@ -105,13 +122,11 @@
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin: -$space-4;
     outline: none;
     border: $stroke-1 solid transparent;
     border-radius: $roundness * 0.75;
     background-color: transparent;
     cursor: pointer;
-    padding: $space-4;
     height: var(--header-control-height, 30px);
     min-height: var(--header-control-height, 30px);
     line-height: 1;
@@ -248,9 +263,16 @@
 }
 
 .modal-modal-title {
+  @include fluid-inset(
+    padding-block,
+    $space-8,
+    $space-12,
+    padding-inline,
+    $space-12,
+    $space-16
+  );
+
   opacity: 0.75;
-  padding-block: $space-12;
-  padding-inline: $space-16;
   text-align: center;
   line-height: 1.25;
   font-size: $font-size-text-sm;
@@ -258,9 +280,16 @@
 }
 
 .modal-modal-tip {
+  @include fluid-inset(
+    padding-block,
+    $space-8,
+    $space-12,
+    padding-inline,
+    $space-12,
+    $space-16
+  );
+
   opacity: 0.5;
-  padding-block: $space-12;
-  padding-inline: $space-16;
   max-width: 400px;
   text-align: right;
   line-height: 1.25;
@@ -331,7 +360,7 @@
 }
 
 .modal li > .flexible-links {
-  margin-block: $space-8;
+  @include fluid-size(margin-block, $space-4, $space-8);
 }
 
 .modal-controls-slider {
@@ -370,6 +399,8 @@
 }
 
 .modal-controls-option {
+  @include fluid-size(padding, $space-4, $space-8);
+
   display: flex;
   position: relative;
   flex: 1 0 100px;
@@ -392,7 +423,6 @@
   border: none !important;
   box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-button-group-background);
-  padding: $space-8;
   max-width: 100%;
   font-weight: 500;
   will-change: transform;
@@ -419,8 +449,9 @@
   }
 
   sup {
-    margin: -$space-4;
-    font-size: 0.6em;
+    @include fluid-size(margin, -$space-0, -$space-4);
+
+    font-size: $font-size-text-xs;
   }
 
   svg {
@@ -442,8 +473,8 @@
 .modal-controls-element {
   @include fluid-inset(
     margin-block,
+    $space-8,
     $space-12,
-    $space-16,
     margin-inline,
     $space-12,
     $space-16
@@ -455,6 +486,8 @@
   justify-content: space-between;
 
   .modal-controls-title .modal-controls-reset {
+    @include fluid-size(padding, $space-0, $space-4);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -463,7 +496,6 @@
     border-radius: 100%;
     background-color: transparent;
     cursor: pointer;
-    padding: $space-4;
 
     &:hover {
       outline-color: var(--color-button-group-border-hover);
