@@ -118,13 +118,14 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <button
-                      className={modalStyles["modal-support-account-number"]}
-                      type="button"
-                      onClick={() => handleCopyAccount(SBER_CARD_NUMBER)}
-                    >
-                      {formatGroupedNumber(SBER_CARD_NUMBER)}
-                    </button>
+                    <div className="flexible-links">
+                      <button
+                        type="button"
+                        onClick={() => handleCopyAccount(SBER_CARD_NUMBER)}
+                      >
+                        {formatGroupedNumber(SBER_CARD_NUMBER)}
+                      </button>
+                    </div>
                     <p className={modalStyles["modal-support-recipient-info"]}>
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
@@ -178,13 +179,14 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <button
-                          className={`${modalStyles["modal-support-account-number"]} ${modalStyles["modal-support-account-number--yoomoney"]}`}
-                          type="button"
-                          onClick={() => handleCopyAccount(YOOMONEY_WALLET_NUMBER)}
-                        >
-                          {formatGroupedNumber(YOOMONEY_WALLET_NUMBER)}
-                        </button>
+                        <div className="flexible-links">
+                          <button
+                            type="button"
+                            onClick={() => handleCopyAccount(YOOMONEY_WALLET_NUMBER)}
+                          >
+                            {formatGroupedNumber(YOOMONEY_WALLET_NUMBER)}
+                          </button>
+                        </div>
                         <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a

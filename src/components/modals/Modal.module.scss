@@ -328,47 +328,10 @@
       background-color: var(--color-surface-primary-background-active);
     }
   }
-
-  &-account-number {
-    @include button-group-item-base(
-      $flex-basis: 100%,
-      $font-size: $font-size-text-base,
-      $include-outline: false
-    );
-    @include fluid-inset(
-      margin-block,
-      $space-8,
-      $space-12,
-      margin-inline,
-      $space-8,
-      $space-12
-    );
-
-    display: flex;
-    border: $stroke-1 solid var(--color-button-group-border);
-    border-radius: $roundness * 0.75;
-    width: min(
-      calc(100% - (2 * (#{$space-8} + ((100vw - 320px) / (768 - 320)) * (12 - 8)))),
-      calc(100% - #{$space-24})
-    );
-
-    &:hover {
-      border-color: var(--color-button-group-border-hover);
-      background-color: var(--color-surface-primary-background-hover);
-    }
-
-    &:active {
-      border-color: var(--color-button-group-border-active);
-      background-color: var(--color-surface-primary-background-active);
-    }
-  }
 }
 
-.modal li > .modal-support-account-number {
-  @include fluid-size(margin-block, $space-8, $space-12);
-
-  margin-inline: 0;
-  width: 100%;
+.modal li > .flexible-links {
+  margin-block: $space-8;
 }
 
 .modal-controls-slider {
