@@ -67,10 +67,11 @@
   }
 
   &-section {
+    @include fluid-size(padding-block, $space-12, $space-16);
+
     border: solid $stroke-1 var(--color-border-primary);
     border-top: none;
     background-color: var(--color-background-tertiary);
-    padding-block: $space-16;
     font-size: $font-size-text-md;
 
     p {
@@ -139,21 +140,6 @@
           margin-block-end: 0;
         }
       }
-
-      > .addition-info,
-      > .addition-warning,
-      > .addition-danger,
-      > .addition-tldr {
-        margin-block: $space-16;
-      }
-
-      > ul {
-        margin-block: $space-4;
-
-        &:last-child {
-          margin-block-end: 0;
-        }
-      }
     }
 
     .media {
@@ -206,21 +192,6 @@
 
     .addition-info li::before {
       background-color: var(--color-status-info-text);
-    }
-
-    .addition-info li,
-    .addition-warning li,
-    .addition-danger li,
-    .addition-tldr li {
-      margin-inline-start: $space-20;
-      padding-inline: $space-4;
-    }
-
-    .addition-info li::before,
-    .addition-warning li::before,
-    .addition-danger li::before,
-    .addition-tldr li::before {
-      left: -$inset-12;
     }
 
     .addition-warning li::before {
@@ -302,6 +273,10 @@
 
     > ul {
       margin-block: $space-0;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
 
       &:last-child {
         margin-block-end: 0;

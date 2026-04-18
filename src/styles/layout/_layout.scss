@@ -6,13 +6,20 @@
 }
 
 footer {
+  @include fluid-inset(
+    padding-block,
+    $space-4,
+    $space-8,
+    padding-inline,
+    $space-12,
+    $space-16
+  );
+
   margin-block: $space-32 $space-40;
   margin-inline: auto;
   outline: $stroke-1 solid var(--color-border-primary);
   border-radius: $roundness;
   background-color: var(--color-background-secondary);
-  padding-block: $space-8;
-  padding-inline: $space-16;
   width: calc(100% - 40px);
   max-width: 700px;
   color: var(--color-text-tertiary);

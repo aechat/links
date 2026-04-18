@@ -2,13 +2,14 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .easing-editor-wrapper {
+  @include fluid-size(padding, $space-8, $space-16);
+
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: $space-8;
   align-items: center;
   transition: color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-  padding: $space-8;
   width: 100%;
   color: var(--color-easing-text-primary);
 
@@ -50,12 +51,13 @@
 }
 
 .animation-controls {
+  @include fluid-size(padding, $space-4, $space-8);
+
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: $space-16 $space-24;
   border-radius: $roundness;
-  padding: $space-8;
   width: 100%;
   min-width: 280px;
 }
@@ -96,7 +98,7 @@
 
   &-label {
     position: absolute;
-    bottom: $inset-12;
+    bottom: $space-12;
     transform: translateX(-50%);
     color: var(--color-easing-text-muted);
     font-size: 10px;
@@ -151,12 +153,13 @@
 }
 
 .graph-container {
+  @include fluid-size(padding, $space-4, $space-8);
+
   box-sizing: border-box;
   flex: 1 1 400px;
   border: $stroke-1 solid var(--color-easing-graph-border);
   border-radius: $roundness;
   background: var(--color-easing-graph-background);
-  padding: $space-8;
 }
 
 .graph-svg {
@@ -182,7 +185,8 @@
 }
 
 .timecode {
-  margin: $space-8;
+  @include fluid-size(margin, $space-8, $space-12);
+
   font-family: "JetBrains Mono", monospace;
 }
 

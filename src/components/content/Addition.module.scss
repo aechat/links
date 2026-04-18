@@ -13,13 +13,13 @@
       $space-16,
       $space-20
     );
+    @include fluid-size(margin-block, $space-12, $space-16);
 
     box-sizing: content-box;
     display: flex;
     flex-direction: row;
     gap: $space-16;
     align-items: center;
-    margin-block: $space-16;
     margin-inline: 0;
     line-height: 1.6;
     font-size: $font-size-text-md;
@@ -30,7 +30,6 @@
     }
 
     p {
-      margin-block: $space-8;
       margin-inline: 0;
       line-height: 1.6;
 
@@ -43,11 +42,11 @@
       }
 
       &:not(:first-child) {
-        margin-block-start: $space-8;
+        @include fluid-size(margin-block-start, $space-4, $space-8);
       }
 
       &:not(:last-child) {
-        margin-block-end: $space-8;
+        @include fluid-size(margin-block-end, $space-4, $space-8);
       }
     }
 
@@ -69,29 +68,37 @@
       margin-inline: -$space-8 0;
 
       &:not(:first-child) {
-        margin-block-start: $space-8;
+        @include fluid-size(margin-block-start, $space-4, $space-8);
       }
 
       &:not(:last-child) {
-        margin-block-end: $space-8;
+        @include fluid-size(margin-block-end, $space-4, $space-8);
       }
     }
 
     li {
+      @include fluid-size(margin-block, $space-2, $space-4);
+      @include fluid-size(margin-inline-start, $space-12, $space-16);
+      @include fluid-inset(
+        padding-block,
+        $space-2,
+        $space-4,
+        padding-inline,
+        $space-8,
+        $space-12
+      );
+
       position: relative;
-      margin-block: $space-4;
-      margin-inline-start: $space-20;
-      padding-block: $space-4;
-      padding-inline: $space-4;
       line-height: 1.6;
       font-size: inherit !important;
 
       &::before {
+        @include fluid-size(top, $space-4, $space-8);
+        @include fluid-size(bottom, $space-4, $space-8);
+        @include fluid-size(left, -$space-4, -$space-8);
+
         display: inline-block;
         position: absolute;
-        top: $inset-8;
-        bottom: $inset-8;
-        left: -$inset-12;
         opacity: 0.5;
         border-radius: $roundness;
         width: 1px;
@@ -111,13 +118,27 @@
       }
 
       & > ul {
-        margin-block: $space-4;
+        @include fluid-size(margin-block, $space-4, $space-8);
 
         & > li {
-          padding-inline: 0;
+          @include fluid-size(margin-inline-start, $space-12, $space-16);
+          @include fluid-size(padding-inline-start, $space-0, $space-4);
+
+          padding-inline-end: 0;
 
           &::before {
-            left: -$inset-12;
+            @include fluid-size(left, -$space-8, -$space-12);
+          }
+
+          > ul > li {
+            @include fluid-size(margin-inline-start, $space-16, $space-20);
+            @include fluid-size(padding-inline-start, $space-0, $space-4);
+
+            padding-inline-end: 0;
+
+            &::before {
+              @include fluid-size(left, -$space-8, -$space-12);
+            }
           }
         }
       }
@@ -343,23 +364,24 @@
     > .addition-warning,
     > .addition-danger,
     > .addition-tldr {
-      margin-block: $space-8;
+      @include fluid-size(margin-block, $space-4, $space-8);
+
       border-radius: $roundness * 0.5;
 
       &:first-child {
-        margin-block-start: 0;
+        @include fluid-size(margin-block-start, $space-4, $space-8);
       }
 
       &:last-child {
-        margin-block-end: 0;
+        @include fluid-size(margin-block-end, $space-4, $space-8);
       }
 
       &:not(:first-child) {
-        margin-block-start: $space-8;
+        @include fluid-size(margin-block-start, $space-4, $space-8);
       }
 
       &:not(:last-child) {
-        margin-block-end: $space-8;
+        @include fluid-size(margin-block-end, $space-4, $space-8);
       }
     }
   }
@@ -508,11 +530,12 @@ li,
   & > .addition-warning,
   & > .addition-danger,
   & > .addition-tldr {
+    @include fluid-size(padding-inline, $space-12, $space-16);
+
     margin-right: 0;
     margin-left: 0;
     margin-inline: 0;
     border-radius: $roundness;
-    padding-inline: $space-16;
     font-size: $font-size-text-md;
   }
 }
@@ -522,7 +545,8 @@ li,
   & > .addition-warning,
   & > .addition-danger,
   & > .addition-tldr {
-    margin-block: $space-16;
+    @include fluid-size(margin-block, $space-12, $space-16);
+
     margin-inline: 0;
     border-radius: 0;
   }
@@ -546,11 +570,11 @@ table {
 }
 
 %article-content-first-child {
-  margin-top: $space-8;
+  @include fluid-size(margin-top, $space-8, $space-12);
 }
 
 %article-content-last-child {
-  margin-bottom: $space-8;
+  @include fluid-size(margin-bottom, $space-8, $space-12);
 }
 
 .article-content,
@@ -575,10 +599,34 @@ li:not(:has(> :global(.details-nested))) {
   > .addition-warning,
   > .addition-danger,
   > .addition-tldr {
-    margin-block: $space-8;
+    @include fluid-size(margin-block, $space-12, $space-16);
+
     margin-inline: 0;
     border-radius: $roundness * 0.75;
   }
+
+  > .addition-info:first-child,
+  > .addition-warning:first-child,
+  > .addition-danger:first-child,
+  > .addition-tldr:first-child {
+    margin-block-start: $space-8;
+  }
+
+  > .addition-info:last-child,
+  > .addition-warning:last-child,
+  > .addition-danger:last-child,
+  > .addition-tldr:last-child {
+    margin-block-end: $space-8;
+  }
+}
+
+li:not(:has(> :global(.details-nested))):has(
+    > .addition-info:last-child,
+    > .addition-warning:last-child,
+    > .addition-danger:last-child,
+    > .addition-tldr:last-child
+  ) {
+  display: flow-root;
 }
 
 li:has(> :global(.details-nested)) {
@@ -586,10 +634,34 @@ li:has(> :global(.details-nested)) {
   > .addition-warning,
   > .addition-danger,
   > .addition-tldr {
-    margin-block: $space-16;
+    @include fluid-size(margin-block, $space-12, $space-16);
+
     margin-inline: 0;
     border-radius: $roundness;
   }
+
+  > .addition-info:first-child,
+  > .addition-warning:first-child,
+  > .addition-danger:first-child,
+  > .addition-tldr:first-child {
+    margin-block-start: $space-4;
+  }
+
+  > .addition-info:last-child,
+  > .addition-warning:last-child,
+  > .addition-danger:last-child,
+  > .addition-tldr:last-child {
+    margin-block-end: $space-4;
+  }
+}
+
+li:has(> :global(.details-nested)):has(
+    > .addition-info:last-child,
+    > .addition-warning:last-child,
+    > .addition-danger:last-child,
+    > .addition-tldr:last-child
+  ) {
+  display: flow-root;
 }
 
 .addition-info :global(.flexible-links),
@@ -608,11 +680,11 @@ li:has(> :global(.details-nested)) {
   }
 
   &:not(:first-child) {
-    margin-block-start: $space-16;
+    @include fluid-size(margin-block-start, $space-12, $space-16);
   }
 
   &:not(:last-child) {
-    margin-block-end: $space-16;
+    @include fluid-size(margin-block-end, $space-12, $space-16);
   }
 
   a {

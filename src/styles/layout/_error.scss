@@ -44,11 +44,12 @@
 
 .warning {
   &-dismiss-option {
+    @include fluid-size(margin, $space-12, $space-16);
+
     display: flex;
     gap: $space-8;
     align-items: center;
     opacity: 0.75;
-    margin: $space-16;
     cursor: pointer;
     font-size: $font-size-text-sm;
   }

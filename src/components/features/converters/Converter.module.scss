@@ -1,7 +1,7 @@
 @use "../../../styles/abstracts/mixins" as *;
 
 .converter {
-  margin: $space-16;
+  @include fluid-size(margin, $space-8, $space-16);
 
   &-info-text {
     margin-block: $space-16 !important;
@@ -27,7 +27,7 @@
 
   &-radio {
     &-wrapper {
-      padding-inline: $space-8;
+      @include fluid-size(padding-inline, $space-4, $space-8);
     }
 
     &-group {

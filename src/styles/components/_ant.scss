@@ -42,7 +42,7 @@
   }
 
   &-modal {
-    top: $inset-12;
+    top: $space-12;
     margin: 0 auto !important;
     max-width: calc(100% - clamp(16px, 5vw, 64px)) !important;
 
@@ -61,7 +61,7 @@
     }
 
     @media screen and (width >= 768px) {
-      top: $inset-64;
+      top: $space-64;
     }
   }
 

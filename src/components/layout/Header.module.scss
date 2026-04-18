@@ -1,6 +1,9 @@
 @use "../../styles/abstracts/mixins" as *;
 
 @mixin header-icon-base {
+  @include fluid-size(margin, -$space-2, -$space-4);
+  @include fluid-size(padding, $space-2, $space-4);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,10 +11,8 @@
     background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
     outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
     opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: -$space-4;
   outline: $stroke-1 solid transparent;
   border-radius: $roundness * 0.75;
-  padding: $space-4;
   height: var(--header-control-height, 30px);
   min-height: var(--header-control-height, 30px);
   line-height: 1;
@@ -71,7 +72,7 @@
   outline: $stroke-1 solid var(--color-border-header);
   box-shadow: 0 0 15px 0 var(--shadow-soft);
   background-color: var(--color-background-header);
-  padding-inline: $space-16;
+  padding-inline: $space-12;
   width: 100%;
   max-width: 1075px;
   translate: 0 0 0;
@@ -118,7 +119,7 @@
   }
 
   &-right {
-    gap: $space-16;
+    gap: $space-12;
     margin-block: 0;
   }
 

@@ -30,8 +30,8 @@
   font-family: Onest, sans-serif;
   font-size: $font-size-text-base;
   font-weight: 500;
-  text-wrap: wrap;
   will-change: transform;
+  text-wrap: wrap;
 
   &:hover {
     transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
@@ -149,9 +149,10 @@
   }
 
   &-static {
-    filter: $shadow-filter-overlay;
     display: block;
     position: relative;
+    padding-top: $space-4;
+    filter: $shadow-filter-overlay;
   }
 
   &-link {
@@ -473,8 +474,9 @@
     }
 
     table {
+      @include fluid-size(padding-block, $space-4, $space-8);
+
       margin-block: 0;
-      padding-block: $space-8;
       font-size: $font-size-text-sm;
 
       th,
@@ -564,7 +566,7 @@
   }
 
   &-no-results {
-    padding-block-start: $space-8;
+    @include fluid-size(padding-block-start, $space-4, $space-8);
 
     &-title {
       @include fluid-size(padding-inline, $space-12, $space-16);
@@ -643,9 +645,10 @@
     }
 
     &-tip {
+      @include fluid-size(padding-inline, $space-12, $space-16);
+
       opacity: 0.4;
       margin-block: $space-4 $space-16;
-      padding-inline: $space-16;
       text-align: center;
       line-height: 1.25;
       font-size: $font-size-text-xs;

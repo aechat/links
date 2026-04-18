@@ -1,8 +1,16 @@
 @use "../abstracts/mixins" as *;
 
 table {
-  margin: $space-8;
-  width: calc(100% - 20px);
+  --table-inline-offset: clamp(
+    #{$space-4},
+    calc(#{$space-4} + (8 - 4) * ((100vw - 320px) / (768 - 320))),
+    #{$space-8}
+  );
+
+  @include fluid-size(margin-block, $space-8, $space-16);
+
+  margin-inline: var(--table-inline-offset);
+  width: calc(100% - (var(--table-inline-offset) * 2));
   overflow: hidden;
   border-collapse: separate;
   border-spacing: 4px;
@@ -10,8 +18,16 @@ table {
 
   td,
   th {
+    @include fluid-inset(
+      padding-block,
+      $space-4,
+      $space-8,
+      padding-inline,
+      $space-4,
+      $space-8
+    );
+
     border-radius: $roundness * 0.75;
-    padding: $space-8 $space-8;
     vertical-align: middle;
     text-align: center;
     line-height: 1.65;
@@ -20,11 +36,18 @@ table {
     > [class*="addition-warning"],
     > [class*="addition-danger"],
     > [class*="addition-tldr"] {
+      @include fluid-inset(
+        padding-block,
+        $space-4,
+        $space-8,
+        padding-inline,
+        $space-8,
+        $space-12
+      );
+
       margin-block: $space-8;
       margin-inline: auto;
       border-radius: $roundness * 0.5;
-      padding-block: $space-8;
-      padding-inline: $space-12;
       text-align: left;
       font-size: $font-size-text-sm;
 

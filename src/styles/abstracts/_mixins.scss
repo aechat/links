@@ -3,6 +3,14 @@
 @use "sass:meta";
 @use "tokens" as *;
 
+@function normalize-fluid-length($value) {
+  @if math.is-unitless($value) {
+    @return $value * 1px;
+  }
+
+  @return $value;
+}
+
 @mixin generate-vars-from-map($map, $prefix: "") {
   @each $key, $value in $map {
     $name: $key;
@@ -20,20 +28,30 @@
 }
 
 @mixin fluid-icon-size($min-size, $max-size, $viewport-min: 320px, $viewport-max: 768px) {
-  $min-size-value: math.div($min-size, 1px);
-  $max-size-value: math.div($max-size, 1px);
+  $normalized-min-size: normalize-fluid-length($min-size);
+  $normalized-max-size: normalize-fluid-length($max-size);
+  $min-size-value: math.div($normalized-min-size, 1px);
+  $max-size-value: math.div($normalized-max-size, 1px);
   $viewport-min-value: math.div($viewport-min, 1px);
   $viewport-max-value: math.div($viewport-max, 1px);
   $size-step: $max-size-value - $min-size-value;
   $viewport-step: $viewport-max-value - $viewport-min-value;
 
-  width: min(
-    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
-    #{$max-size}
+  width: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
   );
-  height: min(
-    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
-    #{$max-size}
+  height: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
   );
 }
 
@@ -44,16 +62,22 @@
   $viewport-min: 320px,
   $viewport-max: 768px
 ) {
-  $min-size-value: math.div($min-size, 1px);
-  $max-size-value: math.div($max-size, 1px);
+  $normalized-min-size: normalize-fluid-length($min-size);
+  $normalized-max-size: normalize-fluid-length($max-size);
+  $min-size-value: math.div($normalized-min-size, 1px);
+  $max-size-value: math.div($normalized-max-size, 1px);
   $viewport-min-value: math.div($viewport-min, 1px);
   $viewport-max-value: math.div($viewport-max, 1px);
   $size-step: $max-size-value - $min-size-value;
   $viewport-step: $viewport-max-value - $viewport-min-value;
 
-  #{$property}: min(
-    calc(#{$min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) * #{$size-step}),
-    #{$max-size}
+  #{$property}: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
   );
 }
 

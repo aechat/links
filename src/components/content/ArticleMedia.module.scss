@@ -7,9 +7,10 @@
   text-align: center;
 
   &-figure {
+    @include fluid-size(gap, $space-8, $space-16);
+
     display: flex;
     flex-direction: column;
-    gap: $space-8;
     align-items: center;
     max-width: 100%;
 
@@ -19,12 +20,15 @@
   }
 
   &-youtube-actions {
+    @include fluid-size(gap, $space-8, $space-16);
+
     display: flex;
-    gap: $space-8;
     justify-content: flex-end;
     width: 100%;
 
     button {
+      @include fluid-size(padding, $space-4, $space-8);
+
       transition:
         background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
         outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -32,7 +36,6 @@
       outline: $stroke-1 solid var(--color-figure-youtube-border);
       border-radius: $roundness * 0.75;
       background-color: var(--color-figure-youtube-button);
-      padding: $space-8;
       text-align: center;
       line-height: 1.25;
       color: var(--color-figure-youtube-button-text);
@@ -93,7 +96,8 @@
   }
 
   &-caption {
-    padding: $space-4;
+    @include fluid-size(padding, $space-4, $space-8);
+
     text-align: center;
     color: var(--color-text-tertiary);
     font-size: $font-size-text-sm;
@@ -117,11 +121,12 @@
     }
 
     &-image-wrapper {
+      @include fluid-size(padding, $space-8, $space-16);
+
       display: flex;
       position: relative;
       align-items: center;
       justify-content: center;
-      padding: $space-8;
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -149,8 +154,8 @@
     &-close {
       display: flex;
       position: absolute;
-      top: $inset-64;
-      right: $inset-20;
+      top: $space-64;
+      right: $space-20;
       align-items: center;
       justify-content: center;
       transition:
@@ -183,7 +188,7 @@
       }
 
       @media (width <= 768px) {
-        top: $inset-20;
+        top: $space-20;
       }
     }
   }

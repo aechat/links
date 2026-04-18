@@ -52,8 +52,8 @@
     &::before {
       display: inline-block;
       position: absolute;
-      top: $inset-12;
-      bottom: $inset-12;
+      top: $space-12;
+      bottom: $space-12;
       left: min(calc(12px + (16 - 12) * ((100vw - 320px) / (768 - 320))), 16px);
       opacity: 0.5;
       border-radius: $roundness;
@@ -391,7 +391,7 @@
 }
 
 .modal-controls-group {
-  @include grouped-controls-container($space-0, space-between);
+  @include grouped-controls-container($space-0);
   @include fluid-size(margin-block, $space-4, $space-8);
 
   flex-shrink: 0;
@@ -399,8 +399,6 @@
 }
 
 .modal-controls-option {
-  @include fluid-size(padding, $space-4, $space-8);
-
   display: flex;
   position: relative;
   flex: 1 0 100px;
@@ -423,6 +421,7 @@
   border: none !important;
   box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-button-group-background);
+  padding: $space-8;
   max-width: 100%;
   font-weight: 500;
   will-change: transform;
