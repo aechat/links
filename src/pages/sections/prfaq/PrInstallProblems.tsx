@@ -2335,66 +2335,82 @@ const PrInstallProblems: React.FC = () => {
                     исходники с утилитами для самостоятельной сборки или воспользоваться{" "}
                     <mark className="file">TORRENT</mark>-файлом.
                   </p>
+                  <Addition type="info">
+                    Ранее <mark className="app">GenP</mark> распространялся через{" "}
+                    <mark className="web">Reddit</mark>, однако сабреддит{" "}
+                    <mark className="copy">r/genp</mark> был заблокирован за нарушение
+                    авторских прав.
+                  </Addition>
+                  <Addition type="warning">
+                    Авторы оригинального <mark className="app">GenP</mark> прекратили
+                    поддержку своего продукта и больше обновляться не будет. Несмотря на
+                    открытый код данной утилиты, его форки от других пользователей могут
+                    быть небезопасными или неработоспособыми.
+                  </Addition>
+                  <p>
+                    Поскольку основная аудитория программ от{" "}
+                    <mark className="company">Adobe</mark>, как правило, не хочет
+                    разбираться с ручной компиляцией патчера, выберем вариант{" "}
+                    <mark className="select">«Binary»</mark>. После этого начнётся
+                    скачивание архива.
+                  </p>
                   <ArticleMedia
-                    caption="Загрузка GenP"
+                    caption="Скачивание GenP"
                     src="legacy/download_genp.mp4"
                     type="video"
                   />
+                  <Addition type="info">
+                    Если ваш браузер выдаёт предупреждение о вирусе в скачиваемом файле —
+                    разрешите загрузку вручную или уберите из имени файла расширение,
+                    добавленное браузером.
+                  </Addition>
                 </li>
                 <li>
                   <p>
-                    После загрузки <mark className="app">GenP</mark> запустите его и
-                    нажмите на кнопку <mark className="select">«Patch CC»</mark>. Это
-                    позволит <mark className="app">Adobe Creative Cloud</mark>{" "}
-                    устанавливать приложения без запуска пробного периода.
+                    После загрузки распакуйте архив и запустите файл{" "}
+                    <mark className="app">GenP-vX.Y.Z.exe</mark>.
+                  </p>
+                  <p>
+                    В открывшемся окне <mark className="app">GenP</mark> нажмите{" "}
+                    <mark className="select">«Search»</mark>, чтобы найти{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>, а затем —{" "}
+                    <mark className="select">«Patch»</mark>.
                   </p>
                   <ArticleMedia
-                    caption="Патчинг Adobe Creative Cloud"
-                    src="legacy/patching_creative_cloud.png"
-                    type="image"
-                  />
-                </li>
-                <li>
-                  <p>
-                    Когда <mark className="app">Adobe Creative Cloud</mark> будет
-                    пропатчен, можно приступать к установке нужных вам программ. Для этого
-                    перейдите в раздел <mark className="select">«Все приложения»</mark> и
-                    нажмите <mark className="select">«Установить»</mark> напротив нужной
-                    программы.
-                  </p>
-                  <ArticleMedia
-                    caption="Установка приложений из Adobe Creative Cloud"
-                    src="legacy/creative_cloud_install_apps.mp4"
-                    type="video"
-                  />
-                </li>
-                <li>
-                  <p>
-                    После установки нужных программ снова запустите{" "}
-                    <mark className="app">GenP</mark> и нажмите на кнопку{" "}
-                    <mark className="select">«Search Files»</mark>. Утилита просканирует
-                    стандартные директории <mark className="company">Adobe</mark> и найдёт
-                    установленные приложения.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Когда <mark className="app">GenP</mark> найдёт установленные
-                    приложения, отметьте нужные флажками и нажмите на кнопку{" "}
-                    <mark className="select">«Apply»</mark> (или на иконку аптечки), чтобы
-                    их вылечить.
-                  </p>
-                  <ArticleMedia
-                    caption="Патчинг приложений"
+                    caption="Применение патча для Adobe Creative Cloud"
                     src="legacy/apply_genp_first_patch.mp4"
                     type="video"
                   />
                 </li>
+                <li>
+                  <p>
+                    После применения первого патча можно устанавливать приложения из{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>.
+                  </p>
+                  <ArticleMedia
+                    caption="Установка приложений в Adobe Creative Cloud"
+                    src="legacy/creative_cloud_install_apps.mp4"
+                    type="video"
+                  />
+                  <Addition type="warning">
+                    По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
+                    устанавливает приложения на языке, на котором локализована ваша
+                    операционная система. Вы можете изменить язык программ{" "}
+                    <a href="https://helpx.adobe.com/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
+                      перед установкой
+                    </a>{" "}
+                    или поменять его для <mark className="app">Adobe After Effects</mark>{" "}
+                    уже <a href="#switch-language">после установки</a>.
+                  </Addition>
+                </li>
+                <li>
+                  После установки нужных вам приложений снова откройте{" "}
+                  <mark className="app">GenP</mark>, запустите поиск кнопкой{" "}
+                  <mark className="select">«Search»</mark> и ещё раз примените патч через{" "}
+                  <mark className="select">«Patch»</mark> — на этот раз уже для
+                  установленных программ. После этого ими можно пользоваться.
+                </li>
               </ul>
-              <p>
-                После успешного применения патча вы можете пользоваться программами без
-                каких-либо ограничений.
-              </p>
             </>
           }
         />
