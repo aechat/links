@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/mixins" as *;
+
 .footer {
   &-container {
     display: flex;
@@ -7,7 +9,7 @@
 
   &-content-info {
     opacity: 0.5;
-    margin-block: 10px;
+    margin-block: $space-8;
     font-size: 0.9em;
     font-weight: 400;
   }
@@ -15,19 +17,19 @@
   &-github-link {
     display: flex;
     flex-shrink: 0;
-    gap: 5px;
+    gap: $space-4;
     align-items: center;
     text-decoration: none;
   }
 }
 
 .commit-info {
-  margin-block-start: 15px;
+  margin-block-start: $space-16;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5;
   color: var(--color-text-tertiary);
-  font-size: 0.785rem;
+  font-size: $font-size-text-xs;
 
   a {
     line-height: 1.35;

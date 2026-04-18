@@ -154,6 +154,7 @@ type SearchModalProperties = {
   closeModal: () => void;
   inputRef: React.RefObject<HTMLInputElement | null>;
   isFadeVisible: boolean;
+  isScrollableContent: boolean;
   isOpen: boolean;
   onChangeQuery: (value: string) => void;
   onClearQuery: () => void;
@@ -171,6 +172,7 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   inputRef,
   isFadeVisible,
   isOpen,
+  isScrollableContent,
   onChangeQuery,
   onClearQuery,
   onCloseMouseDown,
@@ -180,8 +182,88 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   resultsCount,
   resultWord,
 }) => {
-  const resultsClassName = [
-    searchStyles["search-results"],
+  const KEYBOARD_OPEN_THRESHOLD_PX = 120;
+
+  const keyboardBaselineViewportHeightReference = useRef(0);
+
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
+
+  const updateKeyboardState = useCallback(() => {
+    const viewport = globalThis.visualViewport;
+
+    if (!viewport) {
+      setIsKeyboardOpen(false);
+
+      return;
+    }
+
+    const currentViewportHeight = viewport.height;
+
+    if (
+      keyboardBaselineViewportHeightReference.current === 0 ||
+      currentViewportHeight > keyboardBaselineViewportHeightReference.current
+    ) {
+      keyboardBaselineViewportHeightReference.current = currentViewportHeight;
+    }
+
+    const currentActiveElement = document.activeElement;
+
+    const isSearchInputFocused =
+      inputRef.current !== null && currentActiveElement === inputRef.current;
+
+    const keyboardHeightDelta =
+      keyboardBaselineViewportHeightReference.current - currentViewportHeight;
+
+    setIsKeyboardOpen(
+      isSearchInputFocused && keyboardHeightDelta > KEYBOARD_OPEN_THRESHOLD_PX
+    );
+  }, [inputRef]);
+
+  const handleDocumentFocusIn = useCallback(
+    (event_: FocusEvent) => {
+      if (inputRef.current !== null && event_.target === inputRef.current) {
+        setIsKeyboardOpen(true);
+      }
+
+      updateKeyboardState();
+    },
+    [inputRef, updateKeyboardState]
+  );
+
+  const handleDocumentFocusOut = useCallback(() => {
+    updateKeyboardState();
+  }, [updateKeyboardState]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      keyboardBaselineViewportHeightReference.current = 0;
+      setIsKeyboardOpen(false);
+
+      return;
+    }
+
+    updateKeyboardState();
+
+    const viewport = globalThis.visualViewport;
+
+    if (!viewport) {
+      return;
+    }
+
+    viewport.addEventListener("resize", updateKeyboardState);
+    document.addEventListener("focusin", handleDocumentFocusIn);
+    document.addEventListener("focusout", handleDocumentFocusOut);
+
+    return () => {
+      viewport.removeEventListener("resize", updateKeyboardState);
+      document.removeEventListener("focusin", handleDocumentFocusIn);
+      document.removeEventListener("focusout", handleDocumentFocusOut);
+    };
+  }, [handleDocumentFocusIn, handleDocumentFocusOut, isOpen, updateKeyboardState]);
+
+  const scrollShellClassName = [
+    searchStyles["search-results-shell"],
+    isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
     isFadeVisible ? searchStyles["show-fade"] : "",
   ]
     .filter(Boolean)
@@ -196,56 +278,58 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
         width={1000}
         onCancel={closeModal}
       >
-        <div className={searchStyles["search"]}>
-          <div className={modalStyles["modal-content"]}>
-            <div className={searchStyles["search-input-wrapper"]}>
-              <input
-                ref={inputRef}
-                className={searchStyles["search-input"]}
-                placeholder="Введите что-нибудь для поиска..."
-                style={{cursor: "text"}}
-                type="search"
-                value={query}
-                onChange={(event_) => onChangeQuery(event_.target.value)}
-              />
-              <p className={searchStyles["search-counter"]}>
-                <span
-                  style={{
-                    color: "var(--color-surface-primary-text)",
-                    fontSize: "1.05em",
-                    fontWeight: 500,
-                  }}
-                >
+        <div className={searchStyles["modal"]}>
+          <div className={modalStyles["modal-header"]}>
+            <input
+              ref={inputRef}
+              className={searchStyles["search-input"]}
+              placeholder="Введите что-нибудь для поиска..."
+              type="search"
+              value={query}
+              onChange={(event_) => onChangeQuery(event_.target.value)}
+            />
+            {resultsCount > 0 && (
+              <span className={searchStyles["search-counter"]}>
+                <span className={searchStyles["search-counter-value"]}>
                   {resultsCount}
                 </span>{" "}
                 {resultWord}
-              </p>
-              {query.trim() !== "" && (
-                <button
-                  className={searchStyles["search-input-clear"]}
-                  style={{cursor: "pointer"}}
-                  onClick={onClearQuery}
-                  onMouseDown={onInputClearMouseDown}
-                >
-                  <BackspaceOutlined fontSize="small" />
-                </button>
-              )}
+              </span>
+            )}
+            {query.trim() !== "" && (
               <button
-                className={searchStyles["search-input-close"]}
-                onClick={closeModal}
-                onMouseDown={onCloseMouseDown}
+                className={modalStyles["modal-header-button"]}
+                onClick={onClearQuery}
+                onMouseDown={onInputClearMouseDown}
               >
-                <CloseRounded />
+                <BackspaceOutlined fontSize="small" />
               </button>
+            )}
+            <button
+              className={modalStyles["modal-header-button"]}
+              onClick={closeModal}
+              onMouseDown={onCloseMouseDown}
+            >
+              <CloseRounded />
+            </button>
+          </div>
+          {isScrollableContent ? (
+            <div className={scrollShellClassName}>
+              <div
+                ref={resultsContainerRef}
+                className={searchStyles["search-results-scroll"]}
+              >
+                {children}
+              </div>
             </div>
+          ) : (
             <div
               ref={resultsContainerRef}
-              className={resultsClassName}
+              className={searchStyles["search-static"]}
             >
               {children}
-              {isFadeVisible}
             </div>
-          </div>
+          )}
         </div>
       </Modal>
     </RemoveScroll>
@@ -312,15 +396,8 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
     <div className={searchStyles["search-no-results"]}>
       <p className={searchStyles["search-no-results-title"]}>
         По вашему запросу на этой странице{" "}
-        <span
-          style={{
-            color: "var(--color-surface-primary-text)",
-            fontWeight: 600,
-          }}
-        >
-          ничего
-        </span>{" "}
-        не нашлось
+        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+        нашлось
       </p>
       <p className={searchStyles["search-no-results-message"]}>
         Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
@@ -424,22 +501,8 @@ const SearchResultCard: React.FC<SearchResultCardProperties> = ({
   );
 };
 
-const hasMatchingTableInContent = (contentHtml: string): boolean => {
-  if (!contentHtml.includes("<table")) {
-    return false;
-  }
-
-  const temporaryRoot = document.createElement("div");
-
-  temporaryRoot.innerHTML = contentHtml;
-
-  const tables = [...temporaryRoot.querySelectorAll("table")];
-
-  return tables.some(
-    (table) =>
-      table.querySelector('[data-search-hit="true"]') ||
-      table.querySelector("mark[data-search-hit='true']")
-  );
+const hasTableInContent = (contentHtml: string): boolean => {
+  return contentHtml.includes("<table");
 };
 
 type SearchResultsProperties = {
@@ -563,7 +626,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     const rafId = globalThis.requestAnimationFrame(updateHighlightEligibility);
 
     const scrollContainer = document.querySelector(
-      `.${searchStyles["search-results"]}`
+      `.${searchStyles["search-results-scroll"]}`
     ) as HTMLElement | null;
 
     scrollContainer?.addEventListener("scroll", updateHighlightEligibility, {
@@ -669,11 +732,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     [results]
   );
 
-  const [masonryColumns, setMasonryColumns] = useState<
-    Array<Array<{index: number; result: SearchResult}>>
-  >([]);
-
-  const fallbackMasonryColumns = useMemo(() => {
+  const masonryColumns = useMemo(() => {
     if (isSingleColumnLayout) {
       return [resultEntries];
     }
@@ -691,83 +750,6 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     () => new Map(results.map((result) => [result.id, result])),
     [results]
   );
-
-  const recalculateMasonryColumns = useCallback(() => {
-    if (isSingleColumnLayout) {
-      setMasonryColumns([resultEntries]);
-
-      return;
-    }
-
-    const columns: Array<Array<{index: number; result: SearchResult}>> = [[], []];
-
-    const columnHeights = [0, 0];
-
-    const measuredHeights = resultEntries.map((entry) => {
-      const element = resultRefs.current?.[entry.index];
-
-      return element?.getBoundingClientRect().height ?? 0;
-    });
-
-    const hasMeasuredHeights = measuredHeights.some((height) => height > 0);
-
-    if (!hasMeasuredHeights) {
-      for (const [entryIndex, entry] of resultEntries.entries()) {
-        columns[entryIndex % 2].push(entry);
-      }
-
-      setMasonryColumns(columns);
-
-      return;
-    }
-
-    for (const [entryIndex, entry] of resultEntries.entries()) {
-      const targetColumnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
-
-      columns[targetColumnIndex].push(entry);
-
-      const measuredHeight = measuredHeights[entryIndex];
-
-      const fallbackHeight = 220;
-
-      columnHeights[targetColumnIndex] +=
-        measuredHeight > 0 ? measuredHeight : fallbackHeight;
-    }
-
-    setMasonryColumns(columns);
-  }, [isSingleColumnLayout, resultEntries, resultRefs]);
-
-  useEffect(() => {
-    const rafId = globalThis.requestAnimationFrame(recalculateMasonryColumns);
-
-    const secondPassTimerId = globalThis.setTimeout(() => {
-      globalThis.requestAnimationFrame(recalculateMasonryColumns);
-    }, 60);
-
-    const resizeObserver = new ResizeObserver(() => {
-      recalculateMasonryColumns();
-    });
-
-    for (const entry of resultEntries) {
-      const element = resultRefs.current?.[entry.index];
-
-      if (element) {
-        resizeObserver.observe(element);
-      }
-    }
-
-    return () => {
-      globalThis.cancelAnimationFrame(rafId);
-      globalThis.clearTimeout(secondPassTimerId);
-      resizeObserver.disconnect();
-    };
-  }, [
-    highlightEligibleIds,
-    isHighlightReady,
-    query,
-    recalculateMasonryColumns,
-    resultEntries,
-  ]);
 
   const checkResultOverflow = useCallback(() => {
     const overflowedIds = new Set<string>();
@@ -923,7 +905,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       }
     }
 
-    const shouldDisableContentClamp = hasMatchingTableInContent(highlightedContent);
+    const isContentUnclamped = hasTableInContent(content);
 
     const isSelected = index === selectedResultIndex;
 
@@ -936,8 +918,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
         highlightedTags={highlightedTags}
         highlightedTitle={highlightedTitle}
         id={id}
-        isContentOverflowing={!shouldDisableContentClamp && overflowingResultIds.has(id)}
-        isContentUnclamped={shouldDisableContentClamp}
+        isContentOverflowing={!isContentUnclamped && overflowingResultIds.has(id)}
+        isContentUnclamped={isContentUnclamped}
         isHovered={isHovered}
         isMobile={isMobile}
         isSelected={isSelected}
@@ -972,16 +954,16 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
             : searchStyles["search-results-layout-masonry"]
         }`}
       >
-        {(masonryColumns.length > 0 ? masonryColumns : fallbackMasonryColumns).map(
-          (column, columnIndex) => (
-            <div
-              key={columnIndex}
-              className={searchStyles["search-results-column"]}
-            >
-              {column.map((entry) => renderResult(entry))}
-            </div>
-          )
-        )}
+        {masonryColumns.map((column, columnIndex) => (
+          <div
+            key={columnIndex}
+            className={searchStyles["search-results-column"]}
+          >
+            {column.map((entry) => (
+              <React.Fragment key={entry.result.id}>{renderResult(entry)}</React.Fragment>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

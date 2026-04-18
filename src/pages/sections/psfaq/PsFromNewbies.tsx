@@ -106,11 +106,11 @@ const PsFromNewbies: React.FC = () => {
           локализации. Ещё в большинстве обучающих видео часто используется английская
           локализация, это тоже решающий фактор, особенно если вы только начинаете изучать
           программу.{" "}
-          <i style={{opacity: "0.5"}}>
+          <em className="article-note-muted">
             Конечно, не в такой степени часто, как для{" "}
             <mark className="app">Adobe After Effects</mark> и{" "}
             <mark className="app">Adobe Premiere</mark>, но всё же.
-          </i>
+          </em>
         </p>
         <Divider>Меняем язык в «народной» версии программы</Divider>
         <p>

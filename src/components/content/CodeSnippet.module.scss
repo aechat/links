@@ -6,17 +6,18 @@ $code-border: hsl(225deg 15% 22%);
 $code-text: hsl(225deg 15% 95%);
 
 %code-styles {
+  @include fluid-size(margin, $space-8, $space-16);
+  @include fluid-size(padding, $space-8, $space-16);
+
   display: block;
-  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  margin: 10px;
-  border: 1px solid $code-border;
+  transition: opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: $stroke-1 solid $code-border;
   border-radius: $roundness * 0.75;
   background-color: $code-background;
-  padding: 10px;
   line-height: 1.5;
   color: $code-text;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.9rem;
+  font-size: $font-size-text-sm;
   font-weight: 400;
   scrollbar-color: $code-border $code-background;
   scrollbar-width: thin;
@@ -33,7 +34,6 @@ $code-text: hsl(225deg 15% 95%);
   }
 
   &::-webkit-scrollbar-track {
-    margin: 5px;
     background: $code-background;
   }
 

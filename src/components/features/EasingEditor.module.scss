@@ -2,13 +2,14 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .easing-editor-wrapper {
+  @include fluid-size(padding, $space-8, $space-16);
+
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $space-8;
   align-items: center;
-  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  padding: 10px;
+  transition: color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 100%;
   color: var(--color-easing-text-primary);
 
@@ -20,14 +21,14 @@
     opacity: 0.75;
     cursor: default;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: $font-size-text-sm;
   }
 }
 
 .animation-preview {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: $space-8 0;
   width: 100%;
   min-height: 200px;
   overflow: hidden;
@@ -50,12 +51,13 @@
 }
 
 .animation-controls {
+  @include fluid-size(padding, $space-4, $space-8);
+
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px 24px;
-  border-radius: 8px;
-  padding: 10px;
+  gap: $space-16 $space-24;
+  border-radius: $roundness;
   width: 100%;
   min-width: 280px;
 }
@@ -73,8 +75,8 @@
 
 .track-line {
   position: relative;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border-radius: 5px;
+  transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-radius: $roundness * 0.5;
   background: var(--color-easing-track-background);
   width: 100%;
   height: 5px;
@@ -82,7 +84,7 @@
 
 .ruler {
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: $space-4;
   width: 100%;
   height: 20px;
 
@@ -96,7 +98,7 @@
 
   &-label {
     position: absolute;
-    bottom: 10px;
+    bottom: $space-12;
     transform: translateX(-50%);
     color: var(--color-easing-text-muted);
     font-size: 10px;
@@ -114,8 +116,8 @@
 .animated-cube {
   position: absolute;
   top: 50%;
-  border: 2px solid var(--color-accent);
-  border-radius: 8px;
+  border: $stroke-2 solid var(--color-accent);
+  border-radius: $roundness;
   background: var(--color-easing-display-background);
   width: 40px;
   height: 40px;
@@ -124,10 +126,10 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: opacity 0.5s ease-out;
+    transition: opacity $duration-500 ease-out;
     opacity: 0.5;
-    border: 1px solid var(--color-accent);
-    border-radius: 8px;
+    border: $stroke-1 solid var(--color-accent);
+    border-radius: $roundness;
     background: transparent;
     width: 40px;
     height: 40px;
@@ -139,24 +141,25 @@
   stroke: var(--color-easing-text-primary);
   stroke-width: 1.5px;
   transition:
-    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    fill $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .graphs-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: $space-16;
   width: 100%;
 }
 
 .graph-container {
+  @include fluid-size(padding, $space-4, $space-8);
+
   box-sizing: border-box;
   flex: 1 1 400px;
-  border: 1px solid var(--color-easing-graph-border);
-  border-radius: 8px;
+  border: $stroke-1 solid var(--color-easing-graph-border);
+  border-radius: $roundness;
   background: var(--color-easing-graph-background);
-  padding: 10px;
 }
 
 .graph-svg {
@@ -170,26 +173,27 @@
   fill: var(--color-easing-graph-background);
   stroke: var(--color-easing-graph-border);
   transition:
-    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    fill $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .graph-curve {
   stroke: var(--color-easing-curve);
   stroke-width: 2.5px;
   fill: none;
-  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: stroke $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .timecode {
-  margin: 10px;
+  @include fluid-size(margin, $space-8, $space-12);
+
   font-family: "JetBrains Mono", monospace;
 }
 
 .control-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: $space-8;
   justify-content: center;
   min-width: 0;
 }
@@ -201,17 +205,17 @@
 
 .grid-line-major {
   stroke: var(--color-easing-grid-major);
-  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: stroke $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .grid-line-minor {
   stroke: var(--color-easing-grid-minor);
-  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: stroke $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .grid-text {
   fill: var(--color-easing-text-muted);
-  transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: fill $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 12px;
 
   &-x {
@@ -230,8 +234,8 @@
 .handle {
   fill: var(--color-easing-selection);
   transition:
-    filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    filter $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    fill $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: grab;
 
   &:hover {

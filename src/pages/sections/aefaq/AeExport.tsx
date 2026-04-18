@@ -2639,7 +2639,7 @@ const AeExport: React.FC = () => {
           или вам не хватает функциональности оригинального расширения, попробуйте
           экспортировать анимацию через обычный <mark className="plugin">Bodymovin</mark>,
           а затем конвертировать полученный файл с помощью{" "}
-          <i style={{opacity: 0.5}}>самодельного</i> конвертера из этой статьи.
+          <em className="article-note-muted">самодельного</em> конвертера из этой статьи.
         </p>
         <p>
           Прежде чем экспортировать анимацию в <mark className="file">JSON</mark>, нужно
@@ -2742,7 +2742,7 @@ const AeExport: React.FC = () => {
           </li>
           <li>
             Частота кадров не должна превышать 30 в секунду.{" "}
-            <i style={{opacity: 0.5}}>Странно, что не 60...</i>
+            <em className="article-note-muted">Странно, что не 60...</em>
           </li>
         </ul>
         <p>
@@ -3231,14 +3231,7 @@ const AeExport: React.FC = () => {
                     ограничения на размер, вы можете разделить архив на части. После
                     создания архива отправьте его любым удобным способом.
                   </p>
-                  <div
-                    style={{
-                      alignItems: "center",
-                      display: "grid",
-                      gap: "10px",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                    }}
-                  >
+                  <div className="article-media-gallery-grid">
                     <ArticleMedia
                       caption="Выбор формата архива"
                       src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"

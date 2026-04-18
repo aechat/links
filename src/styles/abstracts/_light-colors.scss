@@ -4,7 +4,7 @@ $light-theme-map: (
       primary: hsl(0deg 0% 95%),
       secondary: hsl(0deg 0% 100%),
       tertiary: hsl(0deg 0% 98%),
-      overlay: hsl(0deg 0% 85% / 35%),
+      overlay: hsl(0deg 0% 95% / 75%),
       header: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 98% / 75%),
       modal: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 99% / 85%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 98%),
@@ -21,6 +21,9 @@ $light-theme-map: (
       tertiary: hsl(0deg 0% 50%),
     ),
     accent: hsl(var(--accent-hue) calc(65% * var(--saturate-ratio)) 45%),
+    link: (
+      visited: hsl(var(--accent-hue) calc(32.5% * var(--saturate-ratio)) 45%),
+    ),
     interaction: (
       mix-color: hsl(var(--accent-hue) calc(28% * var(--saturate-ratio)) 42%),
       primary-hover-shift: 8%,
@@ -41,6 +44,7 @@ $light-theme-map: (
       header: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 80% / 50%),
       modal: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 90% / 50%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 90%),
+      table-hover: hsl(0deg calc(0% * var(--saturate-ratio)) 84%),
       divider: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
       dropdown: hsl(0deg 0% 85%),
     ),
@@ -62,6 +66,8 @@ $light-theme-map: (
               var(--color-interaction-primary-active-shift)
           ),
         border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
+        border-hover: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 82%),
+        border-active: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 77%),
         text: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 40%),
         open-shadow: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 75%),
       ),
@@ -82,6 +88,8 @@ $light-theme-map: (
               var(--color-interaction-secondary-active-shift)
           ),
         border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
+        border-hover: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 82%),
+        border-active: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 77%),
         text: hsl(var(--accent-hue) calc(85% * var(--saturate-ratio)) 35%),
       ),
       dropdown: (
@@ -101,6 +109,7 @@ $light-theme-map: (
               var(--color-interaction-secondary-active-shift)
           ),
         border-hover: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 85%),
+        border-active: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 80%),
       ),
     ),
     button-group: (
@@ -119,7 +128,10 @@ $light-theme-map: (
             var(--color-interaction-tertiary-active-shift)
         ),
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
+      border-hover: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 81%),
+      border-active: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 76%),
       text: hsl(var(--accent-hue) calc(40% * var(--saturate-ratio)) 42.5%),
+      text-visited: hsl(var(--accent-hue) calc(32.5% * var(--saturate-ratio)) 60%),
       selected: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 91%),
     ),
     widget: (
@@ -137,25 +149,60 @@ $light-theme-map: (
           var(--color-interaction-mix-color) var(--color-interaction-neutral-active-shift)
         ),
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
+      border-hover: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 81%),
+      border-active: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 76%),
       text: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 25%),
+      mark-background-default: color-mix(
+          in hsl,
+          var(--color-widget-background) 75%,
+          var(--color-interaction-mix-color) 25%
+        ),
+      mark-background-hover: color-mix(
+          in hsl,
+          var(--color-widget-mark-background-default)
+            calc(100% - var(--color-interaction-neutral-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-neutral-hover-shift)
+        ),
+      mark-background-active: color-mix(
+          in hsl,
+          var(--color-widget-mark-background-default)
+            calc(100% - var(--color-interaction-neutral-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-neutral-active-shift)
+        ),
     ),
     search: (
       header: (
         border: var(--color-surface-primary-border),
+        border-hover: hsl(var(--accent-hue) calc(45% * var(--saturate-ratio)) 84%),
+        border-active: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 79%),
         background: var(--color-surface-primary-background),
         background-hover: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 95%),
         background-active: hsl(var(--accent-hue) calc(65% * var(--saturate-ratio)) 93%),
         selected-border: var(--color-accent),
+        selected-border-hover: hsl(
+            var(--accent-hue) calc(75% * var(--saturate-ratio)) 47%
+          ),
+        selected-border-active: hsl(
+            var(--accent-hue) calc(85% * var(--saturate-ratio)) 43%
+          ),
         selected-background: hsl(var(--accent-hue) calc(55% * var(--saturate-ratio)) 95%),
         selected-hover: hsl(var(--accent-hue) calc(60% * var(--saturate-ratio)) 93%),
         selected-active: hsl(var(--accent-hue) calc(70% * var(--saturate-ratio)) 91%),
       ),
       content: (
         border: var(--color-border-primary),
+        border-hover: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 87%),
+        border-active: hsl(var(--accent-hue) calc(14% * var(--saturate-ratio)) 82%),
         background: hsl(var(--accent-hue) 0% 97%),
         background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 96%),
         background-active: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 94%),
         selected-border: var(--color-border-primary),
+        selected-border-hover: hsl(
+            var(--accent-hue) calc(12% * var(--saturate-ratio)) 84%
+          ),
+        selected-border-active: hsl(
+            var(--accent-hue) calc(18% * var(--saturate-ratio)) 80%
+          ),
         selected-background: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 96%),
         selected-hover: hsl(var(--accent-hue) calc(40% * var(--saturate-ratio)) 94%),
         selected-active: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 92%),
@@ -170,9 +217,111 @@ $light-theme-map: (
       background: hsl(var(--accent-hue) calc(75% * var(--saturate-ratio)) 97%),
       border: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 85%),
       text: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 25%),
+      interaction: (
+        hover-factor: 0.48,
+        active-factor: 0.62,
+      ),
     ),
+    semantic-action: (
+      primary-background-hover: color-mix(
+          in hsl,
+          var(--color-accent) calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        ),
+      primary-background-active: color-mix(
+          in hsl,
+          var(--color-accent) calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        ),
+      primary-background-disabled: color-mix(
+          in hsl,
+          var(--color-background-secondary) 75%,
+          var(--color-text-tertiary) 25%
+        ),
+      secondary-background-disabled: color-mix(
+          in hsl,
+          var(--color-button-group-background) 85%,
+          var(--color-text-tertiary) 15%
+        ),
+      tertiary-background-disabled: color-mix(
+          in hsl,
+          var(--color-surface-primary-background) 85%,
+          var(--color-text-tertiary) 15%
+        ),
+    ),
+    depth-step-1: 6%,
+    depth-step-2: 12%,
+    depth-step-3: 18%,
+    details-summary-background-level-1: color-mix(
+        in hsl,
+        var(--color-surface-primary-background) calc(100% - var(--color-depth-step-1)),
+        var(--color-interaction-mix-color) var(--color-depth-step-1)
+      ),
+    details-summary-background-level-2: color-mix(
+        in hsl,
+        var(--color-surface-primary-background) calc(100% - var(--color-depth-step-2)),
+        var(--color-interaction-mix-color) var(--color-depth-step-2)
+      ),
+    details-summary-background-level-3: color-mix(
+        in hsl,
+        var(--color-surface-primary-background) calc(100% - var(--color-depth-step-3)),
+        var(--color-interaction-mix-color) var(--color-depth-step-3)
+      ),
+    details-summary-border-level-1: color-mix(
+        in hsl,
+        var(--color-surface-primary-border) calc(100% - var(--color-depth-step-1)),
+        var(--color-interaction-mix-color) var(--color-depth-step-1)
+      ),
+    details-summary-border-level-2: color-mix(
+        in hsl,
+        var(--color-surface-primary-border) calc(100% - var(--color-depth-step-2)),
+        var(--color-interaction-mix-color) var(--color-depth-step-2)
+      ),
+    details-summary-border-level-3: color-mix(
+        in hsl,
+        var(--color-surface-primary-border) calc(100% - var(--color-depth-step-3)),
+        var(--color-interaction-mix-color) var(--color-depth-step-3)
+      ),
     status: (
       info: (
+        background-level-3: color-mix(
+            in hsl,
+            var(--color-status-info-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
+            var(--color-interaction-mix-color) var(--color-depth-step-2)
+          ),
+        mark-background-hover: color-mix(
+            in hsl,
+            var(--color-status-info-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-hover-shift) *
+                      var(--color-mark-interaction-hover-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-hover-shift) *
+                  var(--color-mark-interaction-hover-factor)
+              )
+          ),
+        mark-background-active: color-mix(
+            in hsl,
+            var(--color-status-info-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-active-shift) *
+                      var(--color-mark-interaction-active-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-active-shift) *
+                  var(--color-mark-interaction-active-factor)
+              )
+          ),
         background: hsl(190deg 50% 98%),
         secondary-background: hsl(190deg 40% 95%),
         tertiary-background: hsl(190deg 40% 93%),
@@ -182,9 +331,48 @@ $light-theme-map: (
         tertiary-active-background: hsl(190deg 50% 87%),
         border: hsl(190deg 50% 85%),
         text: hsl(190deg 80% 22%),
+        visited-text: hsl(190deg 20% 50%),
         mark-background: hsl(190deg 50% 96%),
       ),
       warning: (
+        background-level-3: color-mix(
+            in hsl,
+            var(--color-status-warning-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
+            var(--color-interaction-mix-color) var(--color-depth-step-2)
+          ),
+        mark-background-hover: color-mix(
+            in hsl,
+            var(--color-status-warning-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-hover-shift) *
+                      var(--color-mark-interaction-hover-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-hover-shift) *
+                  var(--color-mark-interaction-hover-factor)
+              )
+          ),
+        mark-background-active: color-mix(
+            in hsl,
+            var(--color-status-warning-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-active-shift) *
+                      var(--color-mark-interaction-active-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-active-shift) *
+                  var(--color-mark-interaction-active-factor)
+              )
+          ),
         background: hsl(50deg 100% 97%),
         secondary-background: hsl(50deg 100% 95%),
         tertiary-background: hsl(50deg 100% 93%),
@@ -194,9 +382,48 @@ $light-theme-map: (
         tertiary-active-background: hsl(50deg 100% 86%),
         border: hsl(50deg 50% 85%),
         text: hsl(50deg 100% 18%),
+        visited-text: hsl(50deg 20% 50%),
         mark-background: hsl(50deg 100% 95%),
       ),
       danger: (
+        background-level-3: color-mix(
+            in hsl,
+            var(--color-status-danger-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
+            var(--color-interaction-mix-color) var(--color-depth-step-2)
+          ),
+        mark-background-hover: color-mix(
+            in hsl,
+            var(--color-status-danger-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-hover-shift) *
+                      var(--color-mark-interaction-hover-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-hover-shift) *
+                  var(--color-mark-interaction-hover-factor)
+              )
+          ),
+        mark-background-active: color-mix(
+            in hsl,
+            var(--color-status-danger-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-active-shift) *
+                      var(--color-mark-interaction-active-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-active-shift) *
+                  var(--color-mark-interaction-active-factor)
+              )
+          ),
         background: hsl(0deg 100% 98%),
         secondary-background: hsl(0deg 100% 95%),
         tertiary-background: hsl(0deg 100% 93%),
@@ -206,9 +433,48 @@ $light-theme-map: (
         tertiary-active-background: hsl(0deg 100% 86%),
         border: hsl(0deg 50% 87.5%),
         text: hsl(0deg 80% 22%),
+        visited-text: hsl(0deg 20% 50%),
         mark-background: hsl(0deg 100% 96%),
       ),
       tldr: (
+        background-level-3: color-mix(
+            in hsl,
+            var(--color-status-tldr-tertiary-background)
+              calc(100% - var(--color-depth-step-2)),
+            var(--color-interaction-mix-color) var(--color-depth-step-2)
+          ),
+        mark-background-hover: color-mix(
+            in hsl,
+            var(--color-status-tldr-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-hover-shift) *
+                      var(--color-mark-interaction-hover-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-hover-shift) *
+                  var(--color-mark-interaction-hover-factor)
+              )
+          ),
+        mark-background-active: color-mix(
+            in hsl,
+            var(--color-status-tldr-mark-background)
+              calc(
+                100% -
+                  (
+                    var(--color-interaction-neutral-active-shift) *
+                      var(--color-mark-interaction-active-factor)
+                  )
+              ),
+            var(--color-interaction-mix-color)
+              calc(
+                var(--color-interaction-neutral-active-shift) *
+                  var(--color-mark-interaction-active-factor)
+              )
+          ),
         background: hsl(160deg 50% 98%),
         secondary-background: hsl(160deg 50% 95%),
         tertiary-background: hsl(160deg 50% 93%),
@@ -218,6 +484,7 @@ $light-theme-map: (
         tertiary-active-background: hsl(160deg 60% 86%),
         border: hsl(160deg 50% 85%),
         text: hsl(160deg 80% 22%),
+        visited-text: hsl(160deg 45% 32%),
         mark-background: hsl(160deg 50% 96%),
       ),
       success-subtle: (
@@ -256,7 +523,7 @@ $light-theme-map: (
     ),
   ),
   shadow: (
-    primary: hsl(0deg 0% 0% / 8%),
-    secondary: hsl(0deg 0% 0% / 5%),
+    strong: hsl(0deg 0% 0% / 8%),
+    soft: hsl(0deg 0% 0% / 5%),
   ),
 );

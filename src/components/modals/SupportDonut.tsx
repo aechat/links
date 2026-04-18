@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
-import {Modal} from "antd";
+import {message, Modal} from "antd";
 
-import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
 import {withSoftHaptic} from "../../utils/haptics";
 
@@ -13,9 +13,14 @@ interface SupportDonutProperties {
   wide?: boolean;
 }
 
-const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
-  const {copyElementContent} = useCopyToClipboard();
+const formatGroupedNumber = (numberValue: string) => {
+  return numberValue
+    .replaceAll(/\D/g, "")
+    .replaceAll(/(\d{4})(?=\d)/g, "$1 ")
+    .trim();
+};
 
+const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
@@ -32,8 +37,18 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
-  const handleCopyAccount = withSoftHaptic((element: HTMLElement) => {
-    void copyElementContent(element);
+  const SBER_CARD_NUMBER = "2202202357342488";
+
+  const YOOMONEY_WALLET_NUMBER = "410016763684808";
+
+  const handleCopyAccount = withSoftHaptic(async (account: string) => {
+    const success = await copyText(account);
+
+    if (success) {
+      message.success("Реквизиты скопированы в буфер обмена");
+    } else {
+      message.error("Не удалось скопировать реквизиты");
+    }
   });
 
   return (
@@ -54,17 +69,17 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
         onCancel={closeDonateModal}
       >
         <div className={modalStyles["modal"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
+            <button
+              className={modalStyles["modal-header-button"]}
+              onClick={closeDonateModal}
+              onMouseDown={ripple.onMouseDown}
+            >
+              <CloseRounded />
+            </button>
+          </div>
           <div className={modalStyles["modal-content"]}>
-            <div className={modalStyles["modal-header"]}>
-              <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
-              <button
-                className={modalStyles["modal-header-button"]}
-                onClick={closeDonateModal}
-                onMouseDown={ripple.onMouseDown}
-              >
-                <CloseRounded />
-              </button>
-            </div>
             <p>
               Если вам понравился этот сайт и вы хотели бы, чтобы я продолжил развивать
               его, то вы можете поддержать меня любой суммой и любым удобным вам способом.
@@ -86,29 +101,31 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 onCancel={closeSberModal}
               >
                 <div className={modalStyles["modal"]}>
-                  <div className={modalStyles["modal-content"]}>
-                    <div className={modalStyles["modal-header"]}>
-                      <div className={modalStyles["modal-header-title"]}>
-                        Поддержать на Сбербанк
-                      </div>
-                      <button
-                        className={modalStyles["modal-header-button"]}
-                        onClick={closeSberModal}
-                        onMouseDown={ripple.onMouseDown}
-                      >
-                        <CloseRounded />
-                      </button>
+                  <div className={modalStyles["modal-header"]}>
+                    <div className={modalStyles["modal-header-title"]}>
+                      Поддержать на Сбербанк
                     </div>
+                    <button
+                      className={modalStyles["modal-header-button"]}
+                      onClick={closeSberModal}
+                      onMouseDown={ripple.onMouseDown}
+                    >
+                      <CloseRounded />
+                    </button>
+                  </div>
+                  <div className={modalStyles["modal-content"]}>
                     <p>
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <mark
-                      className={modalStyles["modal-support-account-number"]}
-                      onClick={(event) => handleCopyAccount(event.currentTarget)}
-                    >
-                      2202202357342488
-                    </mark>
+                    <div className="flexible-links">
+                      <button
+                        type="button"
+                        onClick={() => handleCopyAccount(SBER_CARD_NUMBER)}
+                      >
+                        {formatGroupedNumber(SBER_CARD_NUMBER)}
+                      </button>
+                    </div>
                     <p className={modalStyles["modal-support-recipient-info"]}>
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
@@ -133,19 +150,19 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 onCancel={closeYoomoneyModal}
               >
                 <div className={modalStyles["modal"]}>
-                  <div className={modalStyles["modal-content"]}>
-                    <div className={modalStyles["modal-header"]}>
-                      <div className={modalStyles["modal-header-title"]}>
-                        Поддержать на ЮMoney
-                      </div>
-                      <button
-                        className={modalStyles["modal-header-button"]}
-                        onClick={closeYoomoneyModal}
-                        onMouseDown={ripple.onMouseDown}
-                      >
-                        <CloseRounded />
-                      </button>
+                  <div className={modalStyles["modal-header"]}>
+                    <div className={modalStyles["modal-header-title"]}>
+                      Поддержать на ЮMoney
                     </div>
+                    <button
+                      className={modalStyles["modal-header-button"]}
+                      onClick={closeYoomoneyModal}
+                      onMouseDown={ripple.onMouseDown}
+                    >
+                      <CloseRounded />
+                    </button>
+                  </div>
+                  <div className={modalStyles["modal-content"]}>
                     <p>Для пополнения кошелька вам нужно проделать несколько действий:</p>
                     <ul>
                       <li>Зайдите в приложение своего банка.</li>
@@ -162,12 +179,14 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <mark
-                          className={modalStyles["modal-support-account-number"]}
-                          onClick={(event) => handleCopyAccount(event.currentTarget)}
-                        >
-                          410016763684808
-                        </mark>
+                        <div className="flexible-links">
+                          <button
+                            type="button"
+                            onClick={() => handleCopyAccount(YOOMONEY_WALLET_NUMBER)}
+                          >
+                            {formatGroupedNumber(YOOMONEY_WALLET_NUMBER)}
+                          </button>
+                        </div>
                         <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a

@@ -1,4 +1,11 @@
+@use "../abstracts/mixins" as *;
+
 .error {
+  &-modal {
+    margin: 15px;
+    max-width: 450px;
+  }
+
   &-container {
     display: flex;
     position: relative;
@@ -14,17 +21,36 @@
     opacity: 0.1;
     text-transform: uppercase;
     white-space: nowrap;
-    font-size: 16rem;
+    font-size: $font-size-display-lg;
     font-weight: 900;
     font-style: italic;
     pointer-events: none;
 
     @media screen and (width < 1024px) {
       letter-spacing: -2rem;
-      font-size: 8rem;
+      font-size: $font-size-display-md;
       font-style: normal;
       writing-mode: vertical-rl;
       text-orientation: upright;
     }
+  }
+
+  &-message-copyable {
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: $font-size-text-sm;
+  }
+}
+
+.warning {
+  &-dismiss-option {
+    @include fluid-size(margin, $space-12, $space-16);
+
+    display: flex;
+    gap: $space-8;
+    align-items: center;
+    opacity: 0.75;
+    cursor: pointer;
+    font-size: $font-size-text-sm;
   }
 }

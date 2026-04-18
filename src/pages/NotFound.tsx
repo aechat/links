@@ -150,16 +150,13 @@ const NotFound = () => {
       </Helmet>
       <div className="error-container">
         <div className="error-backtitle">{currentSubtitle}</div>
-        <div
-          className={modalStyles["modal"]}
-          style={{margin: "15px", maxWidth: "450px"}}
-        >
+        <div className={`${modalStyles["modal"]} error-modal`}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Страница не найдена</div>
+          </div>
           <div
             className={`${modalStyles["modal-content"]} ${modalStyles["modal-content--error"]}`}
           >
-            <div className={modalStyles["modal-header"]}>
-              <div className={modalStyles["modal-header-title"]}>Страница не найдена</div>
-            </div>
             <div className={modalStyles["modal-text-balance"]}>
               <div className="flexible-links">
                 <button

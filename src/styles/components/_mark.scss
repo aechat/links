@@ -1,9 +1,9 @@
 @use "../abstracts/mixins" as *;
 
 mark {
-  margin-block: 2px;
-  margin-inline: 1px;
-  outline: 1px solid var(--color-mark-border);
+  margin-block: $space-4;
+  margin-inline: $space-0;
+  outline: $stroke-1 solid var(--color-mark-border);
   border-radius: $roundness * 0.5;
   background-color: var(--color-mark-background);
   padding: 2px 3px;
@@ -39,17 +39,17 @@ mark {
   &.info,
   &.warning,
   &.danger {
-    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &::before {
+      @include fluid-icon-size(13px, 15px);
+
       display: inline-block;
-      margin-block: 1px;
-      margin-inline-end: 3px;
+      margin-block: $space-0;
+      margin-inline-end: $space-4;
       background-color: var(--color-mark-text);
       background-repeat: no-repeat;
       background-size: contain;
-      width: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
-      height: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
       vertical-align: sub;
       content: "";
     }
@@ -183,5 +183,55 @@ mark {
   &.quote::before {
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='m6 18l-2.3 2.3q-.475.475-1.088.213T2 19.575V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.587 1.413T20 18zm1-4h6q.425 0 .713-.288T14 13t-.288-.712T13 12H7q-.425 0-.712.288T6 13t.288.713T7 14m0-3h10q.425 0 .713-.288T18 10t-.288-.712T17 9H7q-.425 0-.712.288T6 10t.288.713T7 11m0-3h10q.425 0 .713-.288T18 7t-.288-.712T17 6H7q-.425 0-.712.288T6 7t.288.713T7 8'/%3E%3C/svg%3E");
     mask-size: cover;
+  }
+}
+
+@mixin interactive-copy-mark-context {
+  mark:where(.copy, [style*="cursor: pointer"]) {
+    $hover-shift: "var(--color-interaction-neutral-hover-shift) * var(--color-mark-interaction-hover-factor)";
+    $active-shift: "var(--color-interaction-neutral-active-shift) * var(--color-mark-interaction-active-factor)";
+
+    transition:
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover {
+      outline-color: color-mix(
+        in hsl,
+        var(--color-mark-border) calc(100% - (#{$hover-shift})),
+        var(--color-interaction-mix-color) calc(#{$hover-shift})
+      );
+      background-color: color-mix(
+        in hsl,
+        var(--color-mark-background) calc(100% - (#{$hover-shift})),
+        var(--color-interaction-mix-color) calc(#{$hover-shift})
+      );
+    }
+
+    &:active {
+      outline-color: color-mix(
+        in hsl,
+        var(--color-mark-border) calc(100% - (#{$active-shift})),
+        var(--color-interaction-mix-color) calc(#{$active-shift})
+      );
+      background-color: color-mix(
+        in hsl,
+        var(--color-mark-background) calc(100% - (#{$active-shift})),
+        var(--color-interaction-mix-color) calc(#{$active-shift})
+      );
+    }
+  }
+}
+
+.article {
+  &-content {
+    @include interactive-copy-mark-context();
+  }
+}
+
+.details {
+  &-section,
+  &-nested-section {
+    @include interactive-copy-mark-context();
   }
 }

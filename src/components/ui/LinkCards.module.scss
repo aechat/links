@@ -11,13 +11,14 @@
   transition:
     transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
     box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
     border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
-    z-index 0s linear 0.25s;
-  z-index: 0;
-  outline: 1px solid var(--color-surface-card-border);
+    z-index 0s linear $duration-250;
+  z-index: $z-base;
+  outline: $stroke-1 solid var(--color-surface-card-border);
   border-radius: 0;
-  box-shadow: 0 10px 24px transparent;
+  box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-surface-card-background);
   width: 100%;
   min-width: 170px;
@@ -25,9 +26,10 @@
 
   &:hover {
     transform: scale(var(--links-hover-scale-x), var(--links-hover-scale-y));
-    transition-delay: 0.2s, 0.2s, 0s, 0.2s, 0.2s;
-    z-index: 4;
-    box-shadow: 0 10px 24px var(--shadow-primary);
+    transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
+    z-index: $z-raised;
+    outline: $stroke-1 solid var(--color-surface-card-border-hover);
+    box-shadow: $shadow-box-interactive-hover;
     background-color: var(--color-surface-card-background-hover);
     cursor: pointer;
   }
@@ -35,8 +37,9 @@
   &:active {
     transform: scale(var(--links-active-scale-x), var(--links-active-scale-y));
     transition-delay: 0s;
-    z-index: 4;
-    box-shadow: 0 10px 24px var(--shadow-secondary);
+    z-index: $z-raised;
+    outline: $stroke-1 solid var(--color-surface-card-border-active);
+    box-shadow: $shadow-box-interactive-active;
     background-color: var(--color-surface-card-background-active);
   }
 

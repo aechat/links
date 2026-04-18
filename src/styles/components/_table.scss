@@ -1,17 +1,33 @@
 @use "../abstracts/mixins" as *;
 
 table {
-  margin: 10px;
-  width: calc(100% - 20px);
+  --table-inline-offset: clamp(
+    #{$space-4},
+    calc(#{$space-4} + (8 - 4) * ((100vw - 320px) / (768 - 320))),
+    #{$space-8}
+  );
+
+  @include fluid-size(margin-block, $space-8, $space-16);
+
+  margin-inline: var(--table-inline-offset);
+  width: calc(100% - (var(--table-inline-offset) * 2));
   overflow: hidden;
   border-collapse: separate;
   border-spacing: 4px;
-  font-size: 0.95rem;
+  font-size: $font-size-text-base;
 
   td,
   th {
+    @include fluid-inset(
+      padding-block,
+      $space-4,
+      $space-8,
+      padding-inline,
+      $space-4,
+      $space-8
+    );
+
     border-radius: $roundness * 0.75;
-    padding: 6px 10px;
     vertical-align: middle;
     text-align: center;
     line-height: 1.65;
@@ -20,25 +36,32 @@ table {
     > [class*="addition-warning"],
     > [class*="addition-danger"],
     > [class*="addition-tldr"] {
-      margin-block: 8px;
+      @include fluid-inset(
+        padding-block,
+        $space-4,
+        $space-8,
+        padding-inline,
+        $space-8,
+        $space-12
+      );
+
+      margin-block: $space-8;
       margin-inline: auto;
       border-radius: $roundness * 0.5;
-      padding-block: 8px;
-      padding-inline: 12px;
       text-align: left;
-      font-size: 0.875rem;
+      font-size: $font-size-text-sm;
 
       &:last-child {
         margin-block-end: 0;
       }
 
       &:not(:last-child) {
-        margin-block-end: 8px;
+        margin-block-end: $space-8;
       }
 
       mark,
       a {
-        font-size: 0.875rem;
+        font-size: $font-size-text-sm;
 
         &::before {
           width: min(
@@ -64,15 +87,15 @@ table {
         > [class*="addition-warning"],
         > [class*="addition-danger"],
         > [class*="addition-tldr"] {
-          margin-block: 8px;
-          border-radius: $roundness * 0.25;
+          margin-block: $space-8;
+          border-radius: $roundness * 0.5;
 
           &:last-child {
             margin-block-end: 0;
           }
 
           &:not(:last-child) {
-            margin-block-end: 8px;
+            margin-block-end: $space-8;
           }
         }
       }
@@ -82,7 +105,7 @@ table {
     a {
       outline: none;
       background: none;
-      font-size: 0.95rem;
+      font-size: $font-size-text-base;
 
       &::before {
         width: min(
@@ -98,31 +121,47 @@ table {
   }
 
   td {
-    transition: background-color 0.3s ease;
-    border: 1px solid var(--color-border-table);
+    transition:
+      background-color $duration-250 ease,
+      border-color $duration-250 ease;
+    border: $stroke-1 solid var(--color-border-table);
     background-color: var(--color-background-table);
   }
 
   tbody {
     tr:hover {
       td {
+        border-color: var(--color-border-table-hover);
         background-color: var(--color-background-table-hover);
       }
     }
   }
 
   thead {
-    z-index: 10;
+    z-index: $z-floating;
     color: var(--color-mark-text);
     font-family: Onest, Inter, sans-serif;
 
     th {
       text-wrap: balance;
-      border: 1px solid var(--color-surface-primary-border);
+      border: $stroke-1 solid var(--color-border-table);
       border-radius: $roundness * 0.75;
       background-color: var(--color-surface-primary-background);
       font-weight: 600;
     }
+  }
+
+  .shortcut-column {
+    min-width: 40%;
+  }
+
+  .where-find-index-column {
+    width: 15%;
+  }
+
+  .shortcut-hint {
+    opacity: 0.5;
+    font-weight: 450;
   }
 
   @media screen and (width <= 400px) {
@@ -130,14 +169,14 @@ table {
 
     td,
     th {
-      padding: 4px 2px;
-      font-size: 0.875rem;
+      padding: $space-4 $space-4;
+      font-size: $font-size-text-sm;
 
       > [class*="addition-info"],
       > [class*="addition-warning"],
       > [class*="addition-danger"],
       > [class*="addition-tldr"] {
-        font-size: 0.785rem;
+        font-size: $font-size-text-xs;
       }
     }
   }

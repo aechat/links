@@ -1,6 +1,15 @@
-$roundness: 8px;
-
+@forward "tokens";
+@use "sass:math";
 @use "sass:meta";
+@use "tokens" as *;
+
+@function normalize-fluid-length($value) {
+  @if math.is-unitless($value) {
+    @return $value * 1px;
+  }
+
+  @return $value;
+}
 
 @mixin generate-vars-from-map($map, $prefix: "") {
   @each $key, $value in $map {
@@ -18,10 +27,90 @@ $roundness: 8px;
   }
 }
 
+@mixin fluid-icon-size($min-size, $max-size, $viewport-min: 320px, $viewport-max: 768px) {
+  $normalized-min-size: normalize-fluid-length($min-size);
+  $normalized-max-size: normalize-fluid-length($max-size);
+  $min-size-value: math.div($normalized-min-size, 1px);
+  $max-size-value: math.div($normalized-max-size, 1px);
+  $viewport-min-value: math.div($viewport-min, 1px);
+  $viewport-max-value: math.div($viewport-max, 1px);
+  $size-step: $max-size-value - $min-size-value;
+  $viewport-step: $viewport-max-value - $viewport-min-value;
+
+  width: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
+  );
+  height: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
+  );
+}
+
+@mixin fluid-size(
+  $property,
+  $min-size,
+  $max-size,
+  $viewport-min: 320px,
+  $viewport-max: 768px
+) {
+  $normalized-min-size: normalize-fluid-length($min-size);
+  $normalized-max-size: normalize-fluid-length($max-size);
+  $min-size-value: math.div($normalized-min-size, 1px);
+  $max-size-value: math.div($normalized-max-size, 1px);
+  $viewport-min-value: math.div($viewport-min, 1px);
+  $viewport-max-value: math.div($viewport-max, 1px);
+  $size-step: $max-size-value - $min-size-value;
+  $viewport-step: $viewport-max-value - $viewport-min-value;
+
+  #{$property}: clamp(
+    #{$normalized-min-size},
+    calc(
+      #{$normalized-min-size} + ((100vw - #{$viewport-min}) / #{$viewport-step}) *
+        #{$size-step}
+    ),
+    #{$normalized-max-size}
+  );
+}
+
+@mixin fluid-inset(
+  $property-block,
+  $min-block-size,
+  $max-block-size,
+  $property-inline,
+  $min-inline-size,
+  $max-inline-size,
+  $viewport-min: 320px,
+  $viewport-max: 768px
+) {
+  @include fluid-size(
+    $property-block,
+    $min-block-size,
+    $max-block-size,
+    $viewport-min,
+    $viewport-max
+  );
+  @include fluid-size(
+    $property-inline,
+    $min-inline-size,
+    $max-inline-size,
+    $viewport-min,
+    $viewport-max
+  );
+}
+
 @mixin details-tags-base($margin-inline-end: null) {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px 5px;
+  gap: $space-0 $space-4;
   align-items: center;
   justify-content: flex-start;
 
@@ -54,11 +143,13 @@ $roundness: 8px;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 1px solid var(--color-surface-primary-border);
+  transition:
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: $stroke-1 solid var(--color-surface-primary-border);
   background-color: var(--color-surface-primary-background);
   cursor: pointer;
-  padding: 12px 15px;
+  padding: $space-12 $space-16;
   text-transform: uppercase;
   line-height: 1.3;
   color: var(--color-surface-primary-text);
@@ -70,27 +161,29 @@ $roundness: 8px;
   font-weight: 650;
 
   &:not(:last-child) {
-    border-top: 1px solid var(--color-surface-primary-border);
-    border-bottom: none;
+    border-top: $stroke-1 solid var(--color-surface-primary-border);
+    border-bottom: $stroke-1 solid transparent;
   }
 
   &:hover {
+    border-color: var(--color-surface-primary-border-hover);
     background-color: var(--color-surface-primary-background-hover);
   }
 
   &:active {
+    border-color: var(--color-surface-primary-border-active);
     background-color: var(--color-surface-primary-background-active);
   }
 
   h2 {
-    margin-inline-end: 15px;
+    margin-inline-end: $space-16;
     text-wrap: balance;
   }
 
   &-left {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: $space-12;
     align-items: center;
   }
 
@@ -101,27 +194,38 @@ $roundness: 8px;
   &-text-content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: $space-4;
   }
 }
 
 @mixin button-group-item-base(
   $flex-basis: 175px,
-  $font-size: 0.975rem,
+  $font-size: $font-size-text-base,
   $font-weight: 600,
   $line-height: 1.5,
   $include-outline: true
 ) {
   display: flex;
+  position: relative;
   flex: 1 0 $flex-basis;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    z-index 0s linear $duration-250;
+  z-index: $z-base;
   margin-block: 0;
   border-radius: 0;
+  box-shadow: $shadow-box-interactive-base;
   background-color: var(--color-button-group-background);
-  padding-block: 8px;
-  padding-inline: 10px;
+  padding: $space-8;
   vertical-align: middle;
   text-align: center;
   text-decoration: none;
@@ -130,13 +234,102 @@ $roundness: 8px;
   font-family: Onest, sans-serif;
   font-size: $font-size;
   font-weight: $font-weight;
-
-  @if $include-outline {
-    outline: 1px solid var(--color-button-group-border);
-  }
+  will-change: transform;
 
   &::before {
     display: none;
+  }
+
+  &:hover {
+    transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
+    transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
+    z-index: $z-raised;
+    outline-color: var(--color-button-group-border-hover);
+    box-shadow: $shadow-box-interactive-hover;
+  }
+
+  &:active {
+    transform: scale(
+      var(--links-active-scale-x, 1.01),
+      var(--links-active-scale-y, 1.01)
+    );
+    transition-delay: 0s;
+    z-index: $z-raised;
+    outline-color: var(--color-button-group-border-active);
+    box-shadow: $shadow-box-interactive-active;
+  }
+
+  @if $include-outline {
+    outline: $stroke-1 solid var(--color-button-group-border);
+    border: none;
+  }
+}
+
+@mixin grouped-controls-container($margin: $space-16, $justify-content: flex-start) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: $justify-content;
+  margin: $margin;
+}
+
+@mixin grouped-controls-corners(
+  $radius: var(--group-corner-radius, #{$roundness * 0.75})
+) {
+  > .group-corner-tl {
+    border-top-left-radius: $radius;
+  }
+
+  > .group-corner-tr {
+    border-top-right-radius: $radius;
+  }
+
+  > .group-corner-bl {
+    border-bottom-left-radius: $radius;
+  }
+
+  > .group-corner-br {
+    border-bottom-right-radius: $radius;
+  }
+}
+
+@mixin grouped-controls-corners-global-children(
+  $radius: var(--group-corner-radius, #{$roundness * 0.75})
+) {
+  > :global(.group-corner-tl) {
+    border-top-left-radius: $radius;
+  }
+
+  > :global(.group-corner-tr) {
+    border-top-right-radius: $radius;
+  }
+
+  > :global(.group-corner-bl) {
+    border-bottom-left-radius: $radius;
+  }
+
+  > :global(.group-corner-br) {
+    border-bottom-right-radius: $radius;
+  }
+}
+
+@mixin grouped-controls-corners-global(
+  $target-selector,
+  $radius: var(--group-corner-radius, #{$roundness * 0.75})
+) {
+  :global(.group-corner-tl)#{$target-selector} {
+    border-top-left-radius: $radius;
+  }
+
+  :global(.group-corner-tr)#{$target-selector} {
+    border-top-right-radius: $radius;
+  }
+
+  :global(.group-corner-bl)#{$target-selector} {
+    border-bottom-left-radius: $radius;
+  }
+
+  :global(.group-corner-br)#{$target-selector} {
+    border-bottom-right-radius: $radius;
   }
 }
 
@@ -144,18 +337,18 @@ $roundness: 8px;
   box-sizing: border-box;
   display: flex;
   position: relative;
-  gap: 8px;
+  gap: $space-8;
   align-items: center;
-  padding-block: 8px;
-  padding-inline: 12px;
+  padding-block: $space-8;
+  padding-inline: $space-12;
   vertical-align: middle;
 }
 
 @mixin link-card-icon-base {
+  @include fluid-icon-size(18px, 21px);
+
   fill: var(--color-surface-card-text);
   flex-shrink: 0;
-  width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
-  height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
   color: var(--color-surface-card-text);
 
   path {
@@ -177,9 +370,9 @@ $roundness: 8px;
 
 @mixin link-card-description-base {
   opacity: 0.7;
-  padding-block: 8px;
+  padding-block: $space-8;
   padding-block-start: 0;
-  padding-inline: 12px;
+  padding-inline: $space-12;
   vertical-align: middle;
   text-align: left;
   font-size: min(
