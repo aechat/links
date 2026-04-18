@@ -44,11 +44,18 @@
   }
 
   &-title {
+    @include fluid-inset(
+      padding-block,
+      $space-8,
+      $space-12,
+      padding-inline,
+      $space-8,
+      $space-8
+    );
+
     outline: $stroke-1 solid var(--color-surface-primary-border);
     border-radius: $roundness;
     background-color: var(--color-surface-primary-background);
-    padding-block: $space-8;
-    padding-inline: $space-16;
     text-transform: uppercase;
     line-height: 1.25;
     color: var(--color-surface-primary-text);
