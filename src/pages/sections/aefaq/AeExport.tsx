@@ -972,6 +972,15 @@ const AeExport: React.FC = () => {
             <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
+            Если вы используете английскую локализацию{" "}
+            <mark className="app">Adobe After Effects</mark> и экспортируете композицию с
+            выражениями, а <mark className="app">Adobe Media Encoder</mark> настроен на
+            русский язык интерфейса, выражения могут работать со сбоями из-за различий в
+            локализации. Обычно это исправляется сменой языка интерфейса{" "}
+            <mark className="app">Adobe Media Encoder</mark> или экспортом напрямую из{" "}
+            <mark className="app">Adobe After Effects</mark>.
+          </li>
+          <li>
             При экспорте в <mark className="app">Adobe Media Encoder</mark> вы вряд ли
             добьётесь стабильной работы функции{" "}
             <mark className="select">«Multi-Frame Rendering»</mark>, которая отлично
