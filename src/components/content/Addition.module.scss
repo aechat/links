@@ -24,6 +24,7 @@
     line-height: 1.6;
     font-size: $font-size-text-md;
     font-weight: 425;
+    user-select: text;
 
     > div {
       flex-grow: 1;
