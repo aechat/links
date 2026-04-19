@@ -32,7 +32,7 @@
   }
 
   .details-content-wrapper {
-    transition: max-height $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
     margin-block-start: -$space-16;
     max-height: 0;
     overflow: hidden;
@@ -281,7 +281,7 @@
   @include details-summary-base();
 
   &-icon {
-    transition: transform $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -372,7 +372,7 @@
 }
 
 .details-content-wrapper {
-  transition: max-height $duration-250 cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
   margin-block-start: -$space-16;
   max-height: 0;
   overflow: hidden;
