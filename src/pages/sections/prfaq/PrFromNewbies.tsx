@@ -2383,8 +2383,8 @@ const PrFromNewbies: React.FC = () => {
           </a>
         </div>
         <p>
-          К счастью, эти эффекты всё ещё можно восстановить в новых версиях{" "}
-          <mark className="app">Adobe Premiere</mark>. Для этого нужно скачать{" "}
+          Часть эффектов из этого списка всё ещё можно восстановить в некоторых новых
+          версиях <mark className="app">Adobe Premiere</mark>. Для этого нужно скачать{" "}
           <a
             download
             href="files/Obsolete Effects.prfpset"
@@ -2394,6 +2394,8 @@ const PrFromNewbies: React.FC = () => {
           и импортировать его в <mark className="app">Adobe Premiere</mark> в соответствии
           с{" "}
           <a href="#how-to-install">инструкцией по установке дополнительного контента</a>.
+          Если в пресетах нужного эффекта не оказалось — воспользуйтесь аналогами,
+          приведённые в рекомендациях на форуме <mark className="company">Adobe</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
