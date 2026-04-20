@@ -43,8 +43,11 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     setSelectedResultIndex,
   } = useSearchLogic(query, isPageLoaded);
 
-  const {handleQueryChange, isResultsProcessed, isSearching, resetSearchState} =
-    useSearchViewState(isPageLoaded, results.length, setQuery);
+  const {handleQueryChange, isSearching, resetSearchState} = useSearchViewState(
+    isPageLoaded,
+    results.length,
+    setQuery
+  );
 
   const handleLinkClick = useSearchLinkNavigation(closeModal);
 
@@ -91,7 +94,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       };
     }
 
-    if (query.trim() !== "" && results.length === 0 && isResultsProcessed) {
+    if (query.trim() !== "" && results.length === 0 && resultsQuery === query) {
       return {
         content: <NoResults query={query} />,
         isScrollableContent: true,
