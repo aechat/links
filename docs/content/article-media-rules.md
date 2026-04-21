@@ -24,6 +24,25 @@
 
 - Добавляйте понятный `caption`, объясняющий, что именно показано.
 - Для YouTube давайте только релевантные ролики и проверяйте, что id корректный.
+- Для новых локальных медиа используйте структуру `program/topic`, например:
+  - `after-effects/export/...`
+  - `premiere/import/...`
+  - `photoshop/interface/...`
+  - `shared/system/...`
+- Для внешних инструментов используйте структуру `tools/<tool>/<topic>`, например:
+  - `tools/shutter-encoder/convert/...`
+  - `tools/subtitle-edit/troubleshooting/...`
+- Старые пути `legacy/...` сохраняются для совместимости, но новые файлы кладите в новую структуру.
+
+## Правила именования файлов
+
+- Именуйте новые медиа-файлы в `kebab-case`: только `a-z`, `0-9` и `-`.
+- Не используйте кириллицу, пробелы и спецсимволы в именах файлов.
+- Не смешивайте `snake_case` и `kebab-case`; для новых файлов используйте только `kebab-case`.
+- Имя файла должно быть смысловым и кратким: действие + контекст, например `change-render-settings.png`.
+- Внутри `program/topic` и `tools/<tool>/topic` не дублируйте название программы или инструмента в имени файла.
+- Если файл потенциально общий для нескольких программ, добавляйте короткий контекстный префикс: `ae-`, `pr-`, `ps-`, `tool-`.
+- `legacy` не переименовывается и не нормализуется задним числом.
 
 ## Чеклист
 
@@ -58,5 +77,17 @@ import {ArticleMedia} from "../../../components/content/ArticleMedia";
 <ArticleMedia
   src="dQw4w9WgXcQ"
   type="youtube"
+/>;
+
+<ArticleMedia
+  caption="Настройки экспорта в Premiere"
+  src="premiere/export/export-settings.png"
+  type="image"
+/>;
+
+<ArticleMedia
+  caption="Конвертация в Shutter Encoder"
+  src="tools/shutter-encoder/convert/select-vp9.png"
+  type="image"
 />;
 ```
