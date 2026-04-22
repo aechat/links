@@ -1913,9 +1913,9 @@ const AeFromNewbies: React.FC = () => {
                 использовать сразу для нескольких слоёв композиции.
               </p>
               <Addition type="info">
-                Дополнительную информацию об этом обновлении можно{" "}
+                Дополнительную информацию об этом обновлении можно прочитать на{" "}
                 <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
-                  прочитать на сайте Adobe
+                  сайте Adobe
                 </a>
                 .
               </Addition>
