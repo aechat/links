@@ -2365,6 +2365,42 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="mask-update"
+        tag="redesigned mask, куда делись маски"
+        title="Что произошло с масками в новых версиях программы?"
+      >
+        <p>
+          Начиная с <mark className="app">Adobe Premiere</mark>{" "}
+          <mark className="version">26.0 (2026)</mark>, разработчики переработали
+          инструменты для создания и редактирования масок. Теперь, чтобы создать маску для
+          клипа, нужно выделить его на таймлайне, выбрать{" "}
+          <mark className="select">«Object Mask Tool»</mark>,{" "}
+          <mark className="select">«Ellipse Mask Tool»</mark>,{" "}
+          <mark className="select">«Rectangle Mask Tool»</mark> или{" "}
+          <mark className="select">«Pen Mask Tool»</mark> в панели инструментов и начать
+          рисовать в предпросмотре. В предыдущих версиях для этого нужно было переходить в{" "}
+          <mark className="select">«Effect Controls»</mark> и уже оттуда создавать и
+          редактировать маски для конкретных эффектов.
+        </p>
+        <p>
+          Если вы хотите применить маску к конкретному эффекту, перенесите её из раздела{" "}
+          <mark className="select">«Unassigned Masks»</mark> на нужный эффект. Чтобы
+          обрезать клип маской, перенесите её на <mark className="select">«Opacity»</mark>
+          .
+        </p>
+        <Addition type="info">
+          Дополнительную информацию об этом обновлении можно прочитать на{" "}
+          <a href="https://helpx.adobe.com/premiere/desktop/add-video-effects/create-masks-and-composites/rectangle-ellipse-and-pen-masks.html">
+            сайте Adobe
+          </a>
+          .
+        </Addition>
+        <ArticleMedia
+          src="RF5IH7W09tk"
+          type="youtube"
+        />
+      </DetailsSummary>
+      <DetailsSummary
         anchor="missing-obsolete-effects"
         tag="вернуть устаревшие эффекты, восстановить встроенные пресеты"
         title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
