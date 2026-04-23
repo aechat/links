@@ -439,6 +439,9 @@ const GroupedCornersManager = ({pathKey}: GroupedCornersManagerProperties) => {
     const mutationObserver = new MutationObserver(scheduleUpdate);
 
     mutationObserver.observe(document.body, {
+      attributeFilter: ["class", "style", "disabled", "aria-pressed"],
+      attributes: true,
+      characterData: true,
       childList: true,
       subtree: true,
     });
