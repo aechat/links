@@ -38,20 +38,8 @@
     }
   }
 
-  &-button {
-    &-group {
-      display: flex;
-      gap: $space-8;
-    }
-
-    &-reset {
-      flex-grow: 1;
-      filter: saturate(0);
-    }
-
-    &-action {
-      flex-grow: 3;
-    }
+  &-reset-desaturated {
+    filter: saturate(0);
   }
 
   &-precision {

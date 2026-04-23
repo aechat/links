@@ -215,15 +215,15 @@ const JsonToTgsConverter: React.FC = () => {
         )}
       </p>
       {jsonData && typeof jsonData === "object" && (
-        <div className={styles["converter-button-group"]}>
+        <div className={`${modalStyles["modal-controls-group"]}`}>
           <button
-            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-reset"]}`}
+            className={`${modalStyles["modal-controls-option"]} ${styles["converter-reset-desaturated"]}`}
             onClick={handleReset}
           >
             Сбросить
           </button>
           <button
-            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
+            className={`${modalStyles["modal-controls-option"]} ${styles["converter-button-action"]}`}
             disabled={isLoading}
             onClick={handleDownload}
           >
