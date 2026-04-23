@@ -175,8 +175,15 @@
     }
 
     :global(.flexible-links) {
+      @include fluid-size(margin-inline, $space-12, $space-16);
+
       margin-block: $space-12;
-      margin-inline: 0;
+    }
+
+    pre {
+      @include fluid-size(margin-inline, $space-12, $space-16);
+
+      margin-block: $space-12;
     }
 
     :global([class*="_change-os_"]) {
