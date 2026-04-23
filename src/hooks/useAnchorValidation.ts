@@ -16,12 +16,42 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
   useEffect(() => {
     if (!isPageLoaded) return;
 
+    let alignByFramesRequestId: number | undefined;
+
+    let alignSecondFrameRequestId: number | undefined;
+
+    let alignFallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    let pendingAnchorId = "";
+
+    const alignToPendingAnchor = () => {
+      if (!pendingAnchorId) {
+        return;
+      }
+
+      scrollToAnchorById(pendingAnchorId, {updateHash: false});
+    };
+
+    const scheduleSecondFrameAlign = () => {
+      alignSecondFrameRequestId = requestAnimationFrame(alignToPendingAnchor);
+    };
+
+    const alignAnchorAfterLayoutStabilization = (anchorId: string) => {
+      pendingAnchorId = anchorId;
+
+      alignByFramesRequestId = requestAnimationFrame(scheduleSecondFrameAlign);
+
+      alignFallbackTimeout = setTimeout(alignToPendingAnchor, 450);
+    };
+
     const validateAnchors = () => {
       const currentAnchor = hash.slice(1);
 
       if (!currentAnchor) return;
 
       if (resolveDetailsByAnchor(currentAnchor)) {
+        alignAnchorAfterLayoutStabilization(currentAnchor);
+
         return;
       }
 
@@ -50,6 +80,20 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
 
     const validationTimeout = setTimeout(validateAnchors, 1000);
 
-    return () => clearTimeout(validationTimeout);
+    return () => {
+      clearTimeout(validationTimeout);
+
+      if (alignByFramesRequestId !== undefined) {
+        cancelAnimationFrame(alignByFramesRequestId);
+      }
+
+      if (alignSecondFrameRequestId !== undefined) {
+        cancelAnimationFrame(alignSecondFrameRequestId);
+      }
+
+      if (alignFallbackTimeout !== undefined) {
+        clearTimeout(alignFallbackTimeout);
+      }
+    };
   }, [hash, sections, isPageLoaded]);
 };
