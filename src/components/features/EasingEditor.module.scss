@@ -250,3 +250,7 @@
 .fps-warning {
   color: var(--color-status-warning-text);
 }
+
+.reset-desaturated {
+  filter: saturate(0);
+}
