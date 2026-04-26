@@ -682,7 +682,18 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
             ref={innerContentReference}
             className={styles["details-nested-section"]}
           >
-            {children}
+            {React.Children.count(children) === 0 ? (
+              <div className="article-placeholder">
+                <p>
+                  Эта вложенная статья пока пустая: либо я ещё не дошёл до её написания,
+                  либо написал такую дичь, что пришлось всё скрыть и отправить на
+                  переделку.
+                </p>
+                <p>Следите за обновлениями.</p>
+              </div>
+            ) : (
+              children
+            )}
           </section>
         </div>
       </details>
