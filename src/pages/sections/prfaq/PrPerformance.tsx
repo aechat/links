@@ -51,7 +51,38 @@ const PrPerformance: React.FC = () => {
         tag="mercury gpu acceleration, software rendering only, рендеринг на процессоре"
         title="Как переключить тип рендеринга и зачем это нужно делать?"
       ></DetailsSummary>
-      <DetailsSummary title="Что у меня постоянно обрабатывается в фоне после импорта исходников или как отключить «Media Intelligence Analysis»?"></DetailsSummary>
+      <DetailsSummary
+        tag="анализ медиа"
+        title="Что у меня постоянно обрабатывается в фоне после импорта исходников или как отключить «Media Intelligence Analysis»?"
+      >
+        <p>
+          Начиная с <mark className="app">Adobe Premiere Pro</mark>{" "}
+          <mark className="version">25.6</mark> в программу был добавлен функционал поиска
+          футажей и аудио на основе машинного обучения. Всё бы хорошо, но при открытии
+          большого проекта <mark className="plugin">Media Intelligence</mark> начинает
+          анализировать все исходники, и это может занять довольно продолжительное время.
+          Кроме того, во время анализа и после импорта материалов функция заметно
+          нагружает систему.
+        </p>
+        <p>
+          Чтобы отключить этот анализ, перейдите в{" "}
+          <mark className="select">
+            «Edit» → «Preferences» → «Media Analysis & Transcription»
+          </mark>{" "}
+          и снимите чекбокс напротив параметра{" "}
+          <mark className="select">
+            «Analyze all imported media to search for visuals or audio»
+          </mark>
+          . При необходимости можно отключить и кэширование результатов, установив для{" "}
+          <mark className="select">«Cache analysis results for re-use»</mark> значение{" "}
+          <mark className="select">«Do not use»</mark>.
+        </p>
+        <ArticleMedia
+          caption="Отключаем анализ медиа"
+          src="legacy/premierepro/disable_media_intelligence.png"
+          type="image"
+        />
+      </DetailsSummary>
       <DetailsSummary
         anchor="configure-swapfile"
         tag="файл подкачки, виртуальная память, swapfile, paging file, virtual memory"
