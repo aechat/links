@@ -505,6 +505,33 @@ const hasTableInContent = (contentHtml: string): boolean => {
   return contentHtml.includes("<table");
 };
 
+const HOVER_GROWTH_PX = 6;
+
+const ACTIVE_GROWTH_PX = 3;
+
+const getScaleValue = (dimension: number, growthPx: number): number => {
+  const safeDimension = Math.max(dimension, 1);
+
+  return (safeDimension + growthPx) / safeDimension;
+};
+
+const applySearchResultScaleVariables = (element: HTMLButtonElement): void => {
+  const width = element.offsetWidth;
+
+  const height = element.offsetHeight;
+
+  const baseDimension = Math.max(width, height);
+
+  const hoverScale = getScaleValue(baseDimension, HOVER_GROWTH_PX);
+
+  const activeScale = getScaleValue(baseDimension, ACTIVE_GROWTH_PX);
+
+  element.style.setProperty("--links-hover-scale-x", hoverScale.toFixed(6));
+  element.style.setProperty("--links-hover-scale-y", hoverScale.toFixed(6));
+  element.style.setProperty("--links-active-scale-x", activeScale.toFixed(6));
+  element.style.setProperty("--links-active-scale-y", activeScale.toFixed(6));
+};
+
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
   query: string;
@@ -783,6 +810,43 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       globalThis.removeEventListener("resize", handleResize);
     };
   }, [checkResultOverflow, isSingleColumnLayout]);
+
+  useEffect(() => {
+    const updateResultScales = () => {
+      for (const resultElement of resultRefs.current ?? []) {
+        if (!resultElement) {
+          continue;
+        }
+
+        applySearchResultScaleVariables(resultElement);
+      }
+    };
+
+    const rafId = globalThis.requestAnimationFrame(updateResultScales);
+
+    const observer =
+      "ResizeObserver" in globalThis
+        ? new ResizeObserver(() => {
+            updateResultScales();
+          })
+        : undefined;
+
+    for (const resultElement of resultRefs.current ?? []) {
+      if (!resultElement) {
+        continue;
+      }
+
+      observer?.observe(resultElement);
+    }
+
+    globalThis.addEventListener("resize", updateResultScales);
+
+    return () => {
+      globalThis.cancelAnimationFrame(rafId);
+      observer?.disconnect();
+      globalThis.removeEventListener("resize", updateResultScales);
+    };
+  }, [isSingleColumnLayout, resultRefs, results]);
 
   useEffect(() => {
     if (
