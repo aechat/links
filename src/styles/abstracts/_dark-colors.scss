@@ -178,12 +178,20 @@ $dark-theme-map: (
         background: var(--color-surface-primary-background),
         background-hover: hsl(var(--accent-hue) calc(16% * var(--saturate-ratio)) 12%),
         background-active: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 15%),
-        selected-border: var(--color-accent),
-        selected-border-hover: hsl(
-            var(--accent-hue) calc(100% * var(--saturate-ratio)) 80%
+        selected-border: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 40%),
+        selected-border-hover: color-mix(
+            in hsl,
+            var(--color-search-header-selected-border)
+              calc(100% - var(--color-interaction-primary-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-hover-shift)
           ),
-        selected-border-active: hsl(
-            var(--accent-hue) calc(100% * var(--saturate-ratio)) 86%
+        selected-border-active: color-mix(
+            in hsl,
+            var(--color-search-header-selected-border)
+              calc(100% - var(--color-interaction-primary-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-active-shift)
           ),
         selected-background: hsl(var(--accent-hue) calc(17% * var(--saturate-ratio)) 13%),
         selected-hover: hsl(var(--accent-hue) calc(21% * var(--saturate-ratio)) 16%),
@@ -196,12 +204,20 @@ $dark-theme-map: (
         background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 7%),
         background-hover: hsl(var(--accent-hue) calc(12% * var(--saturate-ratio)) 9%),
         background-active: hsl(var(--accent-hue) calc(14% * var(--saturate-ratio)) 11%),
-        selected-border: var(--color-border-primary),
-        selected-border-hover: hsl(
-            var(--accent-hue) calc(14% * var(--saturate-ratio)) 26%
+        selected-border: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 20%),
+        selected-border-hover: color-mix(
+            in hsl,
+            var(--color-search-content-selected-border)
+              calc(100% - var(--color-interaction-neutral-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-neutral-hover-shift)
           ),
-        selected-border-active: hsl(
-            var(--accent-hue) calc(18% * var(--saturate-ratio)) 32%
+        selected-border-active: color-mix(
+            in hsl,
+            var(--color-search-content-selected-border)
+              calc(100% - var(--color-interaction-neutral-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-neutral-active-shift)
           ),
         selected-background: hsl(var(--accent-hue) calc(13% * var(--saturate-ratio)) 10%),
         selected-hover: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 12%),

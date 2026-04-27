@@ -73,14 +73,6 @@ yarn format
 - Для группировки используйте паттерн вложенности (`&-*`) по аналогии с существующими блоками в проекте.
 - Пример: вместо отдельных `.chat-rules-container`, `.chat-rules-muted`, `.chat-rules-list-compact` предпочтителен единый блок `.chat-rules { &-container { ... } &-muted { ... } &-list-compact { ... } }`.
 
-### Исключение для SearchEngine
-
-- Блок `search` в `src/styles/abstracts/_light-colors.scss` и `src/styles/abstracts/_dark-colors.scss` использует отдельные фиксированные `hsl(...)`-токены для `header/content` и их `hover/active/selected`-состояний.
-- Для `search` не применяйте `color-mix(...)`/миксин-вычисления в токенах состояний: палитра задается явно, чтобы упростить визуальный тюнинг и дебаг.
-- `header` должен оставаться светлее `content` в обеих темах.
-- Для `selected` контрастный акцентный бордер хранится у `header` (`--color-search-header-selected-border`), у `content` используется нейтральный бордер (`--color-search-content-selected-border`).
-- В компоненте `src/components/features/searchEngine/SearchEngine.module.scss` состояния `hover/active/selected-hover/selected-active` должны менять `header` и `content` раздельно через соответствующие токены `--color-search-header-*` и `--color-search-content-*`.
-
 ## Импорты и структура файла
 
 Используйте порядок, принятый в `src/pages/sections/**/*.tsx`:
