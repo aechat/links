@@ -424,7 +424,6 @@
   padding: $space-8;
   max-width: 100%;
   font-weight: 500;
-  will-change: transform;
 
   &:hover {
     transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));

@@ -59,7 +59,6 @@
     font-size: 1.35em;
     font-weight: 500;
     font-style: italic;
-    will-change: transform;
   }
 
   &-tagline-wrapper {
@@ -75,7 +74,6 @@
       tracking-slide $duration-1000 cubic-bezier(0, 0.75, 0.25, 1) $duration-500 forwards,
       tracking-loop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: $duration-500, calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
-    will-change: transform;
   }
 
   &-letter {
@@ -87,7 +85,6 @@
       smooth-loop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay:
       var(--intro-delay, 0s), calc(var(--loop-start, 1.5s) + var(--loop-phase, 0s));
-    will-change: transform;
   }
 }
 

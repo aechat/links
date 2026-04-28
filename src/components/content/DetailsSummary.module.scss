@@ -287,6 +287,8 @@
 
 :global(html:not(.no-spoiler-hover-effects)) {
   .details-summary {
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1);
     transform-origin: center center;
     transition:
       margin $duration-500 cubic-bezier(0.2, 0.65, 0.25, 1),
@@ -296,23 +298,25 @@
       border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
     box-shadow: $shadow-box-interactive-base;
-    will-change: transform;
   }
 
   .details-summary-root:not(.is-open, [open]) .details-summary {
     &:hover,
     &:active {
-      transform: scale(1.01);
       margin-block: $space-4;
       border-radius: $roundness;
     }
 
     &:hover {
+      transform: scale(1.01);
+      transition-delay:
+        $duration-250, $duration-250, $duration-250, 0s, $duration-250, $duration-250;
       box-shadow: $shadow-box-interactive-hover;
     }
 
     &:active {
       transform: scale(1.005);
+      transition-delay: 0s;
       box-shadow: $shadow-box-interactive-active;
     }
   }
