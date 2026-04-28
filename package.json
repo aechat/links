@@ -82,9 +82,9 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "yarn eslint --fix",
-    "*.scss": "yarn stylelint --fix",
-    "*.{ts,tsx,js,jsx,json,md,html,scss,css}": "yarn prettier --write"
+    "*.{ts,tsx,js,jsx}": "eslint --fix",
+    "*.scss": "stylelint --fix",
+    "*.{ts,tsx,js,jsx,json,md,html,scss,css}": "prettier --write"
   },
   "packageManager": "yarn@4.14.1"
 }
