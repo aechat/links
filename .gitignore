@@ -29,7 +29,8 @@ qodana.yaml
 *.md
 !README.md
 !AGENTS.md
-.yarn*
+.yarn/*
+!.yarn/releases
 pnpm*.yaml
 .pnp*
 .aider*

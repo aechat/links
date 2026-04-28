@@ -30,7 +30,6 @@
   font-family: Onest, sans-serif;
   font-size: $font-size-text-base;
   font-weight: 500;
-  will-change: transform;
   text-wrap: wrap;
 
   &:hover {
@@ -167,7 +166,6 @@
       box-shadow $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
       transform $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
     width: 100%;
-    will-change: transform;
 
     &:hover {
       transform: scale(

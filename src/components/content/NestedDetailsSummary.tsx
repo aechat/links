@@ -77,6 +77,16 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const isOpenReference = useRef(isOpen);
 
+  const shouldScrollAfterOpenReference = useRef(false);
+
+  const lastExpandedHeightReference = useRef(0);
+
+  const isClosingAnimationReference = useRef(false);
+
+  const shouldDelayNextScrollReference = useRef(false);
+
+  const shouldDelayClickScrollReference = useRef(false);
+
   const ripple = useRipple<HTMLElement>({haptic: false});
 
   const detailsReference = useRef<HTMLDetailsElement>(null);
@@ -89,9 +99,33 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     undefined
   );
 
+  const getExpandedHeight = useCallback(() => {
+    const measuredWrapperHeight =
+      contentWrapperReference.current?.getBoundingClientRect().height ?? 0;
+
+    const measuredInnerHeight = innerContentReference.current?.scrollHeight ?? 0;
+
+    return Math.max(
+      lastExpandedHeightReference.current,
+      measuredWrapperHeight,
+      measuredInnerHeight,
+      1
+    );
+  }, []);
+
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    setIsOpen(!isOpen);
+
+    const nextIsOpen = !isOpen;
+
+    if (nextIsOpen) {
+      shouldDelayClickScrollReference.current = true;
+    } else {
+      lastExpandedHeightReference.current = getExpandedHeight();
+    }
+
+    isOpenReference.current = nextIsOpen;
+    setIsOpen(nextIsOpen);
   };
 
   const updateUrlHash = useCallback((hash: string) => {
@@ -209,7 +243,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     }
   }, [anchor]);
 
-  const doScroll = useCallback(() => {
+  const scrollToSummary = useCallback(() => {
     const summary = detailsReference.current?.querySelector(
       `.${styles["details-nested-summary"]}`
     );
@@ -217,9 +251,17 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     if (summary) {
       clearTimeout(scrollTimeoutReference.current);
 
+      const shouldDelay =
+        shouldDelayClickScrollReference.current || shouldDelayNextScrollReference.current;
+
+      const delay = shouldDelay ? constants.ACTION_DELAY : 0;
+
+      shouldDelayNextScrollReference.current = false;
+      shouldDelayClickScrollReference.current = false;
+
       scrollTimeoutReference.current = setTimeout(() => {
         scrollToElement(summary);
-      }, constants.ACTION_DELAY);
+      }, delay);
     }
   }, []);
 
@@ -244,9 +286,16 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     const justOpened = isOpen && !previousIsOpen;
 
     if (justOpened) {
-      doScroll();
+      if (shouldDelayClickScrollReference.current) {
+        shouldScrollAfterOpenReference.current = false;
+        scrollToSummary();
+
+        return;
+      }
+
+      shouldScrollAfterOpenReference.current = true;
     }
-  }, [isOpen, previousIsOpen, doScroll]);
+  }, [isOpen, previousIsOpen, scrollToSummary]);
 
   useEffect(() => {
     if (globalThis.window === undefined || !displayAnchorId) {
@@ -292,8 +341,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
       if (summaryElement && resolvedSummaryId === id) {
         if (isOpenReference.current) {
-          doScroll();
+          shouldDelayNextScrollReference.current = true;
+          scrollToSummary();
         } else {
+          shouldScrollAfterOpenReference.current = true;
+          shouldDelayNextScrollReference.current = true;
+          isOpenReference.current = true;
           setIsOpen(true);
         }
       }
@@ -302,7 +355,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     globalThis.addEventListener("open-spoiler-by-id", handleOpenEvent);
 
     return () => globalThis.removeEventListener("open-spoiler-by-id", handleOpenEvent);
-  }, [assignFallbackSummaryId, doScroll]);
+  }, [assignFallbackSummaryId, scrollToSummary]);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -370,13 +423,25 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     let transitionAnimationFrame: number | undefined;
 
+    let openFallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+
     let closeFallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    const flushPendingScroll = () => {
+      if (!shouldScrollAfterOpenReference.current) {
+        return;
+      }
+
+      shouldScrollAfterOpenReference.current = false;
+      scrollToSummary();
+    };
 
     const updateOpenHeight = (attempt = 0) => {
       const targetHeight = innerContent.scrollHeight;
 
       if (targetHeight > 0 || attempt >= 40) {
         contentWrapper.style.maxHeight = `${targetHeight}px`;
+        lastExpandedHeightReference.current = targetHeight;
 
         return;
       }
@@ -391,10 +456,23 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         return;
       }
 
+      if (isClosingAnimationReference.current && isOpen) {
+        return;
+      }
+
       if (isOpen) {
+        isClosingAnimationReference.current = false;
+        lastExpandedHeightReference.current = innerContent.scrollHeight;
         contentWrapper.style.maxHeight = "none";
+        flushPendingScroll();
       } else {
+        isClosingAnimationReference.current = false;
         details.open = false;
+      }
+
+      if (openFallbackTimeout) {
+        clearTimeout(openFallbackTimeout);
+        openFallbackTimeout = undefined;
       }
     };
 
@@ -405,9 +483,14 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         return;
       }
 
-      if (contentWrapper.style.maxHeight !== "none") {
-        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      if (contentWrapper.style.maxHeight === "none") {
+        return;
       }
+
+      const measuredHeight = innerContent.scrollHeight;
+
+      contentWrapper.style.maxHeight = `${measuredHeight}px`;
+      lastExpandedHeightReference.current = measuredHeight;
     });
 
     resizeObserver.observe(innerContent);
@@ -417,14 +500,26 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         return;
       }
 
-      if (contentWrapper.style.maxHeight !== "none") {
-        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      if (contentWrapper.style.maxHeight === "none") {
+        return;
       }
+
+      const measuredHeight = innerContent.scrollHeight;
+
+      contentWrapper.style.maxHeight = `${measuredHeight}px`;
+      lastExpandedHeightReference.current = measuredHeight;
     };
 
     window.addEventListener("resize", onWindowResize);
 
+    const duration = Number.parseFloat(
+      getComputedStyle(contentWrapper).transitionDuration
+    );
+
+    const durationMs = Number.isNaN(duration) ? 350 : duration * 1000;
+
     if (isOpen) {
+      isClosingAnimationReference.current = false;
       details.open = true;
 
       const currentHeight = contentWrapper.getBoundingClientRect().height;
@@ -434,23 +529,26 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       transitionAnimationFrame = requestAnimationFrame(() => {
         updateOpenHeight();
       });
+
+      openFallbackTimeout = setTimeout(() => {
+        if (!isOpenReference.current) {
+          return;
+        }
+
+        contentWrapper.style.maxHeight = "none";
+        flushPendingScroll();
+      }, durationMs + 60);
     } else {
-      const currentHeight =
-        contentWrapper.style.maxHeight === "none"
-          ? innerContent.scrollHeight
-          : contentWrapper.getBoundingClientRect().height;
+      isClosingAnimationReference.current = true;
+
+      const currentHeight = getExpandedHeight();
 
       contentWrapper.style.maxHeight = `${currentHeight}px`;
+      contentWrapper.getBoundingClientRect();
 
       transitionAnimationFrame = requestAnimationFrame(() => {
         contentWrapper.style.maxHeight = "0px";
       });
-
-      const duration = Number.parseFloat(
-        getComputedStyle(contentWrapper).transitionDuration
-      );
-
-      const durationMs = Number.isNaN(duration) ? 350 : duration * 1000;
 
       closeFallbackTimeout = setTimeout(() => {
         if (!isOpen) {
@@ -468,6 +566,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         cancelAnimationFrame(transitionAnimationFrame);
       }
 
+      if (openFallbackTimeout) {
+        clearTimeout(openFallbackTimeout);
+      }
+
       if (closeFallbackTimeout) {
         clearTimeout(closeFallbackTimeout);
       }
@@ -476,7 +578,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       window.removeEventListener("resize", onWindowResize);
       contentWrapper.removeEventListener("transitionend", onTransitionEnd);
     };
-  }, [isOpen, isParentOpen]);
+  }, [getExpandedHeight, isOpen, isParentOpen, scrollToSummary]);
 
   useEffect(() => {
     const summaryElement = detailsReference.current?.querySelector<HTMLElement>(
@@ -580,7 +682,18 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
             ref={innerContentReference}
             className={styles["details-nested-section"]}
           >
-            {children}
+            {React.Children.count(children) === 0 ? (
+              <div className="article-placeholder">
+                <p>
+                  Эта вложенная статья пока пустая: либо я ещё не дошёл до её написания,
+                  либо написал такую дичь, что пришлось всё скрыть и отправить на
+                  переделку.
+                </p>
+                <p>Следите за обновлениями.</p>
+              </div>
+            ) : (
+              children
+            )}
           </section>
         </div>
       </details>

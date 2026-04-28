@@ -22,7 +22,6 @@
   background-color: var(--color-surface-card-background);
   width: 100%;
   min-width: 170px;
-  will-change: transform;
 
   &:hover {
     transform: scale(var(--links-hover-scale-x), var(--links-hover-scale-y));

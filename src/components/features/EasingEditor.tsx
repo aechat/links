@@ -899,6 +899,7 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
           <button
+            className={styles["reset-desaturated"]}
             onClick={() => {
               triggerHaptic("soft");
               handleResetAnimation();
