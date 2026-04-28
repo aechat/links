@@ -86,5 +86,5 @@
     "*.scss": "yarn stylelint --fix",
     "*.{ts,tsx,js,jsx,json,md,html,scss,css}": "yarn prettier --write"
   },
-  "packageManager": "yarn@4.13.0"
+  "packageManager": "yarn@4.14.1"
 }
