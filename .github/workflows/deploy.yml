@@ -37,8 +37,8 @@ jobs:
       - name: Enable corepack
         run: corepack enable
 
-      - name: Use Yarn 4.13.0 via corepack
-        run: corepack prepare yarn@4.13.0 --activate
+      - name: Use Yarn 4.14.1 via corepack
+        run: corepack prepare yarn@4.14.1 --activate
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -47,7 +47,7 @@ jobs:
         run: yarn build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist/client
 
@@ -61,4 +61,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
