@@ -1,5 +1,4 @@
 import React, {lazy, Suspense, useEffect, useRef, useState} from "react";
-import {MetrikaCounter} from "react-metrika";
 
 import {ConfigProvider, message, Modal} from "antd";
 import {AnimatePresence} from "framer-motion";
@@ -577,16 +576,6 @@ const AppContent = () => {
     <ConfigProvider theme={getAntTheme(isDarkMode, accentHue, saturateRatio)}>
       <GroupedCornersManager pathKey={location.pathname} />
       <SnowfallManager />
-      <MetrikaCounter
-        id={96_346_999}
-        options={{
-          accurateTrackBounce: true,
-          clickmap: true,
-          trackHash: true,
-          trackLinks: true,
-          webvisor: true,
-        }}
-      />
       <ErrorBoundary onError={setBoundaryError}>
         <SafariWarningModal
           open={isSafariWarningOpen}
