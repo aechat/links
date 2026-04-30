@@ -26,7 +26,7 @@ interface ThemeToggleButtonProperties {
 export const ThemeToggleButton: React.FC<ThemeToggleButtonProperties>;
 ```
 
-`ThemeContextProperties` включает текущую тему, акцентный оттенок, насыщенность, ширину контента, флаги анимаций, переключатель вибрации и методы их изменения.
+`ThemeContextProperties` включает текущую тему, акцентный оттенок, насыщенность, флаги анимаций, переключатель вибрации и методы их изменения.
 
 ## Примеры из проекта
 
@@ -54,8 +54,9 @@ import {ThemeToggleButton} from "../modals/ThemeChanger";
 
 ## Технические особенности
 
-- настройки сохраняются в `localStorage` (`theme`, `accentHue`, `saturateRatio`, `maxWidth`, флаги анимаций, `isVibrationEnabled`);
+- настройки сохраняются в `localStorage` (`theme`, `accentHue`, `saturateRatio`, флаги анимаций, `isVibrationEnabled`);
 - `ThemeProvider` пишет CSS-переменные в `document.documentElement` и переключает классы темы (`dark` / `light`);
+- общий флаг `isHoverScaleAnimationEnabled` отключает scale-увеличение элементов на `:hover` и `:active` через класс `html.no-hover-scale-animation`;
 - переключатель вибрации показывается только на мобильных устройствах;
 - переключатель анимации снега доступен только зимой (декабрь, январь, февраль);
 - часть опций отображается только на определённых страницах (`/aefaq`, `/prfaq`, `/psfaq`, `/aeexpr`, `/rules`).

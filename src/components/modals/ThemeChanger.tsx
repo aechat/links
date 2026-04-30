@@ -31,15 +31,15 @@ type Theme = "light" | "dark" | "system";
 
 interface ThemeContextProperties {
   accentHue: number;
+  isHoverScaleAnimationEnabled: boolean;
   isSnowfallEnabled: boolean;
   isSpoilerAnimationEnabled: boolean;
-  isSpoilerHoverAnimationEnabled: boolean;
   isVibrationEnabled: boolean;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
+  setIsHoverScaleAnimationEnabled: (enabled: boolean) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
   setIsSpoilerAnimationEnabled: (enabled: boolean) => void;
-  setIsSpoilerHoverAnimationEnabled: (enabled: boolean) => void;
   setIsVibrationEnabled: (enabled: boolean) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
@@ -80,7 +80,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const [isSpoilerAnimationEnabledState, setIsSpoilerAnimationEnabledState] =
     useState<boolean>(true);
 
-  const [isSpoilerHoverAnimationEnabledState, setIsSpoilerHoverAnimationEnabledState] =
+  const [isHoverScaleAnimationEnabledState, setIsHoverScaleAnimationEnabledState] =
     useState<boolean>(true);
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
@@ -108,8 +108,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       true
     );
 
-    const resolvedSpoilerHoverAnimationEnabled = getStoredBooleanWithDefault(
-      "isSpoilerHoverAnimationEnabled",
+    const resolvedHoverScaleAnimationEnabled = getStoredBooleanWithDefault(
+      "isHoverScaleAnimationEnabled",
       !isMobileDevice() && !isWebKitBrowser()
     );
 
@@ -125,7 +125,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     setAccentHueState(savedAccentHue);
     setSaturateRatioState(savedSaturateRatio);
     setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
-    setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
+    setIsHoverScaleAnimationEnabledState(resolvedHoverScaleAnimationEnabled);
     setIsSnowfallEnabled(resolvedSnowfallEnabled);
 
     if (hasVibrationSupport) {
@@ -169,11 +169,11 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
-  const setIsSpoilerHoverAnimationEnabled = (enabled: boolean) => {
-    setIsSpoilerHoverAnimationEnabledState(enabled);
+  const setIsHoverScaleAnimationEnabled = (enabled: boolean) => {
+    setIsHoverScaleAnimationEnabledState(enabled);
 
     if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isSpoilerHoverAnimationEnabled", enabled.toString());
+      localStorage.setItem("isHoverScaleAnimationEnabled", enabled.toString());
     }
   };
 
@@ -208,11 +208,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.classList.toggle("no-spoiler-animation", !isSpoilerAnimationEnabledState);
-
-    root.classList.toggle(
-      "no-spoiler-hover-effects",
-      !isSpoilerHoverAnimationEnabledState
-    );
+    root.classList.toggle("no-hover-scale-animation", !isHoverScaleAnimationEnabledState);
 
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -230,7 +226,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       accentHueState,
       saturateRatioState,
       isSpoilerAnimationEnabledState,
-      isSpoilerHoverAnimationEnabledState,
+      isHoverScaleAnimationEnabledState,
     ]
   );
 
@@ -251,15 +247,15 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const contextValue = useMemo(
     () => ({
       accentHue: accentHueState,
+      isHoverScaleAnimationEnabled: isHoverScaleAnimationEnabledState,
       isSnowfallEnabled: isSnowfallEnabled,
       isSpoilerAnimationEnabled: isSpoilerAnimationEnabledState,
-      isSpoilerHoverAnimationEnabled: isSpoilerHoverAnimationEnabledState,
       isVibrationEnabled: isVibrationEnabledState,
       saturateRatio: saturateRatioState,
       setAccentHue,
+      setIsHoverScaleAnimationEnabled,
       setIsSnowfallEnabled: setSnowfallEnabled,
       setIsSpoilerAnimationEnabled,
-      setIsSpoilerHoverAnimationEnabled,
       setIsVibrationEnabled: setVibrationEnabled,
       setSaturateRatio,
       setTheme,
@@ -270,7 +266,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       accentHueState,
       saturateRatioState,
       isSpoilerAnimationEnabledState,
-      isSpoilerHoverAnimationEnabledState,
+      isHoverScaleAnimationEnabledState,
       isSnowfallEnabled,
       isVibrationEnabledState,
     ]
@@ -349,15 +345,15 @@ const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
 const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) => {
   const {
     accentHue,
+    isHoverScaleAnimationEnabled,
     isSnowfallEnabled,
     isSpoilerAnimationEnabled,
-    isSpoilerHoverAnimationEnabled,
     isVibrationEnabled,
     saturateRatio,
     setAccentHue,
+    setIsHoverScaleAnimationEnabled,
     setIsSnowfallEnabled,
     setIsSpoilerAnimationEnabled,
-    setIsSpoilerHoverAnimationEnabled,
     setIsVibrationEnabled,
     setSaturateRatio,
     setTheme,
@@ -401,8 +397,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   const handleSpoilerAnimationChange = withSelectionHaptic(setIsSpoilerAnimationEnabled);
 
-  const handleSpoilerHoverAnimationChange = withSelectionHaptic(
-    setIsSpoilerHoverAnimationEnabled
+  const handleHoverScaleAnimationChange = withSelectionHaptic(
+    setIsHoverScaleAnimationEnabled
   );
 
   const handleVibrationChange = withSelectionHaptic(setIsVibrationEnabled);
@@ -474,17 +470,17 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                   onChange={handleSpoilerAnimationChange}
                 />
               </div>
-              <div className={modalStyles["modal-controls-row"]}>
-                <span className={modalStyles["modal-controls-title"]}>
-                  Анимация при наведении на спойлеры
-                </span>
-                <Switch
-                  checked={isSpoilerHoverAnimationEnabled}
-                  onChange={handleSpoilerHoverAnimationChange}
-                />
-              </div>
             </>
           )}
+          <div className={modalStyles["modal-controls-row"]}>
+            <span className={modalStyles["modal-controls-title"]}>
+              Анимация увеличения при наведении и нажатии
+            </span>
+            <Switch
+              checked={isHoverScaleAnimationEnabled}
+              onChange={handleHoverScaleAnimationChange}
+            />
+          </div>
           {showVibrationSelector && (
             <div className={modalStyles["modal-controls-row"]}>
               <span className={modalStyles["modal-controls-title"]}>

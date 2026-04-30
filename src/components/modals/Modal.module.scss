@@ -463,6 +463,16 @@
   }
 }
 
+:global(html.no-hover-scale-animation) {
+  .modal-controls-option {
+    &:hover,
+    &:active {
+      transform: translateZ(0) scale(1);
+      transition-delay: 0s;
+    }
+  }
+}
+
 @include grouped-controls-corners-global(
   ".modal-controls-option",
   var(--group-corner-radius, #{$roundness * 0.75})

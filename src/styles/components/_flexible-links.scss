@@ -55,3 +55,16 @@
 li > .flexible-links {
   margin-inline: 0;
 }
+
+html.no-hover-scale-animation {
+  .flexible-links {
+    button,
+    a {
+      &:hover,
+      &:active {
+        transform: translateZ(0) scale(1);
+        transition-delay: 0s;
+      }
+    }
+  }
+}

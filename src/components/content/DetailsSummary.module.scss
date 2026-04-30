@@ -122,7 +122,7 @@
     }
   }
 
-  :global(html:not(.no-spoiler-hover-effects)) {
+  :global(html:not(.no-hover-scale-animation)) {
     #{$selector}:not(.is-open, [open]) .details-summary {
       &:hover,
       &:active {
@@ -285,7 +285,7 @@
   }
 }
 
-:global(html:not(.no-spoiler-hover-effects)) {
+:global(html:not(.no-hover-scale-animation)) {
   .details-summary {
     backface-visibility: hidden;
     transform: translateZ(0) scale(1);
@@ -339,7 +339,7 @@
   }
 }
 
-:global(html.no-spoiler-hover-effects) {
+:global(html.no-hover-scale-animation) {
   .details-summary-root {
     z-index: $z-base;
 

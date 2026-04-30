@@ -55,6 +55,7 @@ import {AeIcon} from "./FaqIcon";
 - копирование ссылки использует `copyText` и показывает `antd/message` о результате;
 - для `variant="internal"` в буфер копируется абсолютный URL (`origin + href`), для `external` — исходный `href`;
 - long-press обрабатывается хуком `useLongPress`, а эффект нажатия добавляется через `useRipple`;
+- scale-увеличение карточки на `:hover` и `:active` отключается общей настройкой `isHoverScaleAnimationEnabled`;
 - если `description` не передан, заголовок растягивается на всю высоту карточки (`name-container_full-height`);
 - стили компонента находятся в `src/components/ui/LinkCards.module.scss`.
 

@@ -53,6 +53,14 @@
     box-shadow: $shadow-box-interactive-active;
     background-color: var(--color-button-group-background-active);
   }
+
+  :global(html.no-hover-scale-animation) & {
+    &:hover,
+    &:active {
+      transform: translateZ(0) scale(1);
+      transition-delay: 0s;
+    }
+  }
 }
 
 .search {
@@ -200,6 +208,14 @@
       .search-content {
         border-color: var(--color-search-content-border-active);
         background-color: var(--color-search-content-background-active);
+      }
+    }
+
+    :global(html.no-hover-scale-animation) & {
+      &:hover,
+      &:active {
+        transform: translateZ(0) scale(1);
+        transition-delay: 0s;
       }
     }
   }
