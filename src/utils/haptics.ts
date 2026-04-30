@@ -2,6 +2,8 @@ import {type HapticInput, WebHaptics} from "web-haptics";
 
 import {message} from "antd";
 
+import {isMobileDevice} from "./browserDetection";
+
 type MessageLevel = "error" | "info" | "success" | "warning";
 
 type MessageMethod = (...arguments_: unknown[]) => unknown;
@@ -32,7 +34,7 @@ export const isHapticFeedbackSupported = () => {
     return false;
   }
 
-  return WebHaptics.isSupported;
+  return isMobileDevice() && WebHaptics.isSupported;
 };
 
 const resolveVibrationPreference = () => {
