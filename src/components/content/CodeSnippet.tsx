@@ -14,6 +14,56 @@ interface CodeSnippetProperties {
   language?: string;
 }
 
+const getCodeTextFromNode = (node: React.ReactNode): string => {
+  const parts: string[] = [];
+
+  const visit = (entry: React.ReactNode): void => {
+    if (entry === null || entry === undefined || typeof entry === "boolean") {
+      return;
+    }
+
+    if (typeof entry === "string" || typeof entry === "number") {
+      parts.push(String(entry));
+
+      return;
+    }
+
+    if (Array.isArray(entry)) {
+      for (const child of entry) {
+        visit(child);
+      }
+
+      return;
+    }
+
+    if (React.isValidElement<{children?: React.ReactNode}>(entry)) {
+      if (entry.type === "br") {
+        parts.push("\n");
+
+        return;
+      }
+
+      if (entry.props.children !== undefined) {
+        visit(entry.props.children);
+      }
+    }
+  };
+
+  visit(node);
+
+  return parts.join("");
+};
+
+const copyTextWithTemporaryTextarea = (text: string): void => {
+  const textArea = document.createElement("textarea");
+
+  textArea.value = text;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand("copy");
+  textArea.remove();
+};
+
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
   className,
@@ -22,43 +72,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   const codeReference = useRef<HTMLElement | null>(null);
 
   const codeText = useMemo(() => {
-    const parts: string[] = [];
-
-    const visit = (node: React.ReactNode): void => {
-      if (node === null || node === undefined || typeof node === "boolean") {
-        return;
-      }
-
-      if (typeof node === "string" || typeof node === "number") {
-        parts.push(String(node));
-
-        return;
-      }
-
-      if (Array.isArray(node)) {
-        for (const entry of node) {
-          visit(entry);
-        }
-
-        return;
-      }
-
-      if (React.isValidElement<{children?: React.ReactNode}>(node)) {
-        if (node.type === "br") {
-          parts.push("\n");
-
-          return;
-        }
-
-        if (node.props.children !== undefined) {
-          visit(node.props.children);
-        }
-      }
-    };
-
-    visit(children);
-
-    return parts.join("");
+    return getCodeTextFromNode(children);
   }, [children]);
 
   useEffect(() => {
@@ -70,14 +84,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
     triggerHaptic("soft");
-
-    const textArea = document.createElement("textarea");
-
-    textArea.value = codeReference.current?.textContent ?? "";
-    document.body.append(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
+    copyTextWithTemporaryTextarea(codeReference.current?.textContent ?? "");
     message.success("Код скопирован в буфер обмена");
   };
 
