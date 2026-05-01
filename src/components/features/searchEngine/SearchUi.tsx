@@ -16,7 +16,14 @@ import {getMatchingTagsByQuery} from "./searchContentUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 import {highlightMatchedTokens, renderHighlightedText} from "./searchHighlightUtilities";
 import {compileSearchQuery} from "./searchQueryCore";
+import {SearchResultCard} from "./SearchResultCard";
 import {type SearchResult, type SearchSection, useSearch} from "./SearchState";
+import {
+  applySearchResultScaleVariables,
+  getRippleButtonTarget,
+  getSearchResultColumns,
+  hasTableInContent,
+} from "./searchUiUtilities";
 
 interface SearchButtonProperties {
   className?: string;
@@ -110,21 +117,9 @@ export const SearchCategories: React.FC<SearchCategoriesProperties> = ({
     return false;
   }, []);
 
-  const getRippleTarget = useCallback((event: React.MouseEvent | React.TouchEvent) => {
-    const target = event.target;
-
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-
-    const button = target.closest("button");
-
-    if (button instanceof HTMLElement) {
-      return button;
-    }
-  }, []);
-
-  const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
+  const longPressProperties = useLongPress(handleCopy, 500, {
+    getRippleTarget: getRippleButtonTarget,
+  });
 
   const ripple = useRipple<HTMLButtonElement>();
 
@@ -408,130 +403,6 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
   </div>
 );
 
-type SearchResultCardProperties = {
-  anchor?: string;
-  content: string;
-  isContentUnclamped: boolean;
-  highlightedTags: React.ReactNode[];
-  highlightedTitle: React.ReactNode;
-  id: string;
-  isContentOverflowing: boolean;
-  isHovered: boolean;
-  isMobile: boolean;
-  isSelected: boolean;
-  onClick: (event_: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  setContentRef: (element: HTMLDivElement | null) => void;
-  setResultRef: (element: HTMLButtonElement | null) => void;
-  tagsToDisplay: string[];
-};
-
-const SearchResultCard: React.FC<SearchResultCardProperties> = ({
-  anchor,
-  content,
-  highlightedTags,
-  highlightedTitle,
-  id,
-  isContentOverflowing,
-  isContentUnclamped,
-  isHovered,
-  isMobile,
-  isSelected,
-  onClick,
-  onMouseEnter,
-  onMouseLeave,
-  setContentRef,
-  setResultRef,
-  tagsToDisplay,
-}) => {
-  return (
-    <div className={searchStyles["search-results-item"]}>
-      <button
-        ref={setResultRef}
-        className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
-        data-anchor={anchor}
-        data-id={id}
-        style={(() => {
-          if (isMobile) {
-            return {filter: "none", opacity: 1};
-          }
-
-          if (isSelected || isHovered) {
-            return {filter: "none"};
-          }
-
-          return {filter: "saturate(0.25)"};
-        })()}
-        tabIndex={0}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <div
-          className={`${searchStyles["search-header"]} ${
-            isSelected ? searchStyles["search-header-selected"] : ""
-          }`}
-        >
-          <p className={searchStyles["search-title"]}>{highlightedTitle}</p>
-          {tagsToDisplay.length > 0 && (
-            <span className={searchStyles["search-tags"]}>
-              {tagsToDisplay.map((tag_, tagIndex) => (
-                <span
-                  key={`${tag_}-${tagIndex}`}
-                  className={searchStyles["search-tag-item"]}
-                >
-                  {highlightedTags[tagIndex]}
-                </span>
-              ))}
-            </span>
-          )}
-        </div>
-        <div
-          ref={setContentRef}
-          className={`${searchStyles["search-content"]} ${
-            isContentOverflowing ? searchStyles["search-content-truncated"] : ""
-          } ${isContentUnclamped ? searchStyles["search-content-unclamped"] : ""} ${
-            isSelected ? searchStyles["search-content-selected"] : ""
-          } article-content no-copy`}
-          dangerouslySetInnerHTML={{__html: content}}
-        />
-      </button>
-    </div>
-  );
-};
-
-const hasTableInContent = (contentHtml: string): boolean => {
-  return contentHtml.includes("<table");
-};
-
-const HOVER_GROWTH_PX = 6;
-
-const ACTIVE_GROWTH_PX = 3;
-
-const getScaleValue = (dimension: number, growthPx: number): number => {
-  const safeDimension = Math.max(dimension, 1);
-
-  return (safeDimension + growthPx) / safeDimension;
-};
-
-const applySearchResultScaleVariables = (element: HTMLButtonElement): void => {
-  const width = element.offsetWidth;
-
-  const height = element.offsetHeight;
-
-  const baseDimension = Math.max(width, height);
-
-  const hoverScale = getScaleValue(baseDimension, HOVER_GROWTH_PX);
-
-  const activeScale = getScaleValue(baseDimension, ACTIVE_GROWTH_PX);
-
-  element.style.setProperty("--links-hover-scale-x", hoverScale.toFixed(6));
-  element.style.setProperty("--links-hover-scale-y", hoverScale.toFixed(6));
-  element.style.setProperty("--links-active-scale-x", activeScale.toFixed(6));
-  element.style.setProperty("--links-active-scale-y", activeScale.toFixed(6));
-};
-
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
   query: string;
@@ -731,21 +602,9 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     return false;
   }, []);
 
-  const getRippleTarget = useCallback((event: React.MouseEvent | React.TouchEvent) => {
-    const target = event.target;
-
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-
-    const button = target.closest("button");
-
-    if (button instanceof HTMLElement) {
-      return button;
-    }
-  }, []);
-
-  const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
+  const longPressProperties = useLongPress(handleCopy, 500, {
+    getRippleTarget: getRippleButtonTarget,
+  });
 
   const handleResultClick = withSelectionHaptic(
     (event_: React.MouseEvent<HTMLButtonElement>, id: string) => {
@@ -759,19 +618,10 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     [results]
   );
 
-  const masonryColumns = useMemo(() => {
-    if (isSingleColumnLayout) {
-      return [resultEntries];
-    }
-
-    const columns: Array<Array<{index: number; result: SearchResult}>> = [[], []];
-
-    for (const [entryIndex, entry] of resultEntries.entries()) {
-      columns[entryIndex % 2].push(entry);
-    }
-
-    return columns;
-  }, [isSingleColumnLayout, resultEntries]);
+  const masonryColumns = useMemo(
+    () => getSearchResultColumns(resultEntries, isSingleColumnLayout),
+    [isSingleColumnLayout, resultEntries]
+  );
 
   const resultById = useMemo(
     () => new Map(results.map((result) => [result.id, result])),
