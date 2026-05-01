@@ -2,15 +2,16 @@ import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} fro
 
 import {message, Tooltip} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
+import {copyText} from "../../utils/copyUtilities";
 import {triggerDisclosureHaptic} from "../../utils/haptics";
 import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
+import {getCurrentHashAnchor, replaceCurrentUrlHash} from "../../utils/urlHashUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
 
@@ -45,7 +46,7 @@ export const generateAnchorId = () => {
 
   const containers = [...document.querySelectorAll(".article-content")];
 
-  const currentHash = globalThis.location.hash.slice(1);
+  const currentHash = getCurrentHashAnchor();
 
   for (const [blockIndex, container] of containers.entries()) {
     const summaries = getTopLevelSummaryElements(container);
@@ -385,7 +386,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const justOpened = isOpen && !previousIsOpen;
 
-    const currentHash = globalThis.location.hash.slice(1);
+    const currentHash = getCurrentHashAnchor();
 
     const resolvedAnchor = getEffectiveAnchor();
 
@@ -541,7 +542,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         const anchorForHash = isTextualAnchorUsable ? textualAnchor : summaryId;
 
-        const currentHash = globalThis.location.hash.slice(1);
+        const currentHash = getCurrentHashAnchor();
 
         const isCurrentHashOpenNested = isHashForOpenNestedInDetails(
           detailsElement,
@@ -553,11 +554,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           globalThis.window !== undefined &&
           !isCurrentHashOpenNested
         ) {
-          history.replaceState(
-            undefined,
-            "",
-            `${globalThis.location.pathname}${globalThis.location.search}#${anchorForHash}`
-          );
+          replaceCurrentUrlHash(`#${anchorForHash}`);
         }
       }, DETAILS_SUMMARY_DELAYS.MOUSE_ENTER_DELAY);
     };

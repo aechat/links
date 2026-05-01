@@ -1,6 +1,7 @@
 import {message} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
+import {copyText} from "../../utils/copyUtilities";
+import {replaceCurrentUrlHash} from "../../utils/urlHashUtilities";
 
 export const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 
@@ -36,15 +37,7 @@ export const throwDuplicateAnchorError = (anchor: string, componentName: string)
 };
 
 export const replaceUrlHash = (hash: string) => {
-  if (globalThis.window === undefined) {
-    return;
-  }
-
-  history.replaceState(
-    undefined,
-    "",
-    globalThis.location.pathname + globalThis.location.search + hash
-  );
+  replaceCurrentUrlHash(hash);
 };
 
 interface CopyAnchorLinkOptions {

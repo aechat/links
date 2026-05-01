@@ -1,3 +1,5 @@
+import {replaceCurrentUrlHash} from "./urlHashUtilities";
+
 const constants = {
   PADDING: {
     MAX: 14,
@@ -8,10 +10,6 @@ const constants = {
     },
   },
 } as const;
-
-const getPagePathWithSearch = () => {
-  return `${globalThis.location.pathname}${globalThis.location.search}`;
-};
 
 interface ScrollToAnchorOptions {
   updateHash?: boolean;
@@ -66,7 +64,7 @@ export const scrollToAnchorById = (
   }
 
   if (options?.updateHash !== false) {
-    history.replaceState(undefined, "", `${getPagePathWithSearch()}#${anchorId}`);
+    replaceCurrentUrlHash(`#${anchorId}`);
   }
 
   return scrollToElement(target);

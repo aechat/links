@@ -14,6 +14,7 @@ import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
 import {triggerDisclosureHaptic} from "../../utils/haptics";
 import {scrollToElement} from "../../utils/scrollToAnchor";
+import {getCurrentHashAnchor} from "../../utils/urlHashUtilities";
 import {CopyButton} from "../ui/CopyButton";
 
 import {
@@ -295,7 +296,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     const justOpened = isOpen && !previousIsOpen;
 
-    const currentHash = globalThis.location.hash.slice(1);
+    const currentHash = getCurrentHashAnchor();
 
     const resolvedAnchor = getEffectiveAnchor();
 
@@ -376,7 +377,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           return;
         }
 
-        if (globalThis.location.hash.slice(1) !== anchorToSet) {
+        if (getCurrentHashAnchor() !== anchorToSet) {
           updateUrlHash(`#${anchorToSet}`);
         }
       }, constants.MOUSE_ENTER_DELAY);
