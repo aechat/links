@@ -8,9 +8,9 @@ import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {triggerHaptic} from "../../utils/haptics";
+import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
 import styles from "./ArticleMedia.module.scss";
-import {useSpoiler} from "./spoilerContexts";
 
 interface BaseMediaProperties {
   src: string;

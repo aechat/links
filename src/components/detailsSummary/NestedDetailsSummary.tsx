@@ -10,6 +10,7 @@ import React, {
 import {Tooltip} from "antd";
 
 import {useLongPress} from "../../hooks/useLongPress";
+import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
 import {triggerDisclosureHaptic} from "../../utils/haptics";
 import {scrollToElement} from "../../utils/scrollToAnchor";
@@ -36,16 +37,6 @@ interface NestedDetailsSummaryProperties {
   startOpen?: boolean;
   title: string;
 }
-
-const usePrevious = <T,>(value: T): T | undefined => {
-  const reference = useRef<T | undefined>(undefined);
-
-  useEffect(() => {
-    reference.current = value;
-  });
-
-  return reference.current;
-};
 
 const constants = {
   ACTION_DELAY: 150,

@@ -5,8 +5,8 @@ import {Divider} from "antd";
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 const PrErrors: React.FC = () => {
   return (

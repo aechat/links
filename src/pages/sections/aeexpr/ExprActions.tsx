@@ -1,6 +1,6 @@
 import React from "react";
 
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 const AeExprActions: React.FC = () => {
   return (

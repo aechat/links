@@ -1,7 +1,7 @@
 import React from "react";
 
 import CodeSnippet from "../../../components/content/CodeSnippet";
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 import {
   commentExample,

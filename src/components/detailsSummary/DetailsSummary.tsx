@@ -6,8 +6,9 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
+import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
-import {triggerDisclosureHaptic, triggerHaptic} from "../../utils/haptics";
+import {triggerDisclosureHaptic} from "../../utils/haptics";
 import {scrollToElement} from "../../utils/scrollToAnchor";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
@@ -21,17 +22,16 @@ import {
   throwDuplicateAnchorError,
 } from "./anchorUtilities";
 import styles from "./DetailsSummary.module.scss";
+import {parseTags, TagList} from "./DetailsSummaryTags";
+import {
+  assignAnchorIdIfMissing,
+  DETAILS_SUMMARY_DELAYS,
+  dispatchOpenSpoilerById,
+  getTopLevelSummaryElements,
+  isHashForOpenNestedInDetails,
+  processNestedSummaries,
+} from "./detailsSummaryUtilities";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
-
-const usePrevious = <T,>(value: T): T | undefined => {
-  const reference = useRef<T | undefined>(undefined);
-
-  useEffect(() => {
-    reference.current = value;
-  });
-
-  return reference.current;
-};
 
 interface DetailsSummaryProperties {
   anchor: string;
@@ -39,213 +39,6 @@ interface DetailsSummaryProperties {
   tag?: string;
   title: string;
 }
-
-const TAG_LIMIT = 4;
-
-const parseTags = (tags: string): string[] =>
-  tags
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-
-const getPluralizedTags = (count: number): string => {
-  const lastDigit = count % 10;
-
-  const lastTwoDigits = count % 100;
-
-  if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return "тегов";
-
-  if (lastDigit === 1) return "тег";
-
-  if ([2, 3, 4].includes(lastDigit)) return "тега";
-
-  return "тегов";
-};
-
-const stopToggleTagsPointerDown = (event: React.MouseEvent | React.TouchEvent) => {
-  event.stopPropagation();
-};
-
-const TagList: React.FC<{tags: string}> = ({tags}) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const allTags = useMemo(() => parseTags(tags), [tags]);
-
-  const isOverflowing = allTags.length > TAG_LIMIT;
-
-  const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (isOverflowing) {
-      const shuffled = [...allTags];
-
-      for (let index = shuffled.length - 1; index > 0; index--) {
-        const randomValues = new Uint32Array(1);
-
-        crypto.getRandomValues(randomValues);
-
-        const index_ = Math.floor((randomValues[0] / (0xff_ff_ff_ff + 1)) * (index + 1));
-
-        [shuffled[index], shuffled[index_]] = [shuffled[index_], shuffled[index]];
-      }
-
-      setRandomizedTags(shuffled.slice(0, TAG_LIMIT));
-    }
-  }, [allTags, isOverflowing]);
-
-  if (allTags.length === 0) {
-    return <></>;
-  }
-
-  let visibleTags;
-
-  if (expanded) {
-    visibleTags = allTags;
-  } else if (isOverflowing) {
-    visibleTags = randomizedTags;
-  } else {
-    visibleTags = allTags;
-  }
-
-  const hiddenCount = allTags.length - TAG_LIMIT;
-
-  const toggleTags = (event: React.MouseEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-    triggerHaptic("soft");
-    setExpanded((previous) => !previous);
-  };
-
-  return (
-    <span className={styles["details-tags"]}>
-      {visibleTags.map((t) => (
-        <mark key={t}>{t}</mark>
-      ))}
-      {isOverflowing && (
-        <mark
-          className={styles["details-tags-toggle"]}
-          onClick={toggleTags}
-          onMouseDown={stopToggleTagsPointerDown}
-          onTouchStart={stopToggleTagsPointerDown}
-        >
-          {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
-        </mark>
-      )}
-    </span>
-  );
-};
-
-const constants = {
-  ACTION_DELAY: 150,
-  MOUSE_ENTER_DELAY: 750,
-  NESTED_OPEN_AFTER_PARENT_DELAY: 150,
-} as const;
-
-const dispatchOpenSpoilerById = (
-  id: string,
-  options?: {delay?: number; skipScroll?: boolean}
-) => {
-  const delay = options?.delay ?? constants.ACTION_DELAY;
-
-  setTimeout(() => {
-    globalThis.dispatchEvent(
-      new CustomEvent("open-spoiler-by-id", {
-        detail: {id, skipScroll: options?.skipScroll},
-      })
-    );
-  }, delay);
-};
-
-const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string => {
-  if (!element.hasAttribute("id")) {
-    element.setAttribute("id", fallbackId);
-  }
-
-  return element.id;
-};
-
-const isHashForOpenNestedInDetails = (
-  detailsElement: HTMLDetailsElement | null,
-  hash: string
-): boolean => {
-  if (!detailsElement || !hash) {
-    return false;
-  }
-
-  const openNestedDetails = detailsElement.querySelectorAll<HTMLDetailsElement>(
-    'details[data-nested-details-summary="true"][open]'
-  );
-
-  for (const nestedDetails of openNestedDetails) {
-    const nestedSummary = nestedDetails.querySelector("summary");
-
-    const nestedSummaryId = nestedSummary instanceof HTMLElement ? nestedSummary.id : "";
-
-    const nestedTextualAnchor = normalizeAnchor(nestedDetails.dataset.anchor);
-
-    if (hash === nestedSummaryId || hash === nestedTextualAnchor) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-const processNestedSummaries = (
-  detailsElement: HTMLDetailsElement,
-  generatedAnchor: string,
-  currentHash: string,
-  parentSummaryId: string,
-  parentTextualAnchor?: string
-) => {
-  const isParentAnchorPrioritized =
-    Boolean(currentHash) &&
-    (currentHash === parentSummaryId || currentHash === parentTextualAnchor);
-
-  if (isParentAnchorPrioritized) {
-    return;
-  }
-
-  const nestedSummaries = [
-    ...detailsElement.querySelectorAll<HTMLElement>(
-      `details[data-nested-details-summary="true"] > summary`
-    ),
-  ];
-
-  for (const [nestedIndex, nestedSummary] of nestedSummaries.entries()) {
-    const nestedAnchor = `${generatedAnchor}.${nestedIndex + 1}`;
-
-    const nestedSummaryId = assignAnchorIdIfMissing(nestedSummary, nestedAnchor);
-
-    const nestedDetailsElement = nestedSummary.closest("details");
-
-    const nestedTextualAnchor =
-      nestedDetailsElement instanceof HTMLDetailsElement
-        ? nestedDetailsElement.dataset.anchor
-        : undefined;
-
-    const normalizedNestedTextualAnchor = normalizeAnchor(nestedTextualAnchor);
-
-    const isNestedTextualAnchorUsable =
-      nestedDetailsElement instanceof HTMLDetailsElement &&
-      normalizedNestedTextualAnchor &&
-      isFirstAnchorOccurrence(nestedDetailsElement, normalizedNestedTextualAnchor);
-
-    if (
-      !currentHash ||
-      (nestedSummaryId !== currentHash &&
-        (!isNestedTextualAnchorUsable || normalizedNestedTextualAnchor !== currentHash))
-    ) {
-      continue;
-    }
-
-    dispatchOpenSpoilerById(parentSummaryId, {delay: 0, skipScroll: true});
-
-    dispatchOpenSpoilerById(nestedSummaryId, {
-      delay: constants.NESTED_OPEN_AFTER_PARENT_DELAY,
-    });
-  }
-};
 
 export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
@@ -255,11 +48,7 @@ export const generateAnchorId = () => {
   const currentHash = globalThis.location.hash.slice(1);
 
   for (const [blockIndex, container] of containers.entries()) {
-    const summaries = [
-      ...container.querySelectorAll(
-        `details:not(.details-nested) > .${styles["details-summary"]}`
-      ),
-    ];
+    const summaries = getTopLevelSummaryElements(container);
 
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
@@ -436,7 +225,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     if (summary) {
       setTimeout(() => {
         scrollToElement(summary);
-      }, constants.ACTION_DELAY);
+      }, DETAILS_SUMMARY_DELAYS.ACTION_DELAY);
     }
   }, []);
 
@@ -770,7 +559,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
             `${globalThis.location.pathname}${globalThis.location.search}#${anchorForHash}`
           );
         }
-      }, constants.MOUSE_ENTER_DELAY);
+      }, DETAILS_SUMMARY_DELAYS.MOUSE_ENTER_DELAY);
     };
 
     const handleMouseLeave = () => {

@@ -1,9 +1,10 @@
 import React from "react";
 
+import {useSpoiler} from "../detailsSummary/spoilerContexts";
+
 import Addition from "./Addition";
 import CodeSnippet from "./CodeSnippet";
 import styles from "./CodeSnippet.module.scss";
-import {useSpoiler} from "./spoilerContexts";
 
 const HOSTS_URL =
   "https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/list.txt";

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-import {generateAnchorId} from "../components/content/DetailsSummary";
+import {generateAnchorId} from "../components/detailsSummary/DetailsSummary";
 import {useLoading} from "../context/LoadingContext";
 
 export const usePageLoad = (isFaqPage = false) => {
