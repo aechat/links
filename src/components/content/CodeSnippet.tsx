@@ -3,6 +3,7 @@ import React, {useEffect, useMemo, useRef} from "react";
 
 import {message} from "antd";
 
+import {copyText} from "../../utils/copyUtilities";
 import {triggerHaptic} from "../../utils/haptics";
 
 import "highlight.js/styles/github-dark.css";
@@ -54,16 +55,6 @@ const getCodeTextFromNode = (node: React.ReactNode): string => {
   return parts.join("");
 };
 
-const copyTextWithTemporaryTextarea = (text: string): void => {
-  const textArea = document.createElement("textarea");
-
-  textArea.value = text;
-  document.body.append(textArea);
-  textArea.select();
-  document.execCommand("copy");
-  textArea.remove();
-};
-
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
   className,
@@ -84,8 +75,16 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
     triggerHaptic("soft");
-    copyTextWithTemporaryTextarea(codeReference.current?.textContent ?? "");
-    message.success("Код скопирован в буфер обмена");
+
+    void (async () => {
+      const success = await copyText(codeReference.current?.textContent ?? "");
+
+      if (success) {
+        message.success("Код скопирован в буфер обмена");
+      } else {
+        message.error("Не удалось скопировать код");
+      }
+    })();
   };
 
   return (

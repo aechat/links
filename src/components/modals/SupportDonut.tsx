@@ -3,8 +3,8 @@ import React, {useState} from "react";
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {message, Modal} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
+import {copyText} from "../../utils/copyUtilities";
 import {withSoftHaptic} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";

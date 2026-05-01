@@ -4,10 +4,10 @@ import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
 import {message, Modal} from "antd";
 import {RemoveScroll} from "react-remove-scroll";
 
-import {copyText} from "../../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../../hooks/useLongPress";
 import {useRipple} from "../../../hooks/useRipple";
 import {isMobileDevice} from "../../../utils/browserDetection";
+import {copyText} from "../../../utils/copyUtilities";
 import {withSelectionHaptic} from "../../../utils/haptics";
 import {formatNestedQuotes} from "../../../utils/stringUtilities";
 import modalStyles from "../../modals/Modal.module.scss";

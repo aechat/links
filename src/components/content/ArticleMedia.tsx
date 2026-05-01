@@ -6,7 +6,7 @@ import {message} from "antd";
 import {animate, AnimatePresence, motion, useMotionValue} from "framer-motion";
 import {createPortal} from "react-dom";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
+import {copyText} from "../../utils/copyUtilities";
 import {triggerHaptic} from "../../utils/haptics";
 import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
