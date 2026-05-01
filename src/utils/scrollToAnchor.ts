@@ -9,6 +9,10 @@ const constants = {
   },
 } as const;
 
+const getPagePathWithSearch = () => {
+  return `${globalThis.location.pathname}${globalThis.location.search}`;
+};
+
 interface ScrollToAnchorOptions {
   updateHash?: boolean;
 }
@@ -22,13 +26,11 @@ const getScrollPadding = () => {
     return 0;
   }
 
-  return Math.min(
-    constants.PADDING.MIN +
-      (constants.PADDING.MAX - constants.PADDING.MIN) *
-        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-    constants.PADDING.MAX
-  );
+  const {MAX, MIN, SCREEN} = constants.PADDING;
+
+  const screenProgress = (window.innerWidth - SCREEN.MIN) / (SCREEN.MAX - SCREEN.MIN);
+
+  return Math.min(MIN + (MAX - MIN) * screenProgress, MAX);
 };
 
 const getScrollTop = (target: Element) => {
@@ -64,11 +66,7 @@ export const scrollToAnchorById = (
   }
 
   if (options?.updateHash !== false) {
-    history.replaceState(
-      undefined,
-      "",
-      `${globalThis.location.pathname}${globalThis.location.search}#${anchorId}`
-    );
+    history.replaceState(undefined, "", `${getPagePathWithSearch()}#${anchorId}`);
   }
 
   return scrollToElement(target);

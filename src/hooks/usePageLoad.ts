@@ -3,6 +3,32 @@ import {useEffect, useState} from "react";
 import {generateAnchorId} from "../components/detailsSummary/DetailsSummary";
 import {useLoading} from "../context/LoadingContext";
 
+const PAGE_LOAD_DELAY = 100;
+
+const ANCHOR_WAIT_TIMEOUT = 500;
+
+const getTopLevelSummaryElements = () => {
+  return document.querySelectorAll(
+    ".article-content details:not(.details-nested) > summary"
+  );
+};
+
+const areGeneratedAnchorsReady = () => {
+  const summaries = getTopLevelSummaryElements();
+
+  if (summaries.length === 0) {
+    return false;
+  }
+
+  for (const summary of summaries) {
+    if (!summary.id) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 export const usePageLoad = (isFaqPage = false) => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
@@ -35,27 +61,16 @@ export const usePageLoad = (isFaqPage = false) => {
         return;
       }
 
-      const startedAt = Date.now();
+      const waitStartedAt = Date.now();
 
       const waitForAnchors = () => {
         if (cancelled) return;
 
         generateAnchorId();
 
-        const summaries = document.querySelectorAll(
-          ".article-content details:not(.details-nested) > summary"
-        );
+        const hasTimedOut = Date.now() - waitStartedAt >= ANCHOR_WAIT_TIMEOUT;
 
-        let allAnchorsReady = summaries.length > 0;
-
-        for (const summary of summaries) {
-          if (!summary.id) {
-            allAnchorsReady = false;
-            break;
-          }
-        }
-
-        if (allAnchorsReady || Date.now() - startedAt >= 500) {
+        if (areGeneratedAnchorsReady() || hasTimedOut) {
           finishFaqLoading();
 
           return;
@@ -65,7 +80,7 @@ export const usePageLoad = (isFaqPage = false) => {
       };
 
       waitForAnchors();
-    }, 100);
+    }, PAGE_LOAD_DELAY);
 
     return () => {
       cancelled = true;
