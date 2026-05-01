@@ -4,7 +4,10 @@ import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
-import {formatBytes} from "../utils/fileUtilities";
+import {
+  downloadFileWithFallback,
+  resolveDownloadLinkFileSize,
+} from "../utils/downloadUtilities";
 import {
   type ArticleLinkTarget,
   type DownloadLinkTarget,
@@ -14,18 +17,6 @@ import {
 
 import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";
-
-const clickHiddenDownloadLink = (href: string, fileName: string) => {
-  const downloadLink = document.createElement("a");
-
-  downloadLink.href = href;
-  downloadLink.download = fileName;
-  downloadLink.rel = "noopener noreferrer";
-  downloadLink.style.display = "none";
-  document.body.append(downloadLink);
-  downloadLink.click();
-  downloadLink.remove();
-};
 
 export const useInternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,35 +33,27 @@ export const useInternalLinkHandler = () => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setTargetArticle(undefined);
+    setTargetDownload(undefined);
+  }, []);
+
   const resolveDownloadFileSize = useCallback(
     async (href: string) => {
       if (downloadSizeCache[href]) {
         return downloadSizeCache[href];
       }
 
-      const url = new URL(href, globalThis.location.href);
+      const formattedSize = await resolveDownloadLinkFileSize(href);
 
-      if (url.origin !== globalThis.location.origin) {
+      if (!formattedSize) {
         return;
       }
 
-      try {
-        const response = await fetch(url.toString(), {method: "HEAD"});
+      setDownloadSizeCache((previous) => ({...previous, [href]: formattedSize}));
 
-        const contentLengthHeader = response.headers.get("content-length");
-
-        const contentLength = Number.parseInt(contentLengthHeader || "", 10);
-
-        if (!Number.isNaN(contentLength) && contentLength > 0) {
-          const formattedSize = formatBytes(contentLength);
-
-          setDownloadSizeCache((previous) => ({...previous, [href]: formattedSize}));
-
-          return formattedSize;
-        }
-      } catch {
-        return;
-      }
+      return formattedSize;
     },
     [downloadSizeCache]
   );
@@ -126,38 +109,23 @@ export const useInternalLinkHandler = () => {
         setIsDownloadStarting(true);
 
         try {
-          const downloadUrl = new URL(targetDownload.href, globalThis.location.href);
-
           const controller = new AbortController();
 
           downloadAbortControllerReference.current = controller;
 
-          const response = await fetch(downloadUrl.toString(), {
+          await downloadFileWithFallback({
+            fileName: targetDownload.fileName,
+            href: targetDownload.href,
             signal: controller.signal,
           });
 
-          if (!response.ok) {
-            throw new Error("Failed to fetch downloadable file");
-          }
-
-          const blob = await response.blob();
-
-          const objectUrl = URL.createObjectURL(blob);
-
-          clickHiddenDownloadLink(objectUrl, targetDownload.fileName);
-          globalThis.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
-          setIsModalOpen(false);
-          setTargetArticle(undefined);
-          setTargetDownload(undefined);
+          closeModal();
         } catch (error) {
           if (error instanceof DOMException && error.name === "AbortError") {
             return;
           }
 
-          clickHiddenDownloadLink(targetDownload.href, targetDownload.fileName);
-          setIsModalOpen(false);
-          setTargetArticle(undefined);
-          setTargetDownload(undefined);
+          closeModal();
         } finally {
           downloadAbortControllerReference.current = undefined;
           setIsDownloadStarting(false);
@@ -189,18 +157,14 @@ export const useInternalLinkHandler = () => {
       }
     }
 
-    setIsModalOpen(false);
-    setTargetArticle(undefined);
-    setTargetDownload(undefined);
-  }, [isDownloadStarting, targetArticle, targetDownload]);
+    closeModal();
+  }, [closeModal, isDownloadStarting, targetArticle, targetDownload]);
 
   const handleCancel = useCallback(() => {
     downloadAbortControllerReference.current?.abort();
-    setIsModalOpen(false);
+    closeModal();
     setIsDownloadStarting(false);
-    setTargetArticle(undefined);
-    setTargetDownload(undefined);
-  }, []);
+  }, [closeModal]);
 
   useEnterKeyConfirm(isModalOpen, handleOk);
 

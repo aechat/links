@@ -16,6 +16,11 @@ export const useExternalLinkHandler = () => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setTargetUrl(undefined);
+  }, []);
+
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const href = getExternalLinkHref(event.target);
 
@@ -31,14 +36,10 @@ export const useExternalLinkHandler = () => {
       window.open(targetUrl, "_blank", "noreferrer");
     }
 
-    setIsModalOpen(false);
-    setTargetUrl(undefined);
-  }, [targetUrl]);
+    closeModal();
+  }, [closeModal, targetUrl]);
 
-  const handleCancel = useCallback(() => {
-    setIsModalOpen(false);
-    setTargetUrl(undefined);
-  }, []);
+  const handleCancel = closeModal;
 
   useEnterKeyConfirm(isModalOpen, handleOk);
 
