@@ -3,6 +3,7 @@ import {useCallback, useEffect, useRef} from "react";
 import {message} from "antd";
 
 import {copyText} from "../utils/copyUtilities";
+import {hasActiveTextSelection} from "../utils/selectionUtilities";
 
 import {useLongPress} from "./useLongPress";
 import {applyRipple} from "./useRipple";
@@ -33,12 +34,6 @@ const isExcludedElement = (element: HTMLElement): boolean => {
     element.closest(".details-tags .tag") !== null ||
     (element.tagName === "MARK" && element.classList.length === 0)
   );
-};
-
-const hasActiveTextSelection = (): boolean => {
-  const selection = globalThis.getSelection();
-
-  return Boolean(selection && selection.rangeCount > 0 && !selection.isCollapsed);
 };
 
 const resolveClickCopyTarget = (target: HTMLElement): HTMLElement | undefined => {
@@ -85,6 +80,36 @@ const resolveEventCopyTarget = (
   return resolveMarkOrCodeTarget(
     event_.target instanceof HTMLElement ? event_.target : undefined
   );
+};
+
+const createPointerTargetController = () => {
+  let pointerTarget: HTMLElement | undefined;
+
+  let pointerTargetPreviousCursor = "";
+
+  const setPointerTarget = (target: HTMLElement | undefined) => {
+    if (pointerTarget === target) {
+      return;
+    }
+
+    if (pointerTarget) {
+      pointerTarget.style.cursor = pointerTargetPreviousCursor;
+    }
+
+    pointerTarget = target;
+
+    if (pointerTarget) {
+      pointerTargetPreviousCursor = pointerTarget.style.cursor;
+      pointerTarget.style.cursor = "pointer";
+    } else {
+      pointerTargetPreviousCursor = "";
+    }
+  };
+
+  return {
+    resetPointerTarget: () => setPointerTarget(undefined),
+    setPointerTarget,
+  };
 };
 
 export const useCopyToClipboard = () => {
@@ -155,28 +180,7 @@ export const useCopyToClipboard = () => {
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
 
-    let pointerTarget: HTMLElement | undefined;
-
-    let pointerTargetPreviousCursor = "";
-
-    const setPointerTarget = (target: HTMLElement | undefined) => {
-      if (pointerTarget === target) {
-        return;
-      }
-
-      if (pointerTarget) {
-        pointerTarget.style.cursor = pointerTargetPreviousCursor;
-      }
-
-      pointerTarget = target;
-
-      if (pointerTarget) {
-        pointerTargetPreviousCursor = pointerTarget.style.cursor;
-        pointerTarget.style.cursor = "pointer";
-      } else {
-        pointerTargetPreviousCursor = "";
-      }
-    };
+    const {resetPointerTarget, setPointerTarget} = createPointerTargetController();
 
     const onClickCopyable = (event_: MouseEvent) => {
       const target = event_.target;
@@ -197,7 +201,7 @@ export const useCopyToClipboard = () => {
       const target = event_.target;
 
       if (!(target instanceof HTMLElement)) {
-        setPointerTarget(undefined);
+        resetPointerTarget();
 
         return;
       }
@@ -262,7 +266,7 @@ export const useCopyToClipboard = () => {
       document.removeEventListener("click", onClickCopyable);
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("selectionchange", onSelectionChange);
-      setPointerTarget(undefined);
+      resetPointerTarget();
       autoCopyWindow.isAutoCopyEnabled = false;
     };
   }, [longPressHandlers, copyElementContent]);

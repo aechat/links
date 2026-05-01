@@ -2,6 +2,12 @@ import {useEffect} from "react";
 
 import {message} from "antd";
 
+import {
+  createRangeContainer,
+  getActiveSelectionRange,
+  getClosestElement,
+} from "../utils/selectionUtilities";
+
 interface ClipboardSource {
   url: string;
 }
@@ -10,14 +16,6 @@ interface SmartClipboardContent {
   html: string;
   plainText: string;
 }
-
-const getClosestElement = (node: Node | null): Element | undefined => {
-  if (!node) {
-    return undefined;
-  }
-
-  return node instanceof Element ? node : node.parentElement || undefined;
-};
 
 const isNonSummaryMarkSelection = (range: Range): boolean => {
   const startElement = getClosestElement(range.startContainer);
@@ -32,9 +30,7 @@ const isNonSummaryMarkSelection = (range: Range): boolean => {
     return true;
   }
 
-  const temporaryDiv = document.createElement("div");
-
-  temporaryDiv.append(range.cloneContents());
+  const temporaryDiv = createRangeContainer(range);
 
   const marks = [...temporaryDiv.querySelectorAll("mark")].filter(
     (markElement) => !markElement.closest("summary")
@@ -139,9 +135,7 @@ const applySmartCopy = (event: ClipboardEvent, selection: Selection, range: Rang
   event.preventDefault();
   event.stopPropagation();
 
-  const temporaryDiv = document.createElement("div");
-
-  temporaryDiv.append(range.cloneContents());
+  const temporaryDiv = createRangeContainer(range);
 
   const selectedHtml = temporaryDiv.innerHTML;
 
@@ -160,13 +154,13 @@ const handleSmartCopy = (event: ClipboardEvent) => {
     return;
   }
 
-  const selection = globalThis.getSelection();
+  const activeSelectionRange = getActiveSelectionRange();
 
-  if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+  if (!activeSelectionRange) {
     return;
   }
 
-  const range = selection.getRangeAt(0);
+  const {range, selection} = activeSelectionRange;
 
   const shouldShowCopySuccess = isNonSummaryMarkSelection(range)
     ? true
