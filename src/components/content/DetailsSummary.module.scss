@@ -354,6 +354,15 @@
     }
   }
 
+  .details-summary-root:not(.is-open, [open]):has(.details-summary:hover)
+    + .details-summary-root:not(.is-open, [open])
+    .details-summary,
+  .details-summary-root:not(.is-open, [open]):has(.details-summary:active)
+    + .details-summary-root:not(.is-open, [open])
+    .details-summary {
+    border-top-color: transparent;
+  }
+
   :global(details[data-nested-details-summary="true"]) {
     z-index: $z-base;
 
