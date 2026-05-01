@@ -14,6 +14,14 @@ message.config({
 const CLICK_COPYABLE_SELECTOR =
   "code, mark.copy, mark.path, mark.code, mark.key, table mark.plugin, table mark.key";
 
+interface WindowWithAutoCopyFlag extends Window {
+  isAutoCopyEnabled?: boolean;
+}
+
+const getAutoCopyWindow = (): WindowWithAutoCopyFlag => {
+  return globalThis as unknown as WindowWithAutoCopyFlag;
+};
+
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".no-copy") !== null ||
@@ -41,6 +49,38 @@ const resolveClickCopyTarget = (target: HTMLElement): HTMLElement | undefined =>
   }
 
   return copyTarget;
+};
+
+const resolveMarkOrCodeTarget = (
+  element: Element | undefined
+): HTMLElement | undefined => {
+  const copyTarget = element?.closest("mark, code");
+
+  return copyTarget instanceof HTMLElement ? copyTarget : undefined;
+};
+
+const resolveTouchElement = (event_: React.TouchEvent): HTMLElement | undefined => {
+  const touch = event_.changedTouches[0];
+
+  if (!touch) {
+    return undefined;
+  }
+
+  const elementAtPoint = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  return elementAtPoint instanceof HTMLElement ? elementAtPoint : undefined;
+};
+
+const resolveEventCopyTarget = (
+  event_: React.MouseEvent | React.TouchEvent
+): HTMLElement | undefined => {
+  if ("changedTouches" in event_) {
+    return resolveMarkOrCodeTarget(resolveTouchElement(event_));
+  }
+
+  return resolveMarkOrCodeTarget(
+    event_.target instanceof HTMLElement ? event_.target : undefined
+  );
 };
 
 const copyWithFallback = (text: string): boolean => {
@@ -100,35 +140,7 @@ export const useCopyToClipboard = () => {
   const isCopyingReference = useRef(false);
 
   const resolveCopyTarget = useCallback(
-    (event_: React.MouseEvent | React.TouchEvent): HTMLElement | undefined => {
-      if ("changedTouches" in event_) {
-        const touch = event_.changedTouches[0];
-
-        if (!touch) {
-          return undefined;
-        }
-
-        const elementAtPoint = document.elementFromPoint(touch.clientX, touch.clientY);
-
-        if (!(elementAtPoint instanceof HTMLElement)) {
-          return undefined;
-        }
-
-        const target = elementAtPoint.closest("mark, code");
-
-        return target instanceof HTMLElement ? target : undefined;
-      }
-
-      const target = event_.target;
-
-      if (!(target instanceof HTMLElement)) {
-        return undefined;
-      }
-
-      const closestTarget = target.closest("mark, code");
-
-      return closestTarget instanceof HTMLElement ? closestTarget : undefined;
-    },
+    (event_: React.MouseEvent | React.TouchEvent) => resolveEventCopyTarget(event_),
     []
   );
 
@@ -184,7 +196,9 @@ export const useCopyToClipboard = () => {
   });
 
   useEffect(() => {
-    if ((globalThis as unknown as Window).isAutoCopyEnabled) {
+    const autoCopyWindow = getAutoCopyWindow();
+
+    if (autoCopyWindow.isAutoCopyEnabled) {
       return;
     }
 
@@ -271,7 +285,7 @@ export const useCopyToClipboard = () => {
     document.addEventListener("click", onClickCopyable);
     document.addEventListener("mousemove", onMouseMove, {passive: true});
     document.addEventListener("selectionchange", onSelectionChange);
-    (globalThis as unknown as Window).isAutoCopyEnabled = true;
+    autoCopyWindow.isAutoCopyEnabled = true;
 
     return () => {
       document.removeEventListener(
@@ -298,7 +312,7 @@ export const useCopyToClipboard = () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("selectionchange", onSelectionChange);
       setPointerTarget(undefined);
-      (globalThis as unknown as Window).isAutoCopyEnabled = false;
+      autoCopyWindow.isAutoCopyEnabled = false;
     };
   }, [longPressHandlers, copyElementContent]);
 
