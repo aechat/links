@@ -107,6 +107,18 @@
 @mixin details-summary-level-colors($selector, $background, $border) {
   #{$selector} {
     .details-summary {
+      --details-summary-level-border: #{$border};
+      --details-summary-level-border-hover: color-mix(
+        in hsl,
+        #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
+        var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+      );
+      --details-summary-level-border-active: color-mix(
+        in hsl,
+        #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
+        var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+      );
+
       border-color: $border;
       background-color: $background;
     }
@@ -152,26 +164,22 @@
       .details-summary:not(:last-child) {
       border-bottom-color: $border;
     }
+  }
 
-    #{$selector}.is-open .details-summary:hover,
-    #{$selector}[open] .details-summary:hover {
-      border-bottom: $stroke-1 solid
-        color-mix(
-          in hsl,
-          #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
-          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
-        );
-    }
+  #{$selector}.is-open .details-summary,
+  #{$selector}[open] .details-summary {
+    border-bottom: $stroke-1 solid var(--details-summary-level-border);
+    border-color: var(--details-summary-level-border);
+  }
 
-    #{$selector}.is-open .details-summary:active,
-    #{$selector}[open] .details-summary:active {
-      border-bottom: $stroke-1 solid
-        color-mix(
-          in hsl,
-          #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
-          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
-        );
-    }
+  #{$selector}.is-open .details-summary:hover,
+  #{$selector}[open] .details-summary:hover {
+    border-color: var(--details-summary-level-border-hover);
+  }
+
+  #{$selector}.is-open .details-summary:active,
+  #{$selector}[open] .details-summary:active {
+    border-color: var(--details-summary-level-border-active);
   }
 }
 
@@ -352,6 +360,14 @@
     &[open] {
       z-index: var(--spoiler-open-z-index);
     }
+  }
+
+  .details-summary-root:not(.is-open, [open]) .details-summary:hover {
+    border-color: var(--details-summary-level-border-hover);
+  }
+
+  .details-summary-root:not(.is-open, [open]) .details-summary:active {
+    border-color: var(--details-summary-level-border-active);
   }
 
   .details-summary-root:not(.is-open, [open]):has(.details-summary:hover)
