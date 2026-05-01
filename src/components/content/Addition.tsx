@@ -9,30 +9,15 @@ interface AdditionProperties {
   type: "info" | "warning" | "danger" | "tldr";
 }
 
+const classNameByType: Record<AdditionProperties["type"], string> = {
+  danger: styles["addition-danger"],
+  info: styles["addition-info"],
+  tldr: styles["addition-tldr"],
+  warning: styles["addition-warning"],
+};
+
 const Addition: React.FC<AdditionProperties> = ({children, type}) => {
-  let className: string;
-
-  switch (type) {
-    case "info": {
-      className = styles["addition-info"];
-      break;
-    }
-
-    case "warning": {
-      className = styles["addition-warning"];
-      break;
-    }
-
-    case "danger": {
-      className = styles["addition-danger"];
-      break;
-    }
-
-    case "tldr": {
-      className = styles["addition-tldr"];
-      break;
-    }
-  }
+  const className = classNameByType[type];
 
   if (!className) {
     throw new Error("Не указан тип для компонента Addition");
