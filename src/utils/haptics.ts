@@ -3,6 +3,7 @@ import {type HapticInput, WebHaptics} from "web-haptics";
 import {message} from "antd";
 
 import {isMobileDevice} from "./browserDetection";
+import {getStoredBoolean, setStoredBoolean} from "./localStorageUtilities";
 
 type MessageLevel = "error" | "info" | "success" | "warning";
 
@@ -46,14 +47,9 @@ const resolveVibrationPreference = () => {
     return;
   }
 
-  const saved = localStorage.getItem(vibrationStorageKey);
-
-  if (saved === null) {
-    localStorage.setItem(vibrationStorageKey, "true");
-    isVibrationEnabled = true;
-  } else {
-    isVibrationEnabled = saved === "true";
-  }
+  isVibrationEnabled = getStoredBoolean(vibrationStorageKey, true, {
+    persistFallback: true,
+  });
 
   hasResolvedVibrationPreference = true;
 };
@@ -69,9 +65,7 @@ export const setIsVibrationEnabled = (enabled: boolean) => {
   isVibrationEnabled = enabled;
   hasResolvedVibrationPreference = true;
 
-  if (globalThis.window !== undefined) {
-    localStorage.setItem(vibrationStorageKey, enabled.toString());
-  }
+  setStoredBoolean(vibrationStorageKey, enabled);
 
   if (!enabled) {
     haptics?.cancel();

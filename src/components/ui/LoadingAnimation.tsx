@@ -4,6 +4,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import {useLocation} from "react-router-dom";
 
 import {useLoading} from "../../context/LoadingContext";
+import {getStoredNumber, setStoredNumber} from "../../utils/localStorageUtilities";
 
 import styles from "./LoadingAnimation.module.scss";
 
@@ -118,11 +119,11 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
         return () => clearTimeout(timer);
       }
 
-      const lastShown = localStorage.getItem("introLastShown");
-
       const now = Date.now();
 
-      const shouldShowIntro = !lastShown || now - Number(lastShown) > 10 * 60 * 1000;
+      const lastShown = getStoredNumber("introLastShown", 0);
+
+      const shouldShowIntro = !lastShown || now - lastShown > 10 * 60 * 1000;
 
       if (!shouldShowIntro) {
         setShowIntro(false);
@@ -134,7 +135,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
         setCanDismiss(false);
 
         setTimeout(() => {
-          localStorage.setItem("introLastShown", Date.now().toString());
+          setStoredNumber("introLastShown", Date.now());
           setCanDismiss(true);
         }, 1750);
 
