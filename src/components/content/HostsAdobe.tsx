@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
@@ -9,14 +9,26 @@ import styles from "./CodeSnippet.module.scss";
 const HOSTS_URL =
   "https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/list.txt";
 
+const parseHostsLines = (text: string): string[] => {
+  return text.split(/\r?\n/).filter((line) => {
+    const trimmed = line.trim();
+
+    return trimmed !== "" && !trimmed.startsWith("#");
+  });
+};
+
+const isAbortError = (error: unknown): boolean => {
+  return error instanceof Error && error.name === "AbortError";
+};
+
 const HostsAdobeModal: React.FC = () => {
   const isOpen = useSpoiler();
 
-  const [hostsLines, setHostsLines] = React.useState<string[]>([]);
+  const [hostsLines, setHostsLines] = useState<string[]>([]);
 
-  const [hasLoaded, setHasLoaded] = React.useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isOpen || hasLoaded) {
       return;
     }
@@ -35,21 +47,15 @@ const HostsAdobeModal: React.FC = () => {
 
         const text = await response.text();
 
-        const rawLines = text.split(/\r?\n/);
-
-        const parsedLines = rawLines.filter((line) => {
-          const trimmed = line.trim();
-
-          return trimmed !== "" && !trimmed.startsWith("#");
-        });
-
-        setHostsLines(parsedLines);
+        setHostsLines(parseHostsLines(text));
         setHasLoaded(true);
       } catch (error: unknown) {
+        if (isAbortError(error)) {
+          return;
+        }
+
         if (error instanceof Error) {
-          if (error.name !== "AbortError") {
-            console.error("Failed to fetch hosts:", error);
-          }
+          console.error("Failed to fetch hosts:", error);
         } else {
           console.error("Failed to fetch hosts with unknown error:", error);
         }
