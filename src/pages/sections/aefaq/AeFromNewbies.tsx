@@ -7,7 +7,7 @@ import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
-import EasingEditor from "../../../components/features/EasingEditor";
+import EasingEditor from "../../../components/features/easingEditor/EasingEditor";
 import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
 
 const AeFromNewbies: React.FC = () => {
