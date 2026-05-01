@@ -13,6 +13,10 @@ interface SupportDonutProperties {
   wide?: boolean;
 }
 
+const SBER_CARD_NUMBER = "2202202357342488";
+
+const YOOMONEY_WALLET_NUMBER = "410016763684808";
+
 const formatGroupedNumber = (numberValue: string) => {
   return numberValue
     .replaceAll(/\D/g, "")
@@ -36,10 +40,6 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
   const ripple = useRipple<HTMLButtonElement>();
-
-  const SBER_CARD_NUMBER = "2202202357342488";
-
-  const YOOMONEY_WALLET_NUMBER = "410016763684808";
 
   const handleCopyAccount = withSoftHaptic(async (account: string) => {
     const success = await copyText(account);
