@@ -1,148 +1,30 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
-import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
 import {formatBytes} from "../utils/fileUtilities";
 import {
-  getFileNameFromHref,
-  isGithubRawFromRepository,
-  isHttpLink,
-} from "../utils/linkUtilities";
+  type ArticleLinkTarget,
+  type DownloadLinkTarget,
+  resolveArticleLinkTarget,
+  resolveDownloadLinkTarget,
+} from "../utils/linkTargets";
 
+import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";
 
-interface TargetArticle {
-  id: string;
-  title: string;
-}
+const clickHiddenDownloadLink = (href: string, fileName: string) => {
+  const downloadLink = document.createElement("a");
 
-interface TargetDownload {
-  fileKind: string;
-  fileMarkClass: string;
-  fileName: string;
-  fileSize?: string;
-  href: string;
-}
-
-const getDownloadFileMarkClass = (fileName: string): string => {
-  const extension = fileName.split(".").pop()?.toLowerCase();
-
-  if (!extension) {
-    return "file";
-  }
-
-  const markClassByExtension: Record<string, string> = {
-    avi: "video",
-    flac: "audio",
-    gif: "image",
-    jpeg: "image",
-    jpg: "image",
-    m4a: "audio",
-    mkv: "video",
-    mov: "video",
-    mp3: "audio",
-    mp4: "video",
-    ogg: "audio",
-    png: "image",
-    svg: "image",
-    wav: "audio",
-    webm: "video",
-    webp: "image",
-  };
-
-  return markClassByExtension[extension] || "file";
-};
-
-const getDownloadFileKind = (fileName: string): string => {
-  const extension = fileName.split(".").pop()?.toLowerCase();
-
-  if (!extension) {
-    return "файл";
-  }
-
-  const kindsByExtension: Record<string, string> = {
-    "7z": "архив",
-    "8be": "плагин",
-    "8bf": "плагин",
-    "8bi": "плагин",
-    "8bx": "плагин",
-    "abr": "набор кистей",
-    "aep": "проект",
-    "aex": "плагин",
-    "app": "приложение",
-    "atn": "операцию",
-    "atom": "пакет шаблонов",
-    "avi": "видео",
-    "bap": "пресет",
-    "bcp": "пресет",
-    "bsp": "пресет",
-    "bundle": "плагин",
-    "ccx": "расширение",
-    "cube": "LUT-профиль",
-    "definition": "служебный файл",
-    "dmg": "установщик",
-    "effect": "пресет",
-    "enc": "шаблон кодирования",
-    "exe": "установщик",
-    "ffx": "пресет",
-    "flac": "аудио",
-    "gif": "изображение",
-    "gp": "пресет",
-    "grd": "градиент",
-    "gz": "архив",
-    "hosts": "системный файл",
-    "iso": "ISO-образ",
-    "itx": "LUT-профиль",
-    "jpeg": "изображение",
-    "jpg": "изображение",
-    "json": "JSON-файл",
-    "jsx": "скрипт",
-    "jsxbin": "скрипт",
-    "license": "лицензионный файл",
-    "look": "LUT-профиль",
-    "ls3": "LUT-профиль",
-    "lut": "LUT-профиль",
-    "m4a": "аудио",
-    "mblook": "LUT-профиль",
-    "mbr": "пакет шаблонов",
-    "mkv": "видео",
-    "mogrt": "графический шаблон",
-    "mov": "видео",
-    "mp3": "аудио",
-    "mp4": "видео",
-    "msi": "установщик",
-    "ogg": "аудио",
-    "otf": "шрифт",
-    "pdf": "документ",
-    "pkg": "установщик",
-    "plugin": "плагин",
-    "png": "изображение",
-    "prfpset": "пресет",
-    "prm": "плагин",
-    "project": "служебный файл",
-    "prproj": "проект",
-    "rar": "архив",
-    "reg": "файл реестра",
-    "rgx": "LUT-профиль",
-    "svg": "изображение",
-    "tar": "архив",
-    "thumb": "миниатюру",
-    "torrent": "торрент-файл",
-    "transition": "пресет",
-    "ttf": "шрифт",
-    "vst": "аудиоплагин",
-    "vst3": "аудиоплагин",
-    "wav": "аудио",
-    "webm": "видео",
-    "webp": "изображение",
-    "zip": "архив",
-    "zxp": "расширение",
-  };
-
-  return kindsByExtension[extension] || "файл";
+  downloadLink.href = href;
+  downloadLink.download = fileName;
+  downloadLink.rel = "noopener noreferrer";
+  downloadLink.style.display = "none";
+  document.body.append(downloadLink);
+  downloadLink.click();
+  downloadLink.remove();
 };
 
 export const useInternalLinkHandler = () => {
@@ -152,9 +34,9 @@ export const useInternalLinkHandler = () => {
 
   const downloadAbortControllerReference = useRef<AbortController | undefined>(undefined);
 
-  const [targetArticle, setTargetArticle] = useState<TargetArticle | undefined>();
+  const [targetArticle, setTargetArticle] = useState<ArticleLinkTarget | undefined>();
 
-  const [targetDownload, setTargetDownload] = useState<TargetDownload | undefined>();
+  const [targetDownload, setTargetDownload] = useState<DownloadLinkTarget | undefined>();
 
   const [downloadSizeCache, setDownloadSizeCache] = useState<Record<string, string>>({});
 
@@ -195,100 +77,40 @@ export const useInternalLinkHandler = () => {
 
   const handleLinkClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
-      const target = event.target as HTMLElement;
+      const downloadTarget = resolveDownloadLinkTarget(event.target, downloadSizeCache);
 
-      const downloadAnchor = target.closest("a[download][href]");
+      if (downloadTarget) {
+        event.preventDefault();
+        setTargetDownload(downloadTarget);
+        setTargetArticle(undefined);
+        setIsModalOpen(true);
 
-      if (downloadAnchor instanceof HTMLAnchorElement) {
-        const href = downloadAnchor.getAttribute("href");
+        void resolveDownloadFileSize(downloadTarget.href).then((resolvedFileSize) => {
+          if (!resolvedFileSize) {
+            return;
+          }
 
-        if (!href) {
-          return;
-        }
-
-        const isExternalHttpLink = isHttpLink(href);
-
-        const shouldHandleAsDownload =
-          !isExternalHttpLink || isGithubRawFromRepository(href, "aechat", "links");
-
-        if (shouldHandleAsDownload) {
-          event.preventDefault();
-
-          const fileNameFromDownloadAttribute = downloadAnchor.getAttribute("download");
-
-          const fileNameFromHref = getFileNameFromHref(href, "файл");
-
-          const fileName =
-            fileNameFromDownloadAttribute && fileNameFromDownloadAttribute.trim()
-              ? fileNameFromDownloadAttribute.trim()
-              : fileNameFromHref;
-
-          setTargetDownload({
-            fileKind: getDownloadFileKind(fileName),
-            fileMarkClass: getDownloadFileMarkClass(fileName),
-            fileName,
-            fileSize: downloadSizeCache[href],
-            href,
-          });
-
-          setTargetArticle(undefined);
-          setIsModalOpen(true);
-
-          void resolveDownloadFileSize(href).then((resolvedFileSize) => {
-            if (!resolvedFileSize) {
-              return;
+          setTargetDownload((previous) => {
+            if (!previous || previous.href !== downloadTarget.href) {
+              return previous;
             }
 
-            setTargetDownload((previous) => {
-              if (!previous || previous.href !== href) {
-                return previous;
-              }
-
-              return {...previous, fileSize: resolvedFileSize};
-            });
+            return {...previous, fileSize: resolvedFileSize};
           });
+        });
 
-          return;
-        }
-      }
-
-      const anchor = target.closest('a[href^="#"]');
-
-      if (!anchor || anchor.getAttribute("href")!.length <= 1) {
         return;
       }
 
-      const href = anchor.getAttribute("href")!;
+      const articleTarget = resolveArticleLinkTarget(event.target, event.currentTarget);
 
-      const anchorValue = href.slice(1);
-
-      const targetDetails = resolveDetailsByAnchor(anchorValue);
-
-      if (!targetDetails) {
-        return;
-      }
-
-      const currentDetails = (event.currentTarget as HTMLElement).closest("details");
-
-      if (currentDetails === targetDetails) {
+      if (!articleTarget) {
         return;
       }
 
       event.preventDefault();
-
-      const summary = targetDetails.querySelector("summary");
-
-      if (!summary || !summary.id) {
-        return;
-      }
-
-      const titleElement = summary.querySelector("h2");
-
-      let title = titleElement ? titleElement.textContent : "без названия";
-
-      title = title.replace(/^\d+\.\d+\.\s*/, "");
       setTargetDownload(undefined);
-      setTargetArticle({id: summary.id, title});
+      setTargetArticle(articleTarget);
       setIsModalOpen(true);
     },
     [downloadSizeCache, resolveDownloadFileSize]
@@ -322,15 +144,7 @@ export const useInternalLinkHandler = () => {
 
           const objectUrl = URL.createObjectURL(blob);
 
-          const downloadLink = document.createElement("a");
-
-          downloadLink.href = objectUrl;
-          downloadLink.download = targetDownload.fileName;
-          downloadLink.rel = "noopener noreferrer";
-          downloadLink.style.display = "none";
-          document.body.append(downloadLink);
-          downloadLink.click();
-          downloadLink.remove();
+          clickHiddenDownloadLink(objectUrl, targetDownload.fileName);
           globalThis.setTimeout(() => URL.revokeObjectURL(objectUrl), 60_000);
           setIsModalOpen(false);
           setTargetArticle(undefined);
@@ -340,15 +154,7 @@ export const useInternalLinkHandler = () => {
             return;
           }
 
-          const downloadLink = document.createElement("a");
-
-          downloadLink.href = targetDownload.href;
-          downloadLink.download = targetDownload.fileName;
-          downloadLink.rel = "noopener noreferrer";
-          downloadLink.style.display = "none";
-          document.body.append(downloadLink);
-          downloadLink.click();
-          downloadLink.remove();
+          clickHiddenDownloadLink(targetDownload.href, targetDownload.fileName);
           setIsModalOpen(false);
           setTargetArticle(undefined);
           setTargetDownload(undefined);
@@ -396,21 +202,7 @@ export const useInternalLinkHandler = () => {
     setTargetDownload(undefined);
   }, []);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        handleOk();
-      }
-    };
-
-    if (isModalOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isModalOpen, handleOk]);
+  useEnterKeyConfirm(isModalOpen, handleOk);
 
   let actionButtonLabel = "Перейти";
 
