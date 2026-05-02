@@ -6,7 +6,7 @@
   &-info-text {
     margin-block: $space-16 !important;
     margin-inline: $space-4 !important;
-    color: var(--color-text-tertiary);
+    color: var(--color-page-text-muted);
     font-size: $font-size-text-xs;
   }
 
@@ -75,7 +75,7 @@
     }
 
     &-hint {
-      color: var(--color-text-tertiary);
+      color: var(--color-page-text-muted);
       font-size: $font-size-text-xs;
     }
   }
