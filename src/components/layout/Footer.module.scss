@@ -28,12 +28,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.5;
-  color: var(--color-text-tertiary);
+  color: var(--color-page-text-muted);
   font-size: $font-size-text-xs;
 
   a {
     line-height: 1.35;
-    color: var(--color-accent);
+    color: var(--color-page-accent);
     font-family: Onest, Inter, sans-serif;
     font-weight: 600;
   }
