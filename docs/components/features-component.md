@@ -5,7 +5,7 @@
 ## Основные компоненты
 
 - `SearchEngine` (`src/components/features/searchEngine/SearchEngine.tsx`) — поиск по странице и разделам.
-- `EasingEditor` (`src/components/features/EasingEditor.tsx`) — редактор кривых сглаживания.
+- `EasingEditor` (`src/components/features/easingEditor/EasingEditor.tsx`) — редактор кривых сглаживания.
 
 ## Конвертеры
 

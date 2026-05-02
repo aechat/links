@@ -1,6 +1,6 @@
 # Компонент `DetailsSummary`
 
-Файл реализации: `src/components/content/DetailsSummary.tsx`.
+Файл реализации: `src/components/detailsSummary/DetailsSummary.tsx`.
 
 ---
 
@@ -42,7 +42,7 @@ interface DetailsSummaryProperties {
 ## Базовый пример
 
 ```tsx
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 <DetailsSummary
   anchor="home-screen"
@@ -130,7 +130,7 @@ tag = "helper.exe не найден, выключить защитник, вык
 Внутри `DetailsSummary` можно использовать `NestedDetailsSummary` для длинных ответов:
 
 ```tsx
-import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
+import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
 
 <DetailsSummary
   anchor="get-started"

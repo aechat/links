@@ -1,6 +1,6 @@
 # Компонент `NestedDetailsSummary`
 
-Файл: `src/components/content/NestedDetailsSummary.tsx`
+Файл: `src/components/detailsSummary/NestedDetailsSummary.tsx`
 
 ## Назначение
 
@@ -10,6 +10,7 @@
 
 ```ts
 interface NestedDetailsSummaryProperties {
+  anchor?: string;
   children: React.ReactNode;
   modifierClass?: string;
   startOpen?: boolean;
@@ -18,6 +19,7 @@ interface NestedDetailsSummaryProperties {
 ```
 
 - `title` — заголовок вложенного спойлера;
+- `anchor` — опциональный текстовый якорь для прямой ссылки на вложенный спойлер;
 - `startOpen` — открыть ли блок по умолчанию;
 - `modifierClass` — дополнительный CSS-класс;
 - `children` — содержимое.

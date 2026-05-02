@@ -1,20 +1,19 @@
 # Компонент `SearchEngine`
 
 Файл оркестратор и экспортов: `src/components/features/searchEngine/SearchEngine.tsx`  
-Основные модули: `src/components/features/searchEngine/searchState.tsx`, `src/components/features/searchEngine/SearchUi.tsx`, `src/components/features/searchEngine/useSearchLogic.ts`, `src/components/features/searchEngine/searchContentUtilities.ts`
+Основные модули: `src/components/features/searchEngine/SearchState.tsx`, `src/components/features/searchEngine/SearchUi.tsx`, `src/components/features/searchEngine/useSearchLogic.ts`, `src/components/features/searchEngine/searchContentUtilities.ts`
 
 ## Назначение
 
 Поиск по текущей странице FAQ/expr. Модуль состоит из провайдера состояния, кнопки открытия и модального интерфейса с результатами, навигацией по совпадениям и внешним поиском при отсутствии результатов.
 
-`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния, контекст и типы находятся в `searchState.tsx`. UI-компоненты собраны в `SearchUi.tsx`. Контентные утилиты и форматирование сниппетов вынесены в `searchContentUtilities.ts`.
+`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния, контекст и типы находятся в `SearchState.tsx`. UI-компоненты собраны в `SearchUi.tsx`. Контентные утилиты и форматирование сниппетов вынесены в `searchContentUtilities.ts`.
 
 ## Структура файлов
 
 - `src/components/features/searchEngine/SearchEngine.tsx`  
   Оркестратор. Собирает зависимости, управляет ветками рендера (категории/результаты/no-results), подключает модалку и публичные экспорты.
-- `src/components/features/searchEngine/searchState.tsx`  
-  Слой состояния и поведения UI: `SearchContext`, провайдер, хоткеи открытия, навигация по результатам, логика фокуса и прокрутки в модалке.
+- `src/components/features/searchEngine/SearchState.tsx` Слой состояния и поведения UI: `SearchContext`, провайдер, хоткеи открытия, навигация по результатам, логика фокуса и прокрутки в модалке.
 - `src/components/features/searchEngine/useSearchLogic.ts`  
   Основной runtime поиска: сбор и кэш деталей страницы, дебаунс запроса, запуск worker, fallback на main thread, маппинг ранжированных результатов в UI-модель.
 - `src/components/features/searchEngine/SearchUi.tsx`  
@@ -78,7 +77,9 @@ import {
 
 ## Технические особенности
 
-- индексирует заголовки, теги, абзацы, списки, таблицы и ссылки, включая `.flexible-links`;
+- индексирует верхнеуровневые `details`;
+- пропускает спойлеры, где кроме `.article-placeholder` нет контента;
+- индексирует заголовки, теги, абзацы, списки, таблицы, `Addition`, `Divider` и ссылки, включая `.flexible-links`;
 - при ранжировании учитывает порядок слов запроса и более раннюю позицию совпадений в поле;
 - для коротких запросов (`<= 3`) снижает приоритет слабых совпадений только в контенте;
 - поддерживает hotkeys и навигацию по результатам с клавиатуры;

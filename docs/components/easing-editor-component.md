@@ -1,6 +1,6 @@
 # Компонент `EasingEditor`
 
-Файл: `src/components/features/EasingEditor.tsx`
+Файл: `src/components/features/easingEditor/EasingEditor.tsx`
 
 ## Назначение
 
@@ -20,7 +20,7 @@ export default EasingEditor;
 `src/pages/sections/aefaq/AeFromNewbies.tsx`:
 
 ```tsx
-import EasingEditor from "../../../components/features/EasingEditor";
+import EasingEditor from "../../../components/features/easingEditor/EasingEditor";
 
 <EasingEditor />;
 ```

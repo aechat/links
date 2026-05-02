@@ -1,10 +1,10 @@
 # Компонент `CopyButton`
 
-Файл: `src/components/ui/CopyButton/CopyButton.tsx`
+Файл: `src/components/ui/CopyButton.tsx`
 
 ## Назначение
 
-Компактная кнопка копирования (иконка `ShareRounded`) для заголовков разделов и спойлеров.
+Компактная кнопка с иконкой `ShareRounded`.
 
 ## Интерфейс
 
@@ -22,10 +22,10 @@ interface CopyButtonProperties {
 
 ## Пример из проекта
 
-`src/pages/ChatRules.tsx`:
+Пример импорта:
 
 ```tsx
-import {CopyButton} from "../components/ui/CopyButton/CopyButton";
+import {CopyButton} from "../components/ui/CopyButton";
 
 <CopyButton onClick={() => handleCopyAnchor("about")} />;
 ```
@@ -33,7 +33,9 @@ import {CopyButton} from "../components/ui/CopyButton/CopyButton";
 ## Технические особенности
 
 - сам компонент не копирует текст, только делегирует действие в `onClick`;
+- клик обёрнут в `withSoftHaptic`;
 - собирает классы кнопки из базового класса, `disabled`-состояния и внешнего `className`;
-- стили: `src/components/ui/CopyButton/CopyButton.module.scss`.
+- `aria-label`: `Copy`;
+- стили: `src/components/ui/CopyButton.module.scss`.
 
 Общие правила: [`coding-rules.md`](../coding-rules.md).
