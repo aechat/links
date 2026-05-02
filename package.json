@@ -75,10 +75,13 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
+    "extract:marked-text": "node scripts/extractMarkedText.js",
     "format": "echo \"--- Running tsc ---\"; tsc; echo \"--- Running stylelint ---\"; stylelint \"**/*.scss\" --fix; echo \"--- Running eslint ---\"; eslint . --fix; echo \"--- Running prettier ---\"; prettier --write .",
     "build": "vite build && vite build --ssr src/EntryServer.tsx --outDir dist/server && node prerender.js",
     "prepare": "husky",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "lint:no-html-strings": "node scripts/lintNoHtmlInStrings.js",
+    "lint:divider-style": "node scripts/lintDividerStyle.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "eslint --fix",
