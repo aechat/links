@@ -485,7 +485,7 @@ const Links = () => {
             />
             <LinkCard
               description="Загрузчик на базе yt-dlp с поддержкой очередей и последующей конвертацией видео и аудио"
-              href="https://h264.space/#programs/alchemist"
+              href="https://h264.space/programs/alchemist"
               icon={<ScienceRounded />}
               name="Alchemist"
             />
