@@ -47,7 +47,7 @@ const AeInterface: React.FC = () => {
 export default AeInterface;
 ```
 
-Контейнер `article-content` отвечает за типографику, отступы и корректную работу спойлеров. Правила разметки: [`article-container-rules.md`](./content/article-container-rules.md), [`paragraphs-rules.md`](./content/paragraphs-rules.md), [`lists-rules.md`](./content/lists-rules.md), [`addition-rules.md`](./content/addition-rules.md), [`divider-rules.md`](./content/divider-rules.md), [`tables-rules.md`](./content/tables-rules.md).
+Контейнер `article-content` отвечает за типографику, отступы и корректную работу спойлеров. Правила разметки: [`article-container-rules.md`](./content/article-container-rules.md), [`paragraphs-rules.md`](./content/paragraphs-rules.md), [`lists-rules.md`](./content/lists-rules.md), [`addition-rules.md`](./content/addition-rules.md), [`divider-rules.md`](./content/divider-rules.md), [`tables-rules.md`](./content/tables-rules.md), [`version-format-rules.md`](./content/version-format-rules.md), [`article-style-recommendations.md`](./content/article-style-recommendations.md).
 
 ---
 
