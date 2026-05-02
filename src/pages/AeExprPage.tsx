@@ -139,7 +139,7 @@ const AeExprPage = () => {
                 >
                   <Divider
                     style={{
-                      color: "var(--color-text-primary)",
+                      color: "var(--color-page-text)",
                       fontWeight: "600",
                       textTransform: "uppercase",
                     }}
