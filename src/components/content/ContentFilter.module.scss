@@ -1,4 +1,3 @@
-@use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
 .change-os {
@@ -8,23 +7,23 @@
   align-items: center;
   justify-content: space-between;
   margin-block: $space-16 !important;
-  outline: $stroke-1 solid var(--color-status-warning-border);
-  background-color: var(--color-status-warning-background);
+  outline: $stroke-1 solid var(--color-addition-warning-border);
+  background-color: var(--color-addition-warning-background);
   padding: $space-8 $space-16;
   line-height: 1.5;
-  color: var(--color-status-warning-text);
+  color: var(--color-addition-warning-text);
   font-size: $font-size-text-md;
 
   button {
     transition: opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     opacity: 0.9;
     margin-inline-start: $space-4;
-    outline: $stroke-1 solid var(--color-status-warning-border);
+    outline: $stroke-1 solid var(--color-addition-warning-border);
     border-radius: $roundness * 0.5;
     padding: $space-4 $space-8;
     text-align: center;
     line-height: 1.25;
-    color: var(--color-status-warning-text);
+    color: var(--color-addition-warning-text);
     font-size: $font-size-text-sm;
     font-weight: 600;
 
@@ -38,25 +37,25 @@
   }
 
   a {
-    color: var(--color-status-warning-text);
+    color: var(--color-addition-warning-text);
   }
 
   mark {
     transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: $stroke-1 solid var(--color-status-warning-border);
-    background-color: var(--color-status-warning-mark-background);
-    color: var(--color-status-warning-text);
+    outline: $stroke-1 solid var(--color-addition-warning-border);
+    background-color: var(--color-addition-warning-mark-background);
+    color: var(--color-addition-warning-text);
 
     &::before {
-      background-color: var(--color-status-warning-text) !important;
+      background-color: var(--color-addition-warning-text) !important;
     }
 
     &:hover {
-      background-color: var(--color-status-warning-mark-background-hover);
+      background-color: var(--color-addition-warning-mark-background-hover);
     }
 
     &:active {
-      background-color: var(--color-status-warning-mark-background-active);
+      background-color: var(--color-addition-warning-mark-background-active);
     }
   }
 
@@ -65,10 +64,10 @@
     gap: $space-8;
     align-items: center;
   }
-}
 
-.change-os-in-list {
-  margin-block: $space-4;
-  margin-inline: 0;
-  border-radius: $roundness * 0.75;
+  &-in-list {
+    margin-block: $space-4;
+    margin-inline: 0;
+    border-radius: $roundness * 0.75;
+  }
 }
