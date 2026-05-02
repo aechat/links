@@ -1,56 +1,5 @@
 @use "../../styles/abstracts/mixins" as *;
 
-@mixin header-icon-base {
-  @include fluid-size(margin, -$space-2, -$space-4);
-  @include fluid-size(padding, $space-2, $space-4);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
-    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
-    opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-  outline: $stroke-1 solid transparent;
-  border-radius: $roundness * 0.75;
-  height: var(--header-control-height, 30px);
-  min-height: var(--header-control-height, 30px);
-  line-height: 1;
-  aspect-ratio: 1 / 1;
-
-  &:hover {
-    outline-color: var(--color-surface-primary-border-hover);
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    outline-color: var(--color-surface-primary-border-active);
-    background-color: var(--color-surface-primary-background-active);
-  }
-
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@mixin header-logo-base {
-  transition: opacity $duration-250 ease;
-  margin-block: $space-8 $space-8;
-  margin-inline: $space-4;
-  max-width: fit-content;
-  color: var(--color-accent);
-  font-family: "Red Hat Display", monospace;
-  font-size: $font-size-heading-md;
-  font-weight: 800;
-  font-style: italic;
-
-  sub {
-    font-size: $font-size-text-xs;
-    font-weight: 500;
-  }
-}
-
 .header {
   --header-control-height: min(
     calc(26px + (30 - 26) * ((100vw - 320px) / (768 - 320))),
@@ -69,9 +18,9 @@
     box-shadow $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
     border $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: $z-top;
-  outline: $stroke-1 solid var(--color-border-header);
+  outline: $stroke-1 solid var(--color-header-backdrop-border);
   box-shadow: 0 0 15px 0 var(--shadow-soft);
-  background-color: var(--color-background-header);
+  background-color: var(--color-header-backdrop-background);
   padding-inline: $space-12;
   width: 100%;
   max-width: 1075px;
@@ -81,7 +30,7 @@
   svg {
     @include fluid-icon-size(18px, 20px);
 
-    fill: var(--color-accent);
+    fill: var(--color-page-accent);
   }
 
   &-left,
@@ -95,14 +44,6 @@
       opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       visibility $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     max-height: max-content;
-
-    .icon {
-      @include header-icon-base();
-    }
-
-    .logo {
-      @include header-logo-base();
-    }
   }
 
   &-left {
@@ -110,9 +51,9 @@
 
     mark {
       margin-inline: $space-8;
-      outline: $stroke-1 solid var(--color-status-danger-border);
-      background: var(--color-status-danger-mark-background);
-      color: var(--color-status-danger-text);
+      outline: $stroke-1 solid var(--color-addition-danger-border);
+      background: var(--color-addition-danger-mark-background);
+      color: var(--color-addition-danger-text);
       font-size: $font-size-text-base;
       font-style: normal;
     }
@@ -136,11 +77,54 @@
 }
 
 .icon {
-  @include header-icon-base();
+  @include fluid-size(margin, -$space-2, -$space-4);
+  @include fluid-size(padding, $space-2, $space-4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: $stroke-1 solid transparent;
+  border-radius: $roundness * 0.75;
+  height: var(--header-control-height, 30px);
+  min-height: var(--header-control-height, 30px);
+  line-height: 1;
+  aspect-ratio: 1 / 1;
+
+  &:hover {
+    outline-color: var(--color-panel-border-hover);
+    background-color: var(--color-panel-background-hover);
+  }
+
+  &:active {
+    outline-color: var(--color-panel-border-active);
+    background-color: var(--color-panel-background-active);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .logo {
-  @include header-logo-base();
+  transition: opacity $duration-250 ease;
+  margin-block: $space-8 $space-8;
+  margin-inline: $space-4;
+  max-width: fit-content;
+  color: var(--color-page-accent);
+  font-family: "Red Hat Display", monospace;
+  font-size: $font-size-heading-md;
+  font-weight: 800;
+  font-style: italic;
+
+  sub {
+    font-size: $font-size-text-xs;
+    font-weight: 500;
+  }
 }
 
 .visible {
