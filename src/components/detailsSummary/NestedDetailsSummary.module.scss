@@ -1,5 +1,29 @@
-@use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
+
+@mixin nested-addition-status(
+  $selector,
+  $text,
+  $border,
+  $secondary-background,
+  $visited-text
+) {
+  #{$selector} li::before {
+    background-color: $text;
+  }
+
+  #{$selector} li:not(:last-child) {
+    border-bottom-color: $border;
+  }
+
+  #{$selector} :global(.flexible-links) {
+    outline-color: $border;
+    background-color: $secondary-background;
+  }
+
+  #{$selector}#{$selector} a:visited {
+    color: $visited-text;
+  }
+}
 
 .details-nested {
   position: relative;
@@ -17,26 +41,26 @@
     transition:
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-    border: $stroke-1 solid var(--color-surface-primary-border);
+    border: $stroke-1 solid var(--color-panel-border);
     border-radius: $roundness;
-    background-color: var(--color-surface-primary-background);
+    background-color: var(--color-panel-background);
     cursor: pointer;
     padding: $space-8 $space-12;
     text-transform: uppercase;
     line-height: 1.2;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-family: Onest, sans-serif;
     font-size: min(calc(1rem + (1.1 - 1) * ((100vw - 320px) / (768 - 320))), 1.1rem);
     font-weight: 600;
 
     &:hover {
-      border-color: var(--color-surface-primary-border-hover);
-      background-color: var(--color-surface-primary-background-hover);
+      border-color: var(--color-panel-border-hover);
+      background-color: var(--color-panel-background-hover);
     }
 
     &:active {
-      border-color: var(--color-surface-primary-border-active);
-      background-color: var(--color-surface-primary-background-active);
+      border-color: var(--color-panel-border-active);
+      background-color: var(--color-panel-background-active);
     }
 
     h3 {
@@ -68,10 +92,38 @@
 
   &-section {
     @include fluid-size(padding-block, $space-12, $space-16);
+    @include nested-addition-status(
+      ".addition-info",
+      var(--color-addition-info-text),
+      var(--color-addition-info-border),
+      var(--color-addition-info-secondary-background),
+      var(--color-addition-info-visited-text)
+    );
+    @include nested-addition-status(
+      ".addition-warning",
+      var(--color-addition-warning-text),
+      var(--color-addition-warning-border),
+      var(--color-addition-warning-secondary-background),
+      var(--color-addition-warning-visited-text)
+    );
+    @include nested-addition-status(
+      ".addition-danger",
+      var(--color-addition-danger-text),
+      var(--color-addition-danger-border),
+      var(--color-addition-danger-secondary-background),
+      var(--color-addition-danger-visited-text)
+    );
+    @include nested-addition-status(
+      ".addition-tldr",
+      var(--color-addition-tldr-text),
+      var(--color-addition-tldr-border),
+      var(--color-addition-tldr-secondary-background),
+      var(--color-addition-tldr-visited-text)
+    );
 
-    border: solid $stroke-1 var(--color-border-primary);
+    border: solid $stroke-1 var(--color-article-border);
     border-top: none;
-    background-color: var(--color-background-tertiary);
+    background-color: var(--color-article-background-muted);
     font-size: $font-size-text-md;
 
     p {
@@ -106,13 +158,13 @@
         position: absolute;
         opacity: 0.5;
         border-radius: $roundness;
-        background-color: var(--color-accent);
+        background-color: var(--color-page-accent);
         width: 1px;
         content: "";
       }
 
       &:not(:last-child) {
-        border-bottom: $stroke-1 solid var(--color-border-primary);
+        border-bottom: $stroke-1 solid var(--color-article-border);
       }
 
       p {
@@ -195,74 +247,6 @@
     .addition-danger :global(.flexible-links),
     .addition-tldr :global(.flexible-links) {
       outline-width: $stroke-1;
-    }
-
-    .addition-info li::before {
-      background-color: var(--color-status-info-text);
-    }
-
-    .addition-warning li::before {
-      background-color: var(--color-status-warning-text);
-    }
-
-    .addition-danger li::before {
-      background-color: var(--color-status-danger-text);
-    }
-
-    .addition-tldr li::before {
-      background-color: var(--color-status-tldr-text);
-    }
-
-    .addition-info li:not(:last-child) {
-      border-bottom-color: var(--color-status-info-border);
-    }
-
-    .addition-warning li:not(:last-child) {
-      border-bottom-color: var(--color-status-warning-border);
-    }
-
-    .addition-danger li:not(:last-child) {
-      border-bottom-color: var(--color-status-danger-border);
-    }
-
-    .addition-tldr li:not(:last-child) {
-      border-bottom-color: var(--color-status-tldr-border);
-    }
-
-    .addition-info :global(.flexible-links) {
-      outline-color: var(--color-status-info-border);
-      background-color: var(--color-status-info-secondary-background);
-    }
-
-    .addition-warning :global(.flexible-links) {
-      outline-color: var(--color-status-warning-border);
-      background-color: var(--color-status-warning-secondary-background);
-    }
-
-    .addition-danger :global(.flexible-links) {
-      outline-color: var(--color-status-danger-border);
-      background-color: var(--color-status-danger-secondary-background);
-    }
-
-    .addition-tldr :global(.flexible-links) {
-      outline-color: var(--color-status-tldr-border);
-      background-color: var(--color-status-tldr-secondary-background);
-    }
-
-    .addition-info.addition-info a:visited {
-      color: var(--color-status-info-visited-text);
-    }
-
-    .addition-warning.addition-warning a:visited {
-      color: var(--color-status-warning-visited-text);
-    }
-
-    .addition-danger.addition-danger a:visited {
-      color: var(--color-status-danger-visited-text);
-    }
-
-    .addition-tldr.addition-tldr a:visited {
-      color: var(--color-status-tldr-visited-text);
     }
 
     :global(table) {

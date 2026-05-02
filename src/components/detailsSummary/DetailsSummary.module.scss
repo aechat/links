@@ -1,7 +1,7 @@
 @use "../../styles/abstracts/mixins" as *;
 
-.details-summary-root {
-  --spoiler-depth: 0;
+@mixin spoiler-root-base($depth) {
+  --spoiler-depth: #{$depth};
   --spoiler-order: 1;
   --spoiler-open-z-index: calc(
     1000 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
@@ -13,13 +13,22 @@
   position: relative;
   transition: z-index 0s linear $duration-250;
   z-index: $z-base;
-  user-select: none;
 
   &:hover,
   &:active {
     transition-delay: 0s;
     z-index: var(--spoiler-hover-z-index);
   }
+
+  &[open] {
+    z-index: var(--spoiler-open-z-index);
+  }
+}
+
+.details-summary-root {
+  @include spoiler-root-base(0);
+
+  user-select: none;
 
   summary {
     position: relative;
@@ -28,17 +37,6 @@
 
     &::-webkit-details-marker {
       display: none;
-    }
-  }
-
-  .details-content-wrapper {
-    transition: max-height $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
-    margin-block-start: -$space-16;
-    max-height: 0;
-    overflow: hidden;
-
-    .details-content-inner {
-      overflow: hidden;
     }
   }
 
@@ -66,28 +64,7 @@
 }
 
 :global(details[data-nested-details-summary="true"]) {
-  --spoiler-depth: 1;
-  --spoiler-order: 1;
-  --spoiler-open-z-index: calc(
-    1000 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
-  );
-  --spoiler-hover-z-index: calc(
-    900 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
-  );
-
-  position: relative;
-  transition: z-index 0s linear $duration-250;
-  z-index: $z-base;
-
-  &:hover,
-  &:active {
-    transition-delay: 0s;
-    z-index: var(--spoiler-hover-z-index);
-  }
-
-  &[open] {
-    z-index: var(--spoiler-open-z-index);
-  }
+  @include spoiler-root-base(1);
 }
 
 :global(
@@ -185,8 +162,8 @@
 
 @include details-summary-level-colors(
   ".details-summary-root",
-  var(--color-surface-primary-background),
-  var(--color-surface-primary-border)
+  var(--color-panel-background),
+  var(--color-panel-border)
 );
 @include details-summary-level-colors(
   ":global(details[data-nested-details-summary='true']) .details-summary-root",
@@ -395,8 +372,8 @@
 
 .details-section {
   margin-block-end: 0;
-  border: solid $stroke-1 var(--color-border-primary);
-  background-color: var(--color-background-secondary);
+  border: solid $stroke-1 var(--color-article-border);
+  background-color: var(--color-article-background);
   padding-block: $space-16 $space-0;
 }
 
