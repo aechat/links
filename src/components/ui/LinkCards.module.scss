@@ -1,4 +1,3 @@
-@use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
 .links-button {
@@ -16,10 +15,10 @@
     border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
     z-index 0s linear $duration-250;
   z-index: $z-base;
-  outline: $stroke-1 solid var(--color-surface-card-border);
+  outline: $stroke-1 solid var(--color-panel-card-border);
   border-radius: 0;
   box-shadow: $shadow-box-interactive-base;
-  background-color: var(--color-surface-card-background);
+  background-color: var(--color-panel-card-background);
   width: 100%;
   min-width: 170px;
 
@@ -27,9 +26,9 @@
     transform: scale(var(--links-hover-scale-x), var(--links-hover-scale-y));
     transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
     z-index: $z-raised;
-    outline: $stroke-1 solid var(--color-surface-card-border-hover);
+    outline: $stroke-1 solid var(--color-panel-card-border-hover);
     box-shadow: $shadow-box-interactive-hover;
-    background-color: var(--color-surface-card-background-hover);
+    background-color: var(--color-panel-card-background-hover);
     cursor: pointer;
   }
 
@@ -37,9 +36,9 @@
     transform: scale(var(--links-active-scale-x), var(--links-active-scale-y));
     transition-delay: 0s;
     z-index: $z-raised;
-    outline: $stroke-1 solid var(--color-surface-card-border-active);
+    outline: $stroke-1 solid var(--color-panel-card-border-active);
     box-shadow: $shadow-box-interactive-active;
-    background-color: var(--color-surface-card-background-active);
+    background-color: var(--color-panel-card-background-active);
   }
 
   a {
