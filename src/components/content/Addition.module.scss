@@ -1,6 +1,135 @@
 @use "../../styles/abstracts/mixins" as *;
 
+@mixin addition-status-theme(
+  $name,
+  $border,
+  $background,
+  $text,
+  $visited-text,
+  $secondary-background,
+  $secondary-hover-background,
+  $secondary-active-background
+) {
+  &-#{$name} {
+    outline: $stroke-1 solid $border;
+    background-color: $background;
+    color: $text;
+
+    a {
+      color: $text;
+
+      &::before {
+        background-color: $text;
+      }
+
+      &:visited {
+        color: $visited-text;
+
+        &::before {
+          background-color: $visited-text;
+        }
+      }
+    }
+
+    li {
+      &::before {
+        background-color: $text;
+      }
+    }
+
+    mark {
+      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+      outline: $stroke-1 solid $border;
+      background-color: var(--color-addition-#{$name}-mark-background);
+      color: $text;
+
+      &::before {
+        background-color: $text !important;
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):hover {
+        outline-color: $border;
+        background-color: var(--color-addition-#{$name}-mark-background-hover);
+      }
+
+      &:where(.copy, [style*="cursor: pointer"]):active {
+        outline-color: $border;
+        background-color: var(--color-addition-#{$name}-mark-background-active);
+      }
+    }
+
+    :global(.flexible-links) {
+      outline-color: $border;
+      background-color: $secondary-background;
+
+      button,
+      a {
+        outline-color: $border;
+        background-color: $secondary-background;
+        color: $text;
+
+        &:hover {
+          background-color: $secondary-hover-background;
+        }
+
+        &:active {
+          background-color: $secondary-active-background;
+        }
+      }
+
+      a:visited {
+        color: $visited-text;
+      }
+    }
+
+    &.addition-#{$name} a:visited {
+      color: $visited-text;
+    }
+  }
+}
+
 .addition {
+  @include addition-status-theme(
+    "info",
+    var(--color-addition-info-border),
+    var(--color-addition-info-background),
+    var(--color-addition-info-text),
+    var(--color-addition-info-visited-text),
+    var(--color-addition-info-secondary-background),
+    var(--color-addition-info-secondary-hover-background),
+    var(--color-addition-info-secondary-active-background)
+  );
+  @include addition-status-theme(
+    "warning",
+    var(--color-addition-warning-border),
+    var(--color-addition-warning-background),
+    var(--color-addition-warning-text),
+    var(--color-addition-warning-visited-text),
+    var(--color-addition-warning-secondary-background),
+    var(--color-addition-warning-secondary-hover-background),
+    var(--color-addition-warning-secondary-active-background)
+  );
+  @include addition-status-theme(
+    "danger",
+    var(--color-addition-danger-border),
+    var(--color-addition-danger-background),
+    var(--color-addition-danger-text),
+    var(--color-addition-danger-visited-text),
+    var(--color-addition-danger-secondary-background),
+    var(--color-addition-danger-secondary-hover-background),
+    var(--color-addition-danger-secondary-active-background)
+  );
+  @include addition-status-theme(
+    "tldr",
+    var(--color-addition-tldr-border),
+    var(--color-addition-tldr-background),
+    var(--color-addition-tldr-text),
+    var(--color-addition-tldr-visited-text),
+    var(--color-addition-tldr-secondary-background),
+    var(--color-addition-tldr-secondary-hover-background),
+    var(--color-addition-tldr-secondary-active-background)
+  );
+
   &-info,
   &-warning,
   &-danger,
@@ -146,216 +275,20 @@
     }
   }
 
-  &-info {
-    outline: $stroke-1 solid var(--color-status-info-border);
-    background-color: var(--color-status-info-background);
-    color: var(--color-status-info-text);
-
-    a {
-      color: var(--color-status-info-text);
-
-      &::before {
-        background-color: var(--color-status-info-text);
-      }
-
-      &:visited {
-        color: var(--color-status-info-visited-text);
-
-        &::before {
-          background-color: var(--color-status-info-visited-text);
-        }
-      }
-    }
-
-    li {
-      &::before {
-        background-color: var(--color-status-info-text);
-      }
-
-      &:not(:last-child) {
-        border-bottom-color: var(--color-status-info-border);
-      }
-    }
-
-    mark {
-      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: $stroke-1 solid var(--color-status-info-border);
-      background-color: var(--color-status-info-mark-background);
-      color: var(--color-status-info-text);
-
-      &::before {
-        background-color: var(--color-status-info-text) !important;
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):hover {
-        outline-color: var(--color-status-info-border);
-        background-color: var(--color-status-info-mark-background-hover);
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):active {
-        outline-color: var(--color-status-info-border);
-        background-color: var(--color-status-info-mark-background-active);
-      }
-    }
+  &-info li:not(:last-child) {
+    border-bottom-color: var(--color-addition-info-border);
   }
 
-  &-warning {
-    outline: $stroke-1 solid var(--color-status-warning-border);
-    background-color: var(--color-status-warning-background);
-    color: var(--color-status-warning-text);
-
-    a {
-      color: var(--color-status-warning-text);
-
-      &::before {
-        background-color: var(--color-status-warning-text);
-      }
-
-      &:visited {
-        color: var(--color-status-warning-visited-text);
-
-        &::before {
-          background-color: var(--color-status-warning-visited-text);
-        }
-      }
-    }
-
-    li {
-      &::before {
-        background-color: var(--color-status-warning-text);
-      }
-
-      &:not(:last-child) {
-        border-bottom-color: var(--color-status-warning-border);
-      }
-    }
-
-    mark {
-      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: $stroke-1 solid var(--color-status-warning-border);
-      background-color: var(--color-status-warning-mark-background);
-      color: var(--color-status-warning-text);
-
-      &::before {
-        background-color: var(--color-status-warning-text) !important;
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):hover {
-        outline-color: var(--color-status-warning-border);
-        background-color: var(--color-status-warning-mark-background-hover);
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):active {
-        outline-color: var(--color-status-warning-border);
-        background-color: var(--color-status-warning-mark-background-active);
-      }
-    }
+  &-warning li:not(:last-child) {
+    border-bottom-color: var(--color-addition-warning-border);
   }
 
-  &-danger {
-    outline: $stroke-1 solid var(--color-status-danger-border);
-    background-color: var(--color-status-danger-background);
-    color: var(--color-status-danger-text);
-
-    a {
-      color: var(--color-status-danger-text);
-
-      &::before {
-        background-color: var(--color-status-danger-text);
-      }
-
-      &:visited {
-        color: var(--color-status-danger-visited-text);
-
-        &::before {
-          background-color: var(--color-status-danger-visited-text);
-        }
-      }
-    }
-
-    li {
-      &::before {
-        background-color: var(--color-status-danger-text);
-      }
-
-      &:not(:last-child) {
-        border-bottom: $stroke-1 solid var(--color-status-danger-border);
-      }
-    }
-
-    mark {
-      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: $stroke-1 solid var(--color-status-danger-border);
-      background-color: var(--color-status-danger-mark-background);
-      color: var(--color-status-danger-text);
-
-      &::before {
-        background-color: var(--color-status-danger-text) !important;
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):hover {
-        outline-color: var(--color-status-danger-border);
-        background-color: var(--color-status-danger-mark-background-hover);
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):active {
-        outline-color: var(--color-status-danger-border);
-        background-color: var(--color-status-danger-mark-background-active);
-      }
-    }
+  &-danger li:not(:last-child) {
+    border-bottom: $stroke-1 solid var(--color-addition-danger-border);
   }
 
-  &-tldr {
-    outline: $stroke-1 solid var(--color-status-tldr-border);
-    background-color: var(--color-status-tldr-background);
-    color: var(--color-status-tldr-text);
-
-    a {
-      color: var(--color-status-tldr-text);
-
-      &::before {
-        background-color: var(--color-status-tldr-text);
-      }
-
-      &:visited {
-        color: var(--color-status-tldr-visited-text);
-
-        &::before {
-          background-color: var(--color-status-tldr-visited-text);
-        }
-      }
-    }
-
-    li {
-      &::before {
-        background-color: var(--color-status-tldr-text);
-      }
-
-      &:not(:last-child) {
-        border-bottom-color: var(--color-status-tldr-border);
-      }
-    }
-
-    mark {
-      transition: background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-      outline: $stroke-1 solid var(--color-status-tldr-border);
-      background-color: var(--color-status-tldr-mark-background);
-      color: var(--color-status-tldr-text);
-
-      &::before {
-        background-color: var(--color-status-tldr-text) !important;
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):hover {
-        outline-color: var(--color-status-tldr-border);
-        background-color: var(--color-status-tldr-mark-background-hover);
-      }
-
-      &:where(.copy, [style*="cursor: pointer"]):active {
-        outline-color: var(--color-status-tldr-border);
-        background-color: var(--color-status-tldr-mark-background-active);
-      }
-    }
+  &-tldr li:not(:last-child) {
+    border-bottom-color: var(--color-addition-tldr-border);
   }
 }
 
@@ -402,121 +335,121 @@
   }
 
   .addition-info {
-    background-color: var(--color-status-info-secondary-background);
+    background-color: var(--color-addition-info-secondary-background);
   }
 
   .addition-warning {
-    background-color: var(--color-status-warning-secondary-background);
+    background-color: var(--color-addition-warning-secondary-background);
   }
 
   .addition-danger {
-    background-color: var(--color-status-danger-secondary-background);
+    background-color: var(--color-addition-danger-secondary-background);
   }
 
   .addition-tldr {
-    background-color: var(--color-status-tldr-secondary-background);
+    background-color: var(--color-addition-tldr-secondary-background);
   }
 
   :is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
     .addition-info {
-      background-color: var(--color-status-info-tertiary-background);
+      background-color: var(--color-addition-info-tertiary-background);
     }
 
     .addition-warning {
-      background-color: var(--color-status-warning-tertiary-background);
+      background-color: var(--color-addition-warning-tertiary-background);
     }
 
     .addition-danger {
-      background-color: var(--color-status-danger-tertiary-background);
+      background-color: var(--color-addition-danger-tertiary-background);
     }
 
     .addition-tldr {
-      background-color: var(--color-status-tldr-tertiary-background);
+      background-color: var(--color-addition-tldr-tertiary-background);
     }
 
     .addition-info :global(.flexible-links) {
-      background-color: var(--color-status-info-tertiary-background);
+      background-color: var(--color-addition-info-tertiary-background);
 
       button,
       a {
-        background-color: var(--color-status-info-tertiary-background);
+        background-color: var(--color-addition-info-tertiary-background);
 
         &:hover {
-          background-color: var(--color-status-info-tertiary-hover-background);
+          background-color: var(--color-addition-info-tertiary-hover-background);
         }
 
         &:active {
-          background-color: var(--color-status-info-tertiary-active-background);
+          background-color: var(--color-addition-info-tertiary-active-background);
         }
       }
     }
 
     .addition-warning :global(.flexible-links) {
-      background-color: var(--color-status-warning-tertiary-background);
+      background-color: var(--color-addition-warning-tertiary-background);
 
       button,
       a {
-        background-color: var(--color-status-warning-tertiary-background);
+        background-color: var(--color-addition-warning-tertiary-background);
 
         &:hover {
-          background-color: var(--color-status-warning-tertiary-hover-background);
+          background-color: var(--color-addition-warning-tertiary-hover-background);
         }
 
         &:active {
-          background-color: var(--color-status-warning-tertiary-active-background);
+          background-color: var(--color-addition-warning-tertiary-active-background);
         }
       }
     }
 
     .addition-danger :global(.flexible-links) {
-      background-color: var(--color-status-danger-tertiary-background);
+      background-color: var(--color-addition-danger-tertiary-background);
 
       button,
       a {
-        background-color: var(--color-status-danger-tertiary-background);
+        background-color: var(--color-addition-danger-tertiary-background);
 
         &:hover {
-          background-color: var(--color-status-danger-tertiary-hover-background);
+          background-color: var(--color-addition-danger-tertiary-hover-background);
         }
 
         &:active {
-          background-color: var(--color-status-danger-tertiary-active-background);
+          background-color: var(--color-addition-danger-tertiary-active-background);
         }
       }
     }
 
     .addition-tldr :global(.flexible-links) {
-      background-color: var(--color-status-tldr-tertiary-background);
+      background-color: var(--color-addition-tldr-tertiary-background);
 
       button,
       a {
-        background-color: var(--color-status-tldr-tertiary-background);
+        background-color: var(--color-addition-tldr-tertiary-background);
 
         &:hover {
-          background-color: var(--color-status-tldr-tertiary-hover-background);
+          background-color: var(--color-addition-tldr-tertiary-hover-background);
         }
 
         &:active {
-          background-color: var(--color-status-tldr-tertiary-active-background);
+          background-color: var(--color-addition-tldr-tertiary-active-background);
         }
       }
     }
 
     :is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
       .addition-info {
-        background-color: var(--color-status-info-background-level-3);
+        background-color: var(--color-addition-info-background-level-3);
       }
 
       .addition-warning {
-        background-color: var(--color-status-warning-background-level-3);
+        background-color: var(--color-addition-warning-background-level-3);
       }
 
       .addition-danger {
-        background-color: var(--color-status-danger-background-level-3);
+        background-color: var(--color-addition-danger-background-level-3);
       }
 
       .addition-tldr {
-        background-color: var(--color-status-tldr-background-level-3);
+        background-color: var(--color-addition-tldr-background-level-3);
       }
     }
   }
@@ -693,150 +626,38 @@ li:has(> :global(.details-nested)):has(
   }
 }
 
-.addition-info :global(.flexible-links) {
-  outline-color: var(--color-status-info-border);
-  background-color: var(--color-status-info-secondary-background);
-
-  button,
-  a {
-    outline-color: var(--color-status-info-border);
-    background-color: var(--color-status-info-secondary-background);
-    color: var(--color-status-info-text);
-
-    &:hover {
-      background-color: var(--color-status-info-secondary-hover-background);
-    }
-
-    &:active {
-      background-color: var(--color-status-info-secondary-active-background);
-    }
-  }
-
-  a:visited {
-    color: var(--color-status-info-visited-text);
-  }
-}
-
-.addition-warning :global(.flexible-links) {
-  outline-color: var(--color-status-warning-border);
-  background-color: var(--color-status-warning-secondary-background);
-
-  button,
-  a {
-    outline-color: var(--color-status-warning-border);
-    background-color: var(--color-status-warning-secondary-background);
-    color: var(--color-status-warning-text);
-
-    &:hover {
-      background-color: var(--color-status-warning-secondary-hover-background);
-    }
-
-    &:active {
-      background-color: var(--color-status-warning-secondary-active-background);
-    }
-  }
-
-  a:visited {
-    color: var(--color-status-warning-visited-text);
-  }
-}
-
-.addition-danger :global(.flexible-links) {
-  outline-color: var(--color-status-danger-border);
-  background-color: var(--color-status-danger-secondary-background);
-
-  button,
-  a {
-    outline-color: var(--color-status-danger-border);
-    background-color: var(--color-status-danger-secondary-background);
-    color: var(--color-status-danger-text);
-
-    &:hover {
-      background-color: var(--color-status-danger-secondary-hover-background);
-    }
-
-    &:active {
-      background-color: var(--color-status-danger-secondary-active-background);
-    }
-  }
-
-  a:visited {
-    color: var(--color-status-danger-visited-text);
-  }
-}
-
-.addition-tldr :global(.flexible-links) {
-  outline-color: var(--color-status-tldr-border);
-  background-color: var(--color-status-tldr-secondary-background);
-
-  button,
-  a {
-    outline-color: var(--color-status-tldr-border);
-    background-color: var(--color-status-tldr-secondary-background);
-    color: var(--color-status-tldr-text);
-
-    &:hover {
-      background-color: var(--color-status-tldr-secondary-hover-background);
-    }
-
-    &:active {
-      background-color: var(--color-status-tldr-secondary-active-background);
-    }
-  }
-
-  a:visited {
-    color: var(--color-status-tldr-visited-text);
-  }
-}
-
-.addition-info.addition-info a:visited {
-  color: var(--color-status-info-visited-text);
-}
-
-.addition-warning.addition-warning a:visited {
-  color: var(--color-status-warning-visited-text);
-}
-
-.addition-danger.addition-danger a:visited {
-  color: var(--color-status-danger-visited-text);
-}
-
-.addition-tldr.addition-tldr a:visited {
-  color: var(--color-status-tldr-visited-text);
-}
-
 :global(details[data-nested-details-summary="true"]) .addition-info li::before {
-  background-color: var(--color-status-info-text);
+  background-color: var(--color-addition-info-text);
 }
 
 :global(details[data-nested-details-summary="true"]) .addition-info li:not(:last-child) {
-  border-bottom-color: var(--color-status-info-border);
+  border-bottom-color: var(--color-addition-info-border);
 }
 
 :global(details[data-nested-details-summary="true"]) .addition-warning li::before {
-  background-color: var(--color-status-warning-text);
+  background-color: var(--color-addition-warning-text);
 }
 
 :global(details[data-nested-details-summary="true"])
   .addition-warning
   li:not(:last-child) {
-  border-bottom-color: var(--color-status-warning-border);
+  border-bottom-color: var(--color-addition-warning-border);
 }
 
 :global(details[data-nested-details-summary="true"]) .addition-danger li::before {
-  background-color: var(--color-status-danger-text);
+  background-color: var(--color-addition-danger-text);
 }
 
 :global(details[data-nested-details-summary="true"])
   .addition-danger
   li:not(:last-child) {
-  border-bottom-color: var(--color-status-danger-border);
+  border-bottom-color: var(--color-addition-danger-border);
 }
 
 :global(details[data-nested-details-summary="true"]) .addition-tldr li::before {
-  background-color: var(--color-status-tldr-text);
+  background-color: var(--color-addition-tldr-text);
 }
 
 :global(details[data-nested-details-summary="true"]) .addition-tldr li:not(:last-child) {
-  border-bottom-color: var(--color-status-tldr-border);
+  border-bottom-color: var(--color-addition-tldr-border);
 }
