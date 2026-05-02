@@ -18,14 +18,14 @@
 
     &:hover {
       opacity: 1;
-      outline-color: var(--color-button-group-border-hover);
-      background-color: var(--color-button-group-background-hover);
+      outline-color: var(--color-action-border-hover);
+      background-color: var(--color-action-background-hover);
     }
 
     &:active {
       opacity: 1;
-      outline-color: var(--color-button-group-border-active);
-      background-color: var(--color-button-group-background-active);
+      outline-color: var(--color-action-border-active);
+      background-color: var(--color-action-background-active);
     }
   }
 
@@ -34,7 +34,7 @@
     overflow: hidden;
 
     &:visited {
-      color: var(--color-button-group-text-visited);
+      color: var(--color-action-text-visited);
 
       svg {
         fill: currentcolor;
@@ -43,8 +43,8 @@
   }
 
   .selected {
-    outline-color: var(--color-button-group-border);
-    background-color: var(--color-button-group-selected);
+    outline-color: var(--color-action-border);
+    background-color: var(--color-action-selected);
   }
 
   > :is(button, a):only-child {
