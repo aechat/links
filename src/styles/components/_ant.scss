@@ -1,5 +1,10 @@
 @use "../abstracts/mixins" as *;
 
+@mixin ant-dropdown-menu-item-state($outline-color, $background-color) {
+  outline-color: $outline-color;
+  background-color: $background-color;
+}
+
 .ant {
   &-divider-inner-text {
     opacity: 0.8;
@@ -11,17 +16,17 @@
 
   &-slider {
     &:hover .ant-slider-handle::after {
-      box-shadow: 0 0 0 2px var(--color-accent);
+      box-shadow: 0 0 0 2px var(--color-page-accent);
     }
   }
 
   &-message {
-    color: var(--color-text-primary);
+    color: var(--color-page-text);
     font-family: Inter, sans-serif;
 
     &-notice-wrapper .ant-message-notice-content {
-      outline: $stroke-1 solid var(--color-border-primary) !important;
-      background: var(--color-background-secondary) !important;
+      outline: $stroke-1 solid var(--color-article-border) !important;
+      background: var(--color-article-background) !important;
       font-size: $font-size-text-sm !important;
       font-weight: 400;
     }
@@ -32,11 +37,6 @@
     font-size: $font-size-text-sm !important;
   }
 
-  &-modal-root .ant-modal-mask.ant-modal-mask-blur {
-    backdrop-filter: blur(25px);
-    background-color: var(--color-background-overlay);
-  }
-
   &-breadcrumb {
     font-size: $font-size-text-sm;
   }
@@ -45,6 +45,11 @@
     top: $space-12;
     margin: 0 auto !important;
     max-width: calc(100% - clamp(16px, 5vw, 64px)) !important;
+
+    &-root .ant-modal-mask.ant-modal-mask-blur {
+      backdrop-filter: blur(25px);
+      background-color: var(--color-modal-backdrop);
+    }
 
     .ant-modal-content {
       border: none;
@@ -66,54 +71,58 @@
   }
 
   &-spin .ant-spin-dot-holder {
-    color: var(--color-accent);
+    color: var(--color-page-accent);
   }
 
   &-radio-wrapper {
     &:hover .ant-radio-inner {
-      border-color: var(--color-accent);
+      border-color: var(--color-page-accent);
     }
 
     .ant-radio-inner {
-      border-color: var(--color-border-primary);
-      background-color: var(--color-border-primary);
+      border-color: var(--color-article-border);
+      background-color: var(--color-article-border);
     }
 
     &.ant-radio-checked .ant-radio-inner {
-      border-color: var(--color-accent);
-      background-color: var(--color-accent);
+      border-color: var(--color-page-accent);
+      background-color: var(--color-page-accent);
     }
   }
 
   &-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover {
-    border-color: var(--color-accent);
-  }
-
-  &-dropdown-menu-item {
-    outline: $stroke-1 solid transparent;
-    border-radius: $roundness;
-
-    &:hover {
-      outline-color: var(--color-surface-dropdown-border-hover);
-      background-color: var(--color-surface-dropdown-background-hover);
-    }
-
-    &:active {
-      outline-color: var(--color-surface-dropdown-border-active);
-      background-color: var(--color-surface-dropdown-background-active);
-    }
-
-    .ant-dropdown-menu-item-only-child {
-      border-radius: $roundness;
-    }
-  }
-
-  &-dropdown-menu-title-content {
-    font-size: $font-size-text-sm;
+    border-color: var(--color-page-accent);
   }
 
   &-dropdown {
-    border: $stroke-1 solid var(--color-border-dropdown);
+    border: $stroke-1 solid var(--color-panel-dropdown-border);
     border-radius: $roundness;
+
+    &-menu-item {
+      outline: $stroke-1 solid transparent;
+      border-radius: $roundness;
+
+      &:hover {
+        @include ant-dropdown-menu-item-state(
+          var(--color-panel-dropdown-border-hover),
+          var(--color-panel-dropdown-background-hover)
+        );
+      }
+
+      &:active {
+        @include ant-dropdown-menu-item-state(
+          var(--color-panel-dropdown-border-active),
+          var(--color-panel-dropdown-background-active)
+        );
+      }
+
+      .ant-dropdown-menu-item-only-child {
+        border-radius: $roundness;
+      }
+    }
+
+    &-menu-title-content {
+      font-size: $font-size-text-sm;
+    }
   }
 }
