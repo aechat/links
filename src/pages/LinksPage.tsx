@@ -502,12 +502,6 @@ const Links = () => {
               name="SaveFrom"
             />
             <LinkCard
-              description="Локальная Windows-программа для скачивания видео из YouTube"
-              href="https://github.com/kazukikasama/youtube-dlp-gui-installer"
-              icon={<Download />}
-              name="yt-dlp-gui"
-            />
-            <LinkCard
               description="Программа для разделения аудиофайла на несколько дорожек"
               href="https://www.stemroller.com/"
               icon={<MusicNoteRounded />}
