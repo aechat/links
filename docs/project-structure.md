@@ -101,6 +101,7 @@ const sections = [
 - `yarn dev` — локальная разработка.
 - `yarn build` — клиентский build + SSR bundle + prerender.
 - `yarn preview` — предпросмотр сборки.
+- `yarn lint:content` — общая проверка структуры и служебной разметки статей.
 - `yarn lint:no-html-strings` — проверка, что строковые props `title`, `caption`, `tag`, `anchor` в статьях не содержат HTML/JSX.
 - `yarn lint:divider-style` — проверка текстов `Divider` в статьях: предупреждает о вопросительных заголовках и непомеченных названиях приложений/плагинов.
 - `yarn extract:marked-text` — диагностическая выгрузка короткого текста из тегов с `className`/`class` в статьях.
