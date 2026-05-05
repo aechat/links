@@ -1,6 +1,6 @@
 # Скрипт `extractMarkedText`
 
-Файл: `scripts/extractMarkedText.js`
+Файл: `scripts/reports/extractMarkedText.js`
 
 ## Назначение
 
@@ -15,7 +15,7 @@ yarn extract:marked-text
 или напрямую:
 
 ```bash
-node scripts/extractMarkedText.js
+node scripts/reports/extractMarkedText.js
 ```
 
 ## Как работает

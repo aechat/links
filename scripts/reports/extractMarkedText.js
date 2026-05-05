@@ -1,38 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const ROOT = process.cwd();
-const SOURCE_DIR = path.join(ROOT, "src", "pages", "sections");
-const LOGS_ROOT = path.join(ROOT, "scripts", "logs");
-const EXTENSIONS = new Set([".tsx", ".ts", ".jsx", ".js"]);
+import {
+  getSectionFiles,
+  SCRIPT_LOGS_ROOT,
+  SECTIONS_ROOT,
+  toRelativePath,
+} from "../utilities/fileUtilities.js";
+import {
+  addToMapArray,
+  lineFromOffset,
+  makeTimestamp,
+  safeDocName,
+} from "../utilities/textUtilities.js";
+
 const MAX_NESTED_TAGS = 2;
 const MAX_TEXT_LENGTH = 280;
-
-function walk(dir, out = []) {
-  for (const entry of fs.readdirSync(dir, {withFileTypes: true})) {
-    if (entry.name === "node_modules" || entry.name === "dist") continue;
-    const full = path.join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      walk(full, out);
-      continue;
-    }
-
-    if (EXTENSIONS.has(path.extname(entry.name))) {
-      out.push(full);
-    }
-  }
-
-  return out;
-}
-
-function lineFromOffset(text, offset) {
-  let line = 1;
-  for (let i = 0; i < offset; i += 1) {
-    if (text[i] === "\n") line += 1;
-  }
-  return line;
-}
 
 function decodeHtmlEntities(value) {
   return value
@@ -150,24 +133,9 @@ function extractByTag(content, tag) {
   return items;
 }
 
-function safeDocName(value) {
-  return value.replaceAll(/[\\/:*?"<>|\s]+/g, "_") + ".log";
-}
-
-function makeTimestamp() {
-  const now = new Date();
-  const pad = (n) => String(n).padStart(2, "0");
-  return `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
-}
-
-function addToMapArray(map, key, value) {
-  if (!map.has(key)) map.set(key, []);
-  map.get(key).push(value);
-}
-
-const files = walk(SOURCE_DIR);
+const files = getSectionFiles();
 const timestamp = makeTimestamp();
-const runDir = path.join(LOGS_ROOT, `mark-extract-${timestamp}`);
+const runDir = path.join(SCRIPT_LOGS_ROOT, `mark-extract-${timestamp}`);
 const byFileDir = path.join(runDir, "by-file");
 const byClassDir = path.join(runDir, "by-class");
 
@@ -178,7 +146,7 @@ const tagsWithClasses = new Set();
 const contentByFile = new Map();
 
 for (const file of files) {
-  const rel = path.relative(ROOT, file);
+  const rel = toRelativePath(file);
   const content = fs.readFileSync(file, "utf8");
   contentByFile.set(rel, content);
   discoverTagsWithClasses(content, tagsWithClasses);
@@ -235,7 +203,7 @@ for (const [file, items] of byFile.entries()) {
     lines.push(`## ${group} (${entries.length})`);
     lines.push("");
     for (const entry of entries) {
-      lines.push(`- [line ${entry.line}] ${entry.text}`);
+      lines.push(`- [строка ${entry.line}] ${entry.text}`);
     }
     lines.push("");
   }
@@ -252,7 +220,7 @@ for (const [group, items] of byClass.entries()) {
   lines.push("");
 
   for (const entry of items) {
-    lines.push(`- ${entry.file} [line ${entry.line}] ${entry.text}`);
+    lines.push(`- ${entry.file} [строка ${entry.line}] ${entry.text}`);
   }
 
   lines.push("");
@@ -262,9 +230,9 @@ for (const [group, items] of byClass.entries()) {
 }
 
 const indexLines = [];
-indexLines.push("# Extracted mark-like text");
+indexLines.push("# Извлечённый текст из тегов с class/className");
 indexLines.push("");
-indexLines.push(`Источник: ${path.relative(ROOT, SOURCE_DIR)}`);
+indexLines.push(`Источник: ${toRelativePath(SECTIONS_ROOT)}`);
 indexLines.push("Режим: авто по class/className, без фиксированного списка тегов");
 indexLines.push(
   `Фильтр шума: nestedTags<=${MAX_NESTED_TAGS}, textLength<=${MAX_TEXT_LENGTH}`
@@ -274,7 +242,7 @@ indexLines.push(`Файлов с извлечениями: **${byFile.size}**`);
 indexLines.push(`Групп tag.class: **${byClass.size}**`);
 indexLines.push(`Тегов с классами: **${tagsWithClasses.size}**`);
 indexLines.push("");
-indexLines.push("## by-file");
+indexLines.push("## По файлам");
 indexLines.push("");
 
 for (const [file, items] of [...byFile.entries()].sort((a, b) =>
@@ -285,7 +253,7 @@ for (const [file, items] of [...byFile.entries()].sort((a, b) =>
 }
 
 indexLines.push("");
-indexLines.push("## by-class");
+indexLines.push("## По классам");
 indexLines.push("");
 
 for (const [group, items] of [...byClass.entries()].sort((a, b) =>
@@ -300,7 +268,7 @@ indexLines.push("");
 const indexPath = path.join(runDir, "index.log");
 fs.writeFileSync(indexPath, indexLines.join("\n"), "utf8");
 
-console.log(`Done. Output directory: ${path.relative(ROOT, runDir)}`);
-console.log(`Files with extracts: ${byFile.size}`);
-console.log(`Class groups: ${byClass.size}`);
-console.log(`Tags with classes: ${tagsWithClasses.size}`);
+console.log(`Готово. Директория отчёта: ${toRelativePath(runDir)}`);
+console.log(`Файлов с извлечениями: ${byFile.size}`);
+console.log(`Групп tag.class: ${byClass.size}`);
+console.log(`Тегов с классами: ${tagsWithClasses.size}`);
