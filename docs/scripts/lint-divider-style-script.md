@@ -1,6 +1,6 @@
 # Скрипт `lintDividerStyle`
 
-Файл: `scripts/lintDividerStyle.js`
+Файл: `scripts/content/lintDividerStyle.js`
 
 ## Назначение
 
@@ -15,13 +15,13 @@ yarn lint:divider-style
 или напрямую:
 
 ```bash
-node scripts/lintDividerStyle.js
+node scripts/content/lintDividerStyle.js
 ```
 
 Строгий режим:
 
 ```bash
-node scripts/lintDividerStyle.js --strict
+node scripts/content/lintDividerStyle.js --strict
 ```
 
 ## Что проверяет

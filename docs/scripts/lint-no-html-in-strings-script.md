@@ -1,6 +1,6 @@
 # Скрипт `lintNoHtmlInStrings`
 
-Файл: `scripts/lintNoHtmlInStrings.js`
+Файл: `scripts/content/lintNoHtmlInStrings.js`
 
 ## Назначение
 
@@ -15,7 +15,7 @@ yarn lint:no-html-strings
 или напрямую:
 
 ```bash
-node scripts/lintNoHtmlInStrings.js
+node scripts/content/lintNoHtmlInStrings.js
 ```
 
 ## Что проверяет
