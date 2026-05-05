@@ -31,16 +31,16 @@ const STYLE_ORDER = {
 const printUsage = () => {
   console.log(
     `
-Generate src/styles/base/_fonts.scss from files in src/fonts.
+Создаёт src/styles/base/_fonts.scss из файлов в src/fonts.
 
-Usage:
-  node scripts/fonts/buildFontsScss.js [options]
+Использование:
+  node scripts/fonts/generateFontStyle.js [опции]
 
-Options:
-  --fonts-root src/fonts                  Root directory with font families
-  --output src/styles/base/_fonts.scss    Destination SCSS file
-  --dry-run                               Print output without writing file
-  --help                                  Show this help
+Опции:
+  --fonts-root src/fonts                  Корневая директория семейств шрифтов
+  --output src/styles/base/_fonts.scss    Целевой SCSS-файл
+  --dry-run                               Вывести результат без записи файла
+  --help                                  Показать справку
 `.trim()
   );
 };
@@ -68,7 +68,7 @@ const parseArgs = (argv) => {
     if (arg === "--fonts-root") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--fonts-root requires a value");
+        throw new Error("Для --fonts-root нужно указать значение");
       }
 
       options.fontsRoot = nextArg;
@@ -84,7 +84,7 @@ const parseArgs = (argv) => {
     if (arg === "--output") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--output requires a value");
+        throw new Error("Для --output нужно указать значение");
       }
 
       options.output = nextArg;
@@ -97,7 +97,7 @@ const parseArgs = (argv) => {
       continue;
     }
 
-    throw new Error(`Unknown argument: ${arg}`);
+    throw new Error(`Неизвестный аргумент: ${arg}`);
   }
 
   return options;
@@ -106,7 +106,7 @@ const parseArgs = (argv) => {
 const toRelativePath = (projectRoot, absolutePath) => {
   const relativePath = relative(projectRoot, absolutePath);
   if (relativePath.startsWith("..")) {
-    throw new Error(`Path must be inside project root: ${absolutePath}`);
+    throw new Error(`Путь должен находиться внутри корня проекта: ${absolutePath}`);
   }
 
   return relativePath.split(sep).join("/");
@@ -220,7 +220,9 @@ const collectFamilies = (fontsRoot) => {
       if (normalizedPath.includes(`/${STATIC_FOLDER_NAME}/`)) {
         const weight = inferWeight(filePath);
         if (!weight) {
-          console.warn(`[warn] Cannot infer weight from ${filePath}. Skipping.`);
+          console.warn(
+            `[предупреждение] Не удалось определить насыщенность ${filePath}. Пропуск.`
+          );
           continue;
         }
 
@@ -406,7 +408,7 @@ const main = () => {
   const outputPath = resolve(projectRoot, options.output);
 
   if (!existsSync(fontsRoot)) {
-    throw new Error(`Fonts root does not exist: ${fontsRoot}`);
+    throw new Error(`Корневая директория шрифтов не существует: ${fontsRoot}`);
   }
 
   const families = collectFamilies(fontsRoot);
@@ -419,7 +421,7 @@ const main = () => {
 
   writeFileSync(outputPath, generatedScss, "utf8");
   console.log(
-    `Generated ${toRelativePath(projectRoot, outputPath)} from ${families.length} font families.`
+    `Создан ${toRelativePath(projectRoot, outputPath)} из ${families.length} семейств шрифтов.`
   );
 };
 

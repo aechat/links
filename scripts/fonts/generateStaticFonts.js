@@ -35,20 +35,20 @@ let resolvedBackendRunner = null;
 const printUsage = () => {
   console.log(
     `
-Generate static TTF instances from variable fonts.
+Создаёт статические TTF-файлы из вариативных шрифтов.
 
-Usage:
-  node scripts/fonts/buildStaticFontInstances.js [options]
+Использование:
+  node scripts/fonts/generateStaticFonts.js [опции]
 
-Options:
-  --weights 100,375,425   Comma-separated weights (manual override)
-  --fonts-root src/fonts  Root directory with font families
-  --scan-root src         Scan directory for auto-detected font weights
-  --family Inter,Onest    Limit generation to one or more families
-  --overwrite             Rewrite existing generated files
-  --dry-run               Show planned actions without running fonttools
-  --local-cache           Use local .npm-cache for npm/npx
-  --help                  Show this help
+Опции:
+  --weights 100,375,425   Насыщенности через запятую
+  --fonts-root src/fonts  Корневая директория семейств шрифтов
+  --scan-root src         Директория для автоопределения насыщенностей
+  --family Inter,Onest    Ограничить генерацию указанными семействами
+  --overwrite             Перезаписывать существующие файлы
+  --dry-run               Показать план без запуска fonttools
+  --local-cache           Использовать локальный .npm-cache для npm/npx
+  --help                  Показать справку
 `.trim()
   );
 };
@@ -66,7 +66,7 @@ const parseNumberList = (value, argName) => {
   ].sort((a, b) => a - b);
 
   if (parsed.length === 0) {
-    throw new Error(`${argName} must contain at least one positive integer`);
+    throw new Error(`${argName} должен содержать хотя бы одно положительное целое число`);
   }
 
   return parsed;
@@ -121,7 +121,7 @@ const parseArgs = (argv) => {
     if (arg === "--weights") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--weights requires a value");
+        throw new Error("Для --weights нужно указать значение");
       }
 
       options.weights = parseNumberList(nextArg, "--weights");
@@ -137,7 +137,7 @@ const parseArgs = (argv) => {
     if (arg === "--fonts-root") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--fonts-root requires a value");
+        throw new Error("Для --fonts-root нужно указать значение");
       }
 
       options.fontsRoot = nextArg;
@@ -153,7 +153,7 @@ const parseArgs = (argv) => {
     if (arg === "--scan-root") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--scan-root requires a value");
+        throw new Error("Для --scan-root нужно указать значение");
       }
 
       options.scanRoot = nextArg;
@@ -169,7 +169,7 @@ const parseArgs = (argv) => {
     if (arg === "--family") {
       const nextArg = argv[index + 1];
       if (!nextArg) {
-        throw new Error("--family requires a value");
+        throw new Error("Для --family нужно указать значение");
       }
 
       options.families = parseStringList(nextArg);
@@ -182,7 +182,7 @@ const parseArgs = (argv) => {
       continue;
     }
 
-    throw new Error(`Unknown argument: ${arg}`);
+    throw new Error(`Неизвестный аргумент: ${arg}`);
   }
 
   return options;
@@ -260,7 +260,7 @@ const walkVariableFonts = (rootDirectory) => {
 const toRelativePath = (projectRoot, absolutePath) => {
   const relativePath = relative(projectRoot, absolutePath);
   if (relativePath.startsWith("..")) {
-    throw new Error(`Path must be inside project root: ${absolutePath}`);
+    throw new Error(`Путь должен находиться внутри корня проекта: ${absolutePath}`);
   }
 
   return relativePath.split(sep).join("/");
@@ -312,7 +312,7 @@ const runCommand = (command, args, {projectRoot, localCache}) =>
       const details = (stderr || stdout || "").trim();
       rejectPromise(
         new Error(
-          `Command failed (${exitCode}): ${command} ${args.join(" ")}${
+          `Команда завершилась с ошибкой (${exitCode}): ${command} ${args.join(" ")}${
             details ? `\n${details}` : ""
           }`
         )
@@ -409,11 +409,11 @@ const instantiateFont = async ({
 
   throw new Error(
     [
-      "Cannot instantiate font with available runners (python/npx).",
+      "Не удалось создать статический шрифт доступными раннерами (python/npx).",
       ...errors.map((error, index) => `${index + 1}. ${error}`),
       process.platform === "win32"
-        ? "Tip: install python fonttools into .venv-font: .\\.venv-font\\Scripts\\python.exe -m pip install fonttools"
-        : "Tip: install python fonttools: python3 -m pip install fonttools",
+        ? "Подсказка: установите python fonttools в .venv-font: .\\.venv-font\\Scripts\\python.exe -m pip install fonttools"
+        : "Подсказка: установите python fonttools: python3 -m pip install fonttools",
     ].join("\n")
   );
 };
@@ -428,15 +428,17 @@ const main = async () => {
   const scanRoot = resolve(projectRoot, options.scanRoot);
 
   if (!existsSync(fontsRoot)) {
-    throw new Error(`Fonts root does not exist: ${fontsRoot}`);
+    throw new Error(`Корневая директория шрифтов не существует: ${fontsRoot}`);
   }
   if (!options.weights && !existsSync(scanRoot)) {
-    throw new Error(`Scan root does not exist: ${scanRoot}`);
+    throw new Error(`Директория сканирования не существует: ${scanRoot}`);
   }
 
   const weights = options.weights ?? collectUsedWeights(scanRoot);
   if (weights.length === 0) {
-    throw new Error("No numeric font weights found. Pass --weights manually.");
+    throw new Error(
+      "Не найдены числовые насыщенности шрифтов. Передайте --weights вручную."
+    );
   }
 
   const familyFilter = options.families ? new Set(options.families) : null;
@@ -450,21 +452,21 @@ const main = async () => {
   });
 
   if (variableFonts.length === 0) {
-    console.log("No variable fonts found for selected filters.");
+    console.log("Вариативные шрифты по выбранным фильтрам не найдены.");
     return;
   }
 
   console.log(
-    `Weights: ${weights.join(", ")}${
-      options.weights ? "" : ` (auto from ${toRelativePath(projectRoot, scanRoot)})`
+    `Насыщенности: ${weights.join(", ")}${
+      options.weights ? "" : ` (авто из ${toRelativePath(projectRoot, scanRoot)})`
     }`
   );
-  console.log(`Fonts root: ${toRelativePath(projectRoot, fontsRoot)}`);
+  console.log(`Корень шрифтов: ${toRelativePath(projectRoot, fontsRoot)}`);
   if (familyFilter) {
-    console.log(`Families: ${[...familyFilter].join(", ")}`);
+    console.log(`Семейства: ${[...familyFilter].join(", ")}`);
   }
   if (options.dryRun) {
-    console.log("Mode: dry-run");
+    console.log("Режим: пробный запуск");
   }
 
   let createdCount = 0;
@@ -495,7 +497,7 @@ const main = async () => {
 
       if (options.dryRun) {
         plannedCount += 1;
-        console.log(`[dry] ${relativeInput} -> ${relativeOutput} (wght=${weight})`);
+        console.log(`[план] ${relativeInput} -> ${relativeOutput} (wght=${weight})`);
         continue;
       }
 
@@ -508,17 +510,17 @@ const main = async () => {
           weight,
         });
         createdCount += 1;
-        console.log(`[ok] ${relativeOutput}`);
+        console.log(`[готово] ${relativeOutput}`);
       } catch (error) {
         failedCount += 1;
-        console.error(`[fail] ${relativeOutput}`);
+        console.error(`[ошибка] ${relativeOutput}`);
         console.error(error.message);
       }
     }
   }
 
   console.log(
-    `Done. created=${createdCount}, skipped=${skippedCount}, planned=${plannedCount}, failed=${failedCount}`
+    `Готово. Создано=${createdCount}, пропущено=${skippedCount}, запланировано=${plannedCount}, ошибок=${failedCount}`
   );
 
   if (failedCount > 0) {
