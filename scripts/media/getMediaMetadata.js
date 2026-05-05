@@ -1,16 +1,14 @@
-import fs from "fs";
-import path from "path";
-import {fileURLToPath} from "url";
+import fs from "node:fs";
+import path from "node:path";
+
 import sizeOf from "image-size";
 import ffmpeg from "fluent-ffmpeg";
 import ffprobeInstaller from "@ffprobe-installer/ffprobe";
 
 ffmpeg.setFfprobePath(ffprobeInstaller.path);
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const PUBLIC_DIR = path.resolve(__dirname, "../public");
+const ROOT = process.cwd();
+const PUBLIC_DIR = path.join(ROOT, "public");
 const MEDIA_DIR = path.join(PUBLIC_DIR, "media");
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
@@ -32,7 +30,7 @@ function getVideoDimensions(filePath) {
   return new Promise((resolve) => {
     ffmpeg.ffprobe(filePath, (err, metadata) => {
       if (err) {
-        console.warn(`Error probing video ${filePath}:`, err.message);
+        console.warn(`Не удалось прочитать видео ${filePath}:`, err.message);
         resolve(null);
         return;
       }
@@ -60,10 +58,10 @@ function getVideoDimensions(filePath) {
 }
 
 export async function getMediaMetadata() {
-  console.log("Scanning media files...");
+  console.log("Сканирование медиафайлов...");
 
   if (!fs.existsSync(MEDIA_DIR)) {
-    console.warn(`Media directory not found: ${MEDIA_DIR}`);
+    console.warn(`Директория медиа не найдена: ${MEDIA_DIR}`);
     return {};
   }
 
@@ -95,7 +93,7 @@ export async function getMediaMetadata() {
         }
       }
     } catch (err) {
-      console.warn(`Failed to process ${file}:`, err.message);
+      console.warn(`Не удалось обработать ${file}:`, err.message);
     }
   }
 

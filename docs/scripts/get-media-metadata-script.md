@@ -1,6 +1,6 @@
 # Скрипт `getMediaMetadata`
 
-Файл: `scripts/getMediaMetadata.js`
+Файл: `scripts/media/getMediaMetadata.js`
 
 ## Назначение
 
