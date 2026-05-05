@@ -2,13 +2,13 @@ import {useCallback, useEffect, useRef} from "react";
 
 import {message} from "antd";
 
-import {copyText} from "../utils/copyUtilities";
-import {hasActiveTextSelection} from "../utils/selectionUtilities";
+import {copyText} from "../utilities/copyUtilities";
+import {hasActiveTextSelection} from "../utilities/selectionUtilities";
 
 import {useLongPress} from "./useLongPress";
 import {applyRipple} from "./useRipple";
 
-export {copyText} from "../utils/copyUtilities";
+export {copyText} from "../utilities/copyUtilities";
 
 message.config({
   duration: 3,

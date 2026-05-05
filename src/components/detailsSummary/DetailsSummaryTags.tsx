@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState} from "react";
 
-import {triggerHaptic} from "../../utils/haptics";
+import {triggerHaptic} from "../../utilities/haptics";
 
 import styles from "./DetailsSummary.module.scss";
 

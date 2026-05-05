@@ -11,9 +11,9 @@ import React, {
 
 import {message} from "antd";
 
-import {resolveDetailsByAnchor} from "../../../utils/anchorResolvers";
-import {isMobileDevice} from "../../../utils/browserDetection";
-import {scrollToElement} from "../../../utils/scrollToAnchor";
+import {resolveDetailsByAnchor} from "../../../utilities/anchorResolvers";
+import {isMobileDevice} from "../../../utilities/browserDetection";
+import {scrollToElement} from "../../../utilities/scrollToAnchor";
 
 export interface SearchContextType {
   closeModal: () => void;

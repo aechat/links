@@ -18,12 +18,12 @@ import {
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
-import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
+import {isMobileDevice, isWebKitBrowser} from "../../utilities/browserDetection";
 import {
   isHapticFeedbackSupported,
   setIsVibrationEnabled as setGlobalVibrationEnabled,
   withSelectionHaptic,
-} from "../../utils/haptics";
+} from "../../utilities/haptics";
 import {
   getLocalStorageItem,
   getStoredBoolean,
@@ -32,7 +32,7 @@ import {
   setLocalStorageItem,
   setStoredBoolean,
   setStoredNumber,
-} from "../../utils/localStorageUtilities";
+} from "../../utilities/localStorageUtilities";
 
 import modalStyles from "./Modal.module.scss";
 

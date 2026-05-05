@@ -1,7 +1,7 @@
 import {message} from "antd";
 
-import {copyText} from "../../utils/copyUtilities";
-import {replaceCurrentUrlHash} from "../../utils/urlHashUtilities";
+import {copyText} from "../../utilities/copyUtilities";
+import {replaceCurrentUrlHash} from "../../utilities/urlHashUtilities";
 
 export const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 

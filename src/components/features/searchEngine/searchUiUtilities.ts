@@ -1,4 +1,4 @@
-import {applyInteractiveScaleVariables} from "../../../utils/interactiveScaleUtilities";
+import {applyInteractiveScaleVariables} from "../../../utilities/interactiveScaleUtilities";
 
 import {type SearchResult} from "./SearchState";
 

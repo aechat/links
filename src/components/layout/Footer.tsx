@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {GitHub} from "@mui/icons-material";
 import {useLocation} from "react-router-dom";
 
-import {formatRelativeTime} from "../../utils/dateUtilities";
+import {formatRelativeTime} from "../../utilities/dateUtilities";
 
 import styles from "./Footer.module.scss";
 

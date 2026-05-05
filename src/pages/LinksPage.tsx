@@ -51,8 +51,8 @@ import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
 import {usePageLoad} from "../hooks/usePageLoad";
 import {useRipple} from "../hooks/useRipple";
-import {getPlatformInfo} from "../utils/browserDetection";
-import {triggerHaptic} from "../utils/haptics";
+import {getPlatformInfo} from "../utilities/browserDetection";
+import {triggerHaptic} from "../utilities/haptics";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 

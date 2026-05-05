@@ -15,21 +15,21 @@ import {useAprilFoolsReplace} from "./hooks/useAprilFoolsReplace";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
-import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
-import {copyText} from "./utils/copyUtilities";
+import {getBrowserInfo, isWebKitBrowser} from "./utilities/browserDetection";
+import {copyText} from "./utilities/copyUtilities";
 import {
   disposeHaptics,
   setupHapticMessageFeedback,
   triggerHaptic,
   withSelectionHaptic,
-} from "./utils/haptics";
+} from "./utilities/haptics";
 import {
   getStoredBoolean,
   getStoredNumber,
   isLocalStorageAvailable,
   setStoredBoolean,
   setStoredNumber,
-} from "./utils/localStorageUtilities";
+} from "./utilities/localStorageUtilities";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
 import prfaqSvg from "/icons/prfaq.svg?raw";

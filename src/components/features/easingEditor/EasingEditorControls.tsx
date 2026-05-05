@@ -2,7 +2,7 @@ import React from "react";
 
 import {Slider} from "antd";
 
-import {triggerHaptic} from "../../../utils/haptics";
+import {triggerHaptic} from "../../../utilities/haptics";
 
 import styles from "./EasingEditor.module.scss";
 import {type AnimationMode, type AnimationProperty, MODES} from "./easingEditorTypes";

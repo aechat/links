@@ -7,11 +7,14 @@ import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
-import {copyText} from "../../utils/copyUtilities";
-import {triggerDisclosureHaptic} from "../../utils/haptics";
-import {scrollToElement} from "../../utils/scrollToAnchor";
-import {formatNestedQuotes} from "../../utils/stringUtilities";
-import {getCurrentHashAnchor, replaceCurrentUrlHash} from "../../utils/urlHashUtilities";
+import {copyText} from "../../utilities/copyUtilities";
+import {triggerDisclosureHaptic} from "../../utilities/haptics";
+import {scrollToElement} from "../../utilities/scrollToAnchor";
+import {formatNestedQuotes} from "../../utilities/stringUtilities";
+import {
+  getCurrentHashAnchor,
+  replaceCurrentUrlHash,
+} from "../../utilities/urlHashUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
 

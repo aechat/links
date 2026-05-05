@@ -6,7 +6,7 @@ import {
   createRangeContainer,
   getActiveSelectionRange,
   getClosestElement,
-} from "../utils/selectionUtilities";
+} from "../utilities/selectionUtilities";
 
 interface ClipboardSource {
   url: string;

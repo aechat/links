@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
-import {triggerHaptic} from "../../../utils/haptics";
+import {triggerHaptic} from "../../../utilities/haptics";
 
 import styles from "./EasingEditor.module.scss";
 import {AnimationControls} from "./EasingEditorControls";

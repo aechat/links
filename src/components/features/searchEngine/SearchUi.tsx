@@ -6,10 +6,10 @@ import {RemoveScroll} from "react-remove-scroll";
 
 import {useLongPress} from "../../../hooks/useLongPress";
 import {useRipple} from "../../../hooks/useRipple";
-import {isMobileDevice} from "../../../utils/browserDetection";
-import {copyText} from "../../../utils/copyUtilities";
-import {withSelectionHaptic} from "../../../utils/haptics";
-import {formatNestedQuotes} from "../../../utils/stringUtilities";
+import {isMobileDevice} from "../../../utilities/browserDetection";
+import {copyText} from "../../../utilities/copyUtilities";
+import {withSelectionHaptic} from "../../../utilities/haptics";
+import {formatNestedQuotes} from "../../../utilities/stringUtilities";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import {getMatchingTagsByQuery} from "./searchContentUtilities";

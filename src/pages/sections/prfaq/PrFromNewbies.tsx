@@ -6,7 +6,7 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
-import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const PrFromNewbies: React.FC = () => {
   return (

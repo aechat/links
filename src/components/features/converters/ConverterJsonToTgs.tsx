@@ -5,8 +5,12 @@ import React, {useMemo, useState} from "react";
 import {UploadFileRounded} from "@mui/icons-material";
 import {InputNumber, message, Spin, Switch, Upload} from "antd";
 
-import {formatBytes, formatPercentDelta} from "../../../utils/fileUtilities";
-import {triggerHaptic, withSelectionHaptic, withSoftHaptic} from "../../../utils/haptics";
+import {formatBytes, formatPercentDelta} from "../../../utilities/fileUtilities";
+import {
+  triggerHaptic,
+  withSelectionHaptic,
+  withSoftHaptic,
+} from "../../../utilities/haptics";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";

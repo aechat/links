@@ -12,9 +12,9 @@ import {Tooltip} from "antd";
 import {useLongPress} from "../../hooks/useLongPress";
 import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
-import {triggerDisclosureHaptic} from "../../utils/haptics";
-import {scrollToElement} from "../../utils/scrollToAnchor";
-import {getCurrentHashAnchor} from "../../utils/urlHashUtilities";
+import {triggerDisclosureHaptic} from "../../utilities/haptics";
+import {scrollToElement} from "../../utilities/scrollToAnchor";
+import {getCurrentHashAnchor} from "../../utilities/urlHashUtilities";
 import {CopyButton} from "../ui/CopyButton";
 
 import {

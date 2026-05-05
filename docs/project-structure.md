@@ -22,7 +22,7 @@
 - `src/components/modals` — модальные окна и настройки темы.
 - `src/components/ui` — малые UI-компоненты (`CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`).
 - `src/hooks` — прикладные хуки для ссылок, копирования, ripple, валидации якорей и т.д.
-- `src/utils` — утилиты для ссылок, якорей, браузера, даты, файловых размеров, haptics и строк.
+- `src/utilities` — утилиты для ссылок, якорей, браузера, даты, файловых размеров, haptics и строк.
 - `src/styles` — глобальные SCSS слои (`abstracts`, `base`, `layout`, `components`, `utilities`).
 - `public/media` — скриншоты и видео для статей.
   - `public/media/legacy` — архивная структура для обратной совместимости.

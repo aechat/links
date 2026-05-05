@@ -4,8 +4,8 @@ import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {message, Modal} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
-import {copyText} from "../../utils/copyUtilities";
-import {withSoftHaptic} from "../../utils/haptics";
+import {copyText} from "../../utilities/copyUtilities";
+import {withSoftHaptic} from "../../utilities/haptics";
 
 import modalStyles from "./Modal.module.scss";
 

@@ -2,8 +2,8 @@ import React, {ReactNode, useEffect, useState} from "react";
 
 import {Apple, WindowSharp} from "@mui/icons-material";
 
-import {getPlatformInfo} from "../../utils/browserDetection";
-import {triggerHaptic} from "../../utils/haptics";
+import {getPlatformInfo} from "../../utilities/browserDetection";
+import {triggerHaptic} from "../../utilities/haptics";
 
 import styles from "./ContentFilter.module.scss";
 

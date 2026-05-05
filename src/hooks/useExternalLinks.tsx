@@ -4,7 +4,7 @@ import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
-import {getExternalLinkHref} from "../utils/linkTargets";
+import {getExternalLinkHref} from "../utilities/linkTargets";
 
 import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";

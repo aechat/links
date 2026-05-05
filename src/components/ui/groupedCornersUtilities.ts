@@ -1,4 +1,4 @@
-import {applyInteractiveScaleVariables} from "../../utils/interactiveScaleUtilities";
+import {applyInteractiveScaleVariables} from "../../utilities/interactiveScaleUtilities";
 
 const CORNER_CLASSES = [
   "group-corner-tl",

@@ -7,13 +7,13 @@ import modalStyles from "../components/modals/Modal.module.scss";
 import {
   downloadFileWithFallback,
   resolveDownloadLinkFileSize,
-} from "../utils/downloadUtilities";
+} from "../utilities/downloadUtilities";
 import {
   type ArticleLinkTarget,
   type DownloadLinkTarget,
   resolveArticleLinkTarget,
   resolveDownloadLinkTarget,
-} from "../utils/linkTargets";
+} from "../utilities/linkTargets";
 
 import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";

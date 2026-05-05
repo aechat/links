@@ -6,8 +6,8 @@ import {message} from "antd";
 import {animate, AnimatePresence, motion, useMotionValue} from "framer-motion";
 import {createPortal} from "react-dom";
 
-import {copyText} from "../../utils/copyUtilities";
-import {triggerHaptic} from "../../utils/haptics";
+import {copyText} from "../../utilities/copyUtilities";
+import {triggerHaptic} from "../../utilities/haptics";
 import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
 import styles from "./ArticleMedia.module.scss";
