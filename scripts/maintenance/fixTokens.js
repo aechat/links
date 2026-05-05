@@ -1,16 +1,7 @@
 #!/usr/bin/env node
-/**
- * @file Интерактивный скрипт для исправления токенов в `.tsx` файлах.
- * 1. Преобразует текст в тегах <file>, <image>, <video>, <audio> в верхний регистр.
- * 2. Форматирует пробелы вокруг знака `+` в тегах `<key>`. Удаляет ведущую точку, если она есть (например, `<file>.env<` -> `<file>ENV<`).
- *
- * Скрипт запрашивает, какую категорию тегов обрабатывать,
- * и для каждого потенциального изменения просит подтверждение пользователя.
- * Есть возможность запомнить выбор для текущей сессии.
- */
 
-import {runScript} from "./utils/scriptRunner.js";
-import {rl, askForConfirmation} from "./utils/interactiveUtils.js";
+import {askForConfirmation, rl} from "../utilities/interactiveUtilities.js";
+import {runScript} from "../utilities/scriptRunner.js";
 
 async function fixSpecificContentTags(content, tagName) {
   const regex = new RegExp(
@@ -82,8 +73,8 @@ async function processor(filePath, originalContent) {
   console.log("3. Теги <video>");
   console.log("4. Теги <audio>");
   console.log("5. Теги клавиш (<key>)");
-  console.log("6. Все теги контента (file, image, video, audio)");
-  console.log("7. Все теги (контент и клавиши)");
+  console.log("6. Все теги контента (<file>, <image>, <video>, <audio>)");
+  console.log("7. Все теги: контент и клавиши");
   const choice = await rl.question("Введите номер (1-7): ");
 
   let categories = [];

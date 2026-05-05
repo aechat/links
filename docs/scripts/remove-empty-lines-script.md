@@ -1,6 +1,6 @@
 # Скрипт `removeEmptyLines`
 
-Файл: `scripts/removeEmptyLines.js`
+Файл: `scripts/maintenance/removeEmptyLines.js`
 
 ## Назначение
 
@@ -9,7 +9,7 @@
 ## Запуск
 
 ```bash
-node scripts/removeEmptyLines.js
+node scripts/maintenance/removeEmptyLines.js
 ```
 
 ## Как работает

@@ -1,6 +1,6 @@
 # Скрипт `sortImports`
 
-Файл: `scripts/sortImports.js`
+Файл: `scripts/maintenance/sortImports.js`
 
 ## Назначение
 
@@ -9,7 +9,7 @@
 ## Запуск
 
 ```bash
-node scripts/sortImports.js
+node scripts/maintenance/sortImports.js
 ```
 
 ## Правила сортировки

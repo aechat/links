@@ -1,9 +1,6 @@
 #!/usr/bin/env node
-/**
- * @file Скрипт для сортировки импортов в .ts и .tsx файлах.
- */
-import {runScript} from "./utils/scriptRunner.js";
-import {confirmFileWrite} from "./utils/interactiveUtils.js";
+import {confirmFileWrite} from "../utilities/interactiveUtilities.js";
+import {runScript} from "../utilities/scriptRunner.js";
 
 const UNSORTABLE_PATTERNS = [/from "react";/, /from "react-router-dom";/, /\.s?css";$/];
 

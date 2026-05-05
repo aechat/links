@@ -1,16 +1,12 @@
 #!/usr/bin/env node
-/**
- * @file Скрипт для рекурсивного удаления пустых строк из текстовых файлов в проекте.
- * Он обходит все директории, игнорируя системные и указанные в `ignore.js`,
- * и обрабатывает файлы с текстовыми расширениями.
- */
-import {existsSync, readFileSync, statSync, writeFileSync} from "fs";
-import {resolve} from "path";
-import {cwd} from "process";
-import {runScript} from "./utils/scriptRunner.js";
-import {walk} from "./utils/fileUtils.js";
-import {shouldIgnore} from "./utils/ignore.js";
-import {confirmFileWrite, rl} from "./utils/interactiveUtils.js";
+import {existsSync, readFileSync, statSync, writeFileSync} from "node:fs";
+import {resolve} from "node:path";
+import {cwd} from "node:process";
+
+import {walk} from "../utilities/fileUtilities.js";
+import {confirmFileWrite, rl} from "../utilities/interactiveUtilities.js";
+import {shouldIgnore} from "../utilities/ignore.js";
+import {runScript} from "../utilities/scriptRunner.js";
 
 const TEXT_FILE_EXTENSIONS = [
   ".js",

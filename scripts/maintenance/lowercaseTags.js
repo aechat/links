@@ -1,11 +1,6 @@
 #!/usr/bin/env node
-/**
- * @file Скрипт для преобразования значений атрибута `tag` в нижний регистр.
- * Он рекурсивно обходит все директории, находит файлы с расширением `.tsx`
- * и приводит содержимое `tag="..."` к нижнему регистру.
- */
-import {runScript} from "./utils/scriptRunner.js";
-import {askForConfirmation} from "./utils/interactiveUtils.js";
+import {askForConfirmation} from "../utilities/interactiveUtilities.js";
+import {runScript} from "../utilities/scriptRunner.js";
 
 async function processor(filePath, originalContent) {
   if (!filePath.endsWith(".tsx")) {
