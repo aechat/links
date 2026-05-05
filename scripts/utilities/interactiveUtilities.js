@@ -3,9 +3,7 @@ import {stdin as input, stdout as output} from "node:process";
 
 export const rl = readline.createInterface({input, output});
 
-// Белый список слов, которые не нужно преобразовывать (заполняется в процессе работы).
 const whitelist = new Set();
-// Кеш решений пользователя, чтобы не спрашивать одно и то же.
 const decisionCache = new Map();
 
 export async function askForConfirmation(original, proposed) {

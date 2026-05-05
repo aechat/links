@@ -1,6 +1,6 @@
-# Утилита `fileUtils`
+# Утилита `fileUtilities`
 
-Файл: `scripts/utils/fileUtils.js`
+Файл: `scripts/utilities/fileUtilities.js`
 
 ## Назначение
 

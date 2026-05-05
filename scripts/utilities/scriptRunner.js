@@ -1,21 +1,19 @@
-import {readFileSync, writeFileSync} from "fs";
-import {cwd} from "process";
-import {walk} from "./fileUtils.js";
-import {log} from "./logger.js";
-import {rl, askForConfirmation, confirmFileWrite} from "./interactiveUtils.js";
+import {readFileSync, writeFileSync} from "node:fs";
 
-export async function runScript(scriptName, processor) {
+import {SCRIPT_EXTENSIONS, walkFiles} from "./fileUtilities.js";
+import {log} from "./logger.js";
+import {rl, askForConfirmation, confirmFileWrite} from "./interactiveUtilities.js";
+
+export async function runScript(
+  scriptName,
+  processor,
+  {extensions = SCRIPT_EXTENSIONS} = {}
+) {
   log(scriptName, "--- Script started ---");
   console.log(`\nЗапуск скрипта: ${scriptName}`);
 
   try {
-    const allFiles = [];
-    walk(cwd(), (filePath) => {
-      if (filePath.endsWith(".tsx") || filePath.endsWith(".ts")) {
-        // Include .ts for sortImports
-        allFiles.push(filePath);
-      }
-    });
+    const allFiles = walkFiles({extensions});
 
     for (const filePath of allFiles) {
       const originalContent = readFileSync(filePath, "utf8");
@@ -23,8 +21,6 @@ export async function runScript(scriptName, processor) {
 
       console.log(`\n--- Обработка файла: ${filePath} ---`);
 
-      // The processor function is responsible for making changes and handling its own interactivity
-      // It receives the content, rl, askForConfirmation, and confirmFileWrite
       fixedContent = await processor(
         filePath,
         originalContent,

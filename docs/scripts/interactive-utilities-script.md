@@ -1,6 +1,6 @@
-# Утилита `interactiveUtils`
+# Утилита `interactiveUtilities`
 
-Файл: `scripts/utils/interactiveUtils.js`
+Файл: `scripts/utilities/interactiveUtilities.js`
 
 ## Назначение
 

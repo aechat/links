@@ -1,6 +1,6 @@
 # Утилита `logger`
 
-Файл: `scripts/utils/logger.js`
+Файл: `scripts/utilities/logger.js`
 
 ## Назначение
 

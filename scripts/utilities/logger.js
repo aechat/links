@@ -1,6 +1,6 @@
-import {appendFileSync} from "fs";
-import {join} from "path";
-import {cwd} from "process";
+import {appendFileSync} from "node:fs";
+import {join} from "node:path";
+import {cwd} from "node:process";
 
 const logFilePath = join(cwd(), "scripts", "script_log.txt");
 
