@@ -41,6 +41,7 @@
     transition:
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: $z-raised;
     border: $stroke-1 solid var(--color-panel-border);
     border-radius: $roundness;
     background-color: var(--color-panel-background);
@@ -284,7 +285,9 @@
   }
 
   &-content-wrapper {
+    position: relative;
     transition: max-height $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: $z-base;
     margin-block-start: -$space-8;
     max-height: 0;
     overflow: hidden;

@@ -224,7 +224,6 @@
   &:global(.body-has-any-spoiler-open) :global(.article-content) {
     :global(.details-nested)[open] {
       transform: none;
-      margin-block: 0;
     }
   }
 
