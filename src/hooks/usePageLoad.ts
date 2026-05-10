@@ -5,54 +5,25 @@ import {useLoading} from "../context/LoadingContext";
 
 const PAGE_LOAD_DELAY = 100;
 
-const ANCHOR_WAIT_TIMEOUT = 500;
-
-const getTopLevelSummaryElements = () => {
-  return document.querySelectorAll(
-    ".article-content details:not(.details-nested) > summary"
-  );
-};
-
-const areGeneratedAnchorsReady = () => {
-  const summaries = getTopLevelSummaryElements();
-
-  if (summaries.length === 0) {
-    return false;
-  }
-
-  for (const summary of summaries) {
-    if (!summary.id) {
-      return false;
-    }
-  }
-
-  return true;
-};
-
 export const usePageLoad = (isFaqPage = false) => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
-  const {setIsLoading} = useLoading();
+  const {canDismiss, setIsLoading} = useLoading();
 
   useEffect(() => {
     let cancelled = false;
 
-    let animationFrameId: number | undefined;
-
     const finishLoading = () => {
       if (cancelled) return;
 
-      setIsLoading(false);
-    };
-
-    const finishFaqLoading = () => {
-      if (cancelled) return;
-
       setIsPageLoaded(true);
-      setIsLoading(false);
+
+      if (canDismiss) {
+        setIsLoading(false);
+      }
     };
 
-    const timer = setTimeout(() => {
+    const timer = setTimeout(async () => {
       if (cancelled) return;
 
       if (!isFaqPage) {
@@ -61,36 +32,22 @@ export const usePageLoad = (isFaqPage = false) => {
         return;
       }
 
-      const waitStartedAt = Date.now();
+      await generateAnchorId();
 
-      const waitForAnchors = () => {
-        if (cancelled) return;
+      if (cancelled) return;
 
-        generateAnchorId();
+      setIsPageLoaded(true);
 
-        const hasTimedOut = Date.now() - waitStartedAt >= ANCHOR_WAIT_TIMEOUT;
-
-        if (areGeneratedAnchorsReady() || hasTimedOut) {
-          finishFaqLoading();
-
-          return;
-        }
-
-        animationFrameId = requestAnimationFrame(waitForAnchors);
-      };
-
-      waitForAnchors();
+      if (canDismiss) {
+        setIsLoading(false);
+      }
     }, PAGE_LOAD_DELAY);
 
     return () => {
       cancelled = true;
       clearTimeout(timer);
-
-      if (animationFrameId !== undefined) {
-        cancelAnimationFrame(animationFrameId);
-      }
     };
-  }, [setIsLoading, isFaqPage]);
+  }, [setIsLoading, isFaqPage, canDismiss]);
 
   return isPageLoaded;
 };

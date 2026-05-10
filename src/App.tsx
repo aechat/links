@@ -457,6 +457,8 @@ const AppContent = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [canDismiss, setCanDismiss] = useState(true);
+
   const [loadingError, setLoadingError] = useState<Error | undefined>();
 
   const [boundaryError, setBoundaryError] = useState<Error | undefined>();
@@ -466,6 +468,7 @@ const AppContent = () => {
   if (previousPathname.current !== location.pathname) {
     previousPathname.current = location.pathname;
     setIsLoading(true);
+    setCanDismiss(false);
   }
 
   useEffect(() => {
@@ -615,7 +618,7 @@ const AppContent = () => {
             setIsAppReady(true);
           }}
         />
-        <LoadingContext.Provider value={{setIsLoading}}>
+        <LoadingContext.Provider value={{canDismiss, setCanDismiss, setIsLoading}}>
           <LoadingAnimation
             isLoading={isLoading}
             isSuppressed={isSafariWarningOpen}
