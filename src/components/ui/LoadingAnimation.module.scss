@@ -4,15 +4,15 @@
   &-overlay {
     display: flex;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: $z-loader;
     background-color: var(--color-page-background);
-    width: 100vw;
-    height: 100vh;
+    width: auto;
+    height: auto;
+    min-height: 100dvh;
   }
 
   &-container {
@@ -189,13 +189,20 @@
 }
 
 .progress-bar-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   transition: opacity $duration-750 cubic-bezier(0.25, 0, 0, 1);
   opacity: 0;
-  margin-inline: 20px;
-  width: 180px;
-  max-width: 35vw;
+  padding-inline: 20px;
+  width: 100%;
 
   &.visible {
     opacity: 1;
+  }
+
+  :global([class~="MuiLinearProgress-root"]) {
+    width: 180px;
+    max-width: 35vw;
   }
 }

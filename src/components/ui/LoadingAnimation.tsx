@@ -17,7 +17,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
   isLoading,
   isSuppressed = false,
 }) => {
-  const {setIsLoading} = useLoading();
+  const taglineText = "@aechat";
+
+  const {canDismiss, setCanDismiss, setIsLoading} = useLoading();
 
   const location = useLocation();
 
@@ -75,35 +77,43 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
 
   const [showIntro, setShowIntro] = useState(false);
 
-  const [canDismiss, setCanDismiss] = useState(() => !getTitle());
-
   const [showProgressBar, setShowProgressBar] = useState(false);
 
   const [textAnimationFinished, setTextAnimationFinished] = useState(false);
 
-  const [introLogicFinished, setIntroLogicFinished] = useState(false);
+  const [introAnimationFinished, setIntroAnimationFinished] = useState(false);
 
   useLayoutEffect(() => {
     setIsLoading(true);
-    setIntroLogicFinished(false);
-  }, [location.pathname, setIsLoading]);
+    setCanDismiss(!getTitle());
+  }, [location.pathname, setIsLoading, setCanDismiss]);
 
   useEffect(() => {
+    const timers: Array<ReturnType<typeof globalThis.setTimeout>> = [];
+
+    const startTimer = (callback: () => void, delay: number) => {
+      const timer = globalThis.setTimeout(callback, delay);
+
+      timers.push(timer);
+
+      return timer;
+    };
+
     if (isSuppressed) {
       setShowProgressBar(false);
       setShowIntro(false);
       setCanDismiss(true);
       setTextAnimationFinished(false);
-      setIntroLogicFinished(false);
+      setIntroAnimationFinished(false);
 
       return;
     }
 
     if (isLoading) {
       setTextAnimationFinished(false);
-      setIntroLogicFinished(false);
+      setIntroAnimationFinished(false);
 
-      const timer = setTimeout(() => {
+      startTimer(() => {
         setShowProgressBar(true);
       }, 50);
 
@@ -114,9 +124,13 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
       if (!titleExists) {
         setShowIntro(false);
         setCanDismiss(true);
-        setIntroLogicFinished(true);
+        setIntroAnimationFinished(true);
 
-        return () => clearTimeout(timer);
+        return () => {
+          for (const timer of timers) {
+            globalThis.clearTimeout(timer);
+          }
+        };
       }
 
       const now = Date.now();
@@ -128,32 +142,39 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
       if (!shouldShowIntro) {
         setShowIntro(false);
         setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 500);
-        setIntroLogicFinished(true);
+        setIntroAnimationFinished(true);
+        startTimer(() => setCanDismiss(true), 500);
       } else if (fontsLoaded) {
         setShowIntro(true);
         setCanDismiss(false);
-
-        setTimeout(() => {
-          setStoredNumber("introLastShown", Date.now());
-          setCanDismiss(true);
-        }, 1750);
-
-        setIntroLogicFinished(true);
       } else {
         setShowIntro(false);
         setCanDismiss(false);
+        setIntroAnimationFinished(true);
       }
 
-      return () => clearTimeout(timer);
-    } else {
-      setShowProgressBar(false);
+      return () => {
+        for (const timer of timers) {
+          globalThis.clearTimeout(timer);
+        }
+      };
     }
   }, [isLoading, location.pathname, fontsLoaded, isSuppressed]);
 
-  const title = getTitle();
+  useEffect(() => {
+    if (isLoading || (showIntro && !textAnimationFinished)) return;
 
-  const taglineText = "@aechat";
+    setCanDismiss(true);
+  }, [isLoading, showIntro, textAnimationFinished]);
+
+  useEffect(() => {
+    if (!showIntro || !textAnimationFinished) return;
+
+    setStoredNumber("introLastShown", Date.now());
+    setCanDismiss(true);
+  }, [showIntro, textAnimationFinished]);
+
+  const title = getTitle();
 
   const show = !isSuppressed && (isLoading || !canDismiss);
 
@@ -184,9 +205,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
   }
 
   const isProgressBarVisible =
-    introLogicFinished && showProgressBar && (!showIntro || textAnimationFinished);
-
-  if (isSuppressed || !shouldRender) return <></>;
+    showProgressBar && introAnimationFinished && (isLoading || !canDismiss);
 
   const titleLength = title ? title.length : 0;
 
@@ -201,6 +220,40 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
   const maxDistance = Math.max(centerIndex, totalLength - 1 - centerIndex);
 
   const loopStepDelay = 0.06;
+
+  const maxTitleDelay = 0.5 + maxDistance * 0.1 + 0.75;
+
+  const maxTaglineDelay = 0.675 + maxDistance * 0.05 + 0.75;
+
+  const introPhaseDuration = Math.max(maxTitleDelay, maxTaglineDelay) * 1000;
+
+  const introAnimationDuration = introPhaseDuration + 500;
+
+  useEffect(() => {
+    if (!showIntro || introAnimationFinished) return;
+
+    const timer = globalThis.setTimeout(() => {
+      setIntroAnimationFinished(true);
+    }, introPhaseDuration);
+
+    return () => {
+      globalThis.clearTimeout(timer);
+    };
+  }, [introPhaseDuration, location.pathname, showIntro, introAnimationFinished]);
+
+  useEffect(() => {
+    if (!showIntro || textAnimationFinished) return;
+
+    const timer = globalThis.setTimeout(() => {
+      setTextAnimationFinished(true);
+    }, introAnimationDuration);
+
+    return () => {
+      globalThis.clearTimeout(timer);
+    };
+  }, [introAnimationDuration, location.pathname, showIntro, textAnimationFinished]);
+
+  if (isSuppressed || !shouldRender) return <></>;
 
   return (
     <div
@@ -218,6 +271,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
 
         setShouldRender(false);
         setIsFadingOut(false);
+        setShowProgressBar(false);
       }}
     >
       <div className={styles["loading-content"]}>
@@ -253,7 +307,13 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
                       <span
                         className={styles["animated-text-letter"]}
                         onAnimationEnd={
-                          isFurthest ? () => setTextAnimationFinished(true) : undefined
+                          isFurthest
+                            ? (event) => {
+                                if (event.animationName.includes("smooth-scale")) {
+                                  setIntroAnimationFinished(true);
+                                }
+                              }
+                            : undefined
                         }
                       >
                         {char}
@@ -293,7 +353,13 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
                       <span
                         className={styles["animated-text-letter"]}
                         onAnimationEnd={
-                          isFurthest ? () => setTextAnimationFinished(true) : undefined
+                          isFurthest
+                            ? (event) => {
+                                if (event.animationName.includes("smooth-scale")) {
+                                  setIntroAnimationFinished(true);
+                                }
+                              }
+                            : undefined
                         }
                       >
                         {char}
