@@ -44,12 +44,58 @@ interface DetailsSummaryProperties {
   title: string;
 }
 
-export const generateAnchorId = () => {
+const CHUNK_SIZE = 30;
+
+const yieldToMain = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 0));
+
+interface AnchorTask {
+  blockIndex: number;
+  generatedAnchor: string;
+  summary: HTMLElement;
+  summaryIndex: number;
+}
+
+const processAnchorTask = (task: AnchorTask, currentHash: string) => {
+  const {generatedAnchor, summary} = task;
+
+  const summaryId = assignAnchorIdIfMissing(summary, generatedAnchor);
+
+  const detailsElement = summary.closest("details");
+
+  const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
+
+  const isTextualAnchorUsable =
+    detailsElement instanceof HTMLDetailsElement &&
+    textualAnchor &&
+    isFirstAnchorOccurrence(detailsElement, textualAnchor);
+
+  if (
+    currentHash &&
+    (summaryId === currentHash ||
+      (isTextualAnchorUsable && textualAnchor === currentHash))
+  ) {
+    dispatchOpenSpoilerById(summaryId);
+  }
+
+  if (detailsElement instanceof HTMLDetailsElement) {
+    processNestedSummaries(
+      detailsElement,
+      generatedAnchor,
+      currentHash,
+      summaryId,
+      textualAnchor
+    );
+  }
+};
+
+export const generateAnchorId = async () => {
   if (globalThis.window === undefined) return;
 
   const containers = [...document.querySelectorAll(".article-content")];
 
   const currentHash = getCurrentHashAnchor();
+
+  const tasks: AnchorTask[] = [];
 
   for (const [blockIndex, container] of containers.entries()) {
     const summaries = getTopLevelSummaryElements(container);
@@ -57,34 +103,19 @@ export const generateAnchorId = () => {
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
 
-      const summaryId = assignAnchorIdIfMissing(summary, generatedAnchor);
+      tasks.push({blockIndex, generatedAnchor, summary, summaryIndex});
+    }
+  }
 
-      const detailsElement = summary.closest("details");
+  for (let index = 0; index < tasks.length; index += CHUNK_SIZE) {
+    const chunk = tasks.slice(index, index + CHUNK_SIZE);
 
-      const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
+    for (const task of chunk) {
+      processAnchorTask(task, currentHash);
+    }
 
-      const isTextualAnchorUsable =
-        detailsElement instanceof HTMLDetailsElement &&
-        textualAnchor &&
-        isFirstAnchorOccurrence(detailsElement, textualAnchor);
-
-      if (
-        currentHash &&
-        (summaryId === currentHash ||
-          (isTextualAnchorUsable && textualAnchor === currentHash))
-      ) {
-        dispatchOpenSpoilerById(summaryId);
-      }
-
-      if (detailsElement instanceof HTMLDetailsElement) {
-        processNestedSummaries(
-          detailsElement,
-          generatedAnchor,
-          currentHash,
-          summaryId,
-          textualAnchor
-        );
-      }
+    if (index + CHUNK_SIZE < tasks.length) {
+      await yieldToMain();
     }
   }
 };
