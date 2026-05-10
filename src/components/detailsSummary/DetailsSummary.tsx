@@ -378,20 +378,24 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       disableScroll();
     }
 
+    let openAnimationFrame: number | undefined;
+
     if (isOpen) {
       details.open = true;
 
-      const scrollHeight = innerContent.scrollHeight;
+      openAnimationFrame = requestAnimationFrame(() => {
+        const scrollHeight = innerContent.scrollHeight;
 
-      const viewportHeight = window.innerHeight;
+        const viewportHeight = window.innerHeight;
 
-      contentWrapper.style.maxHeight =
-        justOpened && scrollHeight > viewportHeight
-          ? `${viewportHeight}px`
-          : `${scrollHeight}px`;
+        contentWrapper.style.maxHeight =
+          justOpened && scrollHeight > viewportHeight
+            ? `${viewportHeight}px`
+            : `${scrollHeight}px`;
 
-      updateDimmingEffect();
-      setTimeout(updateDimmingEffect, 100);
+        updateDimmingEffect();
+        setTimeout(updateDimmingEffect, 100);
+      });
     } else if (details.open) {
       resizeObserver.unobserve(innerContent);
       contentWrapper.style.maxHeight = "0px";
@@ -399,6 +403,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     }
 
     return () => {
+      if (openAnimationFrame !== undefined) {
+        cancelAnimationFrame(openAnimationFrame);
+      }
+
       resizeObserver.disconnect();
       contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
       window.removeEventListener("resize", updateDynamicStyles);

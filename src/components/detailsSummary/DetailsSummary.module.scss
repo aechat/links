@@ -381,6 +381,7 @@
   margin-block-start: -$space-16;
   max-height: 0;
   overflow: hidden;
+  will-change: max-height;
 }
 
 .details-content-inner {
