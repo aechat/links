@@ -6,9 +6,9 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
-import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
+import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video

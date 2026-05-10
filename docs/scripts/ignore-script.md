@@ -1,6 +1,6 @@
 # Утилита `ignore`
 
-Файл: `scripts/utils/ignore.js`
+Файл: `scripts/utilities/ignore.js`
 
 ## Назначение
 
@@ -15,4 +15,4 @@
 
 ## Как используется
 
-Главный потребитель — [`file-utils-script.md`](./file-utils-script.md), который на базе `shouldIgnore` фильтрует обход дерева файлов.
+Главный потребитель — [`file-utilities-script.md`](./file-utilities-script.md), который на базе `shouldIgnore` фильтрует обход дерева файлов.

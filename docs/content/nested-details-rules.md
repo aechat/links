@@ -1,6 +1,6 @@
 # Правила для `NestedDetailsSummary`
 
-Файл компонента: `src/components/content/NestedDetailsSummary.tsx`.
+Файл компонента: `src/components/detailsSummary/NestedDetailsSummary.tsx`.
 
 ## Когда использовать
 
@@ -41,7 +41,7 @@
 ## Пример
 
 ```tsx
-import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
+import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
 
 <NestedDetailsSummary title="Проверяем настройки кеша">
   <p>Откройте Preferences и проверьте путь к Disk Cache.</p>

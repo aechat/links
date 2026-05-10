@@ -18,9 +18,9 @@
     flex-direction: column;
     backdrop-filter: blur(5px);
     filter: $shadow-filter-overlay;
-    outline: $stroke-1 solid var(--color-border-modal);
+    outline: $stroke-1 solid var(--color-modal-border);
     border-radius: $roundness;
-    background-color: var(--color-background-modal);
+    background-color: var(--color-modal-background);
     max-width: 500px;
 
     p {
@@ -53,12 +53,12 @@
       $space-8
     );
 
-    outline: $stroke-1 solid var(--color-surface-primary-border);
+    outline: $stroke-1 solid var(--color-panel-border);
     border-radius: $roundness;
-    background-color: var(--color-surface-primary-background);
+    background-color: var(--color-panel-background);
     text-transform: uppercase;
     line-height: 1.25;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-family: Onest, sans-serif;
     font-size: $font-size-heading-xs;
     font-weight: 500;
@@ -90,14 +90,17 @@
       color: hsl(138deg 68% 30%);
     }
 
+    .link-firefox,
+    .link-yandex {
+      color: hsl(0deg 0% 100%);
+    }
+
     .link-firefox {
       background-color: hsl(276deg 100% 12%);
-      color: hsl(0deg 0% 100%);
     }
 
     .link-yandex {
       background-color: hsl(8deg 92% 63%);
-      color: hsl(0deg 0% 100%);
     }
   }
 }

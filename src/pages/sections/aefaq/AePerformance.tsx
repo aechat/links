@@ -5,7 +5,7 @@ import {Divider} from "antd";
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 const AePerformance: React.FC = () => {
   return (

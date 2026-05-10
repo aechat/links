@@ -2,195 +2,183 @@ import {useEffect} from "react";
 
 import {message} from "antd";
 
-export const useSmartCopy = (isPageLoaded: boolean) => {
-  useEffect(() => {
-    if (!isPageLoaded) return;
+import {
+  createRangeContainer,
+  getActiveSelectionRange,
+  getClosestElement,
+} from "../utilities/selectionUtilities";
 
-    const getClosestElement = (node: Node | null): Element | undefined => {
-      if (!node) {
-        return undefined;
+interface ClipboardSource {
+  url: string;
+}
+
+interface SmartClipboardContent {
+  html: string;
+  plainText: string;
+}
+
+const isNonSummaryMarkSelection = (range: Range): boolean => {
+  const startElement = getClosestElement(range.startContainer);
+
+  const endElement = getClosestElement(range.endContainer);
+
+  const startMark = startElement?.closest("mark");
+
+  const endMark = endElement?.closest("mark");
+
+  if (startMark && endMark && startMark === endMark && !startMark.closest("summary")) {
+    return true;
+  }
+
+  const temporaryDiv = createRangeContainer(range);
+
+  const marks = [...temporaryDiv.querySelectorAll("mark")].filter(
+    (markElement) => !markElement.closest("summary")
+  );
+
+  if (marks.length === 0) {
+    return false;
+  }
+
+  const cleanedSelection = temporaryDiv.cloneNode(true) as HTMLDivElement;
+
+  for (const markElement of cleanedSelection.querySelectorAll("mark")) {
+    if (!markElement.closest("summary")) {
+      markElement.remove();
+    }
+  }
+
+  const remainingText = (cleanedSelection.textContent || "").replaceAll(/\s+/g, "");
+
+  return remainingText.length === 0;
+};
+
+const collectSources = (selection: Selection): ClipboardSource[] => {
+  const openDetails = document.querySelectorAll("details[open]");
+
+  if (openDetails.length === 0) {
+    return [];
+  }
+
+  const sources: ClipboardSource[] = [];
+
+  for (const detail of openDetails) {
+    const contentSection = detail.querySelector(".details-nested-section");
+
+    if (contentSection && selection.containsNode(contentSection, true)) {
+      const summary = detail.querySelector("summary");
+
+      const numericAnchor = summary?.id;
+
+      const textualAnchor = (detail as HTMLElement).dataset.anchor;
+
+      const anchorToUse = textualAnchor || numericAnchor;
+
+      if (anchorToUse) {
+        const url = new URL(globalThis.location.href);
+
+        url.hash = anchorToUse;
+        sources.push({url: url.toString()});
       }
+    }
+  }
 
-      return node instanceof Element ? node : node.parentElement || undefined;
-    };
+  return sources;
+};
 
-    const isNonSummaryMarkSelection = (range: Range): boolean => {
-      const startElement = getClosestElement(range.startContainer);
+const buildClipboardContent = (
+  selectedHtml: string,
+  selectedText: string,
+  sources: ClipboardSource[]
+): SmartClipboardContent => {
+  const separatorPlain = "\n---\n";
 
-      const endElement = getClosestElement(range.endContainer);
+  const separatorHtml = "<hr>";
 
-      const startMark = startElement?.closest("mark");
+  if (sources.length === 1) {
+    const source = sources[0];
 
-      const endMark = endElement?.closest("mark");
-
-      if (
-        startMark &&
-        endMark &&
-        startMark === endMark &&
-        !startMark.closest("summary")
-      ) {
-        return true;
-      }
-
-      const temporaryDiv = document.createElement("div");
-
-      temporaryDiv.append(range.cloneContents());
-
-      const marks = [...temporaryDiv.querySelectorAll("mark")].filter(
-        (markElement) => !markElement.closest("summary")
-      );
-
-      if (marks.length === 0) {
-        return false;
-      }
-
-      const cleanedSelection = temporaryDiv.cloneNode(true) as HTMLDivElement;
-
-      for (const markElement of cleanedSelection.querySelectorAll("mark")) {
-        if (!markElement.closest("summary")) {
-          markElement.remove();
-        }
-      }
-
-      const remainingText = (cleanedSelection.textContent || "").replaceAll(/\s+/g, "");
-
-      return remainingText.length === 0;
-    };
-
-    const collectSources = (selection: Selection): {url: string}[] => {
-      const openDetails = document.querySelectorAll("details[open]");
-
-      if (openDetails.length === 0) {
-        return [];
-      }
-
-      const sources: {url: string}[] = [];
-
-      for (const detail of openDetails) {
-        const contentSection = detail.querySelector(".details-nested-section");
-
-        if (contentSection && selection.containsNode(contentSection, true)) {
-          const summary = detail.querySelector("summary");
-
-          const numericAnchor = summary?.id;
-
-          const textualAnchor = (detail as HTMLElement).dataset.anchor;
-
-          const anchorToUse = textualAnchor || numericAnchor;
-
-          if (anchorToUse) {
-            const url = new URL(globalThis.location.href);
-
-            url.hash = anchorToUse;
-            sources.push({url: url.toString()});
-          }
-        }
-      }
-
-      return sources;
-    };
-
-    const buildClipboardContent = (
-      selectedHtml: string,
-      selectedText: string,
-      sources: {url: string}[]
-    ): {html: string; plainText: string} => {
-      const separatorPlain = "\n---\n";
-
-      const separatorHtml = "<hr>";
-
-      if (sources.length === 1) {
-        const source = sources[0];
-
-        return {
-          html: `
+    return {
+      html: `
           ${selectedHtml}
           ${separatorHtml}
           <p>Взято из статьи <a href="${source.url}">${source.url}</a>.</p>
         `,
-          plainText: `${selectedText}${separatorPlain}Взято из статьи ${source.url}`,
-        };
-      }
+      plainText: `${selectedText}${separatorPlain}Взято из статьи ${source.url}`,
+    };
+  }
 
-      const sourcesText = sources.map((source) => source.url).join("\n");
+  const sourcesText = sources.map((source) => source.url).join("\n");
 
-      const sourcesHtml = sources
-        .map((source) => `<li><a href="${source.url}">${source.url}</a></li>`)
-        .join("");
+  const sourcesHtml = sources
+    .map((source) => `<li><a href="${source.url}">${source.url}</a></li>`)
+    .join("");
 
-      return {
-        html: `
+  return {
+    html: `
           ${selectedHtml}
           ${separatorHtml}
           <p>Взято из статей:</p>
           <ul>${sourcesHtml}</ul>
         `,
-        plainText: `${selectedText}${separatorPlain}Взято из статей:\n${sourcesText}`,
-      };
-    };
+    plainText: `${selectedText}${separatorPlain}Взято из статей:\n${sourcesText}`,
+  };
+};
 
-    const applySmartCopy = (
-      event: ClipboardEvent,
-      selection: Selection,
-      range: Range
-    ) => {
-      const sources = collectSources(selection);
+const applySmartCopy = (event: ClipboardEvent, selection: Selection, range: Range) => {
+  const sources = collectSources(selection);
 
-      if (sources.length === 0) {
-        return false;
-      }
+  if (sources.length === 0) {
+    return false;
+  }
 
-      event.preventDefault();
-      event.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
 
-      const temporaryDiv = document.createElement("div");
+  const temporaryDiv = createRangeContainer(range);
 
-      temporaryDiv.append(range.cloneContents());
+  const selectedHtml = temporaryDiv.innerHTML;
 
-      const selectedHtml = temporaryDiv.innerHTML;
+  const selectedText = selection.toString().trim();
 
-      const selectedText = selection.toString().trim();
+  const {html, plainText} = buildClipboardContent(selectedHtml, selectedText, sources);
 
-      const {html, plainText} = buildClipboardContent(
-        selectedHtml,
-        selectedText,
-        sources
-      );
+  event.clipboardData?.setData("text/plain", plainText);
+  event.clipboardData?.setData("text/html", html);
 
-      event.clipboardData?.setData("text/plain", plainText);
-      event.clipboardData?.setData("text/html", html);
+  return true;
+};
 
-      return true;
-    };
+const handleSmartCopy = (event: ClipboardEvent) => {
+  if (event.defaultPrevented) {
+    return;
+  }
 
-    const handleCopy = (event: ClipboardEvent) => {
-      if (event.defaultPrevented) {
-        return;
-      }
+  const activeSelectionRange = getActiveSelectionRange();
 
-      let shouldShowCopySuccess = false;
+  if (!activeSelectionRange) {
+    return;
+  }
 
-      const selection = globalThis.getSelection();
+  const {range, selection} = activeSelectionRange;
 
-      if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
-        return;
-      }
+  const shouldShowCopySuccess = isNonSummaryMarkSelection(range)
+    ? true
+    : applySmartCopy(event, selection, range);
 
-      const range = selection.getRangeAt(0);
+  if (shouldShowCopySuccess) {
+    message.success("Выделенный текст скопирован в буфер обмена");
+  }
+};
 
-      shouldShowCopySuccess = isNonSummaryMarkSelection(range)
-        ? true
-        : applySmartCopy(event, selection, range);
+export const useSmartCopy = (isPageLoaded: boolean) => {
+  useEffect(() => {
+    if (!isPageLoaded) return;
 
-      if (shouldShowCopySuccess) {
-        message.success("Выделенный текст скопирован в буфер обмена");
-      }
-    };
-
-    document.addEventListener("copy", handleCopy);
+    document.addEventListener("copy", handleSmartCopy);
 
     return () => {
-      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("copy", handleSmartCopy);
     };
   }, [isPageLoaded]);
 };

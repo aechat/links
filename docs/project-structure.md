@@ -6,16 +6,23 @@
 - SCSS (глобальные стили и CSS Modules)
 - Ant Design + MUI Icons
 - Framer Motion (анимации)
+- React Router
+- React Helmet Async
 - Yarn 4
 
 ## Ключевые каталоги
 
 - `src/pages` — страницы (`AeFaqPage`, `PrFaqPage`, `PsFaqPage`, `AeExprPage`) и секции.
 - `src/pages/sections` — контентные секции FAQ и expr по темам.
-- `src/components/content` — базовые компоненты для статей (`DetailsSummary`, `ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `NestedDetailsSummary`, `HostsAdobe`).
+- `src/components/content` — базовые контентные компоненты статей (`ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `HostsAdobe`).
+- `src/components/detailsSummary` — верхнеуровневые и вложенные спойлеры статей (`DetailsSummary`, `NestedDetailsSummary`) и их утилиты.
 - `src/components/features` — функциональные блоки (например, `SearchEngine`, `EasingEditor`, конвертеры).
+- `src/components/features/searchEngine` — модуль поиска: UI, состояние, worker, query/scoring/highlight/content utilities.
 - `src/components/layout` — шапка, футер, переходы страниц.
+- `src/components/modals` — модальные окна и настройки темы.
+- `src/components/ui` — малые UI-компоненты (`CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`).
 - `src/hooks` — прикладные хуки для ссылок, копирования, ripple, валидации якорей и т.д.
+- `src/utilities` — утилиты для ссылок, якорей, браузера, даты, файловых размеров, haptics и строк.
 - `src/styles` — глобальные SCSS слои (`abstracts`, `base`, `layout`, `components`, `utilities`).
 - `public/media` — скриншоты и видео для статей.
   - `public/media/legacy` — архивная структура для обратной совместимости.
@@ -27,12 +34,17 @@
 
 ## Маршруты и страницы
 
-- `src/App.tsx` и `src/Main.tsx` формируют приложение и роутинг.
+- `src/Main.tsx` подключает React-приложение.
+- `src/App.tsx` задаёт провайдеры, модалки, обработку ошибок и маршруты.
 - Основные страницы:
+  - `src/pages/LinksPage.tsx`
   - `src/pages/AeFaqPage.tsx`
   - `src/pages/PrFaqPage.tsx`
   - `src/pages/PsFaqPage.tsx`
   - `src/pages/AeExprPage.tsx`
+  - `src/pages/ChatRules.tsx`
+  - `src/pages/NotFound.tsx`
+- Маршруты: `/`, `/aefaq`, `/prfaq`, `/psfaq`, `/aeexpr`, `/rules`, `/files`, `/regfile`, `/reg`, fallback `*`.
 - Каждая страница описывает список `sections` (`id`, `key`, `title`, `component`, опционально `icon`), рендерит `Divider` и подключает `SearchProvider` и `SearchInPage`.
 
 ### Пример секции в странице
@@ -79,15 +91,20 @@ const sections = [
 
 ## Критичные связи
 
-- `generateAnchorId` из `src/components/content/DetailsSummary.tsx` нумерует спойлеры и связывает их с hash-навигацией.
+- `generateAnchorId` из `src/components/detailsSummary/DetailsSummary.tsx` нумерует спойлеры и связывает их с hash-навигацией.
 - `useAnchorValidation` проверяет корректность hash и секций на страницах FAQ.
-- `SearchEngine` индексирует заголовки, теги, текст, таблицы и ссылки, включая `.flexible-links`, а при отсутствии результатов предлагает внешний поиск.
+- `SearchEngine` индексирует верхнеуровневые `details`: заголовки, теги, текст, списки, таблицы, `Addition`, `Divider` и ссылки, включая `.flexible-links`.
+- `getMediaMetadata` подключён в `vite.config.ts` через virtual-модуль `virtual:media-metadata`.
 
 ## Команды разработки
 
 - `yarn dev` — локальная разработка.
 - `yarn build` — клиентский build + SSR bundle + prerender.
 - `yarn preview` — предпросмотр сборки.
+- `yarn lint:content` — общая проверка структуры и служебной разметки статей.
+- `yarn lint:no-html-strings` — проверка, что строковые props `title`, `caption`, `tag`, `anchor` в статьях не содержат HTML/JSX.
+- `yarn lint:divider-style` — проверка текстов `Divider` в статьях: предупреждает о вопросительных заголовках и непомеченных названиях приложений/плагинов.
+- `yarn extract:marked-text` — диагностическая выгрузка короткого текста из тегов с `className`/`class` в статьях.
 - `yarn format` — `tsc` + `stylelint --fix` + `eslint --fix` + `prettier --write`.
 
 ### Пример рабочего цикла

@@ -18,12 +18,21 @@ import {
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
-import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
+import {isMobileDevice, isWebKitBrowser} from "../../utilities/browserDetection";
 import {
   isHapticFeedbackSupported,
   setIsVibrationEnabled as setGlobalVibrationEnabled,
   withSelectionHaptic,
-} from "../../utils/haptics";
+} from "../../utilities/haptics";
+import {
+  getLocalStorageItem,
+  getStoredBoolean,
+  getStoredNumber,
+  isLocalStorageAvailable,
+  setLocalStorageItem,
+  setStoredBoolean,
+  setStoredNumber,
+} from "../../utilities/localStorageUtilities";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -48,26 +57,12 @@ interface ThemeContextProperties {
 
 const ThemeContext = createContext<ThemeContextProperties | undefined>(undefined);
 
-const getStoredBooleanWithDefault = (key: string, fallback: boolean): boolean => {
-  const saved = localStorage.getItem(key);
-
-  if (saved === null) {
-    localStorage.setItem(key, fallback.toString());
-
-    return fallback;
-  }
-
-  return saved === "true";
-};
-
 const getSnowfallEnabledForMonth = (month: number): boolean => {
   if (![0, 1, 11].includes(month)) {
     return false;
   }
 
-  const saved = localStorage.getItem("isSnowfallEnabled");
-
-  return saved === null ? true : saved === "true";
+  return getStoredBoolean("isSnowfallEnabled", true);
 };
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -88,29 +83,28 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const [isVibrationEnabledState, setIsVibrationEnabledState] = useState<boolean>(true);
 
   useLayoutEffect(() => {
-    if (typeof localStorage === "undefined") {
+    if (!isLocalStorageAvailable()) {
       return;
     }
 
-    const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
+    const savedTheme = (getLocalStorageItem("theme") as Theme) || "system";
 
-    const savedAccentHue = Number.parseInt(
-      localStorage.getItem("accentHue") ?? "210",
-      10
+    const savedAccentHue = getStoredNumber("accentHue", 210, (value) =>
+      Number.parseInt(value, 10)
     );
 
-    const savedSaturateRatio = Number.parseFloat(
-      localStorage.getItem("saturateRatio") ?? "1"
-    );
+    const savedSaturateRatio = getStoredNumber("saturateRatio", 1, Number.parseFloat);
 
-    const resolvedSpoilerAnimationEnabled = getStoredBooleanWithDefault(
+    const resolvedSpoilerAnimationEnabled = getStoredBoolean(
       "isSpoilerAnimationEnabled",
-      true
+      true,
+      {persistFallback: true}
     );
 
-    const resolvedHoverScaleAnimationEnabled = getStoredBooleanWithDefault(
+    const resolvedHoverScaleAnimationEnabled = getStoredBoolean(
       "isHoverScaleAnimationEnabled",
-      !isMobileDevice() && !isWebKitBrowser()
+      !isMobileDevice() && !isWebKitBrowser(),
+      {persistFallback: true}
     );
 
     const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
@@ -118,7 +112,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     const hasVibrationSupport = isHapticFeedbackSupported();
 
     const resolvedVibrationEnabled = hasVibrationSupport
-      ? getStoredBooleanWithDefault("isVibrationEnabled", true)
+      ? getStoredBoolean("isVibrationEnabled", true, {persistFallback: true})
       : false;
 
     setThemeState(savedTheme);
@@ -139,50 +133,32 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("theme", newTheme);
-    }
+    setLocalStorageItem("theme", newTheme);
   };
 
   const setAccentHue = (hue: number) => {
     setAccentHueState(hue);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("accentHue", hue.toString());
-    }
+    setStoredNumber("accentHue", hue);
   };
 
   const setSaturateRatio = (ratio: number) => {
     setSaturateRatioState(ratio);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("saturateRatio", ratio.toString());
-    }
+    setStoredNumber("saturateRatio", ratio);
   };
 
   const setIsSpoilerAnimationEnabled = (enabled: boolean) => {
     setIsSpoilerAnimationEnabledState(enabled);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isSpoilerAnimationEnabled", enabled.toString());
-    }
+    setStoredBoolean("isSpoilerAnimationEnabled", enabled);
   };
 
   const setIsHoverScaleAnimationEnabled = (enabled: boolean) => {
     setIsHoverScaleAnimationEnabledState(enabled);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isHoverScaleAnimationEnabled", enabled.toString());
-    }
+    setStoredBoolean("isHoverScaleAnimationEnabled", enabled);
   };
 
   const setSnowfallEnabled = (enabled: boolean) => {
     setIsSnowfallEnabled(enabled);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isSnowfallEnabled", enabled.toString());
-    }
+    setStoredBoolean("isSnowfallEnabled", enabled);
   };
 
   const setVibrationEnabled = (enabled: boolean) => {

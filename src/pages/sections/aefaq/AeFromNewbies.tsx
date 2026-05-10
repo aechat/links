@@ -5,10 +5,10 @@ import {Divider} from "antd";
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
-import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
-import EasingEditor from "../../../components/features/EasingEditor";
-import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
+import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
+import EasingEditor from "../../../components/features/easingEditor/EasingEditor";
+import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const AeFromNewbies: React.FC = () => {
   return (

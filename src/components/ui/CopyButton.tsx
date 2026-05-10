@@ -2,7 +2,7 @@ import React from "react";
 
 import {ShareRounded} from "@mui/icons-material";
 
-import {withSoftHaptic} from "../../utils/haptics";
+import {withSoftHaptic} from "../../utilities/haptics";
 
 import styles from "./CopyButton.module.scss";
 

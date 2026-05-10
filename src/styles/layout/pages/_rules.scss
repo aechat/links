@@ -1,22 +1,39 @@
 @use "../../abstracts/mixins" as *;
 
+@mixin chat-message-bubble($margin-right, $margin-left, $text-align, $saturate) {
+  @include fluid-size(padding, $space-4, $space-8);
+
+  margin-right: $margin-right;
+  margin-left: $margin-left;
+  margin-block: $space-8;
+  border: $stroke-1 solid var(--color-mark-border);
+  border-radius: $roundness * 0.75;
+  background-color: var(--color-mark-background);
+  max-width: 70%;
+  text-align: $text-align;
+  line-height: 1.5;
+  color: var(--color-mark-text);
+  font-size: $font-size-text-sm;
+  filter: saturate($saturate);
+}
+
 .rules {
   &-title {
     @include details-summary-base();
 
-    border-bottom: $stroke-1 solid var(--color-surface-primary-border);
+    border-bottom: $stroke-1 solid var(--color-panel-border);
     border-radius: $roundness;
 
     &:hover {
       outline-color: color-mix(
         in hsl,
-        var(--color-surface-primary-border)
+        var(--color-panel-border)
           calc(100% - var(--color-interaction-primary-hover-shift)),
         var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
       );
       border-color: color-mix(
         in hsl,
-        var(--color-surface-primary-border)
+        var(--color-panel-border)
           calc(100% - var(--color-interaction-primary-hover-shift)),
         var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
       );
@@ -25,25 +42,25 @@
     &:active {
       outline-color: color-mix(
         in hsl,
-        var(--color-surface-primary-border)
+        var(--color-panel-border)
           calc(100% - var(--color-interaction-primary-active-shift)),
         var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
       );
       border-color: color-mix(
         in hsl,
-        var(--color-surface-primary-border)
+        var(--color-panel-border)
           calc(100% - var(--color-interaction-primary-active-shift)),
         var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
       );
     }
 
     &:not(:last-child) {
-      border-bottom-color: var(--color-surface-primary-border);
+      border-bottom-color: var(--color-panel-border);
 
       &:hover {
         border-bottom-color: color-mix(
           in hsl,
-          var(--color-surface-primary-border)
+          var(--color-panel-border)
             calc(100% - var(--color-interaction-primary-hover-shift)),
           var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
         );
@@ -52,7 +69,7 @@
       &:active {
         border-bottom-color: color-mix(
           in hsl,
-          var(--color-surface-primary-border)
+          var(--color-panel-border)
             calc(100% - var(--color-interaction-primary-active-shift)),
           var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
         );
@@ -66,10 +83,10 @@
 
   &-content {
     margin-block: -$space-16 $space-8;
-    border: solid $stroke-1 var(--color-border-primary);
+    border: solid $stroke-1 var(--color-article-border);
     border-bottom-left-radius: $roundness;
     border-bottom-right-radius: $roundness;
-    background-color: var(--color-background-secondary);
+    background-color: var(--color-article-background);
     padding-block: $space-0;
   }
 }
@@ -84,13 +101,13 @@
   }
 
   &-incorrect {
-    border: $stroke-1 solid var(--color-status-danger-subtle-border);
-    background: var(--color-status-danger-subtle-background);
+    border: $stroke-1 solid var(--color-addition-danger-subtle-border);
+    background: var(--color-addition-danger-subtle-background);
   }
 
   &-correct {
-    border: $stroke-1 solid var(--color-status-success-subtle-border);
-    background: var(--color-status-success-subtle-background);
+    border: $stroke-1 solid var(--color-addition-success-subtle-border);
+    background: var(--color-addition-success-subtle-background);
   }
 
   &-flex {
@@ -103,37 +120,11 @@
   }
 
   &-left {
-    @include fluid-size(padding, $space-4, $space-8);
-
-    margin-right: auto;
-    margin-left: $space-8;
-    margin-block: $space-8;
-    border: $stroke-1 solid var(--color-mark-border);
-    border-radius: $roundness * 0.75;
-    background-color: var(--color-mark-background);
-    max-width: 70%;
-    text-align: left;
-    line-height: 1.5;
-    color: var(--color-mark-text);
-    font-size: $font-size-text-sm;
-    filter: saturate(0%);
+    @include chat-message-bubble(auto, $space-8, left, 0%);
   }
 
   &-right {
-    @include fluid-size(padding, $space-4, $space-8);
-
-    margin-right: $space-8;
-    margin-left: auto;
-    margin-block: $space-8;
-    border: $stroke-1 solid var(--color-mark-border);
-    border-radius: $roundness * 0.75;
-    background-color: var(--color-mark-background);
-    max-width: 70%;
-    text-align: right;
-    line-height: 1.5;
-    color: var(--color-mark-text);
-    font-size: $font-size-text-sm;
-    filter: saturate(100%);
+    @include chat-message-bubble($space-8, auto, right, 100%);
   }
 
   &-time {

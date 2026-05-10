@@ -3,20 +3,26 @@ import React, {useCallback} from "react";
 import {message} from "antd";
 import {Link} from "react-router-dom";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
-import {formatNestedQuotes} from "../../utils/stringUtilities";
+import {copyText} from "../../utilities/copyUtilities";
+import {formatNestedQuotes} from "../../utilities/stringUtilities";
 
 import styles from "./LinkCards.module.scss";
+
+type LinkCardVariant = "external" | "internal";
 
 interface LinkCardProperties {
   description?: string;
   href: string;
   icon: React.ReactNode;
   name: string;
-  variant?: "external" | "internal";
+  variant?: LinkCardVariant;
 }
+
+const getLinkCardCopyUrl = (href: string, variant: LinkCardVariant): string => {
+  return variant === "internal" ? `${globalThis.location.origin}${href}` : href;
+};
 
 export const LinkCard: React.FC<LinkCardProperties> = ({
   description,
@@ -31,8 +37,7 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
     (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
 
-      const urlToCopy =
-        variant === "internal" ? `${globalThis.location.origin}${href}` : href;
+      const urlToCopy = getLinkCardCopyUrl(href, variant);
 
       (async () => {
         const success = await copyText(urlToCopy);

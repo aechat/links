@@ -4,7 +4,7 @@ import autoprefixer from "autoprefixer";
 import {readFile, writeFile} from "node:fs/promises";
 import path from "node:path";
 import {defineConfig} from "vite";
-import {getMediaMetadata} from "./scripts/getMediaMetadata.js";
+import {getMediaMetadata} from "./scripts/media/getMediaMetadata.js";
 export default defineConfig({
   resolve: {
     alias: {

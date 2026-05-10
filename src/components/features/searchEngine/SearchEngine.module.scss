@@ -1,5 +1,44 @@
 @use "../../../styles/abstracts/mixins" as *;
 
+@mixin search-result-surface-colors(
+  $header-selector,
+  $header-border,
+  $header-background,
+  $content-selector,
+  $content-border,
+  $content-background
+) {
+  #{$header-selector} {
+    border-color: $header-border;
+    background-color: $header-background;
+  }
+
+  #{$content-selector} {
+    border-color: $content-border;
+    background-color: $content-background;
+  }
+}
+
+@mixin search-content-addition-status($selector, $text, $border, $mark-background) {
+  #{$selector} a:hover,
+  #{$selector} a:active,
+  #{$selector} a:visited {
+    color: $text;
+  }
+
+  #{$selector} a:hover::before,
+  #{$selector} a:active::before,
+  #{$selector} a:visited::before {
+    background-color: $text;
+  }
+
+  #{$selector} mark:where(.copy, [style*="cursor: pointer"]):hover,
+  #{$selector} mark:where(.copy, [style*="cursor: pointer"]):active {
+    outline-color: $border;
+    background-color: $mark-background;
+  }
+}
+
 @mixin search-button-group-item-base {
   box-sizing: border-box;
   position: relative;
@@ -15,18 +54,18 @@
     border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
     z-index 0s linear $duration-250;
   z-index: $z-base;
-  outline: $stroke-1 solid var(--color-button-group-border);
+  outline: $stroke-1 solid var(--color-action-border);
   border: none;
   border-radius: 0;
   box-shadow: $shadow-box-interactive-base;
-  background-color: var(--color-button-group-background);
+  background-color: var(--color-action-background);
   padding: $space-8;
   width: 100%;
   min-width: 150px;
   text-align: center;
   text-decoration: none;
   line-height: 1.25;
-  color: var(--color-button-group-text);
+  color: var(--color-action-text);
   font-family: Onest, sans-serif;
   font-size: $font-size-text-base;
   font-weight: 500;
@@ -36,9 +75,9 @@
     transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
     transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
     z-index: $z-raised;
-    outline-color: var(--color-button-group-border-hover);
+    outline-color: var(--color-action-border-hover);
     box-shadow: $shadow-box-interactive-hover;
-    background-color: var(--color-button-group-background-hover);
+    background-color: var(--color-action-background-hover);
     cursor: pointer;
   }
 
@@ -49,9 +88,9 @@
     );
     transition-delay: 0s;
     z-index: $z-raised;
-    outline-color: var(--color-button-group-border-active);
+    outline-color: var(--color-action-border-active);
     box-shadow: $shadow-box-interactive-active;
-    background-color: var(--color-button-group-background-active);
+    background-color: var(--color-action-background-active);
   }
 
   :global(html.no-hover-scale-animation) & {
@@ -67,7 +106,7 @@
   &-input {
     cursor: text;
     width: 100%;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-size: $font-size-text-base;
     font-weight: 600;
 
@@ -93,7 +132,7 @@
       flex-flow: row nowrap;
       justify-content: space-between;
       z-index: $z-header;
-      outline: $stroke-1 solid var(--color-surface-primary-border);
+      outline: $stroke-1 solid var(--color-panel-border);
       border-radius: $roundness;
     }
   }
@@ -135,7 +174,7 @@
     mask-position: 0 50%;
     mask-size: 100% 200%;
     mask-repeat: no-repeat;
-    scrollbar-color: var(--color-surface-primary-border) transparent;
+    scrollbar-color: var(--color-panel-border) transparent;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -176,39 +215,37 @@
     width: 100%;
 
     &:hover {
+      @include search-result-surface-colors(
+        ".search-header",
+        var(--color-search-header-border-hover),
+        var(--color-search-header-background-hover),
+        ".search-content",
+        var(--color-search-content-border-hover),
+        var(--color-search-content-background-hover)
+      );
+
       transform: scale(
         var(--links-hover-scale-x, 1.02),
         var(--links-hover-scale-y, 1.02)
       );
       transition-delay: 0s, $duration-250, $duration-250, $duration-250;
-
-      .search-header {
-        border-color: var(--color-search-header-border-hover);
-        background-color: var(--color-search-header-background-hover);
-      }
-
-      .search-content {
-        border-color: var(--color-search-content-border-hover);
-        background-color: var(--color-search-content-background-hover);
-      }
     }
 
     &:active {
+      @include search-result-surface-colors(
+        ".search-header",
+        var(--color-search-header-border-active),
+        var(--color-search-header-background-active),
+        ".search-content",
+        var(--color-search-content-border-active),
+        var(--color-search-content-background-active)
+      );
+
       transform: scale(
         var(--links-active-scale-x, 1.01),
         var(--links-active-scale-y, 1.01)
       );
       transition-delay: 0s;
-
-      .search-header {
-        border-color: var(--color-search-header-border-active);
-        background-color: var(--color-search-header-background-active);
-      }
-
-      .search-content {
-        border-color: var(--color-search-content-border-active);
-        background-color: var(--color-search-content-background-active);
-      }
     }
 
     :global(html.no-hover-scale-animation) & {
@@ -259,7 +296,7 @@
   }
 
   &-counter-value {
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-weight: 500;
   }
 
@@ -294,7 +331,7 @@
     margin: 0 !important;
     text-transform: uppercase;
     line-height: 1.3;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-family: Onest, sans-serif;
     font-size: min(
       calc(1.05rem + (1.2 - 1.05) * ((100vw - 320px) / (768 - 320))),
@@ -303,7 +340,7 @@
     font-weight: 650;
 
     [data-search-hit] {
-      background-color: var(--color-status-warning-mark-background);
+      background-color: var(--color-addition-warning-mark-background);
     }
   }
 
@@ -324,7 +361,7 @@
       outline: none;
       background: none;
       padding: 0;
-      color: var(--color-text-tertiary);
+      color: var(--color-page-text-muted);
       font-size: min(
         calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
         0.675rem
@@ -341,7 +378,7 @@
       min-width: 0;
       white-space: normal;
       overflow-wrap: anywhere;
-      color: var(--color-text-tertiary);
+      color: var(--color-page-text-muted);
       font-size: min(
         calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
         0.675rem
@@ -349,12 +386,37 @@
       font-weight: 500;
 
       [data-search-hit] {
-        background-color: var(--color-status-warning-mark-background);
+        background-color: var(--color-addition-warning-mark-background);
       }
     }
   }
 
   &-content {
+    @include search-content-addition-status(
+      ".addition-info",
+      var(--color-addition-info-text),
+      var(--color-addition-info-border),
+      var(--color-addition-info-mark-background)
+    );
+    @include search-content-addition-status(
+      ".addition-warning",
+      var(--color-addition-warning-text),
+      var(--color-addition-warning-border),
+      var(--color-addition-warning-mark-background)
+    );
+    @include search-content-addition-status(
+      ".addition-danger",
+      var(--color-addition-danger-text),
+      var(--color-addition-danger-border),
+      var(--color-addition-danger-mark-background)
+    );
+    @include search-content-addition-status(
+      ".addition-tldr",
+      var(--color-addition-tldr-text),
+      var(--color-addition-tldr-border),
+      var(--color-addition-tldr-mark-background)
+    );
+
     position: relative;
     transition:
       border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -390,13 +452,13 @@
     }
 
     a:visited {
-      color: var(--color-accent);
+      color: var(--color-page-accent);
     }
 
     a:hover,
     a:active {
       opacity: 1;
-      color: var(--color-accent);
+      color: var(--color-page-accent);
     }
 
     a:hover::before,
@@ -409,78 +471,6 @@
     mark:where(.copy, [style*="cursor: pointer"]):active {
       outline-color: var(--color-mark-border);
       background-color: var(--color-mark-background);
-    }
-
-    .addition-info a:hover,
-    .addition-info a:active,
-    .addition-info a:visited {
-      color: var(--color-status-info-text);
-    }
-
-    .addition-warning a:hover,
-    .addition-warning a:active,
-    .addition-warning a:visited {
-      color: var(--color-status-warning-text);
-    }
-
-    .addition-danger a:hover,
-    .addition-danger a:active,
-    .addition-danger a:visited {
-      color: var(--color-status-danger-text);
-    }
-
-    .addition-tldr a:hover,
-    .addition-tldr a:active,
-    .addition-tldr a:visited {
-      color: var(--color-status-tldr-text);
-    }
-
-    .addition-info a:hover::before,
-    .addition-info a:active::before,
-    .addition-info a:visited::before {
-      background-color: var(--color-status-info-text);
-    }
-
-    .addition-warning a:hover::before,
-    .addition-warning a:active::before,
-    .addition-warning a:visited::before {
-      background-color: var(--color-status-warning-text);
-    }
-
-    .addition-danger a:hover::before,
-    .addition-danger a:active::before,
-    .addition-danger a:visited::before {
-      background-color: var(--color-status-danger-text);
-    }
-
-    .addition-tldr a:hover::before,
-    .addition-tldr a:active::before,
-    .addition-tldr a:visited::before {
-      background-color: var(--color-status-tldr-text);
-    }
-
-    .addition-info mark:where(.copy, [style*="cursor: pointer"]):hover,
-    .addition-info mark:where(.copy, [style*="cursor: pointer"]):active {
-      outline-color: var(--color-status-info-border);
-      background-color: var(--color-status-info-mark-background);
-    }
-
-    .addition-warning mark:where(.copy, [style*="cursor: pointer"]):hover,
-    .addition-warning mark:where(.copy, [style*="cursor: pointer"]):active {
-      outline-color: var(--color-status-warning-border);
-      background-color: var(--color-status-warning-mark-background);
-    }
-
-    .addition-danger mark:where(.copy, [style*="cursor: pointer"]):hover,
-    .addition-danger mark:where(.copy, [style*="cursor: pointer"]):active {
-      outline-color: var(--color-status-danger-border);
-      background-color: var(--color-status-danger-mark-background);
-    }
-
-    .addition-tldr mark:where(.copy, [style*="cursor: pointer"]):hover,
-    .addition-tldr mark:where(.copy, [style*="cursor: pointer"]):active {
-      outline-color: var(--color-status-tldr-border);
-      background-color: var(--color-status-tldr-mark-background);
     }
 
     &.no-copy mark {
@@ -499,8 +489,8 @@
       }
 
       tbody tr:hover td {
-        border-color: var(--color-border-table);
-        background-color: var(--color-background-table);
+        border-color: var(--color-table-border);
+        background-color: var(--color-table-background);
       }
     }
 
@@ -520,7 +510,7 @@
     }
 
     [data-search-hit] {
-      background-color: var(--color-status-warning-mark-background);
+      background-color: var(--color-addition-warning-mark-background);
     }
   }
 
@@ -532,7 +522,7 @@
       background: linear-gradient(
         to bottom,
         rgb(255 255 255 / 0%),
-        var(--color-surface-card-background) 92%
+        var(--color-panel-card-background) 92%
       );
       height: 64px;
       content: "";
@@ -556,27 +546,25 @@
   }
 
   &-selected:hover {
-    .search-header-selected {
-      border-color: var(--color-search-header-selected-border-hover);
-      background-color: var(--color-search-header-selected-hover);
-    }
-
-    .search-content-selected {
-      border-color: var(--color-search-content-selected-border-hover);
-      background-color: var(--color-search-content-selected-hover);
-    }
+    @include search-result-surface-colors(
+      ".search-header-selected",
+      var(--color-search-header-selected-border-hover),
+      var(--color-search-header-selected-hover),
+      ".search-content-selected",
+      var(--color-search-content-selected-border-hover),
+      var(--color-search-content-selected-hover)
+    );
   }
 
   &-selected:active {
-    .search-header-selected {
-      border-color: var(--color-search-header-selected-border-active);
-      background-color: var(--color-search-header-selected-active);
-    }
-
-    .search-content-selected {
-      border-color: var(--color-search-content-selected-border-active);
-      background-color: var(--color-search-content-selected-active);
-    }
+    @include search-result-surface-colors(
+      ".search-header-selected",
+      var(--color-search-header-selected-border-active),
+      var(--color-search-header-selected-active),
+      ".search-content-selected",
+      var(--color-search-content-selected-border-active),
+      var(--color-search-content-selected-active)
+    );
   }
 
   &-no-results {
@@ -600,7 +588,7 @@
     }
 
     &-highlight {
-      color: var(--color-surface-primary-text);
+      color: var(--color-panel-text);
       font-weight: 600;
     }
 
@@ -698,13 +686,13 @@ button {
   font-weight: 400;
 
   &:hover {
-    outline: $stroke-1 solid var(--color-surface-primary-border-hover);
-    background-color: var(--color-surface-primary-background-hover);
+    outline: $stroke-1 solid var(--color-panel-border-hover);
+    background-color: var(--color-panel-background-hover);
   }
 
   &:active {
-    outline: $stroke-1 solid var(--color-surface-primary-border-active);
-    background-color: var(--color-surface-primary-background-active);
+    outline: $stroke-1 solid var(--color-panel-border-active);
+    background-color: var(--color-panel-background-active);
   }
 
   &:focus:not(:active),
@@ -715,31 +703,31 @@ button {
   &:hover mark {
     outline-color: color-mix(
       in hsl,
-      var(--color-surface-primary-border-hover) 78%,
-      var(--color-accent) 22%
+      var(--color-panel-border-hover) 78%,
+      var(--color-page-accent) 22%
     );
     background-color: color-mix(
       in hsl,
-      var(--color-surface-primary-background-hover) 90%,
-      var(--color-accent) 10%
+      var(--color-panel-background-hover) 90%,
+      var(--color-page-accent) 10%
     );
   }
 
   &:active mark {
     outline-color: color-mix(
       in hsl,
-      var(--color-surface-primary-border-active) 70%,
-      var(--color-accent) 30%
+      var(--color-panel-border-active) 70%,
+      var(--color-page-accent) 30%
     );
     background-color: color-mix(
       in hsl,
-      var(--color-surface-primary-background-active) 82%,
-      var(--color-accent) 18%
+      var(--color-panel-background-active) 82%,
+      var(--color-page-accent) 18%
     );
   }
 
   svg {
-    fill: var(--color-accent);
+    fill: var(--color-page-accent);
     width: $space-16;
     height: $space-16;
   }

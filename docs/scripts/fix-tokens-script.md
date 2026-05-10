@@ -1,6 +1,6 @@
 # Скрипт `fixTokens`
 
-Файл: `scripts/fixTokens.js`
+Файл: `scripts/maintenance/fixTokens.js`
 
 ## Назначение
 
@@ -12,7 +12,7 @@
 ## Запуск
 
 ```bash
-node scripts/fixTokens.js
+node scripts/maintenance/fixTokens.js
 ```
 
 ## Режим работы

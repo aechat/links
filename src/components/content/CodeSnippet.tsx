@@ -3,7 +3,8 @@ import React, {useEffect, useMemo, useRef} from "react";
 
 import {message} from "antd";
 
-import {triggerHaptic} from "../../utils/haptics";
+import {copyText} from "../../utilities/copyUtilities";
+import {triggerHaptic} from "../../utilities/haptics";
 
 import "highlight.js/styles/github-dark.css";
 import styles from "./CodeSnippet.module.scss";
@@ -14,6 +15,46 @@ interface CodeSnippetProperties {
   language?: string;
 }
 
+const getCodeTextFromNode = (node: React.ReactNode): string => {
+  const parts: string[] = [];
+
+  const visit = (entry: React.ReactNode): void => {
+    if (entry === null || entry === undefined || typeof entry === "boolean") {
+      return;
+    }
+
+    if (typeof entry === "string" || typeof entry === "number") {
+      parts.push(String(entry));
+
+      return;
+    }
+
+    if (Array.isArray(entry)) {
+      for (const child of entry) {
+        visit(child);
+      }
+
+      return;
+    }
+
+    if (React.isValidElement<{children?: React.ReactNode}>(entry)) {
+      if (entry.type === "br") {
+        parts.push("\n");
+
+        return;
+      }
+
+      if (entry.props.children !== undefined) {
+        visit(entry.props.children);
+      }
+    }
+  };
+
+  visit(node);
+
+  return parts.join("");
+};
+
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
   className,
@@ -22,43 +63,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   const codeReference = useRef<HTMLElement | null>(null);
 
   const codeText = useMemo(() => {
-    const parts: string[] = [];
-
-    const visit = (node: React.ReactNode): void => {
-      if (node === null || node === undefined || typeof node === "boolean") {
-        return;
-      }
-
-      if (typeof node === "string" || typeof node === "number") {
-        parts.push(String(node));
-
-        return;
-      }
-
-      if (Array.isArray(node)) {
-        for (const entry of node) {
-          visit(entry);
-        }
-
-        return;
-      }
-
-      if (React.isValidElement<{children?: React.ReactNode}>(node)) {
-        if (node.type === "br") {
-          parts.push("\n");
-
-          return;
-        }
-
-        if (node.props.children !== undefined) {
-          visit(node.props.children);
-        }
-      }
-    };
-
-    visit(children);
-
-    return parts.join("");
+    return getCodeTextFromNode(children);
   }, [children]);
 
   useEffect(() => {
@@ -71,14 +76,15 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
     event.stopPropagation();
     triggerHaptic("soft");
 
-    const textArea = document.createElement("textarea");
+    void (async () => {
+      const success = await copyText(codeReference.current?.textContent ?? "");
 
-    textArea.value = codeReference.current?.textContent ?? "";
-    document.body.append(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
-    message.success("Код скопирован в буфер обмена");
+      if (success) {
+        message.success("Код скопирован в буфер обмена");
+      } else {
+        message.error("Не удалось скопировать код");
+      }
+    })();
   };
 
   return (

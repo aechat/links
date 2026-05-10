@@ -1,6 +1,6 @@
 # Правила для `DetailsSummary`
 
-Файл компонента: `src/components/content/DetailsSummary.tsx`.
+Файл компонента: `src/components/detailsSummary/DetailsSummary.tsx`.
 
 ## Правила использования
 

@@ -1,6 +1,6 @@
 # Скрипт `lowercaseTags`
 
-Файл: `scripts/lowercaseTags.js`
+Файл: `scripts/maintenance/lowercaseTags.js`
 
 ## Назначение
 
@@ -9,7 +9,7 @@
 ## Запуск
 
 ```bash
-node scripts/lowercaseTags.js
+node scripts/maintenance/lowercaseTags.js
 ```
 
 ## Как работает

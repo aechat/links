@@ -6,9 +6,9 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
-import {getPlatformInfo} from "../../../utils/browserDetection";
-import {scrollToAnchorFromClick} from "../../../utils/scrollToAnchor";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
+import {getPlatformInfo} from "../../../utilities/browserDetection";
+import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const AeInstallProblems: React.FC = () => {
   return (

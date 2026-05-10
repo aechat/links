@@ -1,6 +1,6 @@
 # Модуль `spoilerContexts`
 
-Файл: `src/components/content/spoilerContexts.ts`
+Файл: `src/components/detailsSummary/spoilerContexts.ts`
 
 ## Назначение
 
@@ -17,7 +17,7 @@ export const useSpoiler = () => useContext(SpoilerContext);
 
 ## Пример из проекта
 
-`src/components/content/DetailsSummary.tsx`:
+`src/components/detailsSummary/DetailsSummary.tsx`:
 
 ```tsx
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
@@ -29,7 +29,7 @@ import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 </SpoilerContext.Provider>;
 ```
 
-`src/components/content/NestedDetailsSummary.tsx`:
+`src/components/detailsSummary/NestedDetailsSummary.tsx`:
 
 ```tsx
 import {

@@ -22,22 +22,22 @@
     transition:
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
       outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: $stroke-1 solid var(--color-surface-card-border);
+    outline: $stroke-1 solid var(--color-panel-card-border);
     border-radius: 0;
     box-shadow: none;
-    background-color: var(--color-surface-card-background);
+    background-color: var(--color-panel-card-background);
     width: 100%;
     min-width: 150px;
 
     &:hover {
-      outline: $stroke-1 solid var(--color-surface-card-border-hover);
-      background-color: var(--color-surface-card-background-hover);
+      outline: $stroke-1 solid var(--color-panel-card-border-hover);
+      background-color: var(--color-panel-card-background-hover);
       cursor: pointer;
     }
 
     &:active {
-      outline: $stroke-1 solid var(--color-surface-card-border-active);
-      background-color: var(--color-surface-card-background-active);
+      outline: $stroke-1 solid var(--color-panel-card-border-active);
+      background-color: var(--color-panel-card-background-active);
     }
 
     a {

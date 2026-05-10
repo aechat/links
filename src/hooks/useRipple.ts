@@ -1,6 +1,6 @@
 import {MouseEvent as ReactMouseEvent} from "react";
 
-import {triggerHaptic} from "../utils/haptics";
+import {triggerHaptic} from "../utilities/haptics";
 
 import type {HapticInput} from "web-haptics";
 

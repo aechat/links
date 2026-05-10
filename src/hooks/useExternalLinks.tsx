@@ -1,11 +1,12 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useState} from "react";
 
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
-import {isGithubRawFromRepository, isHttpLink} from "../utils/linkUtilities";
+import {getExternalLinkHref} from "../utilities/linkTargets";
 
+import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";
 
 export const useExternalLinkHandler = () => {
@@ -15,27 +16,18 @@ export const useExternalLinkHandler = () => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setTargetUrl(undefined);
+  }, []);
+
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
-    const target = event.target as HTMLElement;
+    const href = getExternalLinkHref(event.target);
 
-    const anchor = target.closest("a[href]");
-
-    if (anchor) {
-      if (anchor.hasAttribute("download")) {
-        return;
-      }
-
-      const href = anchor.getAttribute("href");
-
-      if (
-        href &&
-        isHttpLink(href) &&
-        !isGithubRawFromRepository(href, "aechat", "links")
-      ) {
-        event.preventDefault();
-        setTargetUrl(href);
-        setIsModalOpen(true);
-      }
+    if (href) {
+      event.preventDefault();
+      setTargetUrl(href);
+      setIsModalOpen(true);
     }
   }, []);
 
@@ -44,30 +36,12 @@ export const useExternalLinkHandler = () => {
       window.open(targetUrl, "_blank", "noreferrer");
     }
 
-    setIsModalOpen(false);
-    setTargetUrl(undefined);
-  }, [targetUrl]);
+    closeModal();
+  }, [closeModal, targetUrl]);
 
-  const handleCancel = useCallback(() => {
-    setIsModalOpen(false);
-    setTargetUrl(undefined);
-  }, []);
+  const handleCancel = closeModal;
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
-        handleOk();
-      }
-    };
-
-    if (isModalOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isModalOpen, handleOk]);
+  useEnterKeyConfirm(isModalOpen, handleOk);
 
   const ExternalLinkModal = (
     <Modal

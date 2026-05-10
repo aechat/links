@@ -12,17 +12,24 @@ import GroupedCornersManager from "./components/ui/GroupedCornersManager";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {useAprilFoolsReplace} from "./hooks/useAprilFoolsReplace";
-import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
-import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
+import {getBrowserInfo, isWebKitBrowser} from "./utilities/browserDetection";
+import {copyText} from "./utilities/copyUtilities";
 import {
   disposeHaptics,
   setupHapticMessageFeedback,
   triggerHaptic,
   withSelectionHaptic,
-} from "./utils/haptics";
+} from "./utilities/haptics";
+import {
+  getStoredBoolean,
+  getStoredNumber,
+  isLocalStorageAvailable,
+  setStoredBoolean,
+  setStoredNumber,
+} from "./utilities/localStorageUtilities";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
 import prfaqSvg from "/icons/prfaq.svg?raw";
@@ -42,6 +49,45 @@ const PrFaqPage = lazy(() => import("./pages/PrFaqPage"));
 const PsFaqPage = lazy(() => import("./pages/PsFaqPage"));
 
 const AeExprPage = lazy(() => import("./pages/AeExprPage"));
+
+const OLD_BROWSER_WARNING_INTERVAL = 24 * 60 * 60 * 1000;
+
+const SAFARI_WARNING_INTERVAL = 60 * 60 * 1000;
+
+const shouldShowStoredWarning = (
+  dismissedKey: string,
+  lastShownKey: string,
+  interval: number,
+  showWhenStorageUnavailable: boolean
+): boolean => {
+  if (!isLocalStorageAvailable()) {
+    return showWhenStorageUnavailable;
+  }
+
+  if (getStoredBoolean(dismissedKey, false)) {
+    return false;
+  }
+
+  const lastShown = getStoredNumber(lastShownKey, 0, (value) =>
+    Number.parseInt(value, 10)
+  );
+
+  return !lastShown || Date.now() - lastShown >= interval;
+};
+
+const updateStoredWarningState = (
+  dontShowAgain: boolean,
+  dismissedKey: string,
+  lastShownKey: string
+): void => {
+  if (dontShowAgain) {
+    setStoredBoolean(dismissedKey, true);
+
+    return;
+  }
+
+  setStoredNumber(lastShownKey, Date.now());
+};
 
 const FilesRedirect = () => {
   useEffect(() => {
@@ -396,24 +442,12 @@ const AppContent = () => {
     const browserInfo = getBrowserInfo();
 
     if (browserInfo.isLegacy) {
-      if (typeof localStorage === "undefined") {
-        shouldShowWarning = true;
-      } else {
-        const warningDismissed =
-          localStorage.getItem("oldBrowserWarningDismissed") === "true";
-
-        if (!warningDismissed) {
-          const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
-
-          const now = Date.now();
-
-          const time = 24 * 60 * 60 * 1000;
-
-          if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
-            shouldShowWarning = true;
-          }
-        }
-      }
+      shouldShowWarning = shouldShowStoredWarning(
+        "oldBrowserWarningDismissed",
+        "oldBrowserWarningLastShown",
+        OLD_BROWSER_WARNING_INTERVAL,
+        true
+      );
     }
 
     setIsOldBrowserWarningOpen(shouldShowWarning);
@@ -422,6 +456,8 @@ const AppContent = () => {
   const [isAppReady, setIsAppReady] = useState(true);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const [canDismiss, setCanDismiss] = useState(true);
 
   const [loadingError, setLoadingError] = useState<Error | undefined>();
 
@@ -432,6 +468,7 @@ const AppContent = () => {
   if (previousPathname.current !== location.pathname) {
     previousPathname.current = location.pathname;
     setIsLoading(true);
+    setCanDismiss(false);
   }
 
   useEffect(() => {
@@ -472,20 +509,13 @@ const AppContent = () => {
       path.startsWith("/psfaq") ||
       path.startsWith("/aeexpr");
 
-    if (isWebKit && isFaqPage && typeof localStorage !== "undefined") {
-      const warningDismissed = localStorage.getItem("safariWarningDismissed") === "true";
-
-      if (!warningDismissed) {
-        const lastShown = localStorage.getItem("safariWarningLastShown");
-
-        const now = Date.now();
-
-        const time = 60 * 60 * 1000;
-
-        if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
-          shouldShowWarning = true;
-        }
-      }
+    if (isWebKit && isFaqPage) {
+      shouldShowWarning = shouldShowStoredWarning(
+        "safariWarningDismissed",
+        "safariWarningLastShown",
+        SAFARI_WARNING_INTERVAL,
+        false
+      );
     }
 
     if (shouldShowWarning) {
@@ -558,13 +588,11 @@ const AppContent = () => {
       <BrowserWarning
         open={isOldBrowserWarningOpen}
         onClose={(dontShowAgain) => {
-          if (typeof localStorage !== "undefined") {
-            if (dontShowAgain) {
-              localStorage.setItem("oldBrowserWarningDismissed", "true");
-            } else {
-              localStorage.setItem("oldBrowserWarningLastShown", Date.now().toString());
-            }
-          }
+          updateStoredWarningState(
+            dontShowAgain,
+            "oldBrowserWarningDismissed",
+            "oldBrowserWarningLastShown"
+          );
 
           setIsOldBrowserWarningOpen(false);
         }}
@@ -580,19 +608,17 @@ const AppContent = () => {
         <SafariWarningModal
           open={isSafariWarningOpen}
           onClose={(dontShowAgain) => {
-            if (typeof localStorage !== "undefined") {
-              if (dontShowAgain) {
-                localStorage.setItem("safariWarningDismissed", "true");
-              } else {
-                localStorage.setItem("safariWarningLastShown", Date.now().toString());
-              }
-            }
+            updateStoredWarningState(
+              dontShowAgain,
+              "safariWarningDismissed",
+              "safariWarningLastShown"
+            );
 
             setIsSafariWarningOpen(false);
             setIsAppReady(true);
           }}
         />
-        <LoadingContext.Provider value={{setIsLoading}}>
+        <LoadingContext.Provider value={{canDismiss, setCanDismiss, setIsLoading}}>
           <LoadingAnimation
             isLoading={isLoading}
             isSuppressed={isSafariWarningOpen}

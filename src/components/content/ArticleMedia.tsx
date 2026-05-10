@@ -6,11 +6,11 @@ import {message} from "antd";
 import {animate, AnimatePresence, motion, useMotionValue} from "framer-motion";
 import {createPortal} from "react-dom";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
-import {triggerHaptic} from "../../utils/haptics";
+import {copyText} from "../../utilities/copyUtilities";
+import {triggerHaptic} from "../../utilities/haptics";
+import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
 import styles from "./ArticleMedia.module.scss";
-import {useSpoiler} from "./spoilerContexts";
 
 interface BaseMediaProperties {
   src: string;
@@ -43,6 +43,37 @@ export type ArticleMediaProperties =
   | VideoMediaProperties
   | YouTubeMediaProperties;
 
+type MediaMetadata = {height: number; width: number};
+
+type DragLimits = {
+  bottom: number;
+  left: number;
+  right: number;
+  top: number;
+};
+
+const mediaMetadataMap = mediaMetadata as Record<string, MediaMetadata | undefined>;
+
+const VIEWER_PADDING = 100;
+
+const VIEWER_SCALE = {
+  DOUBLE_TAP_THRESHOLD: 1.5,
+  MAX: 4,
+  MIN: 1,
+  STEP: 0.5,
+  ZOOMED_THRESHOLD: 1.05,
+} as const;
+
+const VIEWER_SPRING = {
+  damping: 30,
+  stiffness: 300,
+  type: "spring",
+} as const;
+
+const clamp = (value: number, min: number, max: number): number => {
+  return Math.min(Math.max(value, min), max);
+};
+
 const getMediaSource = (source: string): string => {
   if (source.startsWith("http")) return source;
 
@@ -70,9 +101,64 @@ const getMetadata = (source: string) => {
 
   if (!key.startsWith("media/")) key = `media/${key}`;
 
-  return (mediaMetadata as Record<string, {width: number; height: number} | undefined>)[
-    key
-  ];
+  return mediaMetadataMap[key];
+};
+
+const getConstrainedMediaWidth = (
+  metadata: MediaMetadata | undefined,
+  maxHeight: string
+) => {
+  if (!metadata) {
+    return "100%";
+  }
+
+  return `min(${metadata.width}px, calc(${maxHeight} * ${metadata.width} / ${metadata.height}))`;
+};
+
+const getMediaWidth = (
+  type: ArticleMediaProperties["type"],
+  metadata: MediaMetadata | undefined
+) => {
+  if (type === "image") {
+    return getConstrainedMediaWidth(metadata, "60vh");
+  }
+
+  if (type === "video") {
+    return getConstrainedMediaWidth(metadata, "55dvh");
+  }
+
+  return metadata ? `${metadata.width}px` : "100%";
+};
+
+const getMediaLayout = (type: ArticleMediaProperties["type"], source: string) => {
+  const metadata = getMetadata(source);
+
+  return {
+    aspectRatio: metadata ? `${metadata.width}/${metadata.height}` : "16/9",
+    mediaWidth: getMediaWidth(type, metadata),
+    metadata,
+  };
+};
+
+const getDragLimits = (image: HTMLImageElement, scaleValue: number): DragLimits => {
+  const scaledWidth = image.offsetWidth * scaleValue;
+
+  const scaledHeight = image.offsetHeight * scaleValue;
+
+  const viewportWidth = window.innerWidth - VIEWER_PADDING;
+
+  const viewportHeight = window.innerHeight - VIEWER_PADDING;
+
+  const maxX = scaledWidth > viewportWidth ? (scaledWidth - viewportWidth) / 2 : 0;
+
+  const maxY = scaledHeight > viewportHeight ? (scaledHeight - viewportHeight) / 2 : 0;
+
+  return {
+    bottom: maxY,
+    left: -maxX,
+    right: maxX,
+    top: -maxY,
+  };
 };
 
 const ImageViewer: React.FC<{
@@ -96,7 +182,7 @@ const ImageViewer: React.FC<{
 
   const imageReference = useRef<HTMLImageElement>(null);
 
-  const [dragLimits, setDragLimits] = useState({
+  const [dragLimits, setDragLimits] = useState<DragLimits>({
     bottom: 0,
     left: 0,
     right: 0,
@@ -117,36 +203,13 @@ const ImageViewer: React.FC<{
   }, [isOpen, scale, x, y]);
 
   useEffect(() => {
-    const unsubscribe = scale.on("change", (v) => {
-      const newIsZoomed = v > 1.05;
+    const unsubscribe = scale.on("change", (scaleValue) => {
+      const newIsZoomed = scaleValue > VIEWER_SCALE.ZOOMED_THRESHOLD;
 
       setIsZoomed(newIsZoomed);
 
       if (imageReference.current) {
-        const width = imageReference.current.offsetWidth;
-
-        const height = imageReference.current.offsetHeight;
-
-        const s = v;
-
-        const viewportW = window.innerWidth - 100;
-
-        const viewportH = window.innerHeight - 100;
-
-        const scaledW = width * s;
-
-        const scaledH = height * s;
-
-        const xMax = scaledW > viewportW ? (scaledW - viewportW) / 2 : 0;
-
-        const yMax = scaledH > viewportH ? (scaledH - viewportH) / 2 : 0;
-
-        const newLimits = {
-          bottom: yMax,
-          left: -xMax,
-          right: xMax,
-          top: -yMax,
-        };
+        const newLimits = getDragLimits(imageReference.current, scaleValue);
 
         setDragLimits(newLimits);
 
@@ -154,9 +217,9 @@ const ImageViewer: React.FC<{
 
         const currentY = y.get();
 
-        const clampedX = Math.min(Math.max(currentX, newLimits.left), newLimits.right);
+        const clampedX = clamp(currentX, newLimits.left, newLimits.right);
 
-        const clampedY = Math.min(Math.max(currentY, newLimits.top), newLimits.bottom);
+        const clampedY = clamp(currentY, newLimits.top, newLimits.bottom);
 
         if (currentX !== clampedX) x.set(clampedX);
 
@@ -247,11 +310,13 @@ const ImageViewer: React.FC<{
 
     const direction = event.deltaY < 0 ? 1 : -1;
 
-    const step = 0.5;
+    const newScale = clamp(
+      current + direction * VIEWER_SCALE.STEP,
+      VIEWER_SCALE.MIN,
+      VIEWER_SCALE.MAX
+    );
 
-    const newScale = Math.min(Math.max(1, current + direction * step), 4);
-
-    animate(scale, newScale, {damping: 30, stiffness: 300, type: "spring"});
+    animate(scale, newScale, VIEWER_SPRING);
   };
 
   const distanceReference = useRef<number>(0);
@@ -276,7 +341,7 @@ const ImageViewer: React.FC<{
 
       const current = scale.get();
 
-      const newScale = Math.min(Math.max(1, current + delta * 0.005), 4);
+      const newScale = clamp(current + delta * 0.005, VIEWER_SCALE.MIN, VIEWER_SCALE.MAX);
 
       scale.set(newScale);
       distanceReference.current = distribution;
@@ -291,12 +356,12 @@ const ImageViewer: React.FC<{
     if (now - lastTapReference.current < 300) {
       const current = scale.get();
 
-      if (current > 1.5) {
-        animate(scale, 1, {damping: 30, stiffness: 300, type: "spring"});
-        animate(x, 0, {damping: 30, stiffness: 300, type: "spring"});
-        animate(y, 0, {damping: 30, stiffness: 300, type: "spring"});
+      if (current > VIEWER_SCALE.DOUBLE_TAP_THRESHOLD) {
+        animate(scale, VIEWER_SCALE.MIN, VIEWER_SPRING);
+        animate(x, 0, VIEWER_SPRING);
+        animate(y, 0, VIEWER_SPRING);
       } else {
-        animate(scale, 3, {damping: 30, stiffness: 300, type: "spring"});
+        animate(scale, 3, VIEWER_SPRING);
       }
     }
 
@@ -390,27 +455,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
   };
 
   const renderContent = () => {
-    const metadata = getMetadata(src);
-
-    const aspectRatio = metadata ? `${metadata.width}/${metadata.height}` : "16/9";
-
-    const getConstrainedWidth = (maxHeight: string) => {
-      if (!metadata) {
-        return "100%";
-      }
-
-      return `min(${metadata.width}px, calc(${maxHeight} * ${metadata.width} / ${metadata.height}))`;
-    };
-
-    let mediaWidth = "100%";
-
-    if (type === "image") {
-      mediaWidth = getConstrainedWidth("60vh");
-    } else if (type === "video") {
-      mediaWidth = getConstrainedWidth("55dvh");
-    } else if (metadata) {
-      mediaWidth = `${metadata.width}px`;
-    }
+    const {aspectRatio, mediaWidth, metadata} = getMediaLayout(type, src);
 
     if (!hasBeenOpened) {
       return (

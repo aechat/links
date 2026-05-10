@@ -1,0 +1,394 @@
+@use "../../styles/abstracts/mixins" as *;
+
+@mixin spoiler-root-base($depth) {
+  --spoiler-depth: #{$depth};
+  --spoiler-order: 1;
+  --spoiler-open-z-index: calc(
+    1000 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+  --spoiler-hover-z-index: calc(
+    900 - (var(--spoiler-depth) * 100) + var(--spoiler-order)
+  );
+
+  position: relative;
+  transition: z-index 0s linear $duration-250;
+  z-index: $z-base;
+
+  &:hover,
+  &:active {
+    transition-delay: 0s;
+    z-index: var(--spoiler-hover-z-index);
+  }
+
+  &[open] {
+    z-index: var(--spoiler-open-z-index);
+  }
+}
+
+.details-summary-root {
+  @include spoiler-root-base(0);
+
+  user-select: none;
+
+  summary {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &.is-open {
+    z-index: var(--spoiler-open-z-index);
+
+    summary .details-summary-icon {
+      transform: rotate(45deg);
+    }
+  }
+
+  &[open] {
+    z-index: var(--spoiler-open-z-index);
+
+    .details-section {
+      p,
+      li,
+      .addition-info,
+      .addition-warning,
+      .addition-danger {
+        user-select: text;
+      }
+    }
+  }
+}
+
+:global(details[data-nested-details-summary="true"]) {
+  @include spoiler-root-base(1);
+}
+
+:global(
+  details[data-nested-details-summary="true"] details[data-nested-details-summary="true"]
+) {
+  --spoiler-depth: 2;
+}
+
+:global(
+  details[data-nested-details-summary="true"]
+    details[data-nested-details-summary="true"]
+    details[data-nested-details-summary="true"]
+) {
+  --spoiler-depth: 3;
+}
+
+@mixin details-summary-level-colors($selector, $background, $border) {
+  #{$selector} {
+    .details-summary {
+      --details-summary-level-border: #{$border};
+      --details-summary-level-border-hover: color-mix(
+        in hsl,
+        #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
+        var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+      );
+      --details-summary-level-border-active: color-mix(
+        in hsl,
+        #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
+        var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+      );
+
+      border-color: $border;
+      background-color: $background;
+    }
+  }
+
+  :global(.article-content) {
+    #{$selector} {
+      &:last-of-type .details-summary,
+      &:has(+ .details-summary-root[open]) .details-summary,
+      &[open] .details-summary {
+        border-bottom-color: $border;
+      }
+    }
+  }
+
+  :global(html:not(.no-hover-scale-animation)) {
+    #{$selector}:not(.is-open, [open]) .details-summary {
+      &:hover,
+      &:active {
+        border-bottom-color: $border;
+      }
+
+      &:hover {
+        border-color: color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        );
+      }
+
+      &:active {
+        border-color: color-mix(
+          in hsl,
+          #{$border} calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        );
+      }
+    }
+
+    #{$selector}:has(+ #{$selector}:not(.is-open, [open]) .details-summary:hover)
+      .details-summary:not(:last-child),
+    #{$selector}:has(+ #{$selector}:not(.is-open, [open]) .details-summary:active)
+      .details-summary:not(:last-child) {
+      border-bottom-color: $border;
+    }
+  }
+
+  #{$selector}.is-open .details-summary,
+  #{$selector}[open] .details-summary {
+    border-bottom: $stroke-1 solid var(--details-summary-level-border);
+    border-color: var(--details-summary-level-border);
+  }
+
+  #{$selector}.is-open .details-summary:hover,
+  #{$selector}[open] .details-summary:hover {
+    border-color: var(--details-summary-level-border-hover);
+  }
+
+  #{$selector}.is-open .details-summary:active,
+  #{$selector}[open] .details-summary:active {
+    border-color: var(--details-summary-level-border-active);
+  }
+}
+
+@include details-summary-level-colors(
+  ".details-summary-root",
+  var(--color-panel-background),
+  var(--color-panel-border)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-1),
+  var(--color-details-summary-border-level-1)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true'] details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-2),
+  var(--color-details-summary-border-level-2)
+);
+@include details-summary-level-colors(
+  ":global(details[data-nested-details-summary='true'] details[data-nested-details-summary='true'] details[data-nested-details-summary='true']) .details-summary-root",
+  var(--color-details-summary-background-level-3),
+  var(--color-details-summary-border-level-3)
+);
+
+:global(.article-content) {
+  .details-summary-root:not([open]) {
+    transition: $duration-1000 cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .details-summary-root {
+    &:last-of-type .details-summary {
+      border-bottom-left-radius: $roundness;
+      border-bottom-right-radius: $roundness;
+    }
+
+    &:first-of-type .details-summary {
+      border-top-left-radius: $roundness;
+      border-top-right-radius: $roundness;
+    }
+
+    &:has(+ .details-summary-root[open]) .details-summary {
+      border-bottom-left-radius: $roundness;
+      border-bottom-right-radius: $roundness;
+    }
+
+    &[open] {
+      .details-summary {
+        border-radius: $roundness;
+      }
+
+      .details-section {
+        border-bottom-left-radius: $roundness;
+        border-bottom-right-radius: $roundness;
+      }
+
+      & + .details-summary-root .details-summary {
+        border-top-left-radius: $roundness;
+        border-top-right-radius: $roundness;
+      }
+    }
+  }
+}
+
+:global(body) {
+  &:global(.body-has-any-spoiler-open) :global(.article-content) {
+    :global(.details-nested)[open] {
+      transform: none;
+    }
+  }
+
+  &:global(.has-open-details) :global(.article-content) {
+    .details-summary-root:not([open]) {
+      opacity: 0.35;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .details-summary-root[open] {
+      filter: $shadow-filter-state-open;
+    }
+
+    :global(.details-nested):not([open]) {
+      opacity: 1;
+    }
+
+    :global(.details-nested)[open] {
+      filter: none;
+    }
+  }
+}
+
+.details-tags {
+  @include details-tags-base();
+
+  &-toggle {
+    opacity: 0.7;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.details-summary {
+  @include details-summary-base();
+
+  &-icon {
+    transition: transform $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+:global(html:not(.no-hover-scale-animation)) {
+  .details-summary {
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1);
+    transform-origin: center center;
+    transition:
+      margin $duration-500 cubic-bezier(0.2, 0.65, 0.25, 1),
+      transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+      box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+      background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
+    box-shadow: $shadow-box-interactive-base;
+  }
+
+  .details-summary-root:not(.is-open, [open]) .details-summary {
+    &:hover,
+    &:active {
+      margin-block: $space-4;
+      border-radius: $roundness;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+      transition-delay:
+        $duration-250, $duration-250, $duration-250, 0s, $duration-250, $duration-250;
+      box-shadow: $shadow-box-interactive-hover;
+    }
+
+    &:active {
+      transform: scale(1.005);
+      transition-delay: 0s;
+      box-shadow: $shadow-box-interactive-active;
+    }
+  }
+
+  .details-summary-root:has(
+      + .details-summary-root:not(.is-open, [open]) .details-summary:hover
+    )
+    .details-summary:not(:last-child),
+  .details-summary-root:has(
+      + .details-summary-root:not(.is-open, [open]) .details-summary:active
+    )
+    .details-summary:not(:last-child) {
+    border-bottom-color: transparent;
+  }
+
+  .details-summary-root.is-open .details-summary,
+  .details-summary-root[open] .details-summary {
+    transform: none !important;
+    box-shadow: $shadow-box-interactive-base;
+  }
+}
+
+:global(html.no-hover-scale-animation) {
+  .details-summary-root {
+    z-index: $z-base;
+
+    &:hover,
+    &:active {
+      z-index: $z-base;
+    }
+
+    &.is-open,
+    &[open] {
+      z-index: var(--spoiler-open-z-index);
+    }
+  }
+
+  .details-summary-root:not(.is-open, [open]) .details-summary:hover {
+    border-color: var(--details-summary-level-border-hover);
+  }
+
+  .details-summary-root:not(.is-open, [open]) .details-summary:active {
+    border-color: var(--details-summary-level-border-active);
+  }
+
+  .details-summary-root:not(.is-open, [open]):has(.details-summary:hover)
+    + .details-summary-root:not(.is-open, [open])
+    .details-summary,
+  .details-summary-root:not(.is-open, [open]):has(.details-summary:active)
+    + .details-summary-root:not(.is-open, [open])
+    .details-summary {
+    border-top-color: transparent;
+  }
+
+  :global(details[data-nested-details-summary="true"]) {
+    z-index: $z-base;
+
+    &:hover,
+    &:active {
+      z-index: $z-base;
+    }
+
+    &[open] {
+      z-index: var(--spoiler-open-z-index);
+    }
+  }
+}
+
+.details-section {
+  margin-block-end: 0;
+  border: solid $stroke-1 var(--color-article-border);
+  background-color: var(--color-article-background);
+  padding-block: $space-16 $space-0;
+}
+
+.details-content-wrapper {
+  transition: max-height $duration-350 cubic-bezier(0.4, 0, 0.2, 1);
+  margin-block-start: -$space-16;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.details-content-inner {
+  overflow: hidden;
+}
+
+:global(html.no-spoiler-animation) {
+  .details-content-wrapper {
+    transition: none;
+  }
+}

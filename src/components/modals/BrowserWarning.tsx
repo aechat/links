@@ -3,7 +3,7 @@ import React from "react";
 import {Modal} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
-import {withSelectionHaptic} from "../../utils/haptics";
+import {withSelectionHaptic} from "../../utilities/haptics";
 
 import styles from "./BrowserWarning.module.scss";
 import modalStyles from "./Modal.module.scss";

@@ -1,5 +1,23 @@
 @use "../../styles/abstracts/mixins" as *;
 
+@mixin modal-control-state-colors(
+  $edge-property,
+  $hover-edge,
+  $active-edge,
+  $hover-background,
+  $active-background
+) {
+  &:hover {
+    #{$edge-property}: $hover-edge;
+    background-color: $hover-background;
+  }
+
+  &:active {
+    #{$edge-property}: $active-edge;
+    background-color: $active-background;
+  }
+}
+
 .modal {
   --header-control-height: min(
     calc(26px + (30 - 26) * ((100vw - 320px) / (768 - 320))),
@@ -24,7 +42,7 @@
 
   a {
     text-decoration: underline;
-    color: var(--color-accent);
+    color: var(--color-page-accent);
     font-weight: 700;
   }
 
@@ -57,13 +75,13 @@
       left: min(calc(12px + (16 - 12) * ((100vw - 320px) / (768 - 320))), 16px);
       opacity: 0.5;
       border-radius: $roundness;
-      background-color: var(--color-accent);
+      background-color: var(--color-page-accent);
       width: 1px;
       content: "";
     }
 
     &:not(:last-child) {
-      border-bottom: $stroke-1 solid var(--color-border-primary);
+      border-bottom: $stroke-1 solid var(--color-article-border);
     }
   }
 }
@@ -103,7 +121,7 @@
 
   &-title {
     overflow: hidden;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     font-size: $font-size-heading-xs;
     font-weight: 550;
   }
@@ -111,6 +129,13 @@
   &-button {
     @include fluid-size(margin, -$space-0, -$space-4);
     @include fluid-size(padding, $space-0, $space-4);
+    @include modal-control-state-colors(
+      border-color,
+      var(--color-panel-border-hover),
+      var(--color-panel-border-active),
+      var(--color-panel-background-hover),
+      var(--color-panel-background-active)
+    );
 
     appearance: none;
     box-sizing: border-box;
@@ -130,22 +155,12 @@
     height: var(--header-control-height, 30px);
     min-height: var(--header-control-height, 30px);
     line-height: 1;
-    color: var(--color-surface-primary-text);
+    color: var(--color-panel-text);
     aspect-ratio: 1 / 1;
 
     &:focus,
     &:focus-visible {
       outline: none !important;
-    }
-
-    &:hover {
-      border-color: var(--color-surface-primary-border-hover);
-      background-color: var(--color-surface-primary-background-hover);
-    }
-
-    &:active {
-      border-color: var(--color-surface-primary-border-active);
-      background-color: var(--color-surface-primary-background-active);
     }
 
     svg {
@@ -155,6 +170,14 @@
 }
 
 .modal-support-header-button {
+  @include modal-control-state-colors(
+    outline,
+    $stroke-1 solid var(--color-panel-border-hover),
+    $stroke-1 solid var(--color-panel-border-active),
+    var(--color-panel-background-hover),
+    var(--color-panel-background-active)
+  );
+
   appearance: none;
   box-sizing: border-box;
   display: flex;
@@ -175,16 +198,6 @@
   font-size: $font-size-text-sm;
   font-weight: 400;
 
-  &:hover {
-    outline: $stroke-1 solid var(--color-surface-primary-border-hover);
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    outline: $stroke-1 solid var(--color-surface-primary-border-active);
-    background-color: var(--color-surface-primary-background-active);
-  }
-
   &:focus:not(:active),
   &:focus-visible:not(:active) {
     outline: $stroke-1 solid var(--color-widget-border);
@@ -195,7 +208,7 @@
   }
 
   svg {
-    fill: var(--color-accent);
+    fill: var(--color-page-accent);
     width: $space-16;
     height: $space-16;
   }
@@ -203,9 +216,9 @@
 
 .modal-content {
   filter: $shadow-filter-overlay;
-  outline: $stroke-1 solid var(--color-border-modal);
+  outline: $stroke-1 solid var(--color-modal-border);
   border-radius: $roundness;
-  background-color: var(--color-background-modal);
+  background-color: var(--color-modal-background);
   width: 100%;
   backdrop-filter: blur(4px);
 
@@ -233,6 +246,13 @@
     $space-16,
     $space-20
   );
+  @include modal-control-state-colors(
+    outline-color,
+    var(--color-panel-border-hover),
+    var(--color-panel-border-active),
+    var(--color-panel-background-hover),
+    var(--color-panel-background-active)
+  );
 
   display: flex;
   align-items: center;
@@ -242,24 +262,14 @@
     outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
   margin: 0 auto;
   outline: $stroke-1 solid transparent;
-  border: $stroke-1 solid var(--color-surface-primary-border);
+  border: $stroke-1 solid var(--color-panel-border);
   border-radius: $roundness;
-  background-color: var(--color-surface-primary-background);
+  background-color: var(--color-panel-background);
   cursor: pointer;
   width: calc(100% - 20px);
   text-align: center;
-  color: var(--color-surface-primary-text);
+  color: var(--color-panel-text);
   font-weight: 700;
-
-  &:hover {
-    outline-color: var(--color-surface-primary-border-hover);
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    outline-color: var(--color-surface-primary-border-active);
-    background-color: var(--color-surface-primary-background-active);
-  }
 }
 
 .modal-modal-title {
@@ -316,13 +326,13 @@
 
   &-recipient-info {
     text-align: center;
-    color: var(--color-text-tertiary);
+    color: var(--color-page-text-muted);
     font-size: $font-size-text-xs !important;
   }
 
   &-yoomoney-link {
     text-decoration: underline !important;
-    color: var(--color-accent);
+    color: var(--color-page-accent);
     font-weight: 700;
   }
 
@@ -344,17 +354,17 @@
       background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
     outline: none;
     border-radius: $roundness * 0.75;
-    background-color: var(--color-surface-primary-background);
-    color: var(--color-surface-primary-text) !important;
+    background-color: var(--color-panel-background);
+    color: var(--color-panel-text) !important;
     font-size: $font-size-heading-xs;
     font-weight: 700;
 
     &:hover {
-      background-color: var(--color-surface-primary-background-hover);
+      background-color: var(--color-panel-background-hover);
     }
 
     &:active {
-      background-color: var(--color-surface-primary-background-active);
+      background-color: var(--color-panel-background-active);
     }
   }
 }
@@ -395,7 +405,7 @@
   @include fluid-size(margin-block, $space-4, $space-8);
 
   flex-shrink: 0;
-  color: var(--color-button-group-text);
+  color: var(--color-action-text);
 }
 
 .modal-controls-option {
@@ -417,10 +427,10 @@
     border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
     z-index 0s linear $duration-250;
   z-index: $z-base;
-  outline: $stroke-1 solid var(--color-button-group-border) !important;
+  outline: $stroke-1 solid var(--color-action-border) !important;
   border: none !important;
   box-shadow: $shadow-box-interactive-base;
-  background-color: var(--color-button-group-background);
+  background-color: var(--color-action-background);
   padding: $space-8;
   max-width: 100%;
   font-weight: 500;
@@ -429,9 +439,9 @@
     transform: scale(var(--links-hover-scale-x, 1.02), var(--links-hover-scale-y, 1.02));
     transition-delay: $duration-250, $duration-250, 0s, $duration-250, $duration-250;
     z-index: $z-raised;
-    outline-color: var(--color-button-group-border-hover) !important;
+    outline-color: var(--color-action-border-hover) !important;
     box-shadow: $shadow-box-interactive-hover;
-    background-color: var(--color-button-group-background-hover);
+    background-color: var(--color-action-background-hover);
   }
 
   &:active {
@@ -441,9 +451,9 @@
     );
     transition-delay: 0s;
     z-index: $z-raised;
-    outline-color: var(--color-button-group-border-active) !important;
+    outline-color: var(--color-action-border-active) !important;
     box-shadow: $shadow-box-interactive-active;
-    background-color: var(--color-button-group-background-active);
+    background-color: var(--color-action-background-active);
   }
 
   sup {
@@ -455,11 +465,11 @@
   svg {
     @include fluid-icon-size(16px, 20px);
 
-    fill: var(--color-button-group-text);
+    fill: var(--color-action-text);
   }
 
   &-selected {
-    background-color: var(--color-button-group-selected);
+    background-color: var(--color-action-selected);
   }
 }
 
@@ -495,6 +505,13 @@
 
   .modal-controls-title .modal-controls-reset {
     @include fluid-size(padding, $space-0, $space-4);
+    @include modal-control-state-colors(
+      outline-color,
+      var(--color-action-border-hover),
+      var(--color-action-border-active),
+      var(--color-action-background-hover),
+      var(--color-action-background-active)
+    );
 
     display: flex;
     align-items: center;
@@ -504,16 +521,6 @@
     border-radius: 100%;
     background-color: transparent;
     cursor: pointer;
-
-    &:hover {
-      outline-color: var(--color-button-group-border-hover);
-      background-color: var(--color-button-group-background-hover);
-    }
-
-    &:active {
-      outline-color: var(--color-button-group-border-active);
-      background-color: var(--color-button-group-background-active);
-    }
 
     svg {
       @include fluid-icon-size(16px, 20px);

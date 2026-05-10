@@ -3,12 +3,21 @@ import {useEffect} from "react";
 import {message} from "antd";
 import {useLocation} from "react-router-dom";
 
-import {resolveDetailsByAnchor} from "../utils/anchorResolvers";
-import {scrollToAnchorById} from "../utils/scrollToAnchor";
+import {resolveDetailsByAnchor} from "../utilities/anchorResolvers";
+import {scrollToAnchorById} from "../utilities/scrollToAnchor";
+import {replaceCurrentUrlHash} from "../utilities/urlHashUtilities";
 
 interface Section {
   id: string;
 }
+
+const ANCHOR_VALIDATION_DELAY = 1000;
+
+const ANCHOR_ALIGN_FALLBACK_DELAY = 450;
+
+const isSectionAnchor = (sections: Section[], anchorId: string): boolean => {
+  return sections.some((section) => section.id === anchorId);
+};
 
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
   const {hash} = useLocation();
@@ -16,9 +25,9 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
   useEffect(() => {
     if (!isPageLoaded) return;
 
-    let alignByFramesRequestId: number | undefined;
+    let firstAlignFrameId: number | undefined;
 
-    let alignSecondFrameRequestId: number | undefined;
+    let secondAlignFrameId: number | undefined;
 
     let alignFallbackTimeout: ReturnType<typeof setTimeout> | undefined;
 
@@ -33,15 +42,18 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
     };
 
     const scheduleSecondFrameAlign = () => {
-      alignSecondFrameRequestId = requestAnimationFrame(alignToPendingAnchor);
+      secondAlignFrameId = requestAnimationFrame(alignToPendingAnchor);
     };
 
     const alignAnchorAfterLayoutStabilization = (anchorId: string) => {
       pendingAnchorId = anchorId;
 
-      alignByFramesRequestId = requestAnimationFrame(scheduleSecondFrameAlign);
+      firstAlignFrameId = requestAnimationFrame(scheduleSecondFrameAlign);
 
-      alignFallbackTimeout = setTimeout(alignToPendingAnchor, 450);
+      alignFallbackTimeout = setTimeout(
+        alignToPendingAnchor,
+        ANCHOR_ALIGN_FALLBACK_DELAY
+      );
     };
 
     const validateAnchors = () => {
@@ -55,9 +67,7 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
         return;
       }
 
-      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
-
-      if (isCategoryAnchor) {
+      if (isSectionAnchor(sections, currentAnchor)) {
         scrollToAnchorById(currentAnchor);
 
         return;
@@ -70,25 +80,21 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
           "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
         );
 
-        history.replaceState(
-          undefined,
-          "",
-          globalThis.location.pathname + globalThis.location.search
-        );
+        replaceCurrentUrlHash("");
       }
     };
 
-    const validationTimeout = setTimeout(validateAnchors, 1000);
+    const validationTimeout = setTimeout(validateAnchors, ANCHOR_VALIDATION_DELAY);
 
     return () => {
       clearTimeout(validationTimeout);
 
-      if (alignByFramesRequestId !== undefined) {
-        cancelAnimationFrame(alignByFramesRequestId);
+      if (firstAlignFrameId !== undefined) {
+        cancelAnimationFrame(firstAlignFrameId);
       }
 
-      if (alignSecondFrameRequestId !== undefined) {
-        cancelAnimationFrame(alignSecondFrameRequestId);
+      if (secondAlignFrameId !== undefined) {
+        cancelAnimationFrame(secondAlignFrameId);
       }
 
       if (alignFallbackTimeout !== undefined) {

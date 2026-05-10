@@ -1,6 +1,6 @@
 # Утилита `scriptRunner`
 
-Файл: `scripts/utils/scriptRunner.js`
+Файл: `scripts/utilities/scriptRunner.js`
 
 ## Назначение
 
@@ -37,6 +37,6 @@ runScript(
 
 ## Связанные утилиты
 
-- [`file-utils-script.md`](./file-utils-script.md)
-- [`interactive-utils-script.md`](./interactive-utils-script.md)
+- [`file-utilities-script.md`](./file-utilities-script.md)
+- [`interactive-utilities-script.md`](./interactive-utilities-script.md)
 - [`logger-script.md`](./logger-script.md)

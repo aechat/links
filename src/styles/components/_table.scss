@@ -1,5 +1,18 @@
 @use "../abstracts/mixins" as *;
 
+@mixin table-addition-block-spacing {
+  margin-block: $space-8;
+  border-radius: $roundness * 0.5;
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+
+  &:not(:last-child) {
+    margin-block-end: $space-8;
+  }
+}
+
 table {
   --table-inline-offset: clamp(
     #{$space-4},
@@ -44,20 +57,11 @@ table {
         $space-8,
         $space-12
       );
+      @include table-addition-block-spacing();
 
-      margin-block: $space-8;
       margin-inline: auto;
-      border-radius: $roundness * 0.5;
       text-align: left;
       font-size: $font-size-text-sm;
-
-      &:last-child {
-        margin-block-end: 0;
-      }
-
-      &:not(:last-child) {
-        margin-block-end: $space-8;
-      }
 
       mark,
       a {
@@ -87,16 +91,7 @@ table {
         > [class*="addition-warning"],
         > [class*="addition-danger"],
         > [class*="addition-tldr"] {
-          margin-block: $space-8;
-          border-radius: $roundness * 0.5;
-
-          &:last-child {
-            margin-block-end: 0;
-          }
-
-          &:not(:last-child) {
-            margin-block-end: $space-8;
-          }
+          @include table-addition-block-spacing();
         }
       }
     }
@@ -124,15 +119,15 @@ table {
     transition:
       background-color $duration-250 ease,
       border-color $duration-250 ease;
-    border: $stroke-1 solid var(--color-border-table);
-    background-color: var(--color-background-table);
+    border: $stroke-1 solid var(--color-table-border);
+    background-color: var(--color-table-background);
   }
 
   tbody {
     tr:hover {
       td {
-        border-color: var(--color-border-table-hover);
-        background-color: var(--color-background-table-hover);
+        border-color: var(--color-table-border-hover);
+        background-color: var(--color-table-background-hover);
       }
     }
   }
@@ -144,9 +139,9 @@ table {
 
     th {
       text-wrap: balance;
-      border: $stroke-1 solid var(--color-border-table);
+      border: $stroke-1 solid var(--color-table-border);
       border-radius: $roundness * 0.75;
-      background-color: var(--color-surface-primary-background);
+      background-color: var(--color-panel-background);
       font-weight: 600;
     }
   }

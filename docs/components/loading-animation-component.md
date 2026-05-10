@@ -36,6 +36,8 @@ import LoadingAnimation from "./components/ui/LoadingAnimation";
 - работает вместе с `LoadingContext` и обновляет состояние загрузки при смене `location.pathname`;
 - интро (`aefaq/prfaq/psfaq/aeexpr/rules`) показывается не чаще одного раза в 10 минут (`localStorage: introLastShown`);
 - сначала загружает шрифты, затем запускает текстовую анимацию;
+- при показе интро оверлей закрывается только после стартовой фазы текста и завершения загрузки страницы;
+- если загрузка страницы продолжается после стартовой фазы текста, показывается progress-bar без ожидания полного цикла текста;
 - поддерживает fade-in/fade-out и отдельную задержку появления progress-bar;
 - стили и keyframes находятся в `src/components/ui/LoadingAnimation.module.scss`.
 

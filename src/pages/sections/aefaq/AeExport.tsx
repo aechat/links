@@ -6,7 +6,7 @@ import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
-import DetailsSummary from "../../../components/content/DetailsSummary";
+import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import JsonToTgsConverter from "../../../components/features/converters/ConverterJsonToTgs";
 
 const AeExport: React.FC = () => {

@@ -1,4 +1,3 @@
-@use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
 .media {
@@ -33,23 +32,23 @@
         background-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1),
         outline-color $duration-500 cubic-bezier(0.075, 0.82, 0.165, 1);
       opacity: 0.75;
-      outline: $stroke-1 solid var(--color-figure-youtube-border);
+      outline: $stroke-1 solid var(--color-media-youtube-border);
       border-radius: $roundness * 0.75;
-      background-color: var(--color-figure-youtube-button);
+      background-color: var(--color-media-youtube-button);
       text-align: center;
       line-height: 1.25;
-      color: var(--color-figure-youtube-button-text);
+      color: var(--color-media-youtube-button-text);
       font-size: $font-size-text-xs;
       font-weight: 600;
 
       &:hover {
-        outline-color: var(--color-button-group-border-hover);
-        background-color: var(--color-figure-youtube-button-hover);
+        outline-color: var(--color-action-border-hover);
+        background-color: var(--color-media-youtube-button-hover);
       }
 
       &:active {
-        outline-color: var(--color-button-group-border-active);
-        background-color: var(--color-figure-youtube-button-active);
+        outline-color: var(--color-action-border-active);
+        background-color: var(--color-media-youtube-button-active);
       }
 
       svg {
@@ -61,26 +60,26 @@
   &-content {
     display: block;
     border-radius: $roundness;
-    background-color: var(--color-background-tertiary);
+    background-color: var(--color-article-background-muted);
     max-width: 100%;
     height: auto;
     object-fit: contain;
     filter: $shadow-filter-content-soft;
 
     &--image {
-      outline: $stroke-1 solid var(--color-border-content);
+      outline: $stroke-1 solid var(--color-article-content-border);
       max-height: 60vh;
     }
 
     &--video {
-      outline: $stroke-1 solid var(--color-border-content);
+      outline: $stroke-1 solid var(--color-article-content-border);
       max-height: 55dvh;
     }
   }
 
   &-iframe {
     filter: $shadow-filter-content-soft;
-    outline: $stroke-1 solid var(--color-border-content);
+    outline: $stroke-1 solid var(--color-article-content-border);
     border: none;
     border-radius: $roundness;
     width: 100%;
@@ -91,7 +90,7 @@
 
   &-placeholder {
     border-radius: $roundness;
-    background-color: var(--color-surface-primary-background);
+    background-color: var(--color-panel-background);
     width: 100%;
   }
 
@@ -99,7 +98,7 @@
     @include fluid-size(padding, $space-4, $space-8);
 
     text-align: center;
-    color: var(--color-text-tertiary);
+    color: var(--color-page-text-muted);
     font-size: $font-size-text-sm;
     font-style: italic;
   }
@@ -113,7 +112,7 @@
       align-items: center;
       justify-content: center;
       z-index: $z-modal;
-      background-color: var(--color-background-overlay);
+      background-color: var(--color-modal-backdrop);
       width: 100vw;
       height: 100vh;
       backdrop-filter: blur(25px);
@@ -162,28 +161,28 @@
         border-color $duration-250,
         transform $duration-250;
       z-index: $z-top;
-      border: $stroke-1 solid var(--color-button-group-border);
+      border: $stroke-1 solid var(--color-action-border);
       border-radius: $roundness;
-      background: var(--color-button-group-background);
+      background: var(--color-action-background);
       cursor: pointer;
       width: 40px;
       height: 40px;
-      color: var(--color-button-group-text);
+      color: var(--color-action-text);
 
       &:hover {
-        border-color: var(--color-button-group-border-hover);
-        background: var(--color-button-group-background-hover);
+        border-color: var(--color-action-border-hover);
+        background: var(--color-action-background-hover);
       }
 
       &:active {
-        border-color: var(--color-button-group-border-active);
-        background: var(--color-button-group-background-active);
+        border-color: var(--color-action-border-active);
+        background: var(--color-action-background-active);
       }
 
       svg {
         width: 24px;
         height: 24px;
-        fill: var(--color-button-group-text);
+        fill: var(--color-action-text);
       }
 
       @media (width <= 768px) {

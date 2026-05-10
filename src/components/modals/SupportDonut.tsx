@@ -3,15 +3,19 @@ import React, {useState} from "react";
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {message, Modal} from "antd";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
-import {withSoftHaptic} from "../../utils/haptics";
+import {copyText} from "../../utilities/copyUtilities";
+import {withSoftHaptic} from "../../utilities/haptics";
 
 import modalStyles from "./Modal.module.scss";
 
 interface SupportDonutProperties {
   wide?: boolean;
 }
+
+const SBER_CARD_NUMBER = "2202202357342488";
+
+const YOOMONEY_WALLET_NUMBER = "410016763684808";
 
 const formatGroupedNumber = (numberValue: string) => {
   return numberValue
@@ -36,10 +40,6 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
   const ripple = useRipple<HTMLButtonElement>();
-
-  const SBER_CARD_NUMBER = "2202202357342488";
-
-  const YOOMONEY_WALLET_NUMBER = "410016763684808";
 
   const handleCopyAccount = withSoftHaptic(async (account: string) => {
     const success = await copyText(account);
