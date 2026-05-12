@@ -4,6 +4,7 @@ import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
@@ -1181,23 +1182,95 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Polygon»</mark> или{" "}
                 <mark className="select">«Star»</mark>.
               </p>
-              <Addition type="info">
-                <ul>
-                  <li>
-                    Фигуры можно создавать инструментом для создания фигур{" "}
-                    <mark className="key">Q</mark> или с помощью{" "}
-                    <mark className="select">«Pen Tool»</mark>.
-                  </li>
-                  <li>
-                    Путь маски и фигурного слоя взаимозаменяемы: их можно копировать и
-                    вставлять друг в друга.
-                  </li>
-                </ul>
-              </Addition>
+              <p>
+                Сами фигуры могут быть двух типов контуров: параметрическими и Безье.{" "}
+                <mark className="select">«Path»</mark> маски и фигурного слоя
+                взаимозаменяемы: их можно копировать и вставлять друг в друга.
+              </p>
+              <ul>
+                <li>
+                  <mark className="select">«Параметрические контуры»</mark> создаются
+                  инструментами для фигур, например{" "}
+                  <mark className="select">«Rectangle Tool»</mark> или{" "}
+                  <mark className="select">«Ellipse Tool»</mark>. Их свойства, например
+                  размер или скругление углов остаются редактируемыми через числовые
+                  значения, но форму нельзя изменить произвольно.
+                </li>
+                <li>
+                  <mark className="select">«Контуры Безье»</mark> создаются с помощью
+                  инструмента <mark className="select">«Pen Tool»</mark> или могут быть
+                  получены конвертацией из параметрического контура —{" "}
+                  <mark className="key">ПКМ</mark> по контуру фигуры →{" "}
+                  <mark className="select">«Convert To Bezier Path»</mark>. Даёт полный
+                  контроль над формой через вершины и манипуляторы, но нельзя будет
+                  изменить скругление или другие свойства фигуры.
+                </li>
+              </ul>
+              <p>
+                Внутри одного слоя-фигуры можно размещать несколько контуров, группировать
+                их и применять к группам отдельные трансформации и атрибуты. Это позволяет
+                создавать фигуры без необходимости использовать большое количество
+                отдельных слоёв.
+              </p>
               <ArticleMedia
                 src="98ro7x3kl8A"
                 type="youtube"
               />
+              <Divider>
+                Нюансы про <mark className="select">«Size»</mark> линии,{" "}
+                <mark className="select">«Scale»</mark> фигуры и{" "}
+                <mark className="select">«Scale»</mark> слоя
+              </Divider>
+              <p>
+                При изменении масштаба фигуры с помощью{" "}
+                <mark className="select">«Scale»</mark>, то вместе с увеличением
+                масштабирования у вас поплывут закругления, обводка и прочие свойства. Это
+                происходит потому что вы изменяете масштаб самого слоя, а не нужной
+                фигуры.
+              </p>
+              <p>
+                Чтобы при измении размера фигуры ничего не искажало — изменяйте{" "}
+                <mark className="select">«Size»</mark> в{" "}
+                <mark className="select">«Path»</mark> фигуры.
+              </p>
+              <Divider>
+                Как изменять размер фигуры относительно левого или правого края без
+                искажений?
+              </Divider>
+              <p>
+                По умолчанию фигуры могут изменять свой масштаб только от центра и якорную
+                точку в таком случае нельзя переместить. Даже если вы её переместите, она
+                не даст никакого эффекта. Поэтому для таких случаев придётся использовать
+                выражения.
+              </p>
+              <ArticleMedia
+                src="lbV0xwkJOc0"
+                type="youtube"
+              />
+              <p>
+                Выражения ниже нужно применять на{" "}
+                <mark className="select">«Anchor Point»</mark> в{" "}
+                <mark className="select">«Transform»</mark> фигуры, а не слоя.{" "}
+                <em className="article-note-muted">Иначе решение не сработает.</em>
+              </p>
+              <CodeSnippet>{`shapeName="Rectangle 1"; pathName="Rectangle Path 1"; // измените название фигуры и его контура при необходимости
+w = content(shapeName).content(pathName).size[0];
+h = content(shapeName).content(pathName).size[1];
+[w/2, h/-2] // изменение размера фигуры от правого верхнего угла`}</CodeSnippet>
+              <CodeSnippet>{`shapeName="Rectangle 1"; pathName="Rectangle Path 1"; // измените название фигуры и его контура при необходимости
+w = content(shapeName).content(pathName).size[0];
+h = content(shapeName).content(pathName).size[1];
+[w/-2, h/-2] // изменение размера фигуры от левого верхнего угла`}</CodeSnippet>
+              <CodeSnippet>
+                {`shapeName="Rectangle 1"; pathName="Rectangle Path 1"; // измените название фигуры и его контура при необходимости
+w = content(shapeName).content(pathName).size[0];
+h = content(shapeName).content(pathName).size[1];
+[w/2, h/2] // изменение размера фигуры от правого нижнего угла`}
+              </CodeSnippet>
+              <CodeSnippet>{`shapeName="Rectangle 1"; pathName="Rectangle Path 1"; // измените название фигуры и его контура при необходимости
+w = content(shapeName).content(pathName).size[0];
+h = content(shapeName).content(pathName).size[1];
+[w/-2, h/2] // изменение размера фигуры от левого нижнего угла`}</CodeSnippet>
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Текстовый слой">
               <p>
