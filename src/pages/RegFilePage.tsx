@@ -13,6 +13,8 @@ import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
 import {CopyButton} from "../components/ui/CopyButton";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
 import {usePageLoad} from "../hooks/usePageLoad";
 
 const constants = {
@@ -30,6 +32,12 @@ const constants = {
 const RegFilePage = () => {
   const {hash} = useLocation();
 
+  const {handleLinkClick: handleInternalLink, InternalLinkModal} =
+    useInternalLinkHandler();
+
+  const {ExternalLinkModal, handleLinkClick: handleExternalLink} =
+    useExternalLinkHandler();
+
   usePageLoad();
   useCopyToClipboard();
 
@@ -39,6 +47,11 @@ const RegFilePage = () => {
     navigator.clipboard.writeText(anchor);
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
+
+  const handleCombinedClick = (event: React.MouseEvent<HTMLElement>) => {
+    handleInternalLink(event);
+    handleExternalLink(event);
+  };
 
   useEffect(() => {
     if (hash) {
@@ -77,7 +90,9 @@ const RegFilePage = () => {
   }, [hash]);
 
   return (
-    <div>
+    <div onClickCapture={handleCombinedClick}>
+      {InternalLinkModal}
+      {ExternalLinkModal}
       <Helmet>
         <title>reg@aechat</title>
         <meta

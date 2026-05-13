@@ -49,6 +49,8 @@ import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
 import {usePageLoad} from "../hooks/usePageLoad";
 import {useRipple} from "../hooks/useRipple";
 import {getPlatformInfo} from "../utilities/browserDetection";
@@ -61,6 +63,12 @@ const Links = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const {handleLinkClick: handleInternalLink, InternalLinkModal} =
+    useInternalLinkHandler();
+
+  const {ExternalLinkModal, handleLinkClick: handleExternalLink} =
+    useExternalLinkHandler();
+
   const ripple = useRipple<HTMLButtonElement>({haptic: false});
 
   const openModal = () => {
@@ -71,6 +79,11 @@ const Links = () => {
   const closeModal = () => {
     triggerHaptic("soft");
     setIsModalOpen(false);
+  };
+
+  const handleCombinedClick = (event: React.MouseEvent<HTMLElement>) => {
+    handleInternalLink(event);
+    handleExternalLink(event);
   };
 
   useEffect(() => {
@@ -220,7 +233,12 @@ const Links = () => {
   }, []);
 
   return (
-    <div className="page">
+    <div
+      className="page"
+      onClickCapture={handleCombinedClick}
+    >
+      {InternalLinkModal}
+      {ExternalLinkModal}
       <Helmet>
         <title>links@aechat</title>
         <meta
