@@ -430,7 +430,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
 
   const isSpoilerOpen = useSpoiler();
 
-  const [hasBeenOpened, setHasBeenOpened] = useState(isSpoilerOpen);
+  const [hasBeenOpened, setHasBeenOpened] = useState(isSpoilerOpen ?? true);
 
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
