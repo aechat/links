@@ -22,6 +22,10 @@ export const useExternalLinkHandler = () => {
   }, []);
 
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
+    if ((event.target as HTMLElement).closest(".links-grid-item")) {
+      return;
+    }
+
     const href = getExternalLinkHref(event.target);
 
     if (href) {

@@ -18,6 +18,22 @@ export interface DownloadLinkTarget {
   href: string;
 }
 
+export interface InternalPageLinkTarget {
+  href: string;
+  title?: string;
+}
+
+const pageTitles: Record<string, string> = {
+  "/": "links",
+  "/aeexpr": "aeexpr",
+  "/aefaq": "aefaq",
+  "/prfaq": "prfaq",
+  "/psfaq": "psfaq",
+  "/reg": "reg",
+  "/regfile": "reg",
+  "/rules": "rules",
+};
+
 const downloadFileMarkClassByExtension: Record<string, string> = {
   avi: "video",
   flac: "audio",
@@ -184,6 +200,32 @@ export const getExternalLinkHref = (target: EventTarget | null): string | undefi
   }
 
   return href;
+};
+
+export const resolveInternalPageLinkTarget = (
+  target: EventTarget | null
+): InternalPageLinkTarget | undefined => {
+  const anchor = getTargetElement(target)?.closest<HTMLAnchorElement>("a[href]");
+
+  if (!anchor || anchor.hasAttribute("download")) {
+    return;
+  }
+
+  const href = anchor.getAttribute("href");
+
+  if (!href) {
+    return;
+  }
+
+  if (href.startsWith("/") && !href.startsWith("#") && !isHttpLink(href)) {
+    const pageTitle = pageTitles[href];
+
+    const linkText = anchor.textContent?.trim();
+
+    return {href, title: pageTitle ?? linkText};
+  }
+
+  return undefined;
 };
 
 export const resolveDownloadLinkTarget = (

@@ -11,6 +11,8 @@ import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
 import {CopyButton} from "../components/ui/CopyButton";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
 import {usePageLoad} from "../hooks/usePageLoad";
 
 const constants = {
@@ -28,6 +30,12 @@ const constants = {
 const ChatRules = () => {
   const {hash} = useLocation();
 
+  const {handleLinkClick: handleInternalLink, InternalLinkModal} =
+    useInternalLinkHandler();
+
+  const {ExternalLinkModal, handleLinkClick: handleExternalLink} =
+    useExternalLinkHandler();
+
   usePageLoad();
   useCopyToClipboard();
 
@@ -37,6 +45,11 @@ const ChatRules = () => {
     navigator.clipboard.writeText(anchor);
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
+
+  const handleCombinedClick = (event: React.MouseEvent<HTMLElement>) => {
+    handleInternalLink(event);
+    handleExternalLink(event);
+  };
 
   useEffect(() => {
     if (hash) {
@@ -75,7 +88,9 @@ const ChatRules = () => {
   }, [hash]);
 
   return (
-    <div>
+    <div onClickCapture={handleCombinedClick}>
+      {InternalLinkModal}
+      {ExternalLinkModal}
       <Helmet>
         <title>rules@aechat</title>
         <meta
@@ -134,12 +149,12 @@ const ChatRules = () => {
       <Header title="rules" />
       <PageTransition className="main">
         <div className="article-container-flex">
-          <div className="article-container chat-rules-container">
+          <div className="article-container article-static-container">
             <div className="article-title">
               <h1>Правила AEChat и DWChat</h1>
             </div>
             <h2
-              className="rules-title"
+              className="article-static-title"
               id="about"
             >
               Описание AEChat и DWChat
@@ -147,8 +162,8 @@ const ChatRules = () => {
                 <CopyButton onClick={() => handleCopyAnchor("about")} />
               </Tooltip>
             </h2>
-            <div className="rules-content">
-              <section className="rules-section article-content">
+            <div className="article-static-content">
+              <section className="article-static-section article-content">
                 <p>
                   В чатах{" "}
                   <a
@@ -243,7 +258,7 @@ const ChatRules = () => {
               </section>
             </div>
             <h2
-              className="rules-title"
+              className="article-static-title"
               id="tone"
             >
               Правила хорошего тона
@@ -251,8 +266,8 @@ const ChatRules = () => {
                 <CopyButton onClick={() => handleCopyAnchor("tone")} />
               </Tooltip>
             </h2>
-            <div className="rules-content">
-              <section className="rules-section article-content">
+            <div className="article-static-content">
+              <section className="article-static-section article-content">
                 <p>
                   Для комфортного и эффективного общения в чате рекомендуется соблюдать
                   несколько простых рекомендаций.
@@ -621,7 +636,7 @@ const ChatRules = () => {
               </section>
             </div>
             <h2
-              className="rules-title"
+              className="article-static-title"
               id="ban"
             >
               Что нельзя делать в чатах?
@@ -629,8 +644,8 @@ const ChatRules = () => {
                 <CopyButton onClick={() => handleCopyAnchor("ban")} />
               </Tooltip>
             </h2>
-            <div className="rules-content">
-              <section className="rules-section article-content">
+            <div className="article-static-content">
+              <section className="article-static-section article-content">
                 <ul>
                   <li>
                     В чатах запрещены спам, флуд<sup>1</sup>, чрезмерное употребление
@@ -672,7 +687,7 @@ const ChatRules = () => {
               </section>
             </div>
             <h2
-              className="rules-title"
+              className="article-static-title"
               id="work"
             >
               О вакансиях и резюме
@@ -680,8 +695,8 @@ const ChatRules = () => {
                 <CopyButton onClick={() => handleCopyAnchor("work")} />
               </Tooltip>
             </h2>
-            <div className="rules-content">
-              <section className="rules-section article-content">
+            <div className="article-static-content">
+              <section className="article-static-section article-content">
                 <p>
                   Для публикации вакансий, заказов или резюме соблюдайте простые
                   требования к размещению. Это поможет сэкономить время всем участникам.

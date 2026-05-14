@@ -4,6 +4,6 @@ export const DetailsSummaryContext = createContext(false);
 
 export const NestedDetailsSummaryContext = createContext(false);
 
-export const SpoilerContext = createContext(false);
+export const SpoilerContext = createContext<boolean | undefined>(undefined);
 
 export const useSpoiler = () => useContext(SpoilerContext);

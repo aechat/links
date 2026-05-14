@@ -62,6 +62,86 @@
     }
   }
 
+  &-static {
+    &-container {
+      margin-block-start: $space-20;
+    }
+
+    &-title {
+      @include details-summary-base();
+
+      border-bottom: $stroke-1 solid var(--color-panel-border);
+      border-radius: $roundness;
+
+      &:hover {
+        outline-color: color-mix(
+          in hsl,
+          var(--color-panel-border)
+            calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        );
+        border-color: color-mix(
+          in hsl,
+          var(--color-panel-border)
+            calc(100% - var(--color-interaction-primary-hover-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-hover-shift)
+        );
+      }
+
+      &:active {
+        outline-color: color-mix(
+          in hsl,
+          var(--color-panel-border)
+            calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        );
+        border-color: color-mix(
+          in hsl,
+          var(--color-panel-border)
+            calc(100% - var(--color-interaction-primary-active-shift)),
+          var(--color-interaction-mix-color) var(--color-interaction-primary-active-shift)
+        );
+      }
+
+      &:not(:last-child) {
+        border-bottom-color: var(--color-panel-border);
+
+        &:hover {
+          border-bottom-color: color-mix(
+            in hsl,
+            var(--color-panel-border)
+              calc(100% - var(--color-interaction-primary-hover-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-hover-shift)
+          );
+        }
+
+        &:active {
+          border-bottom-color: color-mix(
+            in hsl,
+            var(--color-panel-border)
+              calc(100% - var(--color-interaction-primary-active-shift)),
+            var(--color-interaction-mix-color)
+              var(--color-interaction-primary-active-shift)
+          );
+        }
+      }
+    }
+
+    &-section {
+      padding-block-start: $space-16;
+    }
+
+    &-content {
+      margin-block: -$space-16 $space-8;
+      border: solid $stroke-1 var(--color-article-border);
+      border-bottom-left-radius: $roundness;
+      border-bottom-right-radius: $roundness;
+      background-color: var(--color-article-background);
+      padding-block: $space-0;
+    }
+  }
+
   &-content {
     p {
       @include fluid-inset(

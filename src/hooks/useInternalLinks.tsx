@@ -2,6 +2,7 @@ import React, {useCallback, useRef, useState} from "react";
 
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
+import {useNavigate} from "react-router-dom";
 
 import modalStyles from "../components/modals/Modal.module.scss";
 import {
@@ -11,14 +12,18 @@ import {
 import {
   type ArticleLinkTarget,
   type DownloadLinkTarget,
+  type InternalPageLinkTarget,
   resolveArticleLinkTarget,
   resolveDownloadLinkTarget,
+  resolveInternalPageLinkTarget,
 } from "../utilities/linkTargets";
 
 import {useEnterKeyConfirm} from "./useEnterKeyConfirm";
 import {useRipple} from "./useRipple";
 
 export const useInternalLinkHandler = () => {
+  const navigate = useNavigate();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [isDownloadStarting, setIsDownloadStarting] = useState(false);
@@ -29,6 +34,8 @@ export const useInternalLinkHandler = () => {
 
   const [targetDownload, setTargetDownload] = useState<DownloadLinkTarget | undefined>();
 
+  const [targetPage, setTargetPage] = useState<InternalPageLinkTarget | undefined>();
+
   const [downloadSizeCache, setDownloadSizeCache] = useState<Record<string, string>>({});
 
   const ripple = useRipple<HTMLButtonElement>();
@@ -37,6 +44,7 @@ export const useInternalLinkHandler = () => {
     setIsModalOpen(false);
     setTargetArticle(undefined);
     setTargetDownload(undefined);
+    setTargetPage(undefined);
   }, []);
 
   const resolveDownloadFileSize = useCallback(
@@ -60,12 +68,17 @@ export const useInternalLinkHandler = () => {
 
   const handleLinkClick = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
+      if ((event.target as HTMLElement).closest(".links-grid-item")) {
+        return;
+      }
+
       const downloadTarget = resolveDownloadLinkTarget(event.target, downloadSizeCache);
 
       if (downloadTarget) {
         event.preventDefault();
         setTargetDownload(downloadTarget);
         setTargetArticle(undefined);
+        setTargetPage(undefined);
         setIsModalOpen(true);
 
         void resolveDownloadFileSize(downloadTarget.href).then((resolvedFileSize) => {
@@ -85,6 +98,19 @@ export const useInternalLinkHandler = () => {
         return;
       }
 
+      const pageTarget = resolveInternalPageLinkTarget(event.target);
+
+      if (pageTarget) {
+        event.preventDefault();
+        event.stopPropagation();
+        setTargetPage(pageTarget);
+        setTargetDownload(undefined);
+        setTargetArticle(undefined);
+        setIsModalOpen(true);
+
+        return;
+      }
+
       const articleTarget = resolveArticleLinkTarget(event.target, event.currentTarget);
 
       if (!articleTarget) {
@@ -93,6 +119,7 @@ export const useInternalLinkHandler = () => {
 
       event.preventDefault();
       setTargetDownload(undefined);
+      setTargetPage(undefined);
       setTargetArticle(articleTarget);
       setIsModalOpen(true);
     },
@@ -137,6 +164,10 @@ export const useInternalLinkHandler = () => {
       return;
     }
 
+    if (targetPage) {
+      navigate(targetPage.href);
+    }
+
     if (targetArticle) {
       const targetElement = document.getElementById(targetArticle.id);
 
@@ -158,7 +189,14 @@ export const useInternalLinkHandler = () => {
     }
 
     closeModal();
-  }, [closeModal, isDownloadStarting, targetArticle, targetDownload]);
+  }, [
+    closeModal,
+    isDownloadStarting,
+    navigate,
+    targetArticle,
+    targetDownload,
+    targetPage,
+  ]);
 
   const handleCancel = useCallback(() => {
     downloadAbortControllerReference.current?.abort();
@@ -170,7 +208,13 @@ export const useInternalLinkHandler = () => {
 
   let actionButtonLabel = "Перейти";
 
+  let modalTitle = "Переход";
+
+  let modalContent: React.ReactNode | undefined;
+
   if (targetDownload) {
+    modalTitle = "Скачивание файла";
+
     if (isDownloadStarting) {
       actionButtonLabel = "Подготовка файла...";
     } else if (targetDownload.fileSize) {
@@ -178,6 +222,31 @@ export const useInternalLinkHandler = () => {
     } else {
       actionButtonLabel = "Скачать";
     }
+
+    modalContent = (
+      <p>
+        Вы уверены, что хотите скачать {targetDownload.fileKind}{" "}
+        <mark className={targetDownload.fileMarkClass}>«{targetDownload.fileName}»</mark>?
+      </p>
+    );
+  } else if (targetPage) {
+    modalTitle = "Переход на другую страницу";
+
+    modalContent = (
+      <p>
+        Вы уверены, что хотите перейти на страницу{" "}
+        <mark>«{targetPage.title ?? targetPage.href}»</mark>?
+      </p>
+    );
+  } else if (targetArticle) {
+    modalTitle = "Переход на другую статью";
+
+    modalContent = (
+      <p>
+        Вы уверены, что хотите перейти к статье <mark>«{targetArticle.title}»</mark> на
+        этой странице?
+      </p>
+    );
   }
 
   const InternalLinkModal = (
@@ -190,9 +259,7 @@ export const useInternalLinkHandler = () => {
     >
       <div className={modalStyles["modal"]}>
         <div className={modalStyles["modal-header"]}>
-          <div className={modalStyles["modal-header-title"]}>
-            {targetDownload ? "Скачивание файла" : "Переход на другую статью"}
-          </div>
+          <div className={modalStyles["modal-header-title"]}>{modalTitle}</div>
           <button
             className={modalStyles["modal-header-button"]}
             onClick={handleCancel}
@@ -202,20 +269,7 @@ export const useInternalLinkHandler = () => {
           </button>
         </div>
         <div className={modalStyles["modal-content"]}>
-          {targetDownload ? (
-            <p>
-              Вы уверены, что хотите скачать {targetDownload.fileKind}{" "}
-              <mark className={targetDownload.fileMarkClass}>
-                «{targetDownload.fileName}»
-              </mark>
-              ?
-            </p>
-          ) : (
-            <p>
-              Вы уверены, что хотите перейти к статье{" "}
-              <mark>«{targetArticle?.title}»</mark> на этой странице?
-            </p>
-          )}
+          {modalContent}
           <div className="flexible-links">
             <button
               disabled={isDownloadStarting}

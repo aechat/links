@@ -40,6 +40,8 @@ const Links = lazy(() => import("./pages/LinksPage"));
 
 const ChatRules = lazy(() => import("./pages/ChatRules"));
 
+const RegFilePage = lazy(() => import("./pages/RegFilePage"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AeFaqPage = lazy(() => import("./pages/AeFaqPage"));
@@ -93,28 +95,6 @@ const FilesRedirect = () => {
   useEffect(() => {
     document.title = "files@aechat";
     globalThis.location.href = "https://github.com/aechat/links/tree/main/public/files";
-  }, []);
-
-  return <></>;
-};
-
-const RegFileRedirect = () => {
-  useEffect(() => {
-    document.title = "regfile@aechat";
-
-    const link = document.createElement("a");
-
-    link.href = "/files/Enable%20Extensions%20Adobe.reg";
-    link.download = "Enable Extensions Adobe.reg";
-    document.body.append(link);
-    link.click();
-    link.remove();
-
-    alert(
-      "После скачивания откройте файл реестра и подтвердите слияние, нажав «Да». Это необходимо для корректной работы расширений, которые находятся в меню «Window» → «Extensions»."
-    );
-
-    history.back();
   }, []);
 
   return <></>;
@@ -671,11 +651,11 @@ const AppContent = () => {
                     path="/files"
                   />
                   <Route
-                    element={<RegFileRedirect />}
+                    element={<RegFilePage />}
                     path="/regfile"
                   />
                   <Route
-                    element={<RegFileRedirect />}
+                    element={<RegFilePage />}
                     path="/reg"
                   />
                   <Route
