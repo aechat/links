@@ -9,7 +9,6 @@ import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
 import EasingEditor from "../../../components/features/easingEditor/EasingEditor";
-import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const AeFromNewbies: React.FC = () => {
   return (
@@ -7025,13 +7024,7 @@ h = content(shapeName).content(pathName).size[1];
       </DetailsSummary>
       <Addition type="info">
         Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
-        <a
-          href="#interface"
-          onClick={(event_) => scrollToAnchorFromClick(event_, "interface")}
-        >
-          «Интерфейс»
-        </a>
-        .
+        <a href="#interface">«Интерфейс»</a>.
       </Addition>
     </div>
   );

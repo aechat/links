@@ -10,6 +10,7 @@ import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import GroupedCornersManager from "./components/ui/GroupedCornersManager";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
+import {LinkHandlerProvider, useLinkHandler} from "./context/LinkHandlerContext";
 import LoadingContext from "./context/LoadingContext";
 import {useAprilFoolsReplace} from "./hooks/useAprilFoolsReplace";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
@@ -146,6 +147,7 @@ const SafariWarningModal = ({
       open={open}
       title={undefined}
       width={450}
+      zIndex={9999}
     >
       <div className={modalStyles["modal"]}>
         <div className={modalStyles["modal-header"]}>
@@ -357,10 +359,36 @@ const SnowfallManager = () => {
   );
 };
 
+const AppInner = () => {
+  const {accentHue, saturateRatio, theme} = useTheme();
+
+  const isSystemDark =
+    globalThis.window?.matchMedia &&
+    globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
+
+  return (
+    <ConfigProvider theme={getAntTheme(isDarkMode, accentHue, saturateRatio)}>
+      <LinkHandlerProvider>
+        <AppContent />
+      </LinkHandlerProvider>
+    </ConfigProvider>
+  );
+};
+
+export const App = () => {
+  return (
+    <ThemeProvider>
+      <AppInner />
+    </ThemeProvider>
+  );
+};
+
 const AppContent = () => {
   const location = useLocation();
 
-  const {accentHue, saturateRatio, theme} = useTheme();
+  const {handleLinkClick} = useLinkHandler();
 
   useAprilFoolsReplace();
 
@@ -553,12 +581,6 @@ const AppContent = () => {
     };
   }, []);
 
-  const isSystemDark =
-    globalThis.window?.matchMedia &&
-    globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
-
   if (loadingError && !boundaryError) {
     return <ErrorFallback error={loadingError} />;
   }
@@ -581,7 +603,10 @@ const AppContent = () => {
   }
 
   return (
-    <ConfigProvider theme={getAntTheme(isDarkMode, accentHue, saturateRatio)}>
+    <div
+      className="app-root"
+      onClickCapture={handleLinkClick}
+    >
       <GroupedCornersManager pathKey={location.pathname} />
       <SnowfallManager />
       <ErrorBoundary onError={setBoundaryError}>
@@ -673,14 +698,6 @@ const AppContent = () => {
           )}
         </LoadingContext.Provider>
       </ErrorBoundary>
-    </ConfigProvider>
-  );
-};
-
-export const App = () => {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    </div>
   );
 };

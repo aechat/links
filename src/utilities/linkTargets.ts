@@ -8,6 +8,19 @@ import {
 export interface ArticleLinkTarget {
   id: string;
   title: string;
+  type: "article";
+}
+
+export interface SectionLinkTarget {
+  id: string;
+  title: string;
+  type: "section";
+}
+
+export interface InternalPageLinkTarget {
+  href: string;
+  title?: string;
+  type: "page";
 }
 
 export interface DownloadLinkTarget {
@@ -16,12 +29,15 @@ export interface DownloadLinkTarget {
   fileName: string;
   fileSize?: string;
   href: string;
+  type: "download";
 }
 
-export interface InternalPageLinkTarget {
-  href: string;
-  title?: string;
-}
+export type LinkTarget =
+  | ArticleLinkTarget
+  | SectionLinkTarget
+  | InternalPageLinkTarget
+  | DownloadLinkTarget
+  | {href: string; type: "external"};
 
 const pageTitles: Record<string, string> = {
   "/": "links",
@@ -34,7 +50,7 @@ const pageTitles: Record<string, string> = {
   "/rules": "rules",
 };
 
-const downloadFileMarkClassByExtension: Record<string, string> = {
+const fileMarkClasses: Record<string, string> = {
   avi: "video",
   flac: "audio",
   gif: "image",
@@ -53,7 +69,7 @@ const downloadFileMarkClassByExtension: Record<string, string> = {
   webp: "image",
 };
 
-const downloadFileKindByExtension: Record<string, string> = {
+const fileKinds: Record<string, string> = {
   "7z": "архив",
   "8be": "плагин",
   "8bf": "плагин",
@@ -132,158 +148,98 @@ const downloadFileKindByExtension: Record<string, string> = {
   "zxp": "расширение",
 };
 
-const getTargetElement = (target: EventTarget | null): HTMLElement | undefined => {
-  return target instanceof HTMLElement ? target : undefined;
-};
-
-const getFileExtension = (fileName: string): string | undefined =>
-  fileName.split(".").pop()?.toLowerCase();
-
-const getDownloadFileMarkClass = (fileName: string): string => {
-  const extension = getFileExtension(fileName);
-
-  if (!extension) {
-    return "file";
-  }
-
-  return downloadFileMarkClassByExtension[extension] || "file";
-};
-
-const getDownloadFileKind = (fileName: string): string => {
-  const extension = getFileExtension(fileName);
-
-  if (!extension) {
-    return "файл";
-  }
-
-  return downloadFileKindByExtension[extension] || "файл";
-};
-
-const getDownloadFileName = (anchor: HTMLAnchorElement, href: string) => {
-  const fileNameFromDownloadAttribute = anchor.getAttribute("download");
-
-  if (fileNameFromDownloadAttribute?.trim()) {
-    return fileNameFromDownloadAttribute.trim();
-  }
-
-  return getFileNameFromHref(href, "файл");
-};
-
-const shouldHandleAsDownload = (href: string): boolean => {
-  return !isHttpLink(href) || isGithubRawFromRepository(href, "aechat", "links");
-};
-
 const getArticleTitle = (summary: Element): string => {
-  const titleElement = summary.querySelector("h2");
+  const title = summary.querySelector("h2")?.textContent || "без названия";
 
-  return (titleElement ? titleElement.textContent : "без названия").replace(
-    /^\d+\.\d+\.\s*/,
-    ""
-  );
+  return title.replace(/^\d+\.\d+\.\s*/, "");
 };
 
-export const getExternalLinkHref = (target: EventTarget | null): string | undefined => {
-  const anchor = getTargetElement(target)?.closest<HTMLAnchorElement>("a[href]");
+const getAnchor = (target: EventTarget | undefined) =>
+  target instanceof Element ? target.closest<HTMLAnchorElement>("a[href]") : undefined;
 
-  if (!anchor || anchor.hasAttribute("download")) {
-    return;
-  }
+const resolveDownloadTarget = (
+  anchor: HTMLAnchorElement,
+  href: string,
+  downloadSizeCache: Record<string, string>
+): DownloadLinkTarget | undefined => {
+  if (
+    anchor.hasAttribute("download") ||
+    isGithubRawFromRepository(href, "aechat", "links")
+  ) {
+    const fileName =
+      anchor.getAttribute("download")?.trim() || getFileNameFromHref(href, "файл");
 
-  const href = anchor.getAttribute("href");
+    const extension = fileName.split(".").pop()?.toLowerCase() || "";
 
-  if (!href || !isHttpLink(href)) {
-    return;
-  }
-
-  if (isGithubRawFromRepository(href, "aechat", "links")) {
-    return;
-  }
-
-  return href;
-};
-
-export const resolveInternalPageLinkTarget = (
-  target: EventTarget | null
-): InternalPageLinkTarget | undefined => {
-  const anchor = getTargetElement(target)?.closest<HTMLAnchorElement>("a[href]");
-
-  if (!anchor || anchor.hasAttribute("download")) {
-    return;
-  }
-
-  const href = anchor.getAttribute("href");
-
-  if (!href) {
-    return;
-  }
-
-  if (href.startsWith("/") && !href.startsWith("#") && !isHttpLink(href)) {
-    const pageTitle = pageTitles[href];
-
-    const linkText = anchor.textContent?.trim();
-
-    return {href, title: pageTitle ?? linkText};
+    return {
+      fileKind: fileKinds[extension] || "файл",
+      fileMarkClass: fileMarkClasses[extension] || "file",
+      fileName,
+      fileSize: downloadSizeCache[href],
+      href,
+      type: "download",
+    };
   }
 
   return undefined;
 };
 
-export const resolveDownloadLinkTarget = (
-  target: EventTarget | null,
-  fileSizeByHref: Record<string, string> = {}
-): DownloadLinkTarget | undefined => {
-  const anchor =
-    getTargetElement(target)?.closest<HTMLAnchorElement>("a[download][href]");
+const resolveAnchorTarget = (
+  anchor: HTMLAnchorElement,
+  href: string,
+  currentTarget: EventTarget | undefined
+): ArticleLinkTarget | SectionLinkTarget | undefined => {
+  if (!href.startsWith("#") || href.length <= 1) return undefined;
 
-  const href = anchor?.getAttribute("href");
+  const id = href.slice(1);
 
-  if (!anchor || !href || !shouldHandleAsDownload(href)) {
-    return;
+  const details = resolveDetailsByAnchor(id);
+
+  if (details) {
+    if (
+      currentTarget instanceof Element &&
+      currentTarget.closest("details") === details
+    ) {
+      return undefined;
+    }
+
+    const summary = details.querySelector("summary");
+
+    if (summary?.id)
+      return {id: summary.id, title: getArticleTitle(summary), type: "article"};
   }
 
-  const fileName = getDownloadFileName(anchor, href);
+  if (document.getElementById(id)) {
+    const rawTitle = anchor.textContent?.trim() || "раздел";
 
-  return {
-    fileKind: getDownloadFileKind(fileName),
-    fileMarkClass: getDownloadFileMarkClass(fileName),
-    fileName,
-    fileSize: fileSizeByHref[href],
-    href,
-  };
+    const cleanTitle = rawTitle.replaceAll(/(^[«"'])|([»"']$)/g, "");
+
+    return {id, title: cleanTitle, type: "section"};
+  }
+
+  return undefined;
 };
 
-export const resolveArticleLinkTarget = (
-  target: EventTarget | null,
-  currentTarget: EventTarget | null
-): ArticleLinkTarget | undefined => {
-  const anchor = getTargetElement(target)?.closest<HTMLAnchorElement>('a[href^="#"]');
+export const resolveLinkTarget = (
+  target: EventTarget | undefined,
+  currentTarget: EventTarget | undefined,
+  downloadSizeCache: Record<string, string> = {}
+): LinkTarget | undefined => {
+  const anchor = getAnchor(target);
 
-  const href = anchor?.getAttribute("href");
+  if (!anchor) return undefined;
 
-  if (!href || href.length <= 1) {
-    return;
+  const href = anchor.getAttribute("href") || "";
+
+  const download = resolveDownloadTarget(anchor, href, downloadSizeCache);
+
+  if (download) return download;
+
+  if (isHttpLink(href)) return {href, type: "external"};
+
+  if (href.startsWith("/") && !href.startsWith("#")) {
+    return {href, title: pageTitles[href] || anchor.textContent?.trim(), type: "page"};
   }
 
-  const targetDetails = resolveDetailsByAnchor(href.slice(1));
-
-  if (!targetDetails) {
-    return;
-  }
-
-  const currentDetails = getTargetElement(currentTarget)?.closest("details");
-
-  if (currentDetails === targetDetails) {
-    return;
-  }
-
-  const summary = targetDetails.querySelector("summary");
-
-  if (!summary?.id) {
-    return;
-  }
-
-  return {
-    id: summary.id,
-    title: getArticleTitle(summary),
-  };
+  return resolveAnchorTarget(anchor, href, currentTarget);
 };
