@@ -70,4 +70,11 @@
     margin-inline: 0;
     border-radius: $roundness * 0.75;
   }
+
+  &-content {
+    > ul,
+    > ol {
+      @include article-list-edge-spacing();
+    }
+  }
 }
