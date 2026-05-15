@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
+import {HomeRounded, SwipeUpRounded} from "@mui/icons-material";
 import {Tooltip} from "antd";
 import {motion} from "framer-motion";
 import {Link, useLocation} from "react-router-dom";
@@ -126,7 +126,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
             to="/"
             onMouseDown={rippleLink.onMouseDown}
           >
-            <ArrowBackRounded />
+            <HomeRounded />
           </Link>
         )}
         <div className={styles.logo}>
