@@ -75,8 +75,8 @@ const AeInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если вы столкнулись с предупреждением{" "}
-                  <mark className="warning">Этот проект содержит ошибки выражений</mark> —
-                  измените язык интерфейса программы на английский.{" "}
+                  <mark className="warning">«Этот проект содержит ошибки выражений»</mark>{" "}
+                  — измените язык интерфейса программы на английский.{" "}
                   <a href="#fix-this-project-contains-an-expression-error">Как?</a>
                 </li>
                 <li>
