@@ -49,6 +49,10 @@ const isFaqPage = (p: string): p is FaqPath => {
   return FAQ_PATHS.includes(p as FaqPath);
 };
 
+const isLinksPage = (p: string): boolean => {
+  return p === "/";
+};
+
 const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
   const location = useLocation();
 
@@ -176,6 +180,13 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
               </p>
               {renderCommitInfo()}
             </>
+          )}
+          {isLinksPage(path) && (
+            <p className={styles["footer-content-info"]}>
+              Ссылки, размещённые на этой странице, предоставлены в ознакомительных целях.
+              Администрация страницы не несёт ответственности за содержимое публикаций на
+              сторонних ресурсах.
+            </p>
           )}
         </div>
         <a
