@@ -8,7 +8,6 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
-import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video
@@ -597,21 +596,8 @@ const AeImport: React.FC = () => {
         <Addition type="info">
           Подробную информацию о пайплайне импорта и экспорта вы можете узнать в{" "}
           <a href="https://t.me/montage_tutors/2">записи канала «Montage Tutors»</a> или в
-          статьях разделов{" "}
-          <a
-            href="#import"
-            onClick={(event_) => scrollToAnchorFromClick(event_, "import")}
-          >
-            «Импорт»
-          </a>{" "}
-          и{" "}
-          <a
-            href="#export"
-            onClick={(event_) => scrollToAnchorFromClick(event_, "export")}
-          >
-            «Экспорт»
-          </a>{" "}
-          на этой странице.
+          статьях разделов <a href="#import">«Импорт»</a> и{" "}
+          <a href="#export">«Экспорт»</a> на этой странице.
         </Addition>
       </DetailsSummary>
       <DetailsSummary

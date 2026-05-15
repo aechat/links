@@ -2,8 +2,6 @@ import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} fro
 
 import {message, Tooltip} from "antd";
 
-import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
-import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {usePrevious} from "../../hooks/usePrevious";
 import {useRipple} from "../../hooks/useRipple";
@@ -131,22 +129,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     [tag]
   );
 
-  const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
-    useInternalLinkHandler();
-
-  const {ExternalLinkModal, handleLinkClick: handleExternalLinkClick} =
-    useExternalLinkHandler();
-
   const {isSpoilerAnimationEnabled} = useTheme();
 
   const hasScrolledAfterOpening = useRef(false);
 
   const skipNextAutoScroll = useRef(false);
-
-  const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
-    handleInternalLinkClick(event);
-    handleExternalLinkClick(event);
-  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -800,7 +787,6 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
                 <section
                   ref={sectionReference}
                   className={`${styles["details-section"]} details-nested-section`}
-                  onClick={handleSectionClick}
                   {...sectionLongPressProperties}
                 >
                   {React.Children.count(children) === 0 ? (
@@ -821,8 +807,6 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           </div>
         </div>
       </details>
-      {InternalLinkModal}
-      {ExternalLinkModal}
     </>
   );
 };

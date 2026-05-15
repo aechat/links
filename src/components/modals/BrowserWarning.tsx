@@ -40,6 +40,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
       open={open}
       title={undefined}
       width={500}
+      zIndex={9999}
     >
       <div className={modalStyles["modal"]}>
         <div className={modalStyles["modal-header"]}>

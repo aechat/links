@@ -381,3 +381,21 @@
   font-weight: 375;
   text-wrap: balance;
 }
+
+@mixin article-list-edge-spacing {
+  &:first-child {
+    @include fluid-size(padding-block-start, $space-8, $space-12);
+
+    > li:first-child::before {
+      @include fluid-size(top, $space-4, $space-8);
+    }
+  }
+
+  &:last-child {
+    @include fluid-size(padding-block-end, $space-8, $space-12);
+
+    > li:last-child::before {
+      @include fluid-size(bottom, $space-4, $space-8);
+    }
+  }
+}

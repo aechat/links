@@ -78,8 +78,18 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
           </button>
         )}
       </div>
-      <div style={{display: displayForWindows ? "block" : "none"}}>{windowsContent}</div>
-      <div style={{display: displayForWindows ? "none" : "block"}}>{macContent}</div>
+      <div
+        className={styles["change-os-content"]}
+        style={{display: displayForWindows ? "block" : "none"}}
+      >
+        {windowsContent}
+      </div>
+      <div
+        className={styles["change-os-content"]}
+        style={{display: displayForWindows ? "none" : "block"}}
+      >
+        {macContent}
+      </div>
     </>
   );
 };

@@ -8,7 +8,6 @@ import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 import {getPlatformInfo} from "../../../utilities/browserDetection";
-import {scrollToAnchorFromClick} from "../../../utilities/scrollToAnchor";
 
 const PrInstallProblems: React.FC = () => {
   return (
@@ -3028,14 +3027,7 @@ const PrInstallProblems: React.FC = () => {
       <Addition type="info">
         Некоторые решения проблем, которые могут у вас возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем
-        разделе{" "}
-        <a
-          href="#errors"
-          onClick={(event_) => scrollToAnchorFromClick(event_, "errors")}
-        >
-          «Ошибки и предупреждения»
-        </a>
-        .
+        разделе <a href="#errors">«Ошибки и предупреждения»</a>.
       </Addition>
     </div>
   );
