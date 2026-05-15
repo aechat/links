@@ -463,10 +463,10 @@ const Links = () => {
               name="Ezgif"
             />
             <LinkCard
-              description="Проигрыватель анимации Lottie, принимает файлы формата JSON"
-              href="https://www.svgsprite.com/tools/lottie-player/"
+              description="Просмотрщик векторных анимаций в формате Lottie и JSON"
+              href="https://lottiefiles.com/preview"
               icon={<AnimationRounded />}
-              name="Lottie Player"
+              name="LottieFiles Preview"
             />
             <LinkCard
               description="Просмотрщик и конвертер изображений для Windows"
