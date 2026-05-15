@@ -336,7 +336,7 @@ const Links = () => {
             // aeexpr скоро будет возвращён, ссылка временно скрыта из-за пустоты этого раздела
             */}
           </div>
-          <Divider>Наши каналы</Divider>
+          <Divider>Каналы в Telegram</Divider>
           <Addition type="info">
             {(() => {
               const {isAndroid, isIOS, isMacOS} = getPlatformInfo();
