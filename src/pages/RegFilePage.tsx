@@ -89,7 +89,7 @@ const RegFilePage = () => {
           itemProp="name"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           itemProp="image"
         />
         <meta
@@ -113,7 +113,7 @@ const RegFilePage = () => {
           property="og:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           property="og:image"
         />
         <meta
@@ -129,7 +129,7 @@ const RegFilePage = () => {
           name="twitter:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           name="twitter:image"
         />
       </Helmet>
