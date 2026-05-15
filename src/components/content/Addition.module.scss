@@ -543,14 +543,14 @@ li:not(:has(> :global(.details-nested))) {
   > .addition-warning:first-child,
   > .addition-danger:first-child,
   > .addition-tldr:first-child {
-    margin-block-start: $space-8;
+    @include fluid-size(margin-block-start, $space-2, $space-4);
   }
 
   > .addition-info:last-child,
   > .addition-warning:last-child,
   > .addition-danger:last-child,
   > .addition-tldr:last-child {
-    margin-block-end: $space-8;
+    @include fluid-size(margin-block-end, $space-2, $space-4);
   }
 }
 
