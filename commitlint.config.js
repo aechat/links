@@ -65,6 +65,7 @@ export default {
         "psfaq",
         "aeexpr",
         "rules",
+        "reg",
         "links",
         "docs",
         // проектные области
