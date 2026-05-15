@@ -67,7 +67,7 @@ const AeInstallProblems: React.FC = () => {
                     <mark className="app">Adobe After Effects</mark> не сможет найти все
                     необходимые для проекта файлы, выдаст предупреждение{" "}
                     <mark className="warning">
-                      Warning: files are missing since you last saved project
+                      «Warning: files are missing since you last saved project»
                     </mark>{" "}
                     и заменит медиафайлы на «разноцветную заглушку».
                   </p>
