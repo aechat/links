@@ -14,7 +14,6 @@ import {
   DesktopWindowsRounded,
   DevicesOtherRounded,
   DomainRounded,
-  Download,
   FormatListBulletedRounded,
   ForumRounded,
   GradientRounded,
@@ -498,18 +497,6 @@ const Links = () => {
               href="https://h264.space/programs/alchemist"
               icon={<ScienceRounded />}
               name="Alchemist"
-            />
-            <LinkCard
-              description="Сервис для скачивания видео с различных источников, в том числе YouTube"
-              href="https://cobalt.tools/"
-              icon={<Download />}
-              name="кобальт"
-            />
-            <LinkCard
-              description="Альтернативный сервис для скачивания видео с различных источников"
-              href="https://ru.savefrom.net/"
-              icon={<Download />}
-              name="SaveFrom"
             />
             <LinkCard
               description="Программа для разделения аудиофайла на несколько дорожек"
