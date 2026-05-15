@@ -452,10 +452,10 @@ const Links = () => {
           <Divider>Сервисы и утилиты</Divider>
           <div className="links-grid">
             <LinkCard
-              description="Бот для покупки шаблонов с Envato Element и других сервисов"
-              href="https://t.me/HiStockBot?start=509060394"
+              description="Сервис для покупки шаблонов с Envato Element и других сервисов"
+              href="https://histock.ru/?ref=509060394"
               icon={<SmartToyRounded />}
-              name="HiStockBot"
+              name="HiStock"
             />
             <LinkCard
               description="Популярный онлайн конвертер видео файлов в GIF"

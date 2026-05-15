@@ -90,14 +90,9 @@ const PsWhereFind: React.FC = () => {
         </ul>
         <Addition type="info">
           Если вы не нашли в канале <a href="https://t.me/s/designworld">Design World</a>{" "}
-          нужный шаблон, но у вас есть на него ссылка, воспользуйтесь ботом{" "}
-          <a
-            href="https://t.me/HiStockBot?start=509060394"
-            title="Бот HiStock для покупки шаблонов в Telegram"
-          >
-            HiStock в Telegram
-          </a>{" "}
-          для оперативной покупки шаблонов с платформ{" "}
+          нужный шаблон, но у вас есть на него ссылка, воспользуйтесь сервисом{" "}
+          <a href="https://histock.ru/?ref=509060394">HiStock</a> для оперативной покупки
+          шаблонов с платформ{" "}
           <a
             href="https://elements.envato.com"
             title="Envato Elements"

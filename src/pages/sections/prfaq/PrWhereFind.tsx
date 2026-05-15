@@ -94,14 +94,9 @@ const PrWhereFind: React.FC = () => {
           Если вы не нашли в каналах <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
           <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
           <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
-          есть на него ссылка, воспользуйтесь ботом{" "}
-          <a
-            href="https://t.me/HiStockBot?start=509060394"
-            title="Бот HiStock для покупки шаблонов в Telegram"
-          >
-            HiStock в Telegram
-          </a>{" "}
-          для оперативной покупки шаблонов с платформ{" "}
+          есть на него ссылка, воспользуйтесь сервисом{" "}
+          <a href="https://histock.ru/?ref=509060394">HiStock</a> для оперативной покупки
+          шаблонов с платформ{" "}
           <a
             href="https://elements.envato.com"
             title="Envato Elements"
