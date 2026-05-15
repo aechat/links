@@ -17,7 +17,6 @@ import {
   Download,
   FormatListBulletedRounded,
   ForumRounded,
-  GavelRounded,
   GradientRounded,
   HandymanRounded,
   ImageRounded,
@@ -556,13 +555,6 @@ const Links = () => {
               href="https://t.me/+3LF_B_VK-Nw4YzYy"
               icon={<ForumRounded />}
               name="DWChat"
-            />
-            <LinkCard
-              description="Рассказываем об уставе наших чатов"
-              href="rules"
-              icon={<GavelRounded />}
-              name="Правила чатов AEChat и DWChat"
-              variant="internal"
             />
             <LinkCard
               description="Обсуждаем компьютерные технологии и проблемы"
