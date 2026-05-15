@@ -167,6 +167,9 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
             <a href="https://github.com/m1sh3r">m1sh3r</a> {"+ "}
             {title} \\ &copy; {initialYear} - {currentYear}
           </p>
+          <p className={styles["footer-content-info"]}>
+            Данная страница не является коммерческим проектом.
+          </p>
           {isFaqPage(path) && (
             <>
               <p className={styles["footer-content-info"]}>
