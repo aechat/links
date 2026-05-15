@@ -26,7 +26,6 @@ import {
   MusicNoteRounded,
   PermMediaRounded,
   ScienceRounded,
-  SlowMotionVideoRounded,
   SmartToyRounded,
   SpellcheckRounded,
   SportsEsportsRounded,
@@ -430,12 +429,6 @@ const Links = () => {
               href="https://t.me/s/designworld"
               icon={<MmsRounded />}
               name="Design World"
-            />
-            <LinkCard
-              description="Приватный канал с различными обучающими курсами"
-              href="https://teletype.in/@aetemp/Courses"
-              icon={<SlowMotionVideoRounded />}
-              name="Курсы от AETemp"
             />
             <LinkCard
               description="программы для творчества на windows"
