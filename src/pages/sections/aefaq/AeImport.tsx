@@ -1832,7 +1832,9 @@ const AeImport: React.FC = () => {
           <mark className="file">Lottie</mark> некоторые элементы анимации могут
           импортироваться некорректно.
         </Addition>
-        <Divider>Импортируем файлы Lottie</Divider>
+        <Divider>
+          Импортируем файлы <mark className="file">Lottie</mark>
+        </Divider>
         <p>
           Прежде чем начать импорт <mark className="file">Lottie</mark> или{" "}
           <mark className="file">JSON</mark>, вам нужно загрузить и установить{" "}
@@ -1917,7 +1919,10 @@ const AeImport: React.FC = () => {
           переконвертировать в <mark className="file">JSON</mark>. Сделать это можно с
           помощью конвертера ниже, загрузив в него файл.
         </p>
-        <Divider>Конвертируем TGS в JSON</Divider>
+        <Divider>
+          Конвертируем <mark className="file">TGS</mark> в{" "}
+          <mark className="file">JSON</mark>
+        </Divider>
         <TgsToJsonConverter />
         <Addition type="info">
           Если вы не хотите разбираться с скачиванием или конвертацией стикера — вы можете
@@ -2058,7 +2063,9 @@ const AeImport: React.FC = () => {
           можно распаковать и использовать в своих композициях{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
-        <Divider>Открываем MOGRT как проект</Divider>
+        <Divider>
+          Открываем <mark className="file">MOGRT</mark> как проект
+        </Divider>
         <p>
           Чтобы открыть шаблон формата <mark className="file">MOGRT</mark>, нужно вызвать
           окно открытия проекта с помощью{" "}
@@ -2088,7 +2095,9 @@ const AeImport: React.FC = () => {
           src="legacy/aftereffects/essential_graphics.png"
           type="image"
         />
-        <Divider>Используем MOGRT в другом проекте</Divider>
+        <Divider>
+          Используем <mark className="file">MOGRT</mark> в другом проекте
+        </Divider>
         <p>
           Поскольку с помощью <mark className="select">«Open Project»</mark> анимация
           формата <mark className="file">MOGRT</mark> конвертируется в{" "}
