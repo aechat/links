@@ -1,9 +1,11 @@
 import React, {useEffect, useLayoutEffect, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
+
 import {useLocation} from "react-router-dom";
 
 import {useLoading} from "../../context/LoadingContext";
+
 import {getStoredNumber, setStoredNumber} from "../../utilities/localStorageUtilities";
 
 import styles from "./LoadingAnimation.module.scss";

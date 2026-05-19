@@ -1,11 +1,14 @@
 import fs from "node:fs";
+
 import path from "node:path";
 
 import {
   getOutputDirectory,
   getSectionsOption,
 } from "../utilities/commandLineUtilities.js";
+
 import {getSectionFiles, toRelativePath} from "../utilities/fileUtilities.js";
+
 import {formatGeneratedDate, stripTags} from "../utilities/textUtilities.js";
 
 const CONTEXT_RADIUS = 2;
@@ -41,6 +44,7 @@ function formatOccurrence(occurrence, style = "plain") {
 
 function getContext(lines, lineIndex) {
   const start = Math.max(0, lineIndex - CONTEXT_RADIUS);
+
   const end = Math.min(lines.length, lineIndex + CONTEXT_RADIUS + 1);
 
   return lines.slice(start, end).join(" ");
@@ -92,15 +96,22 @@ function hasAdobeAppWithoutVersion(context) {
 
 function collectReports(files) {
   const allOccurrences = [];
+
   const adobeYearStyle = [];
+
   const cinemaYearStyle = [];
+
   const versionOnlyMarks = [];
+
   const priorityVersionOnlyMarks = [];
 
   for (const file of files) {
     const rawContent = fs.readFileSync(file, "utf8");
+
     const lines = rawContent.split(/\r?\n/);
+
     const relativePath = toRelativePath(file);
+
     const checklistPath = makeChecklistPath(file);
 
     for (const [lineIndex, rawLine] of lines.entries()) {
@@ -120,9 +131,13 @@ function collectReports(files) {
 
       while ((match = MARK_RE.exec(rawLine)) !== null) {
         const className = match[1] ?? match[2] ?? "";
+
         const fullMark = match[0];
+
         const innerText = stripTags(match[3] ?? "");
+
         const context = getContext(lines, lineIndex);
+
         const occurrence = {
           checklistPath,
           line: lineIndex + 1,
@@ -207,18 +222,23 @@ function writeChecklistReport(outputDirectory, sections, reports, generatedAt) {
   lines.push("");
   lines.push("## Сводка");
   lines.push("");
+
   lines.push(
     `- \`mark.app\`/связка \`mark.app + mark.version\` с форматом \`Adobe ... 20XX/2025\` (к переводу в \`major.X (YYYY)\`): ${reports.adobeYearStyle.length}`
   );
+
   lines.push(
     `- \`mark.app\`/связка \`mark.app + mark.version\` с годовым стилем у \`Cinema 4D\` (проверить по правилу для non-Adobe): ${reports.cinemaYearStyle.length}`
   );
+
   lines.push(
     `- одиночные версии в \`<mark>...</mark>\` или \`mark.version\` (кандидаты на схлопывание): ${reports.versionOnlyMarks.length}`
   );
+
   lines.push(
     `- одиночные версии рядом с \`Adobe ...\` без версии (приоритетные на схлопывание): ${reports.priorityVersionOnlyMarks.length}`
   );
+
   lines.push("");
 
   const sectionsToWrite = [
@@ -256,20 +276,24 @@ function writeChecklistReport(outputDirectory, sections, reports, generatedAt) {
 }
 
 const sections = getSectionsOption();
+
 const outputDirectory = getOutputDirectory("version-report");
+
 const files = getSectionFiles({sections});
+
 const generatedAt = formatGeneratedDate();
+
 const reports = collectReports(files);
 
 fs.mkdirSync(outputDirectory, {recursive: true});
 writeOccurrenceReport(outputDirectory, sections, reports, generatedAt);
 writeChecklistReport(outputDirectory, sections, reports, generatedAt);
-
 console.log(`Версионные отчёты созданы: ${toRelativePath(outputDirectory)}`);
 console.log(`Все совпадения, похожие на версии: ${reports.allOccurrences.length}`);
 console.log(`Годовой стиль Adobe в mark.app: ${reports.adobeYearStyle.length}`);
 console.log(`Годовой стиль Cinema 4D в mark.app: ${reports.cinemaYearStyle.length}`);
 console.log(`Одиночные версии в mark: ${reports.versionOnlyMarks.length}`);
+
 console.log(
   `Приоритетные одиночные версии в mark: ${reports.priorityVersionOnlyMarks.length}`
 );

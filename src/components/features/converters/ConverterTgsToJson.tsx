@@ -1,12 +1,17 @@
 import pkg from "file-saver";
+
 import {inflate} from "pako";
+
 import React, {useState} from "react";
 
 import {UploadFileRounded} from "@mui/icons-material";
+
 import {message, Upload} from "antd";
 
 import {formatBytes, formatPercentDelta} from "../../../utilities/fileUtilities";
+
 import {triggerHaptic, withSoftHaptic} from "../../../utilities/haptics";
+
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";

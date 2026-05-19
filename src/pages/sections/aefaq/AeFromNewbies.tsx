@@ -3,11 +3,17 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+
 import CodeSnippet from "../../../components/content/CodeSnippet";
+
 import ContentFilter from "../../../components/content/ContentFilter";
+
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
+
 import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
+
 import EasingEditor from "../../../components/features/easingEditor/EasingEditor";
 
 const AeFromNewbies: React.FC = () => {

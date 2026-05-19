@@ -3,8 +3,11 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+
 import CodeSnippet from "../../../components/content/CodeSnippet";
+
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 const PrInterface: React.FC = () => {

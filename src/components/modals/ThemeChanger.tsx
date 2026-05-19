@@ -15,15 +15,19 @@ import {
   RestartAlt,
   TuneRounded,
 } from "@mui/icons-material";
+
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
+
 import {isMobileDevice, isWebKitBrowser} from "../../utilities/browserDetection";
+
 import {
   isHapticFeedbackSupported,
   setIsVibrationEnabled as setGlobalVibrationEnabled,
   withSelectionHaptic,
 } from "../../utilities/haptics";
+
 import {
   getLocalStorageItem,
   getStoredBoolean,

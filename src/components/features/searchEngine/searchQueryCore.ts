@@ -5,6 +5,7 @@ import {
   normalizeText,
   normalizeWord,
 } from "./searchContentUtilities";
+
 import {
   getConsonantSignature,
   getWordFeatures,
@@ -16,6 +17,7 @@ import {
   WORD_MATCH_PRIORITY,
   type WordFeatures,
 } from "./searchPhoneticUtilities";
+
 import {
   computeSearchScore,
   SEARCH_RESCORE_CONFIG,

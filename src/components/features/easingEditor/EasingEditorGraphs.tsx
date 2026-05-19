@@ -1,6 +1,7 @@
 import React, {useMemo} from "react";
 
 import styles from "./EasingEditor.module.scss";
+
 import {
   type AnimationProperty,
   type GraphDimensions,

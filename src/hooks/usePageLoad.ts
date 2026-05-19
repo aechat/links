@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 
 import {generateAnchorId} from "../components/detailsSummary/DetailsSummary";
+
 import {useLoading} from "../context/LoadingContext";
 
 const PAGE_LOAD_DELAY = 100;

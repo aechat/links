@@ -3,7 +3,9 @@ import React, {useEffect, useState} from "react";
 import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
 import Addition from "./Addition";
+
 import CodeSnippet from "./CodeSnippet";
+
 import styles from "./CodeSnippet.module.scss";
 
 const HOSTS_URL =

@@ -3,6 +3,7 @@ import {type HapticInput, WebHaptics} from "web-haptics";
 import {message} from "antd";
 
 import {isMobileDevice} from "./browserDetection";
+
 import {getStoredBoolean, setStoredBoolean} from "./localStorageUtilities";
 
 type MessageLevel = "error" | "info" | "success" | "warning";
@@ -64,7 +65,6 @@ export const setIsVibrationEnabled = (enabled: boolean) => {
 
   isVibrationEnabled = enabled;
   hasResolvedVibrationPreference = true;
-
   setStoredBoolean(vibrationStorageKey, enabled);
 
   if (!enabled) {

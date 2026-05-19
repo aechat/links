@@ -1,6 +1,7 @@
 import {useCallback, useMemo} from "react";
 
 import {getPointOnCubicBezier, getSpeedOnCubicBezier} from "./easingEditorMath";
+
 import {
   type AnimationMode,
   type GraphDimensions,

@@ -5,6 +5,7 @@ export default {
       rules: {
         "scope-list-spacing": (parsed) => {
           const header = parsed.header || "";
+
           const scopeMatch = header.match(/^[^(]+\(([^)]+)\):/);
 
           if (!scopeMatch) {
@@ -12,6 +13,7 @@ export default {
           }
 
           const scopeRaw = scopeMatch[1];
+
           const hasComma = scopeRaw.includes(",");
 
           if (!hasComma) {
@@ -19,7 +21,9 @@ export default {
           }
 
           const hasSpaceBeforeComma = /\s,/.test(scopeRaw);
+
           const hasNoSpaceAfterComma = /,(?=\S)/.test(scopeRaw);
+
           const hasTooManySpacesAfterComma = /, {2,}/.test(scopeRaw);
 
           const isValid =

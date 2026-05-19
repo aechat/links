@@ -2,6 +2,7 @@ import {
   collectNoHtmlStringFindings,
   getContentFiles,
 } from "../utilities/contentLintUtilities.js";
+
 import {finishLint} from "../utilities/reportUtilities.js";
 
 function main() {

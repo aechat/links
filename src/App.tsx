@@ -1,29 +1,46 @@
 import React, {lazy, Suspense, useEffect, useRef, useState} from "react";
 
 import {ConfigProvider, message, Modal} from "antd";
+
 import {AnimatePresence} from "framer-motion";
+
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
+
 import Snowfall from "react-snowfall";
 
 import BrowserWarning from "./components/modals/BrowserWarning";
+
 import modalStyles from "./components/modals/Modal.module.scss";
+
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
+
 import GroupedCornersManager from "./components/ui/GroupedCornersManager";
+
 import LoadingAnimation from "./components/ui/LoadingAnimation";
+
 import {LinkHandlerProvider, useLinkHandler} from "./context/LinkHandlerContext";
+
 import LoadingContext from "./context/LoadingContext";
+
 import {useAprilFoolsReplace} from "./hooks/useAprilFoolsReplace";
+
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
+
 import {useRipple} from "./hooks/useRipple";
+
 import getAntTheme from "./styles/antTheme";
+
 import {getBrowserInfo, isWebKitBrowser} from "./utilities/browserDetection";
+
 import {copyText} from "./utilities/copyUtilities";
+
 import {
   disposeHaptics,
   setupHapticMessageFeedback,
   triggerHaptic,
   withSelectionHaptic,
 } from "./utilities/haptics";
+
 import {
   getStoredBoolean,
   getStoredNumber,
@@ -31,10 +48,15 @@ import {
   setStoredBoolean,
   setStoredNumber,
 } from "./utilities/localStorageUtilities";
+
 import faviconSvg from "/icons/favicon.svg?raw";
+
 import aefaqSvg from "/icons/aefaq.svg?raw";
+
 import prfaqSvg from "/icons/prfaq.svg?raw";
+
 import psfaqSvg from "/icons/psfaq.svg?raw";
+
 import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
 
 const Links = lazy(() => import("./pages/LinksPage"));

@@ -1,11 +1,15 @@
 import React, {useCallback} from "react";
 
 import {message} from "antd";
+
 import {Link} from "react-router-dom";
 
 import {useLongPress} from "../../hooks/useLongPress";
+
 import {useRipple} from "../../hooks/useRipple";
+
 import {copyText} from "../../utilities/copyUtilities";
+
 import {formatNestedQuotes} from "../../utilities/stringUtilities";
 
 import styles from "./LinkCards.module.scss";

@@ -1,14 +1,19 @@
 import fs from "node:fs";
+
 import path from "node:path";
 
 import sizeOf from "image-size";
+
 import ffmpeg from "fluent-ffmpeg";
+
 import ffprobeInstaller from "@ffprobe-installer/ffprobe";
 
 ffmpeg.setFfprobePath(ffprobeInstaller.path);
 
 const ROOT = process.cwd();
+
 const PUBLIC_DIR = path.join(ROOT, "public");
+
 const MEDIA_DIR = path.join(PUBLIC_DIR, "media");
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
@@ -16,6 +21,7 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
 
   files.forEach((file) => {
     const fullPath = path.join(dirPath, file);
+
     if (fs.statSync(fullPath).isDirectory()) {
       getAllFiles(fullPath, arrayOfFiles);
     } else {
@@ -32,6 +38,7 @@ function getVideoDimensions(filePath) {
       if (err) {
         console.warn(`Не удалось прочитать видео ${filePath}:`, err.message);
         resolve(null);
+
         return;
       }
 
@@ -39,6 +46,7 @@ function getVideoDimensions(filePath) {
 
       if (videoStream && videoStream.width && videoStream.height) {
         const rotation = videoStream.tags && videoStream.tags.rotate;
+
         if (rotation && (Math.abs(rotation) === 90 || Math.abs(rotation) === 270)) {
           resolve({
             width: videoStream.height,
@@ -62,10 +70,12 @@ export async function getMediaMetadata() {
 
   if (!fs.existsSync(MEDIA_DIR)) {
     console.warn(`Директория медиа не найдена: ${MEDIA_DIR}`);
+
     return {};
   }
 
   const files = getAllFiles(MEDIA_DIR);
+
   const metadataMap = {};
 
   for (const file of files) {
@@ -76,7 +86,9 @@ export async function getMediaMetadata() {
     try {
       if ([".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"].includes(ext)) {
         const buffer = fs.readFileSync(file);
+
         const dimensions = sizeOf(buffer);
+
         if (dimensions && dimensions.width && dimensions.height) {
           metadataMap[relativePath] = {
             width: dimensions.width,
@@ -85,6 +97,7 @@ export async function getMediaMetadata() {
         }
       } else if ([".mp4", ".webm", ".mov", ".mkv"].includes(ext)) {
         const dimensions = await getVideoDimensions(file);
+
         if (dimensions) {
           metadataMap[relativePath] = {
             width: dimensions.width,

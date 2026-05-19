@@ -10,11 +10,17 @@ import React, {
 import {Tooltip} from "antd";
 
 import {useLongPress} from "../../hooks/useLongPress";
+
 import {usePrevious} from "../../hooks/usePrevious";
+
 import {useRipple} from "../../hooks/useRipple";
+
 import {triggerDisclosureHaptic} from "../../utilities/haptics";
+
 import {scrollToElement} from "../../utilities/scrollToAnchor";
+
 import {getCurrentHashAnchor} from "../../utilities/urlHashUtilities";
+
 import {CopyButton} from "../ui/CopyButton";
 
 import {
@@ -24,7 +30,9 @@ import {
   replaceUrlHash,
   throwDuplicateAnchorError,
 } from "./anchorUtilities";
+
 import styles from "./NestedDetailsSummary.module.scss";
+
 import {
   DetailsSummaryContext,
   NestedDetailsSummaryContext,

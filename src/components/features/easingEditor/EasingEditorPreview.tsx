@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import styles from "./EasingEditor.module.scss";
+
 import {type AnimationProperty, type Point} from "./easingEditorTypes";
 
 const POSITION_PROPERTIES = new Set<AnimationProperty>([

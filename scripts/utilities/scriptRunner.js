@@ -1,7 +1,9 @@
 import {readFileSync, writeFileSync} from "node:fs";
 
 import {SCRIPT_EXTENSIONS, walkFiles} from "./fileUtilities.js";
+
 import {log} from "./logger.js";
+
 import {rl, askForConfirmation, confirmFileWrite} from "./interactiveUtilities.js";
 
 export async function runScript(
@@ -17,6 +19,7 @@ export async function runScript(
 
     for (const filePath of allFiles) {
       const originalContent = readFileSync(filePath, "utf8");
+
       let fixedContent = originalContent;
 
       console.log(`\n--- Обработка файла: ${filePath} ---`);
@@ -31,11 +34,14 @@ export async function runScript(
 
       if (originalContent !== fixedContent) {
         writeFileSync(filePath, fixedContent);
+
         const message = `✔ Обновлено: ${filePath}`;
+
         console.log(message);
         log(scriptName, message);
       } else {
         const message = `- Нет изменений: ${filePath}`;
+
         console.log(message);
         log(scriptName, message);
       }

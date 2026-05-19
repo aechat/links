@@ -1,17 +1,23 @@
 #!/usr/bin/env node
-
 import {existsSync, readdirSync, writeFileSync} from "node:fs";
+
 import {basename, extname, relative, resolve, sep} from "node:path";
 
 const VARIABLE_FONT_PATTERN = /VariableFont.*\.ttf$/iu;
+
 const FONT_EXTENSION = ".ttf";
+
 const STATIC_FOLDER_NAME = "static";
+
 const DEFAULT_FONTS_ROOT = "src/fonts";
+
 const DEFAULT_OUTPUT = "src/styles/base/_fonts.scss";
+
 const FAMILY_NAME_ALIASES = new Map([
   ["JetBrainsMono", "JetBrains Mono"],
   ["RedHatDisplay", "Red Hat Display"],
 ]);
+
 const WEIGHT_TOKENS = [
   {token: "extralight", weight: 200},
   {token: "semibold", weight: 600},
@@ -23,6 +29,7 @@ const WEIGHT_TOKENS = [
   {token: "bold", weight: 700},
   {token: "thin", weight: 100},
 ];
+
 const STYLE_ORDER = {
   italic: 1,
   normal: 0,
@@ -32,10 +39,8 @@ const printUsage = () => {
   console.log(
     `
 Создаёт src/styles/base/_fonts.scss из файлов в src/fonts.
-
 Использование:
   node scripts/fonts/generateFontStyle.js [опции]
-
 Опции:
   --fonts-root src/fonts                  Корневая директория семейств шрифтов
   --output src/styles/base/_fonts.scss    Целевой SCSS-файл
@@ -67,6 +72,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--fonts-root") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --fonts-root нужно указать значение");
       }
@@ -83,6 +89,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--output") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --output нужно указать значение");
       }
@@ -105,6 +112,7 @@ const parseArgs = (argv) => {
 
 const toRelativePath = (projectRoot, absolutePath) => {
   const relativePath = relative(projectRoot, absolutePath);
+
   if (relativePath.startsWith("..")) {
     throw new Error(`Путь должен находиться внутри корня проекта: ${absolutePath}`);
   }
@@ -117,6 +125,7 @@ const toPublicFontUrl = (projectRoot, absolutePath) =>
 
 const toCssFamilyName = (familyName) => {
   const alias = FAMILY_NAME_ALIASES.get(familyName);
+
   if (alias) {
     return alias;
   }
@@ -135,20 +144,26 @@ const formatCssFamilyName = (familyName) =>
 
 const inferWeight = (filePath) => {
   const fileNameStem = basename(filePath, FONT_EXTENSION);
+
   const normalizedStem = fileNameStem.toLowerCase();
+
   const fileStem = normalizedStem.replace(/[^a-z0-9]/gu, "");
 
   const numericWeightMatch = fileStem.match(/wght(\d{2,4})/u);
+
   if (numericWeightMatch) {
     const numericWeight = Number(numericWeightMatch[1]);
+
     if (Number.isInteger(numericWeight) && numericWeight > 0) {
       return numericWeight;
     }
   }
 
   const trailingNumericMatch = fileStem.match(/(\d{2,4})(?!.*\d)(?=(?:italic)?$)/u);
+
   if (trailingNumericMatch) {
     const numericWeight = Number(trailingNumericMatch[1]);
+
     if (Number.isInteger(numericWeight) && numericWeight > 0) {
       return numericWeight;
     }
@@ -174,14 +189,17 @@ const inferStyle = (filePath) =>
 
 const walkFiles = (rootDirectory) => {
   const queue = [rootDirectory];
+
   const files = [];
 
   while (queue.length > 0) {
     const currentDirectory = queue.pop();
+
     const entries = readdirSync(currentDirectory, {withFileTypes: true});
 
     for (const entry of entries) {
       const fullPath = resolve(currentDirectory, entry.name);
+
       if (entry.isDirectory()) {
         queue.push(fullPath);
         continue;
@@ -198,6 +216,7 @@ const walkFiles = (rootDirectory) => {
 
 const collectFamilies = (fontsRoot) => {
   const entries = readdirSync(fontsRoot, {withFileTypes: true});
+
   const families = [];
 
   for (const entry of entries) {
@@ -206,12 +225,15 @@ const collectFamilies = (fontsRoot) => {
     }
 
     const directoryPath = resolve(fontsRoot, entry.name);
+
     const files = walkFiles(directoryPath);
+
     if (files.length === 0) {
       continue;
     }
 
     const variableFonts = [];
+
     const staticFonts = [];
 
     for (const filePath of files) {
@@ -219,10 +241,12 @@ const collectFamilies = (fontsRoot) => {
 
       if (normalizedPath.includes(`/${STATIC_FOLDER_NAME}/`)) {
         const weight = inferWeight(filePath);
+
         if (!weight) {
           console.warn(
             `[предупреждение] Не удалось определить насыщенность ${filePath}. Пропуск.`
           );
+
           continue;
         }
 
@@ -231,6 +255,7 @@ const collectFamilies = (fontsRoot) => {
           style: inferStyle(filePath),
           weight,
         });
+
         continue;
       }
 
@@ -247,11 +272,14 @@ const collectFamilies = (fontsRoot) => {
     }
 
     const deduplicatedStaticFonts = [];
+
     const seenStaticFaces = new Set();
+
     for (const staticFont of [...staticFonts].sort((left, right) =>
       left.path.localeCompare(right.path, "en", {sensitivity: "base"})
     )) {
       const key = `${staticFont.style}:${staticFont.weight}`;
+
       if (seenStaticFaces.has(key)) {
         continue;
       }
@@ -301,12 +329,15 @@ const getWeightRange = (staticFonts, style) => {
     styleWeights.length > 0
       ? styleWeights
       : staticFonts.map((fontFace) => fontFace.weight);
+
   if (weights.length === 0) {
     return "100 900";
   }
 
   const minWeight = Math.min(...weights);
+
   const maxWeight = Math.max(...weights);
+
   return minWeight === maxWeight ? String(minWeight) : `${minWeight} ${maxWeight}`;
 };
 
@@ -328,6 +359,7 @@ const renderFontFace = ({familyName, style, src, weight, variable}) => {
       `    url("${src}") format("truetype");`,
       "}"
     );
+
     return lines.join("\n");
   }
 
@@ -344,11 +376,14 @@ const indentBlock = (block) =>
 
 const buildScss = (projectRoot, families) => {
   const variableBlocks = [];
+
   const staticBlocks = [];
 
   for (const family of families) {
     const formattedFamily = formatCssFamilyName(family.cssFamilyName);
+
     const sortedVariableFonts = [...family.variableFonts].sort(sortVariableFaces);
+
     const sortedStaticFonts = [...family.staticFonts].sort(sortFaces);
 
     for (const variableFont of sortedVariableFonts) {
@@ -403,8 +438,11 @@ const buildScss = (projectRoot, families) => {
 
 const main = () => {
   const options = parseArgs(process.argv.slice(2));
+
   const projectRoot = process.cwd();
+
   const fontsRoot = resolve(projectRoot, options.fontsRoot);
+
   const outputPath = resolve(projectRoot, options.output);
 
   if (!existsSync(fontsRoot)) {
@@ -412,14 +450,17 @@ const main = () => {
   }
 
   const families = collectFamilies(fontsRoot);
+
   const generatedScss = buildScss(projectRoot, families);
 
   if (options.dryRun) {
     console.log(generatedScss);
+
     return;
   }
 
   writeFileSync(outputPath, generatedScss, "utf8");
+
   console.log(
     `Создан ${toRelativePath(projectRoot, outputPath)} из ${families.length} семейств шрифтов.`
   );

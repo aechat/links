@@ -12,6 +12,7 @@ export const IGNORED_DIRS = [
   ".yarn",
   "public",
 ];
+
 export const IGNORED_FILES = [
   ".gitignore",
   ".env",
@@ -23,6 +24,7 @@ export const IGNORED_FILES = [
   "TODO.md",
   ".DS_Store",
 ];
+
 export const IGNORED_PATTERNS = [
   "*.log",
   "npm-debug.log*",
@@ -37,25 +39,32 @@ export const IGNORED_PATTERNS = [
   "*.sln",
   "*.sw?",
 ];
+
 export function shouldIgnore(path) {
   const parts = path.split(/[/\\]/);
+
   const fileName = parts[parts.length - 1];
+
   for (const part of parts) {
     if (IGNORED_DIRS.includes(part)) {
       return true;
     }
   }
+
   if (IGNORED_FILES.includes(fileName)) {
     return true;
   }
+
   for (const pattern of IGNORED_PATTERNS) {
     const regex = new RegExp(
       "^" + pattern.replace(/\*/g, ".*").replace(/\?/g, ".") + "$",
       "i"
     );
+
     if (regex.test(fileName)) {
       return true;
     }
   }
+
   return false;
 }

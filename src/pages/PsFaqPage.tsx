@@ -12,30 +12,48 @@ import {
   TravelExploreRounded,
   VideoSettingsRounded,
 } from "@mui/icons-material";
+
 import {Divider} from "antd";
+
 import {Helmet} from "react-helmet-async";
 
 import {
   SearchInPage,
   SearchProvider,
 } from "../components/features/searchEngine/SearchEngine";
+
 import Footer from "../components/layout/Footer";
+
 import Header from "../components/layout/Header";
+
 import PageTransition from "../components/layout/PageTransition";
+
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
+
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+
 import {usePageLoad} from "../hooks/usePageLoad";
+
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
 import PsActions from "./sections/psfaq/PsActions";
+
 import PsErrors from "./sections/psfaq/PsErrors";
+
 import PsExport from "./sections/psfaq/PsExport";
+
 import PsExportProblems from "./sections/psfaq/PsExportProblems";
+
 import PsFromNewbies from "./sections/psfaq/PsFromNewbies";
+
 import PsImport from "./sections/psfaq/PsImport";
+
 import PsInstallProblems from "./sections/psfaq/PsInstallProblems";
+
 import PsInterface from "./sections/psfaq/PsInterface";
+
 import PsPerformance from "./sections/psfaq/PsPerformance";
+
 import PsWhereFind from "./sections/psfaq/PsWhereFind";
 
 const PsFaqPage = () => {

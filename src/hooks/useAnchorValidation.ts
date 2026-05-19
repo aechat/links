@@ -1,10 +1,13 @@
 import {useEffect} from "react";
 
 import {message} from "antd";
+
 import {useLocation} from "react-router-dom";
 
 import {resolveDetailsByAnchor} from "../utilities/anchorResolvers";
+
 import {scrollToAnchorById} from "../utilities/scrollToAnchor";
+
 import {replaceCurrentUrlHash} from "../utilities/urlHashUtilities";
 
 interface Section {
@@ -47,7 +50,6 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
 
     const alignAnchorAfterLayoutStabilization = (anchorId: string) => {
       pendingAnchorId = anchorId;
-
       firstAlignFrameId = requestAnimationFrame(scheduleSecondFrameAlign);
 
       alignFallbackTimeout = setTimeout(

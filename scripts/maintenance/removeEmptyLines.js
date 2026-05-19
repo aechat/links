@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 import {existsSync, readFileSync, statSync, writeFileSync} from "node:fs";
+
 import {resolve} from "node:path";
+
 import {cwd} from "node:process";
 
 import {walk} from "../utilities/fileUtilities.js";
+
 import {confirmFileWrite, rl} from "../utilities/interactiveUtilities.js";
+
 import {shouldIgnore} from "../utilities/ignore.js";
+
 import {runScript} from "../utilities/scriptRunner.js";
 
 const TEXT_FILE_EXTENSIONS = [
@@ -40,6 +45,7 @@ function removeEmptyLines(content) {
 
 async function processor(filePath, originalContent) {
   const ext = `.${filePath.split(".").pop()}`;
+
   if (!TEXT_FILE_EXTENSIONS.includes(ext)) {
     return originalContent;
   }
@@ -48,10 +54,12 @@ async function processor(filePath, originalContent) {
 
   if (originalContent !== fixedContent) {
     const shouldWrite = await confirmFileWrite(filePath);
+
     if (shouldWrite) {
       return fixedContent;
     }
   }
+
   return originalContent;
 }
 
@@ -60,6 +68,7 @@ function collectTargetFiles(targets) {
 
   for (const target of targets) {
     const absolutePath = resolve(cwd(), target);
+
     if (!existsSync(absolutePath)) {
       console.warn(`Путь не найден: ${target}`);
       continue;
@@ -71,6 +80,7 @@ function collectTargetFiles(targets) {
       walk(absolutePath, (filePath) => {
         files.push(filePath);
       });
+
       continue;
     }
 
@@ -90,11 +100,13 @@ async function processTargets(targets) {
 
   if (files.length === 0) {
     console.log("Нет файлов для обработки.");
+
     return;
   }
 
   for (const filePath of files) {
     const originalContent = readFileSync(filePath, "utf8");
+
     const fixedContent = await processor(filePath, originalContent);
 
     if (fixedContent !== originalContent) {

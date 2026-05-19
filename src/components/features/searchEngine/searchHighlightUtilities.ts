@@ -1,6 +1,7 @@
 import React, {type ReactNode} from "react";
 
 import {normalizeWord} from "./searchContentUtilities";
+
 import {
   getConsonantSignature,
   getWordStem,

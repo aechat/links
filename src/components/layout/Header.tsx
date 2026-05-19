@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from "react";
 
 import {HomeRounded, SwipeUpRounded} from "@mui/icons-material";
+
 import {Tooltip} from "antd";
+
 import {motion} from "framer-motion";
+
 import {Link, useLocation} from "react-router-dom";
 
 import {useRipple} from "../../hooks/useRipple";
+
 import {SearchButton} from "../features/searchEngine/SearchEngine";
+
 import SupportDonut from "../modals/SupportDonut";
+
 import {ThemeToggleButton} from "../modals/ThemeChanger";
 
 import styles from "./Header.module.scss";

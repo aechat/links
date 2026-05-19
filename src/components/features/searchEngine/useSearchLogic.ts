@@ -1,4 +1,5 @@
 import debounce from "lodash/debounce";
+
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import additionStyles from "../../content/Addition.module.scss";
@@ -22,11 +23,14 @@ import {
   wrapSnippetWithAdditionContainer,
   wrapSnippetWithClosestAddition,
 } from "./searchContentUtilities";
+
 import {
   extractMatchingLine,
   isTokenMatchingWordFeatures,
 } from "./searchHighlightUtilities";
+
 import {normalizeLatinPhonetics, type WordFeatures} from "./searchPhoneticUtilities";
+
 import {
   buildSearchIndex,
   type CompiledSearchQuery,
@@ -37,6 +41,7 @@ import {
   type TextSearchIndex,
   type WorkerRankedResult,
 } from "./searchQueryCore";
+
 import {
   getFieldMatchTypeScore,
   getProximityBonus,

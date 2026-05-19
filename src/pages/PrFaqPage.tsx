@@ -12,30 +12,48 @@ import {
   TravelExploreRounded,
   VideoSettingsRounded,
 } from "@mui/icons-material";
+
 import {Divider} from "antd";
+
 import {Helmet} from "react-helmet-async";
 
 import {
   SearchInPage,
   SearchProvider,
 } from "../components/features/searchEngine/SearchEngine";
+
 import Footer from "../components/layout/Footer";
+
 import Header from "../components/layout/Header";
+
 import PageTransition from "../components/layout/PageTransition";
+
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
+
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+
 import {usePageLoad} from "../hooks/usePageLoad";
+
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
 import PrActions from "./sections/prfaq/PrActions";
+
 import PrErrors from "./sections/prfaq/PrErrors";
+
 import PrExport from "./sections/prfaq/PrExport";
+
 import PrExportProblems from "./sections/prfaq/PrExportProblems";
+
 import PrFromNewbies from "./sections/prfaq/PrFromNewbies";
+
 import PrImport from "./sections/prfaq/PrImport";
+
 import PrInstallProblems from "./sections/prfaq/PrInstallProblems";
+
 import PrInterface from "./sections/prfaq/PrInterface";
+
 import PrPerformance from "./sections/prfaq/PrPerformance";
+
 import PrWhereFind from "./sections/prfaq/PrWhereFind";
 
 const PrFaqPage = () => {

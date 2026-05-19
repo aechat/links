@@ -1,4 +1,5 @@
 import {stemmer as englishStemmer} from "@orama/stemmers/english";
+
 import {stemmer as russianStemmer} from "@orama/stemmers/russian";
 
 import {normalizeWord} from "./searchContentUtilities";

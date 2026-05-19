@@ -3,8 +3,11 @@ import React, {useEffect, useRef, useState} from "react";
 import {Helmet} from "react-helmet-async";
 
 import PageTransition from "../components/layout/PageTransition";
+
 import modalStyles from "../components/modals/Modal.module.scss";
+
 import {usePageLoad} from "../hooks/usePageLoad";
+
 import {useRipple} from "../hooks/useRipple";
 
 interface Subtitle {

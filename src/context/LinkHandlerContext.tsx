@@ -1,17 +1,24 @@
 import React, {createContext, useCallback, useContext, useRef, useState} from "react";
 
 import {CloseRounded} from "@mui/icons-material";
+
 import {Modal} from "antd";
+
 import {useNavigate} from "react-router-dom";
 
 import modalStyles from "../components/modals/Modal.module.scss";
+
 import {useEnterKeyConfirm} from "../hooks/useEnterKeyConfirm";
+
 import {useRipple} from "../hooks/useRipple";
+
 import {
   downloadFileWithFallback,
   resolveDownloadLinkFileSize,
 } from "../utilities/downloadUtilities";
+
 import {LinkTarget, resolveLinkTarget} from "../utilities/linkTargets";
+
 import {scrollToAnchorById} from "../utilities/scrollToAnchor";
 
 const LinkHandlerContext = createContext<

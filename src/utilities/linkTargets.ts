@@ -1,4 +1,5 @@
 import {resolveDetailsByAnchor} from "./anchorResolvers";
+
 import {
   getFileNameFromHref,
   isGithubRawFromRepository,

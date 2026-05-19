@@ -3,8 +3,11 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {triggerHaptic} from "../../../utilities/haptics";
 
 import styles from "./EasingEditor.module.scss";
+
 import {AnimationControls} from "./EasingEditorControls";
+
 import {SpeedGraph, ValueGraph} from "./EasingEditorGraphs";
+
 import {
   useGetTforX,
   useLinearTime,
@@ -12,13 +15,16 @@ import {
   useTimecode,
   useValueGraphMapping,
 } from "./easingEditorHooks";
+
 import {
   calculateBezierGeometry,
   calculateSpeedAxisRange,
   getAnimationPreviewHeight,
   getPointOnCubicBezier,
 } from "./easingEditorMath";
+
 import {AnimationDemo} from "./EasingEditorPreview";
+
 import {
   type AnimationMode,
   type AnimationProperty,

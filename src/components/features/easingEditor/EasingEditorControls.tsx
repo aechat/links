@@ -5,6 +5,7 @@ import {Slider} from "antd";
 import {triggerHaptic} from "../../../utilities/haptics";
 
 import styles from "./EasingEditor.module.scss";
+
 import {type AnimationMode, type AnimationProperty, MODES} from "./easingEditorTypes";
 
 interface AnimationControlsProperties {

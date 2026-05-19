@@ -3,10 +3,15 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+
 import CodeSnippet from "../../../components/content/CodeSnippet";
+
 import ContentFilter from "../../../components/content/ContentFilter";
+
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
+
 import {getPlatformInfo} from "../../../utilities/browserDetection";
 
 const PsInstallProblems: React.FC = () => {

@@ -1,4 +1,5 @@
 import fs from "node:fs";
+
 import path from "node:path";
 
 export function createFinding({file, line, message, snippet, type}) {

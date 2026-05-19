@@ -1,4 +1,5 @@
 import {hasFlag} from "../utilities/commandLineUtilities.js";
+
 import {
   collectDetailsSummaryFindings,
   collectDividerStyleFindings,
@@ -6,11 +7,14 @@ import {
   getContentFiles,
   mergeFindings,
 } from "../utilities/contentLintUtilities.js";
+
 import {finishLint} from "../utilities/reportUtilities.js";
 
 function main() {
   const strict = hasFlag("--strict");
+
   const files = getContentFiles();
+
   const findings = mergeFindings(
     collectNoHtmlStringFindings(files),
     collectDividerStyleFindings(files, {strict}),

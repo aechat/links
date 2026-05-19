@@ -1,7 +1,9 @@
 import fs from "node:fs";
 
 import {getSectionFiles, toRelativePath} from "./fileUtilities.js";
+
 import {createFinding} from "./reportUtilities.js";
+
 import {lineFromOffset, normalizeInlineText, stripTags} from "./textUtilities.js";
 
 export const APP_NAMES = [
@@ -33,12 +35,19 @@ export const PLUGIN_NAMES = [
 ];
 
 const HTML_TAG_RE = /<\s*\/?\s*[A-Za-z][^>]*>/;
+
 const STRING_PROP_RE = /\b(title|caption|tag|anchor)\s*=\s*(["'])([\s\S]*?)\2/g;
+
 const DETAILS_SUMMARY_OPEN_RE = /<DetailsSummary\b([\s\S]*?)>/g;
+
 const NESTED_DETAILS_SUMMARY_OPEN_RE = /<NestedDetailsSummary\b([\s\S]*?)>/g;
+
 const DIVIDER_RE = /<Divider>([\s\S]*?)<\/Divider>/g;
+
 const KEBAB_CASE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
 const SUSPICIOUS_ANCHORS = new Set(["test", "new", "example", "todo", "temp"]);
+
 const DIVIDER_MAX_TEXT_LENGTH = 80;
 
 export function getContentFiles(sections) {
@@ -89,8 +98,10 @@ export function collectNoHtmlStringFindings(files) {
     STRING_PROP_RE.lastIndex = 0;
 
     let match;
+
     while ((match = STRING_PROP_RE.exec(content)) !== null) {
       const attr = match[1];
+
       const value = match[3];
 
       if (!HTML_TAG_RE.test(value)) {
@@ -114,6 +125,7 @@ export function collectNoHtmlStringFindings(files) {
 
 export function collectDividerStyleFindings(files, {strict = false} = {}) {
   const errors = [];
+
   const warnings = [];
 
   for (const file of files) {
@@ -122,9 +134,12 @@ export function collectDividerStyleFindings(files, {strict = false} = {}) {
     DIVIDER_RE.lastIndex = 0;
 
     let match;
+
     while ((match = DIVIDER_RE.exec(content)) !== null) {
       const inner = match[1];
+
       const text = normalizeInlineText(stripTags(inner));
+
       const line = lineFromOffset(content, match.index);
 
       if (inner.includes("?")) {
@@ -198,7 +213,9 @@ function pushStrictFinding({errors, finding, strict, warnings}) {
 
 export function collectDetailsSummaryFindings(files, {strict = false} = {}) {
   const errors = [];
+
   const warnings = [];
+
   const anchors = new Map();
 
   for (const file of files) {
@@ -207,10 +224,14 @@ export function collectDetailsSummaryFindings(files, {strict = false} = {}) {
     DETAILS_SUMMARY_OPEN_RE.lastIndex = 0;
 
     let match;
+
     while ((match = DETAILS_SUMMARY_OPEN_RE.exec(content)) !== null) {
       const attrs = match[1] ?? "";
+
       const line = lineFromOffset(content, match.index);
+
       const anchor = getStringProp(attrs, "anchor");
+
       const title = getStringProp(attrs, "title");
 
       if (!anchor) {
@@ -227,6 +248,7 @@ export function collectDetailsSummaryFindings(files, {strict = false} = {}) {
         });
       } else {
         const entries = anchors.get(anchor) ?? [];
+
         entries.push({file, line});
         anchors.set(anchor, entries);
 
@@ -325,8 +347,11 @@ export function collectDetailsSummaryFindings(files, {strict = false} = {}) {
 
     while ((match = NESTED_DETAILS_SUMMARY_OPEN_RE.exec(content)) !== null) {
       const attrs = match[1] ?? "";
+
       const line = lineFromOffset(content, match.index);
+
       const anchor = getStringProp(attrs, "anchor");
+
       const title = getStringProp(attrs, "title");
 
       if (!title) {

@@ -37,18 +37,29 @@ import {
   WhatshotRounded,
   WorkRounded,
 } from "@mui/icons-material";
+
 import {Divider, Modal} from "antd";
+
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
+
 import Footer from "../components/layout/Footer";
+
 import Header from "../components/layout/Header";
+
 import PageTransition from "../components/layout/PageTransition";
+
 import modalStyles from "../components/modals/Modal.module.scss";
+
 import {LinkCard} from "../components/ui/LinkCards";
+
 import {usePageLoad} from "../hooks/usePageLoad";
+
 import {useRipple} from "../hooks/useRipple";
+
 import {getPlatformInfo} from "../utilities/browserDetection";
+
 import {triggerHaptic} from "../utilities/haptics";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";

@@ -1,12 +1,17 @@
 import {existsSync, readdirSync, statSync} from "node:fs";
+
 import path from "node:path";
 
 import {shouldIgnore} from "./ignore.js";
 
 export const ROOT = process.cwd();
+
 export const SECTIONS_ROOT = path.join(ROOT, "src", "pages", "sections");
+
 export const SCRIPT_LOGS_ROOT = path.join(ROOT, "scripts", "logs");
+
 export const DEFAULT_SECTIONS = ["aefaq", "prfaq", "psfaq", "aeexpr"];
+
 export const SCRIPT_EXTENSIONS = new Set([".tsx", ".ts", ".jsx", ".js"]);
 
 export function toPosixPath(filePath) {
@@ -52,6 +57,7 @@ export function walkFiles({
   respectIgnore = true,
 } = {}) {
   const files = [];
+
   const extensionSet = extensions ? new Set(extensions) : undefined;
 
   const visit = (currentPath) => {

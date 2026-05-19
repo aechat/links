@@ -1,23 +1,37 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
+
 import {message, Modal} from "antd";
+
 import {RemoveScroll} from "react-remove-scroll";
 
 import {useLongPress} from "../../../hooks/useLongPress";
+
 import {useRipple} from "../../../hooks/useRipple";
+
 import {isMobileDevice} from "../../../utilities/browserDetection";
+
 import {copyText} from "../../../utilities/copyUtilities";
+
 import {withSelectionHaptic} from "../../../utilities/haptics";
+
 import {formatNestedQuotes} from "../../../utilities/stringUtilities";
+
 import modalStyles from "../../modals/Modal.module.scss";
 
 import {getMatchingTagsByQuery} from "./searchContentUtilities";
+
 import searchStyles from "./SearchEngine.module.scss";
+
 import {highlightMatchedTokens, renderHighlightedText} from "./searchHighlightUtilities";
+
 import {compileSearchQuery} from "./searchQueryCore";
+
 import {SearchResultCard} from "./SearchResultCard";
+
 import {type SearchResult, type SearchSection, useSearch} from "./SearchState";
+
 import {
   applySearchResultScaleVariables,
   getRippleButtonTarget,

@@ -1,15 +1,18 @@
 #!/usr/bin/env node
-
 import {existsSync, mkdirSync, readdirSync, readFileSync} from "node:fs";
+
 import {basename, dirname, extname, relative, resolve, sep} from "node:path";
+
 import {spawn} from "node:child_process";
 
 const FONTTOOLS_PACKAGE = "@web-alchemy/fonttools";
+
 const FONTTOOLS_RUNNERS = [
   ["-y", "-p", FONTTOOLS_PACKAGE, "varLib.instancer"],
   ["-y", "-p", FONTTOOLS_PACKAGE, "fonttools", "varLib.instancer"],
   ["-y", FONTTOOLS_PACKAGE, "varLib.instancer"],
 ];
+
 const NPM_EXEC_RUNNER = [
   "exec",
   "-y",
@@ -18,6 +21,7 @@ const NPM_EXEC_RUNNER = [
   "--",
   "varLib.instancer",
 ];
+
 const COMMAND_CANDIDATES =
   process.platform === "win32"
     ? {
@@ -28,6 +32,7 @@ const COMMAND_CANDIDATES =
         npm: ["npm"],
         npx: ["npx"],
       };
+
 const SCAN_EXTENSIONS = new Set([".scss", ".ts", ".tsx"]);
 
 let resolvedBackendRunner = null;
@@ -36,10 +41,8 @@ const printUsage = () => {
   console.log(
     `
 Создаёт статические TTF-файлы из вариативных шрифтов.
-
 Использование:
   node scripts/fonts/generateStaticFonts.js [опции]
-
 Опции:
   --weights 100,375,425   Насыщенности через запятую
   --fonts-root src/fonts  Корневая директория семейств шрифтов
@@ -81,6 +84,7 @@ const parseStringList = (value) => {
         .filter(Boolean)
     ),
   ];
+
   return parsed.length === 0 ? null : parsed;
 };
 
@@ -120,6 +124,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--weights") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --weights нужно указать значение");
       }
@@ -136,6 +141,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--fonts-root") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --fonts-root нужно указать значение");
       }
@@ -152,6 +158,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--scan-root") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --scan-root нужно указать значение");
       }
@@ -168,6 +175,7 @@ const parseArgs = (argv) => {
 
     if (arg === "--family") {
       const nextArg = argv[index + 1];
+
       if (!nextArg) {
         throw new Error("Для --family нужно указать значение");
       }
@@ -190,12 +198,16 @@ const parseArgs = (argv) => {
 
 const collectUsedWeights = (scanRoot) => {
   const queue = [scanRoot];
+
   const weights = new Set();
+
   const cssWeightPattern = /font-weight\s*:\s*(\d{2,3})(?!\d)(?!\s+\d{2,3}\b)/giu;
+
   const jsWeightPattern = /fontWeight\s*:\s*["']?(\d{2,3})["']?/giu;
 
   while (queue.length > 0) {
     const currentDirectory = queue.pop();
+
     const entries = readdirSync(currentDirectory, {withFileTypes: true});
 
     for (const entry of entries) {
@@ -211,13 +223,16 @@ const collectUsedWeights = (scanRoot) => {
       }
 
       const content = readFileSync(fullPath, "utf8");
+
       let match = cssWeightPattern.exec(content);
+
       while (match) {
         weights.add(Number(match[1]));
         match = cssWeightPattern.exec(content);
       }
 
       match = jsWeightPattern.exec(content);
+
       while (match) {
         weights.add(Number(match[1]));
         match = jsWeightPattern.exec(content);
@@ -230,10 +245,12 @@ const collectUsedWeights = (scanRoot) => {
 
 const walkVariableFonts = (rootDirectory) => {
   const queue = [rootDirectory];
+
   const variableFonts = [];
 
   while (queue.length > 0) {
     const currentDirectory = queue.pop();
+
     const entries = readdirSync(currentDirectory, {withFileTypes: true});
 
     for (const entry of entries) {
@@ -259,6 +276,7 @@ const walkVariableFonts = (rootDirectory) => {
 
 const toRelativePath = (projectRoot, absolutePath) => {
   const relativePath = relative(projectRoot, absolutePath);
+
   if (relativePath.startsWith("..")) {
     throw new Error(`Путь должен находиться внутри корня проекта: ${absolutePath}`);
   }
@@ -269,6 +287,7 @@ const toRelativePath = (projectRoot, absolutePath) => {
 const runCommand = (command, args, {projectRoot, localCache}) =>
   new Promise((resolvePromise, rejectPromise) => {
     const environment = {...process.env};
+
     const needsShell =
       process.platform === "win32" &&
       (command.endsWith(".cmd") ||
@@ -278,6 +297,7 @@ const runCommand = (command, args, {projectRoot, localCache}) =>
 
     if (localCache) {
       const cachePath = resolve(projectRoot, ".npm-cache");
+
       mkdirSync(cachePath, {recursive: true});
       environment.npm_config_cache = cachePath;
     }
@@ -290,11 +310,13 @@ const runCommand = (command, args, {projectRoot, localCache}) =>
     });
 
     let stdout = "";
+
     let stderr = "";
 
     child.stdout.on("data", (chunk) => {
       stdout += chunk.toString();
     });
+
     child.stderr.on("data", (chunk) => {
       stderr += chunk.toString();
     });
@@ -306,10 +328,12 @@ const runCommand = (command, args, {projectRoot, localCache}) =>
     child.on("close", (exitCode) => {
       if (exitCode === 0) {
         resolvePromise({stdout, stderr});
+
         return;
       }
 
       const details = (stderr || stdout || "").trim();
+
       rejectPromise(
         new Error(
           `Команда завершилась с ошибкой (${exitCode}): ${command} ${args.join(" ")}${
@@ -377,8 +401,11 @@ const instantiateFont = async ({
   weight,
 }) => {
   const relativeInput = toRelativePath(projectRoot, inputPath);
+
   const relativeOutput = toRelativePath(projectRoot, outputPath);
+
   const tailArgs = [relativeInput, `wght=${weight}`, "--static", "-o", relativeOutput];
+
   const allCandidates = getAllRunners(projectRoot);
 
   const candidates = resolvedBackendRunner
@@ -400,7 +427,9 @@ const instantiateFont = async ({
         localCache,
         projectRoot,
       });
+
       resolvedBackendRunner = candidate;
+
       return;
     } catch (error) {
       errors.push(`[${candidate.label}] ${error.message}`);
@@ -423,18 +452,23 @@ const getOutputFileName = (familyName, isItalic, weight) =>
 
 const main = async () => {
   const options = parseArgs(process.argv.slice(2));
+
   const projectRoot = process.cwd();
+
   const fontsRoot = resolve(projectRoot, options.fontsRoot);
+
   const scanRoot = resolve(projectRoot, options.scanRoot);
 
   if (!existsSync(fontsRoot)) {
     throw new Error(`Корневая директория шрифтов не существует: ${fontsRoot}`);
   }
+
   if (!options.weights && !existsSync(scanRoot)) {
     throw new Error(`Директория сканирования не существует: ${scanRoot}`);
   }
 
   const weights = options.weights ?? collectUsedWeights(scanRoot);
+
   if (weights.length === 0) {
     throw new Error(
       "Не найдены числовые насыщенности шрифтов. Передайте --weights вручную."
@@ -442,17 +476,20 @@ const main = async () => {
   }
 
   const familyFilter = options.families ? new Set(options.families) : null;
+
   const variableFonts = walkVariableFonts(fontsRoot).filter((fontPath) => {
     if (!familyFilter) {
       return true;
     }
 
     const familyName = basename(dirname(fontPath));
+
     return familyFilter.has(familyName);
   });
 
   if (variableFonts.length === 0) {
     console.log("Вариативные шрифты по выбранным фильтрам не найдены.");
+
     return;
   }
 
@@ -461,24 +498,34 @@ const main = async () => {
       options.weights ? "" : ` (авто из ${toRelativePath(projectRoot, scanRoot)})`
     }`
   );
+
   console.log(`Корень шрифтов: ${toRelativePath(projectRoot, fontsRoot)}`);
+
   if (familyFilter) {
     console.log(`Семейства: ${[...familyFilter].join(", ")}`);
   }
+
   if (options.dryRun) {
     console.log("Режим: пробный запуск");
   }
 
   let createdCount = 0;
+
   let skippedCount = 0;
+
   let failedCount = 0;
+
   let plannedCount = 0;
 
   for (const inputPath of variableFonts) {
     const familyDirectory = dirname(inputPath);
+
     const familyName = basename(familyDirectory);
+
     const isItalic = /italic/iu.test(basename(inputPath));
+
     const outputDirectory = resolve(familyDirectory, "static");
+
     mkdirSync(outputDirectory, {recursive: true});
 
     for (const weight of weights) {
@@ -493,6 +540,7 @@ const main = async () => {
       }
 
       const relativeInput = toRelativePath(projectRoot, inputPath);
+
       const relativeOutput = toRelativePath(projectRoot, outputPath);
 
       if (options.dryRun) {
@@ -509,6 +557,7 @@ const main = async () => {
           outputPath,
           weight,
         });
+
         createdCount += 1;
         console.log(`[готово] ${relativeOutput}`);
       } catch (error) {

@@ -3,17 +3,26 @@ import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} fro
 import {message, Tooltip} from "antd";
 
 import {useLongPress} from "../../hooks/useLongPress";
+
 import {usePrevious} from "../../hooks/usePrevious";
+
 import {useRipple} from "../../hooks/useRipple";
+
 import {copyText} from "../../utilities/copyUtilities";
+
 import {triggerDisclosureHaptic} from "../../utilities/haptics";
+
 import {scrollToElement} from "../../utilities/scrollToAnchor";
+
 import {formatNestedQuotes} from "../../utilities/stringUtilities";
+
 import {
   getCurrentHashAnchor,
   replaceCurrentUrlHash,
 } from "../../utilities/urlHashUtilities";
+
 import {useTheme} from "../modals/ThemeChanger";
+
 import {CopyButton} from "../ui/CopyButton";
 
 import {
@@ -23,8 +32,11 @@ import {
   replaceUrlHash,
   throwDuplicateAnchorError,
 } from "./anchorUtilities";
+
 import styles from "./DetailsSummary.module.scss";
+
 import {parseTags, TagList} from "./DetailsSummaryTags";
+
 import {
   assignAnchorIdIfMissing,
   DETAILS_SUMMARY_DELAYS,
@@ -33,6 +45,7 @@ import {
   isHashForOpenNestedInDetails,
   processNestedSummaries,
 } from "./detailsSummaryUtilities";
+
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 
 interface DetailsSummaryProperties {

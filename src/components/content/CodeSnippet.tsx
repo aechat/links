@@ -1,12 +1,15 @@
 import hljs from "highlight.js";
+
 import React, {useEffect, useMemo, useRef} from "react";
 
 import {message} from "antd";
 
 import {copyText} from "../../utilities/copyUtilities";
+
 import {triggerHaptic} from "../../utilities/haptics";
 
 import "highlight.js/styles/github-dark.css";
+
 import styles from "./CodeSnippet.module.scss";
 
 interface CodeSnippetProperties {

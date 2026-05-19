@@ -3,7 +3,9 @@ import React, {useRef, useState} from "react";
 import {useRipple} from "../../../hooks/useRipple";
 
 import {getResultWord} from "./searchContentUtilities";
+
 import searchStyles from "./SearchEngine.module.scss";
+
 import {
   type SearchSection,
   useSearch,
@@ -12,6 +14,7 @@ import {
   useSearchModalBehavior,
   useSearchViewState,
 } from "./SearchState";
+
 import {
   ExternalSearch,
   NoResults,

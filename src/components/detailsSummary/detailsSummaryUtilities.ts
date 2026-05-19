@@ -1,4 +1,5 @@
 import {isFirstAnchorOccurrence, normalizeAnchor} from "./anchorUtilities";
+
 import styles from "./DetailsSummary.module.scss";
 
 export const DETAILS_SUMMARY_DELAYS = {

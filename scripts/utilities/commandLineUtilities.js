@@ -1,6 +1,7 @@
 import path from "node:path";
 
 import {DEFAULT_SECTIONS, ROOT, SCRIPT_LOGS_ROOT} from "./fileUtilities.js";
+
 import {makeTimestamp} from "./textUtilities.js";
 
 export function hasFlag(name) {

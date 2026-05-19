@@ -1,13 +1,19 @@
 import React, {useEffect, useRef, useState} from "react";
+
 import mediaMetadata from "virtual:media-metadata";
 
 import {CloseRounded, ShareRounded} from "@mui/icons-material";
+
 import {message} from "antd";
+
 import {animate, AnimatePresence, motion, useMotionValue} from "framer-motion";
+
 import {createPortal} from "react-dom";
 
 import {copyText} from "../../utilities/copyUtilities";
+
 import {triggerHaptic} from "../../utilities/haptics";
+
 import {useSpoiler} from "../detailsSummary/spoilerContexts";
 
 import styles from "./ArticleMedia.module.scss";

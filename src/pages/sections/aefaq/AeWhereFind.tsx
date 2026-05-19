@@ -3,8 +3,11 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
+
 import {getPlatformInfo} from "../../../utilities/browserDetection";
 
 const AeWhereFind: React.FC = () => {
