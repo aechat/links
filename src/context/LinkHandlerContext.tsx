@@ -37,7 +37,7 @@ export const LinkHandlerProvider: React.FC<{children: React.ReactNode}> = ({
 
   const [sizeCache, setSizeCache] = useState<Record<string, string>>({});
 
-  const downloadAbortReference = useRef<AbortController>();
+  const downloadAbortReference = useRef<AbortController | null>(null);
 
   const ripple = useRipple<HTMLButtonElement>();
 
@@ -55,7 +55,11 @@ export const LinkHandlerProvider: React.FC<{children: React.ReactNode}> = ({
 
       if (element.closest("header") || element.closest(".links-grid-item")) return;
 
-      const result = resolveLinkTarget(element, event.currentTarget, sizeCache);
+      const result = resolveLinkTarget(
+        element,
+        event.currentTarget ?? undefined,
+        sizeCache
+      );
 
       if (!result) return;
 
