@@ -330,5 +330,16 @@ export default [
       "unicorn/prevent-abbreviations": "off",
     },
   },
+  {
+    files: ["scripts/**/*.js"],
+    rules: {
+      "sonarjs/cognitive-complexity": "off",
+      "sonarjs/updated-loop-counter": "off",
+      "sonarjs/slow-regex": "off",
+      "sonarjs/regex-complexity": "off",
+      "sonarjs/duplicates-in-character-class": "off",
+      "sonarjs/no-dead-store": "off",
+    },
+  },
   prettierConfig,
 ];
