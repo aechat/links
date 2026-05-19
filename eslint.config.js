@@ -1,15 +1,89 @@
 import pluginJs from "@eslint/js";
+
 import prettierConfig from "eslint-config-prettier";
+
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
+
 import pluginImport from "eslint-plugin-import";
+
 import pluginPrettier from "eslint-plugin-prettier";
+
 import pluginReact from "eslint-plugin-react";
+
 import perfectionistPlugin from "eslint-plugin-perfectionist";
+
 import sonarjs from "eslint-plugin-sonarjs";
+
 import stylistic from "@stylistic/eslint-plugin";
+
 import unicornPlugin from "eslint-plugin-unicorn";
+
 import globals from "globals";
+
 import tseslint from "typescript-eslint";
+
+const SHARED_PADDING_RULES = [
+  "error",
+  {blankLine: "always", prev: "*", next: "return"},
+  {blankLine: "always", prev: "directive", next: "*"},
+  {blankLine: "always", prev: "directive", next: "directive"},
+  {
+    blankLine: "always",
+    prev: "*",
+    next: ["function", "class"],
+  },
+  {
+    blankLine: "always",
+    prev: ["function", "class"],
+    next: "*",
+  },
+  {blankLine: "always", prev: "*", next: "if"},
+  {blankLine: "always", prev: "if", next: "*"},
+  {blankLine: "always", prev: "*", next: "multiline-expression"},
+  {blankLine: "always", prev: "multiline-expression", next: "*"},
+  {blankLine: "always", prev: "*", next: "multiline-block-like"},
+  {blankLine: "always", prev: "multiline-block-like", next: "*"},
+  {blankLine: "always", prev: "*", next: "try"},
+  {blankLine: "always", prev: "try", next: "*"},
+  {blankLine: "always", prev: "case", next: "case"},
+  {blankLine: "always", prev: "*", next: "import"},
+  {blankLine: "always", prev: "import", next: "*"},
+  {blankLine: "always", prev: "*", next: "export"},
+  {blankLine: "always", prev: "export", next: "export"},
+  {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
+  {blankLine: "always", prev: "*", next: ["const", "let", "var"]},
+  {
+    blankLine: "always",
+    prev: ["const", "let", "var"],
+    next: ["const", "let", "var"],
+  },
+];
+
+const TS_PADDING_RULES = [
+  ...SHARED_PADDING_RULES,
+  {
+    blankLine: "always",
+    prev: "*",
+    next: ["function", "class", "interface", "type"],
+  },
+  {
+    blankLine: "always",
+    prev: ["function", "class", "interface", "type"],
+    next: "*",
+  },
+  {
+    blankLine: "always",
+    prev: "*",
+    next: ["if", "for", "while", "do", "switch", "try"],
+  },
+  {
+    blankLine: "always",
+    prev: ["if", "for", "while", "do", "switch", "try"],
+    next: "*",
+  },
+  {blankLine: "always", prev: "*", next: "iife"},
+  {blankLine: "always", prev: "iife", next: "*"},
+];
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -20,13 +94,32 @@ export default [
       "**/@typescript-eslint/*",
       ".yarn/**",
       ".pnp.*",
-      "scripts/**/*",
     ],
   },
   {
-    files: ["*.js"],
+    files: ["**/*.js"],
     languageOptions: {
       globals: globals.node,
+    },
+    plugins: {
+      "@stylistic": stylistic,
+    },
+    rules: {
+      "@stylistic/padding-line-between-statements": SHARED_PADDING_RULES,
+    },
+  },
+  {
+    files: ["**/*.{ts,tsx}"],
+    ignores: ["src/**/*.{ts,tsx}"],
+    languageOptions: {
+      globals: globals.node,
+      parser: tseslint.parser,
+    },
+    plugins: {
+      "@stylistic": stylistic,
+    },
+    rules: {
+      "@stylistic/padding-line-between-statements": TS_PADDING_RULES,
     },
   },
   {
@@ -59,48 +152,7 @@ export default [
       "eol-last": "off",
       "padding-line-between-statements": "off",
       "@typescript-eslint/padding-line-between-statements": "off",
-      "@stylistic/padding-line-between-statements": [
-        "error",
-        {blankLine: "always", prev: "*", next: "return"},
-        {blankLine: "always", prev: "directive", next: "*"},
-        {blankLine: "always", prev: "directive", next: "directive"},
-        {
-          blankLine: "always",
-          prev: "*",
-          next: ["function", "class", "interface", "type"],
-        },
-        {
-          blankLine: "always",
-          prev: ["function", "class", "interface", "type"],
-          next: "*",
-        },
-        {blankLine: "always", prev: "*", next: "export"},
-        {blankLine: "always", prev: "export", next: "export"},
-        {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-        {blankLine: "always", prev: "*", next: ["const", "let", "var"]},
-        {
-          blankLine: "always",
-          prev: ["const", "let", "var"],
-          next: ["const", "let", "var"],
-        },
-        {blankLine: "always", prev: "*", next: "multiline-expression"},
-        {blankLine: "always", prev: "multiline-expression", next: "*"},
-        {
-          blankLine: "always",
-          prev: "*",
-          next: ["if", "for", "while", "do", "switch", "try"],
-        },
-        {
-          blankLine: "always",
-          prev: ["if", "for", "while", "do", "switch", "try"],
-          next: "*",
-        },
-        {blankLine: "always", prev: "*", next: "multiline-block-like"},
-        {blankLine: "always", prev: "multiline-block-like", next: "*"},
-        {blankLine: "always", prev: "*", next: "iife"},
-        {blankLine: "always", prev: "iife", next: "*"},
-        {blankLine: "always", prev: "case", next: "case"},
-      ],
+      "@stylistic/padding-line-between-statements": TS_PADDING_RULES,
       "@stylistic/padded-blocks": ["warn", "always"],
       "@stylistic/lines-between-class-members": [
         "warn",
@@ -125,7 +177,7 @@ export default [
             "object",
             "type",
           ],
-          "newlines-between": "always",
+          "newlines-between": "always-and-inside-groups",
           "alphabetize": {
             order: "asc",
             caseInsensitive: true,
