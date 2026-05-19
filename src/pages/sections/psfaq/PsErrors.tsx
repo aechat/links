@@ -69,15 +69,32 @@ const PsErrors: React.FC = () => (
       <ContentFilter
         macContent={
           <>
+            <Divider>Используем альтернативный способ активации</Divider>
+            <p>
+              Если вы используете релизы от <mark className="user">MONTER GROUP</mark> или
+              другие — попробуйте перейти на метод активации программ с помощью{" "}
+              <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
+              предыдущие установки программы через{" "}
+              <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+                Adobe Creative Cloud Cleaner
+              </a>
+              .
+            </p>
+            <Addition type="info">
+              <mark className="app">Adobe Activation Tool</mark> и инструкцию по активации
+              программ от <mark className="company">Adobe</mark> с помощью этого
+              инструмента вы можете найти в канале{" "}
+              <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
+            </Addition>
             <Divider>Правим файл hosts</Divider>
             <p>
-              Один из способов решения проблемы — отредактировать файл{" "}
+              Один из способов решения проблемы — редактирование файла{" "}
               <mark className="file">HOSTS</mark>. Для этого перейдите в директорию{" "}
               <mark className="path">/private/etc</mark>, скопируйте файл{" "}
               <mark className="file">HOSTS</mark> в любое удобное место, откройте его в
               текстовом редакторе, например <mark className="app">TextEdit</mark> или{" "}
               <mark className="app">nano</mark>, и добавьте в конец файла строки из блока
-              ниже. Затем сохраните файл и верните его в исходную папку с заменой.
+              ниже. Затем сохраните файл и перенесите его обратно с заменой.
             </p>
             <HostsAdobeModal />
             <ArticleMedia
@@ -88,33 +105,37 @@ const PsErrors: React.FC = () => (
               Блокируем доступ с помощью <mark className="app">Radio Silence</mark>
             </Divider>
             <p>
-              Если внесение адресов в <mark className="file">HOSTS</mark> вам не помогло,
-              то попробуйте воспользоваться программой{" "}
-              <a href="https://radiosilenceapp.com/">Radio Silence</a> для блокировки
-              доступа в интернет нужным приложениям. После установки и активации этой
-              программы перейдите во вкладку{" "}
-              <mark className="select">«Network Monitor»</mark> и в ней запретите
-              программам от <mark className="company">Adobe</mark>, которые лезут в сеть,
-              доступ в интернет, нажав на кнопку <mark className="select">«Block»</mark>{" "}
-              рядом с названием программы.
+              Если редактирование <mark className="file">HOSTS</mark> не помогло,
+              попробуйте воспользоваться программой{" "}
+              <a href="https://radiosilenceapp.com/">Radio Silence</a>.
             </p>
-            <ArticleMedia
-              caption="Radio Silence"
-              src="legacy/network_radio_silence.png"
-              type="image"
-            />
-            <p>
-              После проделанных действий, указанные вами программы от{" "}
-              <mark className="company">Adobe</mark> не должны стучаться в сеть и выдавать
-              ошибку об отсутствии лицензии. Ниже показано, как в итоге примерно должна
-              выглядеть вкладка <mark className="select">«Firewall»</mark> после отлова
-              процессов Adobe, лезущие в интернет.
-            </p>
-            <ArticleMedia
-              caption="Radio Silence"
-              src="legacy/firewall_radio_silence.png"
-              type="image"
-            />
+            <ul>
+              <li>
+                <p>
+                  После её установки перейдите во вкладку{" "}
+                  <mark className="select">«Network Monitor»</mark> и запретите доступ в
+                  интернет всем процессам <mark className="company">Adobe</mark>, нажимая
+                  кнопку <mark className="select">«Block»</mark> рядом с их названиями.
+                </p>
+                <ArticleMedia
+                  caption="Radio Silence"
+                  src="legacy/network_radio_silence.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  После этого заблокированные приложения появятся во вкладке{" "}
+                  <mark className="select">«Firewall»</mark> и больше не должны
+                  подключаться к сети.
+                </p>
+                <ArticleMedia
+                  caption="Radio Silence"
+                  src="legacy/firewall_radio_silence.png"
+                  type="image"
+                />
+              </li>
+            </ul>
           </>
         }
         windowsContent={

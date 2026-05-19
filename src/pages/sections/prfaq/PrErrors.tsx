@@ -71,15 +71,32 @@ const PrErrors: React.FC = () => {
         <ContentFilter
           macContent={
             <>
+              <Divider>Используем альтернативный способ активации</Divider>
+              <p>
+                Если вы используете релизы от <mark className="user">MONTER GROUP</mark>{" "}
+                или другие — попробуйте перейти на метод активации программ с помощью{" "}
+                <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
+                предыдущие установки программы через{" "}
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+                  Adobe Creative Cloud Cleaner
+                </a>
+                .
+              </p>
+              <Addition type="info">
+                <mark className="app">Adobe Activation Tool</mark> и инструкцию по
+                активации программ от <mark className="company">Adobe</mark> с помощью
+                этого инструмента вы можете найти в канале{" "}
+                <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
+              </Addition>
               <Divider>Правим файл hosts</Divider>
               <p>
-                Один из способов решения проблемы — редактирование файла{" "}
+                Один из способов решения проблемы — отредактировать файл{" "}
                 <mark className="file">HOSTS</mark>. Для этого перейдите в директорию{" "}
                 <mark className="path">/private/etc</mark>, скопируйте файл{" "}
                 <mark className="file">HOSTS</mark> в любое удобное место, откройте его в
                 текстовом редакторе, например <mark className="app">TextEdit</mark> или{" "}
                 <mark className="app">nano</mark>, и добавьте в конец файла строки из
-                блока ниже. Затем сохраните файл и перенесите его обратно с заменой.
+                блока ниже. Затем сохраните файл и верните его в исходную папку с заменой.
               </p>
               <HostsAdobeModal />
               <ArticleMedia
@@ -90,7 +107,7 @@ const PrErrors: React.FC = () => {
                 Блокируем доступ с помощью <mark className="app">Radio Silence</mark>
               </Divider>
               <p>
-                Если редактирование <mark className="file">HOSTS</mark> не помогло,
+                Если редактирование файла <mark className="file">HOSTS</mark> не помогло,
                 попробуйте воспользоваться программой{" "}
                 <a href="https://radiosilenceapp.com/">Radio Silence</a>.
               </p>
@@ -112,7 +129,7 @@ const PrErrors: React.FC = () => {
                 <li>
                   <p>
                     После этого заблокированные приложения появятся во вкладке{" "}
-                    <mark className="select">«Firewall»</mark> и больше не должны
+                    <mark className="select">«Firewall»</mark> и больше не смогут
                     подключаться к сети.
                   </p>
                   <ArticleMedia
@@ -122,13 +139,6 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
               </ul>
-              <Divider>Используем альтернативный способ активации</Divider>
-              <p>
-                Если вы используете релизы от <mark className="user">MONTER GROUP</mark> —
-                попробуйте перейти на метод активации программ с помощью{" "}
-                <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
-                предыдущие установки программы.
-              </p>
             </>
           }
           windowsContent={

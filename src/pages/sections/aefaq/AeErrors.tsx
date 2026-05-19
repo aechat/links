@@ -72,6 +72,23 @@ const AeErrors: React.FC = () => {
         <ContentFilter
           macContent={
             <>
+              <Divider>Используем альтернативный способ активации</Divider>
+              <p>
+                Если вы используете релизы от <mark className="user">MONTER GROUP</mark>{" "}
+                или другие — попробуйте перейти на метод активации программ с помощью{" "}
+                <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
+                предыдущие установки программы через{" "}
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+                  Adobe Creative Cloud Cleaner
+                </a>
+                .
+              </p>
+              <Addition type="info">
+                <mark className="app">Adobe Activation Tool</mark> и инструкцию по
+                активации программ от <mark className="company">Adobe</mark> с помощью
+                этого инструмента вы можете найти в канале{" "}
+                <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
+              </Addition>
               <Divider>Правим файл hosts</Divider>
               <p>
                 Один из способов решения проблемы — отредактировать файл{" "}
@@ -123,13 +140,6 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
               </ul>
-              <Divider>Используем альтернативный способ активации</Divider>
-              <p>
-                Если вы используете релизы от <mark className="user">MONTER GROUP</mark>,
-                попробуйте перейти на метод активации с помощью{" "}
-                <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
-                предыдущие установки программы.
-              </p>
             </>
           }
           windowsContent={
