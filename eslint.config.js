@@ -248,6 +248,12 @@ export default [
     },
   },
   {
+    files: ["src/pages/sections/**/*.tsx"],
+    rules: {
+      "arrow-body-style": ["error", "always"],
+    },
+  },
+  {
     files: ["src/hooks/**/*.tsx"],
     rules: {
       "unicorn/filename-case": [
