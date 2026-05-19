@@ -202,85 +202,118 @@ const PsErrors: React.FC = () => (
               программ в интернет уже могут быть созданы в брандмауэре.
             </Addition>
             <p>
-              После открытия монитора брандмауэра перейдите в раздел правил для входящих
-              подключений в левой части окна.
+              Если правка файла <mark className="file">HOSTS</mark> не помогла, попробуйте
+              настроить правила в брандмауэре.
             </p>
-            <ArticleMedia
-              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-              src="legacy/firewall_main_page.png"
-              type="image"
-            />
-            <p>
-              Затем в правой части интерфейса найдите кнопку{" "}
-              <mark className="select">«Создать правило»</mark> и нажмите на него.
-            </p>
-            <ArticleMedia
-              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-              src="legacy/firewall_creating_rule.png"
-              type="image"
-            />
-            <p>
-              После нажатия на кнопку создания нового правила в брандмауэре у вас
-              откроется новое окно с пятью вкладками. В первой вкладке оставьте значение{" "}
-              <mark className="select">«Для программы»</mark> и нажмите на{" "}
-              <mark className="select">«Далее»</mark>.
-            </p>
-            <ArticleMedia
-              caption="Мастер создания правила для нового входящего подключения"
-              src="legacy/firewall_rule_type.png"
-              type="image"
-            />
-            <p>
-              Во второй вкладке нужно указать путь до исполняемого файла программы вручную
-              или через кнопку <mark className="select">«Обзор»</mark>, а затем снова
-              нажать на <mark className="select">«Далее»</mark>. Путь должен выглядеть как{" "}
-              <mark className="path">
-                C:\Program Files\Adobe\Adobe Photoshop 20XX\Support Files\Photoshop.exe
-              </mark>
-              .
-            </p>
-            <ArticleMedia
-              caption="Мастер создания правила для нового входящего подключения"
-              src="legacy/firewall_select_app.png"
-              type="image"
-            />
-            <p>
-              Для действия нового правила нам, очевидно, нужно установить параметр{" "}
-              <mark className="select">«Блокировать подключение»</mark>.
-            </p>
-            <ArticleMedia
-              caption="Мастер создания правила для нового входящего подключения"
-              src="legacy/firewall_blocking.png"
-              type="image"
-            />
-            <p>
-              Во вкладке <mark className="select">«Профили»</mark> нужно оставить три
-              чекбокса включёнными и снова нажать на{" "}
-              <mark className="select">«Далее»</mark>.
-            </p>
-            <ArticleMedia
-              caption="Мастер создания правила для нового входящего подключения"
-              src="legacy/firewall_select_profile.png"
-              type="image"
-            />
-            <p>
-              Далее назовите своё новое правило любым именем. Можно просто написать
-              название программы и нажать на <mark className="select">«Готово»</mark>.
-              После этого правило будет создано, а указанная программа теперь не должна
-              стучаться в интернет.
-            </p>
-            <ArticleMedia
-              caption="Мастер создания правила для нового входящего подключения"
-              src="legacy/firewall_naming.png"
-              type="image"
-            />
-            <Addition type="info">
-              Возможно, подобные действия нужно выполнить и для правил исходящих
-              подключений по аналогичной схеме.
-            </Addition>
+            <ul>
+              <li>
+                <p>
+                  Чтобы быстро открыть брандмауэр, воспользуйтесь окном{" "}
+                  <mark className="app">«Выполнить»</mark>: нажмите{" "}
+                  <mark className="key">Win + R</mark>, введите в поле{" "}
+                  <mark className="select">«Открыть»</mark> значение{" "}
+                  <mark className="code">wf.msc</mark> и нажмите{" "}
+                  <mark className="key">Enter</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Выполнить"
+                  src="legacy/open_wf_msc.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  Перед вами откроется{" "}
+                  <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
+                  левой части окна перейдите в раздел{" "}
+                  <mark className="select">«Правила для входящих подключений»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Монитор брандмауэра Защитника Windows"
+                  src="legacy/firewall_main_page.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  В правой части интерфейса нажмите{" "}
+                  <mark className="select">«Создать правило»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Монитор брандмауэра Защитника Windows"
+                  src="legacy/firewall_creating_rule.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  В открывшемся мастере создания правил на первой вкладке оставьте
+                  выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
+                  <mark className="select">«Далее»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Мастер создания правила для нового входящего подключения"
+                  src="legacy/firewall_rule_type.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  На второй вкладке укажите путь к исполняемому файлу программы —{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Support
+                    Files\Photoshop.exe
+                  </mark>{" "}
+                  и снова нажмите <mark className="select">«Далее»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Мастер создания правила для нового входящего подключения"
+                  src="legacy/firewall_select_app.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  В качестве действия выберите{" "}
+                  <mark className="select">«Блокировать подключение»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Мастер создания правила для нового входящего подключения"
+                  src="legacy/firewall_blocking.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
+                  флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Мастер создания правила для нового входящего подключения"
+                  src="legacy/firewall_select_profile.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                <p>
+                  Задайте новому правилу любое имя, например название программы, и нажмите{" "}
+                  <mark className="select">«Готово»</mark>. После этого указанная
+                  программа больше не должна подключаться к интернету.
+                </p>
+                <ArticleMedia
+                  caption="Мастер создания правила для нового входящего подключения"
+                  src="legacy/firewall_naming.png"
+                  type="image"
+                />
+              </li>
+              <li>
+                Проделайте аналогичные действия и для{" "}
+                <mark className="select">«Правил для исходящего подключения»</mark>.
+              </li>
+            </ul>
             <Divider>
               Используем <mark className="app">OneClickFirewall</mark> для быстрой
-              блокировки интернета программе
+              блокировки
             </Divider>
             <p>
               Если вы не хотите возиться с созданием правил вручную, воспользуйтесь
@@ -328,21 +361,6 @@ const PsErrors: React.FC = () => (
               </a>
               .
             </p>
-            <Divider>Проверяем, не натворил ли чего антивирус</Divider>
-            <p>
-              В редких случаях ваш антивирус мог удалить файлы для корректной подмены
-              активации, ссылаясь на то, что на вашем устройстве затесался якобы вирус.
-              Если вы не хотите отключать или удалять{" "}
-              <mark className="app">Windows Defender</mark> с вашего устройства, то вы
-              можете добавить нужные папки c программами от{" "}
-              <mark className="company">Adobe</mark> в список исключений вашего
-              антивируса, а затем установите программу вашей версии поверх
-              существующей.{" "}
-            </p>
-            <ArticleMedia
-              src="ET94_dv3f8c"
-              type="youtube"
-            />
           </>
         }
       />
