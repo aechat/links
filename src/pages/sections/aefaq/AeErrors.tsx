@@ -1115,9 +1115,25 @@ const AeErrors: React.FC = () => {
         </Addition>
         <ul>
           <li>
-            <mark className="app">Adobe After Effects</mark>{" "}
-            <mark className="version">25.1</mark> и выше требует{" "}
-            <mark className="app">Cinema 4D</mark>{" "}
+            <p>
+              <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">26.2</mark> и выше требует{" "}
+              <mark className="app">Cinema 4D</mark>{" "}
+              <mark className="version">2026.X.X</mark>.
+            </p>
+            <Addition type="info">
+              В <mark className="app">Adobe After Effects</mark>{" "}
+              <mark className="version">26.2</mark> имеется опечатка в описании ошибки,
+              связанной с требуемой версией <mark className="app">Maxon Cinema 4D</mark> —
+              там указана <mark className="version">2025</mark>, хотя она уже не подходит.
+              Также в списке изменений <mark className="app">Adobe After Effects</mark> об
+              этом изменении нет ни намёка.
+            </Addition>
+          </li>
+          <li>
+            <mark className="app">Adobe After Effects</mark> от{" "}
+            <mark className="version">25.1</mark> до <mark className="version">26.0</mark>{" "}
+            требует <mark className="app">Cinema 4D</mark>{" "}
             <mark className="version">2025.X.X</mark>.
           </li>
           <li>
