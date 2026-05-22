@@ -25,6 +25,7 @@ qodana.yaml
 .vs
 .agent*
 .cursor
+.antigravity*
 *.code-workspace
 *.md
 !README.md
