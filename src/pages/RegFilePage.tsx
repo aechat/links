@@ -91,6 +91,11 @@ const RegFilePage = () => {
     <div>
       <Helmet>
         <title>reg@aechat</title>
+        <link
+          href="/icons/favicon.svg"
+          rel="icon"
+          type="image/svg+xml"
+        />
         <meta
           content="Активируем расширения в приложениях Adobe"
           name="description"

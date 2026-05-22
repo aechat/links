@@ -98,6 +98,11 @@ const NotFound = () => {
     <PageTransition className="not-found error">
       <Helmet>
         <title>notfound@aechat</title>
+        <link
+          href="/icons/favicon.svg"
+          rel="icon"
+          type="image/svg+xml"
+        />
         <meta
           content="Страница не найдена"
           name="description"
@@ -107,7 +112,7 @@ const NotFound = () => {
           itemProp="name"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           itemProp="image"
         />
         <meta
@@ -131,7 +136,7 @@ const NotFound = () => {
           property="og:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           property="og:image"
         />
         <meta
@@ -147,7 +152,7 @@ const NotFound = () => {
           name="twitter:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           name="twitter:image"
         />
       </Helmet>

@@ -142,6 +142,11 @@ const PsFaqPage = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>psfaq@aechat</title>
+          <link
+            href="/icons/psfaq.svg"
+            rel="icon"
+            type="image/svg+xml"
+          />
           <meta
             content="Базарим за обработку изображений в Adobe Photoshop"
             name="description"

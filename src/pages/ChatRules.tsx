@@ -87,6 +87,11 @@ const ChatRules = () => {
     <div>
       <Helmet>
         <title>rules@aechat</title>
+        <link
+          href="/icons/favicon.svg"
+          rel="icon"
+          type="image/svg+xml"
+        />
         <meta
           content="Рассказываем об уставе наших чатов"
           name="description"
@@ -96,7 +101,7 @@ const ChatRules = () => {
           itemProp="name"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           itemProp="image"
         />
         <meta
@@ -120,7 +125,7 @@ const ChatRules = () => {
           property="og:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           property="og:image"
         />
         <meta
@@ -136,7 +141,7 @@ const ChatRules = () => {
           name="twitter:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/aechat.png"
           name="twitter:image"
         />
       </Helmet>

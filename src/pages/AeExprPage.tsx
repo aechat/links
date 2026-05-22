@@ -76,6 +76,11 @@ const AeExprPage = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aeexpr@aechat</title>
+          <link
+            href="/icons/aeexprfaq.svg"
+            rel="icon"
+            type="image/svg+xml"
+          />
           <meta
             content="Шпаргалка по использованию выражений в Adobe After Effects"
             name="description"

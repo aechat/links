@@ -142,6 +142,11 @@ const PrFaqPage = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>prfaq@aechat</title>
+          <link
+            href="/icons/prfaq.svg"
+            rel="icon"
+            type="image/svg+xml"
+          />
           <meta
             content="Поясняем за монтаж и нюансы в Adobe Premiere"
             name="description"
