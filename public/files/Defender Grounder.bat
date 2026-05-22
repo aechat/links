@@ -8,7 +8,7 @@ exit /b
 :PS_START
 $ErrorActionPreference = 'Continue'
 $log = Join-Path $env:TEMP 'defender-grounder.log'
-$version = '0.2.1'
+$version = '0.3'
 "=== Grounder run at $(Get-Date) ===" | Out-File $log -Encoding UTF8
 
 $isRu = (Get-UICulture).TwoLetterISOLanguageName -eq 'ru'
@@ -17,6 +17,9 @@ function msg($en, $ru) { if ($isRu) { $ru } else { $en } }
 
 $isWin11 = [Environment]::OSVersion.Version.Build -ge 22000
 $isWin10 = [Environment]::OSVersion.Version.Major -eq 10 -and -not $isWin11
+$build = [Environment]::OSVersion.Version.Build
+$hasExploitGuard = $build -ge 16299
+$hasSAC = $build -ge 22621
 
 $tamper = $false
 try { $tamper = (Get-MpComputerStatus -ErrorAction Stop).IsTamperProtected } catch {}
@@ -97,7 +100,7 @@ while ($true) {
     try { $tamper = (Get-MpComputerStatus -ErrorAction Stop).IsTamperProtected } catch {}
     
     $sacState = -1
-    if ($isWin11) {
+    if ($hasSAC) {
         $sacPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
         if (Test-Path $sacPath) {
             try { $sacState = (Get-ItemProperty $sacPath -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState } catch {}
@@ -178,14 +181,18 @@ while ($true) {
             try { if ((Get-ItemProperty $puaPath -Name PUAProtection -EA Stop).PUAProtection -eq 0) { $puaDisabled = $true } } catch {}
         }
 
-        $networkDisabled = ($p.EnableNetworkProtection -in @(0, 'Disabled'))
-        if (-not $networkDisabled -and -not $tamper) {
-            try { if ((Get-ItemProperty $npPath -Name EnableNetworkProtection -EA Stop).EnableNetworkProtection -eq 0) { $networkDisabled = $true } } catch {}
-        }
+        $networkDisabled = $true
+        $folderDisabled = $true
+        if ($hasExploitGuard) {
+            $networkDisabled = ($p.EnableNetworkProtection -in @(0, 'Disabled'))
+            if (-not $networkDisabled -and -not $tamper) {
+                try { if ((Get-ItemProperty $npPath -Name EnableNetworkProtection -EA Stop).EnableNetworkProtection -eq 0) { $networkDisabled = $true } } catch {}
+            }
 
-        $folderDisabled = ($p.EnableControlledFolderAccess -in @(0, 'Disabled'))
-        if (-not $folderDisabled -and -not $tamper) {
-            try { if ((Get-ItemProperty $cfaPath -Name EnableControlledFolderAccess -EA Stop).EnableControlledFolderAccess -eq 0) { $folderDisabled = $true } } catch {}
+            $folderDisabled = ($p.EnableControlledFolderAccess -in @(0, 'Disabled'))
+            if (-not $folderDisabled -and -not $tamper) {
+                try { if ((Get-ItemProperty $cfaPath -Name EnableControlledFolderAccess -EA Stop).EnableControlledFolderAccess -eq 0) { $folderDisabled = $true } } catch {}
+            }
         }
 
         Write-Host ""
@@ -280,18 +287,20 @@ while ($true) {
             Write-Host "[$(msg 'DISABLED' 'ОТКЛЮЧЕНО')]" -ForegroundColor Red
         }
 
-        Write-Host "  - $(msg 'Network protection:' 'Сетевая защита:') " -NoNewline
-        if (-not $networkDisabled) {
-            Write-Host "[$(msg 'ENABLED' 'ВКЛЮЧЕНО')]" -ForegroundColor Green
-        } else {
-            Write-Host "[$(msg 'DISABLED' 'ОТКЛЮЧЕНО')]" -ForegroundColor Red
-        }
+        if ($hasExploitGuard) {
+            Write-Host "  - $(msg 'Network protection:' 'Сетевая защита:') " -NoNewline
+            if (-not $networkDisabled) {
+                Write-Host "[$(msg 'ENABLED' 'ВКЛЮЧЕНО')]" -ForegroundColor Green
+            } else {
+                Write-Host "[$(msg 'DISABLED' 'ОТКЛЮЧЕНО')]" -ForegroundColor Red
+            }
 
-        Write-Host "  - $(msg 'Controlled Folder Access:' 'Контролируемый доступ к папкам:') " -NoNewline
-        if (-not $folderDisabled) {
-            Write-Host "[$(msg 'ENABLED' 'ВКЛЮЧЕНО')]" -ForegroundColor Green
-        } else {
-            Write-Host "[$(msg 'DISABLED' 'ОТКЛЮЧЕНО')]" -ForegroundColor Red
+            Write-Host "  - $(msg 'Controlled Folder Access:' 'Контролируемый доступ к папкам:') " -NoNewline
+            if (-not $folderDisabled) {
+                Write-Host "[$(msg 'ENABLED' 'ВКЛЮЧЕНО')]" -ForegroundColor Green
+            } else {
+                Write-Host "[$(msg 'DISABLED' 'ОТКЛЮЧЕНО')]" -ForegroundColor Red
+            }
         }
         Write-Host ""
     }
@@ -313,7 +322,10 @@ while ($true) {
         
         $allDisabled = $false
         if ($null -ne $s -and $null -ne $p) {
-            $allDisabled = ($realtimeDisabled -and $behaviorDisabled -and $ioavDisabled -and $scriptScanDisabled -and $blockAtFirstDisabled -and $mapsDisabled -and $samplesDisabled -and $puaDisabled -and $networkDisabled -and $folderDisabled -and (-not $ssEnabled))
+            $allDisabled = ($realtimeDisabled -and $behaviorDisabled -and $ioavDisabled -and $scriptScanDisabled -and $blockAtFirstDisabled -and $mapsDisabled -and $samplesDisabled -and $puaDisabled -and (-not $ssEnabled))
+            if ($hasExploitGuard) {
+                $allDisabled = $allDisabled -and $networkDisabled -and $folderDisabled
+            }
         }
         
         if ($allDisabled) {
@@ -375,7 +387,7 @@ while ($true) {
             Write-Host ""
         }
 
-        if ($sacState -in @(1, 2)) {
+        if ($hasSAC -and $sacState -in @(1, 2)) {
             $diagEnabled = $true
             $hvciEnabled = $true
             try {
@@ -418,8 +430,10 @@ while ($true) {
         Try-Run 'Defender MAPS off'                     { Set-MpPreference -MAPSReporting Disabled }
         Try-Run 'Defender samples off'                  { Set-MpPreference -SubmitSamplesConsent NeverSend }
         Try-Run 'Defender PUA protection off'           { Set-MpPreference -PUAProtection Disabled }
-        Try-Run 'Defender Network protection off'       { Set-MpPreference -EnableNetworkProtection Disabled }
-        Try-Run 'Defender Controlled Folder Access off' { Set-MpPreference -EnableControlledFolderAccess Disabled }
+        if ($hasExploitGuard) {
+            Try-Run 'Defender Network protection off'       { Set-MpPreference -EnableNetworkProtection Disabled }
+            Try-Run 'Defender Controlled Folder Access off' { Set-MpPreference -EnableControlledFolderAccess Disabled }
+        }
 
         Try-Run 'Defender policy: realtime off' {
             $p = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection'
@@ -441,15 +455,17 @@ while ($true) {
             if (-not (Test-Path $p)) { New-Item -Path $p -Force | Out-Null }
             Set-ItemProperty -Path $p -Name PUAProtection -Value 0 -Type DWord
         }
-        Try-Run 'Defender policy: Exploit Guard off' {
-            $eg = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard'
-            if (-not (Test-Path $eg)) { New-Item -Path $eg -Force | Out-Null }
-            $np = "$eg\Network Protection"
-            if (-not (Test-Path $np)) { New-Item -Path $np -Force | Out-Null }
-            Set-ItemProperty -Path $np -Name EnableNetworkProtection -Value 0 -Type DWord
-            $cfa = "$eg\Controlled Folder Access"
-            if (-not (Test-Path $cfa)) { New-Item -Path $cfa -Force | Out-Null }
-            Set-ItemProperty -Path $cfa -Name EnableControlledFolderAccess -Value 0 -Type DWord
+        if ($hasExploitGuard) {
+            Try-Run 'Defender policy: Exploit Guard off' {
+                $eg = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard'
+                if (-not (Test-Path $eg)) { New-Item -Path $eg -Force | Out-Null }
+                $np = "$eg\Network Protection"
+                if (-not (Test-Path $np)) { New-Item -Path $np -Force | Out-Null }
+                Set-ItemProperty -Path $np -Name EnableNetworkProtection -Value 0 -Type DWord
+                $cfa = "$eg\Controlled Folder Access"
+                if (-not (Test-Path $cfa)) { New-Item -Path $cfa -Force | Out-Null }
+                Set-ItemProperty -Path $cfa -Name EnableControlledFolderAccess -Value 0 -Type DWord
+            }
         }
 
         Try-Run 'SmartScreen Explorer off' {
@@ -467,7 +483,7 @@ while ($true) {
             if (-not (Test-Path $p)) { New-Item -Path $p -Force | Out-Null }
             Set-ItemProperty -Path $p -Name SmartScreenEnabled -Value 0 -Type DWord
         }
-        if ($disableSac) {
+        if ($hasSAC -and $disableSac) {
             Try-Run 'Smart App Control off' {
                 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -Name VerifiedAndReputablePolicyState -Value 0 -Type DWord
             }
@@ -544,21 +560,23 @@ while ($true) {
             }
             if (-not (CheckDisabled $p.DisableRealtimeMonitoring    $rtPath 'DisableRealtimeMonitoring'))    { $failed += $(msg 'Real-time protection' 'защиту в реальном времени') }
             if (-not (CheckDisabled $p.DisableBehaviorMonitoring    $rtPath 'DisableBehaviorMonitoring'))    { $failed += $(msg 'Behavior monitoring' 'поведенческий мониторинг') }
-            if (-not (CheckDisabled $p.DisableIOAVProtection        $rtPath 'IOAVProtection'))               { $failed += $(msg 'IOAV protection' 'проверку скачиваемых файлов и вложений IOAV') }
+            if (-not (CheckDisabled $p.DisableIOAVProtection        $rtPath 'DisableIOAVProtection'))        { $failed += $(msg 'IOAV protection' 'проверку скачиваемых файлов и вложений IOAV') }
             if (-not (CheckDisabled $p.DisableScriptScanning        $rtPath 'DisableScriptScanning'))        { $failed += $(msg 'Script scanning' 'сканирование скриптов') }
             if (-not (CheckDisabled $p.DisableBlockAtFirstSeen      $rtPath 'DisableBlockAtFirstSeen'))      { $failed += $(msg 'Block at First Seen' 'блокировку при первом появлении') }
             
             if (-not (CheckDisabled $p.MAPSReporting                $spynetPath 'SpynetReporting' @(0, 'Disabled') @(0))) { $failed += $(msg 'Cloud-delivered protection' 'облачную защиту') }
             if (-not (CheckDisabled $p.SubmitSamplesConsent         $spynetPath 'SubmitSamplesConsent' @(2, 'NeverSend', 0, 'AlwaysPrompt') @(2, 0))) { $failed += $(msg 'Automatic sample submission' 'автоматическую отправку образцов') }
             if (-not (CheckDisabled $p.PUAProtection                $puaPath 'PUAProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'PUA protection' 'защиту от потенциально нежелательных программ') }
-            if (-not (CheckDisabled $p.EnableNetworkProtection      $npPath 'EnableNetworkProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'Network protection' 'сетевую защиту') }
-            if (-not (CheckDisabled $p.EnableControlledFolderAccess $cfaPath 'EnableControlledFolderAccess' @(0, 'Disabled') @(0))) { $failed += $(msg 'Controlled Folder Access' 'контролируемый доступ к папкам') }
+            if ($hasExploitGuard) {
+                if (-not (CheckDisabled $p.EnableNetworkProtection      $npPath 'EnableNetworkProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'Network protection' 'сетевую защиту') }
+                if (-not (CheckDisabled $p.EnableControlledFolderAccess $cfaPath 'EnableControlledFolderAccess' @(0, 'Disabled') @(0))) { $failed += $(msg 'Controlled Folder Access' 'контролируемый доступ к папкам') }
+            }
 
             $ssVal = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer' -Name SmartScreenEnabled -EA SilentlyContinue).SmartScreenEnabled
             $ssPol = (Get-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\System' -Name EnableSmartScreen -EA SilentlyContinue).EnableSmartScreen
             if ($ssVal -ne 'Off' -and $ssPol -ne 0) { $failed += $(msg 'SmartScreen' 'SmartScreen') }
 
-            if ($disableSac) {
+            if ($hasSAC -and $disableSac) {
                 $sacPol = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState
                 if ($sacPol -ne 0) { $failed += $(msg 'Smart App Control' 'Smart App Control') }
             }
@@ -617,10 +635,12 @@ while ($true) {
                 Remove-ItemProperty -Path $p2 -Name MpEnablePus -ErrorAction SilentlyContinue
             }
         }
-        Try-Run 'Defender policy: remove Exploit Guard keys' {
-            $eg = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard'
-            if (Test-Path $eg) {
-                Remove-Item -Path $eg -Recurse -Force -ErrorAction SilentlyContinue
+        if ($hasExploitGuard) {
+            Try-Run 'Defender policy: remove Exploit Guard keys' {
+                $eg = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard'
+                if (Test-Path $eg) {
+                    Remove-Item -Path $eg -Recurse -Force -ErrorAction SilentlyContinue
+                }
             }
         }
 
@@ -638,8 +658,10 @@ while ($true) {
         Try-Run 'Defender MAPS on'                      { Set-MpPreference -MAPSReporting Advanced }
         Try-Run 'Defender samples'                      { Set-MpPreference -SubmitSamplesConsent SendSafeSamples }
         Try-Run 'Defender PUA protection on'            { Set-MpPreference -PUAProtection Enabled }
-        Try-Run 'Defender Network protection on'        { Set-MpPreference -EnableNetworkProtection Enabled }
-        Try-Run 'Defender Controlled Folder Access on'  { Set-MpPreference -EnableControlledFolderAccess Enabled }
+        if ($hasExploitGuard) {
+            Try-Run 'Defender Network protection on'        { Set-MpPreference -EnableNetworkProtection Enabled }
+            Try-Run 'Defender Controlled Folder Access on'  { Set-MpPreference -EnableControlledFolderAccess Enabled }
+        }
 
         Try-Run 'SmartScreen Explorer on' {
             $p = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
@@ -668,7 +690,7 @@ while ($true) {
             $p = 'HKCU:\Software\Microsoft\Edge'
             if (Test-Path $p) { Set-ItemProperty -Path $p -Name SmartScreenEnabled -Value 1 -Type DWord }
         }
-        if ($isWin11) {
+        if ($hasSAC) {
             Try-Run 'Smart App Control evaluation' {
                 $p = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
                 if (Test-Path $p) {
@@ -762,21 +784,23 @@ while ($true) {
             }
             if (-not (CheckEnabled $p.DisableRealtimeMonitoring $rtPath 'DisableRealtimeMonitoring')) { $failed += $(msg 'Real-time protection' 'защиту в реальном времени') }
             if (-not (CheckEnabled $p.DisableBehaviorMonitoring $rtPath 'DisableBehaviorMonitoring')) { $failed += $(msg 'Behavior monitoring' 'поведенческий мониторинг') }
-            if (-not (CheckEnabled $p.DisableIOAVProtection     $rtPath 'IOAVProtection'))     { $failed += $(msg 'IOAV protection' 'проверку скачиваемых файлов и вложений IOAV') }
+            if (-not (CheckEnabled $p.DisableIOAVProtection     $rtPath 'DisableIOAVProtection'))     { $failed += $(msg 'IOAV protection' 'проверку скачиваемых файлов и вложений IOAV') }
             if (-not (CheckEnabled $p.DisableScriptScanning     $rtPath 'DisableScriptScanning'))     { $failed += $(msg 'Script scanning' 'сканирование скриптов') }
             if (-not (CheckEnabled $p.DisableBlockAtFirstSeen   $rtPath 'DisableBlockAtFirstSeen'))   { $failed += $(msg 'Block at First Seen' 'блокировку при первом появлении') }
 
             if (-not (CheckEnabled $p.MAPSReporting                $spynetPath 'SpynetReporting' @(0, 'Disabled') @(0))) { $failed += $(msg 'Cloud-delivered protection' 'облачную защиту') }
             if (-not (CheckEnabled $p.SubmitSamplesConsent         $spynetPath 'SubmitSamplesConsent' @(2, 'NeverSend', 0, 'AlwaysPrompt') @(2, 0))) { $failed += $(msg 'Automatic sample submission' 'автоматическую отправку образцов') }
             if (-not (CheckEnabled $p.PUAProtection                $puaPath 'PUAProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'PUA protection' 'защиту от потенциально нежелательных программ') }
-            if (-not (CheckEnabled $p.EnableNetworkProtection      $npPath 'EnableNetworkProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'Network protection' 'сетевую защиту') }
-            if (-not (CheckEnabled $p.EnableControlledFolderAccess $cfaPath 'EnableControlledFolderAccess' @(0, 'Disabled') @(0))) { $failed += $(msg 'Controlled Folder Access' 'контролируемый доступ к папкам') }
+            if ($hasExploitGuard) {
+                if (-not (CheckEnabled $p.EnableNetworkProtection      $npPath 'EnableNetworkProtection' @(0, 'Disabled') @(0))) { $failed += $(msg 'Network protection' 'сетевую защиту') }
+                if (-not (CheckEnabled $p.EnableControlledFolderAccess $cfaPath 'EnableControlledFolderAccess' @(0, 'Disabled') @(0))) { $failed += $(msg 'Controlled Folder Access' 'контролируемый доступ к папкам') }
+            }
             
             $ssVal = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer' -Name SmartScreenEnabled -EA SilentlyContinue).SmartScreenEnabled
             $ssPol = (Get-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\System' -Name EnableSmartScreen -EA SilentlyContinue).EnableSmartScreen
             if ($ssVal -eq 'Off' -or $ssPol -eq 0) { $failed += $(msg 'SmartScreen' 'SmartScreen') }
 
-            if ($isWin11) {
+            if ($hasSAC) {
                 $sacPol = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState
                 if ($sacPol -eq 0) { $failed += $(msg 'Smart App Control' 'интеллектуальное управление приложениями') }
             }
