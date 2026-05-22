@@ -1559,12 +1559,19 @@ const PrInstallProblems: React.FC = () => {
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
               <Addition type="info">
-                <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
-                вернуть без полной переустановки Windows, на базовую защиту{" "}
-                <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
-                <em className="article-note-muted">
-                  Заодно избавитесь от лишних фильтров.
-                </em>
+                <p>
+                  <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
+                  вернуть без полной переустановки Windows на некоторых сборках, на
+                  базовую защиту <mark className="app">Windows Defender</mark> её
+                  отключение не влияет.{" "}
+                  <em className="article-note-muted">
+                    Заодно избавитесь от лишних фильтров.
+                  </em>
+                </p>
+                <p>
+                  В последних версиях Windows 11 эту функцию можно включить обратно без
+                  переустановки системы.
+                </p>
               </Addition>
               <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
@@ -2520,6 +2527,22 @@ const PrInstallProblems: React.FC = () => {
             выбрав фразу.
           </li>
         </ul>
+        <DetailsSummary title="Как удалить лишние файлы языковых пакетов, например, после их обновления?">
+          <p>
+            После обновления <mark className="app">Adobe Premiere</mark> и языковых
+            пакетов, старые файлы языковых пакетов не удаляются автоматически для того
+            чтобы вы могли использовать их в предыдущих версиях{" "}
+            <mark className="app">Adobe Premiere</mark>. Но не всем хочется иметь лишний
+            мусор в своей файловой системе.
+          </p>
+          <ContentFilter
+            windowsContent={
+              <>
+                <p></p>
+              </>
+            }
+          />
+        </DetailsSummary>
       </DetailsSummary>
       <DetailsSummary
         anchor="match-version"
@@ -3050,8 +3073,9 @@ const PrInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="safe-mode-and-reset"
         tag="безопасный режим, reset preferences, safe mode"
-        title="Чую, что программа работает неправильно, но переустанавливать всё я не хочу. Как сбросить все настройки?"
+        title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
       ></DetailsSummary>
+
       <Addition type="info">
         Некоторые решения проблем, которые могут у вас возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем

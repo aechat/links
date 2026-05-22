@@ -1372,12 +1372,19 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
               <Addition type="info">
-                <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
-                вернуть без полной переустановки Windows, на базовую защиту{" "}
-                <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
-                <em className="article-note-muted">
-                  Заодно избавитесь от лишних фильтров.
-                </em>
+                <p>
+                  <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
+                  вернуть без полной переустановки Windows на некоторых сборках, на
+                  базовую защиту <mark className="app">Windows Defender</mark> её
+                  отключение не влияет.{" "}
+                  <em className="article-note-muted">
+                    Заодно избавитесь от лишних фильтров.
+                  </em>
+                </p>
+                <p>
+                  В последних версиях Windows 11 эту функцию можно включить обратно без
+                  переустановки системы.
+                </p>
               </Addition>
               <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"

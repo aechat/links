@@ -547,94 +547,32 @@ const PsInstallProblems: React.FC = () => {
                   </ul>
                 </li>
                 <li>
-                  Если в архиве находится файл формата <mark className="file">CCX</mark> -
-                  переименуйте этот файл в <mark className="file">ZIP</mark> и распакуйте
-                  его в{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
-                  </mark>
-                  . Установленные плагины появятся в{" "}
-                  <mark className="select">«Plugins»</mark> в горизонтальном меню в
-                  верхней части интерфейса программы.
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
-                  расширения обычно устанавливаются через{" "}
-                  <a href="https://aescripts.com/learn/zxp-installer/">
-                    ZXP Installer от aescripts
-                  </a>
-                  . Для установки требуется просто перенести{" "}
-                  <mark className="file">ZXP</mark> файл в окно{" "}
-                  <mark className="app">ZXP Installer</mark> для установки и следовать
-                  указаниям программы. Прежде чем устанавливать расширение такого формата,
-                  убедитесь в том, что ваша версия{" "}
-                  <mark className="app">Adobe Photoshop</mark> его поддерживает.
-                  <Addition type="danger">
-                    Пожалуйста, не используйте{" "}
-                    <a href="https://zxpinstaller.com/">
-                      ZXP Installer от ELEMENTS Storage Media
-                    </a>
-                    , если вы используете версии программ{" "}
-                    <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
-                    <mark className="app">Adobe Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
-                    выдавать ошибку <mark className="danger">-193</mark> до тех пор, пока
-                    вы не установите программу{" "}
-                    <mark className="app">Adobe Creative Cloud</mark>, а он же может вам
-                    поломать уже установленные программы. Для решения проблемы
-                    воспользуйтесь{" "}
-                    <a href="https://aescripts.com/learn/zxp-installer/">
-                      ZXP Installer от aescripts
-                    </a>{" "}
-                    или ручной установкой расширений.
-                  </Addition>
+                  <p>
+                    Расширения формата <mark className="file">ZXP</mark> можно установить
+                    двумя способами: с использованием{" "}
+                    <mark className="app">ZXP Installer</mark> от{" "}
+                    <mark className="web">aescripts</mark> или ручной распаковкой
+                    расширения в нужную директорию. После корректной установки
+                    установленные расширения появятся в{" "}
+                    <mark className="select">«Plugins»</mark> и будут работать в своём
+                    новом окне, который вы можете прикрепить в своё рабочее пространство.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
-                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
-                        <mark className="file">ZXP</mark> в{" "}
-                        <mark className="file">ZIP</mark> и распаковать его как обычный
-                        архив. Содержимое свежераспакованного файла нужно поместить в
-                        папку{" "}
-                        <mark className="path">
-                          C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
-                        </mark>{" "}
-                        (если такой папки нет - создайте) и после этого нужно применить{" "}
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>
-                        , открыв его и подтвердив слияние записей реестра.
+                        Расширения такого формата являются кросс-платформенными: они
+                        работают как в Windows, так и в macOS.
                       </li>
                       <li>
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>{" "}
-                        нужно применить лишь один раз, он универсален для всех расширений
-                        формата <mark className="file">ZXP</mark>. В дальнейшем при
-                        установке подобных расширений файл для внесений записей в реестр
-                        системы не нужно снова открывать.{" "}
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>{" "}
-                        включает debug-режим в{" "}
-                        <mark className="app">Adobe Photoshop</mark> для корректного
-                        открытия и работы сторонних расширений, установленные из просторов
-                        интернета.
+                        Прежде чем устанавливать расширение такого формата — убедитесь в
+                        том, что используемая вами версия{" "}
+                        <mark className="app">Adobe Photoshop</mark> его поддерживает,
+                        иначе он может не появиться в списке расширений.
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark> архив. Это можно понять по
-                        наличию папок <mark className="path">META-INF</mark> и{" "}
+                        <mark className="file">ZXP</mark>. Это можно понять по наличию
+                        папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
                       </li>
@@ -774,12 +712,19 @@ const PsInstallProblems: React.FC = () => {
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
               <Addition type="info">
-                <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
-                вернуть без полной переустановки Windows, на базовую защиту{" "}
-                <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
-                <em className="article-note-muted">
-                  Заодно избавитесь от лишних фильтров.
-                </em>
+                <p>
+                  <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
+                  вернуть без полной переустановки Windows на некоторых сборках, на
+                  базовую защиту <mark className="app">Windows Defender</mark> её
+                  отключение не влияет.{" "}
+                  <em className="article-note-muted">
+                    Заодно избавитесь от лишних фильтров.
+                  </em>
+                </p>
+                <p>
+                  В последних версиях Windows 11 эту функцию можно включить обратно без
+                  переустановки системы.
+                </p>
               </Addition>
               <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
@@ -1613,29 +1558,6 @@ const PsInstallProblems: React.FC = () => {
         tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
         title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
-        {/* <DetailsSummary
-      anchor="fix-creative-cloud-missing"
-      tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
-      title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено...»"
-    >
-      <p>
-        Вы зачем-то установили приложение{" "}
-        <mark className="app">Adobe Creative Cloud</mark> рядом с пиратскими программами,
-        у которых вырезан модуль <mark className="app">Adobe Creative Cloud</mark>. А
-        потом само приложение <mark className="app">Adobe Creative Cloud</mark> удалили,
-        оставив за собой нежелательные хвосты.
-      </p>
-      <p>
-        Решение довольно простое: удалите приложения и установите их заново, чтобы лишние
-        зависимости программ от <mark className="app">Adobe Creative Cloud</mark>{" "}
-        очистились. Для очистки системы от некоторых или всех программ от{" "}
-        <mark className="company">Adobe</mark> можно воспользоваться консольной утилитой{" "}
-        <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
-          Adobe Creative Cloud Cleaner
-        </a>
-        .
-      </p>
-    </DetailsSummary> */}
         <ContentFilter
           windowsContent={
             <>
@@ -1666,6 +1588,7 @@ const PsInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-zxp-installer-193"
+        tag="extension manager init failed, status -193, a required resource is missing, please relaunch the creative cloud app and try again, zxp installer, ошибка -193, не установлен creative cloud"
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
         <p>
