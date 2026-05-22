@@ -8,7 +8,7 @@ exit /b
 :PS_START
 $ErrorActionPreference = 'Continue'
 $log = Join-Path $env:TEMP 'defender-grounder.log'
-$version = '0.2'
+$version = '0.2.1'
 "=== Grounder run at $(Get-Date) ===" | Out-File $log -Encoding UTF8
 
 $isRu = (Get-UICulture).TwoLetterISOLanguageName -eq 'ru'
@@ -97,9 +97,11 @@ while ($true) {
     try { $tamper = (Get-MpComputerStatus -ErrorAction Stop).IsTamperProtected } catch {}
     
     $sacState = -1
-    $sacPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
-    if (Test-Path $sacPath) {
-        try { $sacState = (Get-ItemProperty $sacPath -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState } catch {}
+    if ($isWin11) {
+        $sacPath = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
+        if (Test-Path $sacPath) {
+            try { $sacState = (Get-ItemProperty $sacPath -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState } catch {}
+        }
     }
     
     $s = $null
@@ -666,10 +668,12 @@ while ($true) {
             $p = 'HKCU:\Software\Microsoft\Edge'
             if (Test-Path $p) { Set-ItemProperty -Path $p -Name SmartScreenEnabled -Value 1 -Type DWord }
         }
-        Try-Run 'Smart App Control evaluation' {
-            $p = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
-            if (Test-Path $p) {
-                Set-ItemProperty -Path $p -Name VerifiedAndReputablePolicyState -Value 2 -Type DWord
+        if ($isWin11) {
+            Try-Run 'Smart App Control evaluation' {
+                $p = 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy'
+                if (Test-Path $p) {
+                    Set-ItemProperty -Path $p -Name VerifiedAndReputablePolicyState -Value 2 -Type DWord
+                }
             }
         }
 
@@ -772,8 +776,10 @@ while ($true) {
             $ssPol = (Get-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\System' -Name EnableSmartScreen -EA SilentlyContinue).EnableSmartScreen
             if ($ssVal -eq 'Off' -or $ssPol -eq 0) { $failed += $(msg 'SmartScreen' 'SmartScreen') }
 
-            $sacPol = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState
-            if ($sacPol -eq 0) { $failed += $(msg 'Smart App Control' 'интеллектуальное управление приложениями') }
+            if ($isWin11) {
+                $sacPol = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -Name VerifiedAndReputablePolicyState -EA SilentlyContinue).VerifiedAndReputablePolicyState
+                if ($sacPol -eq 0) { $failed += $(msg 'Smart App Control' 'интеллектуальное управление приложениями') }
+            }
 
             "[STATUS] RT=$($p.DisableRealtimeMonitoring) Behavior=$($p.DisableBehaviorMonitoring) IOAV=$($p.DisableIOAVProtection)" | Out-File $log -Append -Encoding UTF8
         } catch {
