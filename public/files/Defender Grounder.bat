@@ -8,12 +8,15 @@ exit /b
 :PS_START
 $ErrorActionPreference = 'Continue'
 $log = Join-Path $env:TEMP 'defender-grounder.log'
-$version = '0.1'
+$version = '0.2'
 "=== Grounder run at $(Get-Date) ===" | Out-File $log -Encoding UTF8
 
 $isRu = (Get-UICulture).TwoLetterISOLanguageName -eq 'ru'
 try { [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding((Get-WinSystemLocale).TextInfo.OEMCodePage) } catch { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 }
 function msg($en, $ru) { if ($isRu) { $ru } else { $en } }
+
+$isWin11 = [Environment]::OSVersion.Version.Build -ge 22000
+$isWin10 = [Environment]::OSVersion.Version.Major -eq 10 -and -not $isWin11
 
 $tamper = $false
 try { $tamper = (Get-MpComputerStatus -ErrorAction Stop).IsTamperProtected } catch {}
@@ -416,11 +419,6 @@ while ($true) {
         Try-Run 'Defender Network protection off'       { Set-MpPreference -EnableNetworkProtection Disabled }
         Try-Run 'Defender Controlled Folder Access off' { Set-MpPreference -EnableControlledFolderAccess Disabled }
 
-        Try-Run 'Defender policy: DisableAntiSpyware' {
-            $p = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender'
-            if (-not (Test-Path $p)) { New-Item -Path $p -Force | Out-Null }
-            Set-ItemProperty -Path $p -Name DisableAntiSpyware -Value 1 -Type DWord
-        }
         Try-Run 'Defender policy: realtime off' {
             $p = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection'
             if (-not (Test-Path $p)) { New-Item -Path $p -Force | Out-Null }
@@ -584,17 +582,6 @@ while ($true) {
     } else {
         Write-Host "  $(msg 'Enabling protections...' 'Включение защиты...')" -ForegroundColor Cyan
 
-        Try-Run 'Defender realtime on'                 { Set-MpPreference -DisableRealtimeMonitoring $false }
-        Try-Run 'Defender IOAV on'                     { Set-MpPreference -DisableIOAVProtection $false }
-        Try-Run 'Defender behavior on'                 { Set-MpPreference -DisableBehaviorMonitoring $false }
-        Try-Run 'Defender blockatfirst'                 { Set-MpPreference -DisableBlockAtFirstSeen $false }
-        Try-Run 'Defender script scan'                  { Set-MpPreference -DisableScriptScanning $false }
-        Try-Run 'Defender MAPS on'                      { Set-MpPreference -MAPSReporting Advanced }
-        Try-Run 'Defender samples'                      { Set-MpPreference -SubmitSamplesConsent SendSafeSamples }
-        Try-Run 'Defender PUA protection on'            { Set-MpPreference -PUAProtection Enabled }
-        Try-Run 'Defender Network protection on'        { Set-MpPreference -EnableNetworkProtection Enabled }
-        Try-Run 'Defender Controlled Folder Access on'  { Set-MpPreference -EnableControlledFolderAccess Enabled }
-
         Try-Run 'Defender policy: remove DisableAntiSpyware' {
             $p = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender'
             if (Test-Path $p) { Remove-ItemProperty -Path $p -Name DisableAntiSpyware -ErrorAction SilentlyContinue }
@@ -634,6 +621,23 @@ while ($true) {
                 Remove-Item -Path $eg -Recurse -Force -ErrorAction SilentlyContinue
             }
         }
+
+        Try-Run 'Restore Defender service' {
+            if (Test-Path "$env:ProgramFiles\Windows Defender\MpCmdRun.exe") {
+                & "$env:ProgramFiles\Windows Defender\MpCmdRun.exe" -WdEnable | Out-Null
+            }
+        }
+
+        Try-Run 'Defender realtime on'                 { Set-MpPreference -DisableRealtimeMonitoring $false }
+        Try-Run 'Defender IOAV on'                     { Set-MpPreference -DisableIOAVProtection $false }
+        Try-Run 'Defender behavior on'                 { Set-MpPreference -DisableBehaviorMonitoring $false }
+        Try-Run 'Defender blockatfirst'                 { Set-MpPreference -DisableBlockAtFirstSeen $false }
+        Try-Run 'Defender script scan'                  { Set-MpPreference -DisableScriptScanning $false }
+        Try-Run 'Defender MAPS on'                      { Set-MpPreference -MAPSReporting Advanced }
+        Try-Run 'Defender samples'                      { Set-MpPreference -SubmitSamplesConsent SendSafeSamples }
+        Try-Run 'Defender PUA protection on'            { Set-MpPreference -PUAProtection Enabled }
+        Try-Run 'Defender Network protection on'        { Set-MpPreference -EnableNetworkProtection Enabled }
+        Try-Run 'Defender Controlled Folder Access on'  { Set-MpPreference -EnableControlledFolderAccess Enabled }
 
         Try-Run 'SmartScreen Explorer on' {
             $p = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer'
