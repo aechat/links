@@ -1605,9 +1605,30 @@ const PrInstallProblems: React.FC = () => {
               />
               <Divider>Или удаляем Windows Defender с «корнями»</Divider>
               <p>
-                Если внесение исключений не помогло, вас раздражают ложные срабатывания
-                или вы хотите отключить <mark className="app">Windows Defender</mark> раз
-                и навсегда — воспользуйтесь утилитами из списка ниже.
+                Если добавление исключений не помогло, вас раздражают ложные срабатывания
+                или вы хотите полностью отключить{" "}
+                <mark className="app">Windows Defender</mark> — попробуйте нашу утилиту{" "}
+                <mark className="app">Defender Grounder</mark>. Она отключает{" "}
+                <mark className="app">Windows Defender</mark> и{" "}
+                <mark className="app">Windows SmartScreen</mark> с помощью записи
+                параметров в реестр, не удаляя файлы антивирусной защиты, а также
+                добавляет в исключения все доступные в системе диски целиком. После
+                установки необходимых программ защиту можно включить обратно через эту же
+                утилиту.
+              </p>
+              <div className="flexible-links">
+                <a
+                  download
+                  href="files/Defender Grounder.bat"
+                >
+                  Defender Grounder
+                </a>
+              </div>
+              <p>
+                Если <mark className="app">Defender Grounder</mark> не помог вам в
+                отключении стандартной защиты — попробуйте воспользоваться утилитами из
+                списка ниже. Некоторые из них удаляют полностью антивирусное решение от{" "}
+                <mark className="company">Microsoft</mark>.
               </p>
               <div className="flexible-links">
                 <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
@@ -1634,8 +1655,10 @@ const PrInstallProblems: React.FC = () => {
                 </p>
                 <p>
                   Если вы не слишком уверенный пользователь и не уверены в своих
-                  действиях, лучше ограничиться временным отключением антивируса или
-                  добавлением нужных файлов и папок в исключения.
+                  действиях, лучше ограничиться временным отключением антивируса
+                  самостоятельно через интерфейс{" "}
+                  <mark className="app">Windows Defender</mark> или добавлением нужных
+                  файлов и папок в исключения.
                 </p>
               </Addition>
               <Addition type="warning">
