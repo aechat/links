@@ -83,9 +83,9 @@ const PsInterface: React.FC = () => {
             download
             href="files/Photoshop Splash Screen Extractor.rar"
           >
-            этой ссылке
+            этой
           </a>{" "}
-          и распаковать её с помощью архиватора, например{" "}
+          ссылке и распаковать её с помощью архиватора, например{" "}
           <mark className="app">WinRAR</mark>, в удобном вам месте. Также существует и{" "}
           <a href="https://psccicon.azurewebsites.net/">онлайн-версия</a> данной утилиты.
         </p>

@@ -50,7 +50,7 @@ const PrWhereFind: React.FC = () => {
                   Чтобы без проблем скачивать файлы из каналов, описанных ниже,
                   рекомендуется использовать официальное приложение{" "}
                   <mark className="app">Telegram</mark> вместо веб-версии. Его можно
-                  установить по <a href="https://telegram.org/android">этой ссылке</a>.
+                  установить по <a href="https://telegram.org/android">этой</a> ссылке.
                 </>
               );
             }
@@ -61,7 +61,7 @@ const PrWhereFind: React.FC = () => {
                   Чтобы без проблем скачивать файлы из каналов, описанных ниже,
                   рекомендуется использовать десктопную версию{" "}
                   <mark className="app">Telegram</mark> вместо веб-версии. Её можно
-                  скачать по <a href="https://macos.telegram.org/">этой ссылке</a>.
+                  скачать по <a href="https://macos.telegram.org/">этой</a> ссылке.
                 </>
               );
             }
@@ -71,7 +71,7 @@ const PrWhereFind: React.FC = () => {
                 Чтобы без проблем скачивать файлы из каналов, описанных ниже,
                 рекомендуется использовать десктопную версию{" "}
                 <mark className="app">Telegram</mark> вместо веб-версии. Её можно скачать
-                по <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                по <a href="https://desktop.telegram.org/">этой</a> ссылке.
               </>
             );
           })()}

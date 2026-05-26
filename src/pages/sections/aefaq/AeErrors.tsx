@@ -1006,11 +1006,12 @@ const AeErrors: React.FC = () => {
                     программы не дали результата, вероятно, ваша видеокарта не
                     соответствует{" "}
                     <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
-                      системным требованиям для Advanced 3D
-                    </a>
-                    . Если вам всё же нужно работать с трёхмерными слоями, переключите
-                    движок на <mark className="plugin">Classic 3D</mark> в окне
-                    предпросмотра или в настройках композиции во вкладке{" "}
+                      системным требованиям
+                    </a>{" "}
+                    для <mark className="plugin">Advanced 3D</mark>. Если вам всё же нужно
+                    работать с трёхмерными слоями, переключите движок на{" "}
+                    <mark className="plugin">Classic 3D</mark> в окне предпросмотра или в
+                    настройках композиции во вкладке{" "}
                     <mark className="select">«3D Renderer»</mark>.
                   </p>
                   <ArticleMedia
@@ -1212,9 +1213,10 @@ const AeErrors: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="hardware">AMD</mark> — воспользуйтесь{" "}
+            <mark className="hardware">AMD</mark> — воспользуйтесь автоматическим
+            установщиком, который можно скачать на{" "}
             <a href="https://www.amd.com/en/support/download/drivers.html">
-              автоматическим установщиком с официального сайта
+              официальном сайте
             </a>
             .
           </li>
@@ -1430,13 +1432,10 @@ const AeErrors: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если файлов автосохранений нет или они слишком старые — примите
+            Если файлов автосохранений нет или они слишком старые — примите мои
             соболезнования. В следующий раз позаботьтесь о своих нервах и{" "}
-            <a href="#configure-backup">
-              создавайте резервные копии или настройте облачное хранилище с поддержкой
-              отката версий файлов
-            </a>
-            .
+            <a href="#configure-backup">настройте резервное копирование</a> для будущих
+            проектов.
           </li>
         </ul>
         <ContentFilter

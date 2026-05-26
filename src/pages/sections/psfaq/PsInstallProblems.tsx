@@ -194,7 +194,7 @@ const PsInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Загрузить <mark className="app">Keka</mark> можно по{" "}
-                        <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
+                        <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
                         <mark className="app">The Unarchiver</mark> — по{" "}
                         <a href="https://theunarchiver.com/">этой</a>.
                       </li>
@@ -418,7 +418,7 @@ const PsInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         <mark className="app">WinRAR</mark> можно загрузить по{" "}
-                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>, а{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
                         <mark className="app">7-Zip</mark> — по{" "}
                         <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
                         <em className="article-note-muted">
@@ -914,9 +914,10 @@ const PsInstallProblems: React.FC = () => {
               <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
               систему до Windows 10 22H2 или установить Windows 11. Обычно в{" "}
               <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
-                системных требованиях Adobe Photoshop
+                системных требованиях
               </a>{" "}
-              указывается минимальная версия операционной системы.
+              <mark className="app">Adobe Photoshop</mark> указывается минимальная версия
+              операционной системы.
             </p>
             <Addition type="info">
               <ul>
@@ -1462,7 +1463,7 @@ const PsInstallProblems: React.FC = () => {
                       Чтобы корректно скачивать подобные файлы, рекомендую использовать
                       официальное приложение <mark className="app">Telegram</mark> вместо
                       веб-версии, которое можно установить по{" "}
-                      <a href="https://telegram.org/android">этой ссылке</a>.
+                      <a href="https://telegram.org/android">этой</a> ссылке.
                     </>
                   );
                 }
@@ -1473,7 +1474,7 @@ const PsInstallProblems: React.FC = () => {
                       Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
                       десктопной версией <mark className="app">Telegram</mark> вместо
                       веб-версии, которую можно скачать по{" "}
-                      <a href="https://macos.telegram.org/">этой ссылке</a>.
+                      <a href="https://macos.telegram.org/">этой</a> ссылке.
                     </>
                   );
                 }
@@ -1483,7 +1484,7 @@ const PsInstallProblems: React.FC = () => {
                     Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
                     десктопной версией <mark className="app">Telegram</mark> вместо
                     веб-версии, которую можно скачать по{" "}
-                    <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                    <a href="https://desktop.telegram.org/">этой</a> ссылке.
                   </>
                 );
               })()}

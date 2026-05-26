@@ -51,7 +51,7 @@ const PsActions: React.FC = () => {
           Если вы ищете бесплатный и open-source аналог{" "}
           <mark className="app">Topaz Gigapixel AI</mark> для улучшения изображений, есть
           более простой вариант: <mark className="app">Upscayl</mark>. Скачать его можно
-          по <a href="https://upscayl.org/">этой ссылке</a>. Программа также использует
+          по <a href="https://upscayl.org/">этой</a> ссылке. Программа также использует
           генеративные модели для улучшения качества изображений.
         </p>
         <ArticleMedia

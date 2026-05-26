@@ -163,7 +163,7 @@ const AeExportProblems: React.FC = () => {
           <ul>
             <li>
               Если у вас не установлен <mark className="app">Shutter Encoder</mark>, его
-              можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+              можно скачать по <a href="https://www.shutterencoder.com/">этой</a> ссылке.
               Чтобы скачать программу бесплатно, на сайте установите чекбокс{" "}
               <mark className="select">
                 «I do not wish to participate in the development of the software»
@@ -547,14 +547,14 @@ const AeExportProblems: React.FC = () => {
             </p>
             <Addition type="info">
               Если вы часто работаете с градиентами, советуем создать свой пресет для
-              подавления полос или скачать готовый{" "}
+              подавления полос или скачать готовый по{" "}
               <a
                 download
                 href="files/Remove Banding.ffx"
               >
-                по этой ссылке
-              </a>
-              .
+                этой
+              </a>{" "}
+              ссылке.
             </Addition>
             <Addition type="warning">
               Эффекты для генерации и подавления шума требуют больше ресурсов устройства,

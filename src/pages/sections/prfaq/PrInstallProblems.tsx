@@ -180,7 +180,7 @@ const PrInstallProblems: React.FC = () => {
                   </p>
                   <Addition type="info">
                     Загрузить <mark className="app">Keka</mark> можно по{" "}
-                    <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
+                    <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
                     <mark className="app">The Unarchiver</mark> — по{" "}
                     <a href="https://theunarchiver.com/">этой</a>.
                   </Addition>
@@ -798,7 +798,7 @@ const PrInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         <mark className="app">WinRAR</mark> можно загрузить по{" "}
-                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>, а{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
                         <mark className="app">7-Zip</mark> — по{" "}
                         <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
                         <em className="article-note-muted">
@@ -1236,11 +1236,11 @@ const PrInstallProblems: React.FC = () => {
                               download
                               href="files/Enable Extensions Adobe.reg"
                             >
-                              файл реестра, включающий debug-режим
-                            </a>{" "}
-                            для <mark className="app">Adobe Premiere</mark>. Это
-                            необходимо, чтобы установленные вручную расширения запускались
-                            корректно.
+                              файл реестра
+                            </a>
+                            , включающий debug-режим для{" "}
+                            <mark className="app">Adobe Premiere</mark>. Это необходимо,
+                            чтобы установленные вручную расширения запускались корректно.
                           </p>
                           <Addition type="info">
                             <ul>
@@ -2120,7 +2120,7 @@ const PrInstallProblems: React.FC = () => {
                       Чтобы корректно скачивать подобные файлы, рекомендую использовать
                       официальное приложение <mark className="app">Telegram</mark> вместо
                       веб-версии, которое можно установить по{" "}
-                      <a href="https://telegram.org/android">этой ссылке</a>.
+                      <a href="https://telegram.org/android">этой</a> ссылке.
                     </>
                   );
                 }
@@ -2131,7 +2131,7 @@ const PrInstallProblems: React.FC = () => {
                       Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
                       десктопной версией <mark className="app">Telegram</mark> вместо
                       веб-версии, которую можно скачать по{" "}
-                      <a href="https://macos.telegram.org/">этой ссылке</a>.
+                      <a href="https://macos.telegram.org/">этой</a> ссылке.
                     </>
                   );
                 }
@@ -2141,7 +2141,7 @@ const PrInstallProblems: React.FC = () => {
                     Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
                     десктопной версией <mark className="app">Telegram</mark> вместо
                     веб-версии, которую можно скачать по{" "}
-                    <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                    <a href="https://desktop.telegram.org/">этой</a> ссылке.
                   </>
                 );
               })()}

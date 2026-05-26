@@ -384,7 +384,7 @@ const PrExport: React.FC = () => {
         </p>
         <Addition type="info">
           Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
-          можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+          можно скачать по <a href="https://www.shutterencoder.com/">этой</a> ссылке.
         </Addition>
         <ArticleMedia
           caption="Shutter Encoder"

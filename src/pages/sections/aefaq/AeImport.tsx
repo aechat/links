@@ -278,8 +278,8 @@ const AeImport: React.FC = () => {
           <mark className="app">Shutter Encoder</mark> — бесплатный и надёжный конвертер
           видео, аудио и изображений с открытым исходным кодом, работающий на базе{" "}
           <mark className="app">FFmpeg</mark> и поддерживающий большое количество
-          форматов. Скачать его можно{" "}
-          <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+          форматов. Скачать его можно по{" "}
+          <a href="https://www.shutterencoder.com/">этой</a> ссылке.
         </p>
         <Addition type="info">
           <ul>
@@ -1198,11 +1198,10 @@ const AeImport: React.FC = () => {
                 <mark className="app">Adobe After Effects</mark> таких файлов, если в
                 системе отсутствуют кодеки для работы с соответствующими форматами
                 изображений и видео. Чтобы корректно открывать такие изображения и видео,
-                вам нужно установить нужные кодеки. Для их загрузки посетите{" "}
-                <a href="https://store.rg-adguard.net/">
-                  онлайн-генератор ссылок из Microsoft Store
-                </a>
-                , а затем вставьте в сервис одну из ссылок ниже.
+                вам нужно установить нужные кодеки. Для их загрузки перейдите в{" "}
+                <a href="https://store.rg-adguard.net/">генератор ссылок</a> из{" "}
+                <mark className="app">Microsoft Store</mark>, а затем вставьте в сервис
+                одну из ссылок ниже.
               </p>
               <ArticleMedia
                 caption="Браузер"
@@ -1530,9 +1529,9 @@ const AeImport: React.FC = () => {
           В <mark className="app">Adobe After Effects</mark>{" "}
           <mark className="version">26.0 (2026)</mark> и выше появилась возможность{" "}
           <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html#convert-Illustrator-layers-to-shape-layers">
-            преобразовывать слои Illustrator в фигуры без потери градиентов
-          </a>
-          <sup>1</sup>. Для этого выделите нужные элементы и нажмите{" "}
+            преобразовывать слои Illustrator в фигуры
+          </a>{" "}
+          без потери градиентов<sup>1</sup>. Для этого выделите нужные элементы и нажмите{" "}
           <mark className="key">ПКМ</mark> →{" "}
           <mark className="select">«Create» → «Create Shapes from Vector Layer»</mark>.
         </p>

@@ -112,8 +112,8 @@ const AeActions: React.FC = () => {
         <p>
           Если вы ищете бесплатный аналог <mark className="app">Topaz AI</mark> — обратите
           внимание на <mark className="app">Upscayl</mark>. Эта программа также использует
-          нейросетевые модели для улучшения качества изображений. Скачать её можно{" "}
-          <a href="https://upscayl.org/">по этой ссылке</a>.
+          нейросетевые модели для улучшения качества изображений. Скачать её можно по{" "}
+          <a href="https://upscayl.org/">этой</a> ссылке.
         </p>
         <ArticleMedia
           caption="Upscayl"
@@ -842,11 +842,11 @@ const AeActions: React.FC = () => {
               <p>
                 Перед установкой <mark className="app">Depth Anything V2</mark> нужно
                 подготовить окружение, установив <mark className="app">Python</mark>{" "}
-                <mark className="version">3.11</mark>. Скачать его можно{" "}
+                <mark className="version">3.11</mark>. Скачать его можно по{" "}
                 <a href="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe">
-                  по этой ссылке
-                </a>
-                .
+                  этой
+                </a>{" "}
+                ссылке.
               </p>
               <p>
                 В процессе установки не забудьте отметить галочку{" "}

@@ -36,7 +36,7 @@ const AeFromNewbies: React.FC = () => {
               Учтите, что большинство авторов курсов и каналов на{" "}
               <mark className="web">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
-              <a href="#switch-language">изменить язык программы на английский</a>, если у
+              <a href="#switch-language">изменить язык программы</a> на английский, если у
               вас установлена русская версия. Это поможет избежать путаницы с переводом
               названий эффектов или элементов интерфейса.
             </li>
@@ -1284,18 +1284,13 @@ h = content(shapeName).content(pathName).size[1];
                 <mark className="select">«Point Text»</mark> и{" "}
                 <mark className="select">«Paragraph Text»</mark>. Каждый из них
                 используется для разных целей. Вы можете{" "}
-                <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">
-                  анимировать «Source Text»
-                </a>{" "}
-                — менять сам текст на ключевых кадрах,{" "}
-                <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">
-                  запустить текст по «Path»
-                </a>{" "}
-                с помощью маски или{" "}
-                <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">
-                  использовать текстовые аниматоры
-                </a>
-                .
+                <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">анимировать</a>{" "}
+                <mark className="select">«Source Text»</mark> — менять сам текст на
+                ключевых кадрах,{" "}
+                <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">пустить</a> текст по{" "}
+                <mark className="select">«Path»</mark> с помощью маски или{" "}
+                <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">использовать</a>{" "}
+                текстовые аниматоры.
               </p>
               <p>
                 Шрифт, его размер, обводка, межстрочные и межбуквенные интервалы, лигатуры
@@ -5487,7 +5482,7 @@ h = content(shapeName).content(pathName).size[1];
         </p>
         <Addition type="info">
           Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
-          <a href="#configure-backup">настройте резервное копирование проектов</a>.
+          <a href="#configure-backup">настройте резервное копирование</a> проектов.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -6069,7 +6064,7 @@ h = content(shapeName).content(pathName).size[1];
               <p>
                 В таком случае попробуйте откатить проблемный драйвер и{" "}
                 <a href="https://remontka.pro/disable-driver-auto-update-windows-10/">
-                  отключить их автоматическое обновление
+                  отключить автообновление
                 </a>
                 , чтобы подобные ситуации не повторялись. Если у вас установлена
                 видеокарта <mark className="hardware">NVIDIA</mark>, рекомендуется
@@ -6536,9 +6531,10 @@ h = content(shapeName).content(pathName).size[1];
         <p>
           Функцию{" "}
           <a href="https://helpx.adobe.com/after-effects/using/enable-lights-to-cast-shadows.html">
-            отбрасывания теней от источника света
+            отбрасывания теней
           </a>{" "}
-          при использовании модуля <mark className="plugin">Advanced 3D</mark> добавили в{" "}
+          от источника освещения при использовании модуля{" "}
+          <mark className="plugin">Advanced 3D</mark> добавили в{" "}
           <mark className="app">Adobe After Effects</mark>{" "}
           <mark className="version">26.0 (2026)</mark> и выше. В предыдущих сборках
           включить <mark className="select">«Casts Shadows»</mark> было нельзя, так как

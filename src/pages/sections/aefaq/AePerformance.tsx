@@ -1691,9 +1691,10 @@ const AePerformance: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Для <mark className="hardware">AMD</mark> воспользуйтесь{" "}
+                  Для <mark className="hardware">AMD</mark> воспользуйтесь автоматическим
+                  установщиком на{" "}
                   <a href="https://www.amd.com/en/support/download/drivers.html">
-                    автоматическим установщиком с официального сайта
+                    официальном сайте
                   </a>
                   .
                 </li>

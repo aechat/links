@@ -484,9 +484,9 @@ const ChatRules = () => {
                                 скачать их обратно можно в{" "}
                                 <mark className="app">Microsoft Store</mark> по{" "}
                                 <a href="https://apps.microsoft.com/detail/9MZ95KL8MR0L">
-                                  этой ссылке
-                                </a>
-                                .
+                                  этой
+                                </a>{" "}
+                                ссылке.
                               </li>
                               <li>
                                 <sup>2</sup> <mark className="word">Скринкаст</mark> — это

@@ -1770,10 +1770,10 @@ const AeExport: React.FC = () => {
             Если нужно расположить на страницу обычное видео без альфа-канала, то как было
             сказано ранее, вы можете конвертировать промежуточный результат в{" "}
             <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Video_codecs#common_codecs">
-              популярные кодеки, которые поддерживаются браузерами
-            </a>{" "}
-            и указать несколько источников для одного HTML-тега{" "}
-            <mark className="code">{`<video>`}</mark>.
+              популярные кодеки
+            </a>
+            , которые поддерживаются браузерами, и указать несколько источников для одного
+            HTML-тега <mark className="code">{`<video>`}</mark>.
           </li>
           <li>
             Если же нужно получить видео с альфа-каналом, и при этом добиться корректного
@@ -1797,8 +1797,8 @@ const AeExport: React.FC = () => {
           <ul>
             <li>
               <sup>1</sup> Если <mark className="app">Shutter Encoder</mark> у вас не
-              установлен, скачайте его{" "}
-              <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Чтобы скачать
+              установлен, скачайте его по{" "}
+              <a href="https://www.shutterencoder.com/">этой</a> ссылке. Чтобы скачать
               программу бесплатно, на сайте установите чекбокс{" "}
               <mark className="select">
                 «I do not wish to participate in the development of the software»
@@ -3000,8 +3000,8 @@ const AeExport: React.FC = () => {
           Если стандартный способ сохранения кадра через{" "}
           <mark className="select">«Save Frame As»</mark> кажется вам неудобным, есть
           альтернатива — плагин <mark className="plugin">FX Console</mark>, который можно
-          загрузить{" "}
-          <a href="https://www.videocopilot.net/blog/?s=fx%20console">по этой ссылке</a>.
+          загрузить по{" "}
+          <a href="https://www.videocopilot.net/blog/?s=fx%20console">этой</a> ссылке.
         </p>
         <p>
           После установки плагин нужно настроить для сохранения изображений в высоком

@@ -960,9 +960,9 @@ const AeInterface: React.FC = () => {
           автоматическое открытие окна во всех случаях.
         </p>
         <Addition type="info">
-          Подробности о работе этого окна вы можете{" "}
+          Подробности о работе этого окна вы можете прочитать на{" "}
           <a href="https://helpx.adobe.com/after-effects/using/properties-panel.html">
-            прочитать на официальном сайте Adobe
+            сайте Adobe
           </a>
           .
         </Addition>
@@ -1253,8 +1253,8 @@ const AeInterface: React.FC = () => {
                 задумывались, что неплохо бы заменить её на свою. Такое можно сделать с
                 помощью махинаций с файлами <mark className="file">DLL</mark>. Для этого
                 нам пригодится программа <mark className="app">Resource Hacker</mark>,
-                которую можно загрузить{" "}
-                <a href="https://angusj.com/resourcehacker/#download">по этой ссылке</a>.
+                которую можно загрузить по{" "}
+                <a href="https://angusj.com/resourcehacker/#download">этой</a> ссылке.
               </p>
               <Divider>Извлекаем изображения из DLL</Divider>
               <p>

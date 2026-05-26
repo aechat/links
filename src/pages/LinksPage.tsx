@@ -366,9 +366,9 @@ const Links = () => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      этой ссылке
-                    </a>
-                    .
+                      этой
+                    </a>{" "}
+                    ссылке.
                   </>
                 );
               }
@@ -384,9 +384,9 @@ const Links = () => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      этой ссылке
-                    </a>
-                    .
+                      этой
+                    </a>{" "}
+                    ссылке.
                   </>
                 );
               }
@@ -401,9 +401,9 @@ const Links = () => {
                     rel="noreferrer"
                     target="_blank"
                   >
-                    этой ссылке
-                  </a>
-                  .
+                    этой
+                  </a>{" "}
+                  ссылке.
                 </>
               );
             })()}
