@@ -2043,6 +2043,633 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
+            <NestedDetailsSummary title="Режимы наложения">
+              <p>
+                <mark className="select">«Blending Modes»</mark> — режимы наложения,
+                определяющие, как слой взаимодействует со слоями ниже по иерархии. С их
+                помощью можно создавать различные визуальные эффекты, например осветлять
+                или затемнять изображение другим слоем.
+              </p>
+              <Addition type="info">
+                Переключать режимы наложения можно через столбец{" "}
+                <mark className="select">«Modes»</mark> или с помощью комбинаций клавиш{" "}
+                <mark className="key">Shift + =</mark> и{" "}
+                <mark className="key">Shift + -</mark>, предварительно выделив слои.
+              </Addition>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    <p>
+                      Учтите, что режимы наложения не поддерживаются в движках рендера{" "}
+                      <mark className="plugin">Advanced 3D</mark> и{" "}
+                      <mark className="plugin">Cinema 4D</mark>.
+                    </p>
+                    <p>
+                      Если вам нужно сохранить работоспособность режимов наложения при
+                      использовании трёхмерных слоёв — переключите движок рендеринга на{" "}
+                      <mark className="plugin">Classic 3D</mark> в настройках композиции.
+                    </p>
+                  </li>
+                  <li>
+                    Режимы наложения нельзя анимировать ключевыми кадрами. Чтобы изменить
+                    режим наложения в определённый отрезок времени — разделите выделенные
+                    слои комбинацией клавиш <mark className="key">Ctrl + Shift + D</mark>{" "}
+                    и измените режим наложения для второй части разделённого слоя.
+                  </li>
+                  <li>
+                    Режимы наложения работают только в том случае, если под слоем есть
+                    другие видимые слои. Добавлять под него чёрный{" "}
+                    <mark className="select">«Solid Layer»</mark> бессмысленно.
+                  </li>
+                  <li>
+                    Некоторые режимы наложения могут работать некорректно с добавленными
+                    на слой <mark className="select">«Layer Styles»</mark>.
+                  </li>
+                </ul>
+              </Addition>
+              <Divider>Описание и демонстрация режимов наложения слоёв</Divider>
+              <p>
+                Режимы наложения условно делятся на 8 групп, однако в интерфейсе{" "}
+                <mark className="app">Adobe After Effects</mark> их названия не
+                отображаются, а в списке они отделены только разделительными линиями.
+              </p>
+              <Addition type="info">
+                <p>Чтобы не путаться в описаниях, сразу определимся с терминами.</p>
+                <ul>
+                  <li>
+                    <mark className="word">Верхний слой</mark> — слой, на котором выбран
+                    режим наложения.
+                  </li>
+                  <li>
+                    <mark className="word">Нижний слой</mark> — слои, которые находятся
+                    ниже верхнего слоя по иерархии на таймлайне композиции.
+                  </li>
+                  <li>
+                    <mark className="word">Итоговый слой</mark> — результат наложения
+                    слоёв.
+                  </li>
+                  <li>
+                    <mark className="word">Канал</mark> — составляющая часть изображения,
+                    содержащая информацию об одном параметре цвета, например, об
+                    интенсивности красного, зелёного, синего или о прозрачности.
+                  </li>
+                  <li>
+                    <mark className="word">RGB</mark> — цветовая модель, в которой цвета
+                    формируются смешиванием каналов красного, зелёного и синего.
+                  </li>
+                  <li>
+                    <mark className="word">Alpha</mark> или{" "}
+                    <mark className="word">альфа-канал</mark> — канал, который определяет
+                    степень прозрачности цвета.
+                  </li>
+                  <li>
+                    <mark className="word">HSL</mark> — цветовая модель, разделяющая
+                    параметры цвета на каналы тона, насыщенности и яркости.
+                  </li>
+                </ul>
+              </Addition>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Normal»</mark> — режим по умолчанию. Верхний
+                    слой перекрывает нижний слой без смешивания.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Normal"
+                    src="media/after-effects/blending-modes/Normal.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Dissolve»</mark> — превращает полупрозрачные
+                    области верхнего слоя в зернистый шум. Отдельные участки верхнего слоя
+                    становятся полностью прозрачными, пропуская нижний слой. Не работает с
+                    трёхмерными слоями.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Dissolve"
+                    src="media/after-effects/blending-modes/Dissolve.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Dancing Dissolve»</mark> — работает
+                    аналогично <mark className="select">«Dissolve»</mark>, но узор шума
+                    пересчитывается на каждом кадре. Не работает с трёхмерными слоями.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Dancing Dissolve"
+                    src="media/after-effects/blending-modes/Dancing Dissolve.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Subtractive»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Darken»</mark> — сравнивает каналы верхнего
+                    и нижнего слоёв и оставляет более тёмные значения. На границах, где
+                    цвета слоёв различаются, могут появляться новые оттенки.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Darken"
+                    src="media/after-effects/blending-modes/Darken.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Multiply»</mark> — затемняет изображение,
+                    перемножая значения каналов верхнего и нижнего слоёв. Белый цвет
+                    верхнего слоя не меняет нижний слой, серые тона пропорционально
+                    затемняют его, а чёрный делает итоговый слой чёрным. Применяется для
+                    наложения теней или удаления светлого фона.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Multiply"
+                    src="media/after-effects/blending-modes/Multiply.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Color Burn»</mark> — затемняет нижний слой,
+                    повышая его контраст и насыщенность в зависимости от значений каналов
+                    верхнего слоя. Белый цвет верхнего слоя не меняет нижний слой.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Color Burn"
+                    src="media/after-effects/blending-modes/Color Burn.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Classic Color Burn»</mark> — устаревшая
+                    версия режима <mark className="select">«Color Burn»</mark>,
+                    сохранённая для совместимости со старыми проектами.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Classic Color Burn"
+                    src="media/after-effects/blending-modes/Classic Color Burn.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Linear Burn»</mark> — затемняет нижний слой,
+                    снижая общую яркость в зависимости от значений каналов верхнего слоя.
+                    Белый цвет верхнего слоя не меняет нижний слой, а тёмные участки
+                    сильнее уводятся в чёрный цвет по сравнению с режимом{" "}
+                    <mark className="select">«Multiply»</mark>.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Linear Burn"
+                    src="media/after-effects/blending-modes/Linear Burn.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Darker Color»</mark> — сравнивает яркость
+                    верхнего и нижнего слоёв и оставляет цвета того слоя, который темнее.
+                    В отличие от режима <mark className="select">«Darken»</mark>, работает
+                    с цветом целиком, а не по отдельным каналам, давая резкие границы без
+                    смешивания оттенков.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Darker Color"
+                    src="media/after-effects/blending-modes/Darker Color.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Additive»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Add»</mark> — складывает значения каналов
+                    верхнего и нижнего слоёв. Любые значения яркости выше единицы
+                    становятся белыми, серые тона пропорционально осветляют нижний слой, а
+                    чёрный цвет верхнего слоя не меняет его. Применяется для наложения
+                    эффектов вспышки, лазеров или свечений.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Add"
+                    src="media/after-effects/blending-modes/Add.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Lighten»</mark> — сравнивает каналы верхнего
+                    и нижнего слоёв и оставляет более светлые значения. Как и режим{" "}
+                    <mark className="select">«Darken»</mark>, может создавать новые цвета
+                    на границах, где цвета слоёв различаются.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Lighten"
+                    src="media/after-effects/blending-modes/Lighten.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Screen»</mark> — осветляет изображение.
+                    Математически работает противоположно умножению: инвертирует значения
+                    каналов, перемножает их и инвертирует обратно. Белый цвет верхнего
+                    слоя делает итоговый слой белым, серые тона пропорционально осветляют
+                    нижний слой, а чёрный не меняет его. Применяется для наложения
+                    эффектов огня, искр или пыли на чёрном фоне.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Screen"
+                    src="media/after-effects/blending-modes/Screen.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Color Dodge»</mark> — осветляет каналы
+                    нижнего слоя за счёт уменьшения их контраста в зависимости от значений
+                    каналов верхнего слоя. Чёрный цвет верхнего слоя не меняет нижний
+                    слой.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Color Dodge"
+                    src="media/after-effects/blending-modes/Color Dodge.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Classic Color Dodge»</mark> — устаревшая
+                    версия режима <mark className="select">«Color Dodge»</mark>,
+                    сохранённая для совместимости со старыми проектами.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Classic Color Dodge"
+                    src="media/after-effects/blending-modes/Classic Color Dodge.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Linear Dodge»</mark> — складывает значения
+                    каналов верхнего и нижнего слоёв. Чёрный цвет верхнего слоя не меняет
+                    нижний слой. При полной непрозрачности результат наложения идентичен
+                    режиму <mark className="select">«Add»</mark>, но отличается от него
+                    при её снижении. Добавлен для совместимости с проектами в{" "}
+                    <mark className="app">Adobe Photoshop</mark>.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Linear Dodge"
+                    src="media/after-effects/blending-modes/Linear Dodge.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Lighter Color»</mark> — сравнивает яркость
+                    верхнего и нижнего слоёв и оставляет цвета того слоя, который светлее.
+                    В отличие от режима <mark className="select">«Lighten»</mark>,
+                    работает с цветом целиком, а не по отдельным каналам, давая резкие
+                    границы без смешивания оттенков.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Lighter Color"
+                    src="media/after-effects/blending-modes/Lighter Color.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Complex»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Overlay»</mark> — сочетает в себе режимы{" "}
+                    <mark className="select">«Multiply»</mark> для тёмных участков и{" "}
+                    <mark className="select">«Screen»</mark> для светлых. Затемнение или
+                    осветление каналов зависит от значений нижнего слоя. Обычно
+                    используется при наложении текстур, сохраняя детали теней и бликов.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Overlay"
+                    src="media/after-effects/blending-modes/Overlay.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Soft Light»</mark> — повышает контраст
+                    нижнего слоя в зависимости от значений каналов верхнего, имитируя
+                    освещение рассеянным источником света. Затемняет тени и осветляет
+                    блики без жёстких пересветов.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Soft Light"
+                    src="media/after-effects/blending-modes/Soft Light.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Hard Light»</mark> — имитирует освещение
+                    нижнего слоя направленным прожектором. В отличие от режима{" "}
+                    <mark className="select">«Overlay»</mark>, затемнение или осветление
+                    каналов зависит от значений верхнего.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Hard Light"
+                    src="media/after-effects/blending-modes/Hard Light.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Linear Light»</mark> — осветляет или
+                    затемняет нижний слой, изменяя яркость его каналов в зависимости от
+                    значений верхнего.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Linear Light"
+                    src="media/after-effects/blending-modes/Linear Light.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Vivid Light»</mark> — осветляет или
+                    затемняет нижний слой, изменяя контраст его каналов в зависимости от
+                    значений верхнего.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Vivid Light"
+                    src="media/after-effects/blending-modes/Vivid Light.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Pin Light»</mark> — заменяет значения
+                    каналов нижнего слоя в зависимости от значений верхнего. Если канал
+                    верхнего слоя светлее 50% серого, то тёмные области нижнего заменяются
+                    значениями верхнего. Если темнее 50% серого — заменяются светлые.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Pin Light"
+                    src="media/after-effects/blending-modes/Pin Light.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Hard Mix»</mark> — сводит значения каналов
+                    итогового слоя к крайним точкам, из-за чего цвета раскладываются на
+                    восемь базовых: красный, жёлтый, зелёный, голубой, синий, пурпурный,
+                    белый и чёрный.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Hard Mix"
+                    src="media/after-effects/blending-modes/Hard Mix.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Difference»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Difference»</mark> — находит разницу между
+                    значениями каналов верхнего и нижнего слоёв. Наложение белого цвета
+                    инвертирует каналы нижнего слоя, а чёрный цвет верхнего слоя не меняет
+                    нижний слой. Применяется для проверки и точного выравнивания двух
+                    кадров: при их совпадении итоговый слой становится чёрным.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Difference"
+                    src="media/after-effects/blending-modes/Difference.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Classic Difference»</mark> — устаревшая
+                    версия режима <mark className="select">«Difference»</mark>,
+                    сохранённая для совместимости со старыми проектами.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Classic Difference"
+                    src="media/after-effects/blending-modes/Classic Difference.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Exclusion»</mark> — находит разницу между
+                    значениями каналов слоёв по более плавной формуле, чем режим{" "}
+                    <mark className="select">«Difference»</mark>. Наложение белого цвета
+                    инвертирует каналы нижнего слоя, средние тона снижают контраст до
+                    нейтрального серого, а чёрный цвет верхнего слоя не меняет его. Даёт
+                    мягкий пастельный результат, часто применяемый для винтажного
+                    тонирования.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Exclusion"
+                    src="media/after-effects/blending-modes/Exclusion.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Subtract»</mark> — математически вычитает
+                    значения каналов верхнего слоя из нижнего. Чёрный цвет верхнего слоя
+                    не меняет нижний слой. Если значения итогового цвета уходят ниже нуля,
+                    они заменяются чёрным цветом.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Subtract"
+                    src="media/after-effects/blending-modes/Substract.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Divide»</mark> — математически делит
+                    значения каналов нижнего слоя на значения верхнего. Белый цвет
+                    верхнего слоя не меняет нижний слой. Если значения итогового цвета
+                    превышают единицу, они заменяются белым. Используется для удаления
+                    нежелательных цветовых оттенков с футажей.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Divide"
+                    src="media/after-effects/blending-modes/Divide.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Hue»</mark> — переносит цветовой тон
+                    верхнего слоя на нижний, сохраняя яркость и насыщенность последнего.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Hue"
+                    src="media/after-effects/blending-modes/Hue.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Saturation»</mark> — переносит насыщенность
+                    верхнего слоя на нижний, сохраняя яркость и цветовой тон последнего.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Saturation"
+                    src="media/after-effects/blending-modes/Saturation.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Color»</mark> — заменяет цветовой тон и
+                    насыщенность нижнего слоя, сохраняя его яркость. Применяется для
+                    тонирования чёрно-белых кадров или изменения цвета объектов.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Color"
+                    src="media/after-effects/blending-modes/Color.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Luminosity»</mark> — переносит яркость
+                    верхнего слоя на нижний, сохраняя цветовой тон и насыщенность
+                    последнего. Работает противоположно режиму{" "}
+                    <mark className="select">«Color»</mark>.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Luminosity"
+                    src="media/after-effects/blending-modes/Luminosity.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Matte»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Stencil Alpha»</mark> — использует
+                    альфа-канал верхнего слоя как глобальный трафарет. Нижний слой
+                    обрезается строго по форме этого альфа-канала.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Stencil Alpha"
+                    src="media/after-effects/blending-modes/Stencil Alpha.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Stencil Luma»</mark> — обрезает нижний слой
+                    по яркости верхнего слоя. Белые области верхнего слоя оставляют нижний
+                    слой непрозрачным, серые тона создают полупрозрачность, а чёрные
+                    делают его полностью прозрачным.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Stencil Luma"
+                    src="media/after-effects/blending-modes/Stencil Luma.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Silhouette Alpha»</mark> — работает
+                    противоположно режиму <mark className="select">«Stencil Alpha»</mark>,
+                    вырезая отверстие в нижнем слое по форме альфа-канала верхнего слоя.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Silhouette Alpha"
+                    src="media/after-effects/blending-modes/Silhouette Alpha.webm"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Silhouette Luma»</mark> — работает
+                    противоположно режиму <mark className="select">«Stencil Luma»</mark>,
+                    вырезая прозрачность в нижнем слое по яркости верхнего слоя. Белые
+                    области верхнего слоя делают нижний слой полностью прозрачным, серые
+                    тона пропорционально регулируют степень его прозрачности, а чёрные
+                    оставляют непрозрачным.
+                  </p>
+                  <ArticleMedia
+                    loop
+                    caption="Silhouette Luma"
+                    src="media/after-effects/blending-modes/Silhouette Luma.webm"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <Divider>Категория «Utility»</Divider>
+              <ul>
+                <li>
+                  <p>
+                    <mark className="select">«Alpha Add»</mark> — складывает только
+                    альфа-каналы верхнего и нижнего слоёв.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <mark className="select">«Luminescent Premul»</mark> — предотвращает
+                    отсечение цветовых значений верхнего слоя, превышающих значение его
+                    альфа-канала при наложении. Используется при композитинге бликов,
+                    вспышек и свечений на футажах с предварительно умноженным
+                    альфа-каналом.
+                  </p>
+                </li>
+              </ul>
+            </NestedDetailsSummary>
             <NestedDetailsSummary title="Маркеры">
               <p>
                 <mark className="select">«Markers»</mark> — это метки с возможностью
