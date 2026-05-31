@@ -1969,11 +1969,11 @@ const PrFromNewbies: React.FC = () => {
               <mark className="web">YouTube Shorts</mark> или{" "}
               <mark className="web">Instagram Reels</mark>
               <sup>1</sup>. Перед использованием лучше уделить время на его изучение.
-              <ArticleMedia
-                src="xYidiPvc_LY"
-                type="youtube"
-              />
             </p>
+            <ArticleMedia
+              src="xYidiPvc_LY"
+              type="youtube"
+            />
             <Addition type="warning">
               Данное расширение на <mark className="app">Adobe Premiere Pro</mark>{" "}
               <mark className="version">24.2 (2024)</mark> и{" "}
