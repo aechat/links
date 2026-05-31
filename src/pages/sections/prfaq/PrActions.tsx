@@ -736,6 +736,7 @@ const PrActions: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="separate-voice-music"
+        tag="separate voice music, vocal remover, stem separation, izotope rx, разделение голоса и музыки"
         title="Как и чем разделить голос человека от музыки?"
       >
         <p>
