@@ -187,7 +187,7 @@ const RegFilePage = () => {
             </div>
             <h2
               className="article-static-title"
-              id="tone"
+              id="activate"
             >
               Как активировать расширения в Adobe After Effects и Adobe Premiere?
               <Tooltip title="Скопировать ссылку в буфер обмена">
