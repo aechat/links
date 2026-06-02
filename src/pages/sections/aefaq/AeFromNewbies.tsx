@@ -128,9 +128,9 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-              И не забываем про дополнительный список как бесплатных, так и платных
-              комплексных курсов по <mark className="app">Adobe After Effects</mark>,
-              затрагивающий разные области применения программы.
+              И не забываем про дополнительный список комплексных курсов по{" "}
+              <mark className="app">Adobe After Effects</mark>, затрагивающий разные
+              области применения программы.
             </p>
             <div className="flexible-links">
               <a href="https://cloudlessons.ru/v/410/">
@@ -140,8 +140,8 @@ const AeFromNewbies: React.FC = () => {
                 «Быстрый вход в After Effects» от Вольницы
               </a>
               <a href="https://volnitsa.net/motiontype">«Motion Type» от Вольницы</a>
-              <a href="https://sabatovsky.com/after">
-                «After Effects от новичка до специалиста» от Сабатовского
+              <a href="https://khs.ru/after">
+                «After Effects от новичка до специалиста» от KHS
               </a>
               <a href="https://www.profileschool.ru/category/video/course_adobe_after_effects_base">
                 «After Effects базового уровня» от Никиты Чеснокова
