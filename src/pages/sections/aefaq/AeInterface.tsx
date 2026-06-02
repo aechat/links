@@ -48,7 +48,8 @@ const AeInterface: React.FC = () => {
           <mark className="key">Win + R</mark>, введите{" "}
           <mark className="code">wf.msc</mark> и нажмите{" "}
           <mark className="key">Enter</mark>. Затем перейдите в{" "}
-          <mark className="select">«Правила для входящих подключений»</mark>, найдите
+          <mark className="select">«Правила для входящих подключений»</mark> и{" "}
+          <mark className="select">«Правила для исходящих подключений»</mark>, найдите
           правила, связанные с блокировкой <mark className="company">Adobe</mark>, нажмите
           на них <mark className="key">ПКМ</mark> и выберите{" "}
           <mark className="select">«Отключить правило»</mark>. После этого перезапустите{" "}
