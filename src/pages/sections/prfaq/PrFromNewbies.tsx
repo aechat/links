@@ -15,41 +15,202 @@ const PrFromNewbies: React.FC = () => {
     <div className="article-content">
       <DetailsSummary
         anchor="get-started"
-        tag="для новичка, курсы, туториалы, только открыл премьер"
-        title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"
+        tag="для новичка, курсы, туториалы, уроки, базовый курс"
+        title="Я первый раз открыл программу. С чего бы мне начать обучение?"
       >
-        <p>
-          Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
-          <mark className="app">Adobe Premiere</mark> в качестве основного инструмента и
-          хотите разобраться в интерфейсе и его возможностях, посмотрите плейлист{" "}
-          <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK">
-            Азбука Adobe Premiere Pro
-          </a>{" "}
-          от <a href="https://youtube.com/zernov">Ильи Зернова</a>.
-        </p>
-        <Addition type="warning">
-          Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
-          <mark>2019</mark>. Некоторые функции могут отличаться от вашей текущей версии
-          программы.
+        <Addition type="danger">
+          Эта подборка носит ознакомительный характер и не заменяет индивидуальный план
+          обучения. Используйте её как отправную точку для изучения монтажа в{" "}
+          <mark className="app">Adobe Premiere</mark> и смежных инструментов, которые
+          могут понадобиться в работе.
         </Addition>
+        <Addition type="warning">
+          <ul>
+            <li>
+              Учтите, что большинство авторов курсов и каналов на{" "}
+              <mark className="web">YouTube</mark> работают в английской версии программы.
+              Чтобы избежать проблем с локализацией, рекомендуется{" "}
+              <a href="#switch-language">изменить язык программы</a> на английский, если у
+              вас установлена русская версия. Это поможет избежать путаницы с переводом
+              названий эффектов или элементов интерфейса.
+            </li>
+            <li>
+              Если вы предпочитаете работать с русской локализацией{" "}
+              <mark className="app">Adobe Premiere</mark>, вам может пригодиться таблица
+              перевода <a href="#effects-list">эффектов</a>.
+            </li>
+            <li>
+              Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
+              <mark className="app">DeepSeek</mark> или другие текстовые нейросети при
+              обучении работе в <mark className="app">Adobe Premiere</mark>. Они часто
+              придумывают несуществующие функции программы или указывают не на те элементы
+              интерфейса.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Подборка курсов для начинающих</Divider>
+        <ul>
+          <li>
+            <p>
+              Если вы только начинаете заниматься монтажом или хотите лучше разобраться в
+              интерфейсе и возможностях <mark className="app">Adobe Premiere</mark>,
+              пройдите курс{" "}
+              <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK">
+                «Азбука Adobe Premiere Pro»
+              </a>{" "}
+              от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
+              вам освоить интерфейс программы и научиться работать с клипами и эффектами.
+            </p>
+            <Addition type="warning">
+              Курс был записан в <mark className="app">Adobe Premiere Pro</mark>{" "}
+              <mark className="version">13.X (2019)</mark>. Некоторые функции и комбинации
+              клавиш могут отличаться от вашей текущей версии программы.
+            </Addition>
+            <ArticleMedia
+              src="Wi-AalXwilg"
+              type="youtube"
+            />
+          </li>
+          <li>
+            <p>
+              Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
+              неуверенно, попробуйте изучить каналы на{" "}
+              <mark className="web">YouTube</mark> из списка ниже: они помогут прокачать
+              ваши навыки.
+            </p>
+            <div className="flexible-links">
+              <a href="https://www.youtube.com/@VideoRevealed/videos">VideoRevealed</a>
+              <a href="https://www.youtube.com/@egorlistopadov">Егор Листопадов</a>
+              <a href="https://www.youtube.com/@Profileschool/videos">Profileschool</a>
+              <a href="https://www.youtube.com/@pankovskii/playlists">PANKOVSKII</a>
+              <a href="https://www.youtube.com/@DmitryKolotilshikov/videos">
+                Дмитрий Колотильщиков
+              </a>
+              <a href="https://www.youtube.com/@VIDEODIM/videos">Как монтировать видео</a>
+            </div>
+            <p>
+              И не забываем про дополнительный список комплексных курсов по{" "}
+              <mark className="app">Adobe Premiere</mark>, затрагивающий разные области
+              применения программы.
+            </p>
+            <div className="flexible-links">
+              <a href="https://cloudlessons.ru/v/530/">«Супер Premiere» от VideoSmile</a>
+              <a href="https://www.profileschool.ru/category/video/course_adobe_premiere_base">
+                «Adobe Premiere Pro базового уровня» от Дмитрия Ларионова
+              </a>
+              <a href="https://www.profileschool.ru/category/video/course_theory_editing">
+                «Теория монтажа. Первый уровень» от Дмитрия Ларионова
+              </a>
+              <a href="https://khs.ru/montage-video">
+                «Монтаж видео в Premiere Pro» от KHS
+              </a>
+            </div>
+          </li>
+        </ul>
+        <Divider>Принципы монтажа</Divider>
+        <p>
+          Знание кнопок в программе не сделает вас монтажёром без понимания законов
+          склейки кадров. Чтобы видео смотрелось целостно, а зритель не терял ориентацию в
+          пространстве сцены, изучите базовые принципы монтажа на основе набора правил от
+          советского режиссёра Алексея Георгиевича Соколова.
+        </p>
         <ArticleMedia
-          src="Wi-AalXwilg"
+          src="eR_NKRUeTBc"
           type="youtube"
         />
-        <p>
-          Если вы уже уверенно монтируете в <mark className="app">Adobe Premiere</mark> и
-          хотите узнать что-то новое, рекомендую заглянуть на каналы ниже.
-        </p>
         <div className="flexible-links">
-          <a href="https://www.youtube.com/@khs_yt">Хохлов Сабатовский</a>
-          <a href="https://www.youtube.com/@egorlistopadov">Егор Листопадов</a>
-          <a href="https://www.youtube.com/@Profileschool/videos">Profileschool</a>
-          <a href="https://www.youtube.com/@pankovskii/playlists">PANKOVSKII</a>
-          <a href="https://www.youtube.com/@DmitryKolotilshikov/videos">
-            Дмитрий Колотильщиков
+          <a href="https://www.youtube.com/playlist?list=PLC1VMnkSWzhzzfKZVF3jLUqKo3UoINFAR">
+            «Виды монтажа» от ANIMATION SCHOOL
           </a>
-          <a href="https://www.youtube.com/@VIDEODIM/videos">Как монтировать видео</a>
         </div>
+        <Divider>Подборка туториалов на разные темы</Divider>
+        <ul>
+          <li>
+            <p>
+              После сборки чернового варианта склейки кадры нужно выровнять по цвету и
+              экспозиции. Для освоения базовых инструментов цветокоррекции в программе
+              изучите работу с <mark className="plugin">Lumetri Color</mark> от{" "}
+              <a href="https://www.youtube.com/@pankovskii">PANKOVSKII</a>.
+            </p>
+            <ArticleMedia
+              src="HOkM0nllRv8"
+              type="youtube"
+            />
+            <Addition type="info">
+              Учтите, что хорошие материалы по цветокоррекции видео на{" "}
+              <mark className="web">YouTube</mark> и в Интернете чаще всего показываются
+              на примере <mark className="app">Davinci Resolve</mark>. Однако, если
+              разобраться в базовых инструментах, «красить» видео можно в почти любой
+              программе, в том числе и в <mark className="app">Adobe Premiere</mark>.
+            </Addition>
+            <p>
+              Также цветокоррекцию под определённый стиль вы можете выполнить с помощью
+              сторонних плагинов, например <mark className="plugin">Dehancer Pro</mark>,{" "}
+              <mark className="plugin">Magic Bullet Looks</mark> или похожих инструментов.
+            </p>
+            <ArticleMedia
+              src="z2Il2mTt4xY"
+              type="youtube"
+            />
+          </li>
+          <li>
+            <p>
+              Звук в видео не менее важен, чем картинка, поэтому его тоже стоит
+              обрабатывать. Для этого обычно используется окно{" "}
+              <mark className="select">«Track Mixer»</mark>.
+            </p>
+            <ArticleMedia
+              src="vjah3INC2UU"
+              type="youtube"
+            />
+            <Addition type="info">
+              <ul>
+                <li>
+                  Аудиоэффекты можно применять напрямую к конкретным клипам на таймлайне.
+                  Для этого выберите нужный инструмент в панели{" "}
+                  <mark className="select">«Effects»</mark> в категории аудио.
+                </li>
+                <li>
+                  <p>
+                    <mark className="app">Adobe Premiere</mark> поддерживает сторонние
+                    аудиоплагины форматов <mark className="file">VST</mark> и{" "}
+                    <mark className="file">VST3</mark>. Программа не ищет их автоматически
+                    при запуске, поэтому их сканирование нужно запустить вручную.
+                  </p>
+                  <p>
+                    Для этого перейдите в{" "}
+                    <mark className="select">«Edit» → «Preferences» → «Audio»</mark>,
+                    нажмите кнопку <mark className="select">«Manage Audio Plug-Ins»</mark>{" "}
+                    и в открывшемся окне кликните{" "}
+                    <mark className="select">«Scan for Plug-Ins»</mark>. При необходимости
+                    можно добавить собственную папку с плагинами с помощью кнопки{" "}
+                    <mark className="select">«Add»</mark> в разделе{" "}
+                    <mark className="select">«VST Plug-In Folders»</mark>, если
+                    автоматический поиск не нашёл нужные файлы.
+                  </p>
+                </li>
+              </ul>
+            </Addition>
+            <p>
+              Для более глубокого изучения темы работы со звуком стоит обратиться к
+              профильным курсам.
+            </p>
+            <div className="flexible-links">
+              <a href="https://www.profileschool.ru/category/audio/course_sound_basics">
+                «Основы звука» от Артура Орлова
+              </a>
+              <a href="https://www.profileschool.ru/category/audio/course_introduction_to_sound">
+                «Введение в звук» от Артура Орлова
+              </a>
+              <a href="https://www.profileschool.ru/category/video/course_sound_processing_for_video">
+                «Работа со звуком для видео» от Артура Орлова
+              </a>
+              <a href="https://www.profileschool.ru/category/audio/course_music_theory">
+                «Теория музыки» от Артура Орлова
+              </a>
+            </div>
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         anchor="vocabulary"
