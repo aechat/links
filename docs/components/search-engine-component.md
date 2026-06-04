@@ -7,17 +7,17 @@
 
 Поиск по текущей странице FAQ/expr. Модуль состоит из провайдера состояния, кнопки открытия и модального интерфейса с результатами, навигацией по совпадениям и внешним поиском при отсутствии результатов.
 
-`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния, контекст и типы находятся в `SearchState.tsx`. UI-компоненты собраны в `SearchUi.tsx`. Контентные утилиты и форматирование сниппетов вынесены в `searchContentUtilities.ts`.
+`SearchEngine.tsx` выступает как оркестратор поиска и точка публичных экспортов. Вспомогательные хуки состояния, контекст и типы находятся в `SearchState.tsx`. UI-компоненты собраны в `SearchUi.tsx`, включая блок недавних запросов. Контентные утилиты и форматирование сниппетов вынесены в `searchContentUtilities.ts`.
 
 ## Структура файлов
 
 - `src/components/features/searchEngine/SearchEngine.tsx`  
   Оркестратор. Собирает зависимости, управляет ветками рендера (категории/результаты/no-results), подключает модалку и публичные экспорты.
-- `src/components/features/searchEngine/SearchState.tsx` Слой состояния и поведения UI: `SearchContext`, провайдер, хоткеи открытия, навигация по результатам, логика фокуса и прокрутки в модалке.
+- `src/components/features/searchEngine/SearchState.tsx` Слой состояния и поведения UI: `SearchContext`, провайдер, хоткеи открытия, навигация по результатам, логика фокуса и прокрутки в модалке, а также история недавних запросов.
 - `src/components/features/searchEngine/useSearchLogic.ts`  
   Основной runtime поиска: сбор и кэш деталей страницы, дебаунс запроса, запуск worker, fallback на main thread, маппинг ранжированных результатов в UI-модель.
 - `src/components/features/searchEngine/SearchUi.tsx`  
-  UI-слой поиска: `SearchButton`, `SearchModal`, `SearchCategories`, `SearchResults`, `NoResults`, `ExternalSearch`; также карточка результата и клиентская подсветка в выдаче.
+  UI-слой поиска: `SearchButton`, `SearchModal`, `SearchCategories`, `SearchResults`, `RecentQueries`, `NoResults`, `ExternalSearch`; также карточка результата и клиентская подсветка в выдаче.
 - `src/components/features/searchEngine/searchWorker.ts`  
   Web Worker для тяжёлого ранжирования. Хранит инициализированные детали и отвечает результатами поиска по сообщению.
 - `src/components/features/searchEngine/searchQueryCore.ts`  
@@ -37,10 +37,13 @@
 
 ```ts
 export interface SearchContextType {
+  addQueryToHistory: (query: string) => void;
+  clearQueryHistory: () => void;
   closeModal: () => void;
   isModalOpen: boolean;
   isPageLoaded: boolean;
   openModal: () => void;
+  queryHistory: string[];
 }
 
 export type SearchSection = {

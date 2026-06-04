@@ -2,7 +2,12 @@ import debounce from "lodash/debounce";
 
 import React, {memo, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
-import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
+import {
+  BackspaceOutlined,
+  CloseRounded,
+  HistoryRounded,
+  Search,
+} from "@mui/icons-material";
 
 import {message, Modal} from "antd";
 
@@ -173,7 +178,7 @@ type SearchModalProperties = {
   onInputClearMouseDown: (event_: React.MouseEvent<HTMLButtonElement>) => void;
   query: string;
   resultWord: string;
-  resultsContainerRef: React.RefObject<HTMLDivElement | null>;
+  resultsContainerRef: React.Ref<HTMLDivElement | null>;
   resultsCount: number;
   contentTransitionPhase?: "idle" | "exit" | "enter";
 };
@@ -204,17 +209,24 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
 }) => {
   const [localQuery, setLocalQuery] = useState(query);
 
+  const lastSentQueryReference = useRef(query);
+
   useEffect(() => {
     const isFocused =
       inputRef.current !== null && document.activeElement === inputRef.current;
 
-    if (query === "" || !isFocused) {
+    if (query === "" || !isFocused || query !== lastSentQueryReference.current) {
       setLocalQuery(query);
+      lastSentQueryReference.current = query;
     }
   }, [query, inputRef]);
 
   const debouncedOnChangeQuery = useMemo(
-    () => debounce((value: string) => onChangeQuery(value), isMobileDevice() ? 500 : 300),
+    () =>
+      debounce((value: string) => {
+        lastSentQueryReference.current = value;
+        onChangeQuery(value);
+      }, 150),
     [onChangeQuery]
   );
 
@@ -234,6 +246,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   const handleClear = () => {
     debouncedOnChangeQuery.cancel();
     setLocalQuery("");
+    lastSentQueryReference.current = "";
     onClearQuery();
   };
 
@@ -1109,3 +1122,98 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 };
 
 export const SearchResults = memo(SearchResultsComponent);
+
+type RecentQueriesProperties = {
+  history: string[];
+  onClear: () => void;
+  onSelect: (query: string) => void;
+};
+
+export const RecentQueries: React.FC<RecentQueriesProperties> = ({
+  history,
+  onClear,
+  onSelect,
+}) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const containerReference = useRef<HTMLDivElement | null>(null);
+
+  const checkScrollLimits = useCallback(() => {
+    const target = containerReference.current;
+
+    if (!target) {
+      return;
+    }
+
+    const scrollLeft = target.scrollLeft;
+
+    const clientWidth = target.clientWidth;
+
+    const scrollWidth = target.scrollWidth;
+
+    setShowLeftFade(scrollLeft > 0);
+
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+
+    const isScrollable = scrollWidth > clientWidth;
+
+    setShowRightFade(isScrollable && !isAtEnd);
+  }, []);
+
+  useEffect(() => {
+    checkScrollLimits();
+
+    const handleResize = () => checkScrollLimits();
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [history, checkScrollLimits]);
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  if (history.length === 0) {
+    return <></>;
+  }
+
+  const handleScroll = () => {
+    checkScrollLimits();
+  };
+
+  return (
+    <div className={searchStyles["search-recent"]}>
+      <span className={searchStyles["search-recent-title"]}>
+        <HistoryRounded className={searchStyles["search-recent-title-icon"]} />
+      </span>
+      <div
+        ref={containerReference}
+        className={`${searchStyles["search-recent-items"]} ${
+          showLeftFade ? searchStyles["show-left-fade"] : ""
+        } ${showRightFade ? searchStyles["show-right-fade"] : ""}`}
+        onScroll={handleScroll}
+      >
+        {history.map((historyQuery) => (
+          <button
+            key={historyQuery}
+            type="button"
+            onClick={() => onSelect(historyQuery)}
+            onMouseDown={ripple.onMouseDown}
+          >
+            {historyQuery}
+          </button>
+        ))}
+      </div>
+      <button
+        className={searchStyles["search-recent-clear"]}
+        type="button"
+        onClick={onClear}
+      >
+        <span>Очистить</span>
+      </button>
+    </div>
+  );
+};

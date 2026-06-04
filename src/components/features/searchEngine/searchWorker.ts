@@ -23,7 +23,11 @@ type WorkerResultMessage = {
 let cachedDetailsData: SearchWorkerDetail[] = [];
 
 globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
-  if (event.origin && event.origin !== globalThis.location.origin) {
+  if (
+    event.origin &&
+    event.origin !== "null" &&
+    event.origin !== globalThis.location.origin
+  ) {
     return;
   }
 

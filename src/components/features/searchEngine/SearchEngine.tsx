@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {useRipple} from "../../../hooks/useRipple";
 
@@ -7,6 +7,7 @@ import {getResultWord} from "./searchContentUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 
 import {
+  type SearchResult,
   type SearchSection,
   useSearch,
   useSearchLinkNavigation,
@@ -18,6 +19,7 @@ import {
 import {
   ExternalSearch,
   NoResults,
+  RecentQueries,
   SearchCategories,
   SearchModal,
   SearchResults,
@@ -32,7 +34,14 @@ export {type SearchContextType, SearchProvider, useSearch} from "./SearchState";
 type SearchContentType = "categories" | "results" | "no-results";
 
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
-  const {closeModal, isModalOpen, isPageLoaded} = useSearch();
+  const {
+    addQueryToHistory,
+    clearQueryHistory,
+    closeModal,
+    isModalOpen,
+    isPageLoaded,
+    queryHistory,
+  } = useSearch();
 
   const [query, setQuery] = useState("");
 
@@ -57,7 +66,15 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     setQuery
   );
 
-  const handleLinkClick = useSearchLinkNavigation(closeModal);
+  const navigateToLink = useSearchLinkNavigation(closeModal);
+
+  const handleLinkClick = useCallback(
+    (anchorValue: string) => {
+      addQueryToHistory(query);
+      navigateToLink(anchorValue);
+    },
+    [addQueryToHistory, navigateToLink, query]
+  );
 
   const {inputReference, isFadeVisible, resultsContainerReference} =
     useSearchModalBehavior({
@@ -70,6 +87,26 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       selectedResultIndex,
       setSelectedResultIndex,
     });
+
+  useEffect(() => {
+    if (!query.trim()) {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      addQueryToHistory(query);
+    }, 5000);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [query, addQueryToHistory]);
+
+  const handleRecentQuerySelect = useCallback(
+    (historyQuery: string) => {
+      handleQueryChange(historyQuery);
+      inputReference.current?.focus({preventScroll: true});
+    },
+    [handleQueryChange, inputReference]
+  );
 
   const [displayedContentType, setDisplayedContentType] =
     useState<SearchContentType>("categories");
@@ -108,9 +145,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return "no-results";
     }
 
-    // Если идет поиск, но результаты еще не пришли (resultsQuery !== query),
-    // возвращаем prevTargetContentType, чтобы избежать промежуточного "мигания" категориями.
-    return previousTargetContentType;
+    return previousTargetContentType === "no-results"
+      ? "categories"
+      : previousTargetContentType;
   };
 
   const targetContentType = getTargetContentType();
@@ -162,7 +199,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               query={debouncedQuery}
               resultsLength={displayedResults.length}
               setResultsLimit={setResultsLimit}
-              totalResultsCount={totalResultsCount}
+              totalResultsCount={displayedResultsCount}
             />
           </>
         ),
@@ -179,10 +216,17 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
     return {
       content: (
-        <SearchCategories
-          sections={sections}
-          onLinkClick={handleLinkClick}
-        />
+        <>
+          <RecentQueries
+            history={queryHistory}
+            onClear={clearQueryHistory}
+            onSelect={handleRecentQuerySelect}
+          />
+          <SearchCategories
+            sections={sections}
+            onLinkClick={handleLinkClick}
+          />
+        </>
       ),
       isScrollableContent: false,
     };
