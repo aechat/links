@@ -2,9 +2,10 @@
 
 Правила коммитов и сообщений: [`commit-messages.md`](./commit-messages.md). Редакторские правила статей: [`article-quality-guide.md`](./content/article-quality-guide.md), [`article-question-guide.md`](./content/article-question-guide.md), [`article-answer-guide.md`](./content/article-answer-guide.md), [`article-reuse-guide.md`](./content/article-reuse-guide.md).
 
-## Базовые правила форматирования
+## Базовые правила форматирования и линтеры
 
 - Основные источники: `eslint.config.js` и `.prettierrc.json`.
+- Строго следуйте правилам линтеров (ESLint, SonarJS, Stylelint). Запрещено обходить их или пытаться отключать правила локально, например, через комментарии `eslint-disable` или `stylelint-disable`, или глобально. Все предупреждения линтеров должны исправляться структурно через качественный код, например, мемоизацией именованных компонентов, переприсваиванием булевых параметров в константы.
 - Форматирование и проверки запускаются одной командой:
 
 ```bash
@@ -20,7 +21,7 @@ yarn format
 - Стандарт для `dark`: базовый цвет смешивается с акцентно-тонированным `--color-interaction-mix-color` (для мягкого высветления) на процент из `--color-interaction-*-shift`.
 - Силу интерактивов меняйте централизованно через `--color-interaction-primary/secondary/tertiary/neutral-*-shift`.
 - Для текста и ссылок в интерактивах используйте `--color-interaction-text-hover-opacity` и `--color-interaction-text-active-opacity`.
-- Для эффектов нажатия (например, ripple) используйте `--color-interaction-ripple`.
+- Для эффектов нажатия, например, ripple, используйте `--color-interaction-ripple`.
 
 ## Цветовые токены (новый контракт)
 
@@ -127,6 +128,11 @@ import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 Подробно: [`details-summary-component.md`](./components/details-summary-component.md), [`article-question-guide.md`](./content/article-question-guide.md).
 
+## Правила оформления текстовых ссылок
+
+- Текстовые ссылки в статьях и на страницах не должны быть длинными, кроме ссылок в виде вопросов;
+- Для конструкций вроде «по этой ссылке» в теге `<a>` оставляется только слово «этой», а остальные слова выносятся наружу.
+
 ## Контентные компоненты
 
 Перед добавлением нового паттерна проверьте готовые компоненты:
@@ -149,6 +155,13 @@ import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 - конвертеры: `ConverterJsonToTgs`, `ConverterTgsToJson`.
 
 Обзор и назначение: [`features-component.md`](./components/features-component.md).
+
+## Правила разработки React и SCSS
+
+- При добавлении таймеров, дебаунсов, слушателей событий, таких как resize и scroll, или подписок в React-компонентах, всегда реализуйте их очистку или сброс в return-функции `useEffect`;
+- В SCSS-модулях с расширением `*.module.scss` избегайте переопределений через `:global` без крайней необходимости. Все стили должны оставаться локальными;
+- В логических функциях отдавайте предпочтение паттерну Early Exit, то есть ранний возврат или guard clauses, вместо глубокой вложенности блоков `if-else`;
+- Если нужно переместить файл, используйте строго `git mv`. Если `git mv` не получается или не подходит для конкретного случая, сначала попросите пользователя подтвердить ручной перенос.
 
 ## Границы ответственности
 

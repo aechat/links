@@ -12,15 +12,15 @@
 
 ## Ключевые каталоги
 
-- `src/pages` — страницы (`AeFaqPage`, `PrFaqPage`, `PsFaqPage`, `AeExprPage`) и секции.
+- `src/pages` — страницы, включая `AeFaqPage`, `PrFaqPage`, `PsFaqPage`, `AeExprPage`, и секции.
 - `src/pages/sections` — контентные секции FAQ и expr по темам.
-- `src/components/content` — базовые контентные компоненты статей (`ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `HostsAdobe`).
-- `src/components/detailsSummary` — верхнеуровневые и вложенные спойлеры статей (`DetailsSummary`, `NestedDetailsSummary`) и их утилиты.
-- `src/components/features` — функциональные блоки (например, `SearchEngine`, `EasingEditor`, конвертеры).
+- `src/components/content` — базовые контентные компоненты статей, например `ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `HostsAdobe`.
+- `src/components/detailsSummary` — верхнеуровневые и вложенные спойлеры статей, включая `DetailsSummary`, `NestedDetailsSummary`, и их утилиты.
+- `src/components/features` — функциональные блоки, такие как `SearchEngine`, `EasingEditor`, конвертеры.
 - `src/components/features/searchEngine` — модуль поиска: UI, состояние, worker, query/scoring/highlight/content utilities.
 - `src/components/layout` — шапка, футер, переходы страниц.
 - `src/components/modals` — модальные окна и настройки темы.
-- `src/components/ui` — малые UI-компоненты (`CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`).
+- `src/components/ui` — малые UI-компоненты, такие как `CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`.
 - `src/hooks` — прикладные хуки для ссылок, копирования, ripple, валидации якорей и т.д.
 - `src/utilities` — утилиты для ссылок, якорей, браузера, даты, файловых размеров, haptics и строк.
 - `src/styles` — глобальные SCSS слои (`abstracts`, `base`, `layout`, `components`, `utilities`).
