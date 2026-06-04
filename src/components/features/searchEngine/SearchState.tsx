@@ -108,10 +108,22 @@ export const SearchProvider: React.FC<{
       }
 
       setQueryHistory((previousHistory) => {
-        const nextHistory = [
-          normalizedQuery,
-          ...previousHistory.filter((entry) => entry !== normalizedQuery),
-        ].slice(0, SEARCH_HISTORY_LIMIT);
+        const hasMoreSpecific = previousHistory.some((entry) =>
+          entry.startsWith(normalizedQuery + " ")
+        );
+
+        if (hasMoreSpecific) {
+          return previousHistory;
+        }
+
+        const filteredHistory = previousHistory.filter(
+          (entry) => entry !== normalizedQuery && !normalizedQuery.startsWith(entry + " ")
+        );
+
+        const nextHistory = [normalizedQuery, ...filteredHistory].slice(
+          0,
+          SEARCH_HISTORY_LIMIT
+        );
 
         saveHistoryToStorage(nextHistory);
 
