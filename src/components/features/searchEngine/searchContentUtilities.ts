@@ -262,14 +262,34 @@ const processTable = (
 ): string | undefined => {
   const rows = [...table.querySelectorAll("tr")];
 
+  let activeQuery = compiledQuery;
+
+  if (!compiledQuery.isKeyCombination) {
+    const cellsText = [...table.querySelectorAll("td")]
+      .map((cell) => dependencies.extractKeyCombinationText(cell))
+      .join(" ");
+
+    const matchedWords = compiledQuery.searchWords.filter((word) => {
+      const wordQuery = compileSearchQuery(word);
+
+      return dependencies.hasMatch(cellsText, wordQuery);
+    });
+
+    if (matchedWords.length > 0) {
+      activeQuery = compileSearchQuery(matchedWords.join(" "));
+    } else {
+      return undefined;
+    }
+  }
+
   const matchingRows = rows.filter((row) => {
     const cells = [...row.querySelectorAll("td")];
 
-    return cells.some((cell) => {
-      const cellText = dependencies.extractKeyCombinationText(cell);
+    const rowText = cells
+      .map((cell) => dependencies.extractKeyCombinationText(cell))
+      .join(" ");
 
-      return dependencies.hasMatch(cellText, compiledQuery);
-    });
+    return dependencies.hasMatch(rowText, activeQuery);
   });
 
   if (matchingRows.length > 0) {
@@ -621,7 +641,24 @@ export const extractSearchWords = (query: string): string[] => [
 ];
 
 export const isKeyCombinationSearch = (text: string): boolean => {
-  return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
+  const lowerText = text.toLowerCase();
+
+  if (lowerText.includes("+")) {
+    return KEY_MODIFIERS.some((modifier) => lowerText.includes(modifier));
+  }
+
+  const words = lowerText.split(/\s+/).filter(Boolean);
+
+  if (
+    words.length > 0 &&
+    words.every(
+      (word) => (KEY_MODIFIERS as readonly string[]).includes(word) || word.length <= 2
+    )
+  ) {
+    return KEY_MODIFIERS.some((modifier) => lowerText.includes(modifier));
+  }
+
+  return false;
 };
 
 export const normalizeKeyCombination = (text: string): string => {
