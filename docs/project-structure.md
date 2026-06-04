@@ -105,6 +105,14 @@ const sections = [
 - `yarn lint:no-html-strings` — проверка, что строковые props `title`, `caption`, `tag`, `anchor` в статьях не содержат HTML/JSX.
 - `yarn lint:divider-style` — проверка текстов `Divider` в статьях: предупреждает о вопросительных заголовках и непомеченных названиях приложений/плагинов.
 - `yarn extract:marked-text` — диагностическая выгрузка короткого текста из тегов с `className`/`class` в статьях.
+- `yarn report:versions` — генерация отчетов по версиям.
+- `yarn fonts:generate-style` — генерация файла стилей шрифтов на основе `src/fonts`.
+- `yarn fonts:generate-static` — генерация статических `ttf` из variable-шрифтов.
+- `yarn media:metadata` — сбор размеров изображений и видео из `public/media`.
+- `yarn maintenance:fix-tokens` — интерактивное исправление токенов в `.tsx`-файлах.
+- `yarn maintenance:lowercase-tags` — приведение тегов в статьях к нижнему регистру.
+- `yarn maintenance:remove-empty-lines` — удаление лишних пустых строк в файлах.
+- `yarn maintenance:sort-imports` — сортировка импортов в файлах.
 - `yarn format` — `tsc` + `stylelint --fix` + `eslint --fix` + `prettier --write`.
 
 ### Пример рабочего цикла
