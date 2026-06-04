@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import React, {memo, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
 
@@ -426,7 +426,7 @@ type SearchResultsProperties = {
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const SearchResults: React.FC<SearchResultsProperties> = ({
+const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   onLinkClick,
   query,
   resultRefs,
@@ -896,3 +896,5 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     </div>
   );
 };
+
+export const SearchResults = memo(SearchResultsComponent);

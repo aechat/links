@@ -44,6 +44,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     resultsQuery,
     selectedResultIndex,
     setSelectedResultIndex,
+    totalResultsCount,
   } = useSearchLogic(query, isPageLoaded);
 
   const {handleQueryChange, isSearching, resetSearchState} = useSearchViewState(
@@ -126,8 +127,8 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       isScrollableContent={isScrollableContent}
       query={query}
       resultsContainerRef={resultsContainerReference}
-      resultsCount={results.length}
-      resultWord={getResultWord(results.length)}
+      resultsCount={totalResultsCount}
+      resultWord={getResultWord(totalResultsCount)}
       onChangeQuery={handleQueryChange}
       onClearQuery={resetSearchState}
       onCloseMouseDown={ripple.onMouseDown}

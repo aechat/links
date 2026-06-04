@@ -1,5 +1,3 @@
-import debounce from "lodash/debounce";
-
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import additionStyles from "../../content/Addition.module.scss";
@@ -236,11 +234,13 @@ type SearchWorkerResponse = {
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
+  const isLoaded = isPageLoaded;
+
   const [results, setResults] = useState<SearchResult[]>([]);
 
-  const [selectedResultIndex, setSelectedResultIndex] = useState(0);
+  const [totalResultsCount, setTotalResultsCount] = useState(0);
 
-  const [debouncedQuery, setDebouncedQuery] = useState(query);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(0);
 
   const [resultsQuery, setResultsQuery] = useState("");
 
@@ -444,7 +444,8 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     (text: string) => {
       const rankedResults = searchDetails(workerDetailsData, text);
 
-      setResults(mapRankedResultsToSearchResults(text, rankedResults));
+      setTotalResultsCount(rankedResults.length);
+      setResults(mapRankedResultsToSearchResults(text, rankedResults.slice(0, 24)));
       setResultsQuery(text);
     },
     [mapRankedResultsToSearchResults, workerDetailsData]
@@ -480,7 +481,12 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         return;
       }
 
-      setResults(mapRankedResultsToSearchResults(message_.query, message_.results));
+      setTotalResultsCount(message_.results.length);
+
+      setResults(
+        mapRankedResultsToSearchResults(message_.query, message_.results.slice(0, 24))
+      );
+
       setResultsQuery(message_.query);
     };
 
@@ -497,7 +503,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   }, [isPageLoaded, mapRankedResultsToSearchResults, workerDetailsData]);
 
   const handleSearch = useCallback(
-    debounce((text: string) => {
+    (text: string) => {
       if (text.trim()) {
         workerRequestIdReference.current += 1;
 
@@ -515,34 +521,29 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
       } else {
         workerRequestIdReference.current += 1;
         setResults([]);
+        setTotalResultsCount(0);
         setResultsQuery("");
       }
-    }, 300),
+    },
     [runSearchOnMainThread]
   );
 
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedQuery(query), 100);
-
-    if (isPageLoaded) {
+    if (isLoaded) {
       if (query.trim()) {
         handleSearch(query);
       } else {
         workerRequestIdReference.current += 1;
-        handleSearch.cancel();
         setResults([]);
+        setTotalResultsCount(0);
         setResultsQuery("");
       }
     } else {
       workerRequestIdReference.current += 1;
       setResults([]);
+      setTotalResultsCount(0);
       setResultsQuery("");
     }
-
-    return () => {
-      clearTimeout(handler);
-      handleSearch.cancel();
-    };
   }, [query, handleSearch, isPageLoaded]);
 
   useEffect(() => {
@@ -550,10 +551,11 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   }, [results]);
 
   return {
-    debouncedQuery,
+    debouncedQuery: query,
     results,
     resultsQuery,
     selectedResultIndex,
     setSelectedResultIndex,
+    totalResultsCount,
   };
 };

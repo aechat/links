@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 
 import searchStyles from "./SearchEngine.module.scss";
 
@@ -41,7 +41,7 @@ const getResultCardStyle = ({
   return {filter: "saturate(0.25)"};
 };
 
-export const SearchResultCard: React.FC<SearchResultCardProperties> = ({
+const SearchResultCardComponent: React.FC<SearchResultCardProperties> = ({
   anchor,
   content,
   highlightedTags,
@@ -104,3 +104,5 @@ export const SearchResultCard: React.FC<SearchResultCardProperties> = ({
     </div>
   );
 };
+
+export const SearchResultCard = memo(SearchResultCardComponent);
