@@ -150,9 +150,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return "no-results";
     }
 
-    return previousTargetContentType === "no-results"
-      ? "categories"
-      : previousTargetContentType;
+    return previousTargetContentType;
   };
 
   const targetContentType = getTargetContentType();
