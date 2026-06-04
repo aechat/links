@@ -1,3 +1,5 @@
+import debounce from "lodash/debounce";
+
 import React, {memo, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
@@ -175,7 +177,15 @@ type SearchModalProperties = {
   resultsCount: number;
 };
 
-export const SearchModal: React.FC<SearchModalProperties> = ({
+interface SearchModalContentProperties extends Omit<
+  SearchModalProperties,
+  "closeModal" | "isOpen"
+> {
+  closeModal: () => void;
+  isOpen: boolean;
+}
+
+const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   children,
   closeModal,
   inputRef,
@@ -191,6 +201,41 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   resultsCount,
   resultWord,
 }) => {
+  const [localQuery, setLocalQuery] = useState(query);
+
+  useEffect(() => {
+    const isFocused =
+      inputRef.current !== null && document.activeElement === inputRef.current;
+
+    if (query === "" || !isFocused) {
+      setLocalQuery(query);
+    }
+  }, [query, inputRef]);
+
+  const debouncedOnChangeQuery = useMemo(
+    () => debounce((value: string) => onChangeQuery(value), 150),
+    [onChangeQuery]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedOnChangeQuery.cancel();
+    };
+  }, [debouncedOnChangeQuery]);
+
+  const handleInputChange = (event_: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event_.target.value;
+
+    setLocalQuery(value);
+    debouncedOnChangeQuery(value);
+  };
+
+  const handleClear = () => {
+    debouncedOnChangeQuery.cancel();
+    setLocalQuery("");
+    onClearQuery();
+  };
+
   const KEYBOARD_OPEN_THRESHOLD_PX = 120;
 
   const keyboardBaselineViewportHeightReference = useRef(0);
@@ -243,6 +288,17 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
     updateKeyboardState();
   }, [updateKeyboardState]);
 
+  const debouncedUpdateKeyboardState = useMemo(
+    () => debounce(updateKeyboardState, 100),
+    [updateKeyboardState]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedUpdateKeyboardState.cancel();
+    };
+  }, [debouncedUpdateKeyboardState]);
+
   useEffect(() => {
     if (!isOpen) {
       keyboardBaselineViewportHeightReference.current = 0;
@@ -259,16 +315,22 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
       return;
     }
 
-    viewport.addEventListener("resize", updateKeyboardState);
+    viewport.addEventListener("resize", debouncedUpdateKeyboardState);
     document.addEventListener("focusin", handleDocumentFocusIn);
     document.addEventListener("focusout", handleDocumentFocusOut);
 
     return () => {
-      viewport.removeEventListener("resize", updateKeyboardState);
+      viewport.removeEventListener("resize", debouncedUpdateKeyboardState);
       document.removeEventListener("focusin", handleDocumentFocusIn);
       document.removeEventListener("focusout", handleDocumentFocusOut);
     };
-  }, [handleDocumentFocusIn, handleDocumentFocusOut, isOpen, updateKeyboardState]);
+  }, [
+    handleDocumentFocusIn,
+    handleDocumentFocusOut,
+    isOpen,
+    updateKeyboardState,
+    debouncedUpdateKeyboardState,
+  ]);
 
   const scrollShellClassName = [
     searchStyles["search-results-shell"],
@@ -279,67 +341,71 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
     .join(" ");
 
   return (
-    <RemoveScroll enabled={isOpen}>
+    <div className={searchStyles["modal"]}>
+      <div className={modalStyles["modal-header"]}>
+        <input
+          ref={inputRef}
+          className={searchStyles["search-input"]}
+          placeholder="Введите что-нибудь для поиска..."
+          type="search"
+          value={localQuery}
+          onChange={handleInputChange}
+        />
+        {resultsCount > 0 && (
+          <span className={searchStyles["search-counter"]}>
+            <span className={searchStyles["search-counter-value"]}>{resultsCount}</span>{" "}
+            {resultWord}
+          </span>
+        )}
+        {localQuery.trim() !== "" && (
+          <button
+            className={modalStyles["modal-header-button"]}
+            onClick={handleClear}
+            onMouseDown={onInputClearMouseDown}
+          >
+            <BackspaceOutlined fontSize="small" />
+          </button>
+        )}
+        <button
+          className={modalStyles["modal-header-button"]}
+          onClick={closeModal}
+          onMouseDown={onCloseMouseDown}
+        >
+          <CloseRounded />
+        </button>
+      </div>
+      {isScrollableContent ? (
+        <div className={scrollShellClassName}>
+          <div
+            ref={resultsContainerRef}
+            className={searchStyles["search-results-scroll"]}
+          >
+            {children}
+          </div>
+        </div>
+      ) : (
+        <div
+          ref={resultsContainerRef}
+          className={searchStyles["search-static"]}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const SearchModal: React.FC<SearchModalProperties> = (properties) => {
+  return (
+    <RemoveScroll enabled={properties.isOpen}>
       <Modal
         closeIcon={false}
         footer={<></>}
-        open={isOpen}
+        open={properties.isOpen}
         width={1000}
-        onCancel={closeModal}
+        onCancel={properties.closeModal}
       >
-        <div className={searchStyles["modal"]}>
-          <div className={modalStyles["modal-header"]}>
-            <input
-              ref={inputRef}
-              className={searchStyles["search-input"]}
-              placeholder="Введите что-нибудь для поиска..."
-              type="search"
-              value={query}
-              onChange={(event_) => onChangeQuery(event_.target.value)}
-            />
-            {resultsCount > 0 && (
-              <span className={searchStyles["search-counter"]}>
-                <span className={searchStyles["search-counter-value"]}>
-                  {resultsCount}
-                </span>{" "}
-                {resultWord}
-              </span>
-            )}
-            {query.trim() !== "" && (
-              <button
-                className={modalStyles["modal-header-button"]}
-                onClick={onClearQuery}
-                onMouseDown={onInputClearMouseDown}
-              >
-                <BackspaceOutlined fontSize="small" />
-              </button>
-            )}
-            <button
-              className={modalStyles["modal-header-button"]}
-              onClick={closeModal}
-              onMouseDown={onCloseMouseDown}
-            >
-              <CloseRounded />
-            </button>
-          </div>
-          {isScrollableContent ? (
-            <div className={scrollShellClassName}>
-              <div
-                ref={resultsContainerRef}
-                className={searchStyles["search-results-scroll"]}
-              >
-                {children}
-              </div>
-            </div>
-          ) : (
-            <div
-              ref={resultsContainerRef}
-              className={searchStyles["search-static"]}
-            >
-              {children}
-            </div>
-          )}
-        </div>
+        <SearchModalContent {...properties} />
       </Modal>
     </RemoveScroll>
   );
@@ -676,6 +742,10 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   }, [checkResultOverflow, isSingleColumnLayout]);
 
   useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     const updateResultScales = () => {
       for (const resultElement of resultRefs.current ?? []) {
         if (!resultElement) {
@@ -710,7 +780,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
       observer?.disconnect();
       globalThis.removeEventListener("resize", updateResultScales);
     };
-  }, [isSingleColumnLayout, resultRefs, results]);
+  }, [isMobile, isSingleColumnLayout, resultRefs, results]);
 
   useEffect(() => {
     if (
