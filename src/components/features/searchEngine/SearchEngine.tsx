@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 import {useRipple} from "../../../hooks/useRipple";
 
@@ -29,6 +29,8 @@ export {extractMatchingLine, getResultWord} from "./searchContentUtilities";
 
 export {type SearchContextType, SearchProvider, useSearch} from "./SearchState";
 
+type SearchContentType = "categories" | "results" | "no-results";
+
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
   const {closeModal, isModalOpen, isPageLoaded} = useSearch();
 
@@ -41,8 +43,10 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const {
     debouncedQuery,
     results,
+    resultsLimit,
     resultsQuery,
     selectedResultIndex,
+    setResultsLimit,
     setSelectedResultIndex,
     totalResultsCount,
   } = useSearchLogic(query, isPageLoaded);
@@ -62,43 +66,111 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       resultLinkClassName: searchStyles["search-link"],
       resultReferences,
       results,
+      resultsLimit,
       selectedResultIndex,
       setSelectedResultIndex,
     });
 
-  const getModalContent = () => {
+  const [displayedContentType, setDisplayedContentType] =
+    useState<SearchContentType>("categories");
+
+  const [contentTransitionPhase, setContentTransitionPhase] = useState<
+    "idle" | "exit" | "enter"
+  >("idle");
+
+  const [previousTargetContentType, setPreviousTargetContentType] =
+    useState<SearchContentType>("categories");
+
+  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
+
+  const [displayedResultsQuery, setDisplayedResultsQuery] = useState(resultsQuery);
+
+  const [displayedResultsCount, setDisplayedResultsCount] = useState(totalResultsCount);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "exit") {
+      setDisplayedResults(results);
+      setDisplayedResultsQuery(resultsQuery);
+      setDisplayedResultsCount(totalResultsCount);
+    }
+  }, [results, resultsQuery, totalResultsCount, contentTransitionPhase]);
+
+  const getTargetContentType = (): SearchContentType => {
     if (!isSearching) {
-      return {
-        content: (
-          <SearchCategories
-            sections={sections}
-            onLinkClick={handleLinkClick}
-          />
-        ),
-        isScrollableContent: false,
-      };
+      return "categories";
     }
 
     if (results.length > 0) {
+      return "results";
+    }
+
+    if (query.trim() !== "" && results.length === 0 && resultsQuery === query) {
+      return "no-results";
+    }
+
+    // Если идет поиск, но результаты еще не пришли (resultsQuery !== query),
+    // возвращаем prevTargetContentType, чтобы избежать промежуточного "мигания" категориями.
+    return previousTargetContentType;
+  };
+
+  const targetContentType = getTargetContentType();
+
+  if (targetContentType !== previousTargetContentType) {
+    setPreviousTargetContentType(targetContentType);
+    setContentTransitionPhase("exit");
+  }
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "exit") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setDisplayedContentType(previousTargetContentType);
+      setContentTransitionPhase("enter");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [contentTransitionPhase, previousTargetContentType]);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "enter") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setContentTransitionPhase("idle");
+    }, 300);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [contentTransitionPhase]);
+
+  const getModalContent = () => {
+    if (displayedContentType === "results") {
       return {
         content: (
           <>
             <SearchResults
-              query={resultsQuery}
+              query={displayedResultsQuery}
               resultRefs={resultReferences}
-              results={results}
+              results={displayedResults}
               selectedResultIndex={selectedResultIndex}
               setSelectedResultIndex={setSelectedResultIndex}
               onLinkClick={handleLinkClick}
             />
-            <ExternalSearch query={debouncedQuery} />
+            <ExternalSearch
+              query={debouncedQuery}
+              resultsLength={displayedResults.length}
+              setResultsLimit={setResultsLimit}
+              totalResultsCount={totalResultsCount}
+            />
           </>
         ),
         isScrollableContent: true,
       };
     }
 
-    if (query.trim() !== "" && results.length === 0 && resultsQuery === query) {
+    if (displayedContentType === "no-results") {
       return {
         content: <NoResults query={query} />,
         isScrollableContent: true,
@@ -121,14 +193,15 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   return (
     <SearchModal
       closeModal={closeModal}
+      contentTransitionPhase={contentTransitionPhase}
       inputRef={inputReference}
       isFadeVisible={isFadeVisible}
       isOpen={isModalOpen}
       isScrollableContent={isScrollableContent}
       query={query}
       resultsContainerRef={resultsContainerReference}
-      resultsCount={totalResultsCount}
-      resultWord={getResultWord(totalResultsCount)}
+      resultsCount={displayedResultsCount}
+      resultWord={getResultWord(displayedResultsCount)}
       onChangeQuery={handleQueryChange}
       onClearQuery={resetSearchState}
       onCloseMouseDown={ripple.onMouseDown}

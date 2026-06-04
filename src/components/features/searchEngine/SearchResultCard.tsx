@@ -4,6 +4,7 @@ import searchStyles from "./SearchEngine.module.scss";
 
 interface SearchResultCardProperties {
   anchor?: string;
+  cardIndex: number;
   content: string;
   highlightedTags: React.ReactNode[];
   highlightedTitle: React.ReactNode;
@@ -35,14 +36,15 @@ const getResultCardStyle = ({
   }
 
   if (isSelected || isHovered) {
-    return {filter: "none"};
+    return {filter: "none", opacity: 1};
   }
 
-  return {filter: "saturate(0.25)"};
+  return {filter: "saturate(0.25)", opacity: 0.85};
 };
 
 const SearchResultCardComponent: React.FC<SearchResultCardProperties> = ({
   anchor,
+  cardIndex,
   content,
   highlightedTags,
   highlightedTitle,
@@ -60,7 +62,10 @@ const SearchResultCardComponent: React.FC<SearchResultCardProperties> = ({
   tagsToDisplay,
 }) => {
   return (
-    <div className={searchStyles["search-results-item"]}>
+    <div
+      className={`${searchStyles["search-results-item"]} ${isMobile ? searchStyles["is-mobile"] : ""}`}
+      style={{"--card-index": cardIndex} as React.CSSProperties}
+    >
       <button
         ref={setResultRef}
         className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}

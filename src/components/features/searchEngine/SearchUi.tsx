@@ -175,6 +175,7 @@ type SearchModalProperties = {
   resultWord: string;
   resultsContainerRef: React.RefObject<HTMLDivElement | null>;
   resultsCount: number;
+  contentTransitionPhase?: "idle" | "exit" | "enter";
 };
 
 interface SearchModalContentProperties extends Omit<
@@ -188,10 +189,10 @@ interface SearchModalContentProperties extends Omit<
 const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   children,
   closeModal,
+  contentTransitionPhase,
   inputRef,
   isFadeVisible,
   isOpen,
-  isScrollableContent,
   onChangeQuery,
   onClearQuery,
   onCloseMouseDown,
@@ -213,7 +214,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   }, [query, inputRef]);
 
   const debouncedOnChangeQuery = useMemo(
-    () => debounce((value: string) => onChangeQuery(value), 150),
+    () => debounce((value: string) => onChangeQuery(value), isMobileDevice() ? 500 : 300),
     [onChangeQuery]
   );
 
@@ -332,6 +333,29 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
     debouncedUpdateKeyboardState,
   ]);
 
+  let contentTransitionClass = "";
+
+  switch (contentTransitionPhase) {
+    case "exit": {
+      contentTransitionClass = searchStyles["content-transition-exit"];
+
+      break;
+    }
+
+    case "enter": {
+      contentTransitionClass = searchStyles["content-transition-enter"];
+
+      break;
+    }
+
+    case "idle": {
+      contentTransitionClass = searchStyles["content-transition-idle"];
+
+      break;
+    }
+    // No default
+  }
+
   const scrollShellClassName = [
     searchStyles["search-results-shell"],
     isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
@@ -352,7 +376,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
           onChange={handleInputChange}
         />
         {resultsCount > 0 && (
-          <span className={searchStyles["search-counter"]}>
+          <span className={`${searchStyles["search-counter"]} ${contentTransitionClass}`}>
             <span className={searchStyles["search-counter-value"]}>{resultsCount}</span>{" "}
             {resultWord}
           </span>
@@ -374,23 +398,14 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
           <CloseRounded />
         </button>
       </div>
-      {isScrollableContent ? (
-        <div className={scrollShellClassName}>
-          <div
-            ref={resultsContainerRef}
-            className={searchStyles["search-results-scroll"]}
-          >
-            {children}
-          </div>
-        </div>
-      ) : (
+      <div className={scrollShellClassName}>
         <div
           ref={resultsContainerRef}
-          className={searchStyles["search-static"]}
+          className={`${searchStyles["search-results-scroll"]} ${contentTransitionClass}`}
         >
           {children}
         </div>
-      )}
+      </div>
     </div>
   );
 };
@@ -411,7 +426,21 @@ export const SearchModal: React.FC<SearchModalProperties> = (properties) => {
   );
 };
 
-export const ExternalSearch: React.FC<{query: string}> = ({query}) => {
+type ExternalSearchProperties = {
+  query: string;
+  disableAnimation?: boolean;
+  totalResultsCount?: number;
+  resultsLength?: number;
+  setResultsLimit?: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
+  disableAnimation = false,
+  query,
+  resultsLength,
+  setResultsLimit,
+  totalResultsCount,
+}) => {
   const getSearchQuery = () => {
     const path = globalThis.location.pathname;
 
@@ -432,9 +461,30 @@ export const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const showAllRipple = useRipple<HTMLButtonElement>();
+
+  const isMobile = isMobileDevice();
+
+  const shouldDisableAnimation = isMobile || disableAnimation;
+
+  const showAllButton = totalResultsCount !== undefined &&
+    resultsLength !== undefined &&
+    totalResultsCount > resultsLength &&
+    setResultsLimit && (
+      <button
+        onClick={() => setResultsLimit(Number.MAX_SAFE_INTEGER)}
+        onMouseDown={showAllRipple.onMouseDown}
+      >
+        Показать все результаты
+      </button>
+    );
+
   return (
-    <div>
+    <div
+      className={`${searchStyles["search-external-container"]} ${shouldDisableAnimation ? searchStyles["is-mobile"] : ""}`}
+    >
       <div className={searchStyles["search-external-links"]}>
+        {showAllButton}
         <button
           onClick={() => {
             globalThis.open(
@@ -479,7 +529,10 @@ export const NoResults: React.FC<{query: string}> = ({query}) => (
         Perplexity<sup>1</sup>
       </p>
     </div>
-    <ExternalSearch query={query} />
+    <ExternalSearch
+      disableAnimation={true}
+      query={query}
+    />
   </div>
 );
 
@@ -515,6 +568,28 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
   const isMobile = isMobileDevice();
 
+  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
+
+  const [displayedQuery, setDisplayedQuery] = useState<string>(query);
+
+  const [transitionPhase, setTransitionPhase] = useState<"idle" | "exit" | "enter">(
+    "idle"
+  );
+
+  const [previousQuery, setPreviousQuery] = useState(query);
+
+  const [previousResults, setPreviousResults] = useState(results);
+
+  const isResultsChanged =
+    results.length !== previousResults.length ||
+    results.some((result, index) => result.id !== previousResults[index]?.id);
+
+  if (query !== previousQuery || isResultsChanged) {
+    setPreviousQuery(query);
+    setPreviousResults(results);
+    setTransitionPhase("exit");
+  }
+
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
 
   const [overflowingResultIds, setOverflowingResultIds] = useState<Set<string>>(
@@ -527,7 +602,10 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
   const [isSingleColumnLayout, setIsSingleColumnLayout] = useState(false);
 
-  const compiledQuery = useMemo(() => compileSearchQuery(query), [query]);
+  const compiledQuery = useMemo(
+    () => compileSearchQuery(displayedQuery),
+    [displayedQuery]
+  );
 
   const [isHighlightReady, setIsHighlightReady] = useState(false);
 
@@ -540,6 +618,32 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   const [, setHighlightCacheVersion] = useState(0);
 
   useEffect(() => {
+    if (transitionPhase !== "exit") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setDisplayedResults(previousResults);
+      setDisplayedQuery(previousQuery);
+      setTransitionPhase("enter");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [transitionPhase, previousQuery, previousResults]);
+
+  useEffect(() => {
+    if (transitionPhase !== "enter") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setTransitionPhase("idle");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [transitionPhase]);
+
+  useEffect(() => {
     setIsHighlightReady(false);
 
     const timeout = globalThis.setTimeout(() => {
@@ -547,11 +651,11 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     }, HIGHLIGHT_DELAY_MS);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [HIGHLIGHT_DELAY_MS, query]);
+  }, [HIGHLIGHT_DELAY_MS, displayedQuery]);
 
   useEffect(() => {
     highlightedContentCacheReference.current.clear();
-  }, [query]);
+  }, [displayedQuery]);
 
   const updateHighlightEligibility = useCallback(() => {
     if (!isHighlightReady) {
@@ -566,7 +670,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
     const nextEligibleIds = new Set<string>();
 
-    for (const [index, result] of results.entries()) {
+    for (const [index, result] of displayedResults.entries()) {
       const element = resultRefs.current?.[index];
 
       if (!element) {
@@ -585,10 +689,10 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
     if (
       selectedResultIndex >= 0 &&
-      selectedResultIndex < results.length &&
-      results[selectedResultIndex]
+      selectedResultIndex < displayedResults.length &&
+      displayedResults[selectedResultIndex]
     ) {
-      nextEligibleIds.add(results[selectedResultIndex].id);
+      nextEligibleIds.add(displayedResults[selectedResultIndex].id);
     }
 
     setHighlightEligibleIds(nextEligibleIds);
@@ -596,7 +700,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     HIGHLIGHT_BUFFER_VIEWPORTS,
     isHighlightReady,
     resultRefs,
-    results,
+    displayedResults,
     selectedResultIndex,
   ]);
 
@@ -618,7 +722,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
       scrollContainer?.removeEventListener("scroll", updateHighlightEligibility);
       globalThis.removeEventListener("resize", updateHighlightEligibility);
     };
-  }, [results, updateHighlightEligibility]);
+  }, [displayedResults, updateHighlightEligibility]);
 
   useEffect(() => {
     updateHighlightEligibility();
@@ -694,8 +798,8 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   );
 
   const resultEntries = useMemo(
-    () => results.map((result, index) => ({index, result})),
-    [results]
+    () => displayedResults.map((result, index) => ({index, result})),
+    [displayedResults]
   );
 
   const masonryColumns = useMemo(
@@ -704,14 +808,14 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   );
 
   const resultById = useMemo(
-    () => new Map(results.map((result) => [result.id, result])),
-    [results]
+    () => new Map(displayedResults.map((result) => [result.id, result])),
+    [displayedResults]
   );
 
   const checkResultOverflow = useCallback(() => {
     const overflowedIds = new Set<string>();
 
-    for (const {id} of results) {
+    for (const {id} of displayedResults) {
       const contentElement = resultContentReferences.current[id];
 
       if (!contentElement) {
@@ -724,7 +828,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     }
 
     setOverflowingResultIds(overflowedIds);
-  }, [results]);
+  }, [displayedResults]);
 
   useEffect(() => {
     const rafId = globalThis.requestAnimationFrame(checkResultOverflow);
@@ -780,12 +884,12 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
       observer?.disconnect();
       globalThis.removeEventListener("resize", updateResultScales);
     };
-  }, [isMobile, isSingleColumnLayout, resultRefs, results]);
+  }, [isMobile, isSingleColumnLayout, resultRefs, displayedResults]);
 
   useEffect(() => {
     if (
       !isHighlightReady ||
-      !query.trim() ||
+      !displayedQuery.trim() ||
       compiledQuery.words.length === 0 ||
       compiledQuery.isKeyCombination
     ) {
@@ -794,9 +898,13 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
     const idsToPrecompute = [
       ...new Set(
-        results.map((result) => result.id).filter((id) => highlightEligibleIds.has(id))
+        displayedResults
+          .map((result) => result.id)
+          .filter((id) => highlightEligibleIds.has(id))
       ),
-    ].filter((id) => !highlightedContentCacheReference.current.has(`${id}::${query}`));
+    ].filter(
+      (id) => !highlightedContentCacheReference.current.has(`${id}::${displayedQuery}`)
+    );
 
     if (idsToPrecompute.length === 0) {
       return;
@@ -828,7 +936,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           continue;
         }
 
-        const cacheKey = `${resultId}::${query}`;
+        const cacheKey = `${resultId}::${displayedQuery}`;
 
         if (highlightedContentCacheReference.current.has(cacheKey)) {
           continue;
@@ -860,7 +968,14 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
         globalThis.clearTimeout(timeoutId);
       }
     };
-  }, [compiledQuery, highlightEligibleIds, isHighlightReady, query, resultById, results]);
+  }, [
+    compiledQuery,
+    highlightEligibleIds,
+    isHighlightReady,
+    displayedQuery,
+    resultById,
+    displayedResults,
+  ]);
 
   const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
     const {anchor, content, id, tag, title} = result;
@@ -871,8 +986,8 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
     const isCurrentSelectedResult =
       selectedResultIndex >= 0 &&
-      selectedResultIndex < results.length &&
-      results[selectedResultIndex]?.id === id;
+      selectedResultIndex < displayedResults.length &&
+      displayedResults[selectedResultIndex]?.id === id;
 
     const shouldHighlight =
       isCurrentSelectedResult || (isHighlightReady && highlightEligibleIds.has(id));
@@ -885,14 +1000,14 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
       ? tagsToDisplay.map((tag_) => renderHighlightedText(tag_, compiledQuery))
       : tagsToDisplay;
 
-    const cacheKey = `${id}::${query}`;
+    const cacheKey = `${id}::${displayedQuery}`;
 
     const cachedHighlightedContent =
       highlightedContentCacheReference.current.get(cacheKey);
 
     let highlightedContent = content;
 
-    if (shouldHighlight && query.trim() !== "") {
+    if (shouldHighlight && displayedQuery.trim() !== "") {
       if (cachedHighlightedContent !== undefined) {
         highlightedContent = cachedHighlightedContent;
       } else if (isCurrentSelectedResult) {
@@ -912,6 +1027,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     return (
       <SearchResultCard
         anchor={anchor}
+        cardIndex={index}
         content={highlightedContent}
         highlightedTags={highlightedTags}
         highlightedTitle={highlightedTitle}
@@ -940,6 +1056,29 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     );
   };
 
+  let transitionClass = "";
+
+  switch (transitionPhase) {
+    case "exit": {
+      transitionClass = searchStyles["transition-exit"];
+
+      break;
+    }
+
+    case "enter": {
+      transitionClass = searchStyles["transition-enter"];
+
+      break;
+    }
+
+    case "idle": {
+      transitionClass = searchStyles["transition-idle"];
+
+      break;
+    }
+    // No default
+  }
+
   return (
     <div
       ref={masonryContainerReference}
@@ -950,7 +1089,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           isSingleColumnLayout
             ? searchStyles["search-results-layout-single"]
             : searchStyles["search-results-layout-masonry"]
-        }`}
+        } ${transitionClass}`}
       >
         {masonryColumns.map((column, columnIndex) => (
           <div
@@ -958,7 +1097,9 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
             className={searchStyles["search-results-column"]}
           >
             {column.map((entry) => (
-              <React.Fragment key={entry.result.id}>{renderResult(entry)}</React.Fragment>
+              <React.Fragment key={`${entry.result.id}-${displayedQuery}`}>
+                {renderResult(entry)}
+              </React.Fragment>
             ))}
           </div>
         ))}

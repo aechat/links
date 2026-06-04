@@ -102,6 +102,109 @@
   }
 }
 
+@keyframes search-card-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes search-card-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes transition-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes transition-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.transition-exit {
+  animation: transition-fade-out 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+
+  .search-results-item {
+    animation: search-card-out 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+    animation-delay: 0s;
+  }
+}
+
+.transition-enter {
+  animation: transition-fade-in 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+.transition-idle {
+  opacity: 1;
+}
+
+@keyframes content-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes content-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.content-transition-exit {
+  animation: content-fade-out 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+.content-transition-enter {
+  animation: content-fade-in 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+.content-transition-idle {
+  opacity: 1;
+}
+
+@keyframes external-links-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .search {
   &-input {
     cursor: text;
@@ -283,6 +386,12 @@
   &-results-item {
     width: 100%;
     min-width: 0;
+    animation: search-card-in 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+    animation-delay: calc(var(--card-index, 0) * 30ms);
+
+    &.is-mobile {
+      animation: none;
+    }
   }
 
   &-counter {
@@ -609,6 +718,17 @@
       line-height: 1.25;
       font-size: $font-size-text-xs !important;
       text-wrap: balance;
+    }
+  }
+
+  &-external-container {
+    animation: external-links-fade-in 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+    animation-delay: 450ms;
+
+    &.is-mobile {
+      transform: none;
+      opacity: 1;
+      animation: none;
     }
   }
 
