@@ -244,6 +244,14 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
   const [resultsQuery, setResultsQuery] = useState("");
 
+  const [resultsLimit, setResultsLimit] = useState(24);
+
+  const resultsLimitReference = useRef(24);
+
+  resultsLimitReference.current = resultsLimit;
+
+  const allRankedResultsReference = useRef<WorkerRankedResult[]>([]);
+
   const cachedDetailsData = useMemo(() => {
     if (!isPageLoaded) {
       return [];
@@ -444,8 +452,17 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     (text: string) => {
       const rankedResults = searchDetails(workerDetailsData, text);
 
+      allRankedResultsReference.current = rankedResults;
+
       setTotalResultsCount(rankedResults.length);
-      setResults(mapRankedResultsToSearchResults(text, rankedResults.slice(0, 24)));
+
+      setResults(
+        mapRankedResultsToSearchResults(
+          text,
+          rankedResults.slice(0, resultsLimitReference.current)
+        )
+      );
+
       setResultsQuery(text);
     },
     [mapRankedResultsToSearchResults, workerDetailsData]
@@ -481,10 +498,14 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         return;
       }
 
+      allRankedResultsReference.current = message_.results;
       setTotalResultsCount(message_.results.length);
 
       setResults(
-        mapRankedResultsToSearchResults(message_.query, message_.results.slice(0, 24))
+        mapRankedResultsToSearchResults(
+          message_.query,
+          message_.results.slice(0, resultsLimitReference.current)
+        )
       );
 
       setResultsQuery(message_.query);
@@ -550,11 +571,28 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     setSelectedResultIndex(results.length > 0 ? 0 : -1);
   }, [results]);
 
+  useEffect(() => {
+    setResultsLimit(24);
+  }, [query]);
+
+  useEffect(() => {
+    if (resultsQuery) {
+      setResults(
+        mapRankedResultsToSearchResults(
+          resultsQuery,
+          allRankedResultsReference.current.slice(0, resultsLimit)
+        )
+      );
+    }
+  }, [resultsLimit, resultsQuery, mapRankedResultsToSearchResults]);
+
   return {
     debouncedQuery: query,
     results,
+    resultsLimit,
     resultsQuery,
     selectedResultIndex,
+    setResultsLimit,
     setSelectedResultIndex,
     totalResultsCount,
   };
