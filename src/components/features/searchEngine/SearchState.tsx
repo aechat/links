@@ -49,7 +49,7 @@ const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 const SEARCH_HISTORY_STORAGE_KEY = "searchEngineHistory";
 
-const SEARCH_HISTORY_LIMIT = 12;
+const SEARCH_HISTORY_LIMIT = 24;
 
 const normalizeHistoryQuery = (value: string) => value.replaceAll(/\s+/g, " ").trim();
 
