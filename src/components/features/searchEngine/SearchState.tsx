@@ -1,6 +1,7 @@
 import React, {
   createContext,
   type ReactNode,
+  startTransition,
   useCallback,
   useContext,
   useEffect,
@@ -395,6 +396,7 @@ type SearchModalBehaviorParameters = {
   results: SearchResult[];
   selectedResultIndex: number;
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+  resultsLimit?: number;
 };
 
 export const useSearchLinkNavigation = (closeModal: () => void) => {
@@ -429,14 +431,20 @@ export const useSearchViewState = (
 
   const handleQueryChange = useCallback(
     (value: string) => {
-      setQuery(value);
-
       if (value.trim() === "") {
         setIsSearching(false);
         setIsResultsProcessed(false);
+
+        startTransition(() => {
+          setQuery(value);
+        });
       } else {
         setIsSearching(true);
         setIsResultsProcessed(false);
+
+        startTransition(() => {
+          setQuery(value);
+        });
       }
     },
     [setQuery]
@@ -462,6 +470,7 @@ export const useSearchModalBehavior = ({
   resultLinkClassName,
   resultReferences,
   results,
+  resultsLimit,
   selectedResultIndex,
   setSelectedResultIndex,
 }: SearchModalBehaviorParameters) => {
@@ -731,6 +740,10 @@ export const useSearchModalBehavior = ({
   }, [isModalOpen, resultReferences, scrollSelectedResultIntoView, selectedResultIndex]);
 
   useEffect(() => {
+    if (resultsLimit === Number.MAX_SAFE_INTEGER) {
+      return;
+    }
+
     if (!isModalOpen || selectedResultIndex < 0 || results.length === 0) {
       return;
     }
@@ -748,6 +761,7 @@ export const useSearchModalBehavior = ({
     resultsSignature,
     scrollSelectedResultIntoView,
     selectedResultIndex,
+    resultsLimit,
   ]);
 
   useEffect(() => {
