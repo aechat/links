@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 
 import {useRipple} from "../../../hooks/useRipple";
 
@@ -18,6 +18,7 @@ import {
 import {
   ExternalSearch,
   NoResults,
+  RecentQueries,
   SearchCategories,
   SearchModal,
   SearchResults,
@@ -30,7 +31,8 @@ export {extractMatchingLine, getResultWord} from "./searchContentUtilities";
 export {type SearchContextType, SearchProvider, useSearch} from "./SearchState";
 
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
-  const {closeModal, isModalOpen, isPageLoaded} = useSearch();
+  const {clearQueryHistory, closeModal, isModalOpen, isPageLoaded, queryHistory} =
+    useSearch();
 
   const [query, setQuery] = useState("");
 
@@ -53,7 +55,12 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     setQuery
   );
 
-  const handleLinkClick = useSearchLinkNavigation(closeModal);
+  const navigateToLink = useSearchLinkNavigation(closeModal);
+
+  const handleLinkClick = useCallback(
+    (anchorValue: string) => navigateToLink(anchorValue),
+    [navigateToLink]
+  );
 
   const {inputReference, isFadeVisible, resultsContainerReference} =
     useSearchModalBehavior({
@@ -66,14 +73,29 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setSelectedResultIndex,
     });
 
+  const handleRecentQuerySelect = useCallback(
+    (historyQuery: string) => {
+      handleQueryChange(historyQuery);
+      inputReference.current?.focus({preventScroll: true});
+    },
+    [handleQueryChange, inputReference]
+  );
+
   const getModalContent = () => {
     if (!isSearching) {
       return {
         content: (
-          <SearchCategories
-            sections={sections}
-            onLinkClick={handleLinkClick}
-          />
+          <>
+            <RecentQueries
+              history={queryHistory}
+              onClear={clearQueryHistory}
+              onSelect={handleRecentQuerySelect}
+            />
+            <SearchCategories
+              sections={sections}
+              onLinkClick={handleLinkClick}
+            />
+          </>
         ),
         isScrollableContent: false,
       };
@@ -107,10 +129,17 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
     return {
       content: (
-        <SearchCategories
-          sections={sections}
-          onLinkClick={handleLinkClick}
-        />
+        <>
+          <RecentQueries
+            history={queryHistory}
+            onClear={clearQueryHistory}
+            onSelect={handleRecentQuerySelect}
+          />
+          <SearchCategories
+            sections={sections}
+            onLinkClick={handleLinkClick}
+          />
+        </>
       ),
       isScrollableContent: false,
     };
