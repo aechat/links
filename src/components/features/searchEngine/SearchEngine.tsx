@@ -70,10 +70,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const handleLinkClick = useCallback(
     (anchorValue: string) => {
-      addQueryToHistory(query);
+      if (results.length > 0) {
+        addQueryToHistory(query);
+      }
+
       navigateToLink(anchorValue);
     },
-    [addQueryToHistory, navigateToLink, query]
+    [addQueryToHistory, navigateToLink, query, results]
   );
 
   const {inputReference, isFadeVisible, resultsContainerReference} =
@@ -94,11 +97,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     }
 
     const timeout = globalThis.setTimeout(() => {
-      addQueryToHistory(query);
+      if (results.length > 0 && resultsQuery === query) {
+        addQueryToHistory(query);
+      }
     }, 5000);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [query, addQueryToHistory]);
+  }, [query, addQueryToHistory, results, resultsQuery]);
 
   const handleRecentQuerySelect = useCallback(
     (historyQuery: string) => {
