@@ -492,6 +492,13 @@
         border-color: var(--color-table-border);
         background-color: var(--color-table-background);
       }
+
+      :global(.table-truncated-row) td {
+        opacity: 0.6;
+        padding: 8px;
+        text-align: center;
+        font-style: italic;
+      }
     }
 
     p,

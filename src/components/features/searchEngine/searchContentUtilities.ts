@@ -453,6 +453,88 @@ const processElement = (
   return processContainerChildren(element, compiledQuery, dependencies);
 };
 
+const getTruncatedTable = (table: HTMLTableElement, maxRows = 8): string => {
+  const newTable = document.createElement("table");
+
+  const thead = table.querySelector("thead");
+
+  if (thead) {
+    newTable.append(thead.cloneNode(true));
+  }
+
+  const tbody = table.querySelector("tbody");
+
+  if (tbody) {
+    const newTbody = document.createElement("tbody");
+
+    const allRows = [...tbody.querySelectorAll("tr")];
+
+    const rows = allRows.slice(0, maxRows);
+
+    for (const row of rows) {
+      newTbody.append(row.cloneNode(true));
+    }
+
+    const truncatedCount = allRows.length - maxRows;
+
+    if (truncatedCount > 0) {
+      const tr = document.createElement("tr");
+
+      tr.className = "table-truncated-row";
+
+      const td = document.createElement("td");
+
+      const maxCols = Math.max(
+        ...allRows.map((row) => row.querySelectorAll("td, th").length),
+        1
+      );
+
+      td.setAttribute("colspan", maxCols.toString());
+      td.textContent = `...и ещё ${truncatedCount} строк`;
+      tr.append(td);
+      newTbody.append(tr);
+    }
+
+    newTable.append(newTbody);
+  } else {
+    const newTbody = document.createElement("tbody");
+
+    const allRows = [...table.querySelectorAll("tr")].filter(
+      (row) => !row.parentElement || row.parentElement.tagName.toLowerCase() !== "thead"
+    );
+
+    const rows = allRows.slice(0, maxRows);
+
+    for (const row of rows) {
+      newTbody.append(row.cloneNode(true));
+    }
+
+    const truncatedCount = allRows.length - maxRows;
+
+    if (truncatedCount > 0) {
+      const tr = document.createElement("tr");
+
+      tr.className = "table-truncated-row";
+
+      const td = document.createElement("td");
+
+      const maxCols = Math.max(
+        ...allRows.map((row) => row.querySelectorAll("td, th").length),
+        1
+      );
+
+      td.setAttribute("colspan", maxCols.toString());
+      td.textContent = `...и ещё ${truncatedCount} строк`;
+      tr.append(td);
+      newTbody.append(tr);
+    }
+
+    newTable.append(newTbody);
+  }
+
+  return newTable.outerHTML;
+};
+
 const getFirstCleanParagraphOrElement = (root: Element): string => {
   const firstParagraph = root.querySelector("details > p, details > div > p");
 
@@ -467,6 +549,10 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   const firstElement = root.firstElementChild;
 
   if (firstElement) {
+    if (firstElement.tagName.toLowerCase() === "table") {
+      return getTruncatedTable(firstElement as HTMLTableElement);
+    }
+
     const cleanedElement = firstElement.cloneNode(true) as Element;
 
     removeFigureContainers(cleanedElement);
@@ -554,7 +640,7 @@ const pickTableOrFallback = (
       }
     }
 
-    return tables[0].outerHTML;
+    return getTruncatedTable(tables[0]);
   }
 
   return getFirstCleanParagraphOrElement(root);
