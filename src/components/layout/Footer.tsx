@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 import {GitHub} from "@mui/icons-material";
 
@@ -63,12 +63,50 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
   const [error, setError] = useState<string | undefined>();
 
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const footerReference = useRef<HTMLElement>(null);
+
   const currentYear = new Date().getFullYear();
 
   const path = location.pathname;
 
   useEffect(() => {
     if (!isFaqPage(path)) {
+      return;
+    }
+
+    setIsVisible(false);
+
+    if (globalThis.IntersectionObserver === undefined) {
+      setIsVisible(true);
+
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {rootMargin: "200px"}
+    );
+
+    const currentFooter = footerReference.current;
+
+    if (currentFooter) {
+      observer.observe(currentFooter);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [path]);
+
+  useEffect(() => {
+    if (!isVisible || !isFaqPage(path)) {
       return;
     }
 
@@ -129,7 +167,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
     };
 
     getLastCommit();
-  }, [path]);
+  }, [path, isVisible]);
 
   const renderCommitInfo = () => {
     if (isLoading) {
@@ -161,7 +199,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
   };
 
   return (
-    <footer>
+    <footer ref={footerReference}>
       <div className={styles["footer-container"]}>
         <div>
           <p>
