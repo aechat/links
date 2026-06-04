@@ -467,7 +467,11 @@ export const useSearchModalBehavior = ({
 }: SearchModalBehaviorParameters) => {
   const inputReference = useRef<HTMLInputElement>(null);
 
-  const resultsContainerReference = useRef<HTMLDivElement>(null);
+  const [resultsContainer, setResultsContainer] = useState<HTMLDivElement | undefined>();
+
+  const resultsContainerReference = useCallback((element: HTMLDivElement | null) => {
+    setResultsContainer(element ?? undefined);
+  }, []);
 
   const wasModalOpenReference = useRef(false);
 
@@ -487,7 +491,7 @@ export const useSearchModalBehavior = ({
   }, [isModalOpen]);
 
   useEffect(() => {
-    const element = resultsContainerReference.current;
+    const element = resultsContainer;
 
     if (!element) {
       return;
@@ -508,7 +512,20 @@ export const useSearchModalBehavior = ({
       element.removeEventListener("scroll", checkFadeVisibility);
       globalThis.removeEventListener("resize", checkFadeVisibility);
     };
-  }, [results]);
+  }, [resultsContainer]);
+
+  useEffect(() => {
+    const element = resultsContainer;
+
+    if (!element) {
+      return;
+    }
+
+    setIsFadeVisible(
+      element.scrollHeight > element.clientHeight &&
+        element.scrollTop + element.clientHeight < element.scrollHeight - 1
+    );
+  }, [results, resultsContainer]);
 
   const getPositionedResults = useCallback(() => {
     return getPositionedResultsRuntime(resultReferences.current);
@@ -544,11 +561,11 @@ export const useSearchModalBehavior = ({
       scrollSelectedResultIntoViewRuntime({
         behavior,
         resultReferences: resultReferences.current,
-        resultsContainer: resultsContainerReference.current,
+        resultsContainer,
         selectedResultIndex,
       });
     },
-    [resultReferences, selectedResultIndex]
+    [resultReferences, selectedResultIndex, resultsContainer]
   );
 
   const resultsSignature = useMemo(
@@ -664,7 +681,7 @@ export const useSearchModalBehavior = ({
     const maxFrames = 10;
 
     const waitForStableLayoutAndScroll = () => {
-      const container = resultsContainerReference.current;
+      const container = resultsContainer;
 
       const selectedElement = resultReferences.current[selectedResultIndex];
 
@@ -734,7 +751,7 @@ export const useSearchModalBehavior = ({
   ]);
 
   useEffect(() => {
-    const container = resultsContainerReference.current;
+    const container = resultsContainer;
 
     if (!container) {
       return;
@@ -759,7 +776,7 @@ export const useSearchModalBehavior = ({
     return () => {
       container.removeEventListener("click", handleClick, true);
     };
-  }, [resultLinkClassName]);
+  }, [resultLinkClassName, results, resultsContainer]);
 
   return {
     inputReference,

@@ -373,7 +373,7 @@ const handleListWithNestedMatches = (
       matchCount: 1,
       result: dependencies.wrapSnippetWithClosestAddition(
         element,
-        clone.outerHTML,
+        `<ul>${clone.outerHTML}</ul>`,
         dependencies.additionContainerSelector
       ),
     };
@@ -392,7 +392,7 @@ const handleListWithNestedMatches = (
       matchCount: 1,
       result: dependencies.wrapSnippetWithClosestAddition(
         element,
-        clone.outerHTML,
+        `<ul>${clone.outerHTML}</ul>`,
         dependencies.additionContainerSelector
       ),
     };
@@ -416,7 +416,7 @@ const handleListWithNestedMatches = (
     matchCount: matchingNestedItems.length + 1,
     result: dependencies.wrapSnippetWithClosestAddition(
       element,
-      clone.outerHTML,
+      `<ul>${clone.outerHTML}</ul>`,
       dependencies.additionContainerSelector
     ),
   };
