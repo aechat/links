@@ -456,6 +456,12 @@ export const useSearchLogic = (
     [cachedDetailsByKey]
   );
 
+  const mapRankedResultsToSearchResultsReference = useRef(
+    mapRankedResultsToSearchResults
+  );
+
+  mapRankedResultsToSearchResultsReference.current = mapRankedResultsToSearchResults;
+
   const runSearchOnMainThread = useCallback(
     (text: string) => {
       const rankedResults = searchDetails(workerDetailsData, text);
@@ -465,7 +471,7 @@ export const useSearchLogic = (
       setTotalResultsCount(rankedResults.length);
 
       setResults(
-        mapRankedResultsToSearchResults(
+        mapRankedResultsToSearchResultsReference.current(
           text,
           rankedResults.slice(0, resultsLimitReference.current)
         )
@@ -473,7 +479,7 @@ export const useSearchLogic = (
 
       setResultsQuery(text);
     },
-    [mapRankedResultsToSearchResults, workerDetailsData]
+    [workerDetailsData]
   );
 
   useEffect(() => {
@@ -510,7 +516,7 @@ export const useSearchLogic = (
       setTotalResultsCount(message_.results.length);
 
       setResults(
-        mapRankedResultsToSearchResults(
+        mapRankedResultsToSearchResultsReference.current(
           message_.query,
           message_.results.slice(0, resultsLimitReference.current)
         )
@@ -529,7 +535,7 @@ export const useSearchLogic = (
         searchWorkerReference.current = undefined;
       }
     };
-  }, [isPageLoaded, mapRankedResultsToSearchResults, workerDetailsData]);
+  }, [isPageLoaded, workerDetailsData]);
 
   const handleSearch = useCallback(
     (text: string) => {
@@ -586,13 +592,13 @@ export const useSearchLogic = (
   useEffect(() => {
     if (resultsQuery) {
       setResults(
-        mapRankedResultsToSearchResults(
+        mapRankedResultsToSearchResultsReference.current(
           resultsQuery,
           allRankedResultsReference.current.slice(0, resultsLimit)
         )
       );
     }
-  }, [resultsLimit, resultsQuery, mapRankedResultsToSearchResults]);
+  }, [resultsLimit, resultsQuery]);
 
   const sectionsHash = sections?.map((s) => s.title).join(",") ?? "";
 
