@@ -17,7 +17,6 @@ import {
 } from "./SearchState";
 
 import {
-  ExternalSearch,
   NoResults,
   RecentQueries,
   SearchCategories,
@@ -50,7 +49,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const ripple = useRipple<HTMLButtonElement>();
 
   const {
-    debouncedQuery,
     results,
     resultsLimit,
     resultsQuery,
@@ -213,22 +211,16 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     if (displayedContentType === "results") {
       return {
         content: (
-          <>
-            <SearchResults
-              query={displayedResultsQuery}
-              resultRefs={resultReferences}
-              results={displayedResults}
-              selectedResultIndex={selectedResultIndex}
-              setSelectedResultIndex={setSelectedResultIndex}
-              onLinkClick={handleLinkClick}
-            />
-            <ExternalSearch
-              query={debouncedQuery}
-              resultsLength={displayedResults.length}
-              setResultsLimit={setResultsLimit}
-              totalResultsCount={displayedResultsCount}
-            />
-          </>
+          <SearchResults
+            query={displayedResultsQuery}
+            resultRefs={resultReferences}
+            results={displayedResults}
+            selectedResultIndex={selectedResultIndex}
+            setResultsLimit={setResultsLimit}
+            setSelectedResultIndex={setSelectedResultIndex}
+            totalResultsCount={displayedResultsCount}
+            onLinkClick={handleLinkClick}
+          />
         ),
         isScrollableContent: true,
       };

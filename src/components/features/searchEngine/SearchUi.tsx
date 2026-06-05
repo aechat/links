@@ -709,7 +709,9 @@ type SearchResultsProperties = {
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: SearchResult[];
   selectedResultIndex: number;
+  setResultsLimit?: React.Dispatch<React.SetStateAction<number>>;
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+  totalResultsCount?: number;
 };
 
 const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
@@ -718,7 +720,9 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   resultRefs,
   results,
   selectedResultIndex,
+  setResultsLimit,
   setSelectedResultIndex,
+  totalResultsCount,
 }) => {
   const MASONRY_COLUMN_MIN_WIDTH = 400;
 
@@ -739,6 +743,10 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
   const [displayedQuery, setDisplayedQuery] = useState<string>(query);
 
+  const [displayedTotalResultsCount, setDisplayedTotalResultsCount] = useState(
+    totalResultsCount || 0
+  );
+
   const [transitionPhase, setTransitionPhase] = useState<"idle" | "exit" | "enter">(
     "idle"
   );
@@ -758,6 +766,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     if (previousResults.length === 0) {
       setDisplayedResults(results);
       setDisplayedQuery(query);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
       setTransitionPhase("enter");
     } else {
       setTransitionPhase("exit");
@@ -799,11 +808,12 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     const timeout = globalThis.setTimeout(() => {
       setDisplayedResults(previousResults);
       setDisplayedQuery(previousQuery);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
       setTransitionPhase("enter");
     }, 350);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [transitionPhase, previousQuery, previousResults]);
+  }, [transitionPhase, previousQuery, previousResults, totalResultsCount]);
 
   useEffect(() => {
     if (transitionPhase !== "enter") {
@@ -1256,6 +1266,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   return (
     <div
       ref={masonryContainerReference}
+      className={transitionClass}
       {...longPressProperties}
     >
       <div
@@ -1263,7 +1274,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           isSingleColumnLayout
             ? searchStyles["search-results-layout-single"]
             : searchStyles["search-results-layout-masonry"]
-        } ${transitionClass}`}
+        }`}
       >
         {masonryColumns.map((column, columnIndex) => (
           <div
@@ -1278,6 +1289,12 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           </div>
         ))}
       </div>
+      <ExternalSearch
+        query={displayedQuery}
+        resultsLength={displayedResults.length}
+        setResultsLimit={setResultsLimit}
+        totalResultsCount={displayedTotalResultsCount}
+      />
     </div>
   );
 };
