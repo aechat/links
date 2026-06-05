@@ -60,7 +60,13 @@ export const LinkHandlerProvider: React.FC<{children: React.ReactNode}> = ({
 
       const element = event.target as Element;
 
-      if (element.closest("header") || element.closest(".links-grid-item")) return;
+      if (
+        element.closest("header") ||
+        element.closest(".links-grid-item") ||
+        element.closest("[data-no-intercept]")
+      ) {
+        return;
+      }
 
       const result = resolveLinkTarget(
         element,

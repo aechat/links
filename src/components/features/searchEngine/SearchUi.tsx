@@ -439,6 +439,24 @@ export const SearchModal: React.FC<SearchModalProperties> = (properties) => {
   );
 };
 
+const getSearchQuery = (query: string) => {
+  const path = globalThis.location.pathname;
+
+  let context = "";
+
+  if (path.includes("aefaq")) {
+    context = "after effects";
+  } else if (path.includes("prfaq")) {
+    context = "premiere pro";
+  } else if (path.includes("psfaq")) {
+    context = "photoshop";
+  } else if (path.includes("aeexpr")) {
+    context = "after effects expression";
+  }
+
+  return `${query} ${context}`;
+};
+
 type ExternalSearchProperties = {
   query: string;
   disableAnimation?: boolean;
@@ -454,25 +472,7 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
   setResultsLimit,
   totalResultsCount,
 }) => {
-  const getSearchQuery = () => {
-    const path = globalThis.location.pathname;
-
-    let context = "";
-
-    if (path.includes("aefaq")) {
-      context = "after effects";
-    } else if (path.includes("prfaq")) {
-      context = "premiere pro";
-    } else if (path.includes("psfaq")) {
-      context = "photoshop";
-    } else if (path.includes("aeexpr")) {
-      context = "after effects expression";
-    }
-
-    return `${query} ${context}`;
-  };
-
-  const ripple = useRipple<HTMLButtonElement>();
+  const ripple = useRipple<HTMLElement>();
 
   const showAllRipple = useRipple<HTMLButtonElement>();
 
@@ -498,28 +498,24 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
     >
       <div className={searchStyles["search-external-links"]}>
         {showAllButton}
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        <a
+          data-no-intercept
+          href={`https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Найти в Яндексе
-        </button>
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        </a>
+        <a
+          data-no-intercept
+          href={`https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Спросить у Perplexity<sup>1</sup>
-        </button>
+        </a>
       </div>
       <p className={searchStyles["search-no-results-tip"]}>
         <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
