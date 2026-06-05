@@ -225,10 +225,13 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
 
   const debouncedOnChangeQuery = useMemo(
     () =>
-      debounce((value: string) => {
-        lastSentQueryReference.current = value;
-        onChangeQuery(value);
-      }, 150),
+      debounce(
+        (value: string) => {
+          lastSentQueryReference.current = value;
+          onChangeQuery(value);
+        },
+        isMobileDevice() ? 400 : 200
+      ),
     [onChangeQuery]
   );
 
