@@ -17,7 +17,6 @@ import {
 } from "./SearchState";
 
 import {
-  ExternalSearch,
   NoResults,
   RecentQueries,
   SearchCategories,
@@ -50,15 +49,31 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const ripple = useRipple<HTMLButtonElement>();
 
   const {
-    debouncedQuery,
     results,
     resultsLimit,
     resultsQuery,
     selectedResultIndex,
     setResultsLimit,
     setSelectedResultIndex,
+    suggestions,
     totalResultsCount,
-  } = useSearchLogic(query, isPageLoaded);
+  } = useSearchLogic(query, isPageLoaded, sections);
+
+  const [displayedContentType, setDisplayedContentType] =
+    useState<SearchContentType>("categories");
+
+  const [contentTransitionPhase, setContentTransitionPhase] = useState<
+    "idle" | "exit" | "enter"
+  >("idle");
+
+  const [previousTargetContentType, setPreviousTargetContentType] =
+    useState<SearchContentType>("categories");
+
+  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
+
+  const [displayedResultsQuery, setDisplayedResultsQuery] = useState(resultsQuery);
+
+  const [displayedResultsCount, setDisplayedResultsCount] = useState(totalResultsCount);
 
   const {handleQueryChange, isSearching, resetSearchState} = useSearchViewState(
     isPageLoaded,
@@ -85,7 +100,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       isModalOpen,
       resultLinkClassName: searchStyles["search-link"],
       resultReferences,
-      results,
+      results: displayedResults,
       resultsLimit,
       selectedResultIndex,
       setSelectedResultIndex,
@@ -113,29 +128,15 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     [handleQueryChange, inputReference]
   );
 
-  const [displayedContentType, setDisplayedContentType] =
-    useState<SearchContentType>("categories");
-
-  const [contentTransitionPhase, setContentTransitionPhase] = useState<
-    "idle" | "exit" | "enter"
-  >("idle");
-
-  const [previousTargetContentType, setPreviousTargetContentType] =
-    useState<SearchContentType>("categories");
-
-  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
-
-  const [displayedResultsQuery, setDisplayedResultsQuery] = useState(resultsQuery);
-
-  const [displayedResultsCount, setDisplayedResultsCount] = useState(totalResultsCount);
-
-  useEffect(() => {
-    if (contentTransitionPhase !== "exit") {
-      setDisplayedResults(results);
-      setDisplayedResultsQuery(resultsQuery);
-      setDisplayedResultsCount(totalResultsCount);
-    }
-  }, [results, resultsQuery, totalResultsCount, contentTransitionPhase]);
+  const handleSuggestionSelect = useCallback(
+    (suggestion: string) => {
+      addQueryToHistory(suggestion);
+      setContentTransitionPhase("exit");
+      handleQueryChange(suggestion);
+      inputReference.current?.focus({preventScroll: true});
+    },
+    [addQueryToHistory, handleQueryChange, inputReference, setContentTransitionPhase]
+  );
 
   const getTargetContentType = (): SearchContentType => {
     if (!isSearching) {
@@ -155,13 +156,34 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const targetContentType = getTargetContentType();
 
-  if (targetContentType !== previousTargetContentType) {
-    setPreviousTargetContentType(targetContentType);
-    setContentTransitionPhase("exit");
-  }
+  useEffect(() => {
+    if (targetContentType !== previousTargetContentType) {
+      setPreviousTargetContentType(targetContentType);
+      setContentTransitionPhase("exit");
+    }
+  }, [targetContentType, previousTargetContentType]);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "exit" && displayedContentType === targetContentType) {
+      setDisplayedResults(results);
+      setDisplayedResultsQuery(resultsQuery);
+      setDisplayedResultsCount(totalResultsCount);
+    }
+  }, [
+    results,
+    resultsQuery,
+    totalResultsCount,
+    contentTransitionPhase,
+    displayedContentType,
+    targetContentType,
+  ]);
 
   useEffect(() => {
     if (contentTransitionPhase !== "exit") {
+      return;
+    }
+
+    if (previousTargetContentType === "no-results" && resultsQuery !== query) {
       return;
     }
 
@@ -171,7 +193,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     }, 350);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [contentTransitionPhase, previousTargetContentType]);
+  }, [contentTransitionPhase, previousTargetContentType, resultsQuery, query]);
 
   useEffect(() => {
     if (contentTransitionPhase !== "enter") {
@@ -189,22 +211,16 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     if (displayedContentType === "results") {
       return {
         content: (
-          <>
-            <SearchResults
-              query={displayedResultsQuery}
-              resultRefs={resultReferences}
-              results={displayedResults}
-              selectedResultIndex={selectedResultIndex}
-              setSelectedResultIndex={setSelectedResultIndex}
-              onLinkClick={handleLinkClick}
-            />
-            <ExternalSearch
-              query={debouncedQuery}
-              resultsLength={displayedResults.length}
-              setResultsLimit={setResultsLimit}
-              totalResultsCount={displayedResultsCount}
-            />
-          </>
+          <SearchResults
+            query={displayedResultsQuery}
+            resultRefs={resultReferences}
+            results={displayedResults}
+            selectedResultIndex={selectedResultIndex}
+            setResultsLimit={setResultsLimit}
+            setSelectedResultIndex={setSelectedResultIndex}
+            totalResultsCount={displayedResultsCount}
+            onLinkClick={handleLinkClick}
+          />
         ),
         isScrollableContent: true,
       };
@@ -212,7 +228,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
     if (displayedContentType === "no-results") {
       return {
-        content: <NoResults query={query} />,
+        content: (
+          <NoResults
+            query={query}
+            suggestions={suggestions}
+            onSelectSuggestion={handleSuggestionSelect}
+          />
+        ),
         isScrollableContent: true,
       };
     }

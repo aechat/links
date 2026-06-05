@@ -613,24 +613,21 @@ export const useSearchModalBehavior = ({
     element.addEventListener("scroll", checkFadeVisibility);
     globalThis.addEventListener("resize", checkFadeVisibility);
 
+    const observer = new globalThis.MutationObserver(() => {
+      checkFadeVisibility();
+    });
+
+    observer.observe(element, {
+      childList: true,
+      subtree: true,
+    });
+
     return () => {
       element.removeEventListener("scroll", checkFadeVisibility);
       globalThis.removeEventListener("resize", checkFadeVisibility);
+      observer.disconnect();
     };
   }, [resultsContainer]);
-
-  useEffect(() => {
-    const element = resultsContainer;
-
-    if (!element) {
-      return;
-    }
-
-    setIsFadeVisible(
-      element.scrollHeight > element.clientHeight &&
-        element.scrollTop + element.clientHeight < element.scrollHeight - 1
-    );
-  }, [results, resultsContainer]);
 
   const getPositionedResults = useCallback(() => {
     return getPositionedResultsRuntime(resultReferences.current);

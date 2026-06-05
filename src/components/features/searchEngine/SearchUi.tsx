@@ -6,6 +6,7 @@ import {
   BackspaceOutlined,
   CloseRounded,
   HistoryRounded,
+  LightbulbOutlined,
   Search,
 } from "@mui/icons-material";
 
@@ -198,6 +199,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   inputRef,
   isFadeVisible,
   isOpen,
+  isScrollableContent,
   onChangeQuery,
   onClearQuery,
   onCloseMouseDown,
@@ -372,7 +374,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   const scrollShellClassName = [
     searchStyles["search-results-shell"],
     isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
-    isFadeVisible ? searchStyles["show-fade"] : "",
+    isScrollableContent && isFadeVisible ? searchStyles["show-fade"] : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -439,6 +441,24 @@ export const SearchModal: React.FC<SearchModalProperties> = (properties) => {
   );
 };
 
+const getSearchQuery = (query: string) => {
+  const path = globalThis.location.pathname;
+
+  let context = "";
+
+  if (path.includes("aefaq")) {
+    context = "after effects";
+  } else if (path.includes("prfaq")) {
+    context = "premiere pro";
+  } else if (path.includes("psfaq")) {
+    context = "photoshop";
+  } else if (path.includes("aeexpr")) {
+    context = "after effects expression";
+  }
+
+  return `${query} ${context}`;
+};
+
 type ExternalSearchProperties = {
   query: string;
   disableAnimation?: boolean;
@@ -454,25 +474,7 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
   setResultsLimit,
   totalResultsCount,
 }) => {
-  const getSearchQuery = () => {
-    const path = globalThis.location.pathname;
-
-    let context = "";
-
-    if (path.includes("aefaq")) {
-      context = "after effects";
-    } else if (path.includes("prfaq")) {
-      context = "premiere pro";
-    } else if (path.includes("psfaq")) {
-      context = "photoshop";
-    } else if (path.includes("aeexpr")) {
-      context = "after effects expression";
-    }
-
-    return `${query} ${context}`;
-  };
-
-  const ripple = useRipple<HTMLButtonElement>();
+  const ripple = useRipple<HTMLElement>();
 
   const showAllRipple = useRipple<HTMLButtonElement>();
 
@@ -498,28 +500,24 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
     >
       <div className={searchStyles["search-external-links"]}>
         {showAllButton}
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        <a
+          data-no-intercept
+          href={`https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Найти в Яндексе
-        </button>
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        </a>
+        <a
+          data-no-intercept
+          href={`https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Спросить у Perplexity<sup>1</sup>
-        </button>
+        </a>
       </div>
       <p className={searchStyles["search-no-results-tip"]}>
         <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
@@ -529,25 +527,181 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
   );
 };
 
-export const NoResults: React.FC<{query: string}> = ({query}) => (
-  <div>
-    <div className={searchStyles["search-no-results"]}>
-      <p className={searchStyles["search-no-results-title"]}>
-        По вашему запросу на этой странице{" "}
-        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
-        нашлось
-      </p>
-      <p className={searchStyles["search-no-results-message"]}>
-        Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
-        Perplexity<sup>1</sup>
+type NoResultsProperties = {
+  onSelectSuggestion?: (suggestion: string) => void;
+  query: string;
+  suggestions?: string[];
+};
+
+export const NoResults: React.FC<NoResultsProperties> = ({
+  onSelectSuggestion,
+  query,
+  suggestions = [],
+}) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const [visibleSuggestions, setVisibleSuggestions] = useState<string[]>(suggestions);
+
+  const [animationPhase, setAnimationPhase] = useState<"enter" | "exit" | "idle">("idle");
+
+  const containerReference = useRef<HTMLDivElement | null>(null);
+
+  const checkScrollLimits = useCallback(() => {
+    const target = containerReference.current;
+
+    if (!target) {
+      return;
+    }
+
+    const scrollLeft = target.scrollLeft;
+
+    const clientWidth = target.clientWidth;
+
+    const scrollWidth = target.scrollWidth;
+
+    setShowLeftFade(scrollLeft > 0);
+
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+
+    const isScrollable = scrollWidth > clientWidth;
+
+    setShowRightFade(isScrollable && !isAtEnd);
+  }, []);
+
+  useEffect(() => {
+    checkScrollLimits();
+
+    const handleResize = () => checkScrollLimits();
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [visibleSuggestions, checkScrollLimits]);
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      if (visibleSuggestions.length === 0) {
+        setVisibleSuggestions(suggestions);
+        setAnimationPhase("enter");
+      } else if (suggestions.join(",") !== visibleSuggestions.join(",")) {
+        setAnimationPhase("exit");
+
+        const timeout = globalThis.setTimeout(() => {
+          setVisibleSuggestions(suggestions);
+          setAnimationPhase("enter");
+        }, 200);
+
+        return () => globalThis.clearTimeout(timeout);
+      }
+    } else if (visibleSuggestions.length > 0) {
+      setAnimationPhase("exit");
+
+      const timeout = globalThis.setTimeout(() => {
+        setVisibleSuggestions([]);
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [suggestions]);
+
+  useEffect(() => {
+    if (animationPhase === "enter") {
+      const timeout = globalThis.setTimeout(() => {
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [animationPhase]);
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  const handleScroll = () => {
+    checkScrollLimits();
+  };
+
+  const searchQuery = getSearchQuery(query);
+
+  const yandexUrl = `https://yandex.com/search/?text=${encodeURIComponent(searchQuery)}`;
+
+  const perplexityUrl = `https://www.perplexity.ai/search?q=${encodeURIComponent(searchQuery)}`;
+
+  return (
+    <div>
+      <div className={searchStyles["search-no-results"]}>
+        <p className={searchStyles["search-no-results-title"]}>
+          По вашему запросу на этой странице{" "}
+          <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+          нашлось
+        </p>
+        <p className={searchStyles["search-no-results-message"]}>
+          Попробуйте перефразировать свой запрос или выполните поиск в{" "}
+          <a
+            data-no-intercept
+            href={yandexUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Яндексе
+          </a>{" "}
+          или{" "}
+          <a
+            data-no-intercept
+            href={perplexityUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Perplexity
+          </a>
+          <sup>1</sup>
+        </p>
+      </div>
+      <div className={searchStyles["search-suggestions"]}>
+        {visibleSuggestions.length > 0 && (
+          <div
+            key={visibleSuggestions.join(",")}
+            className={`${searchStyles["search-suggestions-content"]} ${
+              animationPhase === "exit" ? searchStyles["exit"] : ""
+            }`}
+          >
+            <span className={searchStyles["search-suggestions-title"]}>
+              <LightbulbOutlined
+                className={searchStyles["search-suggestions-title-icon"]}
+              />
+            </span>
+            <div
+              ref={containerReference}
+              className={`${searchStyles["search-suggestions-items"]} ${
+                showLeftFade ? searchStyles["show-left-fade"] : ""
+              } ${showRightFade ? searchStyles["show-right-fade"] : ""}`}
+              onScroll={handleScroll}
+            >
+              {visibleSuggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  onClick={() => onSelectSuggestion?.(suggestion)}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+      <p className={searchStyles["search-no-results-tip"]}>
+        <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
+        могут выдавать недостоверную информацию
       </p>
     </div>
-    <ExternalSearch
-      disableAnimation={true}
-      query={query}
-    />
-  </div>
-);
+  );
+};
 
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
@@ -555,7 +709,9 @@ type SearchResultsProperties = {
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: SearchResult[];
   selectedResultIndex: number;
+  setResultsLimit?: React.Dispatch<React.SetStateAction<number>>;
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+  totalResultsCount?: number;
 };
 
 const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
@@ -564,7 +720,9 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   resultRefs,
   results,
   selectedResultIndex,
+  setResultsLimit,
   setSelectedResultIndex,
+  totalResultsCount,
 }) => {
   const MASONRY_COLUMN_MIN_WIDTH = 400;
 
@@ -585,6 +743,10 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
 
   const [displayedQuery, setDisplayedQuery] = useState<string>(query);
 
+  const [displayedTotalResultsCount, setDisplayedTotalResultsCount] = useState(
+    totalResultsCount || 0
+  );
+
   const [transitionPhase, setTransitionPhase] = useState<"idle" | "exit" | "enter">(
     "idle"
   );
@@ -600,7 +762,15 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   if (query !== previousQuery || isResultsChanged) {
     setPreviousQuery(query);
     setPreviousResults(results);
-    setTransitionPhase("exit");
+
+    if (previousResults.length === 0) {
+      setDisplayedResults(results);
+      setDisplayedQuery(query);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
+      setTransitionPhase("enter");
+    } else {
+      setTransitionPhase("exit");
+    }
   }
 
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
@@ -638,11 +808,12 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
     const timeout = globalThis.setTimeout(() => {
       setDisplayedResults(previousResults);
       setDisplayedQuery(previousQuery);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
       setTransitionPhase("enter");
     }, 350);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [transitionPhase, previousQuery, previousResults]);
+  }, [transitionPhase, previousQuery, previousResults, totalResultsCount]);
 
   useEffect(() => {
     if (transitionPhase !== "enter") {
@@ -1095,6 +1266,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   return (
     <div
       ref={masonryContainerReference}
+      className={transitionClass}
       {...longPressProperties}
     >
       <div
@@ -1102,7 +1274,7 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           isSingleColumnLayout
             ? searchStyles["search-results-layout-single"]
             : searchStyles["search-results-layout-masonry"]
-        } ${transitionClass}`}
+        }`}
       >
         {masonryColumns.map((column, columnIndex) => (
           <div
@@ -1117,6 +1289,12 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
           </div>
         ))}
       </div>
+      <ExternalSearch
+        query={displayedQuery}
+        resultsLength={displayedResults.length}
+        setResultsLimit={setResultsLimit}
+        totalResultsCount={displayedTotalResultsCount}
+      />
     </div>
   );
 };
