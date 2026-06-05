@@ -199,6 +199,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   inputRef,
   isFadeVisible,
   isOpen,
+  isScrollableContent,
   onChangeQuery,
   onClearQuery,
   onCloseMouseDown,
@@ -373,7 +374,7 @@ const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   const scrollShellClassName = [
     searchStyles["search-results-shell"],
     isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
-    isFadeVisible ? searchStyles["show-fade"] : "",
+    isScrollableContent && isFadeVisible ? searchStyles["show-fade"] : "",
   ]
     .filter(Boolean)
     .join(" ");
