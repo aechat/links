@@ -1,7 +1,6 @@
 import React, {
   createContext,
   type ReactNode,
-  startTransition,
   useCallback,
   useContext,
   useEffect,
@@ -531,17 +530,11 @@ export const useSearchViewState = (
       if (value.trim() === "") {
         setIsSearching(false);
         setIsResultsProcessed(false);
-
-        startTransition(() => {
-          setQuery(value);
-        });
+        setQuery(value);
       } else {
         setIsSearching(true);
         setIsResultsProcessed(false);
-
-        startTransition(() => {
-          setQuery(value);
-        });
+        setQuery(value);
       }
     },
     [setQuery]
