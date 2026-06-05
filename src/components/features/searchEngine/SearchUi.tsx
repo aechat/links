@@ -754,7 +754,14 @@ const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   if (query !== previousQuery || isResultsChanged) {
     setPreviousQuery(query);
     setPreviousResults(results);
-    setTransitionPhase("exit");
+
+    if (previousResults.length === 0) {
+      setDisplayedResults(results);
+      setDisplayedQuery(query);
+      setTransitionPhase("enter");
+    } else {
+      setTransitionPhase("exit");
+    }
   }
 
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
