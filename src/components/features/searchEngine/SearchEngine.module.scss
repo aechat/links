@@ -1017,7 +1017,7 @@
     @include fluid-size(padding-block-start, $space-4, $space-8);
 
     &-title {
-      @include fluid-size(padding-inline, $space-12, $space-16);
+      @include fluid-size(padding-inline, $space-4, $space-8);
 
       font-family: Onest, sans-serif;
       font-size: $font-size-heading-xs;
@@ -1025,7 +1025,7 @@
     }
 
     &-message {
-      @include fluid-size(padding-inline, $space-12, $space-16);
+      @include fluid-size(padding-inline, $space-4, $space-8);
 
       opacity: 0.5;
       width: 100%;
