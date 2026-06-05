@@ -51,7 +51,8 @@ const SEARCH_HISTORY_STORAGE_KEY = "searchEngineHistory";
 
 const SEARCH_HISTORY_LIMIT = 24;
 
-const normalizeHistoryQuery = (value: string) => value.replaceAll(/\s+/g, " ").trim();
+const normalizeHistoryQuery = (value: string) =>
+  value.replaceAll(/\s+/g, " ").trim().toLowerCase();
 
 export const SearchProvider: React.FC<{
   children: React.ReactNode;

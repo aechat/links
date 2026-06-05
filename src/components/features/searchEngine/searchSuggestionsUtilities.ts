@@ -119,7 +119,7 @@ const processDetailCandidate = (
     const cleanTitle = detail.title.replaceAll(/^\d+(?:\.\d+)*\.?\s+/g, "");
 
     if (cleanTitle) {
-      rawCandidates.add(cleanTitle);
+      rawCandidates.add(cleanTitle.toLowerCase());
     }
   }
 
@@ -130,7 +130,7 @@ const processDetailCandidate = (
       .filter(Boolean);
 
     for (const tag of tags) {
-      rawCandidates.add(tag);
+      rawCandidates.add(tag.toLowerCase());
     }
   }
 };
@@ -144,7 +144,7 @@ const collectRawCandidates = (
   if (sections) {
     for (const section of sections) {
       if (section.title) {
-        rawCandidates.add(section.title);
+        rawCandidates.add(section.title.toLowerCase());
       }
     }
   }
