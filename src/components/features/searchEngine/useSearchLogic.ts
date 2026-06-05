@@ -46,7 +46,11 @@ import {
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
 
-import type {SearchResult} from "./SearchState";
+import {getSuggestions} from "./searchSuggestionsUtilities";
+
+import type {SearchResult, SearchSection} from "./SearchState";
+
+const EMPTY_SUGGESTIONS: string[] = [];
 
 const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
@@ -233,7 +237,11 @@ type SearchWorkerResponse = {
   type: "results";
 };
 
-export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
+export const useSearchLogic = (
+  query: string,
+  isPageLoaded: boolean,
+  sections?: SearchSection[]
+) => {
   const isLoaded = isPageLoaded;
 
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -586,6 +594,20 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     }
   }, [resultsLimit, resultsQuery, mapRankedResultsToSearchResults]);
 
+  const sectionsHash = sections?.map((s) => s.title).join(",") ?? "";
+
+  const sectionTitles = useMemo(() => {
+    return sections?.map((s) => ({title: s.title})) ?? [];
+  }, [sectionsHash]);
+
+  const suggestions = useMemo(() => {
+    if (!isLoaded || results.length > 0 || !query.trim() || resultsQuery !== query) {
+      return EMPTY_SUGGESTIONS;
+    }
+
+    return getSuggestions(query, cachedDetailsData, sectionTitles);
+  }, [isLoaded, results.length, query, resultsQuery, cachedDetailsData, sectionTitles]);
+
   return {
     debouncedQuery: query,
     results,
@@ -594,6 +616,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     selectedResultIndex,
     setResultsLimit,
     setSelectedResultIndex,
+    suggestions,
     totalResultsCount,
   };
 };

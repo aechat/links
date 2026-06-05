@@ -217,6 +217,30 @@
   }
 }
 
+@keyframes suggestions-fade-in {
+  from {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes suggestions-fade-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+}
+
 .search {
   &-input {
     cursor: text;
@@ -300,6 +324,141 @@
 
       &:hover {
         opacity: 1;
+      }
+    }
+
+    &-items {
+      --fade-left: 0px;
+      --fade-right: 0px;
+
+      display: flex;
+      flex: 1;
+      flex-wrap: nowrap;
+      gap: 6px;
+      transition:
+        --fade-left $duration-250 ease,
+        --fade-right $duration-250 ease;
+      padding: $space-4;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black var(--fade-left),
+        black calc(100% - var(--fade-right)),
+        transparent 100%
+      );
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &.show-left-fade {
+        --fade-left: 20px;
+      }
+
+      &.show-right-fade {
+        --fade-right: 20px;
+      }
+
+      button {
+        flex-shrink: 0;
+        backface-visibility: hidden;
+        transform: translateZ(0) scale(1);
+        transform-origin: center center;
+        transition:
+          background-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+          outline-color $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+          box-shadow $duration-250 cubic-bezier(0.2, 0, 0.2, 1),
+          transform $duration-250 cubic-bezier(0.2, 0, 0.2, 1);
+        z-index: $z-base;
+        outline: 1px solid var(--color-action-border);
+        border: none;
+        border-radius: $roundness * 0.5;
+        background-color: var(--color-action-background);
+        cursor: pointer;
+        padding-block: 4px;
+        padding-inline: 8px;
+        line-height: 1.2;
+        white-space: nowrap;
+        color: var(--color-action-text);
+        font-size: 0.9rem;
+        font-weight: 500;
+
+        &:hover {
+          transform: scale(
+            var(--links-hover-scale-x, 1.02),
+            var(--links-hover-scale-y, 1.02)
+          );
+          transition-delay: 0s, $duration-250, $duration-250, $duration-250;
+          z-index: $z-raised;
+          outline-color: var(--color-action-border-hover);
+          background-color: var(--color-action-background-hover);
+        }
+
+        &:active {
+          transform: scale(
+            var(--links-active-scale-x, 1.01),
+            var(--links-active-scale-y, 1.01)
+          );
+          transition-delay: 0s;
+          z-index: $z-raised;
+          outline-color: var(--color-action-border-active);
+          background-color: var(--color-action-background-active);
+        }
+
+        :global(html.no-hover-scale-animation) & {
+          &:hover,
+          &:active {
+            transform: translateZ(0) scale(1);
+            transition-delay: 0s;
+          }
+        }
+      }
+    }
+  }
+
+  &-suggestions {
+    @include fluid-size(padding-inline, $space-4, $space-8);
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-block: 8px $space-4;
+    padding-block: 0;
+    height: 48px;
+
+    &-content {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding-block: $space-4;
+      width: 100%;
+      animation: suggestions-fade-in 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+
+      &.exit {
+        animation: suggestions-fade-out 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+      }
+    }
+
+    &-title {
+      display: inline-flex;
+      flex-shrink: 0;
+      gap: 6px;
+      align-items: center;
+      opacity: 0.75;
+      margin: 0;
+      line-height: 1.2;
+      white-space: nowrap;
+      color: var(--color-page-text-muted);
+      font-size: 0.9rem;
+      font-weight: 550;
+
+      &-icon {
+        @include fluid-icon-size(16px, 20px);
+
+        flex-shrink: 0;
       }
     }
 
@@ -872,6 +1031,18 @@
       width: 100%;
       font-size: $font-size-text-xs;
       text-wrap: balance;
+
+      a {
+        transition: opacity $duration-250 ease;
+        opacity: 0.85;
+        text-decoration: underline;
+        color: var(--color-panel-text);
+        text-underline-offset: 2px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
 
     &-highlight {

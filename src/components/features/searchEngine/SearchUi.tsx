@@ -6,6 +6,7 @@ import {
   BackspaceOutlined,
   CloseRounded,
   HistoryRounded,
+  LightbulbOutlined,
   Search,
 } from "@mui/icons-material";
 
@@ -525,25 +526,181 @@ export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
   );
 };
 
-export const NoResults: React.FC<{query: string}> = ({query}) => (
-  <div>
-    <div className={searchStyles["search-no-results"]}>
-      <p className={searchStyles["search-no-results-title"]}>
-        По вашему запросу на этой странице{" "}
-        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
-        нашлось
-      </p>
-      <p className={searchStyles["search-no-results-message"]}>
-        Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
-        Perplexity<sup>1</sup>
+type NoResultsProperties = {
+  onSelectSuggestion?: (suggestion: string) => void;
+  query: string;
+  suggestions?: string[];
+};
+
+export const NoResults: React.FC<NoResultsProperties> = ({
+  onSelectSuggestion,
+  query,
+  suggestions = [],
+}) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const [visibleSuggestions, setVisibleSuggestions] = useState<string[]>(suggestions);
+
+  const [animationPhase, setAnimationPhase] = useState<"enter" | "exit" | "idle">("idle");
+
+  const containerReference = useRef<HTMLDivElement | null>(null);
+
+  const checkScrollLimits = useCallback(() => {
+    const target = containerReference.current;
+
+    if (!target) {
+      return;
+    }
+
+    const scrollLeft = target.scrollLeft;
+
+    const clientWidth = target.clientWidth;
+
+    const scrollWidth = target.scrollWidth;
+
+    setShowLeftFade(scrollLeft > 0);
+
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+
+    const isScrollable = scrollWidth > clientWidth;
+
+    setShowRightFade(isScrollable && !isAtEnd);
+  }, []);
+
+  useEffect(() => {
+    checkScrollLimits();
+
+    const handleResize = () => checkScrollLimits();
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [visibleSuggestions, checkScrollLimits]);
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      if (visibleSuggestions.length === 0) {
+        setVisibleSuggestions(suggestions);
+        setAnimationPhase("enter");
+      } else if (suggestions.join(",") !== visibleSuggestions.join(",")) {
+        setAnimationPhase("exit");
+
+        const timeout = globalThis.setTimeout(() => {
+          setVisibleSuggestions(suggestions);
+          setAnimationPhase("enter");
+        }, 200);
+
+        return () => globalThis.clearTimeout(timeout);
+      }
+    } else if (visibleSuggestions.length > 0) {
+      setAnimationPhase("exit");
+
+      const timeout = globalThis.setTimeout(() => {
+        setVisibleSuggestions([]);
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [suggestions]);
+
+  useEffect(() => {
+    if (animationPhase === "enter") {
+      const timeout = globalThis.setTimeout(() => {
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [animationPhase]);
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  const handleScroll = () => {
+    checkScrollLimits();
+  };
+
+  const searchQuery = getSearchQuery(query);
+
+  const yandexUrl = `https://yandex.com/search/?text=${encodeURIComponent(searchQuery)}`;
+
+  const perplexityUrl = `https://www.perplexity.ai/search?q=${encodeURIComponent(searchQuery)}`;
+
+  return (
+    <div>
+      <div className={searchStyles["search-no-results"]}>
+        <p className={searchStyles["search-no-results-title"]}>
+          По вашему запросу на этой странице{" "}
+          <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+          нашлось
+        </p>
+        <p className={searchStyles["search-no-results-message"]}>
+          Попробуйте перефразировать свой запрос или выполните поиск в{" "}
+          <a
+            data-no-intercept
+            href={yandexUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Яндексе
+          </a>{" "}
+          или{" "}
+          <a
+            data-no-intercept
+            href={perplexityUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Perplexity
+          </a>
+          <sup>1</sup>
+        </p>
+      </div>
+      <div className={searchStyles["search-suggestions"]}>
+        {visibleSuggestions.length > 0 && (
+          <div
+            key={visibleSuggestions.join(",")}
+            className={`${searchStyles["search-suggestions-content"]} ${
+              animationPhase === "exit" ? searchStyles["exit"] : ""
+            }`}
+          >
+            <span className={searchStyles["search-suggestions-title"]}>
+              <LightbulbOutlined
+                className={searchStyles["search-suggestions-title-icon"]}
+              />
+            </span>
+            <div
+              ref={containerReference}
+              className={`${searchStyles["search-suggestions-items"]} ${
+                showLeftFade ? searchStyles["show-left-fade"] : ""
+              } ${showRightFade ? searchStyles["show-right-fade"] : ""}`}
+              onScroll={handleScroll}
+            >
+              {visibleSuggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  onClick={() => onSelectSuggestion?.(suggestion)}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+      <p className={searchStyles["search-no-results-tip"]}>
+        <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
+        могут выдавать недостоверную информацию
       </p>
     </div>
-    <ExternalSearch
-      disableAnimation={true}
-      query={query}
-    />
-  </div>
-);
+  );
+};
 
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
