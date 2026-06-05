@@ -22,11 +22,26 @@ type WorkerResultMessage = {
 
 let cachedDetailsData: SearchWorkerDetail[] = [];
 
+const getWorkerHostOrigin = (): string => {
+  const href = globalThis.location.href;
+
+  if (href.startsWith("blob:")) {
+    try {
+      return new URL(href.slice(5)).origin;
+    } catch {}
+  }
+
+  return globalThis.location.origin;
+};
+
 globalThis.addEventListener("message", (event: MessageEvent<WorkerMessage>) => {
+  const hostOrigin = getWorkerHostOrigin();
+
   if (
     event.origin &&
     event.origin !== "null" &&
-    event.origin !== globalThis.location.origin
+    hostOrigin !== "null" &&
+    event.origin !== hostOrigin
   ) {
     return;
   }
