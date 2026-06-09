@@ -276,6 +276,16 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProperties> = ({classN
 
   const closeModal = () => setIsModalOpen(false);
 
+  useEffect(() => {
+    const handleCloseAll = () => closeModal();
+
+    globalThis.window?.addEventListener("close-all-modals", handleCloseAll);
+
+    return () => {
+      globalThis.window?.removeEventListener("close-all-modals", handleCloseAll);
+    };
+  }, []);
+
   const ripple = useRipple<HTMLButtonElement>();
 
   return (

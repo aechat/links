@@ -130,6 +130,9 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
           <Link
             className={styles.icon}
             to="/"
+            onClick={() => {
+              globalThis.window?.dispatchEvent(new CustomEvent("close-all-modals"));
+            }}
             onMouseDown={rippleLink.onMouseDown}
           >
             <HomeRounded />

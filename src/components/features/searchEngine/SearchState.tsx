@@ -69,13 +69,23 @@ export const SearchProvider: React.FC<{
     return `searchEngineHistory_${segment}`;
   }, [pathname]);
 
-  const openModal = () => {
+  const openModal = useCallback(() => {
     if (isPageLoaded) {
       setIsModalOpen(true);
     }
-  };
+  }, [isPageLoaded]);
 
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = useCallback(() => setIsModalOpen(false), []);
+
+  useEffect(() => {
+    const handleCloseAll = () => closeModal();
+
+    globalThis.window?.addEventListener("close-all-modals", handleCloseAll);
+
+    return () => {
+      globalThis.window?.removeEventListener("close-all-modals", handleCloseAll);
+    };
+  }, [closeModal]);
 
   const saveHistoryToStorage = useCallback(
     (history: string[]) => {

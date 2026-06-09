@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 
@@ -41,6 +41,20 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const closeSberModal = () => setIsSberModalOpen(false);
 
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
+
+  useEffect(() => {
+    const handleCloseAll = () => {
+      setIsDonateModalOpen(false);
+      setIsSberModalOpen(false);
+      setIsYoomoneyModalOpen(false);
+    };
+
+    globalThis.window?.addEventListener("close-all-modals", handleCloseAll);
+
+    return () => {
+      globalThis.window?.removeEventListener("close-all-modals", handleCloseAll);
+    };
+  }, []);
 
   const ripple = useRipple<HTMLButtonElement>();
 
