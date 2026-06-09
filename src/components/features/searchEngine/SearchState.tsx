@@ -11,6 +11,8 @@ import React, {
 
 import {message} from "antd";
 
+import {useLocation} from "react-router-dom";
+
 import {resolveDetailsByAnchor} from "../../../utilities/anchorResolvers";
 
 import {isMobileDevice} from "../../../utilities/browserDetection";
@@ -46,8 +48,6 @@ export type SearchSection = {
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
-const SEARCH_HISTORY_STORAGE_KEY = "searchEngineHistory";
-
 const SEARCH_HISTORY_LIMIT = 24;
 
 const normalizeHistoryQuery = (value: string) =>
@@ -57,9 +57,17 @@ export const SearchProvider: React.FC<{
   children: React.ReactNode;
   isPageLoaded: boolean;
 }> = ({children, isPageLoaded}) => {
+  const {pathname} = useLocation();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [queryHistory, setQueryHistory] = useState<string[]>([]);
+
+  const pageKey = useMemo(() => {
+    const segment = pathname.split("/").findLast(Boolean) || "default";
+
+    return `searchEngineHistory_${segment}`;
+  }, [pathname]);
 
   const openModal = () => {
     if (isPageLoaded) {
@@ -69,14 +77,25 @@ export const SearchProvider: React.FC<{
 
   const closeModal = () => setIsModalOpen(false);
 
-  const saveHistoryToStorage = useCallback((history: string[]) => {
-    globalThis.localStorage.setItem(SEARCH_HISTORY_STORAGE_KEY, JSON.stringify(history));
-  }, []);
+  const saveHistoryToStorage = useCallback(
+    (history: string[]) => {
+      if (globalThis.localStorage !== undefined) {
+        globalThis.localStorage.setItem(pageKey, JSON.stringify(history));
+      }
+    },
+    [pageKey]
+  );
 
   useEffect(() => {
-    const rawHistory = globalThis.localStorage.getItem(SEARCH_HISTORY_STORAGE_KEY);
+    if (globalThis.localStorage === undefined) {
+      return;
+    }
+
+    const rawHistory = globalThis.localStorage.getItem(pageKey);
 
     if (!rawHistory) {
+      setQueryHistory([]);
+
       return;
     }
 
@@ -84,6 +103,8 @@ export const SearchProvider: React.FC<{
       const parsedHistory: unknown = JSON.parse(rawHistory);
 
       if (!Array.isArray(parsedHistory)) {
+        setQueryHistory([]);
+
         return;
       }
 
@@ -95,9 +116,10 @@ export const SearchProvider: React.FC<{
 
       setQueryHistory(sanitizedHistory);
     } catch {
-      globalThis.localStorage.removeItem(SEARCH_HISTORY_STORAGE_KEY);
+      globalThis.localStorage.removeItem(pageKey);
+      setQueryHistory([]);
     }
-  }, []);
+  }, [pageKey]);
 
   const addQueryToHistory = useCallback(
     (rawQuery: string) => {
@@ -135,8 +157,11 @@ export const SearchProvider: React.FC<{
 
   const clearQueryHistory = useCallback(() => {
     setQueryHistory([]);
-    globalThis.localStorage.removeItem(SEARCH_HISTORY_STORAGE_KEY);
-  }, []);
+
+    if (globalThis.localStorage !== undefined) {
+      globalThis.localStorage.removeItem(pageKey);
+    }
+  }, [pageKey]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
