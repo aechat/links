@@ -12,15 +12,15 @@
 
 ## Ключевые каталоги
 
-- `src/pages` — страницы (`AeFaqPage`, `PrFaqPage`, `PsFaqPage`, `AeExprPage`) и секции.
+- `src/pages` — страницы, включая `AeFaqPage`, `PrFaqPage`, `PsFaqPage`, `AeExprPage`, и секции.
 - `src/pages/sections` — контентные секции FAQ и expr по темам.
-- `src/components/content` — базовые контентные компоненты статей (`ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `HostsAdobe`).
-- `src/components/detailsSummary` — верхнеуровневые и вложенные спойлеры статей (`DetailsSummary`, `NestedDetailsSummary`) и их утилиты.
-- `src/components/features` — функциональные блоки (например, `SearchEngine`, `EasingEditor`, конвертеры).
+- `src/components/content` — базовые контентные компоненты статей, например `ArticleMedia`, `ContentFilter`, `Addition`, `CodeSnippet`, `HostsAdobe`.
+- `src/components/detailsSummary` — верхнеуровневые и вложенные спойлеры статей, включая `DetailsSummary`, `NestedDetailsSummary`, и их утилиты.
+- `src/components/features` — функциональные блоки, такие как `SearchEngine`, `EasingEditor`, конвертеры.
 - `src/components/features/searchEngine` — модуль поиска: UI, состояние, worker, query/scoring/highlight/content utilities.
 - `src/components/layout` — шапка, футер, переходы страниц.
 - `src/components/modals` — модальные окна и настройки темы.
-- `src/components/ui` — малые UI-компоненты (`CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`).
+- `src/components/ui` — малые UI-компоненты, такие как `CopyButton`, `LinkCards`, `LoadingAnimation`, `GroupedCornersManager`.
 - `src/hooks` — прикладные хуки для ссылок, копирования, ripple, валидации якорей и т.д.
 - `src/utilities` — утилиты для ссылок, якорей, браузера, даты, файловых размеров, haptics и строк.
 - `src/styles` — глобальные SCSS слои (`abstracts`, `base`, `layout`, `components`, `utilities`).
@@ -105,6 +105,14 @@ const sections = [
 - `yarn lint:no-html-strings` — проверка, что строковые props `title`, `caption`, `tag`, `anchor` в статьях не содержат HTML/JSX.
 - `yarn lint:divider-style` — проверка текстов `Divider` в статьях: предупреждает о вопросительных заголовках и непомеченных названиях приложений/плагинов.
 - `yarn extract:marked-text` — диагностическая выгрузка короткого текста из тегов с `className`/`class` в статьях.
+- `yarn report:versions` — генерация отчетов по версиям.
+- `yarn fonts:generate-style` — генерация файла стилей шрифтов на основе `src/fonts`.
+- `yarn fonts:generate-static` — генерация статических `ttf` из variable-шрифтов.
+- `yarn media:metadata` — сбор размеров изображений и видео из `public/media`.
+- `yarn maintenance:fix-tokens` — интерактивное исправление токенов в `.tsx`-файлах.
+- `yarn maintenance:lowercase-tags` — приведение тегов в статьях к нижнему регистру.
+- `yarn maintenance:remove-empty-lines` — удаление лишних пустых строк в файлах.
+- `yarn maintenance:sort-imports` — сортировка импортов в файлах.
 - `yarn format` — `tsc` + `stylelint --fix` + `eslint --fix` + `prettier --write`.
 
 ### Пример рабочего цикла

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {useRipple} from "../../../hooks/useRipple";
 
@@ -7,6 +7,7 @@ import {getResultWord} from "./searchContentUtilities";
 import searchStyles from "./SearchEngine.module.scss";
 
 import {
+  type SearchResult,
   type SearchSection,
   useSearch,
   useSearchLinkNavigation,
@@ -16,8 +17,8 @@ import {
 } from "./SearchState";
 
 import {
-  ExternalSearch,
   NoResults,
+  RecentQueries,
   SearchCategories,
   SearchModal,
   SearchResults,
@@ -29,8 +30,17 @@ export {extractMatchingLine, getResultWord} from "./searchContentUtilities";
 
 export {type SearchContextType, SearchProvider, useSearch} from "./SearchState";
 
+type SearchContentType = "categories" | "results" | "no-results";
+
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
-  const {closeModal, isModalOpen, isPageLoaded} = useSearch();
+  const {
+    addQueryToHistory,
+    clearQueryHistory,
+    closeModal,
+    isModalOpen,
+    isPageLoaded,
+    queryHistory,
+  } = useSearch();
 
   const [query, setQuery] = useState("");
 
@@ -39,12 +49,31 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const ripple = useRipple<HTMLButtonElement>();
 
   const {
-    debouncedQuery,
     results,
+    resultsLimit,
     resultsQuery,
     selectedResultIndex,
+    setResultsLimit,
     setSelectedResultIndex,
-  } = useSearchLogic(query, isPageLoaded);
+    suggestions,
+    totalResultsCount,
+  } = useSearchLogic(query, isPageLoaded, sections);
+
+  const [displayedContentType, setDisplayedContentType] =
+    useState<SearchContentType>("categories");
+
+  const [contentTransitionPhase, setContentTransitionPhase] = useState<
+    "idle" | "exit" | "enter"
+  >("idle");
+
+  const [previousTargetContentType, setPreviousTargetContentType] =
+    useState<SearchContentType>("categories");
+
+  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
+
+  const [displayedResultsQuery, setDisplayedResultsQuery] = useState(resultsQuery);
+
+  const [displayedResultsCount, setDisplayedResultsCount] = useState(totalResultsCount);
 
   const {handleQueryChange, isSearching, resetSearchState} = useSearchViewState(
     isPageLoaded,
@@ -52,7 +81,18 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     setQuery
   );
 
-  const handleLinkClick = useSearchLinkNavigation(closeModal);
+  const navigateToLink = useSearchLinkNavigation(closeModal);
+
+  const handleLinkClick = useCallback(
+    (anchorValue: string) => {
+      if (results.length > 0) {
+        addQueryToHistory(query);
+      }
+
+      navigateToLink(anchorValue);
+    },
+    [addQueryToHistory, navigateToLink, query, results]
+  );
 
   const {inputReference, isFadeVisible, resultsContainerReference} =
     useSearchModalBehavior({
@@ -60,56 +100,158 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       isModalOpen,
       resultLinkClassName: searchStyles["search-link"],
       resultReferences,
-      results,
+      results: displayedResults,
+      resultsLimit,
       selectedResultIndex,
       setSelectedResultIndex,
     });
 
-  const getModalContent = () => {
+  useEffect(() => {
+    if (!query.trim()) {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      if (results.length > 0 && resultsQuery === query) {
+        addQueryToHistory(query);
+      }
+    }, 5000);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [query, addQueryToHistory, results, resultsQuery]);
+
+  const handleRecentQuerySelect = useCallback(
+    (historyQuery: string) => {
+      handleQueryChange(historyQuery);
+      inputReference.current?.focus({preventScroll: true});
+    },
+    [handleQueryChange, inputReference]
+  );
+
+  const handleSuggestionSelect = useCallback(
+    (suggestion: string) => {
+      addQueryToHistory(suggestion);
+      setContentTransitionPhase("exit");
+      handleQueryChange(suggestion);
+      inputReference.current?.focus({preventScroll: true});
+    },
+    [addQueryToHistory, handleQueryChange, inputReference, setContentTransitionPhase]
+  );
+
+  const getTargetContentType = (): SearchContentType => {
     if (!isSearching) {
-      return {
-        content: (
-          <SearchCategories
-            sections={sections}
-            onLinkClick={handleLinkClick}
-          />
-        ),
-        isScrollableContent: false,
-      };
+      return "categories";
     }
 
     if (results.length > 0) {
+      return "results";
+    }
+
+    if (query.trim() !== "" && results.length === 0 && resultsQuery === query) {
+      return "no-results";
+    }
+
+    return previousTargetContentType;
+  };
+
+  const targetContentType = getTargetContentType();
+
+  useEffect(() => {
+    if (targetContentType !== previousTargetContentType) {
+      setPreviousTargetContentType(targetContentType);
+      setContentTransitionPhase("exit");
+    }
+  }, [targetContentType, previousTargetContentType]);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "exit" && displayedContentType === targetContentType) {
+      setDisplayedResults(results);
+      setDisplayedResultsQuery(resultsQuery);
+      setDisplayedResultsCount(totalResultsCount);
+    }
+  }, [
+    results,
+    resultsQuery,
+    totalResultsCount,
+    contentTransitionPhase,
+    displayedContentType,
+    targetContentType,
+  ]);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "exit") {
+      return;
+    }
+
+    if (previousTargetContentType === "no-results" && resultsQuery !== query) {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setDisplayedContentType(previousTargetContentType);
+      setContentTransitionPhase("enter");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [contentTransitionPhase, previousTargetContentType, resultsQuery, query]);
+
+  useEffect(() => {
+    if (contentTransitionPhase !== "enter") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setContentTransitionPhase("idle");
+    }, 300);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [contentTransitionPhase]);
+
+  const getModalContent = () => {
+    if (displayedContentType === "results") {
       return {
         content: (
-          <>
-            <SearchResults
-              query={resultsQuery}
-              resultRefs={resultReferences}
-              results={results}
-              selectedResultIndex={selectedResultIndex}
-              setSelectedResultIndex={setSelectedResultIndex}
-              onLinkClick={handleLinkClick}
-            />
-            <ExternalSearch query={debouncedQuery} />
-          </>
+          <SearchResults
+            query={displayedResultsQuery}
+            resultRefs={resultReferences}
+            results={displayedResults}
+            selectedResultIndex={selectedResultIndex}
+            setResultsLimit={setResultsLimit}
+            setSelectedResultIndex={setSelectedResultIndex}
+            totalResultsCount={displayedResultsCount}
+            onLinkClick={handleLinkClick}
+          />
         ),
         isScrollableContent: true,
       };
     }
 
-    if (query.trim() !== "" && results.length === 0 && resultsQuery === query) {
+    if (displayedContentType === "no-results") {
       return {
-        content: <NoResults query={query} />,
+        content: (
+          <NoResults
+            query={query}
+            suggestions={suggestions}
+            onSelectSuggestion={handleSuggestionSelect}
+          />
+        ),
         isScrollableContent: true,
       };
     }
 
     return {
       content: (
-        <SearchCategories
-          sections={sections}
-          onLinkClick={handleLinkClick}
-        />
+        <>
+          <RecentQueries
+            history={queryHistory}
+            onClear={clearQueryHistory}
+            onSelect={handleRecentQuerySelect}
+          />
+          <SearchCategories
+            sections={sections}
+            onLinkClick={handleLinkClick}
+          />
+        </>
       ),
       isScrollableContent: false,
     };
@@ -120,14 +262,15 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   return (
     <SearchModal
       closeModal={closeModal}
+      contentTransitionPhase={contentTransitionPhase}
       inputRef={inputReference}
       isFadeVisible={isFadeVisible}
       isOpen={isModalOpen}
       isScrollableContent={isScrollableContent}
       query={query}
       resultsContainerRef={resultsContainerReference}
-      resultsCount={results.length}
-      resultWord={getResultWord(results.length)}
+      resultsCount={displayedResultsCount}
+      resultWord={getResultWord(displayedResultsCount)}
       onChangeQuery={handleQueryChange}
       onClearQuery={resetSearchState}
       onCloseMouseDown={ripple.onMouseDown}

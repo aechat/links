@@ -1,6 +1,14 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import debounce from "lodash/debounce";
 
-import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
+import React, {memo, useCallback, useEffect, useMemo, useRef, useState} from "react";
+
+import {
+  BackspaceOutlined,
+  CloseRounded,
+  HistoryRounded,
+  LightbulbOutlined,
+  Search,
+} from "@mui/icons-material";
 
 import {message, Modal} from "antd";
 
@@ -171,13 +179,23 @@ type SearchModalProperties = {
   onInputClearMouseDown: (event_: React.MouseEvent<HTMLButtonElement>) => void;
   query: string;
   resultWord: string;
-  resultsContainerRef: React.RefObject<HTMLDivElement | null>;
+  resultsContainerRef: React.Ref<HTMLDivElement | null>;
   resultsCount: number;
+  contentTransitionPhase?: "idle" | "exit" | "enter";
 };
 
-export const SearchModal: React.FC<SearchModalProperties> = ({
+interface SearchModalContentProperties extends Omit<
+  SearchModalProperties,
+  "closeModal" | "isOpen"
+> {
+  closeModal: () => void;
+  isOpen: boolean;
+}
+
+const SearchModalContent: React.FC<SearchModalContentProperties> = ({
   children,
   closeModal,
+  contentTransitionPhase,
   inputRef,
   isFadeVisible,
   isOpen,
@@ -191,6 +209,52 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
   resultsCount,
   resultWord,
 }) => {
+  const [localQuery, setLocalQuery] = useState(query);
+
+  const lastSentQueryReference = useRef(query);
+
+  useEffect(() => {
+    const isFocused =
+      inputRef.current !== null && document.activeElement === inputRef.current;
+
+    if (query === "" || !isFocused || query !== lastSentQueryReference.current) {
+      setLocalQuery(query);
+      lastSentQueryReference.current = query;
+    }
+  }, [query, inputRef]);
+
+  const debouncedOnChangeQuery = useMemo(
+    () =>
+      debounce(
+        (value: string) => {
+          lastSentQueryReference.current = value;
+          onChangeQuery(value);
+        },
+        isMobileDevice() ? 400 : 200
+      ),
+    [onChangeQuery]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedOnChangeQuery.cancel();
+    };
+  }, [debouncedOnChangeQuery]);
+
+  const handleInputChange = (event_: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event_.target.value;
+
+    setLocalQuery(value);
+    debouncedOnChangeQuery(value);
+  };
+
+  const handleClear = () => {
+    debouncedOnChangeQuery.cancel();
+    setLocalQuery("");
+    lastSentQueryReference.current = "";
+    onClearQuery();
+  };
+
   const KEYBOARD_OPEN_THRESHOLD_PX = 120;
 
   const keyboardBaselineViewportHeightReference = useRef(0);
@@ -243,6 +307,17 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
     updateKeyboardState();
   }, [updateKeyboardState]);
 
+  const debouncedUpdateKeyboardState = useMemo(
+    () => debounce(updateKeyboardState, 100),
+    [updateKeyboardState]
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedUpdateKeyboardState.cancel();
+    };
+  }, [debouncedUpdateKeyboardState]);
+
   useEffect(() => {
     if (!isOpen) {
       keyboardBaselineViewportHeightReference.current = 0;
@@ -259,138 +334,193 @@ export const SearchModal: React.FC<SearchModalProperties> = ({
       return;
     }
 
-    viewport.addEventListener("resize", updateKeyboardState);
+    viewport.addEventListener("resize", debouncedUpdateKeyboardState);
     document.addEventListener("focusin", handleDocumentFocusIn);
     document.addEventListener("focusout", handleDocumentFocusOut);
 
     return () => {
-      viewport.removeEventListener("resize", updateKeyboardState);
+      viewport.removeEventListener("resize", debouncedUpdateKeyboardState);
       document.removeEventListener("focusin", handleDocumentFocusIn);
       document.removeEventListener("focusout", handleDocumentFocusOut);
     };
-  }, [handleDocumentFocusIn, handleDocumentFocusOut, isOpen, updateKeyboardState]);
+  }, [
+    handleDocumentFocusIn,
+    handleDocumentFocusOut,
+    isOpen,
+    updateKeyboardState,
+    debouncedUpdateKeyboardState,
+  ]);
+
+  let contentTransitionClass = "";
+
+  switch (contentTransitionPhase) {
+    case "exit": {
+      contentTransitionClass = searchStyles["content-transition-exit"];
+
+      break;
+    }
+
+    case "enter": {
+      contentTransitionClass = searchStyles["content-transition-enter"];
+
+      break;
+    }
+
+    case "idle": {
+      contentTransitionClass = searchStyles["content-transition-idle"];
+
+      break;
+    }
+    // No default
+  }
 
   const scrollShellClassName = [
     searchStyles["search-results-shell"],
     isKeyboardOpen ? searchStyles["search-results-keyboard-open"] : "",
-    isFadeVisible ? searchStyles["show-fade"] : "",
+    isScrollableContent && isFadeVisible ? searchStyles["show-fade"] : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <RemoveScroll enabled={isOpen}>
+    <div className={searchStyles["modal"]}>
+      <div className={modalStyles["modal-header"]}>
+        <input
+          ref={inputRef}
+          className={searchStyles["search-input"]}
+          placeholder="Введите что-нибудь для поиска..."
+          type="search"
+          value={localQuery}
+          onChange={handleInputChange}
+        />
+        {resultsCount > 0 && (
+          <span className={`${searchStyles["search-counter"]} ${contentTransitionClass}`}>
+            <span className={searchStyles["search-counter-value"]}>{resultsCount}</span>{" "}
+            {resultWord}
+          </span>
+        )}
+        {localQuery.trim() !== "" && (
+          <button
+            className={modalStyles["modal-header-button"]}
+            onClick={handleClear}
+            onMouseDown={onInputClearMouseDown}
+          >
+            <BackspaceOutlined fontSize="small" />
+          </button>
+        )}
+        <button
+          className={modalStyles["modal-header-button"]}
+          onClick={closeModal}
+          onMouseDown={onCloseMouseDown}
+        >
+          <CloseRounded />
+        </button>
+      </div>
+      <div className={scrollShellClassName}>
+        <div
+          ref={resultsContainerRef}
+          className={`${searchStyles["search-results-scroll"]} ${contentTransitionClass}`}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const SearchModal: React.FC<SearchModalProperties> = (properties) => {
+  return (
+    <RemoveScroll enabled={properties.isOpen}>
       <Modal
         closeIcon={false}
         footer={<></>}
-        open={isOpen}
+        open={properties.isOpen}
         width={1000}
-        onCancel={closeModal}
+        onCancel={properties.closeModal}
       >
-        <div className={searchStyles["modal"]}>
-          <div className={modalStyles["modal-header"]}>
-            <input
-              ref={inputRef}
-              className={searchStyles["search-input"]}
-              placeholder="Введите что-нибудь для поиска..."
-              type="search"
-              value={query}
-              onChange={(event_) => onChangeQuery(event_.target.value)}
-            />
-            {resultsCount > 0 && (
-              <span className={searchStyles["search-counter"]}>
-                <span className={searchStyles["search-counter-value"]}>
-                  {resultsCount}
-                </span>{" "}
-                {resultWord}
-              </span>
-            )}
-            {query.trim() !== "" && (
-              <button
-                className={modalStyles["modal-header-button"]}
-                onClick={onClearQuery}
-                onMouseDown={onInputClearMouseDown}
-              >
-                <BackspaceOutlined fontSize="small" />
-              </button>
-            )}
-            <button
-              className={modalStyles["modal-header-button"]}
-              onClick={closeModal}
-              onMouseDown={onCloseMouseDown}
-            >
-              <CloseRounded />
-            </button>
-          </div>
-          {isScrollableContent ? (
-            <div className={scrollShellClassName}>
-              <div
-                ref={resultsContainerRef}
-                className={searchStyles["search-results-scroll"]}
-              >
-                {children}
-              </div>
-            </div>
-          ) : (
-            <div
-              ref={resultsContainerRef}
-              className={searchStyles["search-static"]}
-            >
-              {children}
-            </div>
-          )}
-        </div>
+        <SearchModalContent {...properties} />
       </Modal>
     </RemoveScroll>
   );
 };
 
-export const ExternalSearch: React.FC<{query: string}> = ({query}) => {
-  const getSearchQuery = () => {
-    const path = globalThis.location.pathname;
+const getSearchQuery = (query: string) => {
+  const path = globalThis.location.pathname;
 
-    let context = "";
+  let context = "";
 
-    if (path.includes("aefaq")) {
-      context = "after effects";
-    } else if (path.includes("prfaq")) {
-      context = "premiere pro";
-    } else if (path.includes("psfaq")) {
-      context = "photoshop";
-    } else if (path.includes("aeexpr")) {
-      context = "after effects expression";
-    }
+  if (path.includes("aefaq")) {
+    context = "after effects";
+  } else if (path.includes("prfaq")) {
+    context = "premiere pro";
+  } else if (path.includes("psfaq")) {
+    context = "photoshop";
+  } else if (path.includes("aeexpr")) {
+    context = "after effects expression";
+  }
 
-    return `${query} ${context}`;
-  };
+  return `${query} ${context}`;
+};
 
-  const ripple = useRipple<HTMLButtonElement>();
+type ExternalSearchProperties = {
+  query: string;
+  disableAnimation?: boolean;
+  totalResultsCount?: number;
+  resultsLength?: number;
+  setResultsLimit?: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export const ExternalSearch: React.FC<ExternalSearchProperties> = ({
+  disableAnimation = false,
+  query,
+  resultsLength,
+  setResultsLimit,
+  totalResultsCount,
+}) => {
+  const ripple = useRipple<HTMLElement>();
+
+  const showAllRipple = useRipple<HTMLButtonElement>();
+
+  const isMobile = isMobileDevice();
+
+  const shouldDisableAnimation = isMobile || disableAnimation;
+
+  const showAllButton = totalResultsCount !== undefined &&
+    resultsLength !== undefined &&
+    totalResultsCount > resultsLength &&
+    setResultsLimit && (
+      <button
+        onClick={() => setResultsLimit(Number.MAX_SAFE_INTEGER)}
+        onMouseDown={showAllRipple.onMouseDown}
+      >
+        Показать все результаты
+      </button>
+    );
 
   return (
-    <div>
+    <div
+      className={`${searchStyles["search-external-container"]} ${shouldDisableAnimation ? searchStyles["is-mobile"] : ""}`}
+    >
       <div className={searchStyles["search-external-links"]}>
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        {showAllButton}
+        <a
+          data-no-intercept
+          href={`https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Найти в Яндексе
-        </button>
-        <button
-          onClick={() => {
-            globalThis.open(
-              `https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery())}`,
-              "_blank"
-            );
-          }}
+        </a>
+        <a
+          data-no-intercept
+          href={`https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery(query))}`}
+          rel="noopener noreferrer"
+          target="_blank"
           onMouseDown={ripple.onMouseDown}
         >
           Спросить у Perplexity<sup>1</sup>
-        </button>
+        </a>
       </div>
       <p className={searchStyles["search-no-results-tip"]}>
         <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
@@ -400,22 +530,181 @@ export const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   );
 };
 
-export const NoResults: React.FC<{query: string}> = ({query}) => (
-  <div>
-    <div className={searchStyles["search-no-results"]}>
-      <p className={searchStyles["search-no-results-title"]}>
-        По вашему запросу на этой странице{" "}
-        <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
-        нашлось
-      </p>
-      <p className={searchStyles["search-no-results-message"]}>
-        Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
-        Perplexity<sup>1</sup>
+type NoResultsProperties = {
+  onSelectSuggestion?: (suggestion: string) => void;
+  query: string;
+  suggestions?: string[];
+};
+
+export const NoResults: React.FC<NoResultsProperties> = ({
+  onSelectSuggestion,
+  query,
+  suggestions = [],
+}) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const [visibleSuggestions, setVisibleSuggestions] = useState<string[]>(suggestions);
+
+  const [animationPhase, setAnimationPhase] = useState<"enter" | "exit" | "idle">("idle");
+
+  const containerReference = useRef<HTMLDivElement | null>(null);
+
+  const checkScrollLimits = useCallback(() => {
+    const target = containerReference.current;
+
+    if (!target) {
+      return;
+    }
+
+    const scrollLeft = target.scrollLeft;
+
+    const clientWidth = target.clientWidth;
+
+    const scrollWidth = target.scrollWidth;
+
+    setShowLeftFade(scrollLeft > 0);
+
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+
+    const isScrollable = scrollWidth > clientWidth;
+
+    setShowRightFade(isScrollable && !isAtEnd);
+  }, []);
+
+  useEffect(() => {
+    checkScrollLimits();
+
+    const handleResize = () => checkScrollLimits();
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [visibleSuggestions, checkScrollLimits]);
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      if (visibleSuggestions.length === 0) {
+        setVisibleSuggestions(suggestions);
+        setAnimationPhase("enter");
+      } else if (suggestions.join(",") !== visibleSuggestions.join(",")) {
+        setAnimationPhase("exit");
+
+        const timeout = globalThis.setTimeout(() => {
+          setVisibleSuggestions(suggestions);
+          setAnimationPhase("enter");
+        }, 200);
+
+        return () => globalThis.clearTimeout(timeout);
+      }
+    } else if (visibleSuggestions.length > 0) {
+      setAnimationPhase("exit");
+
+      const timeout = globalThis.setTimeout(() => {
+        setVisibleSuggestions([]);
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [suggestions]);
+
+  useEffect(() => {
+    if (animationPhase === "enter") {
+      const timeout = globalThis.setTimeout(() => {
+        setAnimationPhase("idle");
+      }, 200);
+
+      return () => globalThis.clearTimeout(timeout);
+    }
+  }, [animationPhase]);
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  const handleScroll = () => {
+    checkScrollLimits();
+  };
+
+  const searchQuery = getSearchQuery(query);
+
+  const yandexUrl = `https://yandex.com/search/?text=${encodeURIComponent(searchQuery)}`;
+
+  const perplexityUrl = `https://www.perplexity.ai/search?q=${encodeURIComponent(searchQuery)}`;
+
+  return (
+    <div>
+      <div className={searchStyles["search-no-results"]}>
+        <p className={searchStyles["search-no-results-title"]}>
+          По вашему запросу на этой странице{" "}
+          <span className={searchStyles["search-no-results-highlight"]}>ничего</span> не
+          нашлось
+        </p>
+        <p className={searchStyles["search-no-results-message"]}>
+          Попробуйте перефразировать свой запрос или выполните поиск в{" "}
+          <a
+            data-no-intercept
+            href={yandexUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Яндексе
+          </a>{" "}
+          или{" "}
+          <a
+            data-no-intercept
+            href={perplexityUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Perplexity
+          </a>
+          <sup>1</sup>
+        </p>
+      </div>
+      <div className={searchStyles["search-suggestions"]}>
+        {visibleSuggestions.length > 0 && (
+          <div
+            key={visibleSuggestions.join(",")}
+            className={`${searchStyles["search-suggestions-content"]} ${
+              animationPhase === "exit" ? searchStyles["exit"] : ""
+            }`}
+          >
+            <span className={searchStyles["search-suggestions-title"]}>
+              <LightbulbOutlined
+                className={searchStyles["search-suggestions-title-icon"]}
+              />
+            </span>
+            <div
+              ref={containerReference}
+              className={`${searchStyles["search-suggestions-items"]} ${
+                showLeftFade ? searchStyles["show-left-fade"] : ""
+              } ${showRightFade ? searchStyles["show-right-fade"] : ""}`}
+              onScroll={handleScroll}
+            >
+              {visibleSuggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  type="button"
+                  onClick={() => onSelectSuggestion?.(suggestion)}
+                  onMouseDown={ripple.onMouseDown}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+      <p className={searchStyles["search-no-results-tip"]}>
+        <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
+        могут выдавать недостоверную информацию
       </p>
     </div>
-    <ExternalSearch query={query} />
-  </div>
-);
+  );
+};
 
 type SearchResultsProperties = {
   onLinkClick: (id: string) => void;
@@ -423,16 +712,20 @@ type SearchResultsProperties = {
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: SearchResult[];
   selectedResultIndex: number;
+  setResultsLimit?: React.Dispatch<React.SetStateAction<number>>;
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+  totalResultsCount?: number;
 };
 
-export const SearchResults: React.FC<SearchResultsProperties> = ({
+const SearchResultsComponent: React.FC<SearchResultsProperties> = ({
   onLinkClick,
   query,
   resultRefs,
   results,
   selectedResultIndex,
+  setResultsLimit,
   setSelectedResultIndex,
+  totalResultsCount,
 }) => {
   const MASONRY_COLUMN_MIN_WIDTH = 400;
 
@@ -449,6 +742,40 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
   const isMobile = isMobileDevice();
 
+  const [displayedResults, setDisplayedResults] = useState<SearchResult[]>(results);
+
+  const [displayedQuery, setDisplayedQuery] = useState<string>(query);
+
+  const [displayedTotalResultsCount, setDisplayedTotalResultsCount] = useState(
+    totalResultsCount || 0
+  );
+
+  const [transitionPhase, setTransitionPhase] = useState<"idle" | "exit" | "enter">(
+    "idle"
+  );
+
+  const [previousQuery, setPreviousQuery] = useState(query);
+
+  const [previousResults, setPreviousResults] = useState(results);
+
+  const isResultsChanged =
+    results.length !== previousResults.length ||
+    results.some((result, index) => result.id !== previousResults[index]?.id);
+
+  if (query !== previousQuery || isResultsChanged) {
+    setPreviousQuery(query);
+    setPreviousResults(results);
+
+    if (previousResults.length === 0) {
+      setDisplayedResults(results);
+      setDisplayedQuery(query);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
+      setTransitionPhase("enter");
+    } else {
+      setTransitionPhase("exit");
+    }
+  }
+
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
 
   const [overflowingResultIds, setOverflowingResultIds] = useState<Set<string>>(
@@ -461,7 +788,10 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
   const [isSingleColumnLayout, setIsSingleColumnLayout] = useState(false);
 
-  const compiledQuery = useMemo(() => compileSearchQuery(query), [query]);
+  const compiledQuery = useMemo(
+    () => compileSearchQuery(displayedQuery),
+    [displayedQuery]
+  );
 
   const [isHighlightReady, setIsHighlightReady] = useState(false);
 
@@ -474,6 +804,33 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
   const [, setHighlightCacheVersion] = useState(0);
 
   useEffect(() => {
+    if (transitionPhase !== "exit") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setDisplayedResults(previousResults);
+      setDisplayedQuery(previousQuery);
+      setDisplayedTotalResultsCount(totalResultsCount || 0);
+      setTransitionPhase("enter");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [transitionPhase, previousQuery, previousResults, totalResultsCount]);
+
+  useEffect(() => {
+    if (transitionPhase !== "enter") {
+      return;
+    }
+
+    const timeout = globalThis.setTimeout(() => {
+      setTransitionPhase("idle");
+    }, 350);
+
+    return () => globalThis.clearTimeout(timeout);
+  }, [transitionPhase]);
+
+  useEffect(() => {
     setIsHighlightReady(false);
 
     const timeout = globalThis.setTimeout(() => {
@@ -481,11 +838,11 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     }, HIGHLIGHT_DELAY_MS);
 
     return () => globalThis.clearTimeout(timeout);
-  }, [HIGHLIGHT_DELAY_MS, query]);
+  }, [HIGHLIGHT_DELAY_MS, displayedQuery]);
 
   useEffect(() => {
     highlightedContentCacheReference.current.clear();
-  }, [query]);
+  }, [displayedQuery]);
 
   const updateHighlightEligibility = useCallback(() => {
     if (!isHighlightReady) {
@@ -500,7 +857,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
     const nextEligibleIds = new Set<string>();
 
-    for (const [index, result] of results.entries()) {
+    for (const [index, result] of displayedResults.entries()) {
       const element = resultRefs.current?.[index];
 
       if (!element) {
@@ -519,10 +876,10 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
     if (
       selectedResultIndex >= 0 &&
-      selectedResultIndex < results.length &&
-      results[selectedResultIndex]
+      selectedResultIndex < displayedResults.length &&
+      displayedResults[selectedResultIndex]
     ) {
-      nextEligibleIds.add(results[selectedResultIndex].id);
+      nextEligibleIds.add(displayedResults[selectedResultIndex].id);
     }
 
     setHighlightEligibleIds(nextEligibleIds);
@@ -530,7 +887,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     HIGHLIGHT_BUFFER_VIEWPORTS,
     isHighlightReady,
     resultRefs,
-    results,
+    displayedResults,
     selectedResultIndex,
   ]);
 
@@ -552,7 +909,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       scrollContainer?.removeEventListener("scroll", updateHighlightEligibility);
       globalThis.removeEventListener("resize", updateHighlightEligibility);
     };
-  }, [results, updateHighlightEligibility]);
+  }, [displayedResults, updateHighlightEligibility]);
 
   useEffect(() => {
     updateHighlightEligibility();
@@ -628,8 +985,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
   );
 
   const resultEntries = useMemo(
-    () => results.map((result, index) => ({index, result})),
-    [results]
+    () => displayedResults.map((result, index) => ({index, result})),
+    [displayedResults]
   );
 
   const masonryColumns = useMemo(
@@ -638,14 +995,14 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
   );
 
   const resultById = useMemo(
-    () => new Map(results.map((result) => [result.id, result])),
-    [results]
+    () => new Map(displayedResults.map((result) => [result.id, result])),
+    [displayedResults]
   );
 
   const checkResultOverflow = useCallback(() => {
     const overflowedIds = new Set<string>();
 
-    for (const {id} of results) {
+    for (const {id} of displayedResults) {
       const contentElement = resultContentReferences.current[id];
 
       if (!contentElement) {
@@ -658,7 +1015,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     }
 
     setOverflowingResultIds(overflowedIds);
-  }, [results]);
+  }, [displayedResults]);
 
   useEffect(() => {
     const rafId = globalThis.requestAnimationFrame(checkResultOverflow);
@@ -676,6 +1033,10 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
   }, [checkResultOverflow, isSingleColumnLayout]);
 
   useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     const updateResultScales = () => {
       for (const resultElement of resultRefs.current ?? []) {
         if (!resultElement) {
@@ -710,12 +1071,12 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       observer?.disconnect();
       globalThis.removeEventListener("resize", updateResultScales);
     };
-  }, [isSingleColumnLayout, resultRefs, results]);
+  }, [isMobile, isSingleColumnLayout, resultRefs, displayedResults]);
 
   useEffect(() => {
     if (
       !isHighlightReady ||
-      !query.trim() ||
+      !displayedQuery.trim() ||
       compiledQuery.words.length === 0 ||
       compiledQuery.isKeyCombination
     ) {
@@ -724,9 +1085,13 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
     const idsToPrecompute = [
       ...new Set(
-        results.map((result) => result.id).filter((id) => highlightEligibleIds.has(id))
+        displayedResults
+          .map((result) => result.id)
+          .filter((id) => highlightEligibleIds.has(id))
       ),
-    ].filter((id) => !highlightedContentCacheReference.current.has(`${id}::${query}`));
+    ].filter(
+      (id) => !highlightedContentCacheReference.current.has(`${id}::${displayedQuery}`)
+    );
 
     if (idsToPrecompute.length === 0) {
       return;
@@ -758,7 +1123,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
           continue;
         }
 
-        const cacheKey = `${resultId}::${query}`;
+        const cacheKey = `${resultId}::${displayedQuery}`;
 
         if (highlightedContentCacheReference.current.has(cacheKey)) {
           continue;
@@ -790,7 +1155,14 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
         globalThis.clearTimeout(timeoutId);
       }
     };
-  }, [compiledQuery, highlightEligibleIds, isHighlightReady, query, resultById, results]);
+  }, [
+    compiledQuery,
+    highlightEligibleIds,
+    isHighlightReady,
+    displayedQuery,
+    resultById,
+    displayedResults,
+  ]);
 
   const renderResult = ({index, result}: {index: number; result: SearchResult}) => {
     const {anchor, content, id, tag, title} = result;
@@ -801,8 +1173,8 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
 
     const isCurrentSelectedResult =
       selectedResultIndex >= 0 &&
-      selectedResultIndex < results.length &&
-      results[selectedResultIndex]?.id === id;
+      selectedResultIndex < displayedResults.length &&
+      displayedResults[selectedResultIndex]?.id === id;
 
     const shouldHighlight =
       isCurrentSelectedResult || (isHighlightReady && highlightEligibleIds.has(id));
@@ -815,14 +1187,14 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
       ? tagsToDisplay.map((tag_) => renderHighlightedText(tag_, compiledQuery))
       : tagsToDisplay;
 
-    const cacheKey = `${id}::${query}`;
+    const cacheKey = `${id}::${displayedQuery}`;
 
     const cachedHighlightedContent =
       highlightedContentCacheReference.current.get(cacheKey);
 
     let highlightedContent = content;
 
-    if (shouldHighlight && query.trim() !== "") {
+    if (shouldHighlight && displayedQuery.trim() !== "") {
       if (cachedHighlightedContent !== undefined) {
         highlightedContent = cachedHighlightedContent;
       } else if (isCurrentSelectedResult) {
@@ -842,6 +1214,7 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     return (
       <SearchResultCard
         anchor={anchor}
+        cardIndex={index}
         content={highlightedContent}
         highlightedTags={highlightedTags}
         highlightedTitle={highlightedTitle}
@@ -870,9 +1243,33 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
     );
   };
 
+  let transitionClass = "";
+
+  switch (transitionPhase) {
+    case "exit": {
+      transitionClass = searchStyles["transition-exit"];
+
+      break;
+    }
+
+    case "enter": {
+      transitionClass = searchStyles["transition-enter"];
+
+      break;
+    }
+
+    case "idle": {
+      transitionClass = searchStyles["transition-idle"];
+
+      break;
+    }
+    // No default
+  }
+
   return (
     <div
       ref={masonryContainerReference}
+      className={transitionClass}
       {...longPressProperties}
     >
       <div
@@ -888,11 +1285,116 @@ export const SearchResults: React.FC<SearchResultsProperties> = ({
             className={searchStyles["search-results-column"]}
           >
             {column.map((entry) => (
-              <React.Fragment key={entry.result.id}>{renderResult(entry)}</React.Fragment>
+              <React.Fragment key={`${entry.result.id}-${displayedQuery}`}>
+                {renderResult(entry)}
+              </React.Fragment>
             ))}
           </div>
         ))}
       </div>
+      <ExternalSearch
+        query={displayedQuery}
+        resultsLength={displayedResults.length}
+        setResultsLimit={setResultsLimit}
+        totalResultsCount={displayedTotalResultsCount}
+      />
+    </div>
+  );
+};
+
+export const SearchResults = memo(SearchResultsComponent);
+
+type RecentQueriesProperties = {
+  history: string[];
+  onClear: () => void;
+  onSelect: (query: string) => void;
+};
+
+export const RecentQueries: React.FC<RecentQueriesProperties> = ({
+  history,
+  onClear,
+  onSelect,
+}) => {
+  const [showLeftFade, setShowLeftFade] = useState(false);
+
+  const [showRightFade, setShowRightFade] = useState(false);
+
+  const containerReference = useRef<HTMLDivElement | null>(null);
+
+  const checkScrollLimits = useCallback(() => {
+    const target = containerReference.current;
+
+    if (!target) {
+      return;
+    }
+
+    const scrollLeft = target.scrollLeft;
+
+    const clientWidth = target.clientWidth;
+
+    const scrollWidth = target.scrollWidth;
+
+    setShowLeftFade(scrollLeft > 0);
+
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+
+    const isScrollable = scrollWidth > clientWidth;
+
+    setShowRightFade(isScrollable && !isAtEnd);
+  }, []);
+
+  useEffect(() => {
+    checkScrollLimits();
+
+    const handleResize = () => checkScrollLimits();
+
+    globalThis.addEventListener("resize", handleResize);
+
+    return () => {
+      globalThis.removeEventListener("resize", handleResize);
+    };
+  }, [history, checkScrollLimits]);
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  if (history.length === 0) {
+    return <></>;
+  }
+
+  const handleScroll = () => {
+    checkScrollLimits();
+  };
+
+  return (
+    <div className={searchStyles["search-recent"]}>
+      <span className={searchStyles["search-recent-title"]}>
+        <HistoryRounded className={searchStyles["search-recent-title-icon"]} />
+      </span>
+      <div
+        ref={containerReference}
+        className={`${searchStyles["search-recent-items"]} ${
+          showLeftFade ? searchStyles["show-left-fade"] : ""
+        } ${showRightFade ? searchStyles["show-right-fade"] : ""}`}
+        onScroll={handleScroll}
+      >
+        {history.map((historyQuery) => (
+          <button
+            key={historyQuery}
+            type="button"
+            onClick={() => onSelect(historyQuery)}
+            onMouseDown={ripple.onMouseDown}
+          >
+            {historyQuery}
+          </button>
+        ))}
+      </div>
+      <button
+        className={searchStyles["search-recent-clear"]}
+        type="button"
+        onClick={onClear}
+      >
+        <span>Очистить</span>
+      </button>
     </div>
   );
 };

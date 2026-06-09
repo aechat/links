@@ -18,10 +18,13 @@ import {isMobileDevice} from "../../../utilities/browserDetection";
 import {scrollToElement} from "../../../utilities/scrollToAnchor";
 
 export interface SearchContextType {
+  addQueryToHistory: (query: string) => void;
+  clearQueryHistory: () => void;
   closeModal: () => void;
   isModalOpen: boolean;
   isPageLoaded: boolean;
   openModal: () => void;
+  queryHistory: string[];
 }
 
 export interface SearchResult {
@@ -43,11 +46,20 @@ export type SearchSection = {
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
+const SEARCH_HISTORY_STORAGE_KEY = "searchEngineHistory";
+
+const SEARCH_HISTORY_LIMIT = 24;
+
+const normalizeHistoryQuery = (value: string) =>
+  value.replaceAll(/\s+/g, " ").trim().toLowerCase();
+
 export const SearchProvider: React.FC<{
   children: React.ReactNode;
   isPageLoaded: boolean;
 }> = ({children, isPageLoaded}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [queryHistory, setQueryHistory] = useState<string[]>([]);
 
   const openModal = () => {
     if (isPageLoaded) {
@@ -56,6 +68,75 @@ export const SearchProvider: React.FC<{
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  const saveHistoryToStorage = useCallback((history: string[]) => {
+    globalThis.localStorage.setItem(SEARCH_HISTORY_STORAGE_KEY, JSON.stringify(history));
+  }, []);
+
+  useEffect(() => {
+    const rawHistory = globalThis.localStorage.getItem(SEARCH_HISTORY_STORAGE_KEY);
+
+    if (!rawHistory) {
+      return;
+    }
+
+    try {
+      const parsedHistory: unknown = JSON.parse(rawHistory);
+
+      if (!Array.isArray(parsedHistory)) {
+        return;
+      }
+
+      const sanitizedHistory = parsedHistory
+        .filter((entry): entry is string => typeof entry === "string")
+        .map((entry) => normalizeHistoryQuery(entry))
+        .filter(Boolean)
+        .slice(0, SEARCH_HISTORY_LIMIT);
+
+      setQueryHistory(sanitizedHistory);
+    } catch {
+      globalThis.localStorage.removeItem(SEARCH_HISTORY_STORAGE_KEY);
+    }
+  }, []);
+
+  const addQueryToHistory = useCallback(
+    (rawQuery: string) => {
+      const normalizedQuery = normalizeHistoryQuery(rawQuery);
+
+      if (!normalizedQuery) {
+        return;
+      }
+
+      setQueryHistory((previousHistory) => {
+        const hasMoreSpecific = previousHistory.some((entry) =>
+          entry.startsWith(normalizedQuery + " ")
+        );
+
+        if (hasMoreSpecific) {
+          return previousHistory;
+        }
+
+        const filteredHistory = previousHistory.filter(
+          (entry) => entry !== normalizedQuery && !normalizedQuery.startsWith(entry + " ")
+        );
+
+        const nextHistory = [normalizedQuery, ...filteredHistory].slice(
+          0,
+          SEARCH_HISTORY_LIMIT
+        );
+
+        saveHistoryToStorage(nextHistory);
+
+        return nextHistory;
+      });
+    },
+    [saveHistoryToStorage]
+  );
+
+  const clearQueryHistory = useCallback(() => {
+    setQueryHistory([]);
+    globalThis.localStorage.removeItem(SEARCH_HISTORY_STORAGE_KEY);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -80,8 +161,24 @@ export const SearchProvider: React.FC<{
   }, [isPageLoaded]);
 
   const value = useMemo(
-    () => ({closeModal, isModalOpen, isPageLoaded, openModal}),
-    [isModalOpen, isPageLoaded]
+    () => ({
+      addQueryToHistory,
+      clearQueryHistory,
+      closeModal,
+      isModalOpen,
+      isPageLoaded,
+      openModal,
+      queryHistory,
+    }),
+    [
+      addQueryToHistory,
+      clearQueryHistory,
+      closeModal,
+      isModalOpen,
+      isPageLoaded,
+      openModal,
+      queryHistory,
+    ]
   );
 
   return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>;
@@ -279,7 +376,7 @@ const scrollSelectedResultIntoViewRuntime = ({
 }: {
   behavior?: ScrollBehavior;
   resultReferences: Array<HTMLButtonElement | null>;
-  resultsContainer: HTMLDivElement | null;
+  resultsContainer: HTMLDivElement | undefined;
   selectedResultIndex: number;
 }): void => {
   if (selectedResultIndex < 0) {
@@ -395,6 +492,7 @@ type SearchModalBehaviorParameters = {
   results: SearchResult[];
   selectedResultIndex: number;
   setSelectedResultIndex: React.Dispatch<React.SetStateAction<number>>;
+  resultsLimit?: number;
 };
 
 export const useSearchLinkNavigation = (closeModal: () => void) => {
@@ -429,14 +527,14 @@ export const useSearchViewState = (
 
   const handleQueryChange = useCallback(
     (value: string) => {
-      setQuery(value);
-
       if (value.trim() === "") {
         setIsSearching(false);
         setIsResultsProcessed(false);
+        setQuery(value);
       } else {
         setIsSearching(true);
         setIsResultsProcessed(false);
+        setQuery(value);
       }
     },
     [setQuery]
@@ -462,12 +560,17 @@ export const useSearchModalBehavior = ({
   resultLinkClassName,
   resultReferences,
   results,
+  resultsLimit,
   selectedResultIndex,
   setSelectedResultIndex,
 }: SearchModalBehaviorParameters) => {
   const inputReference = useRef<HTMLInputElement>(null);
 
-  const resultsContainerReference = useRef<HTMLDivElement>(null);
+  const [resultsContainer, setResultsContainer] = useState<HTMLDivElement | undefined>();
+
+  const resultsContainerReference = useCallback((element: HTMLDivElement | null) => {
+    setResultsContainer(element ?? undefined);
+  }, []);
 
   const wasModalOpenReference = useRef(false);
 
@@ -487,7 +590,7 @@ export const useSearchModalBehavior = ({
   }, [isModalOpen]);
 
   useEffect(() => {
-    const element = resultsContainerReference.current;
+    const element = resultsContainer;
 
     if (!element) {
       return;
@@ -504,11 +607,21 @@ export const useSearchModalBehavior = ({
     element.addEventListener("scroll", checkFadeVisibility);
     globalThis.addEventListener("resize", checkFadeVisibility);
 
+    const observer = new globalThis.MutationObserver(() => {
+      checkFadeVisibility();
+    });
+
+    observer.observe(element, {
+      childList: true,
+      subtree: true,
+    });
+
     return () => {
       element.removeEventListener("scroll", checkFadeVisibility);
       globalThis.removeEventListener("resize", checkFadeVisibility);
+      observer.disconnect();
     };
-  }, [results]);
+  }, [resultsContainer]);
 
   const getPositionedResults = useCallback(() => {
     return getPositionedResultsRuntime(resultReferences.current);
@@ -544,11 +657,11 @@ export const useSearchModalBehavior = ({
       scrollSelectedResultIntoViewRuntime({
         behavior,
         resultReferences: resultReferences.current,
-        resultsContainer: resultsContainerReference.current,
+        resultsContainer,
         selectedResultIndex,
       });
     },
-    [resultReferences, selectedResultIndex]
+    [resultReferences, selectedResultIndex, resultsContainer]
   );
 
   const resultsSignature = useMemo(
@@ -664,7 +777,7 @@ export const useSearchModalBehavior = ({
     const maxFrames = 10;
 
     const waitForStableLayoutAndScroll = () => {
-      const container = resultsContainerReference.current;
+      const container = resultsContainer;
 
       const selectedElement = resultReferences.current[selectedResultIndex];
 
@@ -714,6 +827,10 @@ export const useSearchModalBehavior = ({
   }, [isModalOpen, resultReferences, scrollSelectedResultIntoView, selectedResultIndex]);
 
   useEffect(() => {
+    if (resultsLimit === Number.MAX_SAFE_INTEGER) {
+      return;
+    }
+
     if (!isModalOpen || selectedResultIndex < 0 || results.length === 0) {
       return;
     }
@@ -731,10 +848,11 @@ export const useSearchModalBehavior = ({
     resultsSignature,
     scrollSelectedResultIntoView,
     selectedResultIndex,
+    resultsLimit,
   ]);
 
   useEffect(() => {
-    const container = resultsContainerReference.current;
+    const container = resultsContainer;
 
     if (!container) {
       return;
@@ -759,7 +877,7 @@ export const useSearchModalBehavior = ({
     return () => {
       container.removeEventListener("click", handleClick, true);
     };
-  }, [resultLinkClassName]);
+  }, [resultLinkClassName, results, resultsContainer]);
 
   return {
     inputReference,

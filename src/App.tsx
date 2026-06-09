@@ -8,8 +8,6 @@ import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 
 import Snowfall from "react-snowfall";
 
-import BrowserWarning from "./components/modals/BrowserWarning";
-
 import modalStyles from "./components/modals/Modal.module.scss";
 
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
@@ -30,7 +28,7 @@ import {useRipple} from "./hooks/useRipple";
 
 import getAntTheme from "./styles/antTheme";
 
-import {getBrowserInfo, isWebKitBrowser} from "./utilities/browserDetection";
+import {isWebKitBrowser} from "./utilities/browserDetection";
 
 import {copyText} from "./utilities/copyUtilities";
 
@@ -74,8 +72,6 @@ const PrFaqPage = lazy(() => import("./pages/PrFaqPage"));
 const PsFaqPage = lazy(() => import("./pages/PsFaqPage"));
 
 const AeExprPage = lazy(() => import("./pages/AeExprPage"));
-
-const OLD_BROWSER_WARNING_INTERVAL = 24 * 60 * 60 * 1000;
 
 const SAFARI_WARNING_INTERVAL = 60 * 60 * 1000;
 
@@ -442,46 +438,13 @@ const AppContent = () => {
 
   useDynamicFavicon(svgContent);
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const [isSafariWarningOpen, setIsSafariWarningOpen] = useState(false);
-
-  const [isOldBrowserWarningOpen, setIsOldBrowserWarningOpen] = useState(false);
 
   useEffect(() => {
     if (isSafariWarningOpen) {
       triggerHaptic("warning");
     }
   }, [isSafariWarningOpen]);
-
-  useEffect(() => {
-    if (isOldBrowserWarningOpen) {
-      triggerHaptic("warning");
-    }
-  }, [isOldBrowserWarningOpen]);
-
-  useEffect(() => {
-    if (globalThis.window === undefined) return;
-
-    let shouldShowWarning = false;
-
-    const browserInfo = getBrowserInfo();
-
-    if (browserInfo.isLegacy) {
-      shouldShowWarning = shouldShowStoredWarning(
-        "oldBrowserWarningDismissed",
-        "oldBrowserWarningLastShown",
-        OLD_BROWSER_WARNING_INTERVAL,
-        true
-      );
-    }
-
-    setIsOldBrowserWarningOpen(shouldShowWarning);
-  }, []);
 
   const [isAppReady, setIsAppReady] = useState(true);
 
@@ -605,23 +568,6 @@ const AppContent = () => {
 
   if (loadingError && !boundaryError) {
     return <ErrorFallback error={loadingError} />;
-  }
-
-  if (isClient && isOldBrowserWarningOpen) {
-    return (
-      <BrowserWarning
-        open={isOldBrowserWarningOpen}
-        onClose={(dontShowAgain) => {
-          updateStoredWarningState(
-            dontShowAgain,
-            "oldBrowserWarningDismissed",
-            "oldBrowserWarningLastShown"
-          );
-
-          setIsOldBrowserWarningOpen(false);
-        }}
-      />
-    );
   }
 
   return (

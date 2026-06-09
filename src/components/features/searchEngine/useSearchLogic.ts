@@ -1,5 +1,3 @@
-import debounce from "lodash/debounce";
-
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import additionStyles from "../../content/Addition.module.scss";
@@ -48,7 +46,11 @@ import {
   type SearchScoringDependencies,
 } from "./searchScoringUtilities";
 
-import type {SearchResult} from "./SearchState";
+import {getSuggestions} from "./searchSuggestionsUtilities";
+
+import type {SearchResult, SearchSection} from "./SearchState";
+
+const EMPTY_SUGGESTIONS: string[] = [];
 
 const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
@@ -235,14 +237,28 @@ type SearchWorkerResponse = {
   type: "results";
 };
 
-export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
+export const useSearchLogic = (
+  query: string,
+  isPageLoaded: boolean,
+  sections?: SearchSection[]
+) => {
+  const isLoaded = isPageLoaded;
+
   const [results, setResults] = useState<SearchResult[]>([]);
+
+  const [totalResultsCount, setTotalResultsCount] = useState(0);
 
   const [selectedResultIndex, setSelectedResultIndex] = useState(0);
 
-  const [debouncedQuery, setDebouncedQuery] = useState(query);
-
   const [resultsQuery, setResultsQuery] = useState("");
+
+  const [resultsLimit, setResultsLimit] = useState(24);
+
+  const resultsLimitReference = useRef(24);
+
+  resultsLimitReference.current = resultsLimit;
+
+  const allRankedResultsReference = useRef<WorkerRankedResult[]>([]);
 
   const cachedDetailsData = useMemo(() => {
     if (!isPageLoaded) {
@@ -440,14 +456,30 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     [cachedDetailsByKey]
   );
 
+  const mapRankedResultsToSearchResultsReference = useRef(
+    mapRankedResultsToSearchResults
+  );
+
+  mapRankedResultsToSearchResultsReference.current = mapRankedResultsToSearchResults;
+
   const runSearchOnMainThread = useCallback(
     (text: string) => {
       const rankedResults = searchDetails(workerDetailsData, text);
 
-      setResults(mapRankedResultsToSearchResults(text, rankedResults));
+      allRankedResultsReference.current = rankedResults;
+
+      setTotalResultsCount(rankedResults.length);
+
+      setResults(
+        mapRankedResultsToSearchResultsReference.current(
+          text,
+          rankedResults.slice(0, resultsLimitReference.current)
+        )
+      );
+
       setResultsQuery(text);
     },
-    [mapRankedResultsToSearchResults, workerDetailsData]
+    [workerDetailsData]
   );
 
   useEffect(() => {
@@ -480,7 +512,16 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         return;
       }
 
-      setResults(mapRankedResultsToSearchResults(message_.query, message_.results));
+      allRankedResultsReference.current = message_.results;
+      setTotalResultsCount(message_.results.length);
+
+      setResults(
+        mapRankedResultsToSearchResultsReference.current(
+          message_.query,
+          message_.results.slice(0, resultsLimitReference.current)
+        )
+      );
+
       setResultsQuery(message_.query);
     };
 
@@ -494,10 +535,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         searchWorkerReference.current = undefined;
       }
     };
-  }, [isPageLoaded, mapRankedResultsToSearchResults, workerDetailsData]);
+  }, [isPageLoaded, workerDetailsData]);
 
   const handleSearch = useCallback(
-    debounce((text: string) => {
+    (text: string) => {
       if (text.trim()) {
         workerRequestIdReference.current += 1;
 
@@ -515,45 +556,73 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
       } else {
         workerRequestIdReference.current += 1;
         setResults([]);
+        setTotalResultsCount(0);
         setResultsQuery("");
       }
-    }, 300),
+    },
     [runSearchOnMainThread]
   );
 
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedQuery(query), 100);
-
-    if (isPageLoaded) {
+    if (isLoaded) {
       if (query.trim()) {
         handleSearch(query);
       } else {
         workerRequestIdReference.current += 1;
-        handleSearch.cancel();
         setResults([]);
+        setTotalResultsCount(0);
         setResultsQuery("");
       }
     } else {
       workerRequestIdReference.current += 1;
       setResults([]);
+      setTotalResultsCount(0);
       setResultsQuery("");
     }
-
-    return () => {
-      clearTimeout(handler);
-      handleSearch.cancel();
-    };
   }, [query, handleSearch, isPageLoaded]);
 
   useEffect(() => {
     setSelectedResultIndex(results.length > 0 ? 0 : -1);
   }, [results]);
 
+  useEffect(() => {
+    setResultsLimit(24);
+  }, [query]);
+
+  useEffect(() => {
+    if (resultsQuery) {
+      setResults(
+        mapRankedResultsToSearchResultsReference.current(
+          resultsQuery,
+          allRankedResultsReference.current.slice(0, resultsLimit)
+        )
+      );
+    }
+  }, [resultsLimit, resultsQuery]);
+
+  const sectionsHash = sections?.map((s) => s.title).join(",") ?? "";
+
+  const sectionTitles = useMemo(() => {
+    return sections?.map((s) => ({title: s.title})) ?? [];
+  }, [sectionsHash]);
+
+  const suggestions = useMemo(() => {
+    if (!isLoaded || results.length > 0 || !query.trim() || resultsQuery !== query) {
+      return EMPTY_SUGGESTIONS;
+    }
+
+    return getSuggestions(query, cachedDetailsData, sectionTitles);
+  }, [isLoaded, results.length, query, resultsQuery, cachedDetailsData, sectionTitles]);
+
   return {
-    debouncedQuery,
+    debouncedQuery: query,
     results,
+    resultsLimit,
     resultsQuery,
     selectedResultIndex,
+    setResultsLimit,
     setSelectedResultIndex,
+    suggestions,
+    totalResultsCount,
   };
 };

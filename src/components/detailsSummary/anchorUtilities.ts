@@ -6,6 +6,10 @@ import {replaceCurrentUrlHash} from "../../utilities/urlHashUtilities";
 
 export const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 
+let lastCacheTime = 0;
+
+const cachedFirstOccurrences = new Map<string, HTMLDetailsElement>();
+
 export const isFirstAnchorOccurrence = (
   detailsElement: HTMLDetailsElement,
   textualAnchor: string
@@ -16,13 +20,29 @@ export const isFirstAnchorOccurrence = (
     return false;
   }
 
-  const detailsWithSameAnchor = [
-    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
-  ].find(
-    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
-  );
+  const now = performance.now();
 
-  return detailsWithSameAnchor === detailsElement;
+  if (now - lastCacheTime > 50) {
+    cachedFirstOccurrences.clear();
+
+    const elements =
+      document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]");
+
+    for (const element of elements) {
+      const normalizedElementAnchor = normalizeAnchor(element.dataset.anchor);
+
+      if (
+        normalizedElementAnchor &&
+        !cachedFirstOccurrences.has(normalizedElementAnchor)
+      ) {
+        cachedFirstOccurrences.set(normalizedElementAnchor, element);
+      }
+    }
+
+    lastCacheTime = now;
+  }
+
+  return cachedFirstOccurrences.get(normalizedTextualAnchor) === detailsElement;
 };
 
 export const throwDuplicateAnchorError = (anchor: string, componentName: string) => {

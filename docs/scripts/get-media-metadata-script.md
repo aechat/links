@@ -10,7 +10,7 @@
 Record<string, {width: number; height: number}>;
 ```
 
-Ключ — путь относительно `public` (например, `media/faq/example.png`).
+Ключ — путь относительно `public`, например, `media/faq/example.png`.
 
 ## Использование в проекте
 

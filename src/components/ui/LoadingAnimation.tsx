@@ -266,7 +266,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
         if (
           !isFadingOut ||
           event.target !== event.currentTarget ||
-          event.animationName !== "fade-out"
+          !event.animationName.includes("fade-out")
         ) {
           return;
         }

@@ -262,14 +262,34 @@ const processTable = (
 ): string | undefined => {
   const rows = [...table.querySelectorAll("tr")];
 
+  let activeQuery = compiledQuery;
+
+  if (!compiledQuery.isKeyCombination) {
+    const cellsText = [...table.querySelectorAll("td")]
+      .map((cell) => dependencies.extractKeyCombinationText(cell))
+      .join(" ");
+
+    const matchedWords = compiledQuery.searchWords.filter((word) => {
+      const wordQuery = compileSearchQuery(word);
+
+      return dependencies.hasMatch(cellsText, wordQuery);
+    });
+
+    if (matchedWords.length > 0) {
+      activeQuery = compileSearchQuery(matchedWords.join(" "));
+    } else {
+      return undefined;
+    }
+  }
+
   const matchingRows = rows.filter((row) => {
     const cells = [...row.querySelectorAll("td")];
 
-    return cells.some((cell) => {
-      const cellText = dependencies.extractKeyCombinationText(cell);
+    const rowText = cells
+      .map((cell) => dependencies.extractKeyCombinationText(cell))
+      .join(" ");
 
-      return dependencies.hasMatch(cellText, compiledQuery);
-    });
+    return dependencies.hasMatch(rowText, activeQuery);
   });
 
   if (matchingRows.length > 0) {
@@ -353,7 +373,7 @@ const handleListWithNestedMatches = (
       matchCount: 1,
       result: dependencies.wrapSnippetWithClosestAddition(
         element,
-        clone.outerHTML,
+        `<ul>${clone.outerHTML}</ul>`,
         dependencies.additionContainerSelector
       ),
     };
@@ -372,7 +392,7 @@ const handleListWithNestedMatches = (
       matchCount: 1,
       result: dependencies.wrapSnippetWithClosestAddition(
         element,
-        clone.outerHTML,
+        `<ul>${clone.outerHTML}</ul>`,
         dependencies.additionContainerSelector
       ),
     };
@@ -396,7 +416,7 @@ const handleListWithNestedMatches = (
     matchCount: matchingNestedItems.length + 1,
     result: dependencies.wrapSnippetWithClosestAddition(
       element,
-      clone.outerHTML,
+      `<ul>${clone.outerHTML}</ul>`,
       dependencies.additionContainerSelector
     ),
   };
@@ -433,6 +453,88 @@ const processElement = (
   return processContainerChildren(element, compiledQuery, dependencies);
 };
 
+const getTruncatedTable = (table: HTMLTableElement, maxRows = 8): string => {
+  const newTable = document.createElement("table");
+
+  const thead = table.querySelector("thead");
+
+  if (thead) {
+    newTable.append(thead.cloneNode(true));
+  }
+
+  const tbody = table.querySelector("tbody");
+
+  if (tbody) {
+    const newTbody = document.createElement("tbody");
+
+    const allRows = [...tbody.querySelectorAll("tr")];
+
+    const rows = allRows.slice(0, maxRows);
+
+    for (const row of rows) {
+      newTbody.append(row.cloneNode(true));
+    }
+
+    const truncatedCount = allRows.length - maxRows;
+
+    if (truncatedCount > 0) {
+      const tr = document.createElement("tr");
+
+      tr.className = "table-truncated-row";
+
+      const td = document.createElement("td");
+
+      const maxCols = Math.max(
+        ...allRows.map((row) => row.querySelectorAll("td, th").length),
+        1
+      );
+
+      td.setAttribute("colspan", maxCols.toString());
+      td.textContent = `...и ещё ${truncatedCount} строк`;
+      tr.append(td);
+      newTbody.append(tr);
+    }
+
+    newTable.append(newTbody);
+  } else {
+    const newTbody = document.createElement("tbody");
+
+    const allRows = [...table.querySelectorAll("tr")].filter(
+      (row) => !row.parentElement || row.parentElement.tagName.toLowerCase() !== "thead"
+    );
+
+    const rows = allRows.slice(0, maxRows);
+
+    for (const row of rows) {
+      newTbody.append(row.cloneNode(true));
+    }
+
+    const truncatedCount = allRows.length - maxRows;
+
+    if (truncatedCount > 0) {
+      const tr = document.createElement("tr");
+
+      tr.className = "table-truncated-row";
+
+      const td = document.createElement("td");
+
+      const maxCols = Math.max(
+        ...allRows.map((row) => row.querySelectorAll("td, th").length),
+        1
+      );
+
+      td.setAttribute("colspan", maxCols.toString());
+      td.textContent = `...и ещё ${truncatedCount} строк`;
+      tr.append(td);
+      newTbody.append(tr);
+    }
+
+    newTable.append(newTbody);
+  }
+
+  return newTable.outerHTML;
+};
+
 const getFirstCleanParagraphOrElement = (root: Element): string => {
   const firstParagraph = root.querySelector("details > p, details > div > p");
 
@@ -447,6 +549,10 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   const firstElement = root.firstElementChild;
 
   if (firstElement) {
+    if (firstElement.tagName.toLowerCase() === "table") {
+      return getTruncatedTable(firstElement as HTMLTableElement);
+    }
+
     const cleanedElement = firstElement.cloneNode(true) as Element;
 
     removeFigureContainers(cleanedElement);
@@ -534,7 +640,7 @@ const pickTableOrFallback = (
       }
     }
 
-    return tables[0].outerHTML;
+    return getTruncatedTable(tables[0]);
   }
 
   return getFirstCleanParagraphOrElement(root);
@@ -621,7 +727,24 @@ export const extractSearchWords = (query: string): string[] => [
 ];
 
 export const isKeyCombinationSearch = (text: string): boolean => {
-  return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
+  const lowerText = text.toLowerCase();
+
+  if (lowerText.includes("+")) {
+    return KEY_MODIFIERS.some((modifier) => lowerText.includes(modifier));
+  }
+
+  const words = lowerText.split(/\s+/).filter(Boolean);
+
+  if (
+    words.length > 0 &&
+    words.every(
+      (word) => (KEY_MODIFIERS as readonly string[]).includes(word) || word.length <= 2
+    )
+  ) {
+    return KEY_MODIFIERS.some((modifier) => lowerText.includes(modifier));
+  }
+
+  return false;
 };
 
 export const normalizeKeyCombination = (text: string): string => {
