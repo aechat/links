@@ -25,27 +25,12 @@ yarn dev
 
 ## Документация
 
-- [`editor-setup.md`](docs/editor-setup.md) — рекомендации по редакторам, плагинам и запуску проекта.
-- [`coding-rules.md`](docs/coding-rules.md) — технический код-стайл и структура файлов.
-- [`commit-messages.md`](docs/commit-messages.md) — формат коммитов и правила сообщений.
-- [`articles.md`](docs/articles.md) — устройство разделов и статей, подключение новых секций.
-- [`project-structure.md`](docs/project-structure.md) — обзор структуры проекта.
-- [`content-components.md`](docs/content/feature-components-rules.md) — обзор контентных компонентов и быстрый старт секции.
-- [`details-summary.md`](docs/content/details-summary-rules.md) — `DetailsSummary`, `anchor`, `tag` и ссылки.
-- [`faq-article-quality.md`](docs/content/article-quality-guide.md) — критерии качества FAQ-ответа.
-- [`faq-question-structure.md`](docs/content/article-question-guide.md) — правила для `anchor`, `title`, `tag`.
-- [`faq-answer-structure.md`](docs/content/article-answer-guide.md) — порядок подачи решения и структура ответа.
-- [`faq-reuse-and-checklist.md`](docs/content/article-reuse-guide.md) — переиспользование контента и финальный чеклист.
-- [`article-content.md`](docs/content/article-container-rules.md) — корневой контейнер контента.
-- [`paragraphs.md`](docs/content/paragraphs-rules.md) — правила для абзацев `p`.
-- [`lists.md`](docs/content/lists-rules.md) — правила для списков `ul/ol/li`.
-- [`addition.md`](docs/content/addition-rules.md) — правила для `Addition`.
-- [`divider.md`](docs/content/divider-rules.md) — правила для `Divider`.
-- [`tables.md`](docs/content/tables-rules.md) — когда и как использовать таблицы.
-- [`article-media.md`](docs/content/article-media-rules.md) — правила для `ArticleMedia`.
-- [`code-snippet.md`](docs/content/code-snippet-rules.md) — правила для `CodeSnippet`.
-- [`content-filter.md`](docs/content/content-filter-rules.md) — правила для `ContentFilter`.
-- [`nested-details.md`](docs/content/nested-details-rules.md) — правила для `NestedDetailsSummary`.
-- [`flexible-links.md`](docs/content/flexible-links-rules.md) — паттерн групп ссылок `.flexible-links`.
-- [`mark-and-icons.md`](docs/content/mark-and-icons-rules.md) — семантические классы `mark`.
-- [`tone-and-style.md`](docs/content/tone-and-style-guide.md) — тон и стиль текстов FAQ.
+Вся справочная информация проекта разделена по ключевым направлениям и представлена в виде подробных руководств.
+
+Рекомендации по настройке текстовых редакторов, установке необходимых плагинов и первому запуску проекта собраны в файле [editor-setup.md](docs/editor-setup.md). Технический код-стайл, правила оформления React-компонентов и структура файлов описываются в руководстве [coding-rules.md](docs/coding-rules.md). Требования к оформлению сообщений и разметке веток содержатся в файле [commit-messages.md](docs/commit-messages.md).
+
+Общие правила добавления новых разделов и подключения секций статей изложены в файле [articles.md](docs/articles.md), а общее архитектурное устройство каталогов проекта раскрывается в руководстве [project-structure.md](docs/project-structure.md).
+
+Разметка и правила использования контентных компонентов в статьях, таких как спойлеры и предупреждения, подробно описаны в руководстве [components-content.md](docs/components-content.md). Сложные интерактивные модули, включая поисковый движок и конвертеры файлов, документированы в файле [components-features.md](docs/components-features.md). Описание элементов макета и UI-компонентов приложения собрано в руководстве [components-ui-layout.md](docs/components-ui-layout.md).
+
+Требования к форматированию текста, верстке абзацев, таблиц и списков содержатся в файле [content-formatting.md](docs/content-formatting.md), а общие стилистические правила, стандарты качества ответов и профиль авторского стиля описываются в руководстве [content-style-guide.md](docs/content-style-guide.md). Сервисные скрипты и вспомогательные утилиты обслуживания проекта задокументированы в файле [scripts.md](docs/scripts.md).
