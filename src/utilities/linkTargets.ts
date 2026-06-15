@@ -150,7 +150,7 @@ const fileKinds: Record<string, string> = {
 };
 
 const getArticleTitle = (summary: Element): string => {
-  const title = summary.querySelector("h2")?.textContent || "без названия";
+  const title = summary.querySelector("h2, h3")?.textContent || "без названия";
 
   return title.replace(/^\d+\.\d+\.\s*/, "");
 };
