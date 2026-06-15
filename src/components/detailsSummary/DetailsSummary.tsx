@@ -387,6 +387,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     if (isOpen) {
       details.open = true;
 
+      if (!justOpened) {
+        resizeObserver.observe(innerContent);
+        updateDynamicStyles();
+      }
+
       openAnimationFrame = requestAnimationFrame(() => {
         const scrollHeight = innerContent.scrollHeight;
 
