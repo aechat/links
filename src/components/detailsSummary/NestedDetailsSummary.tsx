@@ -340,7 +340,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
-      const {id} = (event as CustomEvent<{id: string}>).detail;
+      const {id, skipScroll} = (
+        event as CustomEvent<{
+          id: string;
+          skipScroll?: boolean;
+        }>
+      ).detail;
 
       const summaryElement = detailsReference.current?.querySelector(
         `.${styles["details-nested-summary"]}`
@@ -353,10 +358,15 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
       if (summaryElement && resolvedSummaryId === id) {
         if (isOpenReference.current) {
-          shouldDelayNextScrollReference.current = true;
-          scrollToSummary();
+          if (!skipScroll) {
+            shouldDelayNextScrollReference.current = true;
+            scrollToSummary();
+          }
         } else {
-          shouldScrollAfterOpenReference.current = true;
+          if (!skipScroll) {
+            shouldScrollAfterOpenReference.current = true;
+          }
+
           shouldDelayNextScrollReference.current = true;
           isOpenReference.current = true;
           setIsOpen(true);

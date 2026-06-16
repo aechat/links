@@ -163,7 +163,7 @@ const getCompactSnippetScore = (
 };
 
 const getSummaryTitle = (summary: Element): string => {
-  const titleElement = summary.querySelector("h2");
+  const titleElement = summary.querySelector("h2, h3");
 
   const summaryId = summary.getAttribute("id")?.trim() ?? "";
 
@@ -237,6 +237,157 @@ type SearchWorkerResponse = {
   type: "results";
 };
 
+const processSingleDetail = (
+  detail: HTMLDetailsElement,
+  sourceOrder: number,
+  dependencies: {
+    decodeHtmlEntities: (text: string) => string;
+    normalizeKeyCombination: (text: string) => string;
+    normalizeText: (text: string) => string;
+    stripHtml: (html: string) => string;
+    getTopLevelAdditionContainer: typeof getTopLevelAdditionContainer;
+    additionContainerSelector: string;
+  }
+): BaseSearchResult | undefined => {
+  if (isPlaceholderOnlyDetail(detail)) {
+    return;
+  }
+
+  const summary = detail.querySelector(":scope > summary");
+
+  if (!summary) {
+    return;
+  }
+
+  const id = summary.getAttribute("id");
+
+  if (!id) {
+    return;
+  }
+
+  const parentDetails = detail.parentElement?.closest("details");
+
+  let title = getSummaryTitle(summary);
+
+  if (parentDetails) {
+    const parentSummary = parentDetails.querySelector(":scope > summary");
+
+    if (parentSummary) {
+      const parentTitle = getSummaryTitle(parentSummary);
+
+      title = `${parentTitle} → ${title}`;
+    }
+  }
+
+  const detailClone = detail.cloneNode(true) as HTMLElement;
+
+  const nestedDetails = detailClone.querySelectorAll("details");
+
+  for (const nested of nestedDetails) {
+    nested.remove();
+  }
+
+  const tag = detail.dataset.tags?.trim() ?? "";
+
+  const anchor = detail.dataset.anchor;
+
+  const dividerTexts = collectDividerTexts(detailClone);
+
+  const flexibleLinksTexts = collectFlexibleLinksTexts(detailClone);
+
+  const additionsContent = buildAdditionsHtml(
+    detailClone,
+    dependencies.additionContainerSelector
+  );
+
+  const linkHrefs = collectLinkHrefs(detailClone);
+
+  const content = buildParagraphsHtml(detailClone);
+
+  const tableContent = buildTableGroupsHtml(detailClone, [], {
+    decodeHtmlEntities: dependencies.decodeHtmlEntities,
+    normalizeKeyCombination: dependencies.normalizeKeyCombination,
+  });
+
+  const listContent = buildListContentHtml(detailClone, [], {
+    additionContainerSelector: dependencies.additionContainerSelector,
+    getTopLevelAdditionContainer: dependencies.getTopLevelAdditionContainer,
+    normalizeText: dependencies.normalizeText,
+    stripHtml: dependencies.stripHtml,
+  });
+
+  const text = [
+    content,
+    additionsContent,
+    tableContent,
+    listContent,
+    ...dividerTexts,
+    ...flexibleLinksTexts,
+  ].join("\n");
+
+  const trimmedText = text.trim();
+
+  if (!title && !trimmedText) {
+    return;
+  }
+
+  const contentText = dependencies.stripHtml(trimmedText);
+
+  const entityText = [extractEntityTextFromContent(trimmedText), ...linkHrefs]
+    .join(" ")
+    .trim();
+
+  const normalizedTitle = dependencies.normalizeText(title);
+
+  const normalizedTag = dependencies.normalizeText(tag);
+
+  const normalizedContent = dependencies.normalizeText(contentText);
+
+  const normalizedEntityText = dependencies.normalizeText(entityText);
+
+  const searchIndexes = {
+    content: buildSearchIndex(normalizedContent),
+    entity: buildSearchIndex(normalizedEntityText),
+    tag: buildSearchIndex(normalizedTag),
+    tagScoring: buildSearchIndex(getTagScoringText(normalizedTag)),
+    title: buildSearchIndex(normalizedTitle),
+  };
+
+  const lineSearchIndexes = trimmedText
+    .split("\n")
+    .map((line) => dependencies.stripHtml(line))
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => buildSearchIndex(line));
+
+  return {
+    anchor,
+    content: trimmedText,
+    contentText,
+    entityText,
+    fieldIndexes: [
+      searchIndexes.title,
+      searchIndexes.tag,
+      searchIndexes.entity,
+      searchIndexes.content,
+    ],
+    id,
+    lineSearchIndexes,
+    normalizedContent,
+    normalizedEntityText,
+    normalizedKeyFields: [title, tag, entityText, contentText].map((field) =>
+      dependencies.normalizeKeyCombination(field)
+    ),
+    normalizedTag,
+    normalizedTitle,
+    searchIndexes,
+    sourceOrder,
+    tag,
+    tagTokenCount: normalizedTag.split(" ").filter(Boolean).length,
+    title,
+  };
+};
+
 export const useSearchLogic = (
   query: string,
   isPageLoaded: boolean,
@@ -265,127 +416,25 @@ export const useSearchLogic = (
       return [];
     }
 
-    const cachedDetails = [...document.querySelectorAll("details")].filter((detail) => {
-      return !detail.parentElement?.closest("details");
-    });
+    const cachedDetails = [...document.querySelectorAll<HTMLDetailsElement>("details")];
 
     const data: BaseSearchResult[] = [];
 
+    const dependencies = {
+      additionContainerSelector: ADDITION_CONTAINER_SELECTOR,
+      decodeHtmlEntities,
+      getTopLevelAdditionContainer,
+      normalizeKeyCombination,
+      normalizeText,
+      stripHtml,
+    };
+
     for (const [sourceOrder, detail] of cachedDetails.entries()) {
-      if (isPlaceholderOnlyDetail(detail)) {
-        continue;
+      const processed = processSingleDetail(detail, sourceOrder, dependencies);
+
+      if (processed) {
+        data.push(processed);
       }
-
-      const summary = detail.querySelector(":scope > summary");
-
-      if (!summary) {
-        continue;
-      }
-
-      const id = summary.getAttribute("id");
-
-      if (!id) {
-        continue;
-      }
-
-      const title = getSummaryTitle(summary);
-
-      const tag = detail.dataset.tags?.trim() ?? "";
-
-      const anchor = detail.dataset.anchor;
-
-      const dividerTexts = collectDividerTexts(detail);
-
-      const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
-
-      const additionsContent = buildAdditionsHtml(detail, ADDITION_CONTAINER_SELECTOR);
-
-      const linkHrefs = collectLinkHrefs(detail);
-
-      const content = buildParagraphsHtml(detail);
-
-      const tableContent = buildTableGroupsHtml(detail, [], {
-        decodeHtmlEntities,
-        normalizeKeyCombination,
-      });
-
-      const listContent = buildListContentHtml(detail, [], {
-        additionContainerSelector: ADDITION_CONTAINER_SELECTOR,
-        getTopLevelAdditionContainer,
-        normalizeText,
-        stripHtml,
-      });
-
-      const text = [
-        content,
-        additionsContent,
-        tableContent,
-        listContent,
-        ...dividerTexts,
-        ...flexibleLinksTexts,
-      ].join("\n");
-
-      const trimmedText = text.trim();
-
-      if (!title && !trimmedText) {
-        continue;
-      }
-
-      const contentText = stripHtml(trimmedText);
-
-      const entityText = [extractEntityTextFromContent(trimmedText), ...linkHrefs]
-        .join(" ")
-        .trim();
-
-      const normalizedTitle = normalizeText(title);
-
-      const normalizedTag = normalizeText(tag);
-
-      const normalizedContent = normalizeText(contentText);
-
-      const normalizedEntityText = normalizeText(entityText);
-
-      const searchIndexes = {
-        content: buildSearchIndex(normalizedContent),
-        entity: buildSearchIndex(normalizedEntityText),
-        tag: buildSearchIndex(normalizedTag),
-        tagScoring: buildSearchIndex(getTagScoringText(normalizedTag)),
-        title: buildSearchIndex(normalizedTitle),
-      };
-
-      const lineSearchIndexes = trimmedText
-        .split("\n")
-        .map((line) => stripHtml(line))
-        .map((line) => line.trim())
-        .filter(Boolean)
-        .map((line) => buildSearchIndex(line));
-
-      data.push({
-        anchor,
-        content: trimmedText,
-        contentText,
-        entityText,
-        fieldIndexes: [
-          searchIndexes.title,
-          searchIndexes.tag,
-          searchIndexes.entity,
-          searchIndexes.content,
-        ],
-        id,
-        lineSearchIndexes,
-        normalizedContent,
-        normalizedEntityText,
-        normalizedKeyFields: [title, tag, entityText, contentText].map((field) =>
-          normalizeKeyCombination(field)
-        ),
-        normalizedTag,
-        normalizedTitle,
-        searchIndexes,
-        sourceOrder,
-        tag,
-        tagTokenCount: normalizedTag.split(" ").filter(Boolean).length,
-        title,
-      });
     }
 
     return data;

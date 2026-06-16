@@ -477,6 +477,61 @@ const scrollSelectedResultIntoViewRuntime = ({
   globalThis.requestAnimationFrame(verifyAndFallback);
 };
 
+const openDetailsChain = (
+  resolvedDetails: HTMLDetailsElement,
+  closeModal: () => void
+): boolean => {
+  const summaryElement = resolvedDetails.querySelector("summary");
+
+  if (!(summaryElement instanceof HTMLElement) || !summaryElement.id) {
+    return false;
+  }
+
+  const detailsChain: HTMLDetailsElement[] = [];
+
+  let current: HTMLElement | undefined = resolvedDetails;
+
+  while (current) {
+    if (current instanceof HTMLDetailsElement) {
+      detailsChain.unshift(current);
+    }
+
+    current = current.parentElement?.closest<HTMLDetailsElement>("details") ?? undefined;
+  }
+
+  const isAlreadyOpen = detailsChain.every((details) => details.hasAttribute("open"));
+
+  const delayStep = isAlreadyOpen ? 0 : 400;
+
+  globalThis.setTimeout(closeModal, 0);
+
+  for (const [index, details] of detailsChain.entries()) {
+    const currentSummary = details.querySelector("summary");
+
+    if (!(currentSummary instanceof HTMLElement) || !currentSummary.id) {
+      continue;
+    }
+
+    if (!details.hasAttribute("open")) {
+      details.setAttribute("open", "true");
+    }
+
+    const isLast = index === detailsChain.length - 1;
+
+    const delay = index * delayStep;
+
+    globalThis.setTimeout(() => {
+      globalThis.dispatchEvent(
+        new CustomEvent("open-spoiler-by-id", {
+          detail: {id: currentSummary.id, skipScroll: !isLast},
+        })
+      );
+    }, delay);
+  }
+
+  return true;
+};
+
 const openSearchAnchorRuntime = ({
   anchorValue,
   closeModal,
@@ -486,26 +541,7 @@ const openSearchAnchorRuntime = ({
 }): void => {
   const resolvedDetails = resolveDetailsByAnchor(anchorValue);
 
-  if (resolvedDetails) {
-    const summaryElement = resolvedDetails.querySelector("summary");
-
-    if (!(summaryElement instanceof HTMLElement) || !summaryElement.id) {
-      return;
-    }
-
-    if (!resolvedDetails.hasAttribute("open")) {
-      resolvedDetails.setAttribute("open", "true");
-    }
-
-    scrollToElement(summaryElement);
-
-    const event = new CustomEvent("open-spoiler-by-id", {
-      detail: {id: summaryElement.id},
-    });
-
-    globalThis.dispatchEvent(event);
-    globalThis.setTimeout(closeModal, 0);
-
+  if (resolvedDetails && openDetailsChain(resolvedDetails, closeModal)) {
     return;
   }
 
