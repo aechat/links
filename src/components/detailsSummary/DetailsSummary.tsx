@@ -46,7 +46,11 @@ import {
   processNestedSummaries,
 } from "./detailsSummaryUtilities";
 
-import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
+import {
+  DetailsSummaryContext,
+  ParentAnchorContext,
+  SpoilerContext,
+} from "./spoilerContexts";
 
 interface DetailsSummaryProperties {
   anchor: string;
@@ -382,6 +386,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (isOpen) {
       details.open = true;
+
+      if (!justOpened) {
+        resizeObserver.observe(innerContent);
+        updateDynamicStyles();
+      }
 
       openAnimationFrame = requestAnimationFrame(() => {
         const scrollHeight = innerContent.scrollHeight;
@@ -797,24 +806,26 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           <div className={styles["details-content-inner"]}>
             <SpoilerContext.Provider value={isOpen}>
               <DetailsSummaryContext.Provider value={true}>
-                <section
-                  ref={sectionReference}
-                  className={`${styles["details-section"]} details-nested-section`}
-                  {...sectionLongPressProperties}
-                >
-                  {React.Children.count(children) === 0 ? (
-                    <div className="article-placeholder">
-                      <p>
-                        Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
-                        написал такую дичь, что пришлось всё скрыть и отправить на
-                        переделку.
-                      </p>
-                      <p>Следите за обновлениями.</p>
-                    </div>
-                  ) : (
-                    children
-                  )}
-                </section>
+                <ParentAnchorContext.Provider value={normalizeAnchor(anchor)}>
+                  <section
+                    ref={sectionReference}
+                    className={`${styles["details-section"]} details-nested-section`}
+                    {...sectionLongPressProperties}
+                  >
+                    {React.Children.count(children) === 0 ? (
+                      <div className="article-placeholder">
+                        <p>
+                          Эта статья пока пустая: либо я ещё не дошёл до её написания,
+                          либо написал такую дичь, что пришлось всё скрыть и отправить на
+                          переделку.
+                        </p>
+                        <p>Следите за обновлениями.</p>
+                      </div>
+                    ) : (
+                      children
+                    )}
+                  </section>
+                </ParentAnchorContext.Provider>
               </DetailsSummaryContext.Provider>
             </SpoilerContext.Provider>
           </div>
