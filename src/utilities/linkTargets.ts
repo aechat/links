@@ -46,9 +46,9 @@ const pageTitles: Record<string, string> = {
   "/aefaq": "aefaq",
   "/prfaq": "prfaq",
   "/psfaq": "psfaq",
-  "/reg": "reg",
-  "/regfile": "reg",
-  "/rules": "rules",
+  "/reg": "Активация debug-режима для CEP-расширений",
+  "/regfile": "Активация debug-режима для CEP-расширений",
+  "/rules": "Правила чатов AEChat и DWChat",
 };
 
 const fileMarkClasses: Record<string, string> = {
