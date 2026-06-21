@@ -344,7 +344,7 @@ const AeFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="basic-layer-types"
+        anchor="layer"
         tag="слои, базовые слои, adjustment layer, image sequence, null object, shape layer, solid layer, text layer, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слой фигура, текст, 3d, слои, трёхмерные слои, 3d layer, 3d object, camera, light, источник света, камера, трёхмерные модели, cineware, effect, blending mode, layer style, marker, эффект, режим наложения, стиль слоя, маркер"
         title="Что такое слои и как с ними работать?"
       >
@@ -436,7 +436,10 @@ const AeFromNewbies: React.FC = () => {
               <mark className="select">«File» → «Import»</mark> или комбинацию клавиш{" "}
               <mark className="key">Ctrl + I</mark>.
             </p>
-            <NestedDetailsSummary title="Видео">
+            <NestedDetailsSummary
+              anchor="video"
+              title="Видео"
+            >
               <p>
                 <mark className="select">«Video»</mark> — слой, содержащий футаж с
                 видеодорожкой в формате <mark className="video">MP4</mark>,{" "}
@@ -472,7 +475,10 @@ const AeFromNewbies: React.FC = () => {
                 «как есть».
               </p>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Аудио">
+            <NestedDetailsSummary
+              anchor="audio"
+              title="Аудио"
+            >
               <p>
                 <mark className="select">«Audio»</mark> — слой, содержащий только
                 аудиодорожку. Для изменения громкости используется параметр{" "}
@@ -499,7 +505,10 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Статичное изображение">
+            <NestedDetailsSummary
+              anchor="still"
+              title="Статичное изображение"
+            >
               <p>
                 <mark className="select">«Still»</mark> — слой, содержащее растровое или
                 векторное
@@ -596,7 +605,10 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Секвенция изображений">
+            <NestedDetailsSummary
+              anchor="image-sequence"
+              title="Секвенция изображений"
+            >
               <p>
                 <mark className="select">«Image Sequence»</mark> — стопка кадров из
                 изображений поддерживаемых форматов, импортируемая как покадровое видео
@@ -646,7 +658,10 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Файлы Photoshop">
+            <NestedDetailsSummary
+              anchor="photoshop"
+              title="Файлы Photoshop"
+            >
               <p>
                 <mark className="file">PSD</mark> — файлы изображений, создаваемые и
                 редактируемые в <mark className="app">Adobe Photoshop</mark>.{" "}
@@ -683,7 +698,10 @@ const AeFromNewbies: React.FC = () => {
               <mark className="select">«Null Object»</mark> и{" "}
               <mark className="select">«Adjustment Layer»</mark>.
             </p>
-            <NestedDetailsSummary title="Камера">
+            <NestedDetailsSummary
+              anchor="camera"
+              title="Камера"
+            >
               <p>
                 <mark className="select">«Camera»</mark> — слой, который служит
                 виртуальным объективом для вашей сцены, определяя ракурс, глубину резкости
@@ -977,7 +995,10 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Источник освещения">
+            <NestedDetailsSummary
+              anchor="light"
+              title="Источник освещения"
+            >
               <p>
                 <mark className="select">«Light Layer»</mark> — слой, который используется
                 для создания света в композиции и влияет на трёхмерные объекты. Он
@@ -1108,7 +1129,10 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Корректирующий слой">
+            <NestedDetailsSummary
+              anchor="adjustment"
+              title="Корректирующий слой"
+            >
               <p>
                 <mark className="select">«Adjustment Layer»</mark> — довольно мощный
                 инструмент. С его помощью можно выполнить цветокоррекцию, добавить
@@ -1140,7 +1164,10 @@ const AeFromNewbies: React.FC = () => {
                 type="video"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Нулевой объект">
+            <NestedDetailsSummary
+              anchor="null"
+              title="Нулевой объект"
+            >
               <p>
                 <mark className="select">«Null Object»</mark> — невидимый манипулятор для
                 объектов, слоёв или параметров эффекта. Он часто применяется для создания
@@ -1177,7 +1204,10 @@ const AeFromNewbies: React.FC = () => {
               <mark className="select">«Shape Layer»</mark> и{" "}
               <mark className="select">«Solid Layer»</mark>.
             </p>
-            <NestedDetailsSummary title="Слой-фигура">
+            <NestedDetailsSummary
+              anchor="shape"
+              title="Слой-фигура"
+            >
               <p>
                 <mark className="select">«Shape Layer»</mark> — слой, содержащий
                 какую-либо форму. Фигуры могут быть разных типов:{" "}
@@ -1277,7 +1307,10 @@ w = content(shapeName).content(pathName).size[0];
 h = content(shapeName).content(pathName).size[1];
 [w/-2, h/2] // изменение размера фигуры от левого нижнего угла`}</CodeSnippet>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Текстовый слой">
+            <NestedDetailsSummary
+              anchor="text"
+              title="Текстовый слой"
+            >
               <p>
                 <mark className="select">«Text Layer»</mark> — это слой с редактируемым
                 текстом. У него есть два типа:{" "}
@@ -1363,7 +1396,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Сплошная заливка">
+            <NestedDetailsSummary
+              anchor="solid"
+              title="Сплошная заливка"
+            >
               <p>
                 <mark className="select">«Solid Layer»</mark> — объект с однотонным
                 цветом, обычно соответствующий размерам композиции. Он часто используется
@@ -1428,7 +1464,10 @@ h = content(shapeName).content(pathName).size[1];
               <mark className="app">Adobe After Effects</mark> используйте сторонние
               плагины, например <mark className="plugin">Element 3D</mark>.
             </Addition>
-            <NestedDetailsSummary title="Трёхмерный слой">
+            <NestedDetailsSummary
+              anchor="3d"
+              title="Трёхмерный слой"
+            >
               <p>
                 <mark className="select">«3D Layer»</mark> — это двумерный слой, который
                 может перемещаться и вращаться в трёхмерном пространстве. Он
@@ -1460,7 +1499,10 @@ h = content(shapeName).content(pathName).size[1];
                 от друга.
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Трёхмерные модели">
+            <NestedDetailsSummary
+              anchor="3d-object"
+              title="Трёхмерные модели"
+            >
               <p>
                 <mark className="select">«3D Object»</mark> — объёмные модели форматов{" "}
                 <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
@@ -1486,7 +1528,10 @@ h = content(shapeName).content(pathName).size[1];
                 <mark className="file">E3D</mark>.
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Файлы Maxon Cinema 4D">
+            <NestedDetailsSummary
+              anchor="cinema-4d"
+              title="Файлы Maxon Cinema 4D"
+            >
               <p>
                 В <mark className="app">Adobe After Effects</mark> можно импортировать
                 проекты формата <mark className="file">C4D</mark>, созданные в{" "}
@@ -1514,7 +1559,10 @@ h = content(shapeName).content(pathName).size[1];
               Слои <mark className="select">«композиций»</mark> и{" "}
               <mark className="select">«прекомпозиций»</mark>.
             </p>
-            <NestedDetailsSummary title="Композиция">
+            <NestedDetailsSummary
+              anchor="composition"
+              title="Композиция"
+            >
               <p>
                 <mark className="select">«Composition»</mark> — это ваш рабочий холст, а
                 также своего рода контейнер, в котором вы можете расположить свои слои.
@@ -1757,7 +1805,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="video"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Предварительная композиция">
+            <NestedDetailsSummary
+              anchor="precompose"
+              title="Предварительная композиция"
+            >
               <p>
                 <mark className="select">«Pre-comp»</mark> — это дочерняя композиция,
                 которая создаётся на основе выделенных слоёв родительской композиции.
@@ -1844,7 +1895,10 @@ h = content(shapeName).content(pathName).size[1];
               На сами слои можно применять эффекты, добавлять маркеры, использовать маски
               и многое другое.
             </p>
-            <NestedDetailsSummary title="Parent & Link">
+            <NestedDetailsSummary
+              anchor="parent-link"
+              title="Parent & Link"
+            >
               <p>
                 <mark className="select">«Parent & Link»</mark> связывает слои в иерархию
                 «родитель и ребёнок». Дочерний объект наследует положение, масштаб и
@@ -1871,7 +1925,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Маски и «Track Matte»">
+            <NestedDetailsSummary
+              anchor="masks"
+              title="Маски и «Track Matte»"
+            >
               <p>
                 <mark className="select">«Mask»</mark> — область, в которой слой будет
                 виден или не виден, в зависимости от типа маски и её настроек. Её часто
@@ -1997,7 +2054,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Слой направляющей">
+            <NestedDetailsSummary
+              anchor="guide"
+              title="Слой направляющей"
+            >
               <p>
                 <mark className="select">«Guide Layer»</mark> — атрибут, который
                 превращает слой в своего рода «комментарий»: он виден в окне
@@ -2030,7 +2090,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Скрытые слои">
+            <NestedDetailsSummary
+              anchor="shy"
+              title="Скрытые слои"
+            >
               <p>
                 <mark className="select">«Shy Layer»</mark> — атрибут, который задаётся
                 слою, если его нужно скрыть из таймлайна. При этом сам слой из композиции
@@ -2043,7 +2106,10 @@ h = content(shapeName).content(pathName).size[1];
                 type="youtube"
               />
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Режимы наложения">
+            <NestedDetailsSummary
+              anchor="blending-modes"
+              title="Режимы наложения"
+            >
               <p>
                 <mark className="select">«Blending Modes»</mark> — режимы наложения,
                 определяющие, как слой взаимодействует со слоями ниже по иерархии. С их
@@ -2670,7 +2736,10 @@ h = content(shapeName).content(pathName).size[1];
                 </li>
               </ul>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Маркеры">
+            <NestedDetailsSummary
+              anchor="markers"
+              title="Маркеры"
+            >
               <p>
                 <mark className="select">«Markers»</mark> — это метки с возможностью
                 добавления комментария, которые можно ставить на слой или на таймлайн
