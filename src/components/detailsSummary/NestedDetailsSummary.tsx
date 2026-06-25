@@ -32,6 +32,8 @@ import {
   throwDuplicateAnchorError,
 } from "./anchorUtilities";
 
+import {DETAILS_SUMMARY_DELAYS} from "./detailsSummaryUtilities";
+
 import styles from "./NestedDetailsSummary.module.scss";
 
 import {
@@ -48,11 +50,6 @@ interface NestedDetailsSummaryProperties {
   startOpen?: boolean;
   title: string;
 }
-
-const constants = {
-  ACTION_DELAY: 150,
-  MOUSE_ENTER_DELAY: 750,
-} as const;
 
 const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   anchor,
@@ -266,7 +263,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       const shouldDelay =
         shouldDelayClickScrollReference.current || shouldDelayNextScrollReference.current;
 
-      const delay = shouldDelay ? constants.ACTION_DELAY : 0;
+      const delay = shouldDelay ? DETAILS_SUMMARY_DELAYS.ACTION_DELAY : 0;
 
       shouldDelayNextScrollReference.current = false;
       shouldDelayClickScrollReference.current = false;
@@ -382,9 +379,13 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
+    let leaveTimeoutId: ReturnType<typeof setTimeout>;
+
     const nestedContentElement = innerContentReference.current;
 
     const handleMouseEnter = () => {
+      clearTimeout(leaveTimeoutId);
+
       timeoutId = setTimeout(() => {
         if (!isOpenReference.current) {
           return;
@@ -410,11 +411,46 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         if (getCurrentHashAnchor() !== anchorToSet) {
           updateUrlHash(`#${anchorToSet}`);
         }
-      }, constants.MOUSE_ENTER_DELAY);
+      }, DETAILS_SUMMARY_DELAYS.HOVER_DELAY);
     };
 
     const handleMouseLeave = () => {
       clearTimeout(timeoutId);
+
+      leaveTimeoutId = setTimeout(() => {
+        const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
+
+        const parentAnchor = parentTextualAnchor || parentSummaryId;
+
+        const nestedDetails = detailsReference.current;
+
+        const parentDetails = nestedDetails?.parentElement?.closest(
+          'details:not([data-nested-details-summary="true"])'
+        );
+
+        if (
+          parentAnchor &&
+          parentDetails instanceof HTMLDetailsElement &&
+          parentDetails.matches(":hover")
+        ) {
+          const summaryElement = detailsReference.current?.querySelector(
+            `.${styles["details-nested-summary"]}`
+          );
+
+          const summaryId =
+            summaryElement instanceof HTMLElement
+              ? summaryElement.id || assignFallbackSummaryId(summaryElement)
+              : "";
+
+          const resolvedAnchor = getEffectiveAnchor();
+
+          const activeAnchor = resolvedAnchor || summaryId;
+
+          if (getCurrentHashAnchor() === activeAnchor) {
+            updateUrlHash(`#${parentAnchor}`);
+          }
+        }
+      }, DETAILS_SUMMARY_DELAYS.HOVER_DELAY);
     };
 
     if (nestedContentElement) {
@@ -429,8 +465,9 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       }
 
       clearTimeout(timeoutId);
+      clearTimeout(leaveTimeoutId);
     };
-  }, [assignFallbackSummaryId, getEffectiveAnchor, updateUrlHash]);
+  }, [assignFallbackSummaryId, getEffectiveAnchor, getParentAnchorData, updateUrlHash]);
 
   useEffect(() => {
     const details = detailsReference.current;

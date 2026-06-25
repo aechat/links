@@ -27,6 +27,7 @@ import {CopyButton} from "../ui/CopyButton";
 
 import {
   copyAnchorLink,
+  isElementHiddenByFilter,
   isFirstAnchorOccurrence,
   normalizeAnchor,
   replaceUrlHash,
@@ -77,6 +78,10 @@ const processAnchorTask = (task: AnchorTask, currentHash: string) => {
 
   const detailsElement = summary.closest("details");
 
+  if (detailsElement instanceof HTMLElement && isElementHiddenByFilter(detailsElement)) {
+    return;
+  }
+
   const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
 
   const isTextualAnchorUsable =
@@ -89,7 +94,10 @@ const processAnchorTask = (task: AnchorTask, currentHash: string) => {
     (summaryId === currentHash ||
       (isTextualAnchorUsable && textualAnchor === currentHash))
   ) {
-    dispatchOpenSpoilerById(summaryId);
+    const isAlreadyOpen =
+      detailsElement instanceof HTMLDetailsElement && detailsElement.open;
+
+    dispatchOpenSpoilerById(summaryId, {skipScroll: isAlreadyOpen});
   }
 
   if (detailsElement instanceof HTMLDetailsElement) {
@@ -607,7 +615,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         ) {
           replaceCurrentUrlHash(`#${anchorForHash}`);
         }
-      }, DETAILS_SUMMARY_DELAYS.MOUSE_ENTER_DELAY);
+      }, DETAILS_SUMMARY_DELAYS.HOVER_DELAY);
     };
 
     const handleMouseLeave = () => {

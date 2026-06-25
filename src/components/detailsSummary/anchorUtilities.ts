@@ -10,6 +10,16 @@ let lastCacheTime = 0;
 
 const cachedFirstOccurrences = new Map<string, HTMLDetailsElement>();
 
+export const isElementHiddenByFilter = (element: HTMLElement): boolean => {
+  const filterContainer = element.closest<HTMLElement>('[class*="change-os-content"]');
+
+  if (filterContainer) {
+    return filterContainer.style.display === "none";
+  }
+
+  return false;
+};
+
 export const isFirstAnchorOccurrence = (
   detailsElement: HTMLDetailsElement,
   textualAnchor: string
@@ -31,6 +41,10 @@ export const isFirstAnchorOccurrence = (
     for (const element of elements) {
       const normalizedElementAnchor = normalizeAnchor(element.dataset.anchor);
 
+      if (isElementHiddenByFilter(element)) {
+        continue;
+      }
+
       if (
         normalizedElementAnchor &&
         !cachedFirstOccurrences.has(normalizedElementAnchor)
@@ -40,6 +54,10 @@ export const isFirstAnchorOccurrence = (
     }
 
     lastCacheTime = now;
+  }
+
+  if (isElementHiddenByFilter(detailsElement)) {
+    return true;
   }
 
   return cachedFirstOccurrences.get(normalizedTextualAnchor) === detailsElement;

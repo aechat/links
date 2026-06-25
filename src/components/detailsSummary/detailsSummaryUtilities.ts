@@ -1,10 +1,14 @@
-import {isFirstAnchorOccurrence, normalizeAnchor} from "./anchorUtilities";
+import {
+  isElementHiddenByFilter,
+  isFirstAnchorOccurrence,
+  normalizeAnchor,
+} from "./anchorUtilities";
 
 import styles from "./DetailsSummary.module.scss";
 
 export const DETAILS_SUMMARY_DELAYS = {
   ACTION_DELAY: 150,
-  MOUSE_ENTER_DELAY: 750,
+  HOVER_DELAY: 750,
   NESTED_OPEN_AFTER_PARENT_DELAY: 150,
 } as const;
 
@@ -85,6 +89,13 @@ export const processNestedSummaries = (
     const nestedSummaryId = assignAnchorIdIfMissing(nestedSummary, nestedAnchor);
 
     const nestedDetailsElement = nestedSummary.closest("details");
+
+    if (
+      nestedDetailsElement instanceof HTMLElement &&
+      isElementHiddenByFilter(nestedDetailsElement)
+    ) {
+      continue;
+    }
 
     const nestedTextualAnchor =
       nestedDetailsElement instanceof HTMLDetailsElement
