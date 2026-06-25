@@ -461,17 +461,42 @@ const AeInterface: React.FC = () => {
           Приведённый ниже способ не всегда может помочь и не гарантирует устранение
           зависания индикатора предпросмотра.
         </Addition>
-        <p>
-          Чтобы попытаться решить проблему, попробуйте установить значение{" "}
-          <mark className="select">«false»</mark> для параметра{" "}
-          <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли. Для
-          этого откройте консоль с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + F12</mark>, переключитесь на вид{" "}
-          <mark className="select">«Debug Database View»</mark> и снимите флажок напротив{" "}
-          <mark className="select">«PreviewPlaybackOptimization»</mark>. После этого
-          перезагрузите программу и попробуйте снова закэшировать и проиграть
-          предпросмотр.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Чтобы попытаться решить проблему, попробуйте установить значение{" "}
+                <mark className="select">«false»</mark> для параметра{" "}
+                <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли.
+                Для этого откройте консоль с помощью комбинации клавиш{" "}
+                <mark className="key">Control + F12</mark>, переключитесь на вид{" "}
+                <mark className="select">«Debug Database View»</mark> и снимите флажок
+                напротив <mark className="select">«PreviewPlaybackOptimization»</mark>.
+                После этого перезагрузите программу и попробуйте снова закэшировать и
+                проиграть предпросмотр.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Чтобы попытаться решить проблему, попробуйте установить значение{" "}
+              <mark className="select">«false»</mark> для параметра{" "}
+              <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли. Для
+              этого откройте консоль с помощью комбинации клавиш{" "}
+              <mark className="key">Ctrl + F12</mark>, переключитесь на вид{" "}
+              <mark className="select">«Debug Database View»</mark> и снимите флажок
+              напротив <mark className="select">«PreviewPlaybackOptimization»</mark>.
+              После этого перезагрузите программу и попробуйте снова закэшировать и
+              проиграть предпросмотр.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Отключаем «PreviewPlaybackOptimization» в консоли программы"
           src="legacy/aftereffects/disable_previewplaybackoptimization.png"
@@ -696,12 +721,32 @@ const AeInterface: React.FC = () => {
           чего могут пропасть важные элементы для создания анимации или фигур.
         </p>
         <Divider>Разбираемся с графиками скорости</Divider>
-        <p>
-          Если вы пытаетесь отредактировать график скорости какого-либо атрибута, сначала
-          убедитесь, что вы выделили нужные ключевые кадры и нажали клавишу{" "}
-          <mark className="key">F9</mark> для применения{" "}
-          <mark className="select">«Easy Ease»</mark>.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Если вы пытаетесь отредактировать график скорости какого-либо атрибута,
+                сначала убедитесь, что вы выделили нужные ключевые кадры и нажали клавишу{" "}
+                <mark className="key">F9</mark> для применения{" "}
+                <mark className="select">«Easy Ease»</mark>.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает перемотка аудио,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Если вы пытаетесь отредактировать график скорости какого-либо атрибута,
+              сначала убедитесь, что вы выделили нужные ключевые кадры и нажали клавишу{" "}
+              <mark className="key">F9</mark> для применения{" "}
+              <mark className="select">«Easy Ease»</mark>.
+            </p>
+          }
+        />
         <p>
           Также вы можете проверить значение{" "}
           <mark className="select">«Temporal Interpolation»</mark> для выделенных ключевых
@@ -738,15 +783,39 @@ const AeInterface: React.FC = () => {
           type="video"
         />
         <Divider>Изменение вида графика скорости</Divider>
-        <p>
-          Если разделить значения нужного параметра не получается или вы не хотите этого
-          делать, придётся переключиться на другой вид графика: с{" "}
-          <mark className="select">«Value Graph»</mark> на{" "}
-          <mark className="select">«Speed Graph»</mark>. Чтобы это сделать — откройте{" "}
-          <mark className="select">«Graph Editor»</mark> с помощью комбинации клавиш{" "}
-          <mark className="key">Shift + F3</mark> или соответствующей кнопки на таймлайне,
-          вызовите контекстное меню и выберите нужный вариант.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Если разделить значения нужного параметра не получается или вы не хотите
+                этого делать, придётся переключиться на другой вид графика: с{" "}
+                <mark className="select">«Value Graph»</mark> на{" "}
+                <mark className="select">«Speed Graph»</mark>. Чтобы это сделать —
+                откройте <mark className="select">«Graph Editor»</mark> с помощью
+                комбинации клавиш <mark className="key">Shift + F3</mark> или
+                соответствующей кнопки на таймлайне, вызовите контекстное меню и выберите
+                нужный вариант.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас открывается{" "}
+                <mark className="select">«Mission Control»</mark>, дополнительно зажмите{" "}
+                <mark className="key">Fn</mark> вместе с указанной выше комбинацией или
+                измените поведение функциональных клавиш в настройках macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Если разделить значения нужного параметра не получается или вы не хотите
+              этого делать, придётся переключиться на другой вид графика: с{" "}
+              <mark className="select">«Value Graph»</mark> на{" "}
+              <mark className="select">«Speed Graph»</mark>. Чтобы это сделать — откройте{" "}
+              <mark className="select">«Graph Editor»</mark> с помощью комбинации клавиш{" "}
+              <mark className="key">Shift + F3</mark> или соответствующей кнопки на
+              таймлайне, вызовите контекстное меню и выберите нужный вариант.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Изменение вида графика скорости"
           src="legacy/aftereffects/change_graph_view.mp4"
@@ -808,14 +877,36 @@ const AeInterface: React.FC = () => {
         tag="graph editor, speed graph, value graph, отображение графика, редкатор графиков, анимация, интерполяция, кривые безье"
         title="Почему мой редактор графика скорости не похож на тот, что показывают в уроках?"
       >
-        <p>
-          Скорее всего, у вас включён другой вид отображения графика скорости. Попробуйте
-          изменить его на <mark className="select">«Value Graph»</mark> или{" "}
-          <mark className="select">«Speed Graph»</mark> в зависимости от задачи. Для этого
-          откройте <mark className="select">«Graph Editor»</mark> (клавиши{" "}
-          <mark className="key">Shift + F3</mark> или кнопка на таймлайне), вызовите
-          контекстное меню и выберите нужный вид графика.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Скорее всего, у вас включён другой вид отображения графика скорости.
+                Попробуйте изменить его на <mark className="select">«Value Graph»</mark>{" "}
+                или <mark className="select">«Speed Graph»</mark> в зависимости от задачи.
+                Для этого откройте <mark className="select">«Graph Editor»</mark> (клавиши{" "}
+                <mark className="key">Shift + F3</mark> или кнопка на таймлайне), вызовите
+                контекстное меню и выберите нужный вид графика.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас открывается{" "}
+                <mark className="select">«Mission Control»</mark>, дополнительно зажмите{" "}
+                <mark className="key">Fn</mark> вместе с указанной выше комбинацией или
+                измените поведение функциональных клавиш в настройках macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Скорее всего, у вас включён другой вид отображения графика скорости.
+              Попробуйте изменить его на <mark className="select">«Value Graph»</mark> или{" "}
+              <mark className="select">«Speed Graph»</mark> в зависимости от задачи. Для
+              этого откройте <mark className="select">«Graph Editor»</mark> (клавиши{" "}
+              <mark className="key">Shift + F3</mark> или кнопка на таймлайне), вызовите
+              контекстное меню и выберите нужный вид графика.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Изменение вида графика скорости"
           src="legacy/aftereffects/change_graph_view.mp4"
@@ -1045,16 +1136,40 @@ const AeInterface: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <p>
-          Возможно, вы видели скриншоты, где у пользователей изменён акцентный цвет
-          интерфейса. В <mark className="app">Adobe After Effects</mark> от{" "}
-          <mark className="version">14.X (2017)</mark> до{" "}
-          <mark className="version">24.X (2024)</mark> функцию изменения цвета интерфейса
-          можно активировать через консоль. Для этого нажмите{" "}
-          <mark className="key">Ctrl + F12</mark>, введите приведённую ниже команду в
-          режиме <mark className="select">«Console View»</mark> и нажмите{" "}
-          <mark className="key">Enter</mark>.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Возможно, вы видели скриншоты, где у пользователей изменён акцентный цвет
+                интерфейса. В <mark className="app">Adobe After Effects</mark> от{" "}
+                <mark className="version">14.X (2017)</mark> до{" "}
+                <mark className="version">24.X (2024)</mark> функцию изменения цвета
+                интерфейса можно активировать через консоль. Для этого нажмите{" "}
+                <mark className="key">Control + F12</mark>, введите приведённую ниже
+                команду в режиме <mark className="select">«Console View»</mark> и нажмите{" "}
+                <mark className="key">Enter</mark>.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Возможно, вы видели скриншоты, где у пользователей изменён акцентный цвет
+              интерфейса. В <mark className="app">Adobe After Effects</mark> от{" "}
+              <mark className="version">14.X (2017)</mark> до{" "}
+              <mark className="version">24.X (2024)</mark> функцию изменения цвета
+              интерфейса можно активировать через консоль. Для этого нажмите{" "}
+              <mark className="key">Ctrl + F12</mark>, введите приведённую ниже команду в
+              режиме <mark className="select">«Console View»</mark> и нажмите{" "}
+              <mark className="key">Enter</mark>.
+            </p>
+          }
+        />
         <CodeSnippet>debug.set Enable_Theme_Colorizing=true</CodeSnippet>
         <Addition type="info">
           Переключать режимы консоли можно через контекстное меню в заголовке окна. Этот

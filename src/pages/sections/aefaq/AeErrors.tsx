@@ -800,6 +800,12 @@ const AeErrors: React.FC = () => {
                 нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
               <ArticleMedia
                 caption="Включение Debug Database View"
                 src="legacy/aftereffects/console_debug-database-view.png"

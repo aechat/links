@@ -2231,11 +2231,31 @@ const PrFromNewbies: React.FC = () => {
           контента не рассчитывают на то, что вы будете использовать другую локализацию{" "}
           <mark className="app">Adobe Premiere</mark>, отличную от английской.
         </p>
-        <p>
-          Для быстрой смены языка программы вам нужно открыть консоль с помощью комбинации
-          клавиш <mark className="key">Ctrl + F12</mark> и переключиться на режим
-          отображения <mark className="select">«Debug Database View»</mark>.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Для быстрой смены языка программы вам нужно открыть консоль с помощью
+                комбинации клавиш <mark className="key">Control + F12</mark> и
+                переключиться на режим отображения{" "}
+                <mark className="select">«Debug Database View»</mark>.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Для быстрой смены языка программы вам нужно открыть консоль с помощью
+              комбинации клавиш <mark className="key">Ctrl + F12</mark> и переключиться на
+              режим отображения <mark className="select">«Debug Database View»</mark>.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Включение вида Debug Database View"
           src="legacy/premierepro/console_debug-database-view.png"

@@ -1177,12 +1177,33 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Parent & Link»</mark>
                 <sup>1</sup> или <mark className="word">выражениями</mark>.
               </p>
-              <Addition type="info">
-                <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне —
-                нажмите <mark className="key">F4</mark> или{" "}
-                <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
-                <mark className="select">«Columns» → «Parent & Link»</mark>.
-              </Addition>
+              <ContentFilter
+                macContent={
+                  <>
+                    <Addition type="info">
+                      <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне —
+                      нажмите <mark className="key">F4</mark> или{" "}
+                      <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
+                      <mark className="select">«Columns» → «Parent & Link»</mark>.
+                    </Addition>
+                    <Addition type="info">
+                      Если вместо функциональных клавиш у вас срабатывает{" "}
+                      <mark className="app">Launchpad</mark> или{" "}
+                      <mark className="app">Spotlight</mark>, дополнительно зажмите{" "}
+                      <mark className="key">Fn</mark> вместе с указанной выше комбинацией
+                      или измените поведение функциональных клавиш в настройках macOS.
+                    </Addition>
+                  </>
+                }
+                windowsContent={
+                  <Addition type="info">
+                    <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне —
+                    нажмите <mark className="key">F4</mark> или{" "}
+                    <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
+                    <mark className="select">«Columns» → «Parent & Link»</mark>.
+                  </Addition>
+                }
+              />
               <ArticleMedia
                 src="8ei_cj6A2Gg"
                 type="youtube"
@@ -5828,6 +5849,12 @@ h = content(shapeName).content(pathName).size[1];
                 нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
               <ArticleMedia
                 caption="Включение Debug Database View"
                 src="legacy/aftereffects/console_debug-database-view.png"
@@ -6335,23 +6362,70 @@ h = content(shapeName).content(pathName).size[1];
           src="legacy/aftereffects/position_keyframing.mp4"
           type="video"
         />
-        <p>
-          По умолчанию программа создаёт линейную анимацию с равномерным движением. Чтобы
-          добавить анимации естественности и динамики, используют плавные ускорения и
-          замедления. Для этого в <mark className="app">Adobe After Effects</mark> есть
-          редактор графиков <mark className="select">«Graph Editor»</mark>, который
-          позволяет детально настраивать скорость изменения свойств. Он открывается
-          нажатием на соответствующий значок на панели таймлайна или с помощью сочетания
-          клавиш <mark className="key">Shift + F3</mark>.
-        </p>
-        <p>
-          Чтобы изменить график скорости, выделите нужные ключевые кадры и нажмите{" "}
-          <mark className="key">F9</mark> для применения{" "}
-          <mark className="select">«Easy Ease»</mark> или{" "}
-          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
-          <mark className="select">«Keyframe Interpolation»</mark>, где можно выбрать для
-          них тип интерполяции.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                По умолчанию программа создаёт линейную анимацию с равномерным движением.
+                Чтобы добавить анимации естественности и динамики, используют плавные
+                ускорения и замедления. Для этого в{" "}
+                <mark className="app">Adobe After Effects</mark> есть редактор графиков{" "}
+                <mark className="select">«Graph Editor»</mark>, который позволяет детально
+                настраивать скорость изменения свойств. Он открывается нажатием на
+                соответствующий значок на панели таймлайна или с помощью сочетания клавиш{" "}
+                <mark className="key">Shift + F3</mark>.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас открывается{" "}
+                <mark className="select">«Mission Control»</mark>, дополнительно зажмите{" "}
+                <mark className="key">Fn</mark> вместе с указанной выше комбинацией или
+                измените поведение функциональных клавиш в настройках macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              По умолчанию программа создаёт линейную анимацию с равномерным движением.
+              Чтобы добавить анимации естественности и динамики, используют плавные
+              ускорения и замедления. Для этого в{" "}
+              <mark className="app">Adobe After Effects</mark> есть редактор графиков{" "}
+              <mark className="select">«Graph Editor»</mark>, который позволяет детально
+              настраивать скорость изменения свойств. Он открывается нажатием на
+              соответствующий значок на панели таймлайна или с помощью сочетания клавиш{" "}
+              <mark className="key">Shift + F3</mark>.
+            </p>
+          }
+        />
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Чтобы изменить график скорости, выделите нужные ключевые кадры и нажмите{" "}
+                <mark className="key">F9</mark> для применения{" "}
+                <mark className="select">«Easy Ease»</mark> или{" "}
+                <mark className="key">Command + Option + K</mark> для открытия окна{" "}
+                <mark className="select">«Keyframe Interpolation»</mark>, где можно
+                выбрать для них тип интерполяции.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает перемотка аудио,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Чтобы изменить график скорости, выделите нужные ключевые кадры и нажмите{" "}
+              <mark className="key">F9</mark> для применения{" "}
+              <mark className="select">«Easy Ease»</mark> или{" "}
+              <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+              <mark className="select">«Keyframe Interpolation»</mark>, где можно выбрать
+              для них тип интерполяции.
+            </p>
+          }
+        />
         <Divider>Типы интерполяции</Divider>
         <p>
           <mark className="word">Интерполяция</mark> является математическим алгоритмом, с
@@ -6582,13 +6656,34 @@ h = content(shapeName).content(pathName).size[1];
         title="Почему между ключевыми кадрами с одинаковым значением всё равно есть анимация?"
       >
         <Divider>Проверяем график скорости</Divider>
-        <p>
-          Скорее всего, вы меняли расстояние между ключами, и график скорости «сломался».
-          Чтобы посмотреть график, выделите свойство и нажмите{" "}
-          <mark className="key">Shift + F3</mark>. В моём примере у первого и второго
-          ключа одинаковое значение, но между ними всё равно идёт анимация из-за изгиба
-          кривой скорости.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Скорее всего, вы меняли расстояние между ключами, и график скорости
+                «сломался». Чтобы посмотреть график, выделите свойство и нажмите{" "}
+                <mark className="key">Shift + F3</mark>. В моём примере у первого и
+                второго ключа одинаковое значение, но между ними всё равно идёт анимация
+                из-за изгиба кривой скорости.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас открывается{" "}
+                <mark className="select">«Mission Control»</mark>, дополнительно зажмите{" "}
+                <mark className="key">Fn</mark> вместе с указанной выше комбинацией или
+                измените поведение функциональных клавиш в настройках macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Скорее всего, вы меняли расстояние между ключами, и график скорости
+              «сломался». Чтобы посмотреть график, выделите свойство и нажмите{" "}
+              <mark className="key">Shift + F3</mark>. В моём примере у первого и второго
+              ключа одинаковое значение, но между ними всё равно идёт анимация из-за
+              изгиба кривой скорости.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Speed Graph"
           src="legacy/aftereffects/problematic_interpolation.png"

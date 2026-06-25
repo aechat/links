@@ -106,13 +106,36 @@ const PsInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <p>
-              Операции формата <mark className="file">ATN</mark> импортируются через окно{" "}
-              <mark className="select">«Window» → «Actions»</mark>, которое также можно
-              открыть с помощью комбинации клавиш <mark className="key">Alt + F9</mark>. В
-              этом окне откройте контекстное меню в правом верхнем углу и выберите{" "}
-              <mark className="select">«Load Actions»</mark>.
-            </p>
+            <ContentFilter
+              macContent={
+                <>
+                  <p>
+                    Операции формата <mark className="file">ATN</mark> импортируются через
+                    окно <mark className="select">«Window» → «Actions»</mark>, которое
+                    также можно открыть с помощью комбинации клавиш{" "}
+                    <mark className="key">Option + F9</mark>. В этом окне откройте
+                    контекстное меню в правом верхнем углу и выберите{" "}
+                    <mark className="select">«Load Actions»</mark>.
+                  </p>
+                  <Addition type="info">
+                    Если вместо функциональных клавиш у вас срабатывает перемотка аудио,
+                    дополнительно зажмите <mark className="key">Fn</mark> вместе с
+                    указанной выше комбинацией или измените поведение функциональных
+                    клавиш в настройках macOS.
+                  </Addition>
+                </>
+              }
+              windowsContent={
+                <p>
+                  Операции формата <mark className="file">ATN</mark> импортируются через
+                  окно <mark className="select">«Window» → «Actions»</mark>, которое также
+                  можно открыть с помощью комбинации клавиш{" "}
+                  <mark className="key">Alt + F9</mark>. В этом окне откройте контекстное
+                  меню в правом верхнем углу и выберите{" "}
+                  <mark className="select">«Load Actions»</mark>.
+                </p>
+              }
+            />
             <p>
               В открывшемся окне файлового менеджера выберите нужный файл. После этого
               импортированные операции отобразятся в окне{" "}

@@ -8,6 +8,8 @@ import {ArticleMedia} from "../../../components/content/ArticleMedia";
 
 import CodeSnippet from "../../../components/content/CodeSnippet";
 
+import ContentFilter from "../../../components/content/ContentFilter";
+
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
 const PrInterface: React.FC = () => {
@@ -17,18 +19,44 @@ const PrInterface: React.FC = () => {
         anchor="bilingual"
         title="Как сделать двойной язык интерфейса?"
       >
-        <p>
-          Если вы не хотите кардинально менять язык программы, вы можете сделать интерфейс
-          двуязычным. Для этого откройте консоль с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + F12</mark> и переключитесь на режим отображения{" "}
-          <mark className="select">«Debug Database View»</mark>. Далее найдите параметры{" "}
-          <mark className="select">«ApplicationLanguage»</mark> и{" "}
-          <mark className="select">«ApplicationLanguageBilingual»</mark> и укажите
-          значения <mark className="copy">ru_RU</mark> и{" "}
-          <mark className="copy">true</mark> соответственно. После этого перезагрузите
-          программу, и теперь во многих местах интерфейса будет русский язык, а в скобках
-          — эквивалент на английском.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Если вы не хотите кардинально менять язык программы, вы можете сделать
+                интерфейс двуязычным. Для этого откройте консоль с помощью комбинации
+                клавиш <mark className="key">Control + F12</mark> и переключитесь на режим
+                отображения <mark className="select">«Debug Database View»</mark>. Далее
+                найдите параметры <mark className="select">«ApplicationLanguage»</mark> и{" "}
+                <mark className="select">«ApplicationLanguageBilingual»</mark> и укажите
+                значения <mark className="copy">ru_RU</mark> и{" "}
+                <mark className="copy">true</mark> соответственно. После этого
+                перезагрузите программу, и теперь во многих местах интерфейса будет
+                русский язык, а в скобках — эквивалент на английском.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Если вы не хотите кардинально менять язык программы, вы можете сделать
+              интерфейс двуязычным. Для этого откройте консоль с помощью комбинации клавиш{" "}
+              <mark className="key">Ctrl + F12</mark> и переключитесь на режим отображения{" "}
+              <mark className="select">«Debug Database View»</mark>. Далее найдите
+              параметры <mark className="select">«ApplicationLanguage»</mark> и{" "}
+              <mark className="select">«ApplicationLanguageBilingual»</mark> и укажите
+              значения <mark className="copy">ru_RU</mark> и{" "}
+              <mark className="copy">true</mark> соответственно. После этого перезагрузите
+              программу, и теперь во многих местах интерфейса будет русский язык, а в
+              скобках — эквивалент на английском.
+            </p>
+          }
+        />
         <ArticleMedia
           caption="Adobe Premiere"
           src="legacy/premierepro/set_double_language.png"
@@ -162,17 +190,42 @@ const PrInterface: React.FC = () => {
           <mark className="version">25.X (2025)</mark> и выше данная инструкция
           неактуальна, после включения параметра в консоли в настройках ничего не будет.
         </Addition>
-        <p>
-          Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
-          изменён цветовой акцент в интерфейсе программы. В{" "}
-          <mark className="app">Adobe Premiere Pro</mark> от{" "}
-          <mark className="version">11.X (2017)</mark> до{" "}
-          <mark className="version">24.X (2024)</mark> можно включить возможность
-          изменения акцента через консоль. Для этого нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + F12</mark>. Затем введите команду ниже в консоль в
-          режиме <mark className="select">«Console View»</mark> и нажмите на{" "}
-          <mark className="key">Enter</mark>.
-        </p>
+        <ContentFilter
+          macContent={
+            <>
+              <p>
+                Вы, наверное, не раз натыкались на различные скриншоты, где у
+                пользователей изменён цветовой акцент в интерфейсе программы. В{" "}
+                <mark className="app">Adobe Premiere Pro</mark> от{" "}
+                <mark className="version">11.X (2017)</mark> до{" "}
+                <mark className="version">24.X (2024)</mark> можно включить возможность
+                изменения акцента через консоль. Для этого нажмите на комбинацию клавиш{" "}
+                <mark className="key">Control + F12</mark>. Затем введите команду ниже в
+                консоль в режиме <mark className="select">«Console View»</mark> и нажмите
+                на <mark className="key">Enter</mark>.
+              </p>
+              <Addition type="info">
+                Если вместо функциональных клавиш у вас срабатывает изменение громкости,
+                дополнительно зажмите <mark className="key">Fn</mark> вместе с указанной
+                выше комбинацией или измените поведение функциональных клавиш в настройках
+                macOS.
+              </Addition>
+            </>
+          }
+          windowsContent={
+            <p>
+              Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
+              изменён цветовой акцент в интерфейсе программы. В{" "}
+              <mark className="app">Adobe Premiere Pro</mark> от{" "}
+              <mark className="version">11.X (2017)</mark> до{" "}
+              <mark className="version">24.X (2024)</mark> можно включить возможность
+              изменения акцента через консоль. Для этого нажмите на комбинацию клавиш{" "}
+              <mark className="key">Ctrl + F12</mark>. Затем введите команду ниже в
+              консоль в режиме <mark className="select">«Console View»</mark> и нажмите на{" "}
+              <mark className="key">Enter</mark>.
+            </p>
+          }
+        />
         <CodeSnippet>debug.set Enable_Theme_Colorizing=true</CodeSnippet>
         <Addition type="info">
           Режимы отображения консоли можно изменить, нажав на три полоски в заголовке
