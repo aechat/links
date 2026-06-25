@@ -1,10 +1,21 @@
-import React, {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useContext, useEffect, useRef, useState} from "react";
 
 import {Apple, WindowSharp} from "@mui/icons-material";
+
+import {message} from "antd";
 
 import {getPlatformInfo} from "../../utilities/browserDetection";
 
 import {triggerHaptic} from "../../utilities/haptics";
+
+import {
+  getCurrentHashAnchor,
+  replaceCurrentUrlHash,
+} from "../../utilities/urlHashUtilities";
+
+import {generateAnchorId} from "../detailsSummary/DetailsSummary";
+
+import {ParentAnchorContext} from "../detailsSummary/spoilerContexts";
 
 import styles from "./ContentFilter.module.scss";
 
@@ -18,13 +29,52 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
 }) => {
   const [isWindowsActive, setIsWindowsActive] = useState(true);
 
+  const parentAnchor = useContext(ParentAnchorContext);
+
+  const windowsContainerReference = useRef<HTMLDivElement>(null);
+
+  const macContainerReference = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const {isIOS, isMacOS} = getPlatformInfo();
 
     const isMac = isMacOS || isIOS;
 
-    setIsWindowsActive(!isMac);
+    let activeWindows = !isMac;
+
+    const currentHash = getCurrentHashAnchor();
+
+    if (currentHash) {
+      const target = document.querySelector(
+        `[data-anchor="${currentHash}"], [id="${currentHash}"]`
+      );
+
+      if (target) {
+        if (windowsContainerReference.current?.contains(target)) {
+          if (isMac) {
+            activeWindows = true;
+
+            message.info({
+              content:
+                "Внимание: запрашиваемая статья по ссылке предназначена для Windows",
+            });
+          }
+        } else if (macContainerReference.current?.contains(target) && !isMac) {
+          activeWindows = false;
+
+          message.info({
+            content: "Внимание: запрашиваемая статья по ссылке предназначена для macOS",
+          });
+        }
+      }
+    }
+
+    setIsWindowsActive(activeWindows);
   }, []);
+
+  useEffect(() => {
+    generateAnchorId();
+  }, [isWindowsActive]);
 
   const hasWindowsContent = windowsContent !== undefined;
 
@@ -72,6 +122,17 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
             aria-label={buttonLabel}
             onClick={() => {
               triggerHaptic("selection");
+
+              const currentHash = getCurrentHashAnchor();
+
+              if (
+                parentAnchor &&
+                currentHash &&
+                currentHash.startsWith(`${parentAnchor}-`)
+              ) {
+                replaceCurrentUrlHash(`#${parentAnchor}`);
+              }
+
               setIsWindowsActive(!isWindowsActive);
             }}
           >
@@ -80,12 +141,14 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
         )}
       </div>
       <div
+        ref={windowsContainerReference}
         className={styles["change-os-content"]}
         style={{display: displayForWindows ? "block" : "none"}}
       >
         {windowsContent}
       </div>
       <div
+        ref={macContainerReference}
         className={styles["change-os-content"]}
         style={{display: displayForWindows ? "none" : "block"}}
       >
