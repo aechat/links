@@ -125,8 +125,6 @@ const AeFromNewbies: React.FC = () => {
               <a href="https://www.youtube.com/@motionbyscott/videos">Motion By Scott</a>
               <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
             </div>
-          </li>
-          <li>
             <p>
               И не забываем про дополнительный список комплексных курсов по{" "}
               <mark className="app">Adobe After Effects</mark>, затрагивающий разные
@@ -156,7 +154,7 @@ const AeFromNewbies: React.FC = () => {
         />
         <div className="flexible-links">
           <a href="https://www.youtube.com/playlist?list=PLC1VMnkSWzhyvstYWgvctvjTjKICAXWZD">
-            «Принципы анимации» от ANIMATION CLUB
+            «Принципы анимации» от ANIMATION SCHOOL
           </a>
           <a href="https://www.youtube.com/watch?v=VvjtQ_ewuQY">
             Основные принципы анимации на примерах в After Effects (Часть 1)
