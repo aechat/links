@@ -12,12 +12,6 @@ import {applyRipple} from "./useRipple";
 
 export {copyText} from "../utilities/copyUtilities";
 
-message.config({
-  duration: 3,
-  maxCount: 2,
-  top: 60,
-});
-
 const CLICK_COPYABLE_SELECTOR =
   "code, mark.copy, mark.path, mark.code, mark.key, table mark.plugin, table mark.key";
 

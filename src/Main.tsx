@@ -2,7 +2,15 @@ import React from "react";
 
 import ResizeObserverPolyfill from "resize-observer-polyfill";
 
+import {message} from "antd";
+
 import ReactDOM from "react-dom/client";
+
+message.config({
+  duration: 7,
+  maxCount: 2,
+  top: 60,
+});
 
 import {HelmetProvider} from "react-helmet-async";
 
