@@ -827,98 +827,98 @@ const AeInstallProblems: React.FC = () => {
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="ffx"
-                title="Пресеты (FFX)"
+                title="Пресеты (FFX, GP, EFFECT, BSP, BAP, BCP)"
               >
-                <p>
-                  Пресеты формата <mark className="file">FFX</mark> распаковываются в
-                  стандартную папку для них —{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
-                  </mark>
-                  . Установленные пресеты будут находиться в окне{" "}
-                  <mark className="select">«Effects & Presets»</mark> в папке{" "}
-                  <mark className="path">Animation Presets</mark> и могут вызываться с
-                  помощью <mark className="plugin">FX Console</mark>.
-                </p>
-                <Addition type="info">
-                  <ul>
-                    <li>
-                      В папке с пресетами вы можете создать папку со своим названием или
-                      расположить скачанные пресеты в уже существующих.
-                    </li>
-                    <li>
-                      Если у вас нет доступа для записи файлов в системные директории, вы
-                      можете распаковать пресеты в папку пользователя{" "}
+                <ul>
+                  <li>
+                    <p>
+                      Пресеты формата <mark className="file">FFX</mark> распаковываются в
+                      стандартную папку для них —{" "}
                       <mark className="path">
-                        C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
-                        Presets
+                        C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                        Files\Presets
                       </mark>
-                      .
-                    </li>
-                  </ul>
-                </Addition>
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="gp"
-                title="Пресеты BorisFX Sapphire (GP, EFFECT)"
-              >
-                <p>
-                  Пресеты форматов <mark className="file">GP</mark>,{" "}
-                  <mark className="file">EFFECT</mark> или{" "}
-                  <mark className="file">TRANSITION</mark> относятся к пакету сторонних
-                  плагинов <mark className="plugin">Boris FX Sapphire</mark> и
-                  импортируются через браузер пресетов или с помощью ручной распаковки
-                  пресетов в стандартную директорию. Импортированные пресеты можно будет
-                  использовать с помощью <mark className="select">«Load Preset»</mark> в
-                  контроллере каждого эффекта.
-                </p>
-                <ul>
-                  <li>
-                    Чтобы импортировать файлы через браузер пресетов — примените на слой
-                    любой эффект, относящийся к{" "}
-                    <mark className="app">Boris FX Sapphire</mark>. После применения —
-                    нажмите на <mark className="select">«Load Preset»</mark> в контроллере
-                    эффекта. В открывшемся окне перейдите в{" "}
-                    <mark className="select">«File» → «Import Preset»</mark> и выберите
-                    нужный файл.
+                      . Установленные пресеты будут находиться в окне{" "}
+                      <mark className="select">«Effects & Presets»</mark> в папке{" "}
+                      <mark className="path">Animation Presets</mark> и могут вызываться с
+                      помощью <mark className="plugin">FX Console</mark>.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          В папке с пресетами вы можете создать папку со своим названием
+                          или расположить скачанные пресеты в уже существующих.
+                        </li>
+                        <li>
+                          Если у вас нет доступа для записи файлов в системные директории,
+                          вы можете распаковать пресеты в папку пользователя{" "}
+                          <mark className="path">
+                            C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
+                            Presets
+                          </mark>
+                          .
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
-                    Если вы хотите импортировать файлы пресетов без использования{" "}
-                    <mark className="select">«Preset Browser»</mark>, переместите их в
-                    стандартную директорию для них —{" "}
-                    <mark className="path">
-                      C:\ProgramData\BorisFX\Sapphire\Sapphire\presets
-                    </mark>
-                    .
+                    <p>
+                      Пресеты форматов <mark className="file">GP</mark>,{" "}
+                      <mark className="file">EFFECT</mark> или{" "}
+                      <mark className="file">TRANSITION</mark> относятся к пакету
+                      сторонних плагинов <mark className="plugin">Boris FX Sapphire</mark>{" "}
+                      и импортируются через браузер пресетов или с помощью ручной
+                      распаковки пресетов в стандартную директорию. Импортированные
+                      пресеты можно будет использовать с помощью{" "}
+                      <mark className="select">«Load Preset»</mark> в контроллере каждого
+                      эффекта.
+                    </p>
+                    <ul>
+                      <li>
+                        Чтобы импортировать файлы через браузер пресетов — примените на
+                        слой любой эффект, относящийся к{" "}
+                        <mark className="app">Boris FX Sapphire</mark>. После применения —
+                        нажмите на <mark className="select">«Load Preset»</mark> в
+                        контроллере эффекта. В открывшемся окне перейдите в{" "}
+                        <mark className="select">«File» → «Import Preset»</mark> и
+                        выберите нужный файл.
+                      </li>
+                      <li>
+                        Если вы хотите импортировать файлы пресетов без использования{" "}
+                        <mark className="select">«Preset Browser»</mark>, переместите их в
+                        стандартную директорию для них —{" "}
+                        <mark className="path">
+                          C:\ProgramData\BorisFX\Sapphire\Sapphire\presets
+                        </mark>
+                        .
+                      </li>
+                    </ul>
                   </li>
-                </ul>
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="bsp"
-                title="Пресеты BorisFX Continuum (BSP, BAP, BCP)"
-              >
-                <p>
-                  Пресеты форматов <mark className="file">BSP</mark>,{" "}
-                  <mark className="file">BAP</mark> или <mark className="file">BCP</mark>{" "}
-                  относятся к пакету сторонних плагинов{" "}
-                  <mark className="plugin">Boris FX Continuum</mark>.
-                </p>
-                <ul>
                   <li>
-                    Чтобы применить пресет к эффекту из этого пакета — просто нажмите на{" "}
-                    <mark className="select">«Load»</mark> в его контроллере и укажите
-                    путь до файла.
-                  </li>
-                  <li>
-                    Чтобы файлы появились в браузере пресетов, который открывается
-                    нажатием на <mark className="select">«FX Browser»</mark> — распакуйте
-                    их в{" "}
-                    <mark className="path">
-                      C:\ProgramData\BorisFX\Continuum\XX\Presets
-                    </mark>
-                    . В этой директории будет много подпапок, которые относятся к
-                    определённой категории и эффекту — распакуйте пресет в необходимое вам
-                    место.
+                    <p>
+                      Пресеты форматов <mark className="file">BSP</mark>,{" "}
+                      <mark className="file">BAP</mark> или{" "}
+                      <mark className="file">BCP</mark> относятся к пакету сторонних
+                      плагинов <mark className="plugin">Boris FX Continuum</mark>.
+                    </p>
+                    <ul>
+                      <li>
+                        Чтобы применить пресет к эффекту из этого пакета — просто нажмите
+                        на <mark className="select">«Load»</mark> в его контроллере и
+                        укажите путь до файла.
+                      </li>
+                      <li>
+                        Чтобы файлы появились в браузере пресетов, который открывается
+                        нажатием на <mark className="select">«FX Browser»</mark> —
+                        распакуйте их в{" "}
+                        <mark className="path">
+                          C:\ProgramData\BorisFX\Continuum\XX\Presets
+                        </mark>
+                        . В этой директории будет много подпапок, которые относятся к
+                        определённой категории и эффекту — распакуйте пресет в необходимое
+                        вам место.
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </NestedDetailsSummary>
