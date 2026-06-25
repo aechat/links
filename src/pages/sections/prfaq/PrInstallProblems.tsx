@@ -674,89 +674,94 @@ const PrInstallProblems: React.FC = () => {
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="lut"
-                title="Цветокоррекция (CUBE, LOOK, LUT)"
+                title="Файлы для цветокоррекции (CUBE, ITX, LOOK, LUT, RGB, LS3, MBLOOK)"
               >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                  или <mark className="file">LUT</mark> распаковываются в{" "}
-                  <mark className="path">
-                    /Applications/Adobe Premiere Pro 20XX/Adobe Premiere Pro
-                    20XX.app/Contents/Lumetri/LUTs
-                  </mark>
-                  . Чтобы добраться до папки{" "}
-                  <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и нажмите{" "}
-                  <mark className="key">ПКМ</mark> по ярлыку{" "}
-                  <mark className="app">Adobe Premiere Pro 20XX</mark> в директории{" "}
-                  <mark className="path">/Applications/Adobe Premiere Pro 20XX</mark>, а
-                  затем выберите{" "}
-                  <mark className="select">«Показать содержимое пакета»</mark> в
-                  контекстном меню. Для изменений файлов внутри пакета потребуются права
-                  администратора. Файлы для цветокоррекции можно будет использовать в
-                  эффекте <mark className="plugin">Lumetri Color</mark>.
-                </p>
                 <ul>
                   <li>
-                    Если вы поместите файлы в папку{" "}
-                    <mark className="path">Technical</mark>, где обычно располагаются
-                    входные <mark className="file">LUT</mark> для проявки изображения с
-                    камеры, например для преобразования между цветовыми пространствами, то
-                    они появятся в параметре <mark className="select">«Input LUT»</mark>{" "}
-                    во вкладке <mark className="select">«Basic Correction»</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>
+                      , <mark className="file">ITX</mark>,{" "}
+                      <mark className="file">LOOK</mark> или{" "}
+                      <mark className="file">LUT</mark> распаковываются в{" "}
+                      <mark className="path">
+                        /Applications/Adobe Premiere Pro 20XX/Adobe Premiere Pro
+                        20XX.app/Contents/Lumetri/LUTs
+                      </mark>
+                      . Чтобы добраться до папки{" "}
+                      <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и
+                      нажмите <mark className="key">ПКМ</mark> по ярлыку{" "}
+                      <mark className="app">Adobe Premiere Pro 20XX</mark> в директории{" "}
+                      <mark className="path">/Applications/Adobe Premiere Pro 20XX</mark>,
+                      а затем выберите{" "}
+                      <mark className="select">«Показать содержимое пакета»</mark> в
+                      контекстном меню. Для изменений файлов внутри пакета потребуются
+                      права администратора. Файлы для цветокоррекции можно будет
+                      использовать в эффекте <mark className="plugin">Lumetri Color</mark>
+                      .
+                    </p>
+                    <ul>
+                      <li>
+                        Если вы поместите файлы в папку{" "}
+                        <mark className="path">Technical</mark>, где обычно располагаются
+                        входные <mark className="file">LUT</mark> для проявки изображения
+                        с камеры, например для преобразования между цветовыми
+                        пространствами, то они появятся в параметре{" "}
+                        <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                        <mark className="select">«Basic Correction»</mark>.
+                      </li>
+                      <li>
+                        Если вы поместите файлы в папку{" "}
+                        <mark className="path">Creative</mark>, где располагаются файлы
+                        для стилизации изображения уже после базовой цветокоррекции, то
+                        они появятся в параметре <mark className="select">«Look»</mark> во
+                        вкладке <mark className="select">«Creative»</mark>.
+                      </li>
+                      <li>
+                        В <mark className="path">Legacy</mark> располагаются устаревшие
+                        файлы для цветокоррекции для совместимости со старыми проектами в{" "}
+                        <mark className="app">Adobe Premiere</mark> и не используются
+                        программой в последних версиях. При необходимости вы можете
+                        скопировать нужные файлы цветокоррекции оттуда в папку{" "}
+                        <mark className="path">Creative</mark> или{" "}
+                        <mark className="path">Technical</mark>.
+                      </li>
+                    </ul>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          Чтобы открыть панель <mark className="app">Lumetri Color</mark>,
+                          перейдите в <mark className="select">«Window»</mark> и выберите{" "}
+                          <mark className="select">«Lumetri Color»</mark>.
+                        </li>
+                        <li>
+                          Если вы хотите использовать файл для цветокоррекции один раз,
+                          выберите в <mark className="select">«Input LUT»</mark> или{" "}
+                          <mark className="select">«Look»</mark> значение{" "}
+                          <mark className="select">«Browse»</mark> и укажите путь к файлу.
+                        </li>
+                      </ul>
+                    </Addition>
+                    <ArticleMedia
+                      src="_mg31FMwrxc"
+                      type="youtube"
+                    />
                   </li>
                   <li>
-                    Если вы поместите файлы в папку <mark className="path">Creative</mark>
-                    , где располагаются файлы для стилизации изображения уже после базовой
-                    цветокоррекции, то они появятся в параметре{" "}
-                    <mark className="select">«Look»</mark> во вкладке{" "}
-                    <mark className="select">«Creative»</mark>.
-                  </li>
-                  <li>
-                    В <mark className="path">Legacy</mark> располагаются устаревшие файлы
-                    для цветокоррекции для совместимости со старыми проектами в{" "}
-                    <mark className="app">Adobe Premiere</mark> и не используются
-                    программой в последних версиях. При необходимости вы можете
-                    скопировать нужные файлы цветокоррекции оттуда в папку{" "}
-                    <mark className="path">Creative</mark> или{" "}
-                    <mark className="path">Technical</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                      <mark className="file">LS3</mark> или{" "}
+                      <mark className="file">MBLOOK</mark> устанавливаются с помощью
+                      кнопки импорта во вкладке <mark className="select">«Looks»</mark>{" "}
+                      стороннего расширения{" "}
+                      <mark className="plugin">Magic Bullet Looks</mark>.
+                    </p>
+                    <ArticleMedia
+                      caption="Magic Bullet Looks"
+                      src="legacy/import_magic_bullet_looks.png"
+                      type="image"
+                    />
                   </li>
                 </ul>
-                <Addition type="info">
-                  <ul>
-                    <li>
-                      Чтобы открыть панель <mark className="app">Lumetri Color</mark>,
-                      перейдите в <mark className="select">«Window»</mark> и выберите{" "}
-                      <mark className="select">«Lumetri Color»</mark>.
-                    </li>
-                    <li>
-                      Если вы хотите использовать файл для цветокоррекции один раз,
-                      выберите в <mark className="select">«Input LUT»</mark> или{" "}
-                      <mark className="select">«Look»</mark> значение{" "}
-                      <mark className="select">«Browse»</mark> и укажите путь к файлу.
-                    </li>
-                  </ul>
-                </Addition>
-                <ArticleMedia
-                  src="_mg31FMwrxc"
-                  type="youtube"
-                />
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="looks"
-                title="Цветокоррекция (Looks)"
-              >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                  <mark className="file">LS3</mark> или{" "}
-                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                </p>
-                <ArticleMedia
-                  caption="Magic Bullet Looks"
-                  src="legacy/import_magic_bullet_looks.png"
-                  type="image"
-                />
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="font"
@@ -1339,83 +1344,87 @@ const PrInstallProblems: React.FC = () => {
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="lut"
-                title="Цветокоррекция (CUBE, LOOK, LUT)"
+                title="Файлы для цветокоррекции (CUBE, ITX, LOOK, LUT, RGB, LS3, MBLOOK)"
               >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                  или <mark className="file">LUT</mark> распаковываются в{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
-                    Files\Lumetri\LUTs\
-                  </mark>
-                  . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
-                  <mark className="plugin">Lumetri Color</mark>. В этой директории есть
-                  три папки: <mark className="path">Technical</mark>,{" "}
-                  <mark className="path">Creative</mark> и{" "}
-                  <mark className="path">Legacy</mark>.
-                </p>
                 <ul>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Technical</mark>,
-                    где обычно располагаются входные <mark className="file">LUT</mark>{" "}
-                    (например, для преобразования цветовых пространств), то они появятся в
-                    параметре <mark className="select">«Input LUT»</mark> во вкладке{" "}
-                    <mark className="select">«Basic Correction»</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>
+                      , <mark className="file">ITX</mark>,{" "}
+                      <mark className="file">LOOK</mark> или{" "}
+                      <mark className="file">LUT</mark> распаковываются в{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
+                        Files\Lumetri\LUTs\
+                      </mark>
+                      . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
+                      <mark className="plugin">Lumetri Color</mark>. В этой директории
+                      есть три папки: <mark className="path">Technical</mark>,{" "}
+                      <mark className="path">Creative</mark> и{" "}
+                      <mark className="path">Legacy</mark>.
+                    </p>
+                    <ul>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Technical</mark>
+                        , где обычно располагаются входные{" "}
+                        <mark className="file">LUT</mark> (например, для преобразования
+                        цветовых пространств), то они появятся в параметре{" "}
+                        <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                        <mark className="select">«Basic Correction»</mark>.
+                      </li>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Creative</mark>,
+                        где располагаются файлы для стилизации изображения после базовой
+                        цветокоррекции, то они появятся в параметре{" "}
+                        <mark className="select">«Look»</mark> во вкладке{" "}
+                        <mark className="select">«Creative»</mark>.
+                      </li>
+                      <li>
+                        В <mark className="path">Legacy</mark> находятся устаревшие файлы
+                        для цветокоррекции для совместимости со старыми проектами в{" "}
+                        <mark className="app">Adobe Premiere</mark> и в последних версиях
+                        программы не используются. При необходимости вы можете скопировать
+                        нужные файлы цветокоррекции из неё в{" "}
+                        <mark className="path">Creative</mark> или{" "}
+                        <mark className="path">Technical</mark>.
+                      </li>
+                    </ul>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          Чтобы открыть панель Lumetri Color, перейдите в{" "}
+                          <mark className="select">«Window»</mark> и выберите{" "}
+                          <mark className="select">«Lumetri Color»</mark>.
+                        </li>
+                        <li>
+                          Если вы хотите использовать файл для цветокоррекции один раз,
+                          выберите в <mark className="select">«Input LUT»</mark> или{" "}
+                          <mark className="select">«Look»</mark> значение{" "}
+                          <mark className="select">«Browse»</mark> и выберите нужный файл.
+                        </li>
+                      </ul>
+                    </Addition>
+                    <ArticleMedia
+                      src="yrrW-V8bO_I"
+                      type="youtube"
+                    />
                   </li>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Creative</mark>, где
-                    располагаются файлы для стилизации изображения после базовой
-                    цветокоррекции, то они появятся в параметре{" "}
-                    <mark className="select">«Look»</mark> во вкладке{" "}
-                    <mark className="select">«Creative»</mark>.
-                  </li>
-                  <li>
-                    В <mark className="path">Legacy</mark> находятся устаревшие файлы для
-                    цветокоррекции для совместимости со старыми проектами в{" "}
-                    <mark className="app">Adobe Premiere</mark> и в последних версиях
-                    программы не используются. При необходимости вы можете скопировать
-                    нужные файлы цветокоррекции из неё в{" "}
-                    <mark className="path">Creative</mark> или{" "}
-                    <mark className="path">Technical</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                      <mark className="file">LS3</mark> или{" "}
+                      <mark className="file">MBLOOK</mark> устанавливаются с помощью
+                      кнопки импорта во вкладке <mark className="select">«Looks»</mark>{" "}
+                      стороннего расширения{" "}
+                      <mark className="plugin">Magic Bullet Looks</mark>.
+                    </p>
+                    <ArticleMedia
+                      caption="Magic Bullet Looks"
+                      src="legacy/import_magic_bullet_looks.png"
+                      type="image"
+                    />
                   </li>
                 </ul>
-                <Addition type="info">
-                  <ul>
-                    <li>
-                      Чтобы открыть панель Lumetri Color, перейдите в{" "}
-                      <mark className="select">«Window»</mark> и выберите{" "}
-                      <mark className="select">«Lumetri Color»</mark>.
-                    </li>
-                    <li>
-                      Если вы хотите использовать файл для цветокоррекции один раз,
-                      выберите в <mark className="select">«Input LUT»</mark> или{" "}
-                      <mark className="select">«Look»</mark> значение{" "}
-                      <mark className="select">«Browse»</mark> и выберите нужный файл.
-                    </li>
-                  </ul>
-                </Addition>
-                <ArticleMedia
-                  src="yrrW-V8bO_I"
-                  type="youtube"
-                />
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="looks"
-                title="Цветокоррекция (Looks)"
-              >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                  <mark className="file">LS3</mark> или{" "}
-                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                </p>
-                <ArticleMedia
-                  caption="Magic Bullet Looks"
-                  src="legacy/import_magic_bullet_looks.png"
-                  type="image"
-                />
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="font"

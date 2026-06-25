@@ -582,74 +582,79 @@ const AeInstallProblems: React.FC = () => {
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="lut"
-                title="Файлы для цветокоррекции (CUBE, LOOK, LUT)"
+                title="Файлы для цветокоррекции (CUBE, ITX, LOOK, LUT, RGB, LS3, MBLOOK)"
               >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                  или <mark className="file">LUT</mark> распаковываются в{" "}
-                  <mark className="path">
-                    /Applications/Adobe After Effects 20XX/Adobe After Effects
-                    20XX.app/Contents/Lumetri/LUTs
-                  </mark>
-                  . Чтобы добраться до папки{" "}
-                  <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и нажмите{" "}
-                  <mark className="key">ПКМ</mark> по ярлыку{" "}
-                  <mark className="app">Adobe After Effects 20XX</mark> в директории{" "}
-                  <mark className="path">/Applications/Adobe After Effects 20XX</mark>, а
-                  затем выберите{" "}
-                  <mark className="select">«Показать содержимое пакета»</mark> в
-                  контекстном меню. Для изменений файлов внутри пакета потребуются права
-                  администратора. Файлы для цветокоррекции можно будет использовать в
-                  эффекте <mark className="plugin">Lumetri Color</mark>.
-                </p>
                 <ul>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Technical</mark>,
-                    где обычно располагаются входные <mark className="file">LUT</mark> для
-                    проявки изображения с камеры, например для преобразования между
-                    цветовыми пространствами, то они появятся в параметре{" "}
-                    <mark className="select">«Input LUT»</mark> во вкладке{" "}
-                    <mark className="select">«Basic Correction»</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>
+                      , <mark className="file">ITX</mark>,{" "}
+                      <mark className="file">LOOK</mark> или{" "}
+                      <mark className="file">LUT</mark> распаковываются в{" "}
+                      <mark className="path">
+                        /Applications/Adobe After Effects 20XX/Adobe After Effects
+                        20XX.app/Contents/Lumetri/LUTs
+                      </mark>
+                      . Чтобы добраться до папки{" "}
+                      <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и
+                      нажмите <mark className="key">ПКМ</mark> по ярлыку{" "}
+                      <mark className="app">Adobe After Effects 20XX</mark> в директории{" "}
+                      <mark className="path">/Applications/Adobe After Effects 20XX</mark>
+                      , а затем выберите{" "}
+                      <mark className="select">«Показать содержимое пакета»</mark> в
+                      контекстном меню. Для изменений файлов внутри пакета потребуются
+                      права администратора. Файлы для цветокоррекции можно будет
+                      использовать в эффекте <mark className="plugin">Lumetri Color</mark>
+                      .
+                    </p>
+                    <ul>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Technical</mark>
+                        , где обычно располагаются входные{" "}
+                        <mark className="file">LUT</mark> для проявки изображения с
+                        камеры, например для преобразования между цветовыми
+                        пространствами, то они появятся в параметре{" "}
+                        <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                        <mark className="select">«Basic Correction»</mark>.
+                      </li>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Creative</mark>,
+                        где располагаются файлы для стилизации изображения уже после
+                        базовой цветокоррекции, то они появятся в параметре{" "}
+                        <mark className="select">«Look»</mark> во вкладке{" "}
+                        <mark className="select">«Creative»</mark>.
+                      </li>
+                      <li>
+                        В <mark className="path">Legacy</mark> располагаются устаревшие
+                        файлы для цветокоррекции для совместимости со старыми проектами в{" "}
+                        <mark className="app">Adobe After Effects</mark> и не используются
+                        программой в последних версиях. При необходимости вы можете
+                        скопировать нужные файлы цветокоррекции оттуда в папку{" "}
+                        <mark className="path">Creative</mark> или{" "}
+                        <mark className="path">Technical</mark>.
+                      </li>
+                    </ul>
+                    <ArticleMedia
+                      src="WyZ32cYLkpg"
+                      type="youtube"
+                    />
                   </li>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Creative</mark>, где
-                    располагаются файлы для стилизации изображения уже после базовой
-                    цветокоррекции, то они появятся в параметре{" "}
-                    <mark className="select">«Look»</mark> во вкладке{" "}
-                    <mark className="select">«Creative»</mark>.
-                  </li>
-                  <li>
-                    В <mark className="path">Legacy</mark> располагаются устаревшие файлы
-                    для цветокоррекции для совместимости со старыми проектами в{" "}
-                    <mark className="app">Adobe After Effects</mark> и не используются
-                    программой в последних версиях. При необходимости вы можете
-                    скопировать нужные файлы цветокоррекции оттуда в папку{" "}
-                    <mark className="path">Creative</mark> или{" "}
-                    <mark className="path">Technical</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                      <mark className="file">LS3</mark> или{" "}
+                      <mark className="file">MBLOOK</mark> устанавливаются с помощью
+                      кнопки импорта во вкладке <mark className="select">«Looks»</mark>{" "}
+                      стороннего расширения{" "}
+                      <mark className="plugin">Magic Bullet Looks</mark>.
+                    </p>
+                    <ArticleMedia
+                      caption="Magic Bullet Looks"
+                      src="legacy/import_magic_bullet_looks.png"
+                      type="image"
+                    />
                   </li>
                 </ul>
-                <ArticleMedia
-                  src="WyZ32cYLkpg"
-                  type="youtube"
-                />
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="looks"
-                title="Файлы для цветокоррекции (Magic Bullet Looks)"
-              >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                  <mark className="file">LS3</mark> или{" "}
-                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                </p>
-                <ArticleMedia
-                  caption="Magic Bullet Looks"
-                  src="legacy/import_magic_bullet_looks.png"
-                  type="image"
-                />
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="font"
@@ -1186,62 +1191,66 @@ const AeInstallProblems: React.FC = () => {
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="lut"
-                title="Файлы для цветокоррекции (CUBE, LOOK, LUT)"
+                title="Файлы для цветокоррекции (CUBE, ITX, LOOK, LUT, RGB, LS3, MBLOOK)"
               >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                  или <mark className="file">LUT</mark> распаковываются в{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                    Files\Lumetri\LUTs\
-                  </mark>
-                  . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
-                  <mark className="plugin">Lumetri Color</mark>.
-                </p>
                 <ul>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Technical</mark>,
-                    где обычно располагаются входные <mark className="file">LUT</mark> для
-                    проявки изображения с камеры, например для преобразования между
-                    цветовыми пространствами, то они появятся в параметре{" "}
-                    <mark className="select">«Input LUT»</mark> во вкладке{" "}
-                    <mark className="select">«Basic Correction»</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>
+                      , <mark className="file">ITX</mark>,{" "}
+                      <mark className="file">LOOK</mark> или{" "}
+                      <mark className="file">LUT</mark> распаковываются в{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                        Files\Lumetri\LUTs\
+                      </mark>
+                      . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
+                      <mark className="plugin">Lumetri Color</mark>.
+                    </p>
+                    <ul>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Technical</mark>
+                        , где обычно располагаются входные{" "}
+                        <mark className="file">LUT</mark> для проявки изображения с
+                        камеры, например для преобразования между цветовыми
+                        пространствами, то они появятся в параметре{" "}
+                        <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                        <mark className="select">«Basic Correction»</mark>.
+                      </li>
+                      <li>
+                        Если вы распакуете файлы в <mark className="path">Creative</mark>,
+                        где располагаются файлы для стилизации изображения уже после
+                        базовой цветокоррекции, то они появятся в параметре{" "}
+                        <mark className="select">«Look»</mark> во вкладке{" "}
+                        <mark className="select">«Creative»</mark>.
+                      </li>
+                      <li>
+                        В <mark className="path">Legacy</mark> располагаются устаревшие
+                        файлы для цветокоррекции для совместимости со старыми проектами в{" "}
+                        <mark className="app">Adobe After Effects</mark> и не используются
+                        программой в последних версиях. При необходимости вы можете
+                        скопировать нужные файлы цветокоррекции оттуда в папку{" "}
+                        <mark className="path">Creative</mark> или{" "}
+                        <mark className="path">Technical</mark>.
+                      </li>
+                    </ul>
                   </li>
                   <li>
-                    Если вы распакуете файлы в <mark className="path">Creative</mark>, где
-                    располагаются файлы для стилизации изображения уже после базовой
-                    цветокоррекции, то они появятся в параметре{" "}
-                    <mark className="select">«Look»</mark> во вкладке{" "}
-                    <mark className="select">«Creative»</mark>.
-                  </li>
-                  <li>
-                    В <mark className="path">Legacy</mark> располагаются устаревшие файлы
-                    для цветокоррекции для совместимости со старыми проектами в{" "}
-                    <mark className="app">Adobe After Effects</mark> и не используются
-                    программой в последних версиях. При необходимости вы можете
-                    скопировать нужные файлы цветокоррекции оттуда в папку{" "}
-                    <mark className="path">Creative</mark> или{" "}
-                    <mark className="path">Technical</mark>.
+                    <p>
+                      Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                      <mark className="file">LS3</mark> или{" "}
+                      <mark className="file">MBLOOK</mark> устанавливаются с помощью
+                      кнопки импорта во вкладке <mark className="select">«Looks»</mark>{" "}
+                      стороннего расширения{" "}
+                      <mark className="plugin">Magic Bullet Looks</mark>.
+                    </p>
+                    <ArticleMedia
+                      caption="Magic Bullet Looks"
+                      src="legacy/import_magic_bullet_looks.png"
+                      type="image"
+                    />
                   </li>
                 </ul>
-              </NestedDetailsSummary>
-              <NestedDetailsSummary
-                anchor="looks"
-                title="Файлы для цветокоррекции (Magic Bullet Looks)"
-              >
-                <p>
-                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                  <mark className="file">LS3</mark> или{" "}
-                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                </p>
-                <ArticleMedia
-                  caption="Magic Bullet Looks"
-                  src="legacy/import_magic_bullet_looks.png"
-                  type="image"
-                />
               </NestedDetailsSummary>
               <NestedDetailsSummary
                 anchor="font"
