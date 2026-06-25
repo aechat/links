@@ -58,6 +58,14 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
       );
     };
 
+    let attempts = 0;
+
+    const MAX_ATTEMPTS = 15;
+
+    const ATTEMPT_INTERVAL = 200;
+
+    let validationTimeout: ReturnType<typeof setTimeout> | undefined;
+
     const validateAnchors = () => {
       const currentAnchor = hash.slice(1);
 
@@ -75,6 +83,13 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
         return;
       }
 
+      if (attempts < MAX_ATTEMPTS) {
+        attempts++;
+        validationTimeout = setTimeout(validateAnchors, ATTEMPT_INTERVAL);
+
+        return;
+      }
+
       const faqContainer = document.querySelector(".article-content");
 
       if (faqContainer) {
@@ -86,10 +101,12 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
       }
     };
 
-    const validationTimeout = setTimeout(validateAnchors, ANCHOR_VALIDATION_DELAY);
+    validationTimeout = setTimeout(validateAnchors, ANCHOR_VALIDATION_DELAY);
 
     return () => {
-      clearTimeout(validationTimeout);
+      if (validationTimeout !== undefined) {
+        clearTimeout(validationTimeout);
+      }
 
       if (firstAlignFrameId !== undefined) {
         cancelAnimationFrame(firstAlignFrameId);
