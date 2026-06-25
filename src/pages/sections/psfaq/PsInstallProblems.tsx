@@ -12,6 +12,8 @@ import ContentFilter from "../../../components/content/ContentFilter";
 
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
+import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
+
 import {getPlatformInfo} from "../../../utilities/browserDetection";
 
 const PsInstallProblems: React.FC = () => {
@@ -172,414 +174,431 @@ const PsInstallProblems: React.FC = () => {
         <ContentFilter
           macContent={
             <>
-              <ul>
-                <li>
-                  <Addition type="danger">
-                    Если в архиве находится папка <mark className="path">_MACOSX</mark>,
-                    то в нём нет никаких полезных файлов, установщиков и плагинов, которые
-                    предназначены именно для устройств macOS. Это скрытая системная папка,
-                    которая иногда создаётся операционной системой, в которой хранятся
-                    метаданные и информация о файловой системе. В нём нет ничего
-                    интересного для пользователя.
-                  </Addition>
-                  <p>
-                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>
-                    , то вам необходимо его распаковать с помощью архиватора для
-                    дальнейшей работы с ним. Это можно сделать с помощью{" "}
-                    <mark className="app">Keka</mark> или{" "}
-                    <mark className="app">The Unarchiver</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Загрузить <mark className="app">Keka</mark> можно по{" "}
-                        <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
-                        <mark className="app">The Unarchiver</mark> — по{" "}
-                        <a href="https://theunarchiver.com/">этой</a>.
-                      </li>
-                      <li>
-                        Для распаковки многотомного архива, то есть если в названии
-                        архивов есть <mark className="file">PART1</mark>,{" "}
-                        <mark className="file">PART2</mark> и так далее, нужно запустить
-                        распаковку только первой части архива, остальные части подхватятся
-                        автоматически. Остальные части архива не нужно трогать без острой
-                        необходимости, если вы не знаете, что с ними делать.
-                      </li>
-                      <li>
-                        Многотомные архивы создаются для того, чтобы файл можно было
-                        спокойно передать, обойдя ограничения максимального размера в{" "}
-                        <mark className="app">Telegram</mark> или другого ресурса.
-                      </li>
-                      <li>
-                        Если вы хотите сделать <mark className="app">Keka</mark>{" "}
-                        архиватором по умолчанию, то вам нужно будет установить{" "}
-                        <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
-                        Подробная инструкция расположена в{" "}
-                        <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                          Wiki на GitHub
-                        </a>
-                        .
-                      </li>
-                    </ul>
-                  </Addition>
-                  <ArticleMedia
-                    caption="Распаковка через контекстное меню"
-                    src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                    type="image"
-                  />
-                </li>
-                <li>
-                  <p>
-                    Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
-                    <mark className="file">APP</mark> или{" "}
-                    <mark className="file">PKG</mark> — достаточно открыть такой файл
-                    двойным кликом и следовать инструкциям инсталлятора.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
-                        установщики от неподтверждённых разработчиков. Чтобы обойти этот
-                        запрет, нужно изменить настройки безопасности операционной
-                        системы. Подробнее об этом вы можете прочитать на{" "}
-                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
-                        <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
-                          Яблык
-                        </a>
-                        ,{" "}
-                        <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
-                          iPhones.ru
-                        </a>{" "}
-                        или в{" "}
-                        <a href="https://appstorrent.ru/200-mistakes.html">
-                          решениях проблем с установкой на appstorrent
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Если вы сталкиваетесь с ошибкой{" "}
-                        <mark className="danger">
-                          «Не удаётся открыть программу „AppName”»
-                        </mark>
-                        , попробуйте открыть её через <mark className="key">ПКМ</mark>,
-                        выбрав в контекстном меню{" "}
-                        <mark className="select">«Открыть»</mark>.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Если в архиве находится файл <mark className="file">ZXP</mark>, то
-                    такие расширения обычно устанавливаются через{" "}
-                    <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a>{" "}
-                    от <mark className="web">aescripts</mark>. Прежде чем устанавливать
-                    расширение такого формата, убедитесь в том, что ваша версия{" "}
-                    <mark className="app">Adobe Photoshop</mark> его поддерживает. После
-                    того как вы установите расширение, откройте терминал и введите команды
-                    ниже, их можно скопировать одним нажатием. Если терминал не выдал
-                    никакие ошибки, то вы можете спокойно открыть{" "}
-                    <mark className="app">Adobe Photoshop</mark> и проверить
-                    работоспособность установленного расширения.
-                  </p>
-                  <Addition type="danger">
-                    Пожалуйста, не используйте{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
-                    <mark className="company">ELEMENTS Storage Media</mark>, если вы
-                    используете версии программ от
-                    <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
-                    <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет выдавать
-                    вам ошибку <mark className="danger">-193</mark> до тех пор, пока вы не
-                    установите <mark className="app">Adobe Creative Cloud</mark>, а он, в
-                    свою очередь, может повредить уже установленные программы.
-                  </Addition>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        <p>
-                          Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                          <mark className="file">ZXP</mark>, то вы можете переименовать
-                          файл <mark className="file">ZXP</mark> в{" "}
-                          <mark className="file">ZIP</mark> и распаковать его как обычный
-                          архив. Содержимое свежераспакованного файла нужно поместить в
-                          папку{" "}
-                          <mark className="path">
-                            /Library/Application Support/Adobe/CEP/extensions
-                          </mark>{" "}
-                          и после этого ввести команды, которые были расположены чуть ниже
-                          в терминал.
-                        </p>
-                        <CodeSnippet>
-                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
-                          <br />
-                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
-                          <br />
-                        </CodeSnippet>
-                      </li>
-                      <li>
-                        Команды выше достаточно ввести один раз, в дальнейшем при
-                        установке подобных расширений команды для терминала вводить не
-                        нужно. Эти команды включают debug-режим в{" "}
-                        <mark className="app">Adobe Photoshop</mark> для корректного
-                        открытия и работы сторонних расширений, установленные из просторов
-                        интернета.
-                      </li>
-                      <li>
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark> архив. Это можно понять по
-                        наличию папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-              </ul>
+              <NestedDetailsSummary
+                anchor="archive"
+                title="Архивы (ZIP, 7Z, RAR)"
+              >
+                <Addition type="danger">
+                  Если в архиве находится папка <mark className="path">_MACOSX</mark>, то
+                  в нём нет никаких полезных файлов, установщиков и плагинов, которые
+                  предназначены именно для устройств macOS. Это скрытая системная папка,
+                  которая иногда создаётся операционной системой, в которой хранятся
+                  метаданные и информация о файловой системе. В нём нет ничего интересного
+                  для пользователя.
+                </Addition>
+                <p>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark>,
+                  то вам необходимо его распаковать с помощью архиватора для дальнейшей
+                  работы с ним. Это можно сделать с помощью{" "}
+                  <mark className="app">Keka</mark> или{" "}
+                  <mark className="app">The Unarchiver</mark>.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      Загрузить <mark className="app">Keka</mark> можно по{" "}
+                      <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
+                      <mark className="app">The Unarchiver</mark> — по{" "}
+                      <a href="https://theunarchiver.com/">этой</a>.
+                    </li>
+                    <li>
+                      Для распаковки многотомного архива, то есть если в названии архивов
+                      есть <mark className="file">PART1</mark>,{" "}
+                      <mark className="file">PART2</mark> и так далее, нужно запустить
+                      распаковку только первой части архива, остальные части подхватятся
+                      автоматически. Остальные части архива не нужно трогать без острой
+                      необходимости, если вы не знаете, что с ними делать.
+                    </li>
+                    <li>
+                      Многотомные архивы создаются для того, чтобы файл можно было
+                      спокойно передать, обойдя ограничения максимального размера в{" "}
+                      <mark className="app">Telegram</mark> или другого ресурса.
+                    </li>
+                    <li>
+                      Если вы хотите сделать <mark className="app">Keka</mark> архиватором
+                      по умолчанию, то вам нужно будет установить{" "}
+                      <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
+                      Подробная инструкция расположена в{" "}
+                      <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                        Wiki на GitHub
+                      </a>
+                      .
+                    </li>
+                  </ul>
+                </Addition>
+                <ArticleMedia
+                  caption="Распаковка через контекстное меню"
+                  src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                  type="image"
+                />
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="dmg"
+                title="Пакеты (DMG, APP, PKG)"
+              >
+                <p>
+                  Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
+                  <mark className="file">APP</mark> или <mark className="file">PKG</mark>{" "}
+                  — достаточно открыть такой файл двойным кликом и следовать инструкциям
+                  инсталлятора.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
+                      установщики от неподтверждённых разработчиков. Чтобы обойти этот
+                      запрет, нужно изменить настройки безопасности операционной системы.
+                      Подробнее об этом вы можете прочитать на{" "}
+                      <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
+                      <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
+                        Яблык
+                      </a>
+                      ,{" "}
+                      <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
+                        iPhones.ru
+                      </a>{" "}
+                      или в{" "}
+                      <a href="https://appstorrent.ru/200-mistakes.html">
+                        решениях проблем с установкой на appstorrent
+                      </a>
+                      .
+                    </li>
+                    <li>
+                      Если вы сталкиваетесь с ошибкой{" "}
+                      <mark className="danger">
+                        «Не удаётся открыть программу „AppName”»
+                      </mark>
+                      , попробуйте открыть её через <mark className="key">ПКМ</mark>,
+                      выбрав в контекстном меню <mark className="select">«Открыть»</mark>.
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="zxp"
+                title="Расширения (ZXP)"
+              >
+                <p>
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
+                  <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a>{" "}
+                  от <mark className="web">aescripts</mark>. Прежде чем устанавливать
+                  расширение такого формата, убедитесь в том, что ваша версия{" "}
+                  <mark className="app">Adobe Photoshop</mark> его поддерживает. После
+                  того как вы установите расширение, откройте терминал и введите команды
+                  ниже, их можно скопировать одним нажатием. Если терминал не выдал
+                  никакие ошибки, то вы можете спокойно открыть{" "}
+                  <mark className="app">Adobe Photoshop</mark> и проверить
+                  работоспособность установленного расширения.
+                </p>
+                <Addition type="danger">
+                  Пожалуйста, не используйте{" "}
+                  <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                  <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                  используете версии программ от
+                  <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
+                  <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
+                  <a href="https://zxpinstaller.com/">ZXP Installer</a> будет выдавать вам
+                  ошибку <mark className="danger">-193</mark> до тех пор, пока вы не
+                  установите <mark className="app">Adobe Creative Cloud</mark>, а он, в
+                  свою очередь, может повредить уже установленные программы.
+                </Addition>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      <p>
+                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
+                        архив. Содержимое свежераспакованного файла нужно поместить в
+                        папку{" "}
+                        <mark className="path">
+                          /Library/Application Support/Adobe/CEP/extensions
+                        </mark>{" "}
+                        и после этого ввести команды, которые были расположены чуть ниже в
+                        терминал.
+                      </p>
+                      <CodeSnippet>
+                        defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                        <br />
+                        defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                        <br />
+                      </CodeSnippet>
+                    </li>
+                    <li>
+                      Команды выше достаточно ввести один раз, в дальнейшем при установке
+                      подобных расширений команды для терминала вводить не нужно. Эти
+                      команды включают debug-режим в{" "}
+                      <mark className="app">Adobe Photoshop</mark> для корректного
+                      открытия и работы сторонних расширений, установленные из просторов
+                      интернета.
+                    </li>
+                    <li>
+                      Иногда в архиве может быть уже распакованный{" "}
+                      <mark className="file">ZXP</mark> архив. Это можно понять по наличию
+                      папок <mark className="path">META-INF</mark> и{" "}
+                      <mark className="path">CSXS</mark> внутри папки с названием
+                      расширения.
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
             </>
           }
           windowsContent={
             <>
-              <ul>
-                <li>
-                  <p>
-                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>{" "}
-                    — его необходимо распаковать с помощью архиватора для дальнейшей
-                    работы с его содержимым. Это можно сделать с помощью{" "}
-                    <mark className="app">WinRAR</mark> или{" "}
-                    <mark className="app">7-Zip</mark>, однако многотомные архивы всё же
-                    рекомендуется распаковывать именно через{" "}
-                    <mark className="app">WinRAR</mark> во избежание непредвиденных
-                    ошибок.
-                  </p>
-                  <p>
-                    Для распаковки многотомного архива, то есть, если в названии архивов
-                    есть <mark className="file">PART1</mark>,{" "}
-                    <mark className="file">PART2</mark> и так далее, нужно запустить
-                    распаковку только первой части — остальные подхватятся автоматически.
-                    Другие части архива не нужно трогать без острой необходимости, если вы
-                    не знаете, что с ними делать.
-                  </p>
-                  <ArticleMedia
-                    src="1OVwQS0uHhk"
-                    type="youtube"
-                  />
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        <mark className="app">WinRAR</mark> можно загрузить по{" "}
-                        <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
-                        <mark className="app">7-Zip</mark> — по{" "}
-                        <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
-                        <em className="article-note-muted">
-                          Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
-                          <mark className="app">WinRAR</mark>.
-                        </em>
-                      </li>
-                      <li>
-                        Многотомные архивы создаются для того, чтобы файл можно было
-                        спокойно передать, обойдя ограничения на максимальный размер в{" "}
-                        <mark className="app">Telegram</mark> или другом сервисе.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Для того чтобы установить программу или плагин, поставляющийся в
-                    формате исполняемого файла <mark className="file">EXE</mark> или{" "}
-                    <mark className="file">MSI</mark> — достаточно его открыть двойным
-                    кликом и следовать инструкциям инсталлятора.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Перед установкой плагинов с помощью инсталлятора рекомендуется
-                        закрыть <mark className="app">Adobe Photoshop</mark> для
-                        корректной установки.
-                      </li>
-                      <li>
-                        Если в записи указано, что установщик является репаком — после его
-                        установки программа или плагин уже будет «народно» активирован,
-                        никаких дополнительный действий для активации делать не нужно.
-                      </li>
-                    </ul>
-                  </Addition>
-                  <Addition type="danger">
-                    <ul>
-                      <li>
-                        При использовании установщиков убедитесь, что{" "}
-                        <mark className="app">Adobe Photoshop</mark> установлен в
-                        стандартном расположении{" "}
-                        <mark className="path">C:\Program Files\Adobe\</mark>, а не в
-                        другом месте или на другом разделе. В противном случае
-                        устанавливаемый плагин может установиться не туда, из-за чего не
-                        будет отображаться и корректно работать в программе.
-                      </li>
-                      <li>
-                        Если вы доверяете источнику, откуда вы скачали установщик — для
-                        корректной установки отключите полностью или на время ваше{" "}
-                        <mark className="app">антивирусное ПО</mark> во избежание проблем
-                        при установке из-за отсутствия нужных файлов.{" "}
-                        <a href="#disable-defender">Подробнее...</a>
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Дополнения форматов <mark className="file">8BF</mark>,{" "}
-                    <mark className="file">8BE</mark>, <mark className="file">8BX</mark>,
-                    или <mark className="file">8BI</mark> распаковываются в папку плагинов
-                    внутри директории программы —{" "}
+              <NestedDetailsSummary
+                anchor="archive"
+                title="Архивы (ZIP, 7Z, RAR)"
+              >
+                <p>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark> —
+                  его необходимо распаковать с помощью архиватора для дальнейшей работы с
+                  его содержимым. Это можно сделать с помощью{" "}
+                  <mark className="app">WinRAR</mark> или{" "}
+                  <mark className="app">7-Zip</mark>, однако многотомные архивы всё же
+                  рекомендуется распаковывать именно через{" "}
+                  <mark className="app">WinRAR</mark> во избежание непредвиденных ошибок.
+                </p>
+                <p>
+                  Для распаковки многотомного архива, то есть, если в названии архивов
+                  есть <mark className="file">PART1</mark>,{" "}
+                  <mark className="file">PART2</mark> и так далее, нужно запустить
+                  распаковку только первой части — остальные подхватятся автоматически.
+                  Другие части архива не нужно трогать без острой необходимости, если вы
+                  не знаете, что с ними делать.
+                </p>
+                <ArticleMedia
+                  src="1OVwQS0uHhk"
+                  type="youtube"
+                />
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      <mark className="app">WinRAR</mark> можно загрузить по{" "}
+                      <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
+                      <mark className="app">7-Zip</mark> — по{" "}
+                      <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
+                      <em className="article-note-muted">
+                        Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
+                        <mark className="app">WinRAR</mark>.
+                      </em>
+                    </li>
+                    <li>
+                      Многотомные архивы создаются для того, чтобы файл можно было
+                      спокойно передать, обойдя ограничения на максимальный размер в{" "}
+                      <mark className="app">Telegram</mark> или другом сервисе.
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="exe"
+                title="Установщики (EXE, MSI)"
+              >
+                <p>
+                  Для того чтобы установить программу или плагин, поставляющийся в формате
+                  исполняемого файла <mark className="file">EXE</mark> или{" "}
+                  <mark className="file">MSI</mark> — достаточно его открыть двойным
+                  кликом и следовать инструкциям инсталлятора.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      Перед установкой плагинов с помощью инсталлятора рекомендуется
+                      закрыть <mark className="app">Adobe Photoshop</mark> для корректной
+                      установки.
+                    </li>
+                    <li>
+                      Если в записи указано, что установщик является репаком — после его
+                      установки программа или плагин уже будет «народно» активирован,
+                      никаких дополнительный действий для активации делать не нужно.
+                    </li>
+                  </ul>
+                </Addition>
+                <Addition type="danger">
+                  <ul>
+                    <li>
+                      При использовании установщиков убедитесь, что{" "}
+                      <mark className="app">Adobe Photoshop</mark> установлен в
+                      стандартном расположении{" "}
+                      <mark className="path">C:\Program Files\Adobe\</mark>, а не в другом
+                      месте или на другом разделе. В противном случае устанавливаемый
+                      плагин может установиться не туда, из-за чего не будет отображаться
+                      и корректно работать в программе.
+                    </li>
+                    <li>
+                      Если вы доверяете источнику, откуда вы скачали установщик — для
+                      корректной установки отключите полностью или на время ваше{" "}
+                      <mark className="app">антивирусное ПО</mark> во избежание проблем
+                      при установке из-за отсутствия нужных файлов.{" "}
+                      <a href="#disable-defender">Подробнее...</a>
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="plugin"
+                title="Дополнения (8BF, 8BE, 8BX, 8BI)"
+              >
+                <p>
+                  Дополнения форматов <mark className="file">8BF</mark>,{" "}
+                  <mark className="file">8BE</mark>, <mark className="file">8BX</mark>,
+                  или <mark className="file">8BI</mark> распаковываются в папку плагинов
+                  внутри директории программы —{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
+                  </mark>
+                  . Устанавливаемое дополнение может вызываться из определённого места
+                  интерфейса, например из <mark className="select">«Filters»</mark>,{" "}
+                  <mark className="select">«File» → «Scripts»</mark> или{" "}
+                  <mark className="select">«File» → «Automate»</mark> — читайте
+                  приложенную документацию к устанавливаемому дополнению.
+                </p>
+                <Addition type="info">
+                  Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                  <mark className="app">Adobe Photoshop</mark> и наоборот. Уточняйте в
+                  документации к устанавливаемому плагину, для каких версий{" "}
+                  <mark className="app">Adobe Photoshop</mark> он предназначен.
+                </Addition>
+                <Addition type="warning">
+                  В{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Required\Plug-ins
+                  </mark>{" "}
+                  находятся стандартные дополнения программы. Не стоит изменять содержимое
+                  каталога без острой необходимости.
+                </Addition>
+                <Addition type="danger">
+                  Дополнения формата <mark className="file">PLUGIN</mark> не подходят для
+                  устройств на Windows, так как они предназначены для устройств на macOS.
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="ccx"
+                title="Расширения (CCX)"
+              >
+                <p>
+                  Расширения формата <mark className="file">CCX</mark> устанавливаются по
+                  следующему порядку действий.
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      Переименуйте файл <mark className="file">CCX</mark> в{" "}
+                      <mark className="file">ZIP</mark> и распакуйте его как обычный
+                      архив.{" "}
+                    </p>
+                    <Addition type="info">
+                      Прежде чем менять расширение файла, убедитесь, что в{" "}
+                      <mark className="app">Проводнике</mark> включено{" "}
+                      <a href="https://remontka.pro/show-file-extensions-windows-11/">
+                        отображение расширений файлов
+                      </a>
+                      .
+                    </Addition>
+                  </li>
+                  <li>
+                    Переместите содержимое распакованного архива в папку{" "}
                     <mark className="path">
                       C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
                     </mark>
-                    . Устанавливаемое дополнение может вызываться из определённого места
-                    интерфейса, например из <mark className="select">«Filters»</mark>,{" "}
-                    <mark className="select">«File» → «Scripts»</mark> или{" "}
-                    <mark className="select">«File» → «Automate»</mark> — читайте
-                    приложенную документацию к устанавливаемому дополнению.
-                  </p>
-                  <Addition type="info">
-                    Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                    <mark className="app">Adobe Photoshop</mark> и наоборот. Уточняйте в
-                    документации к устанавливаемому плагину, для каких версий{" "}
-                    <mark className="app">Adobe Photoshop</mark> он предназначен.
-                  </Addition>
-                  <Addition type="warning">
-                    В{" "}
-                    <mark className="path">
-                      C:\Program Files\Adobe\Adobe Photoshop 20XX\Required\Plug-ins
-                    </mark>{" "}
-                    находятся стандартные дополнения программы. Не стоит изменять
-                    содержимое каталога без острой необходимости.
-                  </Addition>
-                  <Addition type="danger">
-                    Дополнения формата <mark className="file">PLUGIN</mark> не подходят
-                    для устройств на Windows, так как они предназначены для устройств на
-                    macOS.
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Расширения формата <mark className="file">CCX</mark> устанавливаются
-                    по следующему порядку действий.
-                  </p>
+                    .
+                  </li>
+                  <li>
+                    После корректной установки установленные расширения появятся в{" "}
+                    <mark className="select">«Plugins»</mark> в горизонтальном меню в
+                    верхней части интерфейса программы.
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="zxp"
+                title="Расширения (ZXP)"
+              >
+                <p>
+                  Расширения формата <mark className="file">ZXP</mark> можно установить
+                  двумя способами: с использованием{" "}
+                  <mark className="app">ZXP Installer</mark> от{" "}
+                  <mark className="web">aescripts</mark> или ручной распаковкой расширения
+                  в нужную директорию. После корректной установки установленные расширения
+                  появятся в <mark className="select">«Plugins»</mark> и будут работать в
+                  своём новом окне, который вы можете прикрепить в своё рабочее
+                  пространство.
+                </p>
+                <Addition type="info">
                   <ul>
                     <li>
-                      <p>
-                        Переименуйте файл <mark className="file">CCX</mark> в{" "}
-                        <mark className="file">ZIP</mark> и распакуйте его как обычный
-                        архив.{" "}
-                      </p>
-                      <Addition type="info">
-                        Прежде чем менять расширение файла, убедитесь, что в{" "}
-                        <mark className="app">Проводнике</mark> включено{" "}
-                        <a href="https://remontka.pro/show-file-extensions-windows-11/">
-                          отображение расширений файлов
-                        </a>
-                        .
-                      </Addition>
+                      Расширения такого формата являются кросс-платформенными: они
+                      работают как в Windows, так и в macOS.
                     </li>
                     <li>
-                      Переместите содержимое распакованного архива в папку{" "}
-                      <mark className="path">
-                        C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
-                      </mark>
-                      .
+                      Прежде чем устанавливать расширение такого формата — убедитесь в
+                      том, что используемая вами версия{" "}
+                      <mark className="app">Adobe Photoshop</mark> его поддерживает, иначе
+                      он может не появиться в списке расширений.
                     </li>
                     <li>
-                      После корректной установки установленные расширения появятся в{" "}
-                      <mark className="select">«Plugins»</mark> в горизонтальном меню в
-                      верхней части интерфейса программы.
+                      Иногда в архиве может быть уже распакованный{" "}
+                      <mark className="file">ZXP</mark>. Это можно понять по наличию папок{" "}
+                      <mark className="path">META-INF</mark> и{" "}
+                      <mark className="path">CSXS</mark> внутри папки с названием
+                      расширения.
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <p>
-                    Расширения формата <mark className="file">ZXP</mark> можно установить
-                    двумя способами: с использованием{" "}
-                    <mark className="app">ZXP Installer</mark> от{" "}
-                    <mark className="web">aescripts</mark> или ручной распаковкой
-                    расширения в нужную директорию. После корректной установки
-                    установленные расширения появятся в{" "}
-                    <mark className="select">«Plugins»</mark> и будут работать в своём
-                    новом окне, который вы можете прикрепить в своё рабочее пространство.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Расширения такого формата являются кросс-платформенными: они
-                        работают как в Windows, так и в macOS.
-                      </li>
-                      <li>
-                        Прежде чем устанавливать расширение такого формата — убедитесь в
-                        том, что используемая вами версия{" "}
-                        <mark className="app">Adobe Photoshop</mark> его поддерживает,
-                        иначе он может не появиться в списке расширений.
-                      </li>
-                      <li>
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark>. Это можно понять по наличию
-                        папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-              </ul>
+                </Addition>
+              </NestedDetailsSummary>
             </>
           }
         />

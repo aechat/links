@@ -12,6 +12,8 @@ import ContentFilter from "../../../components/content/ContentFilter";
 
 import DetailsSummary from "../../../components/detailsSummary/DetailsSummary";
 
+import NestedDetailsSummary from "../../../components/detailsSummary/NestedDetailsSummary";
+
 import {getPlatformInfo} from "../../../utilities/browserDetection";
 
 const AeInstallProblems: React.FC = () => {
@@ -115,1127 +117,1181 @@ const AeInstallProblems: React.FC = () => {
         <ContentFilter
           macContent={
             <>
-              <ul>
-                <li>
-                  <p>
-                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>{" "}
-                    — его необходимо распаковать с помощью архиватора для дальнейшей
-                    работы с его содержимым. Это можно сделать с помощью{" "}
-                    <mark className="app">Keka</mark> или{" "}
-                    <mark className="app">The Unarchiver</mark>. Для распаковки
-                    многотомного архива, то есть если в названии архивов есть{" "}
-                    <mark className="file">PART1</mark>,{" "}
-                    <mark className="file">PART2</mark> и так далее, нужно запускать
-                    распаковку только первой части — остальные подхватятся автоматически.
-                    Другие части архива не нужно трогать без острой необходимости, если вы
-                    не знаете, что с ними делать.
-                  </p>
-                  <Addition type="info">
-                    Загрузить <mark className="app">Keka</mark> можно по{" "}
-                    <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
-                    <mark className="app">The Unarchiver</mark> — по{" "}
-                    <a href="https://theunarchiver.com/">этой</a>.
-                  </Addition>
-                  <ArticleMedia
-                    caption="Распаковка через контекстное меню"
-                    src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                    type="image"
-                  />
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Многотомные архивы создаются для того, чтобы файл можно было
-                        спокойно передать, обойдя ограничения на максимальный размер в{" "}
-                        <mark className="app">Telegram</mark> или другом сервисе.
-                      </li>
-                      <li>
-                        Если вы хотите сделать <mark className="app">Keka</mark>{" "}
-                        архиватором по умолчанию, то вам понадобится установить{" "}
-                        <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
-                        Подробная инструкция расположена в{" "}
-                        <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                          вики на GitHub
-                        </a>
-                        .
-                      </li>
-                    </ul>
-                  </Addition>
-                  <Addition type="warning">
-                    Если в архиве находится папка <mark className="path">_MACOSX</mark>,
-                    то в ней нет никаких полезных файлов, установщиков и плагинов, которые
-                    предназначены именно для устройств Mac. Это скрытая системная папка,
-                    которую иногда создаёт macOS, в ней хранятся метаданные и информация о
-                    файловой системе. Внутри данной директории нет ничего интересного для
-                    пользователя, поэтому смело игнорируйте её.
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
-                    <mark className="file">APP</mark> или{" "}
-                    <mark className="file">PKG</mark> — достаточно открыть такой файл
-                    двойным кликом и следовать инструкциям инсталлятора.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
-                        установщики от неподтверждённых разработчиков. Чтобы обойти этот
-                        запрет, нужно изменить настройки безопасности операционной
-                        системы. Подробнее об этом вы можете прочитать на{" "}
-                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
-                        <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
-                          Яблык
-                        </a>
-                        ,{" "}
-                        <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
-                          iPhones.ru
-                        </a>{" "}
-                        или в{" "}
-                        <a href="https://appstorrent.ru/200-mistakes.html">
-                          решениях проблем с установкой на appstorrent
-                        </a>
-                        .
-                      </li>
-                      <li>
-                        Если вы сталкиваетесь с ошибкой{" "}
-                        <mark className="danger">
-                          «Не удаётся открыть программу „AppName”»
-                        </mark>
-                        , попробуйте открыть её через <mark className="key">ПКМ</mark>,
-                        выбрав в контекстном меню{" "}
-                        <mark className="select">«Открыть»</mark>.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Плагины формата <mark className="file">PLUGIN</mark> распаковываются в
-                    общую папку плагинов —{" "}
-                    <mark className="path">
-                      /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
-                    </mark>
-                    . Обычно установленные плагины находятся в окне{" "}
-                    <mark className="select">«Effects & Presets»</mark> и могут вызываться
-                    с помощью <mark className="plugin">FX Console</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        В редких случаях плагин может вызываться из другого места в
-                        интерфейсе программы — читайте приложенную документацию к
-                        устанавливаемому плагину.
-                      </li>
-                      <li>
-                        Если вы хотите, чтобы плагин отображался только в конкретной
-                        версии <mark className="app">Adobe After Effects</mark> —
-                        распакуйте его в папку{" "}
-                        <mark className="path">
-                          /Applications/Adobe After Effects 20XX/Plug-Ins
-                        </mark>
-                        , где <mark className="version">20XX</mark> — ваша версия
-                        программы.
-                      </li>
-                      <li>
-                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Adobe After Effects</mark> и наоборот.
-                        Уточняйте в документации к устанавливаемому плагину, для каких
-                        версий <mark className="app">Adobe After Effects</mark> он
-                        предназначен.
-                      </li>
-                    </ul>
-                  </Addition>
-                  <Addition type="danger">
-                    Плагины формата <mark className="file">AEX</mark> не подходят для
-                    устройств на macOS, так как они предназначены для устройств на
-                    Windows.
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Пресеты формата <mark className="file">FFX</mark> распаковываются в
-                    стандартную папку для них —{" "}
-                    <mark className="path">
-                      /Applications/Adobe After Effects 20XX/Presets
-                    </mark>
-                    . Установленные пресеты будут находиться в окне{" "}
-                    <mark className="select">«Effects & Presets»</mark> в папке{" "}
-                    <mark className="path">Animation Presets</mark> и могут вызываться с
-                    помощью <mark className="plugin">FX Console</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        В папке с пресетами вы можете создать собственную папку или
-                        расположить скачанные пресеты в уже существующих.
-                      </li>
-                      <li>
-                        Как альтернативу, можно распаковать пресеты в папку пользователя{" "}
-                        <mark className="path">
-                          ~/Documents/Adobe/After Effects 20XX/User Presets
-                        </mark>
-                        .
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Скрипты формата <mark className="file">JSX</mark> распаковываются в
-                    стандартную папку скриптов —{" "}
-                    <mark className="path">
-                      /Applications/Adobe After Effects 20XX/Scripts
-                    </mark>
-                    . После установки они появятся в контекстном меню{" "}
-                    <mark className="select">«File» → «Scripts»</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Как альтернативу, вы можете установить скрипт с помощью{" "}
-                        <mark className="select">
-                          «File» → «Scripts» → «Install Script File»
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного файла.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а лишь запустить его один
-                        раз — нажмите на <mark className="select">«Run Script File»</mark>{" "}
-                        в контекстном меню{" "}
-                        <mark className="select">«File» → «Scripts»</mark>. В открывшемся
-                        окне укажите путь к нужному скрипту, и он будет запущен до
-                        перезапуска программы или до закрытия окна пользователем.
-                      </li>
-                      <li>
-                        <p>
-                          Если вы хотите закрепить окно скрипта{" "}
-                          <mark className="file">JSX</mark> в рабочем пространстве —
-                          перенесите его в дочернюю папку{" "}
-                          <mark className="path">ScriptUI Panels</mark>. Полный путь в
-                          таком случае должен быть таким:{" "}
-                          <mark className="path">
-                            /Applications/Adobe After Effects 20XX/Scripts/ScriptUI Panels
-                          </mark>
-                          . После этого нужный вам скрипт переместится в меню{" "}
-                          <mark className="select">«Window»</mark> и будет располагаться в
-                          самом низу списка, а также появится возможность прикрепить его к
-                          рабочему пространству.
-                        </p>
-                        <Addition type="info">
-                          Для прикрепления окна в рабочее пространство программы держитесь
-                          за заголовок с названием скрипта, который создаёт программа, а
-                          не операционная система.
-                        </Addition>
-                      </li>
-                      <li>
-                        <p>
-                          При желании вы можете назначить комбинацию клавиш для открытия
-                          нужного скрипта <mark className="file">JSX</mark> в{" "}
-                          <mark className="select">«Keyboard Shortcuts»</mark>.
-                        </p>
-                        <Addition type="warning">
-                          После перемещения скрипта <mark className="file">JSX</mark> в
-                          дочернюю папку <mark className="path">ScriptUI Panels</mark> —
-                          вы не сможете открывать его с помощью комбинаций клавиш,
-                          заданных в <mark className="select">«Keyboard Shortcuts»</mark>,
-                          но сможете закрепить его в рабочем пространстве.
-                        </Addition>
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Скрипты формата <mark className="file">JSXBIN</mark> распаковываются в
-                    стандартную папку для скриптов с интерфейсом —{" "}
-                    <mark className="path">
-                      /Applications/Adobe After Effects 20XX/Scripts/ScriptUI Panels
-                    </mark>
-                    . После установки они появятся в контекстном меню{" "}
-                    <mark className="select">«Window»</mark> в самом конце списка.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Как альтернативу, вы можете установить скрипт с помощью{" "}
-                        <mark className="select">
-                          «File» → «Scripts» → «Install ScriptUI Panel»
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного файла.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а лишь запустить его один
-                        раз — нажмите на <mark className="select">«Run Script File»</mark>{" "}
-                        в контекстном меню{" "}
-                        <mark className="select">«File» → «Scripts»</mark>. В открывшемся
-                        окне укажите путь к нужному скрипту, и он будет запущен до
-                        перезапуска программы или до закрытия окна пользователем.
-                      </li>
-                      <li>
-                        Для прикрепления окна в рабочее пространство программы держитесь
-                        за заголовок с названием скрипта, который создаёт программа, а не
-                        операционная система.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Расширения формата <mark className="file">ZXP</mark> можно установить
-                    двумя способами: с использованием{" "}
-                    <mark className="app">ZXP Installer</mark> от{" "}
-                    <mark className="web">aescripts</mark> или ручной распаковкой
-                    расширения в нужную директорию. После корректной установки
-                    установленные расширения появятся в{" "}
-                    <mark className="select">«Window» → «Extensions»</mark> и будут
-                    работать в своём новом окне, которое вы можете прикрепить в своё
-                    рабочее пространство.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Расширения такого формата являются кросс-платформенными: они
-                        работают как в Windows, так и в macOS.
-                      </li>
-                      <li>
-                        Прежде чем устанавливать расширение такого формата — убедитесь в
-                        том, что используемая вами версия{" "}
-                        <mark className="app">Adobe After Effects</mark> его поддерживает,
-                        иначе он может не появиться в списке расширений.
-                      </li>
-                      <li>
-                        Если расширение просит включить разрешение на запись файлов и
-                        доступ в интернет, перейдите в{" "}
-                        <mark className="select">
-                          «After Effects» → «Preferences» → «Scripting & Expressions»
-                        </mark>{" "}
-                        и установите флажок у параметра{" "}
-                        <mark className="select">
-                          «Allow Scripts to Write Files and Access Network»
-                        </mark>
-                        .
-                      </li>
-                      <li>
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark>. Это можно понять по наличию
-                        папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </li>
-                    </ul>
-                  </Addition>
+              <NestedDetailsSummary
+                anchor="archive"
+                title="Архивы (ZIP, 7Z, RAR)"
+              >
+                <p>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark> —
+                  его необходимо распаковать с помощью архиватора для дальнейшей работы с
+                  его содержимым. Это можно сделать с помощью{" "}
+                  <mark className="app">Keka</mark> или{" "}
+                  <mark className="app">The Unarchiver</mark>. Для распаковки многотомного
+                  архива, то есть если в названии архивов есть{" "}
+                  <mark className="file">PART1</mark>, <mark className="file">PART2</mark>{" "}
+                  и так далее, нужно запускать распаковку только первой части — остальные
+                  подхватятся автоматически. Другие части архива не нужно трогать без
+                  острой необходимости, если вы не знаете, что с ними делать.
+                </p>
+                <Addition type="info">
+                  Загрузить <mark className="app">Keka</mark> можно по{" "}
+                  <a href="https://www.keka.io/ru/">этой</a> ссылке, а{" "}
+                  <mark className="app">The Unarchiver</mark> — по{" "}
+                  <a href="https://theunarchiver.com/">этой</a>.
+                </Addition>
+                <ArticleMedia
+                  caption="Распаковка через контекстное меню"
+                  src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                  type="image"
+                />
+                <Addition type="info">
                   <ul>
                     <li>
-                      <p>
-                        Чтобы установить расширение через{" "}
-                        <mark className="app">ZXP Installer</mark> — его нужно загрузить с{" "}
-                        <a href="https://aescripts.com/learn/zxp-installer/">
-                          официального сайта aescripts
-                        </a>{" "}
-                        и установить, следуя инструкциям инсталлятора. После установки
-                        утилиты откройте его, а затем переместите файл{" "}
-                        <mark className="file">ZXP</mark> прямо в окно{" "}
-                        <mark className="app">ZXP Installer</mark>. Затем нажмите на{" "}
-                        <mark className="select">«Install»</mark> и дождитесь окончания
-                        установки.
-                      </p>
-                      <Addition type="danger">
-                        Пожалуйста, не используйте{" "}
-                        <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
-                        <mark className="company">ELEMENTS Storage Media</mark>, если вы
-                        используете версии программ от
-                        <mark className="company">Adobe</mark>, которые отвязаны от
-                        приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
-                        <a href="https://zxpinstaller.com/">ZXP Installer</a> будет
-                        выдавать вам ошибку <mark className="danger">-193</mark> до тех
-                        пор, пока вы не установите{" "}
-                        <mark className="app">Adobe Creative Cloud</mark>, а он, в свою
-                        очередь, может повредить уже установленные программы.
-                      </Addition>
+                      Многотомные архивы создаются для того, чтобы файл можно было
+                      спокойно передать, обойдя ограничения на максимальный размер в{" "}
+                      <mark className="app">Telegram</mark> или другом сервисе.
                     </li>
                     <li>
-                      <p>
-                        Если вы не хотите устанавливать сторонние программы для таких
-                        расширений, выполните шаги ниже.
-                      </p>
-                      <ul>
-                        <li>
-                          Переименуйте файл <mark className="file">ZXP</mark> в{" "}
-                          <mark className="file">ZIP</mark> и распакуйте его как обычный
-                          архив.
-                        </li>
-                        <li>
-                          <p>
-                            Переместите содержимое распакованного архива в папку{" "}
-                            <mark className="path">
-                              /Library/Application Support/Adobe/CEP/extensions
-                            </mark>
-                            .{" "}
-                            <a href="https://yablyk.com/174998-kak-otkryt-skrytuyu-papku-biblioteki-library-na-mac-macos-sierra/">
-                              Как открыть папку «Библиотеки»?
-                            </a>
-                          </p>
-                          <Addition type="info">
-                            Если такой папки нет — создайте её вручную через контекстное
-                            меню <mark className="app">Finder</mark>.
-                          </Addition>
-                        </li>
-                        <li>
-                          <p>
-                            Откройте <mark className="app">Терминал</mark> и введите
-                            команды ниже — они активируют debug-режим, необходимый для
-                            корректной работы вручную установленных расширений.
-                          </p>
-                          <CodeSnippet>
-                            defaults write com.adobe.CSXS.5 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.6 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.7 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.8 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.9 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.10 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.11 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.12 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.13 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.14 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.15 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.16 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.17 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.18 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.19 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.20 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.21 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.22 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.23 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.24 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.25 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.26 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.27 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.28 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.29 PlayerDebugMode 1
-                            <br />
-                            defaults write com.adobe.CSXS.30 PlayerDebugMode 1
-                          </CodeSnippet>
-                          <Addition type="info">
-                            <ul>
-                              <li>
-                                Эти команды нужно ввести только один раз — при последующих
-                                установках дополнительных расширений повторять их не
-                                требуется.
-                              </li>
-                              <li>
-                                Если вы пропустите этот шаг, расширения будут отображаться
-                                в списке, но при попытке их открыть ничего не произойдёт.
-                              </li>
-                            </ul>
-                          </Addition>
-                        </li>
-                      </ul>
+                      Если вы хотите сделать <mark className="app">Keka</mark> архиватором
+                      по умолчанию, то вам понадобится установить{" "}
+                      <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
+                      Подробная инструкция расположена в{" "}
+                      <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                        вики на GitHub
+                      </a>
+                      .
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <p>
-                    Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                    <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                    или <mark className="file">LUT</mark> распаковываются в{" "}
-                    <mark className="path">
-                      /Applications/Adobe After Effects 20XX/Adobe After Effects
-                      20XX.app/Contents/Lumetri/LUTs
-                    </mark>
-                    . Чтобы добраться до папки{" "}
-                    <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и
-                    нажмите <mark className="key">ПКМ</mark> по ярлыку{" "}
-                    <mark className="app">Adobe After Effects 20XX</mark> в директории{" "}
-                    <mark className="path">/Applications/Adobe After Effects 20XX</mark>,
-                    а затем выберите{" "}
-                    <mark className="select">«Показать содержимое пакета»</mark> в
-                    контекстном меню. Для изменений файлов внутри пакета потребуются права
-                    администратора. Файлы для цветокоррекции можно будет использовать в
-                    эффекте <mark className="plugin">Lumetri Color</mark>.
-                  </p>
+                </Addition>
+                <Addition type="warning">
+                  Если в архиве находится папка <mark className="path">_MACOSX</mark>, то
+                  в ней нет никаких полезных файлов, установщиков и плагинов, которые
+                  предназначены именно для устройств Mac. Это скрытая системная папка,
+                  которую иногда создаёт macOS, в ней хранятся метаданные и информация о
+                  файловой системе. Внутри данной директории нет ничего интересного для
+                  пользователя, поэтому смело игнорируйте её.
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="dmg"
+                title="Пакеты (DMG, APP, PKG)"
+              >
+                <p>
+                  Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
+                  <mark className="file">APP</mark> или <mark className="file">PKG</mark>{" "}
+                  — достаточно открыть такой файл двойным кликом и следовать инструкциям
+                  инсталлятора.
+                </p>
+                <Addition type="info">
                   <ul>
                     <li>
-                      Если вы распакуете файлы в <mark className="path">Technical</mark>,
-                      где обычно располагаются входные <mark className="file">LUT</mark>{" "}
-                      для проявки изображения с камеры, например для преобразования между
-                      цветовыми пространствами, то они появятся в параметре{" "}
-                      <mark className="select">«Input LUT»</mark> во вкладке{" "}
-                      <mark className="select">«Basic Correction»</mark>.
+                      По умолчанию в macOS вы не сможете без «танцев с бубном» открыть
+                      установщики от неподтверждённых разработчиков. Чтобы обойти этот
+                      запрет, нужно изменить настройки безопасности операционной системы.
+                      Подробнее об этом вы можете прочитать на{" "}
+                      <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a>,{" "}
+                      <a href="https://yablyk.com/678518-programma-ne-mozhet-byt-otkryta-tak-kak-ee-avtor-oshibka-na-mac-kak-obojti/">
+                        Яблык
+                      </a>
+                      ,{" "}
+                      <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
+                        iPhones.ru
+                      </a>{" "}
+                      или в{" "}
+                      <a href="https://appstorrent.ru/200-mistakes.html">
+                        решениях проблем с установкой на appstorrent
+                      </a>
+                      .
                     </li>
                     <li>
-                      Если вы распакуете файлы в <mark className="path">Creative</mark>,
-                      где располагаются файлы для стилизации изображения уже после базовой
-                      цветокоррекции, то они появятся в параметре{" "}
-                      <mark className="select">«Look»</mark> во вкладке{" "}
-                      <mark className="select">«Creative»</mark>.
-                    </li>
-                    <li>
-                      В <mark className="path">Legacy</mark> располагаются устаревшие
-                      файлы для цветокоррекции для совместимости со старыми проектами в{" "}
-                      <mark className="app">Adobe After Effects</mark> и не используются
-                      программой в последних версиях. При необходимости вы можете
-                      скопировать нужные файлы цветокоррекции оттуда в папку{" "}
-                      <mark className="path">Creative</mark> или{" "}
-                      <mark className="path">Technical</mark>.
+                      Если вы сталкиваетесь с ошибкой{" "}
+                      <mark className="danger">
+                        «Не удаётся открыть программу „AppName”»
+                      </mark>
+                      , попробуйте открыть её через <mark className="key">ПКМ</mark>,
+                      выбрав в контекстном меню <mark className="select">«Открыть»</mark>.
                     </li>
                   </ul>
-                  <ArticleMedia
-                    src="WyZ32cYLkpg"
-                    type="youtube"
-                  />
-                </li>
-                <li>
-                  <p>
-                    Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                    <mark className="file">LS3</mark> или{" "}
-                    <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                    импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                    расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  </p>
-                  <ArticleMedia
-                    caption="Magic Bullet Looks"
-                    src="legacy/import_magic_bullet_looks.png"
-                    type="image"
-                  />
-                </li>
-                <li>
-                  <p>
-                    Шрифты форматов <mark className="file">TTF</mark> или{" "}
-                    <mark className="file">OTF</mark> устанавливаются стандартными
-                    средствами операционной системы. Установленные шрифты будут
-                    отображаться во всех программах, поддерживающих сторонние шрифты, в
-                    том числе и в <mark className="app">Adobe After Effects</mark>. Это
-                    можно сделать несколькими способами.
-                  </p>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="plugin"
+                title="Плагины (PLUGIN)"
+              >
+                <p>
+                  Плагины формата <mark className="file">PLUGIN</mark> распаковываются в
+                  общую папку плагинов —{" "}
+                  <mark className="path">
+                    /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
+                  </mark>
+                  . Обычно установленные плагины находятся в окне{" "}
+                  <mark className="select">«Effects & Presets»</mark> и могут вызываться с
+                  помощью <mark className="plugin">FX Console</mark>.
+                </p>
+                <Addition type="info">
                   <ul>
                     <li>
-                      Запустите приложение <mark className="app">Шрифты</mark>, выделите
-                      нужные файлы шрифтов и перенесите их в открытое окно программы.
+                      В редких случаях плагин может вызываться из другого места в
+                      интерфейсе программы — читайте приложенную документацию к
+                      устанавливаемому плагину.
                     </li>
                     <li>
-                      Дважды кликните на файл шрифта и в открывшемся окне нажмите кнопку{" "}
-                      <mark className="select">«Установить»</mark>.
-                    </li>
-                    <li>
-                      Используйте сторонний менеджер для установки, организации и
-                      активации нужных шрифтов, например{" "}
-                      <mark className="app">FontBase</mark>,{" "}
-                      <mark className="app">Typeface</mark> или{" "}
-                      <mark className="app">RightFont</mark>.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </>
-          }
-          windowsContent={
-            <>
-              <ul>
-                <li>
-                  <p>
-                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>{" "}
-                    — его необходимо распаковать с помощью архиватора для дальнейшей
-                    работы с его содержимым. Это можно сделать с помощью{" "}
-                    <mark className="app">WinRAR</mark> или{" "}
-                    <mark className="app">7-Zip</mark>, однако многотомные архивы всё же
-                    рекомендуется распаковывать именно через{" "}
-                    <mark className="app">WinRAR</mark> во избежание непредвиденных
-                    ошибок.
-                  </p>
-                  <p>
-                    Для распаковки многотомного архива, то есть, если в названии архивов
-                    есть <mark className="file">PART1</mark>,{" "}
-                    <mark className="file">PART2</mark> и так далее, нужно запустить
-                    распаковку только первой части — остальные подхватятся автоматически.
-                    Другие части архива не нужно трогать без острой необходимости, если вы
-                    не знаете, что с ними делать.
-                  </p>
-                  <ArticleMedia
-                    src="1OVwQS0uHhk"
-                    type="youtube"
-                  />
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        <mark className="app">WinRAR</mark> можно загрузить по{" "}
-                        <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
-                        <mark className="app">7-Zip</mark> — по{" "}
-                        <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
-                        <em className="article-note-muted">
-                          Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
-                          <mark className="app">WinRAR</mark>.
-                        </em>
-                      </li>
-                      <li>
-                        Многотомные архивы создаются для того, чтобы файл можно было
-                        спокойно передать, обойдя ограничения на максимальный размер в{" "}
-                        <mark className="app">Telegram</mark> или другом сервисе.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Для того чтобы установить программу или плагин, поставляющийся в
-                    формате исполняемого файла <mark className="file">EXE</mark> или{" "}
-                    <mark className="file">MSI</mark> — достаточно его открыть двойным
-                    кликом и следовать инструкциям инсталлятора.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Перед установкой плагинов с помощью инсталлятора рекомендуется
-                        закрыть <mark className="app">Adobe After Effects</mark> для
-                        корректной установки.
-                      </li>
-                      <li>
-                        Если в записи указано, что установщик является репаком — после его
-                        установки программа или плагин уже будет «народно» активирован,
-                        никаких дополнительный действий для активации делать не нужно.
-                      </li>
-                    </ul>
-                  </Addition>
-                  <Addition type="danger">
-                    <ul>
-                      <li>
-                        При использовании установщиков убедитесь, что{" "}
-                        <mark className="app">Adobe After Effects</mark> установлен в
-                        стандартном расположении{" "}
-                        <mark className="path">C:\Program Files\Adobe\</mark>, а не в
-                        другом месте или на другом разделе. В противном случае
-                        устанавливаемый плагин может установиться не туда, из-за чего не
-                        будет отображаться и корректно работать в программе.
-                      </li>
-                      <li>
-                        Если вы доверяете источнику, откуда вы скачали установщик — для
-                        корректной установки отключите полностью или на время ваше{" "}
-                        <mark className="app">антивирусное ПО</mark> во избежание проблем
-                        при установке из-за отсутствия нужных файлов.{" "}
-                        <a href="#disable-defender">Подробнее...</a>
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Плагины формата <mark className="file">AEX</mark> распаковываются в
-                    общую папку плагинов —{" "}
-                    <mark className="path">
-                      C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
-                    </mark>
-                    . Обычно установленные плагины находятся в окне{" "}
-                    <mark className="select">«Effects & Presets»</mark> и могут вызываться
-                    с помощью <mark className="plugin">FX Console</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        В редких случаях плагин может вызываться из другого места в
-                        программе — читайте приложенную документацию к устанавливаемому
-                        плагину.
-                      </li>
-                      <li>
-                        Если вы хотите, чтобы плагин отображался только в конкретной
-                        версии <mark className="app">Adobe After Effects</mark> —
-                        распакуйте его в папку{" "}
-                        <mark className="path">
-                          C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                          Files\Plug-ins
-                        </mark>
-                        , где <mark className="version">20XX</mark> — ваша версия
-                        программы.
-                      </li>
-                      <li>
-                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Adobe After Effects</mark> и наоборот.
-                        Уточняйте в документации к устанавливаемому плагину, для каких
-                        версий <mark className="app">Adobe After Effects</mark> он
-                        предназначен.
-                      </li>
-                    </ul>
-                  </Addition>
-                  <Addition type="danger">
-                    Плагины формата <mark className="file">PLUGIN</mark> не подходят для
-                    устройств на Windows, так как они предназначены для устройств на
-                    macOS.
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Пресеты формата <mark className="file">FFX</mark> распаковываются в
-                    стандартную папку для них —{" "}
-                    <mark className="path">
-                      C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                      Files\Presets
-                    </mark>
-                    . Установленные пресеты будут находиться в окне{" "}
-                    <mark className="select">«Effects & Presets»</mark> в папке{" "}
-                    <mark className="path">Animation Presets</mark> и могут вызываться с
-                    помощью <mark className="plugin">FX Console</mark>.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        В папке с пресетами вы можете создать папку со своим названием или
-                        расположить скачанные пресеты в уже существующих.
-                      </li>
-                      <li>
-                        Если у вас нет доступа для записи файлов в системные директории,
-                        вы можете распаковать пресеты в папку пользователя{" "}
-                        <mark className="path">
-                          C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
-                          Presets
-                        </mark>
-                        .
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Пресеты форматов <mark className="file">GP</mark>,{" "}
-                    <mark className="file">EFFECT</mark> или{" "}
-                    <mark className="file">TRANSITION</mark> относятся к пакету сторонних
-                    плагинов <mark className="plugin">Boris FX Sapphire</mark> и
-                    импортируются через браузер пресетов или с помощью ручной распаковки
-                    пресетов в стандартную директорию. Импортированные пресеты можно будет
-                    использовать с помощью <mark className="select">«Load Preset»</mark> в
-                    контроллере каждого эффекта.
-                  </p>
-                  <ul>
-                    <li>
-                      Чтобы импортировать файлы через браузер пресетов — примените на слой
-                      любой эффект, относящийся к{" "}
-                      <mark className="app">Boris FX Sapphire</mark>. После применения —
-                      нажмите на <mark className="select">«Load Preset»</mark> в
-                      контроллере эффекта. В открывшемся окне перейдите в{" "}
-                      <mark className="select">«File» → «Import Preset»</mark> и выберите
-                      нужный файл.
-                    </li>
-                    <li>
-                      Если вы хотите импортировать файлы пресетов без использования{" "}
-                      <mark className="select">«Preset Browser»</mark>, переместите их в
-                      стандартную директорию для них —{" "}
+                      Если вы хотите, чтобы плагин отображался только в конкретной версии{" "}
+                      <mark className="app">Adobe After Effects</mark> — распакуйте его в
+                      папку{" "}
                       <mark className="path">
-                        C:\ProgramData\BorisFX\Sapphire\Sapphire\presets
+                        /Applications/Adobe After Effects 20XX/Plug-Ins
+                      </mark>
+                      , где <mark className="version">20XX</mark> — ваша версия программы.
+                    </li>
+                    <li>
+                      Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                      <mark className="app">Adobe After Effects</mark> и наоборот.
+                      Уточняйте в документации к устанавливаемому плагину, для каких
+                      версий <mark className="app">Adobe After Effects</mark> он
+                      предназначен.
+                    </li>
+                  </ul>
+                </Addition>
+                <Addition type="danger">
+                  Плагины формата <mark className="file">AEX</mark> не подходят для
+                  устройств на macOS, так как они предназначены для устройств на Windows.
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="ffx"
+                title="Пресеты (FFX)"
+              >
+                <p>
+                  Пресеты формата <mark className="file">FFX</mark> распаковываются в
+                  стандартную папку для них —{" "}
+                  <mark className="path">
+                    /Applications/Adobe After Effects 20XX/Presets
+                  </mark>
+                  . Установленные пресеты будут находиться в окне{" "}
+                  <mark className="select">«Effects & Presets»</mark> в папке{" "}
+                  <mark className="path">Animation Presets</mark> и могут вызываться с
+                  помощью <mark className="plugin">FX Console</mark>.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      В папке с пресетами вы можете создать собственную папку или
+                      расположить скачанные пресеты в уже существующих.
+                    </li>
+                    <li>
+                      Как альтернативу, можно распаковать пресеты в папку пользователя{" "}
+                      <mark className="path">
+                        ~/Documents/Adobe/After Effects 20XX/User Presets
                       </mark>
                       .
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <p>
-                    Пресеты форматов <mark className="file">BSP</mark>,{" "}
-                    <mark className="file">BAP</mark> или{" "}
-                    <mark className="file">BCP</mark> относятся к пакету сторонних
-                    плагинов <mark className="plugin">Boris FX Continuum</mark>.
-                  </p>
-                  <ul>
-                    <li>
-                      Чтобы применить пресет к эффекту из этого пакета — просто нажмите на{" "}
-                      <mark className="select">«Load»</mark> в его контроллере и укажите
-                      путь до файла.
-                    </li>
-                    <li>
-                      Чтобы файлы появились в браузере пресетов, который открывается
-                      нажатием на <mark className="select">«FX Browser»</mark> —
-                      распакуйте их в{" "}
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="jsx"
+                title="Скрипты (JSX, JSXBIN)"
+              >
+                <ul>
+                  <li>
+                    <p>
+                      Скрипты формата <mark className="file">JSX</mark> распаковываются в
+                      стандартную папку скриптов —{" "}
                       <mark className="path">
-                        C:\ProgramData\BorisFX\Continuum\XX\Presets
+                        /Applications/Adobe After Effects 20XX/Scripts
                       </mark>
-                      . В этой директории будет много подпапок, которые относятся к
-                      определённой категории и эффекту — распакуйте пресет в необходимое
-                      вам место.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <p>
-                    Скрипты формата <mark className="file">JSX</mark> распаковываются в
-                    стандартную папку скриптов —{" "}
-                    <mark className="path">
-                      C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                      Files\Scripts
-                    </mark>
-                    . После установки они появятся в контекстном меню{" "}
-                    <mark className="select">«File» → «Scripts»</mark>
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Как альтернативу, вы можете установить скрипт с помощью{" "}
-                        <mark className="select">
-                          «File» → «Scripts» → «Install Script File»
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного файла.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а лишь запустить его один
-                        раз — нажмите на <mark className="select">«Run Script File»</mark>{" "}
-                        в контекстном меню{" "}
-                        <mark className="select">«File» → «Scripts»</mark>. В открывшемся
-                        окне укажите путь к нужному скрипту, и он будет запущен до
-                        перезапуска программы или до закрытия окна пользователем.
-                      </li>
-                      <li>
-                        <p>
-                          Если вы хотите закрепить окно скрипта{" "}
-                          <mark className="file">JSX</mark> в рабочем пространстве —
-                          перенесите его в дочернюю папку{" "}
-                          <mark className="path">ScriptUI Panels</mark>. Полный путь в
-                          таком случае должен быть таким:{" "}
-                          <mark className="path">
-                            C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                            Files\Scripts\ScriptUI Panels
-                          </mark>
-                          . После этого нужный вам скрипт переместится в меню{" "}
-                          <mark className="select">«Window»</mark> и будет располагаться в
-                          самом низу списка, а также появится возможность прикрепить его к
-                          рабочему пространству.
-                        </p>
-                        <Addition type="info">
-                          Для прикрепления окна в рабочее пространство программы держитесь
-                          за заголовок с названием скрипта, который создаёт программа, а
-                          не операционная система.
-                        </Addition>
-                      </li>
-                      <li>
-                        <p>
-                          При желании вы можете назначить комбинацию клавиш для открытия
-                          нужного скрипта <mark className="file">JSX</mark> в{" "}
-                          <mark className="select">«Keyboard Shortcuts»</mark>.
-                        </p>
-                        <Addition type="warning">
-                          После перемещения скрипта <mark className="file">JSX</mark> в
-                          дочернюю папку <mark className="path">ScriptUI Panels</mark> —
-                          вы не сможете открывать его с помощью комбинаций клавиш,
-                          заданных в <mark className="select">«Keyboard Shortcuts»</mark>,
-                          но сможете закрепить его в рабочем пространстве.
-                        </Addition>
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Скрипты формата <mark className="file">JSXBIN</mark> распаковываются в
-                    стандартную папку <mark className="path">ScriptUI Panels</mark> —{" "}
-                    <mark className="path">
-                      C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                      Files\Scripts\ScriptUI Panels
-                    </mark>
-                    . После установки они появятся в контекстном меню{" "}
-                    <mark className="select">«Window»</mark> в самом конце списка.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Как альтернативу, вы можете установить скрипт с помощью{" "}
-                        <mark className="select">
-                          «File» → «Scripts» → «Install ScriptUI Panel»
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного файла.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а лишь запустить его один
-                        раз — нажмите на <mark className="select">«Run Script File»</mark>{" "}
-                        в контекстном меню{" "}
-                        <mark className="select">«File» → «Scripts»</mark>. В открывшемся
-                        окне укажите путь к нужному скрипту, и он будет запущен до
-                        перезапуска программы или до закрытия окна пользователем.
-                      </li>
-                      <li>
-                        Для прикрепления окна в рабочее пространство программы держитесь
-                        за заголовок с названием скрипта, который создаёт программа, а не
-                        операционная система.
-                      </li>
-                    </ul>
-                  </Addition>
-                </li>
-                <li>
-                  <p>
-                    Расширения формата <mark className="file">ZXP</mark> можно установить
-                    двумя способами: с использованием{" "}
-                    <mark className="app">ZXP Installer</mark> от{" "}
-                    <mark className="web">aescripts</mark> или ручной распаковкой
-                    расширения в нужную директорию. После корректной установки
-                    установленные расширения появятся в{" "}
-                    <mark className="select">«Window» → «Extensions»</mark> и будут
-                    работать в своём новом окне, который вы можете прикрепить в своё
-                    рабочее пространство.
-                  </p>
-                  <Addition type="info">
-                    <ul>
-                      <li>
-                        Расширения такого формата являются кросс-платформенными: они
-                        работают как в Windows, так и в macOS.
-                      </li>
-                      <li>
-                        Прежде чем устанавливать расширение такого формата — убедитесь в
-                        том, что используемая вами версия{" "}
-                        <mark className="app">Adobe After Effects</mark> его поддерживает,
-                        иначе он может не появиться в списке расширений.
-                      </li>
-                      <li>
-                        Если расширение просит включить разрешение на запись файлов и
-                        доступ в интернет, перейдите в{" "}
-                        <mark className="select">
-                          «Edit» → «Preferences» → «Scripting & Expressions»
-                        </mark>{" "}
-                        и установите флажок у параметра{" "}
-                        <mark className="select">
-                          «Allow Scripts to Write Files and Access Network»
-                        </mark>
-                        .
-                      </li>
-                      <li>
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark>. Это можно понять по наличию
-                        папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </li>
-                    </ul>
-                  </Addition>
-                  <ul>
-                    <li>
-                      <p>
-                        Чтобы установить расширение через{" "}
-                        <mark className="app">ZXP Installer</mark> — его нужно загрузить с{" "}
-                        <a href="https://aescripts.com/learn/zxp-installer/">
-                          официального сайта aescripts
-                        </a>{" "}
-                        и установить, следуя инструкциям инсталлятора. После установки
-                        утилиты откройте его, а затем переместите файл{" "}
-                        <mark className="file">ZXP</mark> прямо в окно{" "}
-                        <mark className="app">ZXP Installer</mark>. Затем нажмите на{" "}
-                        <mark className="select">«Install»</mark> и дождитесь окончания
-                        установки.
-                      </p>
-                      <Addition type="danger">
-                        Пожалуйста, не используйте{" "}
-                        <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
-                        <mark className="company">ELEMENTS Storage Media</mark>, если вы
-                        используете версии программ от
-                        <mark className="company">Adobe</mark>, которые отвязаны от
-                        приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
-                        <a href="https://zxpinstaller.com/">ZXP Installer</a> будет
-                        выдавать вам ошибку <mark className="danger">-193</mark> до тех
-                        пор, пока вы не установите{" "}
-                        <mark className="app">Adobe Creative Cloud</mark>, а он, в свою
-                        очередь, может повредить уже установленные программы.
-                      </Addition>
-                    </li>
-                    <li>
-                      <p>
-                        Если вы не хотите использовать сторонние программы для установки
-                        расширений, выполните шаги ниже.
-                      </p>
+                      . После установки они появятся в контекстном меню{" "}
+                      <mark className="select">«File» → «Scripts»</mark>.
+                    </p>
+                    <Addition type="info">
                       <ul>
                         <li>
-                          <p>
-                            Переименуйте файл <mark className="file">ZXP</mark> в{" "}
-                            <mark className="file">ZIP</mark> и распакуйте его как обычный
-                            архив.
-                          </p>
-                          <Addition type="info">
-                            Прежде чем менять расширение файла, убедитесь, что в{" "}
-                            <mark className="app">Проводнике</mark> включено{" "}
-                            <a href="https://remontka.pro/show-file-extensions-windows-11/">
-                              отображение расширений файлов
-                            </a>
-                            .
-                          </Addition>
+                          Как альтернативу, вы можете установить скрипт с помощью{" "}
+                          <mark className="select">
+                            «File» → «Scripts» → «Install Script File»
+                          </mark>
+                          . В открывшемся окне укажите путь до нужного файла.
+                        </li>
+                        <li>
+                          Если вы не хотите устанавливать скрипт, а лишь запустить его
+                          один раз — нажмите на{" "}
+                          <mark className="select">«Run Script File»</mark> в контекстном
+                          меню <mark className="select">«File» → «Scripts»</mark>. В
+                          открывшемся окне укажите путь к нужному скрипту, и он будет
+                          запущен до перезапуска программы или до закрытия окна
+                          пользователем.
                         </li>
                         <li>
                           <p>
-                            Переместите содержимое распакованного архива в папку{" "}
+                            Если вы хотите закрепить окно скрипта{" "}
+                            <mark className="file">JSX</mark> в рабочем пространстве —
+                            перенесите его в дочернюю папку{" "}
+                            <mark className="path">ScriptUI Panels</mark>. Полный путь в
+                            таком случае должен быть таким:{" "}
                             <mark className="path">
-                              C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
+                              /Applications/Adobe After Effects 20XX/Scripts/ScriptUI
+                              Panels
                             </mark>
-                            .
+                            . После этого нужный вам скрипт переместится в меню{" "}
+                            <mark className="select">«Window»</mark> и будет располагаться
+                            в самом низу списка, а также появится возможность прикрепить
+                            его к рабочему пространству.
                           </p>
                           <Addition type="info">
-                            <ul>
-                              <li>
-                                Если папка отсутствует — создайте её вручную через
-                                контекстное меню проводника или с помощью команды{" "}
-                                <mark className="code">
-                                  mkdir &quot;C:\Program Files (x86)\Common
-                                  Files\Adobe\CEP\extensions&quot;
-                                </mark>
-                                .
-                              </li>
-                              <li>
-                                Если у вас нет прав администратора, вы можете распаковать
-                                файлы в папку{" "}
-                                <mark className="path">
-                                  %APPDATA%\Adobe\CEP\extensions
-                                </mark>
-                              </li>
-                            </ul>
+                            Для прикрепления окна в рабочее пространство программы
+                            держитесь за заголовок с названием скрипта, который создаёт
+                            программа, а не операционная система.
                           </Addition>
                         </li>
                         <li>
                           <p>
-                            Скачайте и откройте, подтвердив слияние записей,{" "}
-                            <a
-                              download
-                              href="files/Enable Extensions Adobe.reg"
-                            >
-                              файл реестра
-                            </a>
-                            , включающий debug-режим для{" "}
-                            <mark className="app">Adobe After Effects</mark>. Это
-                            необходимо, чтобы вручную установленные расширения корректно
-                            запускались.
+                            При желании вы можете назначить комбинацию клавиш для открытия
+                            нужного скрипта <mark className="file">JSX</mark> в{" "}
+                            <mark className="select">«Keyboard Shortcuts»</mark>.
                           </p>
-                          <Addition type="info">
-                            <ul>
-                              <li>
-                                Применять этот файл достаточно один раз — при последующих
-                                установках повторять действие не нужно.
-                              </li>
-                              <li>
-                                Если вы пропустите этот шаг, расширения будут отображаться
-                                в списке, но не откроются при запуске.
-                              </li>
-                            </ul>
+                          <Addition type="warning">
+                            После перемещения скрипта <mark className="file">JSX</mark> в
+                            дочернюю папку <mark className="path">ScriptUI Panels</mark> —
+                            вы не сможете открывать его с помощью комбинаций клавиш,
+                            заданных в{" "}
+                            <mark className="select">«Keyboard Shortcuts»</mark>, но
+                            сможете закрепить его в рабочем пространстве.
                           </Addition>
                         </li>
                       </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    <p>
+                      Скрипты формата <mark className="file">JSXBIN</mark> распаковываются
+                      в стандартную папку для скриптов с интерфейсом —{" "}
+                      <mark className="path">
+                        /Applications/Adobe After Effects 20XX/Scripts/ScriptUI Panels
+                      </mark>
+                      . После установки они появятся в контекстном меню{" "}
+                      <mark className="select">«Window»</mark> в самом конце списка.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          Как альтернативу, вы можете установить скрипт с помощью{" "}
+                          <mark className="select">
+                            «File» → «Scripts» → «Install ScriptUI Panel»
+                          </mark>
+                          . В открывшемся окне укажите путь до нужного файла.
+                        </li>
+                        <li>
+                          Если вы не хотите устанавливать скрипт, а лишь запустить его
+                          один раз — нажмите на{" "}
+                          <mark className="select">«Run Script File»</mark> в контекстном
+                          меню <mark className="select">«File» → «Scripts»</mark>. В
+                          открывшемся окне укажите путь к нужному скрипту, и он будет
+                          запущен до перезапуска программы или до закрытия окна
+                          пользователем.
+                        </li>
+                        <li>
+                          Для прикрепления окна в рабочее пространство программы держитесь
+                          за заголовок с названием скрипта, который создаёт программа, а
+                          не операционная система.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="zxp"
+                title="Расширения (ZXP)"
+              >
+                <p>
+                  Расширения формата <mark className="file">ZXP</mark> можно установить
+                  двумя способами: с использованием{" "}
+                  <mark className="app">ZXP Installer</mark> от{" "}
+                  <mark className="web">aescripts</mark> или ручной распаковкой расширения
+                  в нужную директорию. После корректной установки установленные расширения
+                  появятся в <mark className="select">«Window» → «Extensions»</mark> и
+                  будут работать в своём новом окне, которое вы можете прикрепить в своё
+                  рабочее пространство.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      Расширения такого формата являются кросс-платформенными: они
+                      работают как в Windows, так и в macOS.
+                    </li>
+                    <li>
+                      Прежде чем устанавливать расширение такого формата — убедитесь в
+                      том, что используемая вами версия{" "}
+                      <mark className="app">Adobe After Effects</mark> его поддерживает,
+                      иначе он может не появиться в списке расширений.
+                    </li>
+                    <li>
+                      Если расширение просит включить разрешение на запись файлов и доступ
+                      в интернет, перейдите в{" "}
+                      <mark className="select">
+                        «After Effects» → «Preferences» → «Scripting & Expressions»
+                      </mark>{" "}
+                      и установите флажок у параметра{" "}
+                      <mark className="select">
+                        «Allow Scripts to Write Files and Access Network»
+                      </mark>
+                      .
+                    </li>
+                    <li>
+                      Иногда в архиве может быть уже распакованный{" "}
+                      <mark className="file">ZXP</mark>. Это можно понять по наличию папок{" "}
+                      <mark className="path">META-INF</mark> и{" "}
+                      <mark className="path">CSXS</mark> внутри папки с названием
+                      расширения.
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <p>
-                    Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
-                    <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                    или <mark className="file">LUT</mark> распаковываются в{" "}
+                </Addition>
+                <ul>
+                  <li>
+                    <p>
+                      Чтобы установить расширение через{" "}
+                      <mark className="app">ZXP Installer</mark> — его нужно загрузить с{" "}
+                      <a href="https://aescripts.com/learn/zxp-installer/">
+                        официального сайта aescripts
+                      </a>{" "}
+                      и установить, следуя инструкциям инсталлятора. После установки
+                      утилиты откройте его, а затем переместите файл{" "}
+                      <mark className="file">ZXP</mark> прямо в окно{" "}
+                      <mark className="app">ZXP Installer</mark>. Затем нажмите на{" "}
+                      <mark className="select">«Install»</mark> и дождитесь окончания
+                      установки.
+                    </p>
+                    <Addition type="danger">
+                      Пожалуйста, не используйте{" "}
+                      <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                      <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                      используете версии программ от
+                      <mark className="company">Adobe</mark>, которые отвязаны от
+                      приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
+                      <a href="https://zxpinstaller.com/">ZXP Installer</a> будет выдавать
+                      вам ошибку <mark className="danger">-193</mark> до тех пор, пока вы
+                      не установите <mark className="app">Adobe Creative Cloud</mark>, а
+                      он, в свою очередь, может повредить уже установленные программы.
+                    </Addition>
+                  </li>
+                  <li>
+                    <p>
+                      Если вы не хотите устанавливать сторонние программы для таких
+                      расширений, выполните шаги ниже.
+                    </p>
+                    <ul>
+                      <li>
+                        Переименуйте файл <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распакуйте его как обычный
+                        архив.
+                      </li>
+                      <li>
+                        <p>
+                          Переместите содержимое распакованного архива в папку{" "}
+                          <mark className="path">
+                            /Library/Application Support/Adobe/CEP/extensions
+                          </mark>
+                          .{" "}
+                          <a href="https://yablyk.com/174998-kak-otkryt-skrytuyu-papku-biblioteki-library-na-mac-macos-sierra/">
+                            Как открыть папку «Библиотеки»?
+                          </a>
+                        </p>
+                        <Addition type="info">
+                          Если такой папки нет — создайте её вручную через контекстное
+                          меню <mark className="app">Finder</mark>.
+                        </Addition>
+                      </li>
+                      <li>
+                        <p>
+                          Откройте <mark className="app">Терминал</mark> и введите команды
+                          ниже — они активируют debug-режим, необходимый для корректной
+                          работы вручную установленных расширений.
+                        </p>
+                        <CodeSnippet>
+                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                        </CodeSnippet>
+                        <Addition type="info">
+                          <ul>
+                            <li>
+                              Эти команды нужно ввести только один раз — при последующих
+                              установках дополнительных расширений повторять их не
+                              требуется.
+                            </li>
+                            <li>
+                              Если вы пропустите этот шаг, расширения будут отображаться в
+                              списке, но при попытке их открыть ничего не произойдёт.
+                            </li>
+                          </ul>
+                        </Addition>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="lut"
+                title="Файлы для цветокоррекции (CUBE, LOOK, LUT)"
+              >
+                <p>
+                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark> распаковываются в{" "}
+                  <mark className="path">
+                    /Applications/Adobe After Effects 20XX/Adobe After Effects
+                    20XX.app/Contents/Lumetri/LUTs
+                  </mark>
+                  . Чтобы добраться до папки{" "}
+                  <mark className="path">Contents/Lumetri/LUTs</mark> — выделите и нажмите{" "}
+                  <mark className="key">ПКМ</mark> по ярлыку{" "}
+                  <mark className="app">Adobe After Effects 20XX</mark> в директории{" "}
+                  <mark className="path">/Applications/Adobe After Effects 20XX</mark>, а
+                  затем выберите{" "}
+                  <mark className="select">«Показать содержимое пакета»</mark> в
+                  контекстном меню. Для изменений файлов внутри пакета потребуются права
+                  администратора. Файлы для цветокоррекции можно будет использовать в
+                  эффекте <mark className="plugin">Lumetri Color</mark>.
+                </p>
+                <ul>
+                  <li>
+                    Если вы распакуете файлы в <mark className="path">Technical</mark>,
+                    где обычно располагаются входные <mark className="file">LUT</mark> для
+                    проявки изображения с камеры, например для преобразования между
+                    цветовыми пространствами, то они появятся в параметре{" "}
+                    <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                    <mark className="select">«Basic Correction»</mark>.
+                  </li>
+                  <li>
+                    Если вы распакуете файлы в <mark className="path">Creative</mark>, где
+                    располагаются файлы для стилизации изображения уже после базовой
+                    цветокоррекции, то они появятся в параметре{" "}
+                    <mark className="select">«Look»</mark> во вкладке{" "}
+                    <mark className="select">«Creative»</mark>.
+                  </li>
+                  <li>
+                    В <mark className="path">Legacy</mark> располагаются устаревшие файлы
+                    для цветокоррекции для совместимости со старыми проектами в{" "}
+                    <mark className="app">Adobe After Effects</mark> и не используются
+                    программой в последних версиях. При необходимости вы можете
+                    скопировать нужные файлы цветокоррекции оттуда в папку{" "}
+                    <mark className="path">Creative</mark> или{" "}
+                    <mark className="path">Technical</mark>.
+                  </li>
+                </ul>
+                <ArticleMedia
+                  src="WyZ32cYLkpg"
+                  type="youtube"
+                />
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="looks"
+                title="Файлы для цветокоррекции (Magic Bullet Looks)"
+              >
+                <p>
+                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                  <mark className="file">LS3</mark> или{" "}
+                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
+                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
+                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Magic Bullet Looks"
+                  src="legacy/import_magic_bullet_looks.png"
+                  type="image"
+                />
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="font"
+                title="Шрифты (TTF, OTF)"
+              >
+                <p>
+                  Шрифты форматов <mark className="file">TTF</mark> или{" "}
+                  <mark className="file">OTF</mark> устанавливаются стандартными
+                  средствами операционной системы. Установленные шрифты будут отображаться
+                  во всех программах, поддерживающих сторонние шрифты, в том числе и в{" "}
+                  <mark className="app">Adobe After Effects</mark>. Это можно сделать
+                  несколькими способами.
+                </p>
+                <ul>
+                  <li>
+                    Запустите приложение <mark className="app">Шрифты</mark>, выделите
+                    нужные файлы шрифтов и перенесите их в открытое окно программы.
+                  </li>
+                  <li>
+                    Дважды кликните на файл шрифта и в открывшемся окне нажмите кнопку{" "}
+                    <mark className="select">«Установить»</mark>.
+                  </li>
+                  <li>
+                    Используйте сторонний менеджер для установки, организации и активации
+                    нужных шрифтов, например <mark className="app">FontBase</mark>,{" "}
+                    <mark className="app">Typeface</mark> или{" "}
+                    <mark className="app">RightFont</mark>.
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+            </>
+          }
+          windowsContent={
+            <>
+              <NestedDetailsSummary
+                anchor="archive"
+                title="Архивы (ZIP, 7Z, RAR)"
+              >
+                <p>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark> —
+                  его необходимо распаковать с помощью архиватора для дальнейшей работы с
+                  его содержимым. Это можно сделать с помощью{" "}
+                  <mark className="app">WinRAR</mark> или{" "}
+                  <mark className="app">7-Zip</mark>, однако многотомные архивы всё же
+                  рекомендуется распаковывать именно через{" "}
+                  <mark className="app">WinRAR</mark> во избежание непредвиденных ошибок.
+                </p>
+                <p>
+                  Для распаковки многотомного архива, то есть, если в названии архивов
+                  есть <mark className="file">PART1</mark>,{" "}
+                  <mark className="file">PART2</mark> и так далее, нужно запустить
+                  распаковку только первой части — остальные подхватятся автоматически.
+                  Другие части архива не нужно трогать без острой необходимости, если вы
+                  не знаете, что с ними делать.
+                </p>
+                <ArticleMedia
+                  src="1OVwQS0uHhk"
+                  type="youtube"
+                />
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      <mark className="app">WinRAR</mark> можно загрузить по{" "}
+                      <a href="https://www.rarlab.com/download.htm">этой</a> ссылке, а{" "}
+                      <mark className="app">7-Zip</mark> — по{" "}
+                      <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
+                      <em className="article-note-muted">
+                        Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
+                        <mark className="app">WinRAR</mark>.
+                      </em>
+                    </li>
+                    <li>
+                      Многотомные архивы создаются для того, чтобы файл можно было
+                      спокойно передать, обойдя ограничения на максимальный размер в{" "}
+                      <mark className="app">Telegram</mark> или другом сервисе.
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="exe"
+                title="Установщики (EXE, MSI)"
+              >
+                <p>
+                  Для того чтобы установить программу или плагин, поставляющийся в формате
+                  исполняемого файла <mark className="file">EXE</mark> или{" "}
+                  <mark className="file">MSI</mark> — достаточно его открыть двойным
+                  кликом и следовать инструкциям инсталлятора.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      Перед установкой плагинов с помощью инсталлятора рекомендуется
+                      закрыть <mark className="app">Adobe After Effects</mark> для
+                      корректной установки.
+                    </li>
+                    <li>
+                      Если в записи указано, что установщик является репаком — после его
+                      установки программа или плагин уже будет «народно» активирован,
+                      никаких дополнительный действий для активации делать не нужно.
+                    </li>
+                  </ul>
+                </Addition>
+                <Addition type="danger">
+                  <ul>
+                    <li>
+                      При использовании установщиков убедитесь, что{" "}
+                      <mark className="app">Adobe After Effects</mark> установлен в
+                      стандартном расположении{" "}
+                      <mark className="path">C:\Program Files\Adobe\</mark>, а не в другом
+                      месте или на другом разделе. В противном случае устанавливаемый
+                      плагин может установиться не туда, из-за чего не будет отображаться
+                      и корректно работать в программе.
+                    </li>
+                    <li>
+                      Если вы доверяете источнику, откуда вы скачали установщик — для
+                      корректной установки отключите полностью или на время ваше{" "}
+                      <mark className="app">антивирусное ПО</mark> во избежание проблем
+                      при установке из-за отсутствия нужных файлов.{" "}
+                      <a href="#disable-defender">Подробнее...</a>
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="aex"
+                title="Плагины (AEX)"
+              >
+                <p>
+                  Плагины формата <mark className="file">AEX</mark> распаковываются в
+                  общую папку плагинов —{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
+                  </mark>
+                  . Обычно установленные плагины находятся в окне{" "}
+                  <mark className="select">«Effects & Presets»</mark> и могут вызываться с
+                  помощью <mark className="plugin">FX Console</mark>.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      В редких случаях плагин может вызываться из другого места в
+                      программе — читайте приложенную документацию к устанавливаемому
+                      плагину.
+                    </li>
+                    <li>
+                      Если вы хотите, чтобы плагин отображался только в конкретной версии{" "}
+                      <mark className="app">Adobe After Effects</mark> — распакуйте его в
+                      папку{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                        Files\Plug-ins
+                      </mark>
+                      , где <mark className="version">20XX</mark> — ваша версия программы.
+                    </li>
+                    <li>
+                      Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                      <mark className="app">Adobe After Effects</mark> и наоборот.
+                      Уточняйте в документации к устанавливаемому плагину, для каких
+                      версий <mark className="app">Adobe After Effects</mark> он
+                      предназначен.
+                    </li>
+                  </ul>
+                </Addition>
+                <Addition type="danger">
+                  Плагины формата <mark className="file">PLUGIN</mark> не подходят для
+                  устройств на Windows, так как они предназначены для устройств на macOS.
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="ffx"
+                title="Пресеты (FFX)"
+              >
+                <p>
+                  Пресеты формата <mark className="file">FFX</mark> распаковываются в
+                  стандартную папку для них —{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
+                  </mark>
+                  . Установленные пресеты будут находиться в окне{" "}
+                  <mark className="select">«Effects & Presets»</mark> в папке{" "}
+                  <mark className="path">Animation Presets</mark> и могут вызываться с
+                  помощью <mark className="plugin">FX Console</mark>.
+                </p>
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      В папке с пресетами вы можете создать папку со своим названием или
+                      расположить скачанные пресеты в уже существующих.
+                    </li>
+                    <li>
+                      Если у вас нет доступа для записи файлов в системные директории, вы
+                      можете распаковать пресеты в папку пользователя{" "}
+                      <mark className="path">
+                        C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
+                        Presets
+                      </mark>
+                      .
+                    </li>
+                  </ul>
+                </Addition>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="gp"
+                title="Пресеты BorisFX Sapphire (GP, EFFECT)"
+              >
+                <p>
+                  Пресеты форматов <mark className="file">GP</mark>,{" "}
+                  <mark className="file">EFFECT</mark> или{" "}
+                  <mark className="file">TRANSITION</mark> относятся к пакету сторонних
+                  плагинов <mark className="plugin">Boris FX Sapphire</mark> и
+                  импортируются через браузер пресетов или с помощью ручной распаковки
+                  пресетов в стандартную директорию. Импортированные пресеты можно будет
+                  использовать с помощью <mark className="select">«Load Preset»</mark> в
+                  контроллере каждого эффекта.
+                </p>
+                <ul>
+                  <li>
+                    Чтобы импортировать файлы через браузер пресетов — примените на слой
+                    любой эффект, относящийся к{" "}
+                    <mark className="app">Boris FX Sapphire</mark>. После применения —
+                    нажмите на <mark className="select">«Load Preset»</mark> в контроллере
+                    эффекта. В открывшемся окне перейдите в{" "}
+                    <mark className="select">«File» → «Import Preset»</mark> и выберите
+                    нужный файл.
+                  </li>
+                  <li>
+                    Если вы хотите импортировать файлы пресетов без использования{" "}
+                    <mark className="select">«Preset Browser»</mark>, переместите их в
+                    стандартную директорию для них —{" "}
                     <mark className="path">
-                      C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                      Files\Lumetri\LUTs\
+                      C:\ProgramData\BorisFX\Sapphire\Sapphire\presets
                     </mark>
-                    . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
-                    <mark className="plugin">Lumetri Color</mark>.
-                  </p>
+                    .
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="bsp"
+                title="Пресеты BorisFX Continuum (BSP, BAP, BCP)"
+              >
+                <p>
+                  Пресеты форматов <mark className="file">BSP</mark>,{" "}
+                  <mark className="file">BAP</mark> или <mark className="file">BCP</mark>{" "}
+                  относятся к пакету сторонних плагинов{" "}
+                  <mark className="plugin">Boris FX Continuum</mark>.
+                </p>
+                <ul>
+                  <li>
+                    Чтобы применить пресет к эффекту из этого пакета — просто нажмите на{" "}
+                    <mark className="select">«Load»</mark> в его контроллере и укажите
+                    путь до файла.
+                  </li>
+                  <li>
+                    Чтобы файлы появились в браузере пресетов, который открывается
+                    нажатием на <mark className="select">«FX Browser»</mark> — распакуйте
+                    их в{" "}
+                    <mark className="path">
+                      C:\ProgramData\BorisFX\Continuum\XX\Presets
+                    </mark>
+                    . В этой директории будет много подпапок, которые относятся к
+                    определённой категории и эффекту — распакуйте пресет в необходимое вам
+                    место.
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="jsx"
+                title="Скрипты (JSX, JSXBIN)"
+              >
+                <ul>
+                  <li>
+                    <p>
+                      Скрипты формата <mark className="file">JSX</mark> распаковываются в
+                      стандартную папку скриптов —{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                        Files\Scripts
+                      </mark>
+                      . После установки они появятся в контекстном меню{" "}
+                      <mark className="select">«File» → «Scripts»</mark>
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          Как альтернативу, вы можете установить скрипт с помощью{" "}
+                          <mark className="select">
+                            «File» → «Scripts» → «Install Script File»
+                          </mark>
+                          . В открывшемся окне укажите путь до нужного файла.
+                        </li>
+                        <li>
+                          Если вы не хотите устанавливать скрипт, а лишь запустить его
+                          один раз — нажмите на{" "}
+                          <mark className="select">«Run Script File»</mark> в контекстном
+                          меню <mark className="select">«File» → «Scripts»</mark>. В
+                          открывшемся окне укажите путь к нужному скрипту, и он будет
+                          запущен до перезапуска программы или до закрытия окна
+                          пользователем.
+                        </li>
+                        <li>
+                          <p>
+                            Если вы хотите закрепить окно скрипта{" "}
+                            <mark className="file">JSX</mark> в рабочем пространстве —
+                            перенесите его в дочернюю папку{" "}
+                            <mark className="path">ScriptUI Panels</mark>. Полный путь в
+                            таком случае должен быть таким:{" "}
+                            <mark className="path">
+                              C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                              Files\Scripts\ScriptUI Panels
+                            </mark>
+                            . После этого нужный вам скрипт переместится в меню{" "}
+                            <mark className="select">«Window»</mark> и будет располагаться
+                            в самом низу списка, а также появится возможность прикрепить
+                            его к рабочему пространству.
+                          </p>
+                          <Addition type="info">
+                            Для прикрепления окна в рабочее пространство программы
+                            держитесь за заголовок с названием скрипта, который создаёт
+                            программа, а не операционная система.
+                          </Addition>
+                        </li>
+                        <li>
+                          <p>
+                            При желании вы можете назначить комбинацию клавиш для открытия
+                            нужного скрипта <mark className="file">JSX</mark> в{" "}
+                            <mark className="select">«Keyboard Shortcuts»</mark>.
+                          </p>
+                          <Addition type="warning">
+                            После перемещения скрипта <mark className="file">JSX</mark> в
+                            дочернюю папку <mark className="path">ScriptUI Panels</mark> —
+                            вы не сможете открывать его с помощью комбинаций клавиш,
+                            заданных в{" "}
+                            <mark className="select">«Keyboard Shortcuts»</mark>, но
+                            сможете закрепить его в рабочем пространстве.
+                          </Addition>
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    <p>
+                      Скрипты формата <mark className="file">JSXBIN</mark> распаковываются
+                      в стандартную папку <mark className="path">ScriptUI Panels</mark> —{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                        Files\Scripts\ScriptUI Panels
+                      </mark>
+                      . После установки они появятся в контекстном меню{" "}
+                      <mark className="select">«Window»</mark> в самом конце списка.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          Как альтернативу, вы можете установить скрипт с помощью{" "}
+                          <mark className="select">
+                            «File» → «Scripts» → «Install ScriptUI Panel»
+                          </mark>
+                          . В открывшемся окне укажите путь до нужного файла.
+                        </li>
+                        <li>
+                          Если вы не хотите устанавливать скрипт, а лишь запустить его
+                          один раз — нажмите на{" "}
+                          <mark className="select">«Run Script File»</mark> в контекстном
+                          меню <mark className="select">«File» → «Scripts»</mark>. В
+                          открывшемся окне укажите путь к нужному скрипту, и он будет
+                          запущен до перезапуска программы или до закрытия окна
+                          пользователем.
+                        </li>
+                        <li>
+                          Для прикрепления окна в рабочее пространство программы держитесь
+                          за заголовок с названием скрипта, который создаёт программа, а
+                          не операционная система.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="zxp"
+                title="Расширения (ZXP)"
+              >
+                <p>
+                  Расширения формата <mark className="file">ZXP</mark> можно установить
+                  двумя способами: с использованием{" "}
+                  <mark className="app">ZXP Installer</mark> от{" "}
+                  <mark className="web">aescripts</mark> или ручной распаковкой расширения
+                  в нужную директорию. После корректной установки установленные расширения
+                  появятся в <mark className="select">«Window» → «Extensions»</mark> и
+                  будут работать в своём новом окне, который вы можете прикрепить в своё
+                  рабочее пространство.
+                </p>
+                <Addition type="info">
                   <ul>
                     <li>
-                      Если вы распакуете файлы в <mark className="path">Technical</mark>,
-                      где обычно располагаются входные <mark className="file">LUT</mark>{" "}
-                      для проявки изображения с камеры, например для преобразования между
-                      цветовыми пространствами, то они появятся в параметре{" "}
-                      <mark className="select">«Input LUT»</mark> во вкладке{" "}
-                      <mark className="select">«Basic Correction»</mark>.
+                      Расширения такого формата являются кросс-платформенными: они
+                      работают как в Windows, так и в macOS.
                     </li>
                     <li>
-                      Если вы распакуете файлы в <mark className="path">Creative</mark>,
-                      где располагаются файлы для стилизации изображения уже после базовой
-                      цветокоррекции, то они появятся в параметре{" "}
-                      <mark className="select">«Look»</mark> во вкладке{" "}
-                      <mark className="select">«Creative»</mark>.
+                      Прежде чем устанавливать расширение такого формата — убедитесь в
+                      том, что используемая вами версия{" "}
+                      <mark className="app">Adobe After Effects</mark> его поддерживает,
+                      иначе он может не появиться в списке расширений.
                     </li>
                     <li>
-                      В <mark className="path">Legacy</mark> располагаются устаревшие
-                      файлы для цветокоррекции для совместимости со старыми проектами в{" "}
-                      <mark className="app">Adobe After Effects</mark> и не используются
-                      программой в последних версиях. При необходимости вы можете
-                      скопировать нужные файлы цветокоррекции оттуда в папку{" "}
-                      <mark className="path">Creative</mark> или{" "}
-                      <mark className="path">Technical</mark>.
+                      Если расширение просит включить разрешение на запись файлов и доступ
+                      в интернет, перейдите в{" "}
+                      <mark className="select">
+                        «Edit» → «Preferences» → «Scripting & Expressions»
+                      </mark>{" "}
+                      и установите флажок у параметра{" "}
+                      <mark className="select">
+                        «Allow Scripts to Write Files and Access Network»
+                      </mark>
+                      .
+                    </li>
+                    <li>
+                      Иногда в архиве может быть уже распакованный{" "}
+                      <mark className="file">ZXP</mark>. Это можно понять по наличию папок{" "}
+                      <mark className="path">META-INF</mark> и{" "}
+                      <mark className="path">CSXS</mark> внутри папки с названием
+                      расширения.
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <p>
-                    Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
-                    <mark className="file">LS3</mark> или{" "}
-                    <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
-                    импорта во вкладке <mark className="select">«Looks»</mark> стороннего
-                    расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  </p>
-                  <ArticleMedia
-                    caption="Magic Bullet Looks"
-                    src="legacy/import_magic_bullet_looks.png"
-                    type="image"
-                  />
-                </li>
-                <li>
-                  <p>
-                    Шрифты форматов <mark className="file">TTF</mark> или{" "}
-                    <mark className="file">OTF</mark> устанавливаются стандартными
-                    средствами операционной системы. Установленные шрифты будут
-                    отображаться во всех программах, поддерживающие сторонние шрифты, в
-                    том числе и в <mark className="app">Adobe After Effects</mark>. Это
-                    можно сделать несколькими способами.
-                  </p>
-                  <ul>
-                    <li>
-                      Откройте файл шрифта двойным щелчком и в открывшемся окне нажмите
-                      кнопку <mark className="select">«Установить»</mark> в левом верхнем
-                      углу.
-                    </li>
-                    <li>
-                      Если у вас есть целый набор шрифтов и вы не хотите открывать каждый
-                      файл по отдельности, просто распакуйте архив со шрифтами в любую
-                      папку. После этого выделите нужные шрифты, нажмите{" "}
-                      <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
-                      <mark className="select">«Установить»</mark> или{" "}
-                      <mark className="select">«Установить для всех пользователей»</mark>.
-                    </li>
-                    <li>
-                      <p>
-                        Распакуйте файлы шрифтов в{" "}
-                        <mark className="path">C:\Windows\Fonts</mark>. Это позволит
-                        установить шрифты для всех пользователей системы.
-                      </p>
-                      <Addition type="info">
-                        Если у вас нет прав администратора, вы можете распаковать файлы
-                        шрифтов в папку{" "}
-                        <mark className="path">
-                          %LOCALAPPDATA%\Microsoft\Windows\Fonts
-                        </mark>
-                        . В таком случае шрифты будут установлены только для вашей учётной
-                        записи.
-                      </Addition>
-                    </li>
-                    <li>
-                      Используйте сторонний менеджер для установки, организации и
-                      активации нужных шрифтов, например{" "}
-                      <mark className="app">Corel Font Manager</mark>,{" "}
-                      <mark className="app">FontExpert</mark> или{" "}
-                      <mark className="app">FontBase</mark>.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+                </Addition>
+                <ul>
+                  <li>
+                    <p>
+                      Чтобы установить расширение через{" "}
+                      <mark className="app">ZXP Installer</mark> — его нужно загрузить с{" "}
+                      <a href="https://aescripts.com/learn/zxp-installer/">
+                        официального сайта aescripts
+                      </a>{" "}
+                      и установить, следуя инструкциям инсталлятора. После установки
+                      утилиты откройте его, а затем переместите файл{" "}
+                      <mark className="file">ZXP</mark> прямо в окно{" "}
+                      <mark className="app">ZXP Installer</mark>. Затем нажмите на{" "}
+                      <mark className="select">«Install»</mark> и дождитесь окончания
+                      установки.
+                    </p>
+                    <Addition type="danger">
+                      Пожалуйста, не используйте{" "}
+                      <a href="https://zxpinstaller.com/">ZXP Installer</a> от{" "}
+                      <mark className="company">ELEMENTS Storage Media</mark>, если вы
+                      используете версии программ от
+                      <mark className="company">Adobe</mark>, которые отвязаны от
+                      приложения <mark className="app">Adobe Creative Cloud</mark>. Этот{" "}
+                      <a href="https://zxpinstaller.com/">ZXP Installer</a> будет выдавать
+                      вам ошибку <mark className="danger">-193</mark> до тех пор, пока вы
+                      не установите <mark className="app">Adobe Creative Cloud</mark>, а
+                      он, в свою очередь, может повредить уже установленные программы.
+                    </Addition>
+                  </li>
+                  <li>
+                    <p>
+                      Если вы не хотите использовать сторонние программы для установки
+                      расширений, выполните шаги ниже.
+                    </p>
+                    <ul>
+                      <li>
+                        <p>
+                          Переименуйте файл <mark className="file">ZXP</mark> в{" "}
+                          <mark className="file">ZIP</mark> и распакуйте его как обычный
+                          архив.
+                        </p>
+                        <Addition type="info">
+                          Прежде чем менять расширение файла, убедитесь, что в{" "}
+                          <mark className="app">Проводнике</mark> включено{" "}
+                          <a href="https://remontka.pro/show-file-extensions-windows-11/">
+                            отображение расширений файлов
+                          </a>
+                          .
+                        </Addition>
+                      </li>
+                      <li>
+                        <p>
+                          Переместите содержимое распакованного архива в папку{" "}
+                          <mark className="path">
+                            C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
+                          </mark>
+                          .
+                        </p>
+                        <Addition type="info">
+                          <ul>
+                            <li>
+                              Если папка отсутствует — создайте её вручную через
+                              контекстное меню проводника или с помощью команды{" "}
+                              <mark className="code">
+                                mkdir &quot;C:\Program Files (x86)\Common
+                                Files\Adobe\CEP\extensions&quot;
+                              </mark>
+                              .
+                            </li>
+                            <li>
+                              Если у вас нет прав администратора, вы можете распаковать
+                              файлы в папку{" "}
+                              <mark className="path">%APPDATA%\Adobe\CEP\extensions</mark>
+                            </li>
+                          </ul>
+                        </Addition>
+                      </li>
+                      <li>
+                        <p>
+                          Скачайте и откройте, подтвердив слияние записей,{" "}
+                          <a
+                            download
+                            href="files/Enable Extensions Adobe.reg"
+                          >
+                            файл реестра
+                          </a>
+                          , включающий debug-режим для{" "}
+                          <mark className="app">Adobe After Effects</mark>. Это
+                          необходимо, чтобы вручную установленные расширения корректно
+                          запускались.
+                        </p>
+                        <Addition type="info">
+                          <ul>
+                            <li>
+                              Применять этот файл достаточно один раз — при последующих
+                              установках повторять действие не нужно.
+                            </li>
+                            <li>
+                              Если вы пропустите этот шаг, расширения будут отображаться в
+                              списке, но не откроются при запуске.
+                            </li>
+                          </ul>
+                        </Addition>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="lut"
+                title="Файлы для цветокоррекции (CUBE, LOOK, LUT)"
+              >
+                <p>
+                  Файлы для цветокоррекции форматов <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark> распаковываются в{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                    Files\Lumetri\LUTs\
+                  </mark>
+                  . Файлы для цветокоррекции можно будет использовать в эффекте{" "}
+                  <mark className="plugin">Lumetri Color</mark>.
+                </p>
+                <ul>
+                  <li>
+                    Если вы распакуете файлы в <mark className="path">Technical</mark>,
+                    где обычно располагаются входные <mark className="file">LUT</mark> для
+                    проявки изображения с камеры, например для преобразования между
+                    цветовыми пространствами, то они появятся в параметре{" "}
+                    <mark className="select">«Input LUT»</mark> во вкладке{" "}
+                    <mark className="select">«Basic Correction»</mark>.
+                  </li>
+                  <li>
+                    Если вы распакуете файлы в <mark className="path">Creative</mark>, где
+                    располагаются файлы для стилизации изображения уже после базовой
+                    цветокоррекции, то они появятся в параметре{" "}
+                    <mark className="select">«Look»</mark> во вкладке{" "}
+                    <mark className="select">«Creative»</mark>.
+                  </li>
+                  <li>
+                    В <mark className="path">Legacy</mark> располагаются устаревшие файлы
+                    для цветокоррекции для совместимости со старыми проектами в{" "}
+                    <mark className="app">Adobe After Effects</mark> и не используются
+                    программой в последних версиях. При необходимости вы можете
+                    скопировать нужные файлы цветокоррекции оттуда в папку{" "}
+                    <mark className="path">Creative</mark> или{" "}
+                    <mark className="path">Technical</mark>.
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="looks"
+                title="Файлы для цветокоррекции (Magic Bullet Looks)"
+              >
+                <p>
+                  Файлы для цветокоррекции форматов <mark className="file">RGX</mark>,{" "}
+                  <mark className="file">LS3</mark> или{" "}
+                  <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
+                  импорта во вкладке <mark className="select">«Looks»</mark> стороннего
+                  расширения <mark className="plugin">Magic Bullet Looks</mark>.
+                </p>
+                <ArticleMedia
+                  caption="Magic Bullet Looks"
+                  src="legacy/import_magic_bullet_looks.png"
+                  type="image"
+                />
+              </NestedDetailsSummary>
+              <NestedDetailsSummary
+                anchor="font"
+                title="Шрифты (TTF, OTF)"
+              >
+                <p>
+                  Шрифты форматов <mark className="file">TTF</mark> или{" "}
+                  <mark className="file">OTF</mark> устанавливаются стандартными
+                  средствами операционной системы. Установленные шрифты будут отображаться
+                  во всех программах, поддерживающие сторонние шрифты, в том числе и в{" "}
+                  <mark className="app">Adobe After Effects</mark>. Это можно сделать
+                  несколькими способами.
+                </p>
+                <ul>
+                  <li>
+                    Откройте файл шрифта двойным щелчком и в открывшемся окне нажмите
+                    кнопку <mark className="select">«Установить»</mark> в левом верхнем
+                    углу.
+                  </li>
+                  <li>
+                    Если у вас есть целый набор шрифтов и вы не хотите открывать каждый
+                    файл по отдельности, просто распакуйте архив со шрифтами в любую
+                    папку. После этого выделите нужные шрифты, нажмите{" "}
+                    <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
+                    <mark className="select">«Установить»</mark> или{" "}
+                    <mark className="select">«Установить для всех пользователей»</mark>.
+                  </li>
+                  <li>
+                    <p>
+                      Распакуйте файлы шрифтов в{" "}
+                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
+                      установить шрифты для всех пользователей системы.
+                    </p>
+                    <Addition type="info">
+                      Если у вас нет прав администратора, вы можете распаковать файлы
+                      шрифтов в папку{" "}
+                      <mark className="path">%LOCALAPPDATA%\Microsoft\Windows\Fonts</mark>
+                      . В таком случае шрифты будут установлены только для вашей учётной
+                      записи.
+                    </Addition>
+                  </li>
+                  <li>
+                    Используйте сторонний менеджер для установки, организации и активации
+                    нужных шрифтов, например{" "}
+                    <mark className="app">Corel Font Manager</mark>,{" "}
+                    <mark className="app">FontExpert</mark> или{" "}
+                    <mark className="app">FontBase</mark>.
+                  </li>
+                </ul>
+              </NestedDetailsSummary>
             </>
           }
         />
