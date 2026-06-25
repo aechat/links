@@ -643,7 +643,7 @@ const PsInstallProblems: React.FC = () => {
                 <mark className="warning">«Adware»</mark> или даже якобы «троян» и
                 «опаснейший вирус». Например, ошибка{" "}
                 <mark className="danger">«helper.exe не найден»</mark> в репаках от{" "}
-                <mark className="user">KpoJluK</mark> возникает именно потому, что
+                <mark className="user">KpoJIuK</mark> возникает именно потому, что
                 антивирус удаляет этот файл, считая его угрозой из-за чекбокса для
                 установки рекламного ПО, который можно убрать перед установкой.
               </p>
@@ -1467,7 +1467,7 @@ const PsInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        anchor="kpojluk-corrupted-install-files"
+        anchor="kpojiuk-corrupted-install-files"
         tag="репак от кролика"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
@@ -1560,7 +1560,7 @@ const PsInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="kpojluk-the-hosts-file-does-not-exist-or-is-not-accessible"
+        anchor="kpojiuk-the-hosts-file-does-not-exist-or-is-not-accessible"
         tag="репак от кролика"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
@@ -1583,7 +1583,7 @@ const PsInstallProblems: React.FC = () => {
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
         <p>
-          По умолчанию в репаках от <mark className="user">KpoJluK</mark> включена галочка{" "}
+          По умолчанию в репаках от <mark className="user">KpoJIuK</mark> включена галочка{" "}
           <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
           установку <mark className="web">me.fo</mark> или{" "}
           <mark className="web">hi.ru</mark> в качестве стартовой страницы браузера или на
@@ -1643,7 +1643,7 @@ const PsInstallProblems: React.FC = () => {
           пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
           <mark className="web">aescripts</mark> или ручной распаковки расширения в нужное
           место. При этом <mark className="app">Adobe Creative Cloud</mark> устанавливать
-          не нужно, если вы используете репаки от <mark className="user">KpoJluK</mark>{" "}
+          не нужно, если вы используете репаки от <mark className="user">KpoJIuK</mark>{" "}
           или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">

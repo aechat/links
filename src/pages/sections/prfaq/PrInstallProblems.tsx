@@ -1500,7 +1500,7 @@ const PrInstallProblems: React.FC = () => {
                 <mark className="warning">«Adware»</mark> или даже якобы «троян» и
                 «опаснейший вирус». Например, ошибка{" "}
                 <mark className="danger">«helper.exe не найден»</mark> в репаках от{" "}
-                <mark className="user">KpoJluK</mark> возникает именно потому, что
+                <mark className="user">KpoJIuK</mark> возникает именно потому, что
                 антивирус удаляет этот файл, считая его угрозой из-за чекбокса для
                 установки рекламного ПО, который можно убрать перед установкой.
               </p>
@@ -2134,7 +2134,7 @@ const PrInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        anchor="kpojluk-corrupted-install-files"
+        anchor="kpojiuk-corrupted-install-files"
         tag="репак от кролика, повреждённые файлы, ошибка установки, installation error, многотомный архив, проблемы при скачивании из telegram"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
@@ -2233,7 +2233,7 @@ const PrInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="kpojluk-the-hosts-file-does-not-exist-or-is-not-accessible"
+        anchor="kpojiuk-the-hosts-file-does-not-exist-or-is-not-accessible"
         tag="репак от кролика, файл hosts, нет доступа"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
@@ -2256,7 +2256,7 @@ const PrInstallProblems: React.FC = () => {
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
         <p>
-          По умолчанию в репаках от <mark className="user">KpoJluK</mark> включена галочка{" "}
+          По умолчанию в репаках от <mark className="user">KpoJIuK</mark> включена галочка{" "}
           <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
           установку ненужного <mark className="web">me.fo</mark> или{" "}
           <mark className="web">hi.ru</mark> в качестве стартовой страницы браузера или на
@@ -2268,7 +2268,7 @@ const PrInstallProblems: React.FC = () => {
         <p>
           В следующий раз не забывайте убирать чекбокс{" "}
           <mark className="select">«Реклама»</mark> при установке репаков от{" "}
-          <mark className="user">KpoJluK</mark>.
+          <mark className="user">KpoJIuK</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2281,7 +2281,7 @@ const PrInstallProblems: React.FC = () => {
             <>
               <p>
                 Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
-                <mark className="user">KpoJluK</mark>,{" "}
+                <mark className="user">KpoJIuK</mark>,{" "}
                 <mark className="user">m0nkrus</mark> или других релизеров на компьютер
                 может попасть нежелательное ПО, вы можете активировать программы от{" "}
                 <mark className="company">Adobe</mark> вручную с помощью утилиты{" "}
@@ -2522,7 +2522,7 @@ const PrInstallProblems: React.FC = () => {
           вы скачали программу.
         </p>
         <Addition type="info">
-          Например, языковые пакеты для репака от <mark className="user">KpoJluK</mark> вы
+          Например, языковые пакеты для репака от <mark className="user">KpoJIuK</mark> вы
           можете скачать в канале{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> по
           хештегу <mark className="tag">#speechtotext</mark> или в канале{" "}
@@ -2750,11 +2750,11 @@ const PrInstallProblems: React.FC = () => {
                   </a>{" "}
                   или любого стороннего деинсталлятора, например{" "}
                   <mark className="app">Revo Uninstaller</mark>, а затем установите репаки
-                  от <mark className="user">KpoJluK</mark> или{" "}
+                  от <mark className="user">KpoJIuK</mark> или{" "}
                   <mark className="user">m0nkrus</mark>.
                 </li>
                 <li>
-                  Если вы уже используете репаки от <mark className="user">KpoJluK</mark>{" "}
+                  Если вы уже используете репаки от <mark className="user">KpoJIuK</mark>{" "}
                   или <mark className="user">m0nkrus</mark> — попробуйте просто
                   перезагрузить устройство. Возможно, процессы, отвечающие за{" "}
                   <mark className="plugin">Dynamic Link</mark>, дали сбой и не уведомили
@@ -3046,7 +3046,7 @@ const PrInstallProblems: React.FC = () => {
           пользу <a href="https://aescripts.com/learn/zxp-installer/">ZXP Installer</a> от{" "}
           <mark className="web">aescripts</mark> или ручной распаковки расширения в нужное
           место. При этом <mark className="app">Adobe Creative Cloud</mark> устанавливать
-          не нужно, если вы используете репаки от <mark className="user">KpoJluK</mark>{" "}
+          не нужно, если вы используете репаки от <mark className="user">KpoJIuK</mark>{" "}
           или <mark className="user">m0nkrus</mark>.
         </p>
         <Addition type="info">

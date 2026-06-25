@@ -193,7 +193,7 @@ const AeErrors: React.FC = () => {
                 </ul>
               </Addition>
               <Addition type="info">
-                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> или{" "}
+                Если вы устанавливали репаки от <mark className="user">KpoJIuK</mark> или{" "}
                 <mark className="user">m0nkrus</mark>, то правила для блокировки доступа
                 программ в интернет уже могут быть созданы в брандмауэре.
               </Addition>
@@ -1046,7 +1046,7 @@ const AeErrors: React.FC = () => {
       >
         <p>
           Если вы используете репак <mark className="app">Adobe After Effects</mark> от{" "}
-          <mark className="user">KpoJluK</mark>, эта ошибка может возникать из-за того,
+          <mark className="user">KpoJIuK</mark>, эта ошибка может возникать из-за того,
           что в его дистрибутивах <mark className="app">Adobe After Effects</mark>{" "}
           <mark className="version">17.X (2020)</mark> и выше отсутствует{" "}
           <mark className="plugin">Cinema 4D Lite</mark>. Это сделано для уменьшения
@@ -1303,14 +1303,14 @@ const AeErrors: React.FC = () => {
           <mark className="plugin">Boris FX Sapphire</mark>{" "}
           <mark className="version">2024.5</mark> и{" "}
           <mark className="version">2024.51</mark> в виде репака от{" "}
-          <mark className="user">KpoJluK</mark>. Из-за него вы не можете настраивать
+          <mark className="user">KpoJIuK</mark>. Из-за него вы не можете настраивать
           эффекты, так как их параметры не отображаются.
         </p>
         <p>
           Эту проблему можно попробовать решить откатом на версию{" "}
           <mark className="plugin">Boris FX Sapphire</mark>{" "}
           <mark className="version">2024.4</mark> от того же{" "}
-          <mark className="user">KpoJluK</mark> или установкой более свежих версий
+          <mark className="user">KpoJIuK</mark> или установкой более свежих версий
           плагинов в виде репаков от <mark className="user">Team V.R.</mark>.
         </p>
       </DetailsSummary>
@@ -1385,7 +1385,7 @@ const AeErrors: React.FC = () => {
           Скорее всего, вы столкнулись со старым багом{" "}
           <mark className="app">Adobe After Effects</mark>{" "}
           <mark className="version">16.X (2019)</mark>, если используете репак от{" "}
-          <mark className="user">KpoJluK</mark>. Эту проблему можно решить откатом до
+          <mark className="user">KpoJIuK</mark>. Эту проблему можно решить откатом до
           <mark className="app">Adobe After Effects</mark>{" "}
           <mark className="version">15.X (2018)</mark>, установкой{" "}
           <mark className="app">Adobe After Effects</mark>{" "}

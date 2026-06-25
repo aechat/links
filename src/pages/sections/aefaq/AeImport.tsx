@@ -1800,7 +1800,7 @@ const AeImport: React.FC = () => {
           Прежде чем импортировать проект формата <mark className="file">C4D</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, на устройстве должна быть
           установлена полноценная версия <mark className="app">Maxon Cinema 4D</mark>,
-          если вы используете репак от <mark className="user">KpoJluK</mark>, или
+          если вы используете репак от <mark className="user">KpoJIuK</mark>, или
           установлен плагин <mark className="plugin">Cinema 4D Lite</mark> из{" "}
           <mark className="app">Adobe Creative Cloud</mark>. В противном случае программа
           выдаст ошибку <mark className="warning">5027::12</mark> и потребует установить{" "}

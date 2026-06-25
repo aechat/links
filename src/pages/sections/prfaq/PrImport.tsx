@@ -559,7 +559,7 @@ const PrImport: React.FC = () => {
               через <mark className="app">GenP</mark> могут некорректно работать друг с
               другом через <mark className="plugin">Dynamic Link</mark>. При возникновении
               проблем с работой <mark className="plugin">Dynamic Link</mark> —
-              переустановите программы на репаки от <mark className="user">KpoJluK</mark>{" "}
+              переустановите программы на репаки от <mark className="user">KpoJIuK</mark>{" "}
               или <mark className="user">m0nkrus</mark>.
             </li>
             <li>

@@ -192,7 +192,7 @@ const PsErrors: React.FC = () => {
                 </ul>
               </Addition>
               <Addition type="info">
-                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> или{" "}
+                Если вы устанавливали репаки от <mark className="user">KpoJIuK</mark> или{" "}
                 <mark className="user">m0nkrus</mark>, то правила для блокировки доступа
                 программ в интернет уже могут быть созданы в брандмауэре.
               </Addition>

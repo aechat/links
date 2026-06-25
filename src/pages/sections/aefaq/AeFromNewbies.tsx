@@ -1562,7 +1562,7 @@ h = content(shapeName).content(pathName).size[1];
               </p>
               <Addition type="warning">
                 Если вы используете репак <mark className="app">Adobe After Effects</mark>{" "}
-                от <mark className="user">KpoJluK</mark> или версию с вырезанным модулем{" "}
+                от <mark className="user">KpoJIuK</mark> или версию с вырезанным модулем{" "}
                 <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
                 <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем,
                 что вы не сможете импортировать проекты формата{" "}

@@ -192,7 +192,7 @@ const PrErrors: React.FC = () => {
                 </ul>
               </Addition>
               <Addition type="info">
-                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> или{" "}
+                Если вы устанавливали репаки от <mark className="user">KpoJIuK</mark> или{" "}
                 <mark className="user">m0nkrus</mark>, то правила для блокировки доступа
                 программ в интернет уже могут быть созданы в брандмауэре.
               </Addition>
@@ -666,7 +666,7 @@ const PrErrors: React.FC = () => {
           Эта ошибка может появиться после установки{" "}
           <mark className="app">Adobe Premiere Pro</mark>{" "}
           <mark className="version">25.2 (2025)</mark> в вариации репака от{" "}
-          <mark className="user">KpoJluK</mark>, чаще всего на устройствах с видеокартой
+          <mark className="user">KpoJIuK</mark>, чаще всего на устройствах с видеокартой
           от <mark className="hardware">NVIDIA</mark>. Если вы уверены, что у вас уже
           обновлены драйверы, попробуйте установить этот же релиз повторно, то есть
           произвести двойную установку поверх уже установленного приложения.

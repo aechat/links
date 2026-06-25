@@ -130,7 +130,7 @@ const APRIL_FOOLS_ENTRIES = [
   ["tl;dr", "я ленивый на чтение"],
   ["smartscreen", "умный экран"],
   ["onedrive", "единственное вождение"],
-  ["kpojluk", "кролик"],
+  ["kpojiuk", "кролик"],
   ["m0nkrus", "монкрус"],
   ["out of memory", "нищий по памяти"],
 ] as const;
