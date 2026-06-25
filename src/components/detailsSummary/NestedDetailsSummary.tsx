@@ -381,7 +381,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     let leaveTimeoutId: ReturnType<typeof setTimeout>;
 
-    const nestedContentElement = innerContentReference.current;
+    const nestedContentElement = detailsReference.current;
 
     const handleMouseEnter = () => {
       clearTimeout(leaveTimeoutId);
