@@ -2,6 +2,8 @@ import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import additionStyles from "../../content/Addition.module.scss";
 
+import {isElementHiddenByFilter} from "../../detailsSummary/anchorUtilities";
+
 import {
   applyAdditionSnippetStyles,
   buildAdditionsHtml,
@@ -388,6 +390,16 @@ const processSingleDetail = (
   };
 };
 
+const isResultHidden = (sourceOrder: number): boolean => {
+  const details = document.querySelectorAll<HTMLDetailsElement>("details");
+
+  const element = details[sourceOrder];
+
+  if (!element) return false;
+
+  return isElementHiddenByFilter(element);
+};
+
 export const useSearchLogic = (
   query: string,
   isPageLoaded: boolean,
@@ -515,14 +527,18 @@ export const useSearchLogic = (
     (text: string) => {
       const rankedResults = searchDetails(workerDetailsData, text);
 
-      allRankedResultsReference.current = rankedResults;
+      const filteredResults = rankedResults.filter(
+        (item) => !isResultHidden(item.sourceOrder)
+      );
 
-      setTotalResultsCount(rankedResults.length);
+      allRankedResultsReference.current = filteredResults;
+
+      setTotalResultsCount(filteredResults.length);
 
       setResults(
         mapRankedResultsToSearchResultsReference.current(
           text,
-          rankedResults.slice(0, resultsLimitReference.current)
+          filteredResults.slice(0, resultsLimitReference.current)
         )
       );
 
@@ -561,13 +577,17 @@ export const useSearchLogic = (
         return;
       }
 
-      allRankedResultsReference.current = message_.results;
-      setTotalResultsCount(message_.results.length);
+      const filteredResults = message_.results.filter(
+        (item) => !isResultHidden(item.sourceOrder)
+      );
+
+      allRankedResultsReference.current = filteredResults;
+      setTotalResultsCount(filteredResults.length);
 
       setResults(
         mapRankedResultsToSearchResultsReference.current(
           message_.query,
-          message_.results.slice(0, resultsLimitReference.current)
+          filteredResults.slice(0, resultsLimitReference.current)
         )
       );
 
