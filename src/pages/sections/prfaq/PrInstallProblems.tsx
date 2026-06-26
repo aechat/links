@@ -817,7 +817,7 @@ const PrInstallProblems: React.FC = () => {
                   не знаете, что с ними делать.
                 </p>
                 <ArticleMedia
-                  src="1OVwQS0uHhk"
+                  src="95B7quetKoQ"
                   type="youtube"
                 />
                 <Addition type="info">
