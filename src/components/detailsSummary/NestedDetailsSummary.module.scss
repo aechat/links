@@ -45,6 +45,10 @@
   border-radius: $roundness;
   font-size: 0.95em;
 
+  &:first-child {
+    margin-top: $space-16;
+  }
+
   &:last-child {
     margin-bottom: $space-16;
   }
@@ -389,6 +393,14 @@
 
 li > .details-nested {
   margin-inline: 0;
+
+  &:first-child:not([open]) {
+    margin-top: $space-4;
+  }
+
+  &:last-child:not([open]) {
+    margin-bottom: $space-4;
+  }
 }
 
 :global(html:not(.no-hover-scale-animation)) {
