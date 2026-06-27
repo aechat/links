@@ -73,10 +73,6 @@ export const processNestedSummaries = (
     Boolean(currentHash) &&
     (currentHash === parentSummaryId || currentHash === parentTextualAnchor);
 
-  if (isParentAnchorPrioritized) {
-    return;
-  }
-
   const nestedSummaries = [
     ...detailsElement.querySelectorAll<HTMLElement>(
       `details[data-nested-details-summary="true"] > summary`
@@ -110,6 +106,7 @@ export const processNestedSummaries = (
       isFirstAnchorOccurrence(nestedDetailsElement, normalizedNestedTextualAnchor);
 
     if (
+      isParentAnchorPrioritized ||
       !currentHash ||
       (nestedSummaryId !== currentHash &&
         (!isNestedTextualAnchorUsable || normalizedNestedTextualAnchor !== currentHash))
