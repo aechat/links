@@ -472,3 +472,9 @@ li > .details-nested {
     border-top-color: transparent;
   }
 }
+
+:global(html.no-spoiler-animation) {
+  .details-nested-content-wrapper {
+    transition: none;
+  }
+}
