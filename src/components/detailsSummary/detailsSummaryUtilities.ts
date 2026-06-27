@@ -62,6 +62,33 @@ export const isHashForOpenNestedInDetails = (
   return false;
 };
 
+export const isHashForNestedInDetails = (
+  detailsElement: HTMLDetailsElement | null,
+  hash: string
+): boolean => {
+  if (!detailsElement || !hash) {
+    return false;
+  }
+
+  const nestedDetailsElements = detailsElement.querySelectorAll<HTMLDetailsElement>(
+    'details[data-nested-details-summary="true"]'
+  );
+
+  for (const nestedDetails of nestedDetailsElements) {
+    const nestedSummary = nestedDetails.querySelector("summary");
+
+    const nestedSummaryId = nestedSummary instanceof HTMLElement ? nestedSummary.id : "";
+
+    const nestedTextualAnchor = normalizeAnchor(nestedDetails.dataset.anchor);
+
+    if (hash === nestedSummaryId || hash === nestedTextualAnchor) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 export const processNestedSummaries = (
   detailsElement: HTMLDetailsElement,
   generatedAnchor: string,

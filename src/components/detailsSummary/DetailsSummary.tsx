@@ -43,6 +43,7 @@ import {
   DETAILS_SUMMARY_DELAYS,
   dispatchOpenSpoilerById,
   getTopLevelSummaryElements,
+  isHashForNestedInDetails,
   isHashForOpenNestedInDetails,
   processNestedSummaries,
 } from "./detailsSummaryUtilities";
@@ -445,6 +446,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const justOpened = isOpen && !previousIsOpen;
 
+    const justClosed = !isOpen && previousIsOpen;
+
     const currentHash = getCurrentHashAnchor();
 
     const resolvedAnchor = getEffectiveAnchor();
@@ -454,10 +457,20 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       currentHash
     );
 
-    if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
+    const isCurrentHashAnyNestedInDetails = isHashForNestedInDetails(
+      detailsReference.current,
+      currentHash
+    );
+
+    if (
+      justOpened &&
+      resolvedAnchor &&
+      currentHash !== resolvedAnchor &&
+      !isCurrentHashAnyNestedInDetails
+    ) {
       updateUrlHash(`#${resolvedAnchor}`);
     } else if (
-      !isOpen &&
+      justClosed &&
       (currentHash === summaryId ||
         currentHash === resolvedAnchor ||
         isCurrentHashNestedInDetails)

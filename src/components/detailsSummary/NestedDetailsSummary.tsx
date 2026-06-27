@@ -313,13 +313,15 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     const justOpened = isOpen && !previousIsOpen;
 
+    const justClosed = !isOpen && previousIsOpen;
+
     const currentHash = getCurrentHashAnchor();
 
     const resolvedAnchor = getEffectiveAnchor();
 
     if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
       updateUrlHash(`#${resolvedAnchor}`);
-    } else if (!isOpen && currentHash === resolvedAnchor) {
+    } else if (justClosed && currentHash === resolvedAnchor) {
       const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
 
       const parentAnchor = parentTextualAnchor || parentSummaryId;
