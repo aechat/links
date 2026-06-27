@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 import {message} from "antd";
 
@@ -25,8 +25,24 @@ const isSectionAnchor = (sections: Section[], anchorId: string): boolean => {
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
   const {hash} = useLocation();
 
+  const lastValidatedHashReference = useRef<string>("");
+
   useEffect(() => {
     if (!isPageLoaded) return;
+
+    const currentAnchor = hash.slice(1);
+
+    if (!currentAnchor) {
+      lastValidatedHashReference.current = "";
+
+      return;
+    }
+
+    if (lastValidatedHashReference.current === hash) {
+      return;
+    }
+
+    lastValidatedHashReference.current = hash;
 
     let firstAlignFrameId: number | undefined;
 
